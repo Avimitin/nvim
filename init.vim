@@ -7,7 +7,7 @@ set exrc "exec command in init.vim
 set secure "safely do command above
 set autochdir "auto change directory
 set number
-set relativenumber 
+set relativenumber
 set cursorline "set line below cursor
 set noexpandtab "use only '\t' as tab
 set tabstop=2 "show how many space for a '\t'
@@ -108,7 +108,7 @@ vnoremap <LEADER>y "+y
 noremap <LEADER><CR> :nohlsearch<CR>
 
 "fold para
-noremap <silent> <LEADER>f za " folding
+noremap <silent> <LEADER>f za "folding
 
 "jump to next 'todo' and edit it
 noremap <LEADER><LEADER> <ESC>/TODO<CR>:nohlsearch<CR>c4l
