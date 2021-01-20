@@ -1,5 +1,11 @@
 " Author: @avimitin
 
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+	!curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+			\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 let &t_ut='' "adjust terminal color
 
 "vim setting
@@ -143,3 +149,18 @@ noremap tmk :+tabmove<CR>
 
 "focus on center
 noremap <C-c> <ESC>zz
+
+call plug#begin('~/.config/nvim/plugged')
+
+"treesitter: support more colorful highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+"vim-bolt: vim syntax highlighting
+Plug 'bpietravalle/vim-bolt'
+
+"nvim-deus: neovim color theme
+Plug 'theniceboy/nvim-deus'
+
+call plug#end()
+
+color deus
