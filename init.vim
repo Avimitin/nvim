@@ -101,11 +101,17 @@ noremap = n
 "set leader
 let mapleader=" "
 
+"reboot vim
+noremap <LEADER>rb :so%<CR>
+
 "save
 noremap <LEADER>s :w<CR>
 
 "save and quit
 noremap <LEADER>q :wq<CR>
+
+"normal quit
+nnoremap Q :q<CR>
 
 "copy select chars
 vnoremap <LEADER>y "+y
@@ -161,6 +167,161 @@ Plug 'bpietravalle/vim-bolt'
 "nvim-deus: neovim color theme
 Plug 'theniceboy/nvim-deus'
 
-call plug#end()
+"status bar
+Plug 'theniceboy/eleline.vim'
 
+"progress bar
+Plug 'ojroques/vim-scrollstatus'
+
+"convert RGB... color value to actual color
+Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
+"highlight all the word below the cursor
+Plug 'RRethy/vim-illuminate'
+
+"file navigation
+Plug 'kevinhwang91/rnvimr'
+Plug 'airblade/vim-rooter'
+Plug 'pechorin/any-jump.vim'
+
+"list function/module/struct tag
+Plug 'liuchengxu/vista.vim'
+
+"auto complete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+"snippets
+Plug 'theniceboy/vim-snippets'
+
+"provide syntax highlighting for gitignore file
+Plug 'theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
+
+"show git diff in sign column
+Plug 'airblade/vim-gitgutter'
+
+"Golang support
+Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
+
+call plug#end()
+set re=0
+
+"set color theme
 color deus
+set termguicolors " enable true colors support
+hi NonText ctermfg=gray guifg=grey10
+
+"===plugin setting===
+" eleline.vim
+let g:airline_powerline_fonts = 0
+
+" GitGutter
+let g:gitgutter_sign_allow_clobber = 0
+let g:gitgutter_map_keys = 0
+let g:gitgutter_override_sign_column_highlight = 0
+let g:gitgutter_preview_win_floating = 1
+let g:gitgutter_sign_added = '▎'
+let g:gitgutter_sign_modified = '░'
+let g:gitgutter_sign_removed = '▏'
+let g:gitgutter_sign_removed_first_line = '▔'
+let g:gitgutter_sign_modified_removed = '▒'
+
+"coc.nvim
+let g:coc_global_extensions = [
+	\ 'coc-diagnostic',
+	\ 'coc-explorer',
+	\ 'coc-gitignore',
+	\ 'coc-html',
+	\ 'coc-json',
+	\ 'coc-lists',
+	\ 'coc-prettier',
+	\ 'coc-snippets',
+	\ 'coc-syntax',
+	\ 'coc-tasks',
+	\ 'coc-translator',
+	\ 'coc-vimlsp',
+	\ 'coc-yaml',
+	\ 'coc-yank']
+
+inoremap <silent><expr> <TAB>
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+function! s:check_back_space() abort
+let col = col('.') - 1
+return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+function! Show_documentation()
+call CocActionAsync('highlight')
+if (index(['vim','help'], &filetype) >= 0)
+execute 'h '.expand('<cword>')
+else
+call CocAction('doHover')
+endif
+endfunction
+
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-o> coc#refresh()
+nnoremap <LEADER>h :call Show_documentation()<CR>
+nnoremap <silent><nowait> <LEADER>d :CocList diagnostics<cr>
+nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
+nmap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
+nnoremap <c-c> :CocCommand<CR>
+nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>rn <Plug>(coc-rename)
+nmap tt :CocCommand explorer<CR>
+nmap ts <Plug>(coc-translator-p)
+imap <C-l> <Plug>(coc-snippets-expand)
+vmap <C-e> <Plug>(coc-snippets-select)
+let g:coc_snippet_next = '<c-e>'
+let g:coc_snippet_prev = '<c-n>'
+imap <C-e> <Plug>(coc-snippets-expand-jump)
+let g:snips_author = 'Avimitin'
+autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+
+"vista
+noremap <LEADER>v :Vista!!<CR>
+noremap <c-t> :silent! Vista finder coc<CR>
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista_default_executive = 'coc'
+let g:vista_fzf_preview = ['right:50%']
+let g:vista#renderer#enable_icon = 1
+let g:vista#renderer#icons = {
+\   "function": "\uf794",
+\   "variable": "\uf71b",
+\  }
+
+" vim-go
+let g:go_echo_go_info = 0
+let g:go_doc_popup_window = 1
+let g:go_def_mapping_enabled = 0
+let g:go_template_autocreate = 0
+let g:go_textobj_enabled = 0
+let g:go_auto_type_info = 1
+let g:go_def_mapping_enabled = 0
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_string_spellcheck = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_trailing_whitespace_error = 1
+let g:go_highlight_types = 1
+let g:go_highlight_variable_assignments = 0
+let g:go_highlight_variable_declarations = 0
+let g:go_doc_keywordprg_enabled = 0
