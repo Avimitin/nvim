@@ -146,6 +146,12 @@ nnoremap <down> :res -5<CR>
 nnoremap <left> :vertical resize-5<CR>
 nnoremap <right> :vertical resize+5<CR>
 
+"move cursor between windows
+noremap <LEADER><up> <C-w>k
+noremap <LEADER><down> <C-w>j
+noremap <LEADER><left> <C-w>h
+noremap <LEADER><right> <C-w>l
+
 "tab
 noremap tu :tabe<CR>
 noremap th :-tabnext<CR>
