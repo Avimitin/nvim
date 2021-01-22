@@ -208,6 +208,12 @@ Plug 'airblade/vim-gitgutter'
 "Golang support
 Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*' }
 
+"Select text object
+Plug 'gcmt/wildfire.vim'
+
+"surrounding select text with given text
+Plug 'tpope/vim-surround'
+
 call plug#end()
 set re=0
 
