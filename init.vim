@@ -122,8 +122,8 @@ noremap <LEADER><CR> :nohlsearch<CR>
 "fold para
 noremap <silent> <LEADER>f za "folding
 
-"jump to next 'todo' and edit it
-noremap <LEADER><LEADER> <ESC>/TODO<CR>:nohlsearch<CR>c4l
+"jump to next '<++>' and edit it
+noremap <LEADER><LEADER> <ESC>/<++><CR>:nohlsearch<CR>c4l
 
 "split screen
 noremap su :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
@@ -160,7 +160,7 @@ noremap tmh :-tabmove<CR>
 noremap tmk :+tabmove<CR>
 
 "focus on center
-noremap <C-c> <ESC>zz
+inoremap <C-c> <ESC>zzi
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -331,3 +331,21 @@ let g:go_highlight_types = 1
 let g:go_highlight_variable_assignments = 0
 let g:go_highlight_variable_declarations = 0
 let g:go_doc_keywordprg_enabled = 0
+
+"markdown key map
+autocmd Filetype markdown inoremap <buffer> ,f <Esc>/<++><CR>:nohlsearch<CR>"_c4l
+autocmd Filetype markdown inoremap <buffer> ,w <Esc>/ <++><CR>:nohlsearch<CR>"_c5l<CR>
+autocmd Filetype markdown inoremap <buffer> ,n ---<Enter><Enter>
+autocmd Filetype markdown inoremap <buffer> ,b **** <++><Esc>F*hi
+autocmd Filetype markdown inoremap <buffer> ,s ~~~~ <++><Esc>F~hi
+autocmd Filetype markdown inoremap <buffer> ,i ** <++><Esc>F*i
+autocmd Filetype markdown inoremap <buffer> ,d `` <++><Esc>F`i
+autocmd Filetype markdown inoremap <buffer> ,c ```<Enter><++><Enter>```<Enter><Enter><++><Esc>4kA
+autocmd Filetype markdown inoremap <buffer> ,m - [ ] 
+autocmd Filetype markdown inoremap <buffer> ,p ![](<++>) <++><Esc>F[a
+autocmd Filetype markdown inoremap <buffer> ,a [](<++>) <++><Esc>F[a
+autocmd Filetype markdown inoremap <buffer> ,1 #<Space><Enter><++><Esc>kA
+autocmd Filetype markdown inoremap <buffer> ,2 ##<Space><Enter><++><Esc>kA
+autocmd Filetype markdown inoremap <buffer> ,3 ###<Space><Enter><++><Esc>kA
+autocmd Filetype markdown inoremap <buffer> ,4 ####<Space><Enter><++><Esc>kA
+autocmd Filetype markdown inoremap <buffer> ,l --------<Enter>
