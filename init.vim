@@ -74,7 +74,6 @@ noremap <silent> K $
 noremap W 5w
 noremap B 5b
 inoremap <C-a> <ESC>A
-inoremap <C-i> <ESC>I
 
 "delete a line
 noremap D dd
@@ -376,6 +375,7 @@ let g:Lf_PreviewCode = 1
 let g:Lf_ShowHidden = 1
 let g:Lf_ShowDevIcons = 1
 let g:Lf_UseVersionControlTool = 0
+let g:Lf_WindowPosition = 'popup'
 let g:Lf_IgnoreCurrentBufferName = 1
 let g:Lf_WildIgnore = {
         \ 'dir': ['.git', 'vendor', 'node_modules'],
