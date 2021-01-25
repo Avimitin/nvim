@@ -387,3 +387,10 @@ let g:Lf_CommandMap = {
 \ '<C-u>': ['<C-k>'],
 \}
 
+
+"git gutter
+nnoremap <LEADER>gu :GitGutterUndoHunk<CR>
+nnoremap <LEADER>gs :GitGutterStageHunk<CR>
+nnoremap <LEADER>gp :GitGutterPreviewHunk<CR>
+nnoremap <LEADER>g- :GitGutterNextHunk<CR>
+nnoremap <LEADER>g= :GitGutterPrevHunk<CR>
