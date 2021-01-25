@@ -192,6 +192,7 @@ Plug 'RRethy/vim-illuminate'
 Plug 'kevinhwang91/rnvimr'
 Plug 'airblade/vim-rooter'
 Plug 'pechorin/any-jump.vim'
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension'  }
 
 "list function/module/struct tag
 Plug 'liuchengxu/vista.vim'
@@ -367,3 +368,22 @@ autocmd Filetype markdown inoremap <buffer> ,2 ##<Space><Enter><++><Esc>kA
 autocmd Filetype markdown inoremap <buffer> ,3 ###<Space><Enter><++><Esc>kA
 autocmd Filetype markdown inoremap <buffer> ,4 ####<Space><Enter><++><Esc>kA
 autocmd Filetype markdown inoremap <buffer> ,l --------<Enter>
+
+"LeaderF
+nnoremap <LEADER>f :Leaderf file<CR>
+let g:Lf_PreviewInPopup = 1
+let g:Lf_PreviewCode = 1
+let g:Lf_ShowHidden = 1
+let g:Lf_ShowDevIcons = 1
+let g:Lf_UseVersionControlTool = 0
+let g:Lf_IgnoreCurrentBufferName = 1
+let g:Lf_WildIgnore = {
+        \ 'dir': ['.git', 'vendor', 'node_modules'],
+        \ 'file': ['__vim_project_root']
+        \}
+let g:Lf_UseMemoryCache = 0
+let g:Lf_UseCache = 0
+let g:Lf_CommandMap = {
+\ '<C-u>': ['<C-k>'],
+\}
+
