@@ -120,7 +120,7 @@ vnoremap <LEADER>y "+y
 noremap <LEADER><CR> :nohlsearch<CR>
 
 "fold para
-noremap <silent> <LEADER>f za "folding
+noremap <silent> <LEADER>o za "folding
 
 "jump to next '<++>' and edit it
 noremap <LEADER><LEADER> <ESC>/<++><CR>:nohlsearch<CR>c4l
@@ -225,6 +225,9 @@ Plug 'ryanoasis/vim-devicons'
 
 "align
 Plug 'junegunn/vim-easy-align'
+
+"find and replace
+Plug 'brooth/far.vim'
 
 call plug#end()
 set re=0
@@ -394,3 +397,6 @@ nnoremap <LEADER>gs :GitGutterStageHunk<CR>
 nnoremap <LEADER>gp :GitGutterPreviewHunk<CR>
 nnoremap <LEADER>g- :GitGutterNextHunk<CR>
 nnoremap <LEADER>g= :GitGutterPrevHunk<CR>
+
+"far.vim
+nnoremap <silent> <C-f> :Farf<cr>
