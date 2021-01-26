@@ -1,5 +1,7 @@
 # Gopher 的 neovim 配置
 
+![](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210126183441.png)
+
 ## 前言
 
 这个项目由 [theniceboy/nvim](https://github.com/theniceboy/nvim) 所启发，精简并魔改了大部分配置内容，使其更符合我的编程习惯和 qwerty 键盘的习惯。
