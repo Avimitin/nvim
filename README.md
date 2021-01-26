@@ -1,5 +1,7 @@
 # nvim config with Gopher behavior
 
+[中文版](docs/README_CN.md)
+
 ## Intro
 
 This project is inspire by [theniceboy/nvim](https://github.com/theniceboy/nvim). Change Colemak keyboard style to qwerty keyboard style and minify useless stuff.
@@ -13,7 +15,7 @@ You should fork this configuration to your personal repository and clone it to `
 - Install neovim
 
 ```bash
-sudo apt install neovim python3-pip nodejs npm ranger
+sudo apt install neovim python3-pip ranger
 
 pip3 install pynvim
 sudo npm install -g neovim
@@ -42,11 +44,11 @@ It's highly recommended to install [nerdfont](https://www.nerdfonts.com/font-dow
 - Cursor
 
 ```text
-		^
-		u
+	^
+	u
  < h k >
-		j
-		v
+	j
+	v
 ```
 
 | key | function |
