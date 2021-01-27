@@ -77,8 +77,6 @@
 	"yaml.format.enable": true,
 	"signature.target": "float",
 	"yank.enableCompletion": false,
-	"typescript.suggestionActions.enabled": true,
-	"typescript.format.enabled": true,
 	"explorer.width": 38,
 	"explorer.quitOnOpen": true,
 	"explorer.sources": [
@@ -95,19 +93,7 @@
 	"explorer.file.showHiddenFiles": true,
 	"explorer.icon.enableNerdfont": true,
 	"explorer.buffer.showHiddenBuffers": false,
-	"tslint.autoFixOnSave": false,
-	"python.autoComplete.addBrackets": true,
-	"python.jediEnabled": false,
-	"python.formatting.provider": "yapf",
-	"python.formatting.yapfArgs": [
-		"--style",
-		"{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 1}"
-	],
 	"html.format.enable": true,
-	"javascript.referencesCodeLens.enable": true,
-	"javascript.showUnused": true,
-	"javascript.suggest.names": true,
-	"javascript.suggestionActions.enabled": true,
 	"json.format.enable": true,
 	"prettier.printWidth": 100,
 	"prettier.eslintIntegration": true,
@@ -116,8 +102,6 @@
 	"prettier.useTabs": true,
 	"prettier.trailingComma": "all",
 	"prettier.singleQuote": false,
-	"coc-actions.hideCursor": false,
-	"coc-actions.showActionKind": true,
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",
 		"email": "languagetool",
@@ -137,7 +121,6 @@
 			"rootPatterns": ["go.mod"],
 			"filetypes": ["go"],
 			"initializationOptions": {
-				"gocodeCompletionEnabled": true,
 				"diagnosticsEnabled": true,
 				"lintTool": "golint"
 			}
