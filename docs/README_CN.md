@@ -12,6 +12,17 @@
 
 ## 需要安装的依赖
 
+首先极力建议你安装 neovim 0.5+ 版本来获得更多支持:
+
+```bash
+# 如果你已经安装了，先卸载
+sudo apt remove neovim 
+
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt-get update
+sudo apt install neovim
+```
+
 你需要安装 Python3 | NodeJS | NPM，关于 nodejs 的安装可以参考这篇 [文章](nodejs_install.md)
 
 ```bash
