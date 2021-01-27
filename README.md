@@ -1,5 +1,7 @@
 # nvim config with Gopher behavior
 
+![](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210126183441.png)
+
 [中文版](docs/README_CN.md)
 
 ## Intro
