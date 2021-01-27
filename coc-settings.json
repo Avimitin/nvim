@@ -123,8 +123,7 @@
 			"initializationOptions": {
 				"usePlaceholders": true,
 				"analyses": {
-					"shadow": true,
-					"fieldalignment": true
+					"shadow": true
 				}
 			}
 		},
