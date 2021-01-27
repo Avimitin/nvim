@@ -121,8 +121,11 @@
 			"rootPatterns": ["go.mod"],
 			"filetypes": ["go"],
 			"initializationOptions": {
-				"diagnosticsEnabled": true,
-				"lintTool": "golint"
+				"usePlaceholders": true,
+				"analyses": {
+					"shadow": true,
+					"fieldalignment": true
+				}
 			}
 		},
 		"bash": {
