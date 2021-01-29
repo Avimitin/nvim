@@ -404,3 +404,6 @@ nnoremap <silent> <C-f> :Farf<cr>
 let g:AutoPairsFlyMode = 1
 map <C-b> <nop>
 let g:AutoPairsShortcutBackInsert = '<C-b>'
+
+"lazygit
+nnoremap <c-g> :tabe<CR>:term lazygit<CR>
