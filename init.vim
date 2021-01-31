@@ -314,6 +314,12 @@ imap <C-e> <Plug>(coc-snippets-expand-jump)
 let g:snips_author = 'Avimitin'
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
+function! s:cocActionsOpenFromSelected(type) abort
+	execute 'CocCommand actions.open ' . a:type
+endfunction
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>aw  <Plug>(coc-codeaction-selected)
+
 "vista
 noremap <LEADER>v :Vista!!<CR>
 noremap <c-t> :silent! Vista finder coc<CR>
