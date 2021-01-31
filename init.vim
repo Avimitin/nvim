@@ -293,7 +293,7 @@ function! Show_documentation()
 	endif
 endfunction
 
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-o> coc#refresh()
 nnoremap <LEADER>h :call Show_documentation()<CR>
 nnoremap <silent><nowait> <LEADER>d :CocList diagnostics<cr>
 nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
