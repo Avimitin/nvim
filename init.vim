@@ -105,7 +105,7 @@ let mapleader=" "
 noremap <LEADER>rb :so%<CR>
 
 "save
-noremap <LEADER>s :w<CR>
+noremap <silent> <LEADER>s :w<CR>
 
 "save and quit
 noremap <LEADER>q :wq<CR>
@@ -117,7 +117,7 @@ nnoremap Q :q<CR>
 vnoremap <LEADER>y "+y
 
 "close highlight
-noremap <LEADER><CR> :nohlsearch<CR>
+noremap <silent> <LEADER><CR> :nohlsearch<CR>
 
 "fold para
 noremap <silent> <LEADER>o za "folding
