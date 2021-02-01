@@ -173,7 +173,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'bpietravalle/vim-bolt'
 
 "nvim-deus: neovim color theme
-Plug 'theniceboy/nvim-deus'
+"Plug 'theniceboy/nvim-deus'
+Plug 'rakr/vim-one'
+"Plug 'rakr/vim-two-firewatch'
 
 "status bar
 Plug 'theniceboy/eleline.vim'
@@ -236,7 +238,7 @@ call plug#end()
 set re=0
 
 "set color theme
-color deus
+color one
 set termguicolors " enable true colors support
 hi NonText ctermfg=gray guifg=grey10
 
