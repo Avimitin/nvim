@@ -233,3 +233,10 @@ Coc 我只设置了 Golang 和 C/C++ 的代码补全，别的语言你可以参�
 }
 ```
 
+### vim-go
+
+在 go 文件中使用 `<LEADER>gi/r/t` 来触发自动导入，自动运行和自动测试
+
+### lazygit
+
+使用 `<CTRL>+g` 打开 lazygit
