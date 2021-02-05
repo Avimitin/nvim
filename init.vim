@@ -162,6 +162,11 @@ noremap tmk :+tabmove<CR>
 "focus on center
 inoremap <C-c> <ESC>zzi
 
+"terminal
+nnoremap <C-\> :tabe<CR>:term<CR>a
+tnoremap <C-q> <C-\><C-n>:q<CR>
+tnoremap <C-n> <C-\><C-n>
+
 "===plugin===
 
 call plug#begin('~/.config/nvim/plugged')
@@ -425,3 +430,7 @@ let g:lazygit_floating_window_winblend = 0 " transparency of floating window
 let g:lazygit_floating_window_scaling_factor = 0.9 " scaling factor for floating window
 let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
 let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not installed
+
+"anyjump
+let g:any_jump_window_width_ratio  = 0.8
+let g:any_jump_window_height_ratio = 0.9
