@@ -239,6 +239,9 @@ Plug 'brooth/far.vim'
 "lazygit
 Plug 'kdheepak/lazygit.nvim'
 
+"jenkinsfile
+Plug 'martinda/Jenkinsfile-vim-syntax'
+
 call plug#end()
 set re=0
 
