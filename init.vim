@@ -117,7 +117,10 @@ nnoremap Q :q<CR>
 vnoremap <LEADER>y "+y
 
 "close highlight
-noremap <silent> <LEADER><CR> :nohlsearch<CR>
+nnoremap <silent> <LEADER><CR> :nohlsearch<CR>
+
+"escape
+inoremap <silent> <LEADER><CR> <ESC>
 
 "fold para
 noremap <silent> <LEADER>o za "folding
