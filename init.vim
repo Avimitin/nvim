@@ -101,6 +101,12 @@ noremap = n
 "set leader
 let mapleader=" "
 
+"edit file at new tab
+nnoremap <LEADER>e :tabe<CR>:edit 
+
+"edit neovim file at any time
+nnoremap <LEADER>n :tabe<CR>:edit ~/.config/nvim/init.vim<CR>
+
 "reboot vim
 noremap <LEADER>rb :so%<CR>
 
