@@ -8,6 +8,9 @@ endif
 
 let &t_ut='' "adjust terminal color
 
+" auto insert when terminal open
+autocmd TermOpen term://* startinsert
+
 " vim setting
 set exrc                                                  " exec command in init.vim
 set secure                                                " safely do command above
