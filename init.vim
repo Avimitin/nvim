@@ -176,6 +176,9 @@ tnoremap <C-n> <C-\><C-n>
 
 call plug#begin('~/.config/nvim/plugged')
 
+"open file when forget sudo
+Plug 'lambdalisue/suda.vim'
+
 "tabline
 Plug 'mg979/vim-xtabline'
 
