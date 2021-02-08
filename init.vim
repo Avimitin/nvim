@@ -136,12 +136,6 @@ noremap <silent> <LEADER>o za "folding
 "jump to next '<++>' and edit it
 noremap <LEADER><LEADER> <ESC>/<++><CR>:nohlsearch<CR>c4l
 
-"split screen
-noremap su :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
-noremap sj :set splitbelow<CR>:split<CR>
-noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
-noremap sk :set splitright<CR>:vsplit<CR>
-
 "place screen up and down
 noremap sw <C-w>t<C-w>K
 "place screen side by side
@@ -158,10 +152,10 @@ nnoremap <left> :vertical resize-5<CR>
 nnoremap <right> :vertical resize+5<CR>
 
 "move cursor between windows
-noremap <LEADER><up> <C-w>k
-noremap <LEADER><down> <C-w>j
-noremap <LEADER><left> <C-w>h
-noremap <LEADER><right> <C-w>l
+noremap su <C-w>k
+noremap sj <C-w>j
+noremap sh <C-w>h
+noremap sk <C-w>l
 
 "tab
 noremap tu :tabe<CR>
