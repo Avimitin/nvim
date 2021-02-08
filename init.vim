@@ -176,6 +176,9 @@ tnoremap <C-n> <C-\><C-n>
 
 call plug#begin('~/.config/nvim/plugged')
 
+"tabline
+Plug 'mg979/vim-xtabline'
+
 "treesitter: support more colorful highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
