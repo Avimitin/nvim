@@ -442,3 +442,5 @@ let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not inst
 "anyjump
 let g:any_jump_window_width_ratio  = 0.8
 let g:any_jump_window_height_ratio = 0.9
+" Normal mode: open previous opened file (after jump)
+nnoremap <leader>b :AnyJumpBack<CR>
