@@ -71,6 +71,8 @@ noremap <silent> H 0
 noremap <silent> J 5j
 noremap <silent> k l
 noremap <silent> K $
+noremap <silent> <C-u> 5<C-y>
+noremap <silent> <C-j> 5<C-e>
 noremap W 5w
 noremap B 5b
 inoremap <C-a> <ESC>A
