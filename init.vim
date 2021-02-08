@@ -256,6 +256,9 @@ Plug 'kdheepak/lazygit.nvim'
 "jenkinsfile
 Plug 'martinda/Jenkinsfile-vim-syntax'
 
+"modify text after object
+Plug 'junegunn/vim-after-object'
+
 call plug#end()
 set re=0
 
@@ -453,3 +456,7 @@ let g:any_jump_window_width_ratio  = 0.8
 let g:any_jump_window_height_ratio = 0.9
 " Normal mode: open previous opened file (after jump)
 nnoremap <leader>b :AnyJumpBack<CR>
+
+"vim-after-project
+autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
+
