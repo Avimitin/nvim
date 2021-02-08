@@ -128,7 +128,7 @@ vnoremap <LEADER>y "+y
 nnoremap <silent> <LEADER><CR> :nohlsearch<CR>
 
 "escape
-inoremap <silent> <LEADER>; <ESC>
+inoremap <silent> ;e <ESC>
 
 "fold para
 noremap <silent> <LEADER>o za "folding
