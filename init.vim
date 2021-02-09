@@ -171,7 +171,7 @@ noremap tmk :+tabmove<CR>
 inoremap <C-c> <ESC>zzi
 
 "terminal
-nnoremap <C-\> :tabe<CR>:term<CR>a
+nnoremap <C-\> :tabe<CR>:term<CR>
 tnoremap <C-q> <C-\><C-n>:q<CR>
 tnoremap <C-n> <C-\><C-n>
 
