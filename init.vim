@@ -113,7 +113,7 @@ nnoremap <LEADER>e :tabe<CR>:edit
 nnoremap <LEADER>n :tabe<CR>:edit ~/.config/nvim/init.vim<CR>
 
 "reboot vim
-noremap <LEADER>rb :so%<CR>
+noremap <LEADER>rb :so ~/.config/nvim/init.vim<CR>
 
 "save
 noremap <silent> <LEADER>s :w<CR>
