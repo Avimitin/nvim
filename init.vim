@@ -179,6 +179,9 @@ tnoremap <C-n> <C-\><C-n>
 
 call plug#begin('~/.config/nvim/plugged')
 
+"mulit cursor
+Plug 'mg979/vim-visual-multi'
+
 "open file when forget sudo
 Plug 'lambdalisue/suda.vim'
 
