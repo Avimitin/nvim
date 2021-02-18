@@ -180,7 +180,7 @@ tnoremap <C-n> <C-\><C-n>
 call plug#begin('~/.config/nvim/plugged')
 
 "mulit cursor
-Plug 'mg979/vim-visual-multi'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 "open file when forget sudo
 Plug 'lambdalisue/suda.vim'
@@ -463,3 +463,9 @@ nnoremap <leader>b :AnyJumpBack<CR>
 "vim-after-project
 autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 
+"vim-visual-multi
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = '<C-k>'
+let g:VM_maps['Find Subword Under'] = '<C-k>'
+let g:VM_maps["Undo"] = '<C-z>'
+let g:VM_custom_motions = {'k': 'u', 'l': 'k'}
