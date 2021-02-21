@@ -175,6 +175,8 @@ nnoremap <C-\> :tabe<CR>:term<CR>
 tnoremap <C-q> <C-\><C-n>:q<CR>
 tnoremap <C-n> <C-\><C-n>
 
+nnoremap r R
+
 "===plugin===
 
 call plug#begin('~/.config/nvim/plugged')
@@ -469,3 +471,23 @@ let g:VM_maps['Find Under']         = '<C-k>'
 let g:VM_maps['Find Subword Under'] = '<C-k>'
 let g:VM_maps["Undo"] = '<C-z>'
 let g:VM_custom_motions = {'k': 'u', 'l': 'k'}
+
+let g:rnvimr_ex_enable = 1
+let g:rnvimr_pick_enable = 1
+let g:rnvimr_draw_border = 1
+highlight link RnvimrNormal CursorLine
+nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
+let g:rnvimr_action = {
+            \ '<C-t>': 'NvimEdit tabedit',
+            \ '<C-x>': 'NvimEdit split',
+            \ '<C-v>': 'NvimEdit vsplit',
+            \ 'gw': 'JumpNvimCwd',
+            \ 'yw': 'EmitRangerCwd'
+            \ }
+let g:rnvimr_layout = { 'relative': 'editor',
+            \ 'width': &columns,
+            \ 'height': &lines,
+            \ 'col': 0,
+            \ 'row': 0,
+            \ 'style': 'minimal' }
+let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
