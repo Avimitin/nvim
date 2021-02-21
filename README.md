@@ -1,6 +1,6 @@
 # nvim config with Gopher behavior
 
-![](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210126183441.png)
+![](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210221171519.png)
 
 [中文版](docs/README_CN.md)
 
@@ -20,12 +20,17 @@ You should fork this configuration to your personal repository and clone it to `
 sudo apt install neovim python3-pip ranger
 
 pip3 install pynvim
-sudo npm install -g neovim
+# install nvm first
+npm install -g neovim
 ```
 
-- Install nerdfont
+[nvm install guide](./docs/nodejs_install.md)
+
+- Install nerdfont and powerline font
 
 It's highly recommended to install [nerdfont](https://www.nerdfonts.com/font-downloads) for impressive icon support
+
+Also for powerline icon support you should install [powerline/font](https://github.com/powerline/fonts)
 
 - Check health
 
@@ -46,11 +51,11 @@ It's highly recommended to install [nerdfont](https://www.nerdfonts.com/font-dow
 - Cursor
 
 ```text
-	^
-	u
+    ^
+    u
  < h k >
-	j
-	v
+    j
+    v
 ```
 
 | key | function |
@@ -67,6 +72,7 @@ It's highly recommended to install [nerdfont](https://www.nerdfonts.com/font-dow
 |  B  | Move forward 5 words |
 | `Ctrl` + h | In insert mode this will move cursor to the front of the line |
 | `Ctrl` + k | In insert mode this will move cursor to the end of line |
+| ; + e | Esc at insert mode |
 
 - View
 
