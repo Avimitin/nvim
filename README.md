@@ -1,6 +1,6 @@
 # nvim config with Gopher behavior
 
-![](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210221171519.png)
+![](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210228180603.png)
 
 [中文版](docs/README_CN.md)
 

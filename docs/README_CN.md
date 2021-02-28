@@ -1,6 +1,6 @@
 # Gopher 的 neovim 配置
 
-![](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210126183441.png)
+![](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210228180603.png)
 
 ## 前言
 
