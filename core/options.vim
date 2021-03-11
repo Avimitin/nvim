@@ -46,13 +46,13 @@ set formatoptions-=tc
 let g:backup_dir = g:nvim_config_root . '/tmp/backup'
 let g:backup_dir = g:nvim_config_root . '/tmp/undo'
 set hidden
-silent !mkdir -p g:nvim_config_root . '/nvim/tmp/backup'
-silent !mkdir -p g:nvim_config_root . nvim/tmp/undo
-set backupdir=backup_dir,.
-set directory=g:backup_dir,.
+silent !mkdir -p './tmp/backup'
+silent !mkdir -p './tmp/undo'
+set backupdir=./tmp/backup,.
+set directory=./tmp/backup,.
 if has('persistent_undo')
 	set undofile
-	set undodir=~/AppData/Local/nvim/tmp/undo,.
+	set undodir=./tmp/undo,.
 endif
 
 " auto insert when terminal open
