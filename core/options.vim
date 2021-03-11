@@ -43,8 +43,6 @@ set foldenable
 set formatoptions-=tc
 
 "keep undo history
-let g:backup_dir = g:nvim_config_root . '/tmp/backup'
-let g:backup_dir = g:nvim_config_root . '/tmp/undo'
 set hidden
 silent !mkdir -p './tmp/backup'
 silent !mkdir -p './tmp/undo'
