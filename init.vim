@@ -54,6 +54,8 @@ elseif g:is_linux || g:is_mac
 	let g:nvim_config_root = '~/.config/nvim'
 endif
 
+let g:nvim_config_file = g:nvim_config_root . '/init.vim'
+
 let &t_ut='' "adjust terminal color
 
 let g:file_list = [ 'mapping.vim',
