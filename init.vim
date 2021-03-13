@@ -18,6 +18,9 @@
 "
 " This neovim configuration is inspired by jdhao/nvim-config
 " and theniceboy/nvim
+" 
+" Before you use this script, please read and make some changes
+" to be more familiar to this script.
 
 
 " LICENSE
@@ -48,10 +51,10 @@
 let &t_ut='' "adjust terminal color
 
 " key map setting
-source 'C:\Users\l602\AppData\Local\nvim\core\mapping.vim'
+source C:\Users\l602\AppData\Local\nvim\core\mapping.vim
 
 " vim setting
-source 'C:\Users\l602\AppData\Local\nvim\core\options.vim'
+source C:\Users\l602\AppData\Local\nvim\core\options.vim
 
 " plugins setting
-source 'C:\Users\l602\AppData\Local\nvim\core\plugins.vim'
+source C:\Users\l602\AppData\Local\nvim\core\plugins.vim
