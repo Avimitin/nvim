@@ -59,6 +59,9 @@ nnoremap Q :q<CR>
 "copy select chars
 vnoremap <LEADER>y "+y
 
+"paste from system clipboard
+noremap <LEADER>p "+p
+
 "close highlight
 nnoremap <silent> <LEADER><CR> :nohlsearch<CR>
 
