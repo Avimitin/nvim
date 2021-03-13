@@ -306,3 +306,7 @@ let g:rnvimr_layout = { 'relative': 'editor',
             \ 'row': 0,
             \ 'style': 'minimal' }
 let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
+
+" markdown preview
+let g:mkdp_browser = 'firefox'
+let g:mkdp_port = '57843'
