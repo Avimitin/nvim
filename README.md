@@ -27,6 +27,13 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 * [Keymap definition](#keymap-definition)
 	* [Basic keys](#basic-keys)
 * [More useful stuff](#more-useful-stuff)
+	* [LEADER key](#leader-key)
+	* [Save and Quit](#save-and-quit)
+	* [Copy and Paste](#copy-and-paste)
+	* [Tab page](#tab-page)
+	* [Windows manage](#windows-manage)
+	* [File Exploer](#file-exploer)
+	* [terminal](#terminal)
 * [Coding](#coding)
 	* [COC.NVIM](#cocnvim)
 	* [Auto align](#auto-align)
@@ -191,11 +198,11 @@ open your vim and input command to check dependence is all install or not.
 
 ## More useful stuff
 
-- LEADER key
+### LEADER key
 
 leader key is `<Space>` .
 
-- Save and Quit
+### Save and Quit
 
 | keymap                  | function      |
 | ------                  | --------      |
@@ -205,14 +212,14 @@ leader key is `<Space>` .
 | `Ctrl` + q              | quit all file |
 | Q                       | just quit     |
 
-- Copy and Paste
+### Copy and Paste
 
 | keymap       | function                                              |
 | ------       | --------                                              |
 | `leader` + y | copy to system clipboard (select text at visual mode) |
 | `leader` + p | paste from system clipboard                           |
 
-- Tab page
+### Tab page
 
 | keymap | function                      |
 | ------ | --------                      |
@@ -222,20 +229,25 @@ leader key is `<Space>` .
 | tmk    | move current tab to next tab  |
 | tmh    | move current tab to front tab |
 
-- Windows
+### Windows manage
 
 | keymap   | function                            |
 | ------   | --------                            |
 | s+`uhjk` | move cursor to `up/left/down/right` |
 | `arrow`  | Resize windows in normal mode       |
 
-- File Exploer
+### File Exploer
 
-| keymap | function |
-| ------ | -------- |
-|   tt   | open coc explorer |
-|   ?    | open coc explorer guide |
-|   R    | open ranger (install ranger first) |
+| keymap | function                           |
+| ------ | --------                           |
+| tt     | open coc explorer                  |
+| ?      | open coc explorer guide            |
+| R      | open ranger (install ranger first) |
+
+
+### terminal 
+
+press `ctrl+\` to open terminal
 
 ## Coding
 
@@ -251,6 +263,9 @@ src="https://user-images.githubusercontent.com/251450/55285193-400a9000-53b9-11e
 | `LEADER` + h           | Open definition                                              |
 | gd                     | go to definition                                             |
 | `LEADER` + `Backspace` | go back to last file (pretty useful when jump between files) |
+
+Using `:CocInstall` to install plugin you want.
+check out [coc.nvim wiki](https://github.com/neoclide/coc.nvim/wiki) for more.
 
 ### Auto align
 
