@@ -33,7 +33,9 @@ Plug 'rakr/vim-one'
 "Plug 'rakr/vim-two-firewatch'
 
 "status bar
-Plug 'theniceboy/eleline.vim'
+"Plug 'theniceboy/eleline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 "progress bar
 Plug 'ojroques/vim-scrollstatus'
@@ -310,3 +312,6 @@ let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
 " markdown preview
 let g:mkdp_browser = 'firefox'
 let g:mkdp_port = '57843'
+
+" vim airline
+let g:airline_theme='deus'
