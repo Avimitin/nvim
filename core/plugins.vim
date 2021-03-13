@@ -89,9 +89,6 @@ Plug 'brooth/far.vim'
 "lazygit
 Plug 'kdheepak/lazygit.nvim'
 
-"jenkinsfile
-Plug 'martinda/Jenkinsfile-vim-syntax'
-
 "modify text after object
 Plug 'junegunn/vim-after-object'
 
