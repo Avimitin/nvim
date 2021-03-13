@@ -44,13 +44,13 @@ set formatoptions-=tc
 
 "keep undo history
 set hidden
-silent !mkdir C:\\Users\\l602\\AppData\\Local\\nvim\\tmp\\backup
-silent !mkdir C:\\Users\\l602\\AppData\\Local\\nvim\\tmp\\undo
-set backupdir=C:\\Users\\l602\\AppData\\Local\\nvim\\tmp\\backup,.
-set directory=C:\\Users\\l602\\AppData\\Local\\nvim\\tmp\\backup,.
+silent !mkdir ~/.config/nvim/tmp/backup
+silent !mkdir ~/.config/nvim/tmp/undo
+set backupdir=~/.config/nvim/tmp/backup,.
+set directory=~/.config/nvim/tmp/backup,.
 if has('persistent_undo')
 	set undofile
-	set undodir=C:\\Users\\l602\\AppData\\Local\\nvim\\tmp\\undo,.
+	set undodir=~/.config/nvim/tmp/undo,.
 endif
 
 " auto insert when terminal open
