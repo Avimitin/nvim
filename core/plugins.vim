@@ -89,11 +89,11 @@ Plug 'brooth/far.vim'
 "lazygit
 Plug 'kdheepak/lazygit.nvim'
 
-"jenkinsfile
-Plug 'martinda/Jenkinsfile-vim-syntax'
-
 "modify text after object
 Plug 'junegunn/vim-after-object'
+
+"markdown toc
+Plug 'mzlogin/vim-markdown-toc'
 
 call plug#end()
 set re=0
@@ -306,3 +306,7 @@ let g:rnvimr_layout = { 'relative': 'editor',
             \ 'row': 0,
             \ 'style': 'minimal' }
 let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
+
+" markdown preview
+let g:mkdp_browser = 'firefox'
+let g:mkdp_port = '57843'
