@@ -1,6 +1,6 @@
 " change user home path in windows before you use it
-if empty(glob('~\AppData\Local\nvim\autoload\plug.vim'))
-	silent !curl -fLo C:\Users\l602\AppData\Local\nvim\autoload\plug.vim --create-dirs 
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs 
 				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
