@@ -92,6 +92,9 @@ Plug 'kdheepak/lazygit.nvim'
 "modify text after object
 Plug 'junegunn/vim-after-object'
 
+"markdown toc
+Plug 'mzlogin/vim-markdown-toc'
+
 call plug#end()
 set re=0
 
