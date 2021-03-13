@@ -11,7 +11,7 @@
 " Author: @avimitin
 
 " INTRODUCTION
-" ======================
+" ============
 " Install python3 pip3 nodejs npm manually.
 " And using :checkhealth command to check if your neovim are
 " lack of any dependency.
@@ -50,14 +50,12 @@
 
 let &t_ut='' "adjust terminal color
 
-" key map setting
-source C:\Users\l602\AppData\Local\nvim\core\mapping.vim
+let g:file_list = [
+	\ 'mapping.vim',
+	\ 'options.vim',
+	\ 'plugins.vim',
+	\ 'autocmd.vim']
 
-" vim setting
-source C:\Users\l602\AppData\Local\nvim\core\options.vim
-
-" plugins setting
-source C:\Users\l602\AppData\Local\nvim\core\plugins.vim
-
-" autocmd
-source C:\Users\l602\AppData\Local\nvim\core\autocmd.vim
+for s:fname in g:file_list
+	execute printf('source ~/.config/nvim/core/%s', s:fname)
+endfor
