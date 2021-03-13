@@ -33,6 +33,7 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 	* [Tab page](#tab-page)
 	* [Windows manage](#windows-manage)
 	* [File Exploer](#file-exploer)
+	* [File finder](#file-finder)
 	* [terminal](#terminal)
 * [Coding](#coding)
 	* [COC.NVIM](#cocnvim)
@@ -244,6 +245,14 @@ leader key is `<Space>` .
 | ?      | open coc explorer guide            |
 | R      | open ranger (install ranger first) |
 
+### File finder
+
+<img style="max-width: 500px; max-height: 500px" 
+src="https://camo.githubusercontent.com/01c738192dc98e59cc139b2591f3c43b6dc75d06b5b57ac097c4c1acd8e8f160/68747470733a2f2f6a657373656c656974652e636f6d2f75706c6f6164732f706f7374732f322f7461672d66696e6465722d6f70742e676966"/>
+
+| keymap       | function                   |
+| ---          | ---                        |
+| `<LEADER>+f` | activate fuzzy file finder |
 
 ### terminal 
 
