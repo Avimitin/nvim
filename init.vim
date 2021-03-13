@@ -58,3 +58,6 @@ source C:\Users\l602\AppData\Local\nvim\core\options.vim
 
 " plugins setting
 source C:\Users\l602\AppData\Local\nvim\core\plugins.vim
+
+" autocmd
+source C:\Users\l602\AppData\Local\nvim\core\autocmd.vim
