@@ -1,18 +1,8 @@
 " change user home path in windows before you use it
-if g:is_win
-	if empty(glob('~\AppData\Local\nvim\autoload\plug.vim'))
-		silent !curl -fLo C:\Users\l602\AppData\Local\nvim\autoload\plug.vim --create-dirs 
-					\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-		autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-	endif
-endif
-
-if g:is_linux || g:is_mac
-	if empty(glob('~/.config/nvim/autoload/plug.vim'))
-		silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-					\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-		autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-	endif
+if empty(glob('~\AppData\Local\nvim\autoload\plug.vim'))
+	silent !curl -fLo C:\Users\l602\AppData\Local\nvim\autoload\plug.vim --create-dirs 
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " plugin
@@ -237,24 +227,6 @@ let g:go_highlight_types = 1
 let g:go_highlight_variable_assignments = 0
 let g:go_highlight_variable_declarations = 0
 let g:go_doc_keywordprg_enabled = 0
-
-"markdown key map
-autocmd Filetype markdown inoremap <buffer> ,f <Esc>/<++><CR>:nohlsearch<CR>"_c4l
-autocmd Filetype markdown inoremap <buffer> ,w <Esc>/ <++><CR>:nohlsearch<CR>"_c5l<CR>
-autocmd Filetype markdown inoremap <buffer> ,n ---<Enter><Enter>
-autocmd Filetype markdown inoremap <buffer> ,b **** <++><Esc>F*hi
-autocmd Filetype markdown inoremap <buffer> ,s ~~~~ <++><Esc>F~hi
-autocmd Filetype markdown inoremap <buffer> ,i ** <++><Esc>F*i
-autocmd Filetype markdown inoremap <buffer> ,d `` <++><Esc>F`i
-autocmd Filetype markdown inoremap <buffer> ,c ```<Enter><++><Enter>```<Enter><Enter><++><Esc>4kA
-autocmd Filetype markdown inoremap <buffer> ,m - [ ] 
-autocmd Filetype markdown inoremap <buffer> ,p ![](<++>) <++><Esc>F[a
-autocmd Filetype markdown inoremap <buffer> ,a [](<++>) <++><Esc>F[a
-autocmd Filetype markdown inoremap <buffer> ,1 #<Space><Enter><++><Esc>kA
-autocmd Filetype markdown inoremap <buffer> ,2 ##<Space><Enter><++><Esc>kA
-autocmd Filetype markdown inoremap <buffer> ,3 ###<Space><Enter><++><Esc>kA
-autocmd Filetype markdown inoremap <buffer> ,4 ####<Space><Enter><++><Esc>kA
-autocmd Filetype markdown inoremap <buffer> ,l --------<Enter>
 
 "LeaderF
 nnoremap <LEADER>f :Leaderf file<CR>
