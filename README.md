@@ -24,6 +24,7 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 	* [nodejs](#nodejs)
 	* [Install nerdfont and powerline font](#install-nerdfont-and-powerline-font)
 	* [Check health](#check-health)
+	* [Other](#other)
 * [Keymap definition](#keymap-definition)
 	* [Basic keys](#basic-keys)
 * [More useful stuff](#more-useful-stuff)
@@ -44,6 +45,11 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 	* [lazygit](#lazygit)
 	* [vim-surround](#vim-surround)
 	* [wildfire](#wildfire)
+* [Markdown](#markdown)
+	* [Keymap](#keymap)
+	* [Preview](#preview)
+	* [Toc](#toc)
+	* [Table](#table)
 
 <!-- vim-markdown-toc -->
 </details>
@@ -154,6 +160,28 @@ open your vim and input command to check dependence is all install or not.
 
 ```vim
 :checkhealth
+```
+
+### Other
+
+- vim-hexokinase
+
+you may met the error: 
+
+```text
+vim-hexokinase needs updating. 
+Run `make hexokinase` in project root. 
+See `:h hexokinase-installation` for more info.`
+```
+
+Windows user can choose to delete this plugin, or install the 
+[GNU Make](http://gnuwin32.sourceforge.net/install.html).
+
+Get into your nvim config folder, type command
+
+```bash
+cd plugged/vim-hexokinase
+make hexokinase
 ```
 
 ## Keymap definition
@@ -287,7 +315,6 @@ src="https://raw.githubusercontent.com/junegunn/i/master/easy-align/equals.gif" 
 | ------                     | --------                                                      |
 | `:EasyAlign<CR>+<KEYWORD>` | In virsual mode or normal mode this will active align plugin. |
 
-Tricks: select lines at normal mode, press `:EasyAlign *|` can format markdown file.
 Checkout [junegunn/vim-easy-align](https://github.com/junegunn/vim-easy-align) for more.
 
 ### Golang
@@ -354,4 +381,44 @@ src="https://raw.githubusercontent.com/gcmt/wildfire.vim/master/_assets/preview.
 Press enter to select text.
 
 > using wildfire and vim-surround can quickly select and changed object symbol.
+
+## Markdown
+
+### Keymap
+
+| Shortcut | What it creates     |
+|----------|---------------------|
+| `,n`     | ---                 |
+| `,b`     | **Bold** text       |
+| `,s`     | ~~sliced~~ text     |
+| `,i`     | *italic* text       |
+| `,d`     | `code block`        |
+| `,c`     | big `block of code` |
+| `,m`     | - [ ] check mark    |
+| `,p`     | picture             |
+| `,a`     | [link]()            |
+| `,1`     | # H1                |
+| `,2`     | ## H2               |
+| `,3`     | ### H3              |
+| `,4`     | #### H4             |
+| `,l`     | --------            |
+
+`,f` to go to the next `<++>` (placeholder)
+
+`,w` to go to the next `<++>` (placeholder) and then press `Enter` for you
+
+### Preview
+
+Press `:MarkdownPreview` command to activate preview, change the default browser
+and port in core/plugins.vim.
+
+### Toc
+
+Go to the line you want to generate TOC, then use the command `:GenTocGFM` to generate
+TOC that suitable for GitHub repository. Use the command `:GenToGitLab` to generate TOC
+that suitable for GitLab repository.
+
+### Table
+
+Select lines at normal mode, press `:EasyAlign *|` can align your table.
 
