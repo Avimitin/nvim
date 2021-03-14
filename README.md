@@ -68,7 +68,9 @@ git clone -b windows https://github.com/avimitin/nvim
 
 ### Install neovim
 
-**IMPORTANT: nightly 0.5.0 version is needed!!**
+> IMPORTANT: nightly 0.5.0 version is needed, because of the pop up windows and remote
+support. So Ubuntu user is recommended to add the unstable ppa source to have full plugin
+support.
 
 - Windows
 
