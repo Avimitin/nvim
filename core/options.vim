@@ -44,8 +44,8 @@ set formatoptions-=tc
 
 "keep undo history
 set hidden
-silent !mkdir ~/.config/nvim/tmp/backup
-silent !mkdir ~/.config/nvim/tmp/undo
+silent !mkdir -p ~/.config/nvim/tmp/backup
+silent !mkdir -p ~/.config/nvim/tmp/undo
 set backupdir=~/.config/nvim/tmp/backup,.
 set directory=~/.config/nvim/tmp/backup,.
 if has('persistent_undo')
