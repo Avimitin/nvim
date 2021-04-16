@@ -9,6 +9,9 @@ endif
 
 call plug#begin()
 
+"code format
+Plug 'sbdchd/neoformat'
+
 "markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 
@@ -315,3 +318,13 @@ let g:mkdp_port = '57843'
 
 " vim airline
 let g:airline_theme='deus'
+
+" code format
+let g:neoformat_cpp_clangformat = {
+		\ 'exe': 'clang-format',
+		\ 'args': ['--style="{IndentWidth: 2}"']
+\}
+let g:neoformat_enabled_cpp = ['clangformat']
+let g:neoformat_enabled_c = ['clangformat']
+autocmd BufWrite *.c Neoformat
+autocmd BufWrite *.h Neoformat
