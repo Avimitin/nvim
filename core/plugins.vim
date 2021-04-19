@@ -202,7 +202,7 @@ let g:vista#renderer#icons = {
 \  }
 
 " vim-go
-autocmd FileType go nnoremap <silent> gi :GoImports<CR>
+autocmd BufWrite *.go GoImports
 autocmd FileType go nnoremap <silent> gt :GoTestFunc<CR>
 autocmd FileType go nnoremap <silent> gr :GoRun<CR>
 let g:go_echo_go_info = 0
