@@ -326,5 +326,4 @@ let g:neoformat_cpp_clangformat = {
 \}
 let g:neoformat_enabled_cpp = ['clangformat']
 let g:neoformat_enabled_c = ['clangformat']
-autocmd BufWrite *.c Neoformat
-autocmd BufWrite *.h Neoformat
+autocmd BufWritePost *.[ch] Neoformat
