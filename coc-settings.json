@@ -1,5 +1,4 @@
 {
-	"coc.preferences.hoverTarget": "preview",
 	"coc.preferences.enableFloatHighlight": true,
 	"coc.preferences.snippetStatusText": "Ⓢ ",
 	"coc.preferences.extensionUpdateCheck": "daily",
@@ -134,6 +133,9 @@
 			"initializationOptions": {
 				"cache": {
 					"directory": "/tmp/ccls"
+				},
+				"highlight": {
+					"lsRanges": true
 				}
 			}
 		}
