@@ -322,7 +322,7 @@ let g:airline_theme='deus'
 " code format
 "let g:neoformat_cpp_clangformat = {
 "		\ 'exe': 'clang-format',
-"		\ 'args': ['--style="{BaseOnStyle: LLVM, UseTab: Always, IndentWidth: 8}"']
+"		\ 'args': ['-style="{BasedOnStyle: GNU, UseTab: ForIndentation}"']
 "\}
 "let g:neoformat_enabled_cpp = ['clangformat']
 "let g:neoformat_enabled_c = ['clangformat']
