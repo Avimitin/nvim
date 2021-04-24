@@ -100,6 +100,9 @@ Plug 'junegunn/vim-after-object'
 "markdown toc
 Plug 'mzlogin/vim-markdown-toc'
 
+"clang-format
+Plug 'rhysd/vim-clang-format'
+
 call plug#end()
 set re=0
 
@@ -327,3 +330,10 @@ let g:airline_theme='deus'
 "let g:neoformat_enabled_cpp = ['clangformat']
 "let g:neoformat_enabled_c = ['clangformat']
 "autocmd BufWritePre *.[ch] Neoformat
+
+" clang-format setting
+let g:clang_format#code_style='GNU'
+let g:clang_format#style_options={
+			\ "UseTab": "ForIndentation",
+			\ "IndentWidth": 8}
+autocmd BufWritePre *.[ch] ClangFormat
