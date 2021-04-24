@@ -10,7 +10,7 @@ endif
 call plug#begin()
 
 "code format
-Plug 'sbdchd/neoformat'
+"Plug 'sbdchd/neoformat'
 
 "markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
@@ -320,10 +320,10 @@ let g:mkdp_port = '57843'
 let g:airline_theme='deus'
 
 " code format
-let g:neoformat_cpp_clangformat = {
-		\ 'exe': 'clang-format',
-		\ 'args': ['--style="{BaseOnStyle: LLVM, UseTab: Always, IndentWidth: 8}"']
-\}
-let g:neoformat_enabled_cpp = ['clangformat']
-let g:neoformat_enabled_c = ['clangformat']
-autocmd BufWritePre *.[ch] Neoformat
+"let g:neoformat_cpp_clangformat = {
+"		\ 'exe': 'clang-format',
+"		\ 'args': ['--style="{BaseOnStyle: LLVM, UseTab: Always, IndentWidth: 8}"']
+"\}
+"let g:neoformat_enabled_cpp = ['clangformat']
+"let g:neoformat_enabled_c = ['clangformat']
+"autocmd BufWritePre *.[ch] Neoformat
