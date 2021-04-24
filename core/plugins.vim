@@ -103,6 +103,9 @@ Plug 'mzlogin/vim-markdown-toc'
 "clang-format
 Plug 'rhysd/vim-clang-format'
 
+" c/cpp highlight
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+
 call plug#end()
 set re=0
 
