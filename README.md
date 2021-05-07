@@ -45,6 +45,7 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 	* [lazygit](#lazygit)
 	* [vim-surround](#vim-surround)
 	* [wildfire](#wildfire)
+	* [Rust](#rust)
 * [Markdown](#markdown)
 	* [Keymap](#keymap)
 	* [Preview](#preview)
@@ -381,6 +382,12 @@ src="https://raw.githubusercontent.com/gcmt/wildfire.vim/master/_assets/preview.
 Press enter to select text.
 
 > using wildfire and vim-surround can quickly select and changed object symbol.
+
+
+### Rust
+
+Must install [rust-analyzer](https://rust-analyzer.github.io/manual.html), rust lsp is configured 
+in `coc-setting.json`
 
 ## Markdown
 
