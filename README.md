@@ -1,4 +1,4 @@
-# nvim config with Gopher behavior
+# nvim config with Gopher convention
 
 ![User Interface Preview](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210228180603.png)
 
