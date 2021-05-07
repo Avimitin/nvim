@@ -389,6 +389,8 @@ Press enter to select text.
 Must install [rust-analyzer](https://rust-analyzer.github.io/manual.html), rust lsp is configured 
 in `coc-setting.json`
 
+> This plugin is not test in Windows system yet. So there is no change on windows branch.
+
 ## Markdown
 
 ### Keymap
