@@ -1,15 +1,16 @@
-noremap u k
-noremap U 5k
-noremap k l
-noremap H 0
-noremap J 5j
-noremap K $
+noremap ; i
+
+noremap i k
+noremap j h
+noremap k j
+
+noremap I 5k
+noremap J 0
+noremap L $
+noremap K 5j
+
 noremap <C-u> 5<C-y>
 noremap <C-j> 5<C-e>
-noremap W 5w
-noremap B 5b
-noremap l w
-noremap L b
 inoremap <C-a> <ESC>A
 
 "delete a line
