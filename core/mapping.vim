@@ -9,6 +9,12 @@ noremap J 0
 noremap L $
 noremap K 5j
 
+noremap u b
+noremap o w
+
+noremap U 5b
+noremap O 5w
+
 noremap <C-u> 5<C-y>
 noremap <C-j> 5<C-e>
 inoremap <C-a> <ESC>A
