@@ -16,6 +16,9 @@ noremap o w
 noremap U 5b
 noremap O 5w
 
+nnoremap n o
+nnoremap N O
+
 noremap <C-u> 5<C-y>
 noremap <C-j> 5<C-e>
 inoremap <C-a> <ESC>A
@@ -104,11 +107,11 @@ noremap sh <C-w>h
 noremap sk <C-w>l
 
 "tab
-noremap tu :tabe<CR>
-noremap th :-tabnext<CR>
-noremap tk :+tabnext<CR>
-noremap tmh :-tabmove<CR>
-noremap tmk :+tabmove<CR>
+noremap ta :tabe<CR>
+noremap tj :-tabnext<CR>
+noremap tl :+tabnext<CR>
+noremap tmj :-tabmove<CR>
+noremap tml :+tabmove<CR>
 
 "focus on center
 inoremap <C-c> <ESC>zzi
