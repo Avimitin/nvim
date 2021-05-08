@@ -1,4 +1,5 @@
-noremap ; i
+noremap ' i
+noremap " I
 
 noremap i k
 noremap j h
