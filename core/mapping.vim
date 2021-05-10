@@ -8,9 +8,7 @@ noremap <C-j> 5<C-e>
 inoremap <C-a> <ESC>A
 
 "delete a line
-noremap D dd
-
-noremap do J
+noremap D J
 
 "clip a line
 noremap X Vx
