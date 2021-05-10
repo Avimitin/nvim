@@ -1,19 +1,16 @@
-noremap u k
-noremap U 5k
-noremap k l
-noremap H 0
 noremap J 5j
-noremap K $
-noremap <C-u> 5<C-y>
+noremap K 5k
+noremap H 0
+noremap L $
+
+noremap <C-k> 5<C-y>
 noremap <C-j> 5<C-e>
-noremap W 5w
-noremap B 5b
-noremap l w
-noremap L b
 inoremap <C-a> <ESC>A
 
 "delete a line
 noremap D dd
+
+noremap do J
 
 "clip a line
 noremap X Vx
@@ -23,6 +20,8 @@ noremap <C-A-S-q> :q!<CR>
 
 "undo
 noremap <C-z> u
+
+noremap u w
 
 "add indent
 nnoremap < <<
@@ -109,5 +108,3 @@ inoremap <C-c> <ESC>zzi
 nnoremap <C-\> :tabe<CR>:term<CR>
 tnoremap <C-q> <C-\><C-n>:q<CR>
 tnoremap <C-n> <C-\><C-n>
-
-nnoremap r R
