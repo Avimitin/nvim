@@ -106,6 +106,9 @@ Plug 'rhysd/vim-clang-format'
 " c/cpp highlight
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 
+"rust
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 set re=0
 
@@ -340,3 +343,6 @@ let g:clang_format#style_options={
 			\ "UseTab": "ForIndentation",
 			\ "IndentWidth": 8}
 autocmd BufWritePre *.[ch] ClangFormat
+
+" rust
+autocmd BufWrite *.rs RustFmt
