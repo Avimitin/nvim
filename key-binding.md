@@ -20,6 +20,12 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 autocmd FileType go nnoremap <silent> gt :GoTestFunc<CR>
 autocmd FileType go nnoremap <silent> gr :GoRun<CR>
+
+nnoremap giu :GitGutterUndoHunk<CR>
+nnoremap gis :GitGutterStageHunk<CR>
+nnoremap gip :GitGutterPreviewHunk<CR>
+nnoremap gi= :GitGutterNextHunk<CR>
+nnoremap gi- :GitGutterPrevHunk<CR>
 ```
 
 ## h
@@ -149,12 +155,6 @@ nnoremap <silent><nowait> <LEADER>d :CocList diagnostics<cr>
 nnoremap <LEADER>e :tabe<CR>:edit 
 
 nnoremap <LEADER>f :Leaderf file<CR>
-
-nnoremap giu :GitGutterUndoHunk<CR>
-nnoremap gis :GitGutterStageHunk<CR>
-nnoremap gip :GitGutterPreviewHunk<CR>
-nnoremap gi= :GitGutterNextHunk<CR>
-nnoremap gi- :GitGutterPrevHunk<CR>
 
 nnoremap <LEADER>h :call Show_documentation()<CR>
 
