@@ -150,11 +150,11 @@ nnoremap <LEADER>e :tabe<CR>:edit
 
 nnoremap <LEADER>f :Leaderf file<CR>
 
-nnoremap <LEADER>gu :GitGutterUndoHunk<CR>
-nnoremap <LEADER>gs :GitGutterStageHunk<CR>
-nnoremap <LEADER>gp :GitGutterPreviewHunk<CR>
-nnoremap <LEADER>g= :GitGutterNextHunk<CR>
-nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
+nnoremap giu :GitGutterUndoHunk<CR>
+nnoremap gis :GitGutterStageHunk<CR>
+nnoremap gip :GitGutterPreviewHunk<CR>
+nnoremap gi= :GitGutterNextHunk<CR>
+nnoremap gi- :GitGutterPrevHunk<CR>
 
 nnoremap <LEADER>h :call Show_documentation()<CR>
 
