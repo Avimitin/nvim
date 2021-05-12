@@ -263,11 +263,11 @@ let g:Lf_CommandMap = {
 
 
 "git gutter
-nnoremap <LEADER>gu :GitGutterUndoHunk<CR>
-nnoremap <LEADER>gs :GitGutterStageHunk<CR>
-nnoremap <LEADER>gp :GitGutterPreviewHunk<CR>
-nnoremap <LEADER>g= :GitGutterNextHunk<CR>
-nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
+nnoremap giu :GitGutterUndoHunk<CR>
+nnoremap gis :GitGutterStageHunk<CR>
+nnoremap gip :GitGutterPreviewHunk<CR>
+nnoremap gi= :GitGutterNextHunk<CR>
+nnoremap gi- :GitGutterPrevHunk<CR>
 
 "far.vim
 nnoremap <silent> <C-f> :Farf<cr>
