@@ -86,6 +86,11 @@
 	"explorer.file.showHiddenFiles": true,
 	"explorer.icon.enableNerdfont": true,
 	"explorer.buffer.showHiddenBuffers": false,
+	"explorer.keyMappings.global": {
+		"pl": "preview:labeling",
+		"pc": "preview:content",
+		"pp": "pasteFile"
+	},
 	"html.format.enable": true,
 	"json.format.enable": true,
 	"prettier.printWidth": 100,
