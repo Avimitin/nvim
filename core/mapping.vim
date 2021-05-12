@@ -1,7 +1,11 @@
-noremap J 5j
-noremap K 5k
-noremap H 0
+noremap i k
+noremap j h
+noremap k j
+
+noremap I 5k
+noremap K 5j
 noremap L $
+noremap J 0
 
 noremap <C-k> 5<C-y>
 noremap <C-j> 5<C-e>
@@ -16,10 +20,13 @@ noremap X Vx
 "force quit
 noremap <C-A-S-q> :q!<CR>
 
+noremap u <nop>
+
 "undo
 noremap <C-z> u
 
-noremap u w
+noremap h i
+noremap H I
 
 "add indent
 nnoremap < <<
@@ -63,7 +70,7 @@ noremap <LEADER>p "+p
 nnoremap <silent> <LEADER><CR> :nohlsearch<CR>
 
 "escape
-inoremap <silent> jj <ESC>
+inoremap <silent> ;; <ESC>
 
 "fold para
 noremap <silent> <LEADER>o za "folding
@@ -77,8 +84,8 @@ noremap sw <C-w>t<C-w>K
 noremap sb <C-w>t<C-w>H
 
 "rotate screens
-noremap srk <C-w>b<C-w>K
-noremap srh <C-w>b<C-w>H
+noremap srj <C-w>b<C-w>K
+noremap srl <C-w>b<C-w>H
 
 "resize split windows
 nnoremap <up> :res +5<CR>
@@ -87,10 +94,10 @@ nnoremap <left> :vertical resize-5<CR>
 nnoremap <right> :vertical resize+5<CR>
 
 "move cursor between windows
-noremap su <C-w>k
-noremap sj <C-w>j
-noremap sh <C-w>h
-noremap sk <C-w>l
+noremap si <C-w>k
+noremap sk <C-w>j
+noremap sj <C-w>h
+noremap sl <C-w>l
 
 "tab
 noremap ta :tabe<CR>
