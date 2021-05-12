@@ -87,6 +87,8 @@
 	"explorer.icon.enableNerdfont": true,
 	"explorer.buffer.showHiddenBuffers": false,
 	"explorer.keyMappings.global": {
+		"i": false,
+		"to": "open:tab",
 		"pl": "preview:labeling",
 		"pc": "preview:content",
 		"pp": "pasteFile"
