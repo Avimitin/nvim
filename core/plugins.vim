@@ -212,8 +212,8 @@ let g:vista#renderer#icons = {
 
 " vim-go
 autocmd BufWrite *.go GoImports
-autocmd FileType go nnoremap <silent> gt :GoTestFunc<CR>
-autocmd FileType go nnoremap <silent> gr :GoRun<CR>
+autocmd FileType go nmap <silent> got :GoTestFunc<CR>
+autocmd FileType go nmap <silent> gor :GoRun<CR>
 let g:go_echo_go_info = 0
 let g:go_doc_popup_window = 1
 let g:go_def_mapping_enabled = 0
