@@ -338,11 +338,11 @@ let g:airline_theme='deus'
 "autocmd BufWritePre *.[ch] Neoformat
 
 " clang-format setting
-let g:clang_format#code_style='GNU'
+let g:clang_format#code_style='LLVM'
 let g:clang_format#style_options={
-			\ "UseTab": "ForIndentation",
-			\ "IndentWidth": 8}
-autocmd BufWritePre *.[ch] ClangFormat
+			\ "UseTab": "Always",
+			\ "IndentWidth": 2}
+autocmd BufWritePre *.c,*.h,*.cpp,*.hpp ClangFormat
 
 " rust
 autocmd BufWrite *.rs RustFmt
