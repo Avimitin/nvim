@@ -25,8 +25,8 @@ noremap u <nop>
 "undo
 noremap <C-z> u
 
-noremap h i
-noremap H I
+noremap ; i
+noremap <C-i> I
 
 "add indent
 nnoremap < <<
