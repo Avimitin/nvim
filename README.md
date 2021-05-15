@@ -201,19 +201,20 @@ make hexokinase
 
 | key | function                      |
 | --- | --------                      |
-| h   | left                          |
-| k   | right                         |
-| u   | up                            |
-| j   | down                          |
-| H   | Move to the front of the line |
-| K   | Move to the end of the line   |
-| U   | Move up 5 lines               |
-| J   | Move down 5 lines             |
-| W   | Move back 5 words             |
-| B   | Move forward 5 words          |
-| l   | move from word to word        |
-| L   | move back from word to word   |
-| jj  | Esc at insert mode            |
+| j   | left                          |
+| l   | right                         |
+| i   | up                            |
+| k   | down                          |
+| J   | Move to the front of the line |
+| L   | Move to the end of the line   |
+| I   | Move up 5 lines               |
+| K   | Move down 5 lines             |
+| U   | Move back 5 words             |
+| H   | Move forward 5 words          |
+| u   | move from word to word        |
+| h   | move back from word to word   |
+| ;;  | Esc at insert mode            |
+| ;   | start insert mode             |
 
 - View
 
@@ -256,16 +257,16 @@ leader key is `<Space>` .
 | keymap | function                      |
 | ------ | --------                      |
 | tu     | create new tab                |
-| tk     | move to next tab              |
-| th     | move to front tab             |
-| tmk    | move current tab to next tab  |
-| tmh    | move current tab to front tab |
+| tl     | move to next tab              |
+| tj     | move to front tab             |
+| tml    | move current tab to next tab  |
+| tmj    | move current tab to front tab |
 
 ### Windows manage
 
 | keymap   | function                            |
 | ------   | --------                            |
-| s+`uhjk` | move cursor to `up/left/down/right` |
+| s+`ijkl` | move cursor to `up/left/down/right` |
 | `arrow`  | Resize windows in normal mode       |
 
 ### File Exploer
@@ -322,20 +323,19 @@ Checkout [junegunn/vim-easy-align](https://github.com/junegunn/vim-easy-align) f
 
 | keymap | function                      |
 | ---    | ---                           |
-| gt     | go test function under cursor |
-| gr     | go run current `.go` file     |
-| gi     | go organize import            |
+| got     | go test function under cursor |
+| gor     | go run current `.go` file     |
 
 Tricks: using `:GoRename` to renamed variable or struct name, can automatically changed all
 the name of references. Check out [fatih/vim-go](https://github.com/fatih/vim-go) for more.
 
 ### Git
 
-| keymap          | function        |
-| ---             | ---             |
-| `<LEADER>` + gs | stage changes   |
-| `<LEADER>` + gp | preview changes |
-| `<LEADER>` + gu | undo changes    |
+| keymap | function        |
+| ---    | ---             |
+| gis    | stage changes   |
+| gip    | preview changes |
+| giu    | undo changes    |
 
 ### Vista
 
