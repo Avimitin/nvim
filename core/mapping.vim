@@ -20,7 +20,11 @@ noremap X Vx
 "force quit
 noremap <C-A-S-q> :q!<CR>
 
-noremap u <nop>
+noremap u w
+noremap U 5w
+
+noremap h b
+noremap H 5b
 
 "undo
 noremap <C-z> u
