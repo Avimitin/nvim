@@ -340,7 +340,7 @@ let g:airline_theme='deus'
 " clang-format setting
 let g:clang_format#code_style='LLVM'
 let g:clang_format#style_options={
-			\ "UseTab": "Always",
+			\ "UseTab": "ForIndentation",
 			\ "IndentWidth": 2}
 autocmd BufWritePre *.c,*.h,*.cpp,*.hpp ClangFormat
 
