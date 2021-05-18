@@ -26,6 +26,8 @@ noremap U 5w
 noremap h b
 noremap H 5b
 
+noremap vw viw
+
 "undo
 noremap <C-z> u
 
