@@ -15,3 +15,6 @@ autocmd Filetype markdown inoremap <buffer> ,2 ##<Space><Enter><++><Esc>kA
 autocmd Filetype markdown inoremap <buffer> ,3 ###<Space><Enter><++><Esc>kA
 autocmd Filetype markdown inoremap <buffer> ,4 ####<Space><Enter><++><Esc>kA
 autocmd Filetype markdown inoremap <buffer> ,l --------<Enter>
+
+" cpp keymap
+autocmd FileType cpp,hpp inoremap <buffer> ,p std::cout << "" << std::endl;<Esc>F"i
