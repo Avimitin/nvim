@@ -12,6 +12,12 @@ call plug#begin()
 "code format
 "Plug 'sbdchd/neoformat'
 
+"code scratchpad
+"Plug 'metakirby5/codi.vim'
+
+"fancy start page
+Plug 'mhinz/vim-startify'
+
 "markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 
