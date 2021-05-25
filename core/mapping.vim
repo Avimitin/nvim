@@ -81,9 +81,6 @@ inoremap <silent> ;; <ESC>
 "fold para
 noremap <silent> <LEADER>o za "folding
 
-"jump to next '<++>' and edit it
-noremap <LEADER><LEADER> <ESC>/<++><CR>:nohlsearch<CR>c4l
-
 "place screen up and down
 noremap sw <C-w>t<C-w>K
 "place screen side by side
