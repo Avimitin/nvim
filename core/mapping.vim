@@ -1,11 +1,7 @@
-noremap i k
-noremap j h
-noremap k j
-
-noremap I 5k
-noremap K 5j
+noremap K 5k
+noremap J 5j
 noremap L $
-noremap J 0
+noremap H 0
 
 noremap <C-k> 5<C-y>
 noremap <C-j> 5<C-e>
@@ -20,19 +16,13 @@ noremap X Vx
 "force quit
 noremap <C-A-S-q> :q!<CR>
 
-noremap u w
-noremap U 5w
-
-noremap h b
-noremap H 5b
+noremap n w
+noremap N 5w
 
 noremap vw viw
 
 "undo
 noremap <C-z> u
-
-noremap ; i
-noremap <C-i> I
 
 "add indent
 nnoremap < <<
@@ -49,7 +39,7 @@ noremap = n
 let mapleader=" "
 
 "edit file at new tab
-nnoremap <LEADER>e :tabe<CR>:edit 
+nnoremap <LEADER>o :tabe<CR>:edit 
 
 "edit neovim file at any time
 nnoremap <LEADER>n :tabe<CR>:edit ~/.config/nvim/init.vim<CR>
@@ -76,19 +66,16 @@ noremap <LEADER>p "+p
 nnoremap <silent> <LEADER><CR> :nohlsearch<CR>
 
 "escape
-inoremap <silent> ;; <ESC>
-
-"fold para
-noremap <silent> <LEADER>o za "folding
+inoremap <silent> jj <ESC>
 
 "place screen up and down
-noremap sw <C-w>t<C-w>K
+noremap spk <C-w>t<C-w>K
 "place screen side by side
-noremap sb <C-w>t<C-w>H
+noremap spb <C-w>t<C-w>H
 
 "rotate screens
-noremap srj <C-w>b<C-w>K
-noremap srl <C-w>b<C-w>H
+noremap srk <C-w>b<C-w>K
+noremap srh <C-w>b<C-w>H
 
 "resize split windows
 nnoremap <up> :res +5<CR>
@@ -97,16 +84,16 @@ nnoremap <left> :vertical resize-5<CR>
 nnoremap <right> :vertical resize+5<CR>
 
 "move cursor between windows
-noremap si <C-w>k
-noremap sk <C-w>j
-noremap sj <C-w>h
+noremap sk <C-w>k
+noremap sj <C-w>j
+noremap sh <C-w>h
 noremap sl <C-w>l
 
 "tab
 noremap ta :tabe<CR>
-noremap tj :-tabnext<CR>
+noremap th :-tabnext<CR>
 noremap tl :+tabnext<CR>
-noremap tmj :-tabmove<CR>
+noremap tmh :-tabmove<CR>
 noremap tml :+tabmove<CR>
 
 "focus on center
