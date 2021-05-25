@@ -109,6 +109,9 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 "rust
 Plug 'rust-lang/rust.vim'
 
+"easy motion
+Plug 'easymotion/vim-easymotion'
+
 call plug#end()
 set re=0
 
