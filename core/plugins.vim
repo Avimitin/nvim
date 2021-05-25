@@ -307,12 +307,12 @@ let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<C-k>'
 let g:VM_maps['Find Subword Under'] = '<C-k>'
 let g:VM_maps["Undo"] = '<C-z>'
-let g:VM_custom_motions = {
-			\ 'k': 'i', 
-			\ 'h': 'j',
-			\ 'i': ';',
-			\ 'j': 'k',
-			\}
+"let g:VM_custom_motions = {
+"			\ 'k': 'i', 
+"			\ 'h': 'j',
+"			\ 'i': ';',
+"			\ 'j': 'k',
+"			\}
 
 " rnvimr
 let g:rnvimr_ex_enable = 1
