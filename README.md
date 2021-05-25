@@ -36,6 +36,7 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 	* [File Exploer](#file-exploer)
 	* [File finder](#file-finder)
 	* [terminal](#terminal)
+	* [EasyMotion](#easymotion)
 * [Coding](#coding)
 	* [COC.NVIM](#cocnvim)
 	* [Auto align](#auto-align)
@@ -289,6 +290,20 @@ src="https://camo.githubusercontent.com/01c738192dc98e59cc139b2591f3c43b6dc75d06
 ### terminal 
 
 press `ctrl+\` to open terminal
+
+### EasyMotion
+
+| keymap             | function            |
+| ---                | ---                 |
+| `<leader><leader>` | activate easymotion |
+
+Example usage:
+
+Using `<leader><leader> + w` to activate word selection mode. In this mode the search will start
+from the beginning of each word's character. Press the high light character and cursor will jump to
+there.
+
+For more usage checkout: [ vim-easymotion ](https://github.com/easymotion/vim-easymotion)
 
 ## Coding
 
