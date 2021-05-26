@@ -56,7 +56,8 @@ Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'RRethy/vim-illuminate'
 
 "file navigation
-Plug 'kevinhwang91/rnvimr'
+Plug 'mcchrish/nnn.vim'
+"Plug 'kevinhwang91/rnvimr'
 Plug 'airblade/vim-rooter'
 Plug 'pechorin/any-jump.vim'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension'  }
@@ -315,25 +316,25 @@ let g:VM_maps["Undo"] = '<C-z>'
 "			\}
 
 " rnvimr
-let g:rnvimr_ex_enable = 1
-let g:rnvimr_pick_enable = 1
-let g:rnvimr_draw_border = 1
-highlight link RnvimrNormal CursorLine
-nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
-let g:rnvimr_action = {
-            \ '<C-t>': 'NvimEdit tabedit',
-            \ '<C-x>': 'NvimEdit split',
-            \ '<C-v>': 'NvimEdit vsplit',
-            \ 'gw': 'JumpNvimCwd',
-            \ 'yw': 'EmitRangerCwd'
-            \ }
-let g:rnvimr_layout = { 'relative': 'editor',
-            \ 'width': &columns,
-            \ 'height': &lines,
-            \ 'col': 0,
-            \ 'row': 0,
-            \ 'style': 'minimal' }
-let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
+"let g:rnvimr_ex_enable = 1
+"let g:rnvimr_pick_enable = 1
+"let g:rnvimr_draw_border = 1
+"highlight link RnvimrNormal CursorLine
+"nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
+"let g:rnvimr_action = {
+"            \ '<C-t>': 'NvimEdit tabedit',
+"            \ '<C-x>': 'NvimEdit split',
+"            \ '<C-v>': 'NvimEdit vsplit',
+"            \ 'gw': 'JumpNvimCwd',
+"            \ 'yw': 'EmitRangerCwd'
+"            \ }
+"let g:rnvimr_layout = { 'relative': 'editor',
+"            \ 'width': &columns,
+"            \ 'height': &lines,
+"            \ 'col': 0,
+"            \ 'row': 0,
+"            \ 'style': 'minimal' }
+"let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
 
 " markdown preview
 let g:mkdp_browser = 'firefox'
@@ -357,3 +358,12 @@ autocmd BufWritePre *.c,*.h,*.cpp,*.hpp ClangFormat
 
 " rust
 autocmd BufWrite *.rs RustFmt
+
+" nnn setting
+" nnn windows size
+let g:nnn#layout = { 'left': '~20%' }
+" Floating window setting
+let g:nnn#layout = { 'window': { 'width': 0.4, 'height': 0.6, 'highlight': 'Debug' } }
+" nnn keymap
+let g:nnn#set_default_mappings = 0
+nnoremap <silent> <C-n> :NnnPicker %:p:h<CR>
