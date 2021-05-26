@@ -367,3 +367,4 @@ let g:nnn#layout = { 'window': { 'width': 0.4, 'height': 0.6, 'highlight': 'Debu
 " nnn keymap
 let g:nnn#set_default_mappings = 0
 nnoremap <silent> <C-n> :NnnPicker %:p:h<CR>
+nnoremap <leader>o :tabe<CR>:NnnPicker %:p:h<CR>
