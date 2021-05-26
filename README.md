@@ -272,11 +272,13 @@ leader key is `<Space>` .
 
 ### File Exploer
 
-| keymap | function                           |
-| ------ | --------                           |
-| tt     | open coc explorer                  |
-| ?      | open coc explorer guide            |
-| R      | open ranger (install ranger first) |
+| keymap             | function                                               |
+| ------             | --------                                               |
+| tt                 | open coc explorer                                      |
+| ?                  | open coc explorer guide                                |
+| ~~R~~ (deprecated) | open ranger (install ranger first)                     |
+| `<LEADER>+o`       | open a new tab and nnn file manager(install nnn first) |
+| `<ctrl>+n`         | open nnn file manager                                  |
 
 ### File finder
 
