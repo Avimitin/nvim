@@ -194,26 +194,26 @@ make hexokinase
 
 ```text
     ^
-    u
- < h k >
+    k
+ < h l >
     j
     v
 ```
 
 | key | function                      |
 | --- | --------                      |
-| j   | left                          |
+| h   | left                          |
 | l   | right                         |
-| i   | up                            |
-| k   | down                          |
-| J   | Move to the front of the line |
+| k   | up                            |
+| j   | down                          |
+| H   | Move to the front of the line |
 | L   | Move to the end of the line   |
-| I   | Move up 5 lines               |
-| K   | Move down 5 lines             |
-| U   | Move back 5 words             |
-| H   | Move forward 5 words          |
-| u   | move from word to word        |
-| h   | move back from word to word   |
+| K   | Move up 5 lines               |
+| J   | Move down 5 lines             |
+| N   | Move back 5 words             |
+| B   | Move forward 5 words          |
+| n   | move from word to word        |
+| b   | move back from word to word   |
 | ;;  | Esc at insert mode            |
 | ;   | start insert mode             |
 
