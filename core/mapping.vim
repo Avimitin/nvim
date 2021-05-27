@@ -66,14 +66,15 @@ nnoremap <silent> <LEADER><CR> :nohlsearch<CR>
 "escape
 inoremap <silent> jj <ESC>
 
-"place screen up and down
-noremap spk <C-w>t<C-w>K
-"place screen side by side
-noremap spb <C-w>t<C-w>H
+"place screen horizol
+noremap sph <C-w>t<C-w>K
+"place screen vertically
+noremap spv <C-w>t<C-w>H
 
 "rotate screens
-noremap srk <C-w>b<C-w>K
-noremap srh <C-w>b<C-w>H
+noremap srr <C-w>b<C-w>K
+"rotate screen reversely
+noremap srv <C-w>b<C-w>H
 
 "resize split windows
 nnoremap <up> :res +5<CR>
