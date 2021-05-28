@@ -141,7 +141,7 @@
 		},
 		"ccls": {
 			"command": "ccls",
-			"filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+			"filetypes": ["c", "cpp", "cuda", "objc", "objcpp", "cc", "h", "hpp"],
 			"rootPatterns": [".ccls", ".ccls-root", "compile_commands.json", ".git/", ".hg/"],
 			"initializationOptions": {
 				"cache": {
