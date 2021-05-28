@@ -40,7 +40,7 @@ noremap = n
 let mapleader=" "
 
 "edit neovim file at any time
-nnoremap <LEADER>n :tabe<CR>:edit ~/.config/nvim/init.vim<CR>
+nnoremap <c-n> :tabe<CR>:edit ~/.config/nvim/init.vim<CR>
 
 "reboot vim
 noremap <LEADER>rb :so ~/.config/nvim/init.vim<CR>
