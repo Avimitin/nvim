@@ -365,7 +365,7 @@ let g:nnn#layout = { 'left': '~20%' }
 let g:nnn#layout = { 'window': { 'width': 0.4, 'height': 0.6, 'highlight': 'Debug' } }
 " nnn keymap
 let g:nnn#set_default_mappings = 0
-nnoremap <silent> <C-n> :NnnPicker %:p:h<CR>
+nnoremap <silent> <leader>n :NnnPicker %:p:h<CR>
 nnoremap <leader>o :tabe<CR>:NnnPicker %:p:h<CR>
 let g:nnn#action = {
       \ '<c-t>': 'tab split',
