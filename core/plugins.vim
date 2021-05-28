@@ -353,7 +353,7 @@ let g:airline_theme='deus'
 
 " clang-format setting
 let g:clang_format#detect_style_file=1
-autocmd BufWritePre *.c,*.h,*.cpp,*.hpp ClangFormat
+autocmd BufWritePre *.c,*.h,*.cpp,*.hpp,*.cc ClangFormat
 
 " rust
 autocmd BufWrite *.rs RustFmt
