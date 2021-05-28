@@ -210,7 +210,6 @@ nmap <leader>aw  <Plug>(coc-codeaction-selected)
 
 "vista
 noremap <LEADER>v :Vista!!<CR>
-noremap <c-t> :silent! Vista finder coc<CR>
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'coc'
 let g:vista_fzf_preview = ['right:50%']
@@ -368,3 +367,7 @@ let g:nnn#layout = { 'window': { 'width': 0.4, 'height': 0.6, 'highlight': 'Debu
 let g:nnn#set_default_mappings = 0
 nnoremap <silent> <C-n> :NnnPicker %:p:h<CR>
 nnoremap <leader>o :tabe<CR>:NnnPicker %:p:h<CR>
+let g:nnn#action = {
+      \ '<c-t>': 'tab split',
+      \ '<c-x>': 'split',
+      \ '<c-v>': 'vsplit' }
