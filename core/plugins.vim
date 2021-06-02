@@ -119,6 +119,9 @@ Plug 'rust-lang/rust.vim'
 "easy motion
 Plug 'easymotion/vim-easymotion'
 
+"iteract with tmux
+Plug 'preservim/vimux'
+
 call plug#end()
 set re=0
 
@@ -209,7 +212,7 @@ xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>aw  <Plug>(coc-codeaction-selected)
 
 "vista
-noremap <LEADER>v :Vista!!<CR>
+noremap <LEADER>va :Vista!!<CR>
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'coc'
 let g:vista_fzf_preview = ['right:50%']
@@ -372,3 +375,7 @@ let g:nnn#action = {
       \ '<c-x>': 'split',
       \ '<c-v>': 'vsplit' }
 let g:nnn#command = 'nnn -d -e -H'
+
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
