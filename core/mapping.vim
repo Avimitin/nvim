@@ -22,7 +22,6 @@ noremap N 5w
 noremap vw viw
 
 "undo
-map u <nop>
 noremap <C-z> u
 
 "add indent
