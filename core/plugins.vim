@@ -310,33 +310,6 @@ let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<C-k>'
 let g:VM_maps['Find Subword Under'] = '<C-k>'
 let g:VM_maps["Undo"] = '<C-z>'
-"let g:VM_custom_motions = {
-"			\ 'k': 'i', 
-"			\ 'h': 'j',
-"			\ 'i': ';',
-"			\ 'j': 'k',
-"			\}
-
-" rnvimr
-"let g:rnvimr_ex_enable = 1
-"let g:rnvimr_pick_enable = 1
-"let g:rnvimr_draw_border = 1
-"highlight link RnvimrNormal CursorLine
-"nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
-"let g:rnvimr_action = {
-"            \ '<C-t>': 'NvimEdit tabedit',
-"            \ '<C-x>': 'NvimEdit split',
-"            \ '<C-v>': 'NvimEdit vsplit',
-"            \ 'gw': 'JumpNvimCwd',
-"            \ 'yw': 'EmitRangerCwd'
-"            \ }
-"let g:rnvimr_layout = { 'relative': 'editor',
-"            \ 'width': &columns,
-"            \ 'height': &lines,
-"            \ 'col': 0,
-"            \ 'row': 0,
-"            \ 'style': 'minimal' }
-"let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
 
 " markdown preview
 let g:mkdp_browser = 'firefox'
