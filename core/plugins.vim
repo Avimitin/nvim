@@ -349,6 +349,13 @@ let g:nnn#action = {
       \ '<c-v>': 'vsplit' }
 let g:nnn#command = 'nnn -d -e -H'
 
+" EasyMotion settings
+let g:EasyMotion_do_mapping = 0
+nmap u <Plug>(easymotion-overwin-f2)
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
+
+" vimux setting
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vi :VimuxInspectRunner<CR>
