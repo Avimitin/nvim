@@ -92,7 +92,8 @@
 		"to": "open:tab",
 		"pl": "preview:labeling",
 		"pc": "preview:content",
-		"pp": "pasteFile"
+		"pp": "pasteFile",
+		"so": "open:split"
 	},
 	"html.format.enable": true,
 	"json.format.enable": true,
