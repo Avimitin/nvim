@@ -132,9 +132,6 @@ hi NonText ctermfg=gray guifg=grey10
 
 " plugin setting
 
-" eleline.vim
-let g:airline_powerline_fonts = 0
-
 " GitGutter
 let g:gitgutter_sign_allow_clobber = 0
 let g:gitgutter_map_keys = 0
