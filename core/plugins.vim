@@ -317,7 +317,7 @@ let g:mkdp_browser = 'firefox'
 let g:mkdp_port = '57843'
 
 " vim airline
-let g:airline_theme='deus'
+let g:airline_theme='gruvbox'
 
 " code format
 "let g:neoformat_cpp_clangformat = {
