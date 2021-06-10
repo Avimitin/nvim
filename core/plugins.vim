@@ -41,6 +41,7 @@ Plug 'bpietravalle/vim-bolt'
 Plug 'Avimitin/neovim-deus'
 "Plug 'rakr/vim-one'
 "Plug 'rakr/vim-two-firewatch'
+Plug 'morhetz/gruvbox'
 
 "status bar
 "Plug 'theniceboy/eleline.vim'
@@ -127,7 +128,7 @@ call plug#end()
 set re=0
 
 "set color theme
-color deus
+color gruvbox
 set termguicolors " enable true colors support
 hi NonText ctermfg=gray guifg=grey10
 
