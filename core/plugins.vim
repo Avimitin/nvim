@@ -282,7 +282,7 @@ nnoremap gi= :GitGutterNextHunk<CR>
 nnoremap gi- :GitGutterPrevHunk<CR>
 
 "far.vim
-"nnoremap <silent> <C-f> :Farf<cr>
+nmap <C-f> :Farf --source=ag<cr>
 
 "auto-pairs
 let g:AutoPairsFlyMode = 1
