@@ -339,7 +339,7 @@ autocmd BufWrite *.rs RustFmt
 " nnn windows size
 let g:nnn#layout = { 'left': '~20%' }
 " Floating window setting
-let g:nnn#layout = { 'window': { 'width': 0.4, 'height': 0.6, 'highlight': 'Debug' } }
+let g:nnn#layout = { 'window': { 'width': 0.8, 'height': 0.6, 'highlight': 'Debug' } }
 " nnn keymap
 let g:nnn#set_default_mappings = 0
 nnoremap <silent> <leader>n :NnnPicker %:p:h<CR>
