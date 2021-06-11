@@ -124,6 +124,9 @@ Plug 'easymotion/vim-easymotion'
 "iteract with tmux
 Plug 'preservim/vimux'
 
+" Plugin for cmake
+Plug 'cdelledonne/vim-cmake'
+
 call plug#end()
 set re=0
 
