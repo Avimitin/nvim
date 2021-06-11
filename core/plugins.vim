@@ -318,6 +318,8 @@ let g:mkdp_port = '57843'
 
 " vim airline
 let g:airline_theme='gruvbox'
+" add vim-scrollstatus into airline
+let g:airline_section_x='%{ScrollStatus()}'
 
 " code format
 "let g:neoformat_cpp_clangformat = {
