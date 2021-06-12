@@ -320,7 +320,7 @@ let g:mkdp_browser = 'firefox'
 let g:mkdp_port = '57843'
 
 " vim airline
-let g:airline_theme='gruvbox'
+let g:airline_theme='deus'
 " add vim-scrollstatus into airline
 let g:airline_section_x='%{ScrollStatus()}'
 
