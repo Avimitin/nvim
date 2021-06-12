@@ -131,8 +131,8 @@ call plug#end()
 set re=0
 
 "set color theme
-color gruvbox
 set termguicolors " enable true colors support
+color deus
 hi NonText ctermfg=gray guifg=grey10
 
 " plugin setting
