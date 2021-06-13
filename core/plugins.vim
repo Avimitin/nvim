@@ -131,8 +131,14 @@ call plug#end()
 set re=0
 
 "set color theme
-set termguicolors " enable true colors support
-color deus
+set termguicolors "enable true color support
+
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+set background=dark    " Setting dark mode
+colorscheme deus
+let g:deus_termcolors=256
 hi NonText ctermfg=gray guifg=grey10
 
 " plugin setting
