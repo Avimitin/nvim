@@ -87,13 +87,6 @@ noremap sj <C-w>j
 noremap sh <C-w>h
 noremap sl <C-w>l
 
-"tab
-noremap ta :tabe<CR>
-noremap th :-tabnext<CR>
-noremap tl :+tabnext<CR>
-noremap tmh :-tabmove<CR>
-noremap tml :+tabmove<CR>
-
 "focus on center
 inoremap <C-c> <ESC>zzi
 

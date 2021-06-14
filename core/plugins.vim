@@ -150,31 +150,31 @@ let bufferline = get(g:, 'bufferline', {})
 let bufferline.icon_close_tab_modified = ''
 
 " Move to previous/next
-nnoremap <silent>    <A-h> :BufferPrevious<CR>
-nnoremap <silent>    <A-l> :BufferNext<CR>
+nnoremap <silent>    th :BufferPrevious<CR>
+nnoremap <silent>    tl :BufferNext<CR>
 " Re-order to previous/next
-nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
-nnoremap <silent>    <A->> :BufferMoveNext<CR>
+nnoremap <silent>    t< :BufferMovePrevious<CR>
+nnoremap <silent>    t> :BufferMoveNext<CR>
 " Goto buffer in position...
-nnoremap <silent>    <A-1> :BufferGoto 1<CR>
-nnoremap <silent>    <A-2> :BufferGoto 2<CR>
-nnoremap <silent>    <A-3> :BufferGoto 3<CR>
-nnoremap <silent>    <A-4> :BufferGoto 4<CR>
-nnoremap <silent>    <A-5> :BufferGoto 5<CR>
-nnoremap <silent>    <A-6> :BufferGoto 6<CR>
-nnoremap <silent>    <A-7> :BufferGoto 7<CR>
-nnoremap <silent>    <A-8> :BufferGoto 8<CR>
-nnoremap <silent>    <A-9> :BufferLast<CR>
+nnoremap <silent>    t1 :BufferGoto 1<CR>
+nnoremap <silent>    t2 :BufferGoto 2<CR>
+nnoremap <silent>    t3 :BufferGoto 3<CR>
+nnoremap <silent>    t4 :BufferGoto 4<CR>
+nnoremap <silent>    t5 :BufferGoto 5<CR>
+nnoremap <silent>    t6 :BufferGoto 6<CR>
+nnoremap <silent>    t7 :BufferGoto 7<CR>
+nnoremap <silent>    t8 :BufferGoto 8<CR>
+nnoremap <silent>    t9 :BufferLast<CR>
 " Close buffer
-nnoremap <silent>    <A-q> :BufferClose<CR>
+nnoremap <silent>    tq :BufferClose<CR>
 " Wipeout buffer
 "                          :BufferWipeout<CR>
 " Close commands
-nnoremap <silent>    <A-S-q> :BufferCloseAllButCurrent<CR>
+nnoremap <silent>    taq :BufferCloseAllButCurrent<CR>
 "                          :BufferCloseBuffersLeft<CR>
 "                          :BufferCloseBuffersRight<CR>
 " Magic buffer-picking mode
-nnoremap <silent> <C-s>    :BufferPick<CR>
+nnoremap <silent>    tp   :BufferPick<CR>
 " Sort automatically by...
 nnoremap <silent> <Space>bd :BufferOrderByDirectory<CR>
 nnoremap <silent> <Space>bl :BufferOrderByLanguage<CR>
