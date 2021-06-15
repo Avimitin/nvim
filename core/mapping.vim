@@ -49,7 +49,10 @@ nnoremap <silent> <LEADER>s :w<CR>
 nnoremap <silent> <C-s> :w<CR>
 
 "save and quit
-noremap <LEADER>q :wq<CR>
+nnoremap <LEADER>q :wq<CR>
+
+"only quit
+nnoremap <C-q> :q<CR>
 
 "copy select chars
 vnoremap <LEADER>y "+y
