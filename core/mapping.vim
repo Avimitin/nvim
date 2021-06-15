@@ -44,14 +44,12 @@ nnoremap <c-n> :tabe<CR>:edit ~/.config/nvim/init.vim<CR>
 "reboot vim
 noremap <LEADER>rb :so ~/.config/nvim/init.vim<CR>
 
-"save
-noremap <silent> <LEADER>s :w<CR>
+"save (with normal and leader habit)
+nnoremap <silent> <LEADER>s :w<CR>
+nnoremap <silent> <C-s> :w<CR>
 
 "save and quit
 noremap <LEADER>q :wq<CR>
-
-"normal quit
-nnoremap Q :q<CR>
 
 "copy select chars
 vnoremap <LEADER>y "+y

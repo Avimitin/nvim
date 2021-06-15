@@ -163,7 +163,7 @@ nnoremap <silent>    <A-7> :BufferGoto 7<CR>
 nnoremap <silent>    <A-8> :BufferGoto 8<CR>
 nnoremap <silent>    <A-9> :BufferLast<CR>
 " Close buffer
-nnoremap <silent>    <A-q> :BufferClose<CR>
+nnoremap <silent>    Q     :BufferClose<CR>
 " Close commands
 nnoremap <silent>    <A-c> :BufferCloseAllButCurrent<CR>
 " Magic buffer-picking mode
