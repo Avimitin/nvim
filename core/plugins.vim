@@ -40,11 +40,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "vim-bolt: vim syntax highlighting
 Plug 'bpietravalle/vim-bolt'
 
-"nvim-deus: neovim color theme
-"Plug 'theniceboy/nvim-deus'
+"neovim color theme
 Plug 'Avimitin/neovim-deus'
-"Plug 'rakr/vim-one'
-"Plug 'rakr/vim-two-firewatch'
 Plug 'morhetz/gruvbox'
 
 "status bar
