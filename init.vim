@@ -58,8 +58,7 @@ let &t_ut='' "adjust terminal color
 let g:file_list = [
 	\ 'mapping.vim',
 	\ 'options.vim',
-	\ 'plugins.vim',
-	\ 'autocmd.vim']
+	\ 'plugins.vim']
 
 for s:fname in g:file_list
 	execute printf('source ~/.config/nvim/core/%s', s:fname)
