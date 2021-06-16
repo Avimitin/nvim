@@ -55,7 +55,7 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 * [smoothie](#smoothie)
 * [vim-after-object](#vim-after-object)
 * [vim-commentary](#vim-commentary)
-* [Ultisnips](#ultisnips)
+* [Snippets](#snippets)
 	* [markdown](#markdown-1)
 
 <!-- vim-markdown-toc -->
@@ -466,10 +466,12 @@ to comment out the selection, and gc in operator pending mode to target a
 comment. You can also use it as a command, either with a range like :7# 7Commentary,
 or as part of a :global invocation like with :g/TODO/Commentary. That's it.
 
-## Ultisnips
+## Snippets
 
 Input the keyword below and press tab to switch between waiting key. Once
-you select the keyword, press `<Enter>` to expand the snippets.
+you select the keyword, press `<Enter>` to trigger completion. Also, 
+you can press `<Ctrl>+j` to expand snippets. Press `<tab>` jump from visual text.
+Press `<Ctrl>+k` to jump back visual text.
 
 ### markdown
 
