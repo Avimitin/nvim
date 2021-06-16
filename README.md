@@ -1,6 +1,6 @@
 # nvim config with Gopher convention
 
-![User Interface Preview](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210228180603.png)
+![User Interface Preview](./image/screenshot.png)
 
 ## Intro
 
@@ -19,12 +19,12 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 
 * [Before...](#before)
 * [Dependence](#dependence)
-	* [Install neovim](#install-neovim)
+	* [neovim](#neovim)
 	* [Python](#python)
-	* [nodejs](#nodejs)
+	* [Node.js](#nodejs)
 	* [Install nerdfont and powerline font](#install-nerdfont-and-powerline-font)
 	* [Check health](#check-health)
-	* [Other](#other)
+	* [FAQ](#faq)
 * [Keymap definition](#keymap-definition)
 	* [Basic keys](#basic-keys)
 * [More useful stuff](#more-useful-stuff)
@@ -52,21 +52,25 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 	* [Preview](#preview)
 	* [Toc](#toc)
 	* [Table](#table)
+* [far.vim](#farvim)
 
 <!-- vim-markdown-toc -->
 </details>
 
 ## Before...
 
-You should fork this configuration to your personal repository and clone it to `~/.config`. 
-In this way you can store your customization and make your configuration easy to migrate.
+Fork this configuration to your repository and clone it to `~/.config` for storing
+your own customization. Also, it can help you stay away from version conflict.
 
-For easily changed setting and path, i decided to maintain two version of init.vim.
-To get specific machine version run command below.
+To make it easier to maintain, I decided to used two different branches of the
+configuration file.
+
+> `IMPORTANT NOTES`: Windows branches is no more maintained. Please try WSL
+> for running the neovim.
 
 ```bash
 # linux or mac user
-git clone -b linux https://github.com/avimitin/nvim
+git clone -b linux https://github.com/avimitin/nvim ~/.config/nvim
 
 # windows user
 git clone -b windows https://github.com/avimitin/nvim
@@ -74,20 +78,19 @@ git clone -b windows https://github.com/avimitin/nvim
 
 ## Dependence
 
-### Install neovim
+### neovim 
 
-> IMPORTANT: nightly 0.5.0 version is needed, because of the pop up windows and remote
-support. So Ubuntu user is recommended to add the unstable ppa source to have full plugin
-support.
+> `IMPORTANT NOTES`: Please build the neovim from github, 
+> you will need at least `NVIM v0.5.0-dev+1411-gb28d458f8`.
 
 - Windows
 
-Windows user just download [nvim-qt](https://github.com/neovim/neovim/releases/tag/nightly) 
-and extract it to the folder you want, then add the bin directory to system path.
+Download [nvim-qt](https://github.com/neovim/neovim/releases/tag/nightly) 
+and extract it to the folder you want. Then add the bin directory to the system paths.
 
 - Linux
 
-Linux user can build up neovim yourself or download it from your package manager.
+Linux user must build neovim manually yourself, or download from your package manager if available.
 
 ```bash
 # if you are an Ubuntu user
@@ -98,48 +101,30 @@ sudo apt-get update
 sudo apt install neovim
 
 # OR if you are a Arch user
-yay -S neovim-nightly-bin
+yay -S neovim-git
 ```
 
 ### Python
 
-Python is really important as it help me using file manager like ranger or file finder like fzf.
-So it is MUSTED to install python dependece.
+Once Python is installed, run the following command to install dependencies.
 
-Windows user can install python from 
-[Microsoft Store](https://www.microsoft.com/en-us/p/python-3/9nblggh083nz?activetab=pivot:overviewtab) 
-or from official website.
+```console
+python3 -m pip install pynvim
 
-> Windows user need to first get into Python install folder. Copy python.exe and renamed it to 
-python3.exe. This can avoid python3 not found error.
-
-Linux user just use your package manager to install.
-
-```bash
-# Ubuntu
-sudo apt install python3 python3-pip
-# Arch
-yay -S python3 python3-pip
+# Also, Arch Linux users can install it from AUR
+yay -S python-pynvim
 ```
 
-After python3 install you need to install `pynvim`
+Windows users who still need Python2 will need to make a copy of the Python3
+executable and rename it to `python3` to distinguish it from Python2.
 
-```bash
-pip3 install pynvim
-```
+### Node.js
 
-### nodejs
-
-Nodejs is needed for coc.nvim and it's plugin.
-It is really important if you want to use auto-complete, language server for diagnostic 
-and some useful plugins like vscode plugin.
-
-Using nvm to manage node and nvm can avoid permission problem on linux. 
-You should follow the [nvm install guide](./docs/nodejs_install.md) to 
-install nvm before you install nodejs.
+Linux users should follow the [nvm install guide](./docs/nodejs_install.md) to
+install Node.js version manager. Don't install node and npm from your package manager.
 
 Windows user can just download install package from Official Website and 
-follow the guide to install.
+follow the install wizard to install.
 
 After install:
 
@@ -158,13 +143,13 @@ Also for powerline icon support you should install
 
 ### Check health
 
-open your vim and input command to check dependence is all install or not.
+Open your neovim and input following command to check if the dependence is all installed or not.
 
 ```vim
 :checkhealth
 ```
 
-### Other
+### FAQ
 
 - vim-hexokinase
 
@@ -176,15 +161,29 @@ Run `make hexokinase` in project root.
 See `:h hexokinase-installation` for more info.`
 ```
 
-Windows user can choose to delete this plugin, or install the 
-[GNU Make](http://gnuwin32.sourceforge.net/install.html).
+This plugin is used for generating color from code. For example, it will generate 
+black color after `#000000`.
 
-Get into your nvim config folder, type command
+If you are Windows user, you can delete this plugin if you don't need it or install the 
+[GNU Make](http://gnuwin32.sourceforge.net/install.html) to build it.
+
+Get into your nvim config folder, input following command.
 
 ```bash
 cd plugged/vim-hexokinase
 make hexokinase
 ```
+
+- colorscheme
+
+1. The neovim have no colorscheme, what happen?
+2. The neovim pop up an error message which said `deus not found`.
+
+Please build the latest neovim which support the `runtime Lua` features.
+
+Another workaround is to using old deus version.
+
+For more detail please refer to [Avimitin/neovim-deus](https://github.com/Avimitin/neovim-deus)
 
 ## Keymap definition
 
@@ -214,21 +213,22 @@ make hexokinase
 | B   | Move forward 5 words          |
 | n   | move from word to word        |
 | b   | move back from word to word   |
-| ;;  | Esc at insert mode            |
-| ;   | start insert mode             |
+| jj  | Esc at insert mode            |
+| i   | start insert mode             |
 
 - View
 
-| keymap     | function                      |
-| ------     | --------                      |
-| `Ctrl` + c | put cursor line to the center |
+| keymap     | function                                       | doc                 |
+| ------     | --------                                       | ---                 |
+| `Ctrl` + c | put the line which the cursor is to the center | only in insert mode |
 
 - editing
 
-| keymap     | function |
-| ------     | -------- |
-| `Ctrl` + z | undo     |
-| `Ctrl` + r | redo     |
+| keymap      | function |
+| ------      | -------- |
+| `Ctrl` + z  | undo     |
+| `Ctrl` + r  | redo     |
+| `Ctrl` + s  | save     |
 
 ## More useful stuff
 
@@ -238,13 +238,13 @@ leader key is `<Space>` .
 
 ### Save and Quit
 
-| keymap                  | function      |
-| ------                  | --------      |
-| `LEADER`+s              | save          |
-| `LEADER`+q              | save and quit |
-| `Ctrl`+`Alt`+`shift`+ q | force quit    |
-| `Ctrl` + q              | quit all file |
-| Q                       | just quit     |
+| keymap                  | function                |
+| ------                  | --------                |
+| `LEADER`+s              | save                    |
+| `LEADER`+q              | save and quit           |
+| `Ctrl`+`Alt`+`shift`+ q | force quit              |
+| `Ctrl` + q              | quit                    |
+| Q                       | quit buffer (tab above) |
 
 ### Copy and Paste
 
@@ -255,19 +255,22 @@ leader key is `<Space>` .
 
 ### Tab page
 
-| keymap | function                      |
-| ------ | --------                      |
-| tu     | create new tab                |
-| tl     | move to next tab              |
-| tj     | move to front tab             |
-| tml    | move current tab to next tab  |
-| tmj    | move current tab to front tab |
+| keymap      | function                      |
+| ------      | --------                      |
+| `<Alt> + l` | move to next tab              |
+| `<Alt> + h` | move to front tab             |
+| `<Alt> + >` | move current tab to next tab  |
+| `<Alt> + <` | move current tab to front tab |
+
+Also they are clickable: 
+
+![img](https://raw.githubusercontent.com/romgrk/barbar.nvim/master/static/click.gif)
 
 ### Windows manage
 
 | keymap   | function                            |
 | ------   | --------                            |
-| s+`ijkl` | move cursor to `up/left/down/right` |
+| s+`jhkl` | move cursor to `up/left/down/right` |
 | `arrow`  | Resize windows in normal mode       |
 
 ### File Exploer
@@ -295,15 +298,16 @@ press `ctrl+\` to open terminal
 
 ### EasyMotion
 
-| keymap             | function            |
-| ---                | ---                 |
-| `<leader><leader>` | activate easymotion |
+| keymap       | function             |
+| ---          | ---                  |
+| `u`          | activate easymotion  |
+| `<leader>+j` | easymotion jump line |
+| `<leader>+k` | easymotion jump line |
 
 Example usage:
 
-Using `<leader><leader> + w` to activate word selection mode. In this mode the search will start
-from the beginning of each word's character. Press the high light character and cursor will jump to
-there.
+Input `u` in normal mode and input two character of the keyword. Then input the red character, the
+cursor will jump to that line.
 
 For more usage checkout: [ vim-easymotion ](https://github.com/easymotion/vim-easymotion)
 
@@ -318,9 +322,10 @@ src="https://user-images.githubusercontent.com/251450/55285193-400a9000-53b9-11e
 | ------                 | --------                                                     |
 | `LEADER` + -/=         | Move to next of front diagnostic                             |
 | `LEADER` + d           | Coc diagnostic                                               |
-| `LEADER` + h           | Open definition                                              |
+| `LEADER` + h           | Open  help                                                   |
 | gd                     | go to definition                                             |
 | `LEADER` + `Backspace` | go back to last file (pretty useful when jump between files) |
+| `Ctrl + c`             | open command menu                                            |
 
 Using `:CocInstall` to install plugin you want.
 check out [coc.nvim wiki](https://github.com/neoclide/coc.nvim/wiki) for more.
@@ -385,7 +390,7 @@ src="https://camo.githubusercontent.com/334f5a06cbee4141889dfdf18a7c51a0ea408edb
 | key  | function                                                                    |
 | ---- | ------------------------------------------------------------                |
 | S    | press big S when you selected text, and press a symble you want to surround |
-| CS   | find and replace symbol                                                     |
+| cs   | find and replace symbol                                                     |
 
 "HELLO" -> press `CS"'` change double quote to single quote -> 'HELLO'
 
@@ -447,4 +452,12 @@ that suitable for GitLab repository.
 ### Table
 
 Select lines at normal mode, press `:EasyAlign *|` can align your table.
+
+## far.vim
+
+![img](https://cloud.githubusercontent.com/assets/9823254/20861878/77dd1882-b9b4-11e6-9b48-8bc60f3d7ec0.gif)
+
+Press `<ctrl>+f` to open far.vim which can help you search keyword from multiple file.
+
+You will need the [silversearcher](https://github.com/ggreer/the_silver_searcher)
 
