@@ -147,4 +147,13 @@ snippet "tb([1-9][1-9])" "Fancy table" br
 `!p snip.rv = match.group(1)`
 endsnippet
 
+snippet head "create front matter"
+---
+author: avimitin
+date: `date '+%Y/%m/%d %H:%M'`
+tag: [$1]
+categories: [$2]
+---
+endsnippet
+
 # vim:ft=snippets:
