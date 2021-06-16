@@ -9,7 +9,16 @@ endif
 
 call plug#begin()
 
-" tabline
+"""asyncrun.vim: run command in background"""
+Plug 'skywind3000/asyncrun.vim'
+
+"""vim-commentary: for quickly commenting"""
+Plug 'tpope/vim-commentary'
+
+"""vim-smoothie: smooth scrolling"""
+Plug 'psliwka/vim-smoothie'
+
+"""barbar.nvim: bufferline bar"""
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 
@@ -19,7 +28,7 @@ Plug 'romgrk/barbar.nvim'
 "code scratchpad
 "Plug 'metakirby5/codi.vim'
 
-"fancy start page
+"""fancy start page"""
 Plug 'mhinz/vim-startify'
 
 "markdown preview
@@ -171,7 +180,7 @@ nnoremap <silent>    <A-c> :BufferCloseAllButCurrent<CR>
 " Magic buffer-picking mode
 nnoremap <silent>    <A-p>    :BufferPick<CR>
 
-"GitGutter
+"""""""""""""""""""""""""""vim-gitgutter"""""""""""""""""""""""""""
 let g:gitgutter_sign_allow_clobber = 0
 let g:gitgutter_map_keys = 0
 let g:gitgutter_override_sign_column_highlight = 0
@@ -182,7 +191,13 @@ let g:gitgutter_sign_removed = '▏'
 let g:gitgutter_sign_removed_first_line = '▔'
 let g:gitgutter_sign_modified_removed = '▒'
 
-"coc.nvim
+nnoremap giu :GitGutterUndoHunk<CR>
+nnoremap gis :GitGutterStageHunk<CR>
+nnoremap gip :GitGutterPreviewHunk<CR>
+nnoremap gi= :GitGutterNextHunk<CR>
+nnoremap gi- :GitGutterPrevHunk<CR>
+
+""""""""""""""""coc.nvim""""""""""""""""
 let g:coc_global_extensions = [
 	\ 'coc-diagnostic',
 	\ 'coc-explorer',
@@ -247,7 +262,7 @@ endfunction
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>aw  <Plug>(coc-codeaction-selected)
 
-"vista
+""""""""""""""""vista.vim""""""""""""""""""
 noremap <LEADER>va :Vista!!<CR>
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'coc'
@@ -258,7 +273,7 @@ let g:vista#renderer#icons = {
 \   "variable": "\uf71b",
 \  }
 
-" vim-go
+"""""""""""""""""""""vim-go""""""""""""""""""""""
 autocmd BufWrite *.go GoImports
 autocmd FileType go nmap <silent> got :GoTestFunc<CR>
 autocmd FileType go nmap <silent> gor :GoRun<CR>
@@ -290,7 +305,7 @@ let g:go_highlight_variable_assignments = 0
 let g:go_highlight_variable_declarations = 0
 let g:go_doc_keywordprg_enabled = 0
 
-"LeaderF
+""""""""""""""""""LeaderF""""""""""""""""""
 nnoremap <LEADER>f :Leaderf file<CR>
 let g:Lf_PreviewInPopup = 1
 let g:Lf_PreviewCode = 1
@@ -309,30 +324,22 @@ let g:Lf_CommandMap = {
 \ '<C-u>': ['<C-k>'],
 \}
 
-
-"git gutter
-nnoremap giu :GitGutterUndoHunk<CR>
-nnoremap gis :GitGutterStageHunk<CR>
-nnoremap gip :GitGutterPreviewHunk<CR>
-nnoremap gi= :GitGutterNextHunk<CR>
-nnoremap gi- :GitGutterPrevHunk<CR>
-
-"far.vim
+"""""""""""""""far.vim"""""""""""""""
 nmap <C-f> :Farf --source=ag<cr>
 
-"auto-pairs
+"""""""""""""auto-pairs"""""""""""""
 let g:AutoPairsFlyMode = 1
 map <C-b> <nop>
 let g:AutoPairsShortcutBackInsert = '<C-b>'
 
-"lazygit
+"""""""""""""""""lazygit.nvim"""""""""""""""""
 nnoremap <silent> <c-g> :LazyGit<CR>
 let g:lazygit_floating_window_winblend = 0 " transparency of floating window
 let g:lazygit_floating_window_scaling_factor = 0.9 " scaling factor for floating window
 let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
 let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not installed
 
-"anyjump
+"""""""""""""""""""""any-jump"""""""""""""""""""""
 let g:any_jump_window_width_ratio  = 0.8
 let g:any_jump_window_height_ratio = 0.9
 let g:any_jump_disable_default_keybindings = 1
@@ -340,16 +347,16 @@ let g:any_jump_disable_default_keybindings = 1
 nmap <leader>aj :AnyJump<CR>
 nmap <leader>ab :AnyJumpBack<CR>
 
-"vim-after-project
+"""""""""""""""""""""vim-after-object"""""""""""""""""""""
 autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 
-"vim-visual-multi
+"""""""""""""vim-visual-multi"""""""""""""""
 let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<C-k>'
 let g:VM_maps['Find Subword Under'] = '<C-k>'
 let g:VM_maps["Undo"] = '<C-z>'
 
-" markdown preview
+""""""""""""""""markdown-preview-nvim""""""""""""""""
 let g:mkdp_browser = 'firefox'
 let g:mkdp_port = '57843'
 
@@ -358,23 +365,14 @@ let g:airline_theme='deus'
 " add vim-scrollstatus into airline
 let g:airline_section_x='%{ScrollStatus()}'
 
-" code format
-"let g:neoformat_cpp_clangformat = {
-"		\ 'exe': 'clang-format',
-"		\ 'args': ['-style="{BasedOnStyle: GNU, UseTab: ForIndentation}"']
-"\}
-"let g:neoformat_enabled_cpp = ['clangformat']
-"let g:neoformat_enabled_c = ['clangformat']
-"autocmd BufWritePre *.[ch] Neoformat
-
-" clang-format setting
+""""""""""""""""""vim-clang-format"""""""""""""""""" 
 let g:clang_format#detect_style_file=1
 autocmd BufWritePre *.c,*.h,*.cpp,*.hpp,*.cc ClangFormat
 
-" rust
+""""""""""""""rust.vim""""""""""""""
 autocmd BufWrite *.rs RustFmt
 
-" nnn setting
+"""""""""""""""""nnn.vim""""""""""""""""" 
 " nnn windows size
 let g:nnn#layout = { 'left': '~20%' }
 " Floating window setting
@@ -389,13 +387,13 @@ let g:nnn#action = {
       \ '<c-v>': 'vsplit' }
 let g:nnn#command = 'nnn -d -e -H'
 
-" EasyMotion settings
+""""""""""""""vim-easymotion""""""""""""""
 let g:EasyMotion_do_mapping = 0
 nmap u <Plug>(easymotion-overwin-f2)
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
 
-" vimux setting
+""""""""""""""""""vimux""""""""""""""""""
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vi :VimuxInspectRunner<CR>
