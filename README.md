@@ -48,14 +48,15 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 	* [wildfire](#wildfire)
 	* [Rust](#rust)
 * [Markdown](#markdown)
-	* [Keymap](#keymap)
 	* [Preview](#preview)
 	* [Toc](#toc)
-	* [Table](#table)
+	* [Table align](#table-align)
 * [far.vim](#farvim)
 * [smoothie](#smoothie)
 * [vim-after-object](#vim-after-object)
 * [vim-commentary](#vim-commentary)
+* [Ultisnips](#ultisnips)
+	* [markdown](#markdown-1)
 
 <!-- vim-markdown-toc -->
 </details>
@@ -429,7 +430,7 @@ Go to the line you want to generate TOC, then use the command `:GenTocGFM` to ge
 TOC that suitable for GitHub repository. Use the command `:GenToGitLab` to generate TOC
 that suitable for GitLab repository.
 
-### Table
+### Table align
 
 Select lines at normal mode, press `:EasyAlign *|` can align your table.
 
@@ -464,3 +465,26 @@ of a motion (for example, gcap to comment out a paragraph), gc in visual mode
 to comment out the selection, and gc in operator pending mode to target a
 comment. You can also use it as a command, either with a range like :7# 7Commentary,
 or as part of a :global invocation like with :g/TODO/Commentary. That's it.
+
+## Ultisnips
+
+Input the keyword below and press tab to switch between waiting key. Once
+you select the keyword, press `<Enter>` to expand the snippets.
+
+### markdown
+
+| shortcut     | behaves                                         |
+| :---------   | :--------                                       |
+| h[1-5]       | create H1-H5 section                            |
+| *            | italic                                          |
+| **           | bold                                            |
+| /*           | comment                                         |
+| link         | link to something                               |
+| img          | link to image                                   |
+| ico          | inline code                                     |
+| bco          | code block                                      |
+| tb[1-9][1-9] | create a table with [1-9] line and [1-9] column |
+| head         | create a front-matter with my name              |
+
+Changed the front-matter user's name in `./UltiSnips/markdown.snippets`.
+
