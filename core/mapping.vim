@@ -3,10 +3,6 @@ noremap J 5j
 noremap L $
 noremap H 0
 
-noremap <C-k> 5<C-y>
-noremap <C-j> 5<C-e>
-inoremap <C-a> <ESC>A
-
 "delete a line
 noremap D J
 
