@@ -143,6 +143,8 @@ let g:deus_termcolors=256
 hi NonText ctermfg=gray guifg=grey10
 
 " plugin setting
+"
+""""""""""""""""""barbar.nvim""""""""""""""""""
 let bufferline = get(g:, 'bufferline', {})
 let bufferline.icon_close_tab_modified = ''
 
