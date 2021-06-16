@@ -352,8 +352,6 @@ autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 
 """""""""""""vim-visual-multi"""""""""""""""
 let g:VM_maps = {}
-let g:VM_maps['Find Under']         = '<C-k>'
-let g:VM_maps['Find Subword Under'] = '<C-k>'
 let g:VM_maps["Undo"] = '<C-z>'
 
 """"""""""""""""markdown-preview-nvim""""""""""""""""
