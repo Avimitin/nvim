@@ -80,10 +80,6 @@ Plug 'liuchengxu/vista.vim'
 "auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-"""ultisnips: snippets engine"""
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
 "provide syntax highlighting for gitignore file
 Plug 'theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
 
@@ -153,11 +149,6 @@ let g:deus_termcolors=256
 hi NonText ctermfg=gray guifg=grey10
 
 " plugin setting
-"
-"""""""""""ultisnips"""""""""""
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 """"""""""""""""""barbar.nvim""""""""""""""""""
 let bufferline = get(g:, 'bufferline', {})
@@ -220,17 +211,26 @@ let g:coc_global_extensions = [
 	\ 'coc-yaml',
 	\ 'coc-yank']
 
+"""press tab to downward waiting list"""
 inoremap <silent><expr> <TAB>
 			\ pumvisible() ? "\<C-n>" :
+			\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
 			\ <SID>check_back_space() ? "\<TAB>" :
 			\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+"""press shift tab to downward waiting list"""
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+"""press <enter> to select the complete"""
+inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+"""pop up new windows and show document in it"""
+nnoremap <LEADER>h :call Show_documentation()<CR>
 
 function! Show_documentation()
 	call CocActionAsync('highlight')
@@ -241,32 +241,55 @@ function! Show_documentation()
 	endif
 endfunction
 
+"""press ctrl+o at insert mode to trigger complete"""
 inoremap <silent><expr> <c-o> coc#refresh()
-nnoremap <LEADER>h :call Show_documentation()<CR>
-nnoremap <silent><nowait> <LEADER>d :CocList diagnostics<cr>
+
+"""press space+ -/= to navigate between diagnostic"""
 nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
 nmap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
+
+"""press ctrl+c at normal mode to open coc command list"""
 nnoremap <c-c> :CocCommand<CR>
+
+"""press <space>+y to yank select test into coc list"""
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
+
+"""GoTo action"""
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
+
+"""rename word under cursor"""
 nmap <leader>rn <Plug>(coc-rename)
+
+"""press tt to open tree explorer"""
 nmap tt :CocCommand explorer<CR>
+
+"""press ts to translate word under cursor"""
 nmap ts <Plug>(coc-translator-p)
-imap <C-l> <Plug>(coc-snippets-expand)
-vmap <C-e> <Plug>(coc-snippets-select)
-let g:coc_snippet_next = '<c-e>'
-let g:coc_snippet_prev = '<c-n>'
-imap <C-e> <Plug>(coc-snippets-expand-jump)
-let g:snips_author = 'Avimitin'
+
+"""coc-snippet"""
+"""Use <C-e> for trigger snippet expand."""
+imap <C-e> <Plug>(coc-snippets-expand)
+"""Use <C-j> for select text for visual placeholder of snippet."""
+vmap <C-j> <Plug>(coc-snippets-select)"
+let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_prev = '<c-k>'
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
-function! s:cocActionsOpenFromSelected(type) abort
-	execute 'CocCommand actions.open ' . a:type
-endfunction
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>aw  <Plug>(coc-codeaction-selected)
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+"
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
 
 """"""""""""""""vista.vim""""""""""""""""""
 noremap <LEADER>va :Vista!!<CR>
