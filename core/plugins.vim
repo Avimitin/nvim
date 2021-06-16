@@ -80,8 +80,9 @@ Plug 'liuchengxu/vista.vim'
 "auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-"snippets
-Plug 'theniceboy/vim-snippets'
+"""ultisnips: snippets engine"""
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 "provide syntax highlighting for gitignore file
 Plug 'theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
@@ -153,6 +154,11 @@ hi NonText ctermfg=gray guifg=grey10
 
 " plugin setting
 "
+"""""""""""ultisnips"""""""""""
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
 """"""""""""""""""barbar.nvim""""""""""""""""""
 let bufferline = get(g:, 'bufferline', {})
 let bufferline.icon_close_tab_modified = ''
