@@ -418,29 +418,6 @@ in `coc-setting.json`
 
 ## Markdown
 
-### Keymap
-
-| Shortcut | What it creates     |
-|----------|---------------------|
-| `,n`     | ---                 |
-| `,b`     | **Bold** text       |
-| `,s`     | ~~sliced~~ text     |
-| `,i`     | *italic* text       |
-| `,d`     | `code block`        |
-| `,c`     | big `block of code` |
-| `,m`     | - [ ] check mark    |
-| `,p`     | picture             |
-| `,a`     | [link]()            |
-| `,1`     | # H1                |
-| `,2`     | ## H2               |
-| `,3`     | ### H3              |
-| `,4`     | #### H4             |
-| `,l`     | --------            |
-
-`,f` to go to the next `<++>` (placeholder)
-
-`,w` to go to the next `<++>` (placeholder) and then press `Enter` for you
-
 ### Preview
 
 Press `:MarkdownPreview` command to activate preview, change the default browser
