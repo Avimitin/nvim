@@ -334,6 +334,14 @@ src="https://user-images.githubusercontent.com/251450/55285193-400a9000-53b9-11e
 Using `:CocInstall` to install plugin you want.
 check out [coc.nvim wiki](https://github.com/neoclide/coc.nvim/wiki) for more.
 
+- Rename variable
+
+![img](./image/coc_rename.webp)
+
+| keymap             | function                     |
+| ---                | ---                          |
+| `<leader>` + r + n | rename variable under cursor |
+
 ### Auto align
 
 <img style="max-width: 500px; max-height: 500px" 
