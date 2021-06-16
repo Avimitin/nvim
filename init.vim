@@ -12,17 +12,22 @@
 
 " INTRODUCTION
 " ============
-" Install python3 pip3 nodejs npm manually.
-" And using :checkhealth command to check if your neovim are
-" lack of any dependency.
-"
 " This neovim configuration is inspired by jdhao/nvim-config
-" and theniceboy/nvim
+" and theniceboy/nvim.
 " 
-" Before you use this script, please read and make some changes
-" to be more familiar to this script.
-
-
+" Please read thought this configuration file to familiarise
+" yourself with it before you use it.
+"
+" Run :checkhealth to make sure you installed all the dependence.
+"
+" All the configuration file store in the core/ directory. With 
+" this file stucture:
+"   core/
+"     - autocmd.vim (store markdown macro)
+"     - mapping.vim (store basic mapping)
+"     - options.vim (store neovim settings)
+"     - plugins.vim (store all the plugins and their settings)
+"
 " LICENSE
 " =======
 " License: MIT License
