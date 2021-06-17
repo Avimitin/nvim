@@ -52,7 +52,7 @@
 	"diagnostic.displayByAle": false,
 	"diagnostic.refreshOnInsertMode": false,
 	"diagnostic.checkCurrentLine": true,
-	"diagnostic.virtualTextPrefix": " ❯❯❯ ",
+	"diagnostic.virtualTextPrefix": "",
 	"diagnostic.virtualText": true,
 	"codeLens.enable": true,
 	"list.previewHighlightGroup": "Statement",
@@ -117,6 +117,7 @@
 		"elixir": "mix_format",
 		"eelixir": "mix_format"
 	},
+	"snippets.ultisnips.directories": ["$HOME/.config/nvim/UltiSnips"],
 	"languageserver": {
 		"rust": {
 			"command": "rust-analyzer",
