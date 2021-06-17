@@ -57,6 +57,7 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 * [vim-commentary](#vim-commentary)
 * [Snippets](#snippets)
 	* [markdown](#markdown-1)
+* [AsyncRun](#asyncrun)
 
 <!-- vim-markdown-toc -->
 </details>
@@ -248,7 +249,7 @@ leader key is `<Space>` .
 | `LEADER`+q              | save and quit           |
 | `Ctrl`+`Alt`+`shift`+ q | force quit              |
 | `Ctrl` + q              | quit                    |
-| Q                       | quit buffer (tab above) |
+| `Alt` + q               | quit buffer (tab above) |
 
 ### Copy and Paste
 
@@ -483,18 +484,22 @@ Press `<Ctrl>+k` to jump back visual text.
 
 ### markdown
 
-| shortcut     | behaves                                         |
-| :---------   | :--------                                       |
-| h[1-5]       | create H1-H5 section                            |
-| *            | italic                                          |
-| **           | bold                                            |
-| /*           | comment                                         |
-| link         | link to something                               |
-| img          | link to image                                   |
-| ico          | inline code                                     |
-| bco          | code block                                      |
-| tb[1-9][1-9] | create a table with [1-9] line and [1-9] column |
-| head         | create a front-matter with my name              |
+| shortcut   | behaves                                         |
+| :--------- | :--------                                       |
+| `h[1-5]`   | create H1-H5 section                            |
+| `*`        | italic                                          |
+| `**`       | bold                                            |
+| `/*`       | comment                                         |
+| `link`     | link to something                               |
+| `img`      | link to image                                   |
+| `ico`      | inline code                                     |
+| `bco`      | code block                                      |
+| `tb`       | create a table with [1-9] line and [1-9] column |
+| `head`     | create a front-matter with my name              |
 
 Changed the front-matter user's name in `./UltiSnips/markdown.snippets`.
 
+## AsyncRun
+
+Press `<Ctrl>+\` and input command to execute command asynchronously 
+and open a quickfix windows.
