@@ -86,8 +86,3 @@ noremap sl <C-w>l
 
 "focus on center
 inoremap <C-c> <ESC>zzi
-
-"terminal
-nnoremap <C-\> :tabe<CR>:term<CR>
-tnoremap <C-q> <C-\><C-n>:q<CR>
-tnoremap <C-n> <C-\><C-n>
