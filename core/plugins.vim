@@ -55,8 +55,10 @@ Plug 'morhetz/gruvbox'
 
 "status bar
 "Plug 'theniceboy/eleline.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'glepnir/galaxyline.nvim', { 'branch': 'main' }
+Plug 'Avimitin/nerd-galaxyline'
 
 "progress bar
 Plug 'ojroques/vim-scrollstatus'
@@ -387,10 +389,10 @@ let g:VM_maps["Undo"] = '<C-z>'
 let g:mkdp_browser = 'firefox'
 let g:mkdp_port = '57843'
 
-" vim airline
-let g:airline_theme='deus'
+""""""""""vim airline"""""""""""""
+" let g:airline_theme='deus'
 " add vim-scrollstatus into airline
-let g:airline_section_x='%{ScrollStatus()}'
+" let g:airline_section_x='%{ScrollStatus()}'
 
 """"""""""""""""""vim-clang-format"""""""""""""""""" 
 let g:clang_format#detect_style_file=1
