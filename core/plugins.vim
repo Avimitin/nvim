@@ -129,7 +129,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'easymotion/vim-easymotion'
 
 "iteract with tmux
-Plug 'preservim/vimux'
+"Plug 'preservim/vimux'
 
 " Plugin for cmake
 Plug 'cdelledonne/vim-cmake'
@@ -421,6 +421,10 @@ nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
 
 """"""""""""""""""vimux""""""""""""""""""
-map <Leader>vp :VimuxPromptCommand<CR>
-map <Leader>vq :VimuxCloseRunner<CR>
-map <Leader>vi :VimuxInspectRunner<CR>
+" map <Leader>vp :VimuxPromptCommand<CR>
+" map <Leader>vq :VimuxCloseRunner<CR>
+" map <Leader>vi :VimuxInspectRunner<CR>
+
+"""""""""""""asyncrun.vim"""""""""""""
+" open quick fix windows and waiting for command
+nmap <C-\> :copen<CR>:AsyncRun 
