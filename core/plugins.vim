@@ -122,7 +122,7 @@ Plug 'mzlogin/vim-markdown-toc'
 Plug 'rhysd/vim-clang-format'
 
 " c/cpp highlight
-Plug 'jackguo380/vim-lsp-cxx-highlight'
+" Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 "rust
 Plug 'rust-lang/rust.vim'
