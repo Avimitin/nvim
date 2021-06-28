@@ -3,8 +3,22 @@ require'nvim-treesitter.configs'.setup {
 		"cpp",
 		"toml",
 		"rust",
+		"go",
+		"json",
+		"lua",
+		"comment",
+		"fish",
 	},
 	highlight = {
 		enable = true,
 	}
+}
+
+require('FTerm').setup {
+	dimensions = {
+		height = 0.9,
+		width = 0.9,
+	},
+
+	border = 'single'
 }
