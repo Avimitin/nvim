@@ -136,6 +136,9 @@ Plug 'easymotion/vim-easymotion'
 " Plugin for cmake
 Plug 'cdelledonne/vim-cmake'
 
+" open a big terminal
+Plug 'numtostr/FTerm.nvim'
+
 call plug#end()
 set re=0
 
@@ -429,4 +432,7 @@ nmap <Leader>k <Plug>(easymotion-k)
 
 """""""""""""asyncrun.vim"""""""""""""
 " open quick fix windows and waiting for command
-nmap <C-\> :copen<CR>:AsyncRun 
+" nmap <C-\> :copen<CR>:AsyncRun 
+
+"""""""""""""""""FTerm.nvim""""""""""
+nmap <C-\> <CMD>lua require("FTerm").open()<CR>
