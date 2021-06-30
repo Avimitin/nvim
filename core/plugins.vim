@@ -8,6 +8,8 @@ endif
 " plugin
 
 call plug#begin()
+"""nvim-bufferline.lua: quick and responsive buffer picker"""
+Plug 'akinsho/nvim-bufferline.lua'
 
 """asyncrun.vim: run command in background"""
 Plug 'skywind3000/asyncrun.vim'
@@ -20,7 +22,7 @@ Plug 'psliwka/vim-smoothie'
 
 """barbar.nvim: bufferline bar"""
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
+" Plug 'romgrk/barbar.nvim'
 
 "code format
 "Plug 'sbdchd/neoformat'
@@ -155,32 +157,18 @@ hi NonText ctermfg=gray guifg=grey10
 
 " plugin setting
 
-""""""""""""""""""barbar.nvim""""""""""""""""""
-let bufferline = get(g:, 'bufferline', {})
-let bufferline.icon_close_tab_modified = ''
-
+""""""""""""""""""nvim-bufferline.lua""""""""""""""""""
 " Move to previous/next
-nnoremap <silent>    <A-h> :BufferPrevious<CR>
-nnoremap <silent>    <A-l> :BufferNext<CR>
+nnoremap <silent>    <A-h>   :BufferLineCyclePrev<CR>
+nnoremap <silent>    <A-l>   :BufferLineCycleNext<CR>
 " Re-order to previous/next
-nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
-nnoremap <silent>    <A->> :BufferMoveNext<CR>
-" Goto buffer in position...
-nnoremap <silent>    <A-1> :BufferGoto 1<CR>
-nnoremap <silent>    <A-2> :BufferGoto 2<CR>
-nnoremap <silent>    <A-3> :BufferGoto 3<CR>
-nnoremap <silent>    <A-4> :BufferGoto 4<CR>
-nnoremap <silent>    <A-5> :BufferGoto 5<CR>
-nnoremap <silent>    <A-6> :BufferGoto 6<CR>
-nnoremap <silent>    <A-7> :BufferGoto 7<CR>
-nnoremap <silent>    <A-8> :BufferGoto 8<CR>
-nnoremap <silent>    <A-9> :BufferLast<CR>
+nnoremap <silent>    <A-<>   :BufferLineCycleMovePrev<CR>
+nnoremap <silent>    <A->>   :BufferLineCycleMoveNext<CR>
 " Close buffer
-nnoremap <silent>    <A-q>     :BufferClose<CR>
-" Close commands
-nnoremap <silent>    <A-c> :BufferCloseAllButCurrent<CR>
+nnoremap <silent>    <A-q>   :BufferLineCloseLeft<CR>
+nnoremap <silent>    <A-S-q> :BufferLineCloseRight<CR>
 " Magic buffer-picking mode
-nnoremap <silent>    <A-p>    :BufferPick<CR>
+nnoremap <silent>    <A-S-p>   :BufferLinePick<CR>
 
 """""""""""""""""""""""""""vim-gitgutter"""""""""""""""""""""""""""
 let g:gitgutter_sign_allow_clobber = 0

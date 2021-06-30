@@ -22,3 +22,10 @@ require('FTerm').setup {
 
 	border = 'single'
 }
+
+require("bufferline").setup{
+	options = {
+		indicator_icon = ' ',
+		modified_icon = '',
+	}
+}
