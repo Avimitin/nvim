@@ -378,6 +378,7 @@ let g:VM_maps["Undo"] = '<C-z>'
 
 """"""""""""""""markdown-preview-nvim""""""""""""""""
 let g:mkdp_browser = 'firefox'
+let g:mkdp_open_to_the_world = 1
 let g:mkdp_port = '57843'
 
 """"""""""vim airline"""""""""""""
