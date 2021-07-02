@@ -12,7 +12,7 @@ call plug#begin()
 Plug 'Pocco81/TrueZen.nvim'
 
 """nvim-bufferline.lua: quick and responsive buffer picker"""
-Plug 'akinsho/nvim-bufferline.lua'
+"Plug 'akinsho/nvim-bufferline.lua'
 
 """asyncrun.vim: run command in background"""
 Plug 'skywind3000/asyncrun.vim'
@@ -25,7 +25,7 @@ Plug 'psliwka/vim-smoothie'
 
 """barbar.nvim: bufferline bar"""
 Plug 'kyazdani42/nvim-web-devicons'
-" Plug 'romgrk/barbar.nvim'
+Plug 'romgrk/barbar.nvim'
 
 "code format
 "Plug 'sbdchd/neoformat'
@@ -160,18 +160,24 @@ hi NonText ctermfg=gray guifg=grey10
 
 " plugin setting
 
-""""""""""""""""""nvim-bufferline.lua""""""""""""""""""
+""""""""""""""""""barbar.nvim""""""""""""""""""
 " Move to previous/next
-nnoremap <silent>    <A-h>   :BufferLineCyclePrev<CR>
-nnoremap <silent>    <A-l>   :BufferLineCycleNext<CR>
+nnoremap <silent>    <A-h>   :BufferPrevious<CR>
+nnoremap <silent>    <A-l>   :BufferNext<CR>
 " Re-order to previous/next
-nnoremap <silent>    <A-<>   :BufferLineCycleMovePrev<CR>
-nnoremap <silent>    <A->>   :BufferLineCycleMoveNext<CR>
-" Close buffer
-nnoremap <silent>    <A-q>   :BufferLineCloseLeft<CR>
-nnoremap <silent>    <A-S-q> :BufferLineCloseRight<CR>
+nnoremap <silent>    <A-<>   :BufferMovePrevious<CR>
+nnoremap <silent>    <A->>   :BufferMoveNext<CR>
+" Close buffer and quit
+nnoremap <A-q>               :BufferClose<CR>:q<CR>
+nnoremap <silent>    <A-S-q> :BufferCloseAllButCurrent<CR>
 " Magic buffer-picking mode
 nnoremap <silent>    <A-S-p>   :BufferLinePick<CR>
+let bufferline = get(g:, 'bufferline', {})
+let bufferline.icon_close_tab_modified = ''
+let bufferline.auto_hide = v:true
+let bufferline.tabpages = v:true
+let bufferline.closable = v:true
+let bufferline.clickable = v:true
 
 """""""""""""""""""""""""""vim-gitgutter"""""""""""""""""""""""""""
 let g:gitgutter_sign_allow_clobber = 0
