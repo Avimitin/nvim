@@ -8,6 +8,9 @@ endif
 " plugin
 
 call plug#begin()
+"""TrueZen.nvim: zen mode in neovim"""
+Plug 'Pocco81/TrueZen.nvim'
+
 """nvim-bufferline.lua: quick and responsive buffer picker"""
 Plug 'akinsho/nvim-bufferline.lua'
 
