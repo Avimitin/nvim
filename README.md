@@ -262,8 +262,8 @@ leader key is `<Space>` .
 
 | keymap      | function                      |
 | ------      | --------                      |
-| `<Alt> + l` | move to next tab              |
-| `<Alt> + h` | move to front tab             |
+| `,`         | move to next tab              |
+| `.`         | move to front tab             |
 | `<Alt> + >` | move current tab to next tab  |
 | `<Alt> + <` | move current tab to front tab |
 
