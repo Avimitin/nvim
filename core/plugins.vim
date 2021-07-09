@@ -162,8 +162,8 @@ hi NonText ctermfg=gray guifg=grey10
 
 """"""""""""""""""barbar.nvim""""""""""""""""""
 " Move to previous/next
-nnoremap <silent>    <A-h>   :BufferPrevious<CR>
-nnoremap <silent>    <A-l>   :BufferNext<CR>
+nnoremap <silent>    ,       :BufferPrevious<CR>
+nnoremap <silent>    .       :BufferNext<CR>
 " Re-order to previous/next
 nnoremap <silent>    <A-<>   :BufferMovePrevious<CR>
 nnoremap <silent>    <A->>   :BufferMoveNext<CR>
