@@ -332,9 +332,6 @@ let g:Lf_WildIgnore = {
         \}
 let g:Lf_UseMemoryCache = 0
 let g:Lf_UseCache = 0
-let g:Lf_CommandMap = {
-\ '<C-u>': ['<C-k>'],
-\}
 
 """""""""""""""far.vim"""""""""""""""
 nmap <C-f> :Farf --source=ag<cr>
