@@ -168,7 +168,7 @@ nnoremap <silent>    .       :BufferNext<CR>
 nnoremap <silent>    <A-<>   :BufferMovePrevious<CR>
 nnoremap <silent>    <A->>   :BufferMoveNext<CR>
 " Close buffer and quit
-nnoremap <A-q>               :BufferClose<CR>:q<CR>
+nnoremap <A-q>               :BufferClose<CR>
 nnoremap <silent>    <A-S-q> :BufferCloseAllButCurrent<CR>
 " Magic buffer-picking mode
 nnoremap <silent>    <A-S-p>   :BufferLinePick<CR>
