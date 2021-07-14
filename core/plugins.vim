@@ -11,9 +11,6 @@ call plug#begin()
 """TrueZen.nvim: zen mode in neovim"""
 Plug 'Pocco81/TrueZen.nvim'
 
-"""nvim-bufferline.lua: quick and responsive buffer picker"""
-"Plug 'akinsho/nvim-bufferline.lua'
-
 """asyncrun.vim: run command in background"""
 Plug 'skywind3000/asyncrun.vim'
 
@@ -26,12 +23,6 @@ Plug 'psliwka/vim-smoothie'
 """barbar.nvim: bufferline bar"""
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
-
-"code format
-"Plug 'sbdchd/neoformat'
-
-"code scratchpad
-"Plug 'metakirby5/codi.vim'
 
 """fancy start page"""
 Plug 'mhinz/vim-startify'
@@ -59,9 +50,6 @@ Plug 'Avimitin/neovim-deus'
 Plug 'morhetz/gruvbox'
 
 "status bar
-"Plug 'theniceboy/eleline.vim'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'glepnir/galaxyline.nvim', { 'branch': 'main' }
 Plug 'Avimitin/nerd-galaxyline'
 
@@ -76,7 +64,6 @@ Plug 'RRethy/vim-illuminate'
 
 "file navigation
 Plug 'mcchrish/nnn.vim'
-"Plug 'kevinhwang91/rnvimr'
 Plug 'airblade/vim-rooter'
 Plug 'pechorin/any-jump.vim'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension'  }
@@ -126,17 +113,11 @@ Plug 'mzlogin/vim-markdown-toc'
 "clang-format
 Plug 'rhysd/vim-clang-format'
 
-" c/cpp highlight
-" Plug 'jackguo380/vim-lsp-cxx-highlight'
-
 "rust
 Plug 'rust-lang/rust.vim'
 
 "easy motion
 Plug 'easymotion/vim-easymotion'
-
-"iteract with tmux
-"Plug 'preservim/vimux'
 
 " Plugin for cmake
 Plug 'cdelledonne/vim-cmake'
@@ -390,11 +371,6 @@ let g:mkdp_browser = 'firefox'
 let g:mkdp_open_to_the_world = 1
 let g:mkdp_port = '57843'
 
-""""""""""vim airline"""""""""""""
-" let g:airline_theme='deus'
-" add vim-scrollstatus into airline
-" let g:airline_section_x='%{ScrollStatus()}'
-
 """"""""""""""""""vim-clang-format"""""""""""""""""" 
 let g:clang_format#detect_style_file=1
 autocmd BufWritePre *.c,*.h,*.cpp,*.hpp,*.cc ClangFormat
@@ -422,15 +398,6 @@ let g:EasyMotion_do_mapping = 0
 nmap u <Plug>(easymotion-overwin-f2)
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
-
-""""""""""""""""""vimux""""""""""""""""""
-" map <Leader>vp :VimuxPromptCommand<CR>
-" map <Leader>vq :VimuxCloseRunner<CR>
-" map <Leader>vi :VimuxInspectRunner<CR>
-
-"""""""""""""asyncrun.vim"""""""""""""
-" open quick fix windows and waiting for command
-" nmap <C-\> :copen<CR>:AsyncRun 
 
 """""""""""""""""FTerm.nvim""""""""""
 nmap <C-\> <CMD>lua require("FTerm").open()<CR>
