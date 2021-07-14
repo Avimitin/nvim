@@ -36,6 +36,7 @@ set virtualedit=block
 set colorcolumn=100
 set lazyredraw
 set signcolumn=yes:1
+set mouse=a                                               " enable clickable button
 
 "set the rule of folding line
 set foldmethod=indent
