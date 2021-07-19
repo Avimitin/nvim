@@ -1,10 +1,11 @@
+let &t_ut=''                                              " adjust terminal color
 set exrc                                                  " exec command in init.vim
 set secure                                                " safely do command above
 set autochdir                                             " auto change directory
 set number
 set relativenumber
 set cursorline                                            " set line below cursor
-set noexpandtab                                           " use only '\t' as tab
+set expandtab                                             " use space as tab
 set tabstop=2                                             " show how many space for a '\t'
 set shiftwidth=2                                          " use how many space for >> or <<
 set softtabstop=2                                         " use how many space when pressing tab

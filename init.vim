@@ -52,9 +52,6 @@
 " FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 " IN THE SOFTWARE.
 
-
-let &t_ut='' "adjust terminal color
-
 let g:file_list = [
 	\ 'mapping.vim',
 	\ 'options.vim',
