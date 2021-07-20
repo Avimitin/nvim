@@ -41,9 +41,6 @@ Plug 'lambdalisue/suda.vim'
 "treesitter: support more colorful highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-"vim-bolt: vim syntax highlighting
-Plug 'bpietravalle/vim-bolt'
-
 "neovim color theme
 Plug 'Avimitin/neovim-deus'
 Plug 'morhetz/gruvbox'
