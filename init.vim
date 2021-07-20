@@ -61,4 +61,4 @@ for s:fname in g:file_list
 	execute printf('source ~/.config/nvim/core/%s', s:fname)
 endfor
 
-lua require('main')
+lua require('plugins')
