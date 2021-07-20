@@ -52,9 +52,6 @@ Plug 'morhetz/gruvbox'
 Plug 'glepnir/galaxyline.nvim', { 'branch': 'main' }
 Plug 'Avimitin/nerd-galaxyline'
 
-"progress bar
-Plug 'ojroques/vim-scrollstatus'
-
 "convert RGB... color value to actual color
 Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
