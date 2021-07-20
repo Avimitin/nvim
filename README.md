@@ -22,7 +22,6 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 * [Dependence](#dependence)
   * [neovim](#neovim)
   * [Python](#python)
-  * [Node.js](#nodejs)
   * [Install nerdfont and powerline font](#install-nerdfont-and-powerline-font)
   * [Check health](#check-health)
   * [FAQ](#faq)
@@ -65,7 +64,7 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 
 ## TODO
 
-- [ ] Replace coc.nvim with built-in lsp
+- [x] Replace coc.nvim with built-in lsp
 
 ## Before...
 
@@ -116,18 +115,6 @@ python3 -m pip install pynvim
 
 # Also, Arch Linux users can install it from AUR
 yay -S python-pynvim
-```
-
-### Node.js
-
-Linux users should follow the [nvm install guide](./docs/nodejs_install.md) to
-install Node.js version manager. Don't install node and npm from your package manager.
-
-After install:
-
-```bash
-# install nvm first
-npm install -g neovim
 ```
 
 ### Install nerdfont and powerline font
