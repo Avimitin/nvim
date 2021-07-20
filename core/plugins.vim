@@ -8,6 +8,21 @@ endif
 " plugin
 
 call plug#begin()
+"""nvim-bufferline: better buffer line"""
+Plug 'akinsho/nvim-bufferline.lua'
+
+"""nvim-lspinstall: lsp manager"""
+Plug 'kabouzeid/nvim-lspinstall'
+
+"""nvim-compe: code completion"""
+Plug 'hrsh7th/nvim-compe'
+
+"""nvim-lspconfig: built-in lsp"""
+Plug 'neovim/nvim-lspconfig'
+
+"""nvim-tree.lua"""
+Plug 'kyazdani42/nvim-tree.lua'
+
 """TrueZen.nvim: zen mode in neovim"""
 Plug 'Pocco81/TrueZen.nvim'
 
