@@ -22,7 +22,6 @@ Plug 'psliwka/vim-smoothie'
 
 """barbar.nvim: bufferline bar"""
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
 
 """fancy start page"""
 Plug 'mhinz/vim-startify'
@@ -140,26 +139,6 @@ let g:deus_termcolors=256
 hi NonText ctermfg=gray guifg=grey10
 
 " plugin setting
-
-""""""""""""""""""barbar.nvim""""""""""""""""""
-" Move to previous/next
-nnoremap <silent>    ,       :BufferPrevious<CR>
-nnoremap <silent>    .       :BufferNext<CR>
-" Re-order to previous/next
-nnoremap <silent>    <A-<>   :BufferMovePrevious<CR>
-nnoremap <silent>    <A->>   :BufferMoveNext<CR>
-" Close buffer and quit
-nnoremap <A-q>               :BufferClose<CR>
-nnoremap <silent>    <A-S-q> :BufferCloseAllButCurrent<CR>
-" Magic buffer-picking mode
-nnoremap <silent>    <A-S-p>   :BufferLinePick<CR>
-let bufferline = get(g:, 'bufferline', {})
-let bufferline.icon_close_tab_modified = ''
-let bufferline.auto_hide = v:true
-let bufferline.tabpages = v:true
-let bufferline.closable = v:true
-let bufferline.clickable = v:true
-
 """""""""""""""""""""""""""vim-gitgutter"""""""""""""""""""""""""""
 let g:gitgutter_sign_allow_clobber = 0
 let g:gitgutter_map_keys = 0
