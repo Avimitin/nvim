@@ -8,6 +8,11 @@ endif
 " plugin
 
 call plug#begin()
+"""telescope: extensible fuzzy file finder"""
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 """nvim-bufferline: better buffer line"""
 Plug 'akinsho/nvim-bufferline.lua'
 
@@ -71,13 +76,9 @@ Plug 'RRethy/vim-illuminate'
 Plug 'mcchrish/nnn.vim'
 Plug 'airblade/vim-rooter'
 Plug 'pechorin/any-jump.vim'
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension'  }
 
 "list function/module/struct tag
 Plug 'liuchengxu/vista.vim'
-
-"auto complete
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "provide syntax highlighting for gitignore file
 Plug 'theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
@@ -204,22 +205,6 @@ let g:go_highlight_types = 1
 let g:go_highlight_variable_assignments = 0
 let g:go_highlight_variable_declarations = 0
 let g:go_doc_keywordprg_enabled = 0
-
-""""""""""""""""""LeaderF""""""""""""""""""
-nnoremap <LEADER>f :Leaderf file<CR>
-let g:Lf_PreviewInPopup = 1
-let g:Lf_PreviewCode = 1
-let g:Lf_ShowHidden = 1
-let g:Lf_ShowDevIcons = 1
-let g:Lf_UseVersionControlTool = 0
-let g:Lf_WindowPosition = 'popup'
-let g:Lf_IgnoreCurrentBufferName = 1
-let g:Lf_WildIgnore = {
-        \ 'dir': ['.git', 'vendor', 'node_modules'],
-        \ 'file': ['__vim_project_root']
-        \}
-let g:Lf_UseMemoryCache = 0
-let g:Lf_UseCache = 0
 
 """""""""""""""far.vim"""""""""""""""
 nmap <C-f> :Farf --source=ag<cr>
