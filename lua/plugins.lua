@@ -44,3 +44,11 @@ if compe_stat then
   map('i', '<cr>', 'compe#confirm("<cr>")', { expr = true })
   map('i', '<c-space>', 'compe#complete()', { expr = true })
 end
+
+local ts_stat = pcall(require, "plugins.telescope")
+if ts_stat then
+  map('n', '<leader>ff', [[<cmd>Telescope find_files<cr>]], {})
+  map('n', '<leader>fg', [[<cmd>Telescope live_grep<cr>]], {})
+  map('n', '<leader>fb', [[<cmd>Telescope buffers<cr>]], {})
+  map('n', '<leader>fh', [[<cmd>Telescope help_tags<cr>]], {})
+end
