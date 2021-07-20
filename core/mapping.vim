@@ -12,9 +12,8 @@ noremap X Vx
 "force quit
 noremap <C-A-S-q> :q!<CR>
 
-noremap n w
-noremap N 5w
-
+noremap W 5w
+noremap B 5b
 noremap vw viw
 
 "undo
