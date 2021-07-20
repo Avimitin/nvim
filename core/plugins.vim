@@ -35,9 +35,6 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 "open file when forget sudo
 Plug 'lambdalisue/suda.vim'
 
-"tabline
-"Plug 'mg979/vim-xtabline'
-
 "treesitter: support more colorful highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
