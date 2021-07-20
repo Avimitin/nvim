@@ -277,6 +277,3 @@ let g:EasyMotion_do_mapping = 0
 nmap u <Plug>(easymotion-overwin-f2)
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
-
-"""""""""""""""""FTerm.nvim""""""""""
-nmap <C-\> <CMD>lua require("FTerm").open()<CR>
