@@ -17,6 +17,7 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 <summary>Click to open</summary>
 <!-- vim-markdown-toc GFM -->
 
+* [TODO](#todo)
 * [Before...](#before)
 * [Dependence](#dependence)
   * [neovim](#neovim)
@@ -62,6 +63,10 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 <!-- vim-markdown-toc -->
 </details>
 
+## TODO
+
+- [ ] Replace coc.nvim with built-in lsp
+
 ## Before...
 
 Fork this configuration to your repository and clone it to `~/.config` for storing
@@ -85,14 +90,10 @@ git clone https://github.com/avimitin/nvim ~/.config/nvim
 > `IMPORTANT NOTES`: Please build the neovim from github, 
 > you will need at least `NVIM v0.5.0-dev+1411-gb28d458f8`.
 
-- Windows
-
-Download [nvim-qt](https://github.com/neovim/neovim/releases/tag/nightly) 
-and extract it to the folder you want. Then add the bin directory to the system paths.
-
 - Linux
 
-Linux user must build neovim manually yourself, or download from your package manager if available.
+Linux user must build neovim manually yourself, or download from your package 
+manager if available.
 
 ```bash
 # if you are an Ubuntu user
@@ -117,16 +118,10 @@ python3 -m pip install pynvim
 yay -S python-pynvim
 ```
 
-Windows users who still need Python2 will need to make a copy of the Python3
-executable and rename it to `python3` to distinguish it from Python2.
-
 ### Node.js
 
 Linux users should follow the [nvm install guide](./docs/nodejs_install.md) to
 install Node.js version manager. Don't install node and npm from your package manager.
-
-Windows user can just download install package from Official Website and 
-follow the install wizard to install.
 
 After install:
 
@@ -166,10 +161,7 @@ See `:h hexokinase-installation` for more info.`
 This plugin is used for generating color from code. For example, it will generate 
 black color after `#000000`.
 
-If you are Windows user, you can delete this plugin if you don't need it or install the 
-[GNU Make](http://gnuwin32.sourceforge.net/install.html) to build it.
-
-Get into your nvim config folder, input following command.
+Get into your nvim config folder, input the following command.
 
 ```bash
 cd plugged/vim-hexokinase
