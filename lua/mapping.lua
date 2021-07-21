@@ -151,3 +151,6 @@ function _G.fterm_lazygit()
 end
 
 Map('n', '<C-g>', ':lua _G.fterm_lazygit()<CR>')
+
+Map('n', '<leader>aj', ':AnyJump<CR>')
+Map('n', '<leader>ab', ':AnyJumpBack<CR>')
