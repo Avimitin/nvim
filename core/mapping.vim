@@ -50,10 +50,11 @@ vnoremap <LEADER>y "+y
 noremap <LEADER>p "+p
 
 "close highlight
-nnoremap <silent> <LEADER><CR> :nohlsearch<CR>
+nnoremap <silent> <ESC> :nohlsearch<CR>
 
 "escape
 inoremap <silent> jj <ESC>
+vnoremap <silent> jj <ESC>
 
 "place screen horizol
 noremap sph <C-w>t<C-w>K
