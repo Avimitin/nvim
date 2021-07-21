@@ -42,6 +42,7 @@ Map("",  "<LEADER>p", [["+p]])
 Map("n", "<ESC>",     ":nohlsearch<CR>")
 
 Map("i", "jk",        "<ESC>")
+Map("i", "jj",        "<ESC>")
 Map("v", "jk",        "<ESC>")
 
 Map("n", "spv",       "<C-w>t<C-w>H")
@@ -113,3 +114,24 @@ function SetCompleteKey()
   Map('i', '<cr>', 'compe#confirm("<cr>")', { expr = true })
   Map('i', '<c-space>', 'compe#complete()', { expr = true })
 end
+
+--[[==============================================
+-- gitgutter settings
+--===============================================]]
+Map('n', 'gir', '<cmd>lua require"gitsigns".reset_hunk()<CR>')
+Map('n', 'giu', '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>')
+Map('n', 'gis', '<cmd>lua require"gitsigns".stage_hunk()<CR>')
+Map('n', 'gip', '<cmd>lua require"gitsigns".preview_hunk()<CR>')
+Map('n', 'gib', '<cmd>lua require"gitsigns".blame_line(true)<CR>')
+Map('n', 'gin', [[&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>']], { expr = true })
+Map('n', 'gim', [[&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>']], { expr = true })
+
+--[[==============================================
+-- vim-go settings
+--===============================================]]
+vim.api.nvim_command ( [[
+	autocmd BufWrite *.go GoImports
+	autocmd FileType go nmap <silent> got :GoTestFunc<CR>
+	autocmd FileType go nmap <silent> gor :GoRun<CR>
+]] )
+
