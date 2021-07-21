@@ -8,8 +8,15 @@
 |
 [中文](docs/README_CN.md)
 
-This project is inspired by [theniceboy/nvim](https://github.com/theniceboy/nvim). 
-Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuff.
+## Credit
+
+This project is originally inspired by
+[theniceboy/nvim](https://github.com/theniceboy/nvim).
+
+And lua code is inspired by
+[siduck76/NvChad](https://github.com/siduck76/NvChad).
+
+Take a look at their contribution, which is really fantastic.
 
 ## Guide
 
@@ -17,54 +24,45 @@ Changed Colemak keyboard style to qwerty keyboard style and deleted useless stuf
 <summary>Click to open</summary>
 <!-- vim-markdown-toc GFM -->
 
-* [TODO](#todo)
 * [Before...](#before)
 * [Dependence](#dependence)
-  * [neovim](#neovim)
-  * [Python](#python)
-  * [Install nerdfont and powerline font](#install-nerdfont-and-powerline-font)
-  * [Check health](#check-health)
-  * [FAQ](#faq)
+	* [neovim](#neovim)
+	* [Python](#python)
+	* [Install nerdfont and powerline font](#install-nerdfont-and-powerline-font)
+	* [Check health](#check-health)
 * [Keymap definition](#keymap-definition)
-  * [Basic keys](#basic-keys)
+	* [Basic keys](#basic-keys)
 * [More useful stuff](#more-useful-stuff)
-  * [LEADER key](#leader-key)
-  * [Save and Quit](#save-and-quit)
-  * [Copy and Paste](#copy-and-paste)
-  * [Tab page](#tab-page)
-  * [Windows manage](#windows-manage)
-  * [File Exploer](#file-exploer)
-  * [File finder](#file-finder)
-  * [terminal](#terminal)
-  * [EasyMotion](#easymotion)
+	* [LEADER key](#leader-key)
+	* [Save and Quit](#save-and-quit)
+	* [Copy and Paste](#copy-and-paste)
+	* [Tab page](#tab-page)
+	* [Windows manage](#windows-manage)
+	* [File Exploer](#file-exploer)
+	* [File finder](#file-finder)
+	* [EasyMotion](#easymotion)
 * [Coding](#coding)
-  * [COC.NVIM](#cocnvim)
-  * [Auto align](#auto-align)
-  * [Golang](#golang)
-  * [Git](#git)
-  * [Vista](#vista)
-  * [lazygit](#lazygit)
-  * [vim-surround](#vim-surround)
-  * [wildfire](#wildfire)
-  * [Rust](#rust)
+	* [neovim-lspconfig](#neovim-lspconfig)
+	* [Auto align](#auto-align)
+	* [Golang](#golang)
+	* [Git](#git)
+	* [Vista](#vista)
+	* [lazygit](#lazygit)
+	* [vim-surround](#vim-surround)
+	* [wildfire](#wildfire)
+	* [Rust](#rust)
 * [Markdown](#markdown)
-  * [Preview](#preview)
-  * [Toc](#toc)
-  * [Table align](#table-align)
-* [far.vim](#farvim)
-* [smoothie](#smoothie)
+	* [Preview](#preview)
+	* [Toc](#toc)
+	* [Table align](#table-align)
 * [vim-after-object](#vim-after-object)
 * [vim-commentary](#vim-commentary)
 * [Snippets](#snippets)
-  * [markdown](#markdown-1)
-* [AsyncRun](#asyncrun)
+	* [markdown](#markdown-1)
+* [FTerm](#fterm)
 
 <!-- vim-markdown-toc -->
 </details>
-
-## TODO
-
-- [x] Replace coc.nvim with built-in lsp
 
 ## Before...
 
@@ -133,28 +131,6 @@ Open your neovim and input following command to check if the dependence is all i
 :checkhealth
 ```
 
-### FAQ
-
-- vim-hexokinase
-
-you may met the error: 
-
-```text
-vim-hexokinase needs updating. 
-Run `make hexokinase` in project root. 
-See `:h hexokinase-installation` for more info.`
-```
-
-This plugin is used for generating color from code. For example, it will generate 
-black color after `#000000`.
-
-Get into your nvim config folder, input the following command.
-
-```bash
-cd plugged/vim-hexokinase
-make hexokinase
-```
-
 - colorscheme
 
 1. The neovim have no colorscheme, what happen?
@@ -167,6 +143,9 @@ Another workaround is to using old deus version.
 For more detail please refer to [Avimitin/neovim-deus](https://github.com/Avimitin/neovim-deus)
 
 ## Keymap definition
+
+I won't repeat the default key here, I'll just mention some of the key which
+modified.
 
 ### Basic keys
 
@@ -182,19 +161,13 @@ For more detail please refer to [Avimitin/neovim-deus](https://github.com/Avimit
 
 | key | function                      |
 | --- | --------                      |
-| h   | left                          |
-| l   | right                         |
-| k   | up                            |
-| j   | down                          |
 | H   | Move to the front of the line |
 | L   | Move to the end of the line   |
 | K   | Move up 5 lines               |
 | J   | Move down 5 lines             |
-| N   | Move back 5 words             |
+| W   | Move back 5 words             |
 | B   | Move forward 5 words          |
-| n   | move from word to word        |
-| b   | move back from word to word   |
-| jj  | Esc at insert mode            |
+| jj  | Esc at insert and visual mode |
 | i   | start insert mode             |
 
 - View
@@ -223,9 +196,7 @@ leader key is `<Space>` .
 | ------                  | --------                |
 | `LEADER`+s              | save                    |
 | `LEADER`+q              | save and quit           |
-| `Ctrl`+`Alt`+`shift`+ q | force quit              |
 | `Ctrl` + q              | quit                    |
-| `Alt` + q               | quit buffer (tab above) |
 
 ### Copy and Paste
 
@@ -236,12 +207,13 @@ leader key is `<Space>` .
 
 ### Tab page
 
-| keymap      | function                      |
-| ------      | --------                      |
-| `,`         | move to next tab              |
-| `.`         | move to front tab             |
-| `<Alt> + >` | move current tab to next tab  |
-| `<Alt> + <` | move current tab to front tab |
+| keymap        | function                       |
+| ------        | --------                       |
+| `,`           | move to next tab               |
+| `.`           | move to front tab              |
+| `<Alt> + >`   | move current tab to next tab   |
+| `<Alt> + <`   | move current tab to front tab  |
+| `<Shift> + x` | open pick mode and close the selected window |
 
 Also they are clickable: 
 
@@ -259,23 +231,13 @@ Also they are clickable:
 | keymap             | function                                               |
 | ------             | --------                                               |
 | tt                 | open coc explorer                                      |
-| ?                  | open coc explorer guide                                |
-| ~~R~~ (deprecated) | open ranger (install ranger first)                     |
-| `<LEADER>+o`       | open a new tab and nnn file manager(install nnn first) |
-| `<ctrl>+n`         | open nnn file manager                                  |
+| `<LEADER>+o`       | open nnn file manager(install nnn first) |
 
 ### File finder
 
-<img style="max-width: 500px; max-height: 500px" 
-src="https://camo.githubusercontent.com/01c738192dc98e59cc139b2591f3c43b6dc75d06b5b57ac097c4c1acd8e8f160/68747470733a2f2f6a657373656c656974652e636f6d2f75706c6f6164732f706f7374732f322f7461672d66696e6465722d6f70742e676966"/>
-
 | keymap       | function                   |
 | ---          | ---                        |
-| `<LEADER>+f` | activate fuzzy file finder |
-
-### terminal 
-
-press `ctrl+\` to open terminal
+| `<LEADER>+ff` | activate fuzzy file finder |
 
 ### EasyMotion
 
@@ -294,22 +256,17 @@ For more usage checkout: [ vim-easymotion ](https://github.com/easymotion/vim-ea
 
 ## Coding
 
-### COC.NVIM
+### neovim-lspconfig 
 
-<img style="max-width: 500px; max-height: 500px" 
-src="https://user-images.githubusercontent.com/251450/55285193-400a9000-53b9-11e9-8cff-ffe4983c5947.gif"/>
+| keymap       | function               |
+| ------       | --------               |
+| `[d/]d`      | Jump around diagnostic |
+| `LEADER` + e | show diagnostic        |
+| `LEADER + h` | show help message      |
+| gd           | go to definition       |
+| gD           | go to declaration      |
 
-| keymap                 | function                                                     |
-| ------                 | --------                                                     |
-| `LEADER` + -/=         | Move to next of front diagnostic                             |
-| `LEADER` + d           | Coc diagnostic                                               |
-| `LEADER` + h           | Open  help                                                   |
-| gd                     | go to definition                                             |
-| `LEADER` + `Backspace` | go back to last file (pretty useful when jump between files) |
-| `Ctrl + c`             | open command menu                                            |
-
-Using `:CocInstall` to install plugin you want.
-check out [coc.nvim wiki](https://github.com/neoclide/coc.nvim/wiki) for more.
+Using `:LspInstall` to install plugin you want.
 
 - Rename variable
 
@@ -346,7 +303,11 @@ the name of references. Check out [fatih/vim-go](https://github.com/fatih/vim-go
 | ---    | ---             |
 | gis    | stage changes   |
 | gip    | preview changes |
-| giu    | undo changes    |
+| giu    | undo stage      |
+| gib    | git blame       |
+| gir    | reset changes   |
+| gin    | next hunk       |
+| gim    | previous hunk   |
 
 ### Vista
 
@@ -360,11 +321,6 @@ package `ctag` is needed.
 Press `<LEADER>` + v to activate it.
 
 ### lazygit
-
-lazygit is a simple and easy to learn and use terminal git manager
-
-<img style="max-width: 500px; max-height: 500px" 
-src="https://raw.githubusercontent.com/jesseduffield/lazygit/assets/rebase.gif" />
 
 press `ctrl+g` to activate it. (Install lazygit first)
 
@@ -394,7 +350,6 @@ Press enter to select text.
 
 > using wildfire and vim-surround can quickly select and changed object symbol.
 
-
 ### Rust
 
 Must install [rust-analyzer](https://rust-analyzer.github.io/manual.html), rust lsp is configured 
@@ -418,20 +373,6 @@ that suitable for GitLab repository.
 ### Table align
 
 Select lines at normal mode, press `:EasyAlign *|` can align your table.
-
-## far.vim
-
-![img](https://cloud.githubusercontent.com/assets/9823254/20861878/77dd1882-b9b4-11e6-9b48-8bc60f3d7ec0.gif)
-
-Press `<ctrl>+f` to open far.vim which can help you search keyword from multiple file.
-
-You will need the [silversearcher](https://github.com/ggreer/the_silver_searcher)
-
-## smoothie
-
-| keymap     | function                 |
-| `<Ctrl>+d` | smoothly scroll downward |
-| `<Ctrl>+u` | smoothly scroll upward   |
 
 ## vim-after-object
 
@@ -475,7 +416,6 @@ Press `<Ctrl>+k` to jump back visual text.
 
 Changed the front-matter user's name in `./UltiSnips/markdown.snippets`.
 
-## AsyncRun
+## FTerm
 
-Press `<Ctrl>+\` and input command to execute command asynchronously 
-and open a quickfix windows.
+Press `<Ctrl>+\` to open a terminal, press it again to close the window.
