@@ -1,4 +1,4 @@
-local function map(mode, lhs, rhs, opts)
+function Map(mode, lhs, rhs, opts)
     local options = {noremap = true, silent = true}
     if opts then
         options = vim.tbl_extend("force", options, opts)
@@ -11,52 +11,105 @@ local function map(mode, lhs, rhs, opts)
 		end
 end
 
-map("",  "K",     "5k")
-map("",  "J",     "5j")
-map("",  "L",     "$")
-map("",  "H",     "0")
-map("",  "X",     "Vx")
-map("",  "W",     "5w")
-map("",  "B",     "5b")
-map("",  "vw",    "viw")
-map("",  "<C-z>", "u")
-map("n", "<",     "<<")
-map("n", ">",     ">>")
-map("",  "s",     "<nop>")
-map("",  "-",     "N")
-map("",  "=",     "n")
+Map("",  "K",     "5k")
+Map("",  "J",     "5j")
+Map("",  "L",     "$")
+Map("",  "H",     "0")
+Map("",  "X",     "Vx")
+Map("",  "W",     "5w")
+Map("",  "B",     "5b")
+Map("",  "vw",    "viw")
+Map("",  "<C-z>", "u")
+Map("n", "<",     "<<")
+Map("n", ">",     ">>")
+Map("",  "s",     "<nop>")
+Map("",  "-",     "N")
+Map("",  "=",     "n")
 
 vim.g.mapleader=" "
 
-map("n", "<LEADER>s", ":w<CR>")
-map("n", "<C-s>",     ":w<CR>")
+Map("n", "<LEADER>s", ":w<CR>")
+Map("n", "<C-s>",     ":w<CR>")
 
-map("n", "<LEADER>q", ":wq<CR>")
+Map("n", "<LEADER>q", ":wq<CR>")
 
-map("n", "<C-q>",     ":q<CR>")
+Map("n", "<C-q>",     ":q<CR>")
 
-map("v", "<LEADER>y", [["+y]])
+Map("v", "<LEADER>y", [["+y]])
 
-map("",  "<LEADER>p", [["+p]])
+Map("",  "<LEADER>p", [["+p]])
 
-map("n", "<ESC>",     ":nohlsearch<CR>")
+Map("n", "<ESC>",     ":nohlsearch<CR>")
 
-map("i", "jj",        "<ESC>")
-map("v", "jj",        "<ESC>")
+Map("i", "jj",        "<ESC>")
+Map("v", "jj",        "<ESC>")
 
-map("n", "spv",       "<C-w>t<C-w>H")
+Map("n", "spv",       "<C-w>t<C-w>H")
 
-map("n", "srr",       "<C-w>b<C-w>K")
-map("n", "srv",       "<C-w>b<C-w>H")
+Map("n", "srr",       "<C-w>b<C-w>K")
+Map("n", "srv",       "<C-w>b<C-w>H")
 
-map("n", "<up>",      ":res +5<CR>")
-map("n", "<down>",    ":res -5<CR>")
-map("n", "<left>",    ":vertical resize-5<CR>")
-map("n", "<right>",   ":vertical resize+5<CR>")
+Map("n", "<up>",      ":res +5<CR>")
+Map("n", "<down>",    ":res -5<CR>")
+Map("n", "<left>",    ":vertical resize-5<CR>")
+Map("n", "<right>",   ":vertical resize+5<CR>")
 
-map("n", "sk",        "<C-w>k")
-map("n", "sj",        "<C-w>j")
-map("n", "sh",        "<C-w>h")
-map("n", "sl",        "<C-w>l")
+Map("n", "sk",        "<C-w>k")
+Map("n", "sj",        "<C-w>j")
+Map("n", "sh",        "<C-w>h")
+Map("n", "sl",        "<C-w>l")
 
-map("i", "<C-c>",     "<ESC>zzi")
+Map("i", "<C-c>",     "<ESC>zzi")
+
+function SetCompleteKey()
+  -- Utility functions for compe and luasnip
+  local t = function(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+  end
+
+  local check_back_space = function()
+    local col = vim.fn.col '.' - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' then
+      return true
+    else
+      return false
+    end
+  end
+
+  -- Use (s-)tab to:
+  --- move to prev/next item in completion menu
+  --- jump to prev/next snippet's placeholder
+  local snip_stat, luasnip = pcall(require, 'luasnip')
+
+  _G.tab_complete = function()
+    if vim.fn.pumvisible() == 1 then
+      return t '<C-n>'
+    elseif snip_stat and luasnip.expand_or_jumpable() then
+      return t '<Plug>luasnip-expand-or-jump'
+    elseif check_back_space() then
+      return t '<Tab>'
+    else
+      return vim.fn['compe#complete']()
+    end
+  end
+
+  _G.s_tab_complete = function()
+    if vim.fn.pumvisible() == 1 then
+      return t '<C-p>'
+    elseif snip_stat and luasnip.jumpable(-1) then
+      return t '<Plug>luasnip-jump-prev'
+    else
+      return t '<S-Tab>'
+    end
+  end
+
+  -- Map tab to the above tab complete functions
+  Map('i', '<Tab>', 'v:lua.tab_complete()', { expr = true })
+  Map('s', '<Tab>', 'v:lua.tab_complete()', { expr = true })
+  Map('i', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
+  Map('s', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
+
+  -- Map compe confirm and complete functions
+  Map('i', '<cr>', 'compe#confirm("<cr>")', { expr = true })
+  Map('i', '<c-space>', 'compe#complete()', { expr = true })
+end
