@@ -3,8 +3,6 @@ if not present then
     return
 end
 
-vim.o.completeopt = 'menuone,noinsert'
-
 compe.setup {
     enabled = true,
     autocomplete = true,
