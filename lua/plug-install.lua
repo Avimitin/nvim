@@ -129,7 +129,14 @@ require('packer').startup(function(use)
   use 'rust-lang/rust.vim'
 
   --easy motion
-  use 'easymotion/vim-easymotion'
+	use {
+		'phaazon/hop.nvim',
+		as = 'hop',
+		config = function()
+			-- you can configure Hop the way you like here; see :h hop-config
+			require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+		end
+	}
 
   -- open a big terminal
   use 'numtostr/FTerm.nvim'
