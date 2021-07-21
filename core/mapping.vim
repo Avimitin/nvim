@@ -33,12 +33,6 @@ noremap = n
 "set leader
 let mapleader=" "
 
-"edit neovim file at any time
-nnoremap <C-S-n> :tabe<CR>:edit ~/.config/nvim/init.vim<CR>
-
-"reboot vim
-noremap <LEADER>rb :so ~/.config/nvim/init.vim<CR>
-
 "save (with normal and leader habit)
 nnoremap <silent> <LEADER>s :w<CR>
 nnoremap <silent> <C-s> :w<CR>
