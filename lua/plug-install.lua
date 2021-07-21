@@ -10,18 +10,9 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	]])
 end
 
-vim.api.nvim_exec(
-  [[
-  augroup Packer
-    autocmd!
-    autocmd BufWritePost init.lua PackerCompile
-  augroup end
-]],
-  false
-)
+vim.cmd([[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]])
 
-local use = require('packer').use
-require('packer').startup(function()
+require('packer').startup(function(use)
 	use 'lukas-reineke/indent-blankline.nvim'
 
   --telescope: extensible fuzzy file finder--
@@ -106,8 +97,13 @@ require('packer').startup(function()
   --list function/module/struct tag
   use 'liuchengxu/vista.vim'
 
-  --show git diff in sign column
-  use 'airblade/vim-gitgutter'
+	--git information
+	use {
+		'lewis6991/gitsigns.nvim',
+		requires = {
+			'nvim-lua/plenary.nvim'
+		}
+	}
 
   --Golang support
 	use {
@@ -155,4 +151,9 @@ require('packer').startup(function()
 
   -- open a big terminal
   use 'numtostr/FTerm.nvim'
+
+	use {
+		'windwp/nvim-autopairs',
+		config=function() require('nvim-autopairs').setup() end,
+	}
 end)
