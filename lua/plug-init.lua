@@ -31,6 +31,8 @@ if bfl_status then
 	-- move tabs
 	Map("n", "<A->>", [[<CMD>BufferLineMoveNext<CR>]], opt)
 	Map("n", "<A-<>", [[<CMD>BufferLineMovePrev<CR>]], opt)
+else
+	print("load bufferling...failed")
 end
 
 --[[==============================================
@@ -101,12 +103,26 @@ g.go_highlight_variable_assignments = 0
 g.go_highlight_variable_declarations = 0
 g.go_doc_keywordprg_enabled = 0
 
---[[==============================================
 -- gitsign settings
---===============================================]]
 pcall(require, 'plugins.gitsign')
 
 --anyjump
 g.any_jump_window_width_ratio  = 0.8
 g.any_jump_window_height_ratio = 0.9
 g.any_jump_disable_default_keybindings = 1
+
+--markdown preview
+g.mkdp_browser = 'firefox'
+g.mkdp_open_to_the_world = 1
+g.mkdp_port = '57843'
+
+--easymotion
+g.EasyMotion_do_mapping = 0
+g["nnn#layout"] = {
+	left='~20%',
+	window= {
+		width= 0.8,
+		height= 0.6,
+		highlight='Debug'
+	}
+}
