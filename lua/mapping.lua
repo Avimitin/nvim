@@ -135,3 +135,19 @@ vim.api.nvim_command ( [[
 	autocmd FileType go nmap <silent> gor :GoRun<CR>
 ]] )
 
+local term = require("FTerm.terminal")
+
+local lazygit = term:new():setup({
+    cmd = "lazygit",
+    dimensions = {
+        height = 0.9,
+        width = 0.9
+    }
+})
+
+ -- Use this to toggle gitui in a floating terminal
+function _G.fterm_lazygit()
+    lazygit:toggle()
+end
+
+Map('n', '<C-g>', ':lua _G.fterm_lazygit()<CR>')
