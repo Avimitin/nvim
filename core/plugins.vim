@@ -8,6 +8,8 @@ endif
 " plugin
 
 call plug#begin()
+Plug 'lukas-reineke/indent-blankline.nvim'
+
 """telescope: extensible fuzzy file finder"""
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
