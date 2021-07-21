@@ -100,4 +100,7 @@ g.go_highlight_variable_assignments = 0
 g.go_highlight_variable_declarations = 0
 g.go_doc_keywordprg_enabled = 0
 
+--[[==============================================
+-- gitsign settings
+--===============================================]]
 pcall(require, 'plugins.gitsign')
