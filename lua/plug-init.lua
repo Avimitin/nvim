@@ -105,3 +105,8 @@ g.go_doc_keywordprg_enabled = 0
 -- gitsign settings
 --===============================================]]
 pcall(require, 'plugins.gitsign')
+
+--anyjump
+g.any_jump_window_width_ratio  = 0.8
+g.any_jump_window_height_ratio = 0.9
+g.any_jump_disable_default_keybindings = 1
