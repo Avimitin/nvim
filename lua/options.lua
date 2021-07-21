@@ -87,14 +87,14 @@ opt.formatoptions='qj'
 opt.hidden=true
 
 -- Changed home directory here
-local backup_dir = HOME_DIR..".local/tmp/nvim/backup"
+local backup_dir = vim.fn.glob("~/.local/tmp/nvim/backup")
 local backup_stat = pcall(os.execute, "mkdir -p "..backup_dir)
 if backup_stat then
   opt.backupdir=backup_dir
   opt.directory=backup_dir
 end
 
-local undo_dir = HOME_DIR..".local/tmp/nvim/undo"
+local undo_dir = vim.fn.glob("~/.local/tmp/nvim/undo")
 local undo_stat = pcall(os.execute, "mkdir -p "..undo_dir)
 local has_persist = vim.fn.has("persistent_undo")
 if undo_stat and has_persist == 1 then

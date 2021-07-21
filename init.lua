@@ -30,10 +30,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.
 ]]
-
---changed your home dir here, with the `/` suffix
-HOME_DIR="/home/avimitin/"
-
 vim.api.nvim_command 'filetype plugin indent on'
 
 require('options')
