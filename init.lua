@@ -34,6 +34,7 @@ vim.api.nvim_command 'filetype plugin indent on'
 
 require('options')
 
+-- Copy from https://github.com/siduck76/NvChad
 local async
 async =
 	vim.loop.new_async(
