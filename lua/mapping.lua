@@ -123,8 +123,8 @@ Map('n', 'giu', '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>')
 Map('n', 'gis', '<cmd>lua require"gitsigns".stage_hunk()<CR>')
 Map('n', 'gip', '<cmd>lua require"gitsigns".preview_hunk()<CR>')
 Map('n', 'gib', '<cmd>lua require"gitsigns".blame_line(true)<CR>')
-Map('n', 'gin', [[&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>']], { expr = true })
-Map('n', 'gim', [[&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>']], { expr = true })
+Map('n', 'gin', [[&diff ? ']c' : '<cmd>lua require"gitsigns.actions".next_hunk()<CR>']], { expr = true })
+Map('n', 'gim', [[&diff ? '[c' : '<cmd>lua require"gitsigns.actions".prev_hunk()<CR>']], { expr = true })
 
 --[[==============================================
 -- vim-go settings
