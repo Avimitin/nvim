@@ -131,11 +131,6 @@ require('packer').startup(function(use)
   --easy motion
 	use {
 		'phaazon/hop.nvim',
-		as = 'hop',
-		config = function()
-			-- you can configure Hop the way you like here; see :h hop-config
-			require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-		end
 	}
 
   -- open a big terminal
@@ -143,7 +138,6 @@ require('packer').startup(function(use)
 
 	use {
 		'windwp/nvim-autopairs',
-		config=function() require('nvim-autopairs').setup() end,
 	}
 
 	use {
