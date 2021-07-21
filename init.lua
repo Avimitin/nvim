@@ -33,14 +33,27 @@ IN THE SOFTWARE.
 vim.api.nvim_command 'filetype plugin indent on'
 
 require('options')
-require('mapping')
 
-local ok = pcall(require, 'plug-install')
-if not ok then
-	print("failed to install plugin")
-else
-	ok = pcall(require,'plug-init')
-	if not ok then
-		print("failed to initialize plugin configuration")
-	end
-end
+local async
+async =
+	vim.loop.new_async(
+	vim.schedule_wrap(
+		function()
+			require('mapping')
+
+			local ok = pcall(require, 'plug-install')
+			if not ok then
+				print("failed to install plugin")
+			else
+				ok = pcall(require,'plug-init')
+				if not ok then
+					print("failed to initialize plugin configuration")
+				end
+			end
+
+			async:close()
+		end
+	)
+)
+
+async:send()
