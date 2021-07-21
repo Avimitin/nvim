@@ -10,7 +10,8 @@ pcall(require, "plugins.treesitter")
 --===============================================]]
 local fterm_status = pcall(require, "plugins.fterm")
 if fterm_status then
-  Map("n", "<C-\\>", [[<CMD>lua require("FTerm").open()<CR>]], {})
+  Map("n", "<C-\\>", [[<CMD>lua require("FTerm").toggle()<CR>]], {})
+  Map("t", "<C-\\>", [[<C-\><C-n><CMD>lua require("FTerm").toggle()<CR>]], {})
 end
 
 --[[==============================================
