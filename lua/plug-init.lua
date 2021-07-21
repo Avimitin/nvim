@@ -1,12 +1,21 @@
 local g = vim.g
 
+--[[==============================================
+-- treesitter settings
+--===============================================]]
 pcall(require, "plugins.treesitter")
 
+--[[==============================================
+-- fterm settings
+--===============================================]]
 local fterm_status = pcall(require, "plugins.fterm")
 if fterm_status then
   Map("n", "<C-\\>", [[<CMD>lua require("FTerm").open()<CR>]], {})
 end
 
+--[[==============================================
+-- bufferline settings
+--===============================================]]
 local bfl_status = pcall(require, "plugins.bufferline")
 if bfl_status then
   local opt = {}
@@ -23,18 +32,30 @@ if bfl_status then
 	Map("n", "<A-<>", [[<CMD>BufferLineMovePrev<CR>]], opt)
 end
 
+--[[==============================================
+-- nvim-tree file explorer settings
+--===============================================]]
 local tree_stat = pcall(require, "plugins.nvimtree")
 if tree_stat then
   Map("n", "tt", ":NvimTreeToggle<CR>", {})
 end
 
+--[[==============================================
+-- lsp settings
+--===============================================]]
 pcall(require, "plugins.lsp")
 
+--[[==============================================
+-- compe settings
+--===============================================]]
 local compe_stat = pcall(require, "plugins.compe")
 if compe_stat then
 	SetCompleteKey()
 end
 
+--[[==============================================
+-- telescope settings
+--===============================================]]
 local ts_stat = pcall(require, "plugins.telescope")
 if ts_stat then
   Map('n', '<leader>ff', [[<cmd>Telescope find_files<cr>]], {})
@@ -43,5 +64,8 @@ if ts_stat then
   Map('n', '<leader>fh', [[<cmd>Telescope help_tags<cr>]], {})
 end
 
+--[[==============================================
+-- indent settings
+--===============================================]]
 require("plugins.indent")
 
