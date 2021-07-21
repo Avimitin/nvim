@@ -70,19 +70,34 @@ end
 require("plugins.indent")
 
 --[[==============================================
--- gitgutter settings
+-- vim-go settings
 --===============================================]]
-g.gitgutter_sign_allow_clobber = 0
-g.gitgutter_map_keys = 0
-g.gitgutter_override_sign_column_highlight = 0
-g.gitgutter_preview_win_floating = 1
-g.gitgutter_sign_added = '▎'
-g.gitgutter_sign_modified = '░'
-g.gitgutter_sign_removed = '▏'
-g.gitgutter_sign_removed_first_line = '▔'
-g.gitgutter_sign_modified_removed = '▒'
-Map('n', 'giu', ':GitGutterUndoHunk<CR>')
-Map('n', 'gis', ':GitGutterStageHunk<CR>')
-Map('n', 'gip', ':GitGutterPreviewHunk<CR>')
-Map('n', 'gi=', ':GitGutterNextHunk<CR>')
-Map('n', 'gi-', ':GitGutterPrevHunk<CR>')
+g.go_echo_go_info = 0
+g.go_doc_popup_window = 1
+g.go_def_mapping_enabled = 0
+g.go_template_autocreate = 0
+g.go_textobj_enabled = 0
+g.go_auto_type_info = 1
+g.go_def_mapping_enabled = 0
+g.go_highlight_array_whitespace_error = 1
+g.go_highlight_build_constraints = 1
+g.go_highlight_chan_whitespace_error = 1
+g.go_highlight_extra_types = 1
+g.go_highlight_fields = 1
+g.go_highlight_format_strings = 1
+g.go_highlight_function_calls = 1
+g.go_highlight_function_parameters = 1
+g.go_highlight_functions = 1
+g.go_highlight_generate_tags = 1
+g.go_highlight_methods = 1
+g.go_highlight_operators = 1
+g.go_highlight_space_tab_error = 1
+g.go_highlight_string_spellcheck = 1
+g.go_highlight_structs = 1
+g.go_highlight_trailing_whitespace_error = 1
+g.go_highlight_types = 1
+g.go_highlight_variable_assignments = 0
+g.go_highlight_variable_declarations = 0
+g.go_doc_keywordprg_enabled = 0
+
+pcall(require, 'plugins.gitsign')
