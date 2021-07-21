@@ -36,11 +36,7 @@ HOME_DIR="/home/avimitin/"
 
 vim.api.nvim_command 'filetype plugin indent on'
 
-vim.cmd
-[[
-  runtime core/plugins.vim
-  runtime core/mapping.vim
-]]
-
-require 'plug-init'
-require 'options'
+require('options')
+require('mapping')
+pcall(require, 'plug-install')
+require('plug-init')
