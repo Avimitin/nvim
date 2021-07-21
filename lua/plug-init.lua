@@ -126,3 +126,11 @@ g["nnn#layout"] = {
 		highlight='Debug'
 	}
 }
+
+-- hop: vim-motion
+require'hop'.setup {
+	keys = 'etovxqpdygfblzhckisuran'
+}
+
+-- nvim-autopairs: bracket pairing
+require('nvim-autopairs').setup()
