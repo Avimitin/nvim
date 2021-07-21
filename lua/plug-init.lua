@@ -18,11 +18,15 @@ if bfl_status then
   local opt = {}
   -- bufferline tab stuff
   map("n", "<S-t>", ":tabnew<CR>", opt) -- new tab
-  map("n", "<S-x>", ":bd!<CR>", opt) -- close tab
+  map("n", "<S-x>", ":BufferLinePickClose<CR>", opt) -- close tab
 
   -- move between tabs
   map("n", ".", [[<Cmd>BufferLineCycleNext<CR>]], opt)
   map("n", ",", [[<Cmd>BufferLineCyclePrev<CR>]], opt)
+
+	-- move tabs
+	map("n", "<A->>", [[<CMD>BufferLineMoveNext<CR>]], opt)
+	map("n", "<A-<>", [[<CMD>BufferLineMovePrev<CR>]], opt)
 end
 
 local tree_stat = pcall(require, "plugins.nvimtree")
