@@ -135,8 +135,9 @@ vim.api.nvim_command ( [[
 	autocmd FileType go nmap <silent> gor :GoRun<CR>
 ]] )
 
+--lazygit
+--use fterm to open the lazygit
 local term = require("FTerm.terminal")
-
 local lazygit = term:new():setup({
     cmd = "lazygit",
     dimensions = {
@@ -144,13 +145,18 @@ local lazygit = term:new():setup({
         width = 0.9
     }
 })
-
- -- Use this to toggle gitui in a floating terminal
 function _G.fterm_lazygit()
     lazygit:toggle()
 end
-
 Map('n', '<C-g>', ':lua _G.fterm_lazygit()<CR>')
 
+--anyjump
 Map('n', '<leader>aj', ':AnyJump<CR>')
 Map('n', '<leader>ab', ':AnyJumpBack<CR>')
+
+--easymotion
+Map('n', 'u'        , '<Plug>(easymotion-overwin-f2')
+Map('n', '<Leader>j', '<Plug>(easymotion-j')
+Map('n', '<Leader>k', '<Plug>(easymotion-k')
+
+Map('n', '<Leader>o', ':NnnPicker %:p:h<CR>')
