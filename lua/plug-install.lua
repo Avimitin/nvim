@@ -128,9 +128,6 @@ require('packer').startup(function(use)
   --find and replace
   use 'brooth/far.vim'
 
-  --lazygit
-  use 'kdheepak/lazygit.nvim'
-
   --modify text after object
   use 'junegunn/vim-after-object'
 
