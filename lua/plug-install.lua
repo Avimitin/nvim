@@ -38,14 +38,8 @@ require('packer').startup(function(use)
   --TrueZen.nvim: zen mode in neovim--
   use 'Pocco81/TrueZen.nvim'
 
-  --asyncrun.vim: run command in background--
-  use 'skywind3000/asyncrun.vim'
-
   --vim-commentary: for quickly commenting--
   use 'tpope/vim-commentary'
-
-  --vim-smoothie: smooth scrolling--
-  use 'psliwka/vim-smoothie'
 
   --barbar.nvim: bufferline bar--
   use 'kyazdani42/nvim-web-devicons'
@@ -116,9 +110,6 @@ require('packer').startup(function(use)
   --surrounding select text with given text
   use 'tpope/vim-surround'
 
-  --auto pair bracket
-  use 'jiangmiao/auto-pairs'
-
   --amazing icon
   use 'ryanoasis/vim-devicons'
 
@@ -127,9 +118,6 @@ require('packer').startup(function(use)
 
   --find and replace
   use 'brooth/far.vim'
-
-  --modify text after object
-  use 'junegunn/vim-after-object'
 
   --markdown toc
   use 'mzlogin/vim-markdown-toc'
@@ -142,9 +130,6 @@ require('packer').startup(function(use)
 
   --easy motion
   use 'easymotion/vim-easymotion'
-
-  -- usein for cmake
-  use 'cdelledonne/vim-cmake'
 
   -- open a big terminal
   use 'numtostr/FTerm.nvim'
