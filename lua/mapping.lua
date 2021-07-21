@@ -155,8 +155,8 @@ Map('n', '<leader>aj', ':AnyJump<CR>')
 Map('n', '<leader>ab', ':AnyJumpBack<CR>')
 
 --easymotion
-Map('n', 'u'        , '<Plug>(easymotion-overwin-f2')
-Map('n', '<Leader>j', '<Plug>(easymotion-j')
-Map('n', '<Leader>k', '<Plug>(easymotion-k')
+Map('n', 'u'        , ':HopChar2<CR>')
+Map('n', '<Leader>j', ':HopLine<CR>')
+Map('n', '<Leader>k', ':HopLine<CR>')
 
 Map('n', '<Leader>o', ':NnnPicker %:p:h<CR>')
