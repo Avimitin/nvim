@@ -56,7 +56,7 @@ if compe_stat then
   _G.tab_complete = function()
     if vim.fn.pumvisible() == 1 then
       return t '<C-n>'
-    elseif luasnip.expand_or_jumpable() and snip_stat then
+    elseif snip_stat and luasnip.expand_or_jumpable() then
       return t '<Plug>luasnip-expand-or-jump'
     elseif check_back_space() then
       return t '<Tab>'
@@ -68,7 +68,7 @@ if compe_stat then
   _G.s_tab_complete = function()
     if vim.fn.pumvisible() == 1 then
       return t '<C-p>'
-    elseif luasnip.jumpable(-1) and snip_stat then
+    elseif snip_stat and luasnip.jumpable(-1) then
       return t '<Plug>luasnip-jump-prev'
     else
       return t '<S-Tab>'
@@ -93,3 +93,5 @@ if ts_stat then
   map('n', '<leader>fb', [[<cmd>Telescope buffers<cr>]], {})
   map('n', '<leader>fh', [[<cmd>Telescope help_tags<cr>]], {})
 end
+
+require("plugins.indent")
