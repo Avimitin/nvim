@@ -1,6 +1,13 @@
 local opt = vim.opt
 
 opt.encoding='utf-8'
+opt.termguicolors=true
+opt.background="dark"
+vim.api.nvim_command([[
+colorscheme deus
+let g:deus_termcolors=256
+hi NonText ctermfg=gray guifg=grey10
+]])
 
 -- auto change directory
 opt.autochdir=true
