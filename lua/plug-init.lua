@@ -69,3 +69,20 @@ end
 --===============================================]]
 require("plugins.indent")
 
+--[[==============================================
+-- gitgutter settings
+--===============================================]]
+g.gitgutter_sign_allow_clobber = 0
+g.gitgutter_map_keys = 0
+g.gitgutter_override_sign_column_highlight = 0
+g.gitgutter_preview_win_floating = 1
+g.gitgutter_sign_added = '▎'
+g.gitgutter_sign_modified = '░'
+g.gitgutter_sign_removed = '▏'
+g.gitgutter_sign_removed_first_line = '▔'
+g.gitgutter_sign_modified_removed = '▒'
+Map('n', 'giu', ':GitGutterUndoHunk<CR>')
+Map('n', 'gis', ':GitGutterStageHunk<CR>')
+Map('n', 'gip', ':GitGutterPreviewHunk<CR>')
+Map('n', 'gi=', ':GitGutterNextHunk<CR>')
+Map('n', 'gi-', ':GitGutterPrevHunk<CR>')
