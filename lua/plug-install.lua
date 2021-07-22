@@ -1,13 +1,11 @@
-vim.cmd[[packadd packer.nvim]]
 local installed, _ = pcall(require, 'packer')
 if not installed then
-	local install_path = vim.fn.stdpath("data").."/site/pack/packer/opt/packer.nvim"
+	local install_path = vim.fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
 	print("Installing packer to "..install_path)
 	vim.fn.delete(install_path, "rf")
 
 	vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 
-	vim.cmd[[packadd packer.nvim]]
 	installed, error = pcall(require, 'packer')
 	if not installed then
 		print(error)
@@ -29,6 +27,9 @@ require('packer').init{
 }
 
 require('packer').startup(function(use)
+	  -- Packer can manage itself
+  use 'wbthomason/packer.nvim'
+
 	use {
 		'lukas-reineke/indent-blankline.nvim',
 		config=function() require("plugins.indent") end,
