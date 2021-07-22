@@ -6,3 +6,5 @@ vim.g["nnn#layout"] = {
 		highlight='Debug'
 	}
 }
+
+vim.api.nvim_set_keymap('n', '<Leader>o', ':NnnPicker %:p:h<CR>', {noremap=true, silent=true})
