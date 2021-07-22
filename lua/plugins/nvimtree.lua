@@ -91,4 +91,4 @@ vim.g.nvim_tree_bindings = {
 }
 
 -- toggle nvim tree
-vim.api.nvim_set_keymap("n", "tt", ":NvimTreeToggle<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "tt", ":NvimTreeRefresh<CR>:NvimTreeToggle<CR>", {noremap=true, silent=true})
