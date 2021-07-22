@@ -79,9 +79,8 @@ require('packer').startup(function(use)
   --nvim-tree.lua--
   use {
 		'kyazdani42/nvim-tree.lua',
-		config=function() 
-			require("plugins.nvimtree") 
-			vim.cmd[[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]]
+		config=function()
+			require("plugins.nvimtree")
 		end,
 		requires='kyazdani42/nvim-web-devicons',
 	}
@@ -157,9 +156,6 @@ require('packer').startup(function(use)
 			require("plugins.anyjump")
 		end,
 	}
-
-  --list function/module/struct tag
-  use 'liuchengxu/vista.vim'
 
 	--git information
 	use {
@@ -239,6 +235,13 @@ require('packer').startup(function(use)
 		config=function()
 			vim.g.Hexokinase_highlighters = {'backgroundfull'}
 			vim.g.Hexokinase_optInPatterns = {'full_hex','rgb','rgba','hsl','hsla'}
+		end
+	}
+
+	use {
+		'simrat39/symbols-outline.nvim',
+		config=function()
+			require("plugins.symbols")
 		end
 	}
 end)
