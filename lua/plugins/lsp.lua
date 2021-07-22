@@ -71,23 +71,24 @@ local lua_setting = {
   }
 }
 
-local basic_setup = {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	root_dir = vim.loop.cwd
-}
-
 local function setup_servers()
     lspinstall.setup()
     local servers = lspinstall.installed_servers()
 
     for _, lang in pairs(servers) do
         if lang ~= "lua" then
-					lspconfig[lang].setup = basic_setup
-        elseif lang == "lua" then
-						local lua_setup = basic_setup
-						lua_setup.settings = lua_setting
-            lspconfig[lang].setup = lua_setup
+					lspconfig[lang].setup = {
+						on_attach = on_attach,
+						capabilities = capabilities,
+						root_dir = vim.loop.cwd
+					}
+				elseif lang == "lua" then
+					lspconfig[lang].setup = {
+						on_attach = on_attach,
+						capabilities = capabilities,
+						root_dir = vim.loop.cwd,
+						settings = lua_setting,
+					}
         end
     end
 end
