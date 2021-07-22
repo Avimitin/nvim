@@ -1,14 +1,18 @@
-local install_path = "~/.local/share/nvim/site/pack/packer/start/packer.nvim"
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-	print("Installing packer")
-  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-	vim.api.nvim_command([[
-		function PackerSetup()
-			PackerCompile
-			PackerInstall
-		endfunction
-		autocmd VimEnter * call PackerSetup()
-	]])
+vim.cmd[[packadd packer.nvim]]
+local installed, _ = pcall(require, 'packer')
+if not installed then
+	local install_path = vim.fn.stdpath("data").."/site/pack/packer/opt/packer.nvim"
+	print("Installing packer to "..install_path)
+	vim.fn.delete(install_path, "rf")
+
+	vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
+
+	vim.cmd[[packadd packer.nvim]]
+	installed, error = pcall(require, 'packer')
+	if not installed then
+		print(error)
+		return
+	end
 end
 
 vim.cmd([[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]])
