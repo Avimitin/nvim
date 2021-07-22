@@ -238,15 +238,6 @@ insert_left {
   }
 }
 
-insert_left {
-    TrailingWhiteSpace = {
-     provider = TrailingWhiteSpace,
-		 condition = checkwidth,
-     icon = '  ',
-     highlight = {colors.yellow,colors.line_bg},
-    }
-}
-
 DiagnosticError = diagnostic.get_diagnostic_error
 DiagnosticWarn = diagnostic.get_diagnostic_warn
 DiagnosticHint = diagnostic.get_diagnostic_hint
@@ -270,12 +261,21 @@ insert_left {
 }
 
 insert_left {
-    CocStatus = {
-     provider = CocStatus,
-		 condition = checkwidth,
-     highlight = {colors.green,colors.line_bg},
-     icon = '  ',
-    }
+	DiagnosticInfo = {
+	 provider = DiagnosticInfo,
+	 condition = checkwidth,
+	 highlight = {colors.green,colors.line_bg},
+	 icon = '  ',
+	}
+}
+
+insert_left {
+	DiagnosticHint = {
+	 provider = DiagnosticHint,
+	 condition = checkwidth,
+	 highlight = {colors.white,colors.line_bg},
+	 icon = '  ',
+	}
 }
 
 insert_left{
