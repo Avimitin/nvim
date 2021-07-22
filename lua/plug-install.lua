@@ -78,6 +78,7 @@ require('packer').startup(function(use)
   use {
 		'kyazdani42/nvim-tree.lua',
 		config=function() require("plugins.nvimtree") end,
+		requires='kyazdani42/nvim-web-devicons',
 	}
 
   --TrueZen.nvim: zen mode in neovim--
