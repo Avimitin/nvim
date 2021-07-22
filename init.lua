@@ -46,11 +46,6 @@ async =
 			if not ok then
 				print("failed to install plugin")
 				print(error)
-			else
-				ok = pcall(require,'plug-init')
-				if not ok then
-					print("failed to initialize plugin configuration")
-				end
 			end
 
 			async:close()

@@ -117,9 +117,19 @@ require('packer').startup(function(use)
   use 'RRethy/vim-illuminate'
 
   --file navigation
-  use 'mcchrish/nnn.vim'
+  use {
+		'mcchrish/nnn.vim',
+		config=function() require("plugins.nnn") end,
+	}
+
   use 'airblade/vim-rooter'
-  use 'pechorin/any-jump.vim'
+
+  use {
+		'pechorin/any-jump.vim',
+		config=function()
+			require("plugins.anyjump")
+		end,
+	}
 
   --list function/module/struct tag
   use 'liuchengxu/vista.vim'
@@ -136,6 +146,7 @@ require('packer').startup(function(use)
   --Golang support
 	use {
 		'fatih/vim-go',
+		config=function() require("plugins.vim-go") end,
 	}
 
   --Select text object
@@ -169,6 +180,10 @@ require('packer').startup(function(use)
 			require'hop'.setup {
 				keys = 'etovxqpdygfblzhckisuran'
 			}
+			local options={noremap=true, silent=true}
+			vim.api.nvim_set_keymap('n', 'u'        , ':HopChar2<CR>', options)
+			vim.api.nvim_set_keymap('n', '<Leader>j', ':HopLine<CR>', options)
+			vim.api.nvim_set_keymap('n', '<Leader>k', ':HopLine<CR>', options)
 		end,
 	}
 
@@ -189,3 +204,5 @@ require('packer').startup(function(use)
 	
 	use 'L3MON4D3/LuaSnip'
 end)
+
+require("plugins.lazygit")
