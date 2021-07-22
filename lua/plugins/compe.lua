@@ -37,15 +37,15 @@ end
 -- Use (s-)tab to:
 --- move to prev/next item in completion menu
 --- jump to prev/next snippet's placeholder
-local snip_stat, luasnip = pcall(require, 'luasnip')
+local luasnip = require('luasnip')
 
 _G.tab_complete = function()
 	if vim.fn.pumvisible() == 1 then
-		return t '<C-n>'
-	elseif snip_stat and luasnip.expand_or_jumpable() then
-		return t '<Plug>luasnip-expand-or-jump'
+		return t'<C-n>'
+	elseif luasnip.expand_or_jumpable() then
+		return t "<cmd>lua require'luasnip'.jump(1)<Cr>"
 	elseif check_back_space() then
-		return t '<Tab>'
+		return t'<Tab>'
 	else
 		return vim.fn['compe#complete']()
 	end
@@ -54,8 +54,8 @@ end
 _G.s_tab_complete = function()
 	if vim.fn.pumvisible() == 1 then
 		return t '<C-p>'
-	elseif snip_stat and luasnip.jumpable(-1) then
-		return t '<Plug>luasnip-jump-prev'
+	elseif luasnip.jumpable(-1) then
+		return t "<cmd>lua require'luasnip'.jump(-1)<CR>"
 	else
 		return t '<S-Tab>'
 	end
