@@ -15,7 +15,7 @@ if not installed then
 	end
 end
 
-vim.cmd([[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]])
+vim.cmd([[autocmd BufWritePost plug-install.lua source <afile> | PackerCompile]])
 
 require('packer').init{
 	display = {
@@ -182,7 +182,12 @@ require('packer').startup(function(use)
   use 'ryanoasis/vim-devicons'
 
   --align
-  use 'junegunn/vim-easy-align'
+  use {
+		'junegunn/vim-easy-align',
+		config=function ()
+			vim.api.nvim_set_keymap("v", "<leader>e", ":EasyAlign<CR>", {noremap=true, silent=true})
+		end
+	}
 
   --find and replace
   use 'brooth/far.vim'
