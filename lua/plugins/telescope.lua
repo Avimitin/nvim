@@ -68,3 +68,9 @@ telescope.setup({
         }
     }
 )
+
+local option={noremap=true, silent=true}
+vim.api.nvim_set_keymap('n', '<leader>ff', [[<cmd>Telescope find_files<cr>]], option)
+vim.api.nvim_set_keymap('n', '<leader>fg', [[<cmd>Telescope live_grep<cr>]], option)
+vim.api.nvim_set_keymap('n', '<leader>fb', [[<cmd>Telescope buffers<cr>]], option)
+vim.api.nvim_set_keymap('n', '<leader>fh', [[<cmd>Telescope help_tags<cr>]], option)
