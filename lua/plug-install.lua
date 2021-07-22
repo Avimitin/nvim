@@ -1,10 +1,12 @@
 local installed, _ = pcall(require, 'packer')
+local firsttime = false
 if not installed then
 	local install_path = vim.fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
 	print("Installing packer to "..install_path)
 	vim.fn.delete(install_path, "rf")
 
 	vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
+	firsttime=true
 
 	installed, error = pcall(require, 'packer')
 	if not installed then
@@ -231,3 +233,5 @@ require('packer').startup(function(use)
 		'sbdchd/neoformat'
 	}
 end)
+
+if firsttime then vim.cmd[[PackerSync]] end
