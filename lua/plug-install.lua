@@ -53,7 +53,18 @@ require('packer').startup(function(use)
   --nvim-compe: code completion--
   use {
 		'hrsh7th/nvim-compe',
+		event="InsertEnter",
 		config=function() require("plugins.compe") end,
+		wants="LuaSnip",
+		requires = {
+			"L3MON4D3/LuaSnip",
+			wants = "friendly-snippets",
+			event = "InsertCharPre",
+		},
+		{
+			"rafamadriz/friendly-snippets",
+			event = "InsertCharPre"
+		}
 	}
 
   --nvim-lspconfig: built-in lsp--
@@ -97,23 +108,32 @@ require('packer').startup(function(use)
   use 'lambdalisue/suda.vim'
 
   --treesitter: support more colorful highlighting
-	use { 
-		'nvim-treesitter/nvim-treesitter', 
+	use {
+		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',
 		config = function() require('plugins.treesitter') end,
 	}
 
   --neovim color theme
-  use 'Avimitin/neovim-deus'
+  use {
+	  'Avimitin/neovim-deus',
+	  config=function()
+		  vim.cmd([[colorscheme deus]])
+	  end,
+  }
+
   use 'morhetz/gruvbox'
 
   --status bar
 	use {
 		'Avimitin/nerd-galaxyline',
+		after='galaxyline.nvim',
 		requires = {
-			'glepnir/galaxyline.nvim',
-			branch='main',
-			requires = {'kyazdani42/nvim-web-devicons'}
+			{
+			 'glepnir/galaxyline.nvim',
+			  branch='main',
+			},
+			{'kyazdani42/nvim-web-devicons'}
 		}
 	}
 
@@ -180,7 +200,7 @@ require('packer').startup(function(use)
   --easy motion
 	use {
 		'phaazon/hop.nvim',
-		config=function() 
+		config=function()
 			require'hop'.setup {
 				keys = 'etovxqpdygfblzhckisuran'
 			}
@@ -194,7 +214,10 @@ require('packer').startup(function(use)
   -- open a big terminal
   use {
 		'numtostr/FTerm.nvim',
-		config=function() require("plugins.fterm") end,
+		config=function()
+			require("plugins.fterm")
+			require("plugins.lazygit")
+		end,
 	}
 
 	use {
@@ -205,8 +228,4 @@ require('packer').startup(function(use)
 	use {
 		'sbdchd/neoformat'
 	}
-	
-	use 'L3MON4D3/LuaSnip'
 end)
-
-require("plugins.lazygit")
