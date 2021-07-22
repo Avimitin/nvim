@@ -143,4 +143,6 @@ require('packer').startup(function(use)
 	use {
 		'sbdchd/neoformat'
 	}
+	
+	use 'L3MON4D3/LuaSnip'
 end)
