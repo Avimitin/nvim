@@ -128,17 +128,13 @@ require('packer').startup(function(use)
 
   use 'morhetz/gruvbox'
 
-  --status bar
 	use {
-		'Avimitin/nerd-galaxyline',
-		after='galaxyline.nvim',
-		requires = {
-			{
-			 'glepnir/galaxyline.nvim',
-			  branch='main',
-			},
+		'glepnir/galaxyline.nvim',
+		branch='main',
+		requires={
 			{'kyazdani42/nvim-web-devicons'}
-		}
+		},
+		config=function() require("plugins.galaxyline") end
 	}
 
   --highlight all the word below the cursor
