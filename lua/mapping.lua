@@ -3,11 +3,9 @@ function Map(mode, lhs, rhs, opts)
     if opts then
         options = vim.tbl_extend("force", options, opts)
     end
-    local stat = pcall(vim.api.nvim_set_keymap, mode, lhs, rhs, options)
+    local stat, error = pcall(vim.api.nvim_set_keymap, mode, lhs, rhs, options)
 		if not stat then
-			print(lhs)
-			print(rhs)
-			print("illegal")
+			print(error)
 		end
 end
 
@@ -59,55 +57,6 @@ Map("n", "sh",        "<C-w>h")
 Map("n", "sl",        "<C-w>l")
 
 Map("i", "<C-c>",     "<ESC>zzi")
-
-function SetCompleteKey()
-  -- Utility functions for compe and luasnip
-  local t = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
-  end
-
-  local check_back_space = function()
-    local col = vim.fn.col '.' - 1
-    return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' ~= nil
-  end
-
-  -- Use (s-)tab to:
-  --- move to prev/next item in completion menu
-  --- jump to prev/next snippet's placeholder
-  local snip_stat, luasnip = pcall(require, 'luasnip')
-
-  _G.tab_complete = function()
-    if vim.fn.pumvisible() == 1 then
-      return t '<C-n>'
-    elseif snip_stat and luasnip.expand_or_jumpable() then
-      return t '<Plug>luasnip-expand-or-jump'
-    elseif check_back_space() then
-      return t '<Tab>'
-    else
-      return vim.fn['compe#complete']()
-    end
-  end
-
-  _G.s_tab_complete = function()
-    if vim.fn.pumvisible() == 1 then
-      return t '<C-p>'
-    elseif snip_stat and luasnip.jumpable(-1) then
-      return t '<Plug>luasnip-jump-prev'
-    else
-      return t '<S-Tab>'
-    end
-  end
-
-  -- Map tab to the above tab complete functions
-  Map('i', '<Tab>', 'v:lua.tab_complete()', { expr = true })
-  Map('s', '<Tab>', 'v:lua.tab_complete()', { expr = true })
-  Map('i', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
-  Map('s', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
-
-  -- Map compe confirm and complete functions
-  Map('i', '<cr>', 'compe#confirm("<cr>")', { expr = true })
-  Map('i', '<c-space>', 'compe#complete()', { expr = true })
-end
 
 --[[==============================================
 -- gitgutter settings

@@ -1,5 +1,6 @@
 local install_path = "~/.local/share/nvim/site/pack/packer/start/packer.nvim"
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+	print("Installing packer")
   vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 	vim.api.nvim_command([[
 		function PackerSetup()
@@ -12,28 +13,56 @@ end
 
 vim.cmd([[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]])
 
+require('packer').init{
+	display = {
+		open_fn = function()
+			return require("packer.util").float {border = "single"}
+		end
+	},
+	git = {
+		clone_timeout = 60 -- Timeout, in seconds, for git clones
+	}
+}
+
 require('packer').startup(function(use)
-	use 'lukas-reineke/indent-blankline.nvim'
+	use {
+		'lukas-reineke/indent-blankline.nvim',
+		config=function() require("plugins.indent") end,
+	}
 
   --telescope: extensible fuzzy file finder--
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
+	use {
+		'nvim-telescope/telescope.nvim',
+		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+		config=function() require("plugins.telescope") end,
+	}
 
   --nvim-bufferline: better buffer line--
-  use 'akinsho/nvim-bufferline.lua'
+  use {
+		'akinsho/nvim-bufferline.lua',
+		config=function() require("plugins.bufferline") end,
+	}
 
   --nvim-lspinstall: lsp manager--
   use 'kabouzeid/nvim-lspinstall'
 
   --nvim-compe: code completion--
-  use 'hrsh7th/nvim-compe'
+  use {
+		'hrsh7th/nvim-compe',
+		config=function() require("plugins.compe") end,
+	}
 
   --nvim-lspconfig: built-in lsp--
-  use 'neovim/nvim-lspconfig'
+  use {
+		'neovim/nvim-lspconfig',
+		config=function() require("plugins.lsp") end,
+	}
 
   --nvim-tree.lua--
-  use 'kyazdani42/nvim-tree.lua'
+  use {
+		'kyazdani42/nvim-tree.lua',
+		config=function() require("plugins.nvimtree") end,
+	}
 
   --TrueZen.nvim: zen mode in neovim--
   use 'Pocco81/TrueZen.nvim'
@@ -64,7 +93,11 @@ require('packer').startup(function(use)
   use 'lambdalisue/suda.vim'
 
   --treesitter: support more colorful highlighting
-	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+	use { 
+		'nvim-treesitter/nvim-treesitter', 
+		run = ':TSUpdate',
+		config = function() require('plugins.treesitter') end,
+	}
 
   --neovim color theme
   use 'Avimitin/neovim-deus'
@@ -96,7 +129,8 @@ require('packer').startup(function(use)
 		'lewis6991/gitsigns.nvim',
 		requires = {
 			'nvim-lua/plenary.nvim'
-		}
+		},
+		config=function() require("plugins.gitsign") end,
 	}
 
   --Golang support
@@ -131,13 +165,22 @@ require('packer').startup(function(use)
   --easy motion
 	use {
 		'phaazon/hop.nvim',
+		config=function() 
+			require'hop'.setup {
+				keys = 'etovxqpdygfblzhckisuran'
+			}
+		end,
 	}
 
   -- open a big terminal
-  use 'numtostr/FTerm.nvim'
+  use {
+		'numtostr/FTerm.nvim',
+		config=function() require("plugins.fterm") end,
+	}
 
 	use {
 		'windwp/nvim-autopairs',
+		config=function() require('nvim-autopairs').setup() end,
 	}
 
 	use {
