@@ -54,20 +54,20 @@ require('packer').startup(function(use)
   use 'kabouzeid/nvim-lspinstall'
 
   --nvim-compe: code completion--
-  use {
+	use {
 		'hrsh7th/nvim-compe',
-		event="InsertEnter",
 		config=function() require("plugins.compe") end,
-		wants="LuaSnip",
-		requires = {
-			"L3MON4D3/LuaSnip",
-			wants = "friendly-snippets",
-			event = "InsertCharPre",
-		},
-		{
-			"rafamadriz/friendly-snippets",
-			event = "InsertCharPre"
-		}
+	}
+
+	use {
+		"L3MON4D3/LuaSnip",
+		config=function()
+			require("plugins.luasnip")
+		end
+	}
+
+	use {
+		"rafamadriz/friendly-snippets"
 	}
 
   --nvim-lspconfig: built-in lsp--
