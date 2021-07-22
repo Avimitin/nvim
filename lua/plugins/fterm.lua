@@ -1,6 +1,6 @@
-if not pcall(require, 'FTerm') then 
+if not pcall(require, 'FTerm') then
 	print("Failed to call FTerm")
-	return 
+	return
 end
 
 require('FTerm').setup {
