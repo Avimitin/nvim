@@ -33,6 +33,7 @@ IN THE SOFTWARE.
 vim.api.nvim_command 'filetype plugin indent on'
 
 require('options')
+require('mapping')
 
 -- Copy from https://github.com/siduck76/NvChad
 local async
@@ -40,8 +41,6 @@ async =
 	vim.loop.new_async(
 	vim.schedule_wrap(
 		function()
-			require('mapping')
-
 			local ok, error = pcall(require, 'plug-install')
 			if not ok then
 				print("failed to install plugin")
