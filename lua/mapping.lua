@@ -41,9 +41,7 @@ Map("",  "<LEADER>p", [["+p]])
 
 Map("n", "<ESC>",     ":nohlsearch<CR>")
 
-Map("i", "jk",        "<ESC>")
 Map("i", "jj",        "<ESC>")
-Map("v", "jk",        "<ESC>")
 
 Map("n", "spv",       "<C-w>t<C-w>H")
 
