@@ -92,3 +92,4 @@ vim.g.nvim_tree_bindings = {
 
 -- toggle nvim tree
 vim.api.nvim_set_keymap("n", "tt", ":NvimTreeRefresh<CR>:NvimTreeToggle<CR>", {noremap=true, silent=true})
+vim.cmd[[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]]
