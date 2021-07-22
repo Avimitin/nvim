@@ -42,9 +42,10 @@ async =
 		function()
 			require('mapping')
 
-			local ok = pcall(require, 'plug-install')
+			local ok, error = pcall(require, 'plug-install')
 			if not ok then
 				print("failed to install plugin")
+				print(error)
 			else
 				ok = pcall(require,'plug-init')
 				if not ok then
