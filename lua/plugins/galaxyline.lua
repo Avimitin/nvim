@@ -33,7 +33,7 @@ local colors = {
     red      = '#D54E53',
 }
 
-function has_file_type()
+local function has_file_type()
     local f_type = vim.bo.filetype
     if not f_type or f_type == '' then
         return false
