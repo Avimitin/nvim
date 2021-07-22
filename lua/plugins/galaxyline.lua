@@ -1,5 +1,6 @@
 local gl = require('galaxyline')
 local gls = gl.section
+local diagnostic = require('galaxyline.provider_diagnostic')
 
 gl.short_line_list = {
 	'LuaTree',
@@ -17,7 +18,7 @@ gl.short_line_list = {
 
 local colors = {
     bg       = '#5C687A',
-    line_bg  = '#202733',
+    line_bg  = '#16191d',
     fg       = '#8FBCBB',
     fg_green = '#65a380',
 
@@ -31,58 +32,6 @@ local colors = {
     blue     = '#73BA9F',
     red      = '#D54E53',
 }
-
-local function lsp_status(status)
-    shorter_stat = ''
-    for match in string.gmatch(status, "[^%s]+")  do
-        err_warn = string.find(match, "^[WE]%d+", 0)
-        if not err_warn then
-            shorter_stat = shorter_stat .. ' ' .. match
-        end
-    end
-    return shorter_stat
-end
-
-local function get_coc_lsp()
-  local status = vim.fn['coc#status']()
-  if not status or status == '' then
-      return ''
-  end
-  return lsp_status(status)
-end
-
-function get_diagnostic_info()
-  if vim.fn.exists('*coc#rpc#start_server') == 1 then
-    return get_coc_lsp()
-    end
-  return ''
-end
-
-local function get_current_func()
-  local has_func, func_name = pcall(vim.fn.nvim_buf_get_var,0,'coc_current_function')
-  if not has_func then return end
-      return func_name
-  end
-
-function get_function_info()
-  if vim.fn.exists('*coc#rpc#start_server') == 1 then
-    return get_current_func()
-    end
-  return ''
-end
-
-local function trailing_whitespace()
-    local trail = vim.fn.search("\\s$", "nw")
-    if trail ~= 0 then
-        return ' '
-    else
-        return nil
-    end
-end
-
-CocStatus = get_diagnostic_info
-CocFunc = get_current_func
-TrailingWhiteSpace = trailing_whitespace
 
 function has_file_type()
     local f_type = vim.bo.filetype
@@ -248,7 +197,7 @@ insert_left {
   GitBranch = {
     provider = 'GitBranch',
     condition = require('galaxyline.provider_vcs').check_git_workspace,
-    highlight = {'#8FBCBB',colors.line_bg,'bold'},
+    highlight = {'#8FBCBB',colors.line_bg},
   }
 }
 
@@ -292,10 +241,16 @@ insert_left {
 insert_left {
     TrailingWhiteSpace = {
      provider = TrailingWhiteSpace,
+		 condition = checkwidth,
      icon = '  ',
      highlight = {colors.yellow,colors.line_bg},
     }
 }
+
+DiagnosticError = diagnostic.get_diagnostic_error
+DiagnosticWarn = diagnostic.get_diagnostic_warn
+DiagnosticHint = diagnostic.get_diagnostic_hint
+DiagnosticInfo = diagnostic.get_diagnostic_info
 
 insert_left {
   DiagnosticError = {
@@ -308,6 +263,7 @@ insert_left {
 insert_left {
   DiagnosticWarn = {
     provider = 'DiagnosticWarn',
+		condition = checkwidth,
     icon = '  ',
     highlight = {colors.yellow,colors.line_bg},
   }
@@ -316,17 +272,10 @@ insert_left {
 insert_left {
     CocStatus = {
      provider = CocStatus,
+		 condition = checkwidth,
      highlight = {colors.green,colors.line_bg},
      icon = '  ',
     }
-}
-
-insert_left {
-  CocFunc = {
-    provider = CocFunc,
-    icon = ' λ ',
-    highlight = {colors.yellow,colors.line_bg},
-  }
 }
 
 insert_left{
@@ -349,6 +298,7 @@ insert_blank_line_at_right()
 insert_right{
   FileFormat = {
     provider = 'FileFormat',
+		condition=checkwidth,
     highlight = {colors.fg,colors.line_bg,'bold'},
   }
 }
@@ -358,7 +308,8 @@ insert_blank_line_at_right()
 insert_right{
   LineInfo = {
     provider = 'LineColumn',
-    separator = '  ',
+    separator = ' ',
+		condition=checkwidth,
     separator_highlight = {colors.green, colors.line_bg},
     highlight = {colors.fg,colors.line_bg},
   },
@@ -367,18 +318,17 @@ insert_right{
 insert_right{
   PerCent = {
     provider = 'LinePercent',
-    separator = '  ',
+    separator = '',
     separator_highlight = {colors.blue,colors.line_bg},
     highlight = {colors.cyan, colors.line_bg,'bold'},
   }
 }
 
-insert_blank_line_at_right()
-
 insert_right{
   Encode = {
     provider = 'FileEncode',
-    separator = '  ',
+    separator = '',
+		condition=checkwidth,
     separator_highlight = {colors.blue,colors.line_bg},
     highlight = {colors.cyan, colors.line_bg,'bold'},
   }

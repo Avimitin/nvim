@@ -79,7 +79,10 @@ require('packer').startup(function(use)
   --nvim-tree.lua--
   use {
 		'kyazdani42/nvim-tree.lua',
-		config=function() require("plugins.nvimtree") end,
+		config=function() 
+			require("plugins.nvimtree") 
+			vim.cmd[[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]]
+		end,
 		requires='kyazdani42/nvim-web-devicons',
 	}
 
