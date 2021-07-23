@@ -256,8 +256,10 @@ require('packer').startup(function(use)
 
 	use {
 		'simrat39/rust-tools.nvim',
-		config=[[require('config.rust')]],
-		ft='rs',
+		ft={'rust','rs'},
+		config=function()
+			require("plugins.rust")
+		end,
 	}
 end)
 
