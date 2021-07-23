@@ -1,19 +1,18 @@
+vim.cmd[[packadd packer.nvim]]
 local installed, _ = pcall(require, 'packer')
-local firsttime = false
 if not installed then
-	local install_path = vim.fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+	local install_path = vim.fn.stdpath("data").."/site/pack/packer/opt/packer.nvim"
 	print("Installing packer to "..install_path)
 	vim.fn.delete(install_path, "rf")
 
 	vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
-	firsttime=true
+	vim.cmd[[packadd packer.nvim]]
 
 	installed, error = pcall(require, 'packer')
 	if not installed then
 		print(error)
 		return
 	end
-	vim.cmd [[packadd packer.nvim]]
 end
 
 vim.cmd([[autocmd BufWritePost plug-install.lua source <afile> | PackerCompile]])
@@ -29,9 +28,12 @@ require('packer').init{
 	}
 }
 
-require('packer').startup(function(use)
+return require('packer').startup(function(use)
 	  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+	use {
+		"wbthomason/packer.nvim",
+		event = "VimEnter"
+	}
 
 	use {
 		'lukas-reineke/indent-blankline.nvim',
@@ -191,7 +193,10 @@ require('packer').startup(function(use)
 	}
 
   --find and replace
-  use 'brooth/far.vim'
+  use {
+		'brooth/far.vim',
+		cmd={'Farr', "Farf"}
+	}
 
   --markdown toc
   use {
@@ -262,5 +267,3 @@ require('packer').startup(function(use)
 		end,
 	}
 end)
-
-if firsttime then vim.cmd[[PackerSync]] end
