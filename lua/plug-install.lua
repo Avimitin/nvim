@@ -13,6 +13,7 @@ if not installed then
 		print(error)
 		return
 	end
+	vim.cmd [[packadd packer.nvim]]
 end
 
 vim.cmd([[autocmd BufWritePost plug-install.lua source <afile> | PackerCompile]])
@@ -67,7 +68,8 @@ require('packer').startup(function(use)
 	}
 
 	use {
-		"rafamadriz/friendly-snippets"
+		"rafamadriz/friendly-snippets",
+		after='LuaSnip',
 	}
 
   --nvim-lspconfig: built-in lsp--
@@ -101,7 +103,8 @@ require('packer').startup(function(use)
 	use {
 		'iamcco/markdown-preview.nvim',
 		run = function() vim.fn['mkdp#util#install']() end,
-		cmd = 'MarkdownPreviewk'
+		cmd = 'MarkdownPreview',
+		ft={'md'},
 	}
 
   --mulit cursor
@@ -169,6 +172,7 @@ require('packer').startup(function(use)
   --Golang support
 	use {
 		'fatih/vim-go',
+		ft={'go'},
 		config=function() require("plugins.vim-go") end,
 	}
 
@@ -177,9 +181,6 @@ require('packer').startup(function(use)
 
   --surrounding select text with given text
   use 'tpope/vim-surround'
-
-  --amazing icon
-  use 'ryanoasis/vim-devicons'
 
   --align
   use {
@@ -193,13 +194,16 @@ require('packer').startup(function(use)
   use 'brooth/far.vim'
 
   --markdown toc
-  use 'mzlogin/vim-markdown-toc'
+  use {
+		'mzlogin/vim-markdown-toc',
+		ft={'md'},
+	}
 
   --clang-format
-  use 'rhysd/vim-clang-format'
-
-  --rust
-  use 'rust-lang/rust.vim'
+  use {
+		'rhysd/vim-clang-format',
+		ft={'cpp', 'c', 'h', 'hpp'},
+	}
 
   --easy motion
 	use {
@@ -248,6 +252,12 @@ require('packer').startup(function(use)
 		config=function()
 			require("plugins.symbols")
 		end
+	}
+
+	use {
+		'simrat39/rust-tools.nvim',
+		config=[[require('config.rust')]],
+		ft='rs',
 	}
 end)
 
