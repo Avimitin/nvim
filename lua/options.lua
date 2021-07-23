@@ -9,7 +9,6 @@ opt.autochdir=true
 
 -- enable number and relative line number
 opt.number=true
-opt.relativenumber=true
 
 -- line behind cursor
 opt.cursorline=true
