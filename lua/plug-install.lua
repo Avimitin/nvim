@@ -157,7 +157,7 @@ return require('packer').startup(function(use)
 		config=function() require("plugins.nnn") end,
 	}
 
-  use 'airblade/vim-rooter'
+  --use 'airblade/vim-rooter'
 
   use {
 		'pechorin/any-jump.vim',
