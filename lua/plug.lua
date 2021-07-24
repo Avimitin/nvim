@@ -72,7 +72,6 @@ return require('packer').startup(function(use)
   --nvim-lspconfig: built-in lsp--
   use {
 		'neovim/nvim-lspconfig',
-		event="VimEnter",
 		config=function() require("plugins.lsp") end,
 		requires={
 			{
