@@ -41,7 +41,11 @@ return require('packer').startup(function(use)
 
 	use {
 		'lukas-reineke/indent-blankline.nvim',
-		config=function() require("plugins.indent") end,
+		config=function()
+			vim.cmd("highlight IndentBlanklineChar guifg=#535353")
+			vim.g.indent_blankline_use_treesitter=true
+		end,
+		event='BufEnter',
 	}
 
   --telescope: extensible fuzzy file finder--
