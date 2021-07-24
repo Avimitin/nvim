@@ -18,45 +18,28 @@ And lua code is inspired by
 
 Take a look at their contribution, which is really fantastic.
 
-## Guide
-
-<details>
-<summary>Click to open</summary>
-<!-- vim-markdown-toc GFM -->
-
-* [Features](#features)
-* [Installation](#installation)
-* [Dependency](#dependency)
-	* [neovim](#neovim)
-	* [Install nerdfont](#install-nerdfont)
-* [Check health](#check-health)
-* [Sync plugins](#sync-plugins)
-* [Keymaps](#keymaps)
-* [License](#license)
-
-<!-- vim-markdown-toc -->
-</details>
-
 ## Features
 
-- LSP support
-- Completion like VSCode
-- Tree file manager
-- Symbols
-- Buffer line manager
-- Fuzzy file finder
-- Floating terminal
-- git message
+- Really fast (loading in `56.923ms` with command `nvim --startuptime`) by packer
+- LSP support by nvim-lspconfig
+- Completion like VSCode by nvim-compe
+- Tree file manager by nvim-tree
+- Symbols by SymbolsOutline
+- Buffer line manager by bufferline.nvim
+- Fuzzy file finder by telescope
+- Floating terminal by FTerm
+- Git message by gitsign
+- Quick jump by hop
 
 ## Installation
 
-To keep your customization, fork the configuration and clone 
+To keep your customization, fork the configuration and clone
 your repository URL instead of mine. Everyone should build their
-own neovim I think.
+own neovim configuration in my opinion.
 
 ```bash
 # linux or mac user
-git clone https://github.com/avimitin/nvim ~/.config/nvim
+git clone https://github.com/Avimitin/nvim ~/.config/nvim
 ```
 
 ## Dependency
