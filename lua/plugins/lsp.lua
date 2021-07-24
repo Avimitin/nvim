@@ -1,7 +1,7 @@
 local present1, lspconfig = pcall(require, "lspconfig")
 local present2, lspinstall = pcall(require, "lspinstall")
 if not (present1 or present2) then
-    return
+	return
 end
 
 -- Use an on_attach function to only map the following keys
