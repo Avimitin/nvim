@@ -60,3 +60,21 @@ Map("i", "<C-c>",     "<ESC>zzi")
 
 --nnn
 Map('n', '<Leader>o', ':NnnPicker %:p:h<CR>')
+
+Map('n', 'u'        , ':HopChar2<CR>')
+Map('v', 'u'        , ':HopChar2<CR>')
+Map('n', '<Leader>j', ':HopLine<CR>')
+Map('n', '<Leader>k', ':HopLine<CR>')
+
+Map('n', '<leader>ff', [[<cmd>Telescope find_files<cr>]])
+Map('n', '<leader>fp', [[<cmd>Telescope media_files<cr>]])
+Map('n', '<leader>fg', [[<cmd>Telescope live_grep<cr>]])
+Map('n', '<leader>fb', [[<cmd>Telescope buffers<cr>]])
+Map('n', '<leader>fh', [[<cmd>Telescope help_tags<cr>]])
+
+Map("n", "<leader>l", ":SymbolsOutline<CR>")
+
+Map("v", "<leader>e", ":EasyAlign<CR>")
+
+Map('n', '<leader>aj', ':AnyJump<CR>')
+Map('n', '<leader>ab', ':AnyJumpBack<CR>')
