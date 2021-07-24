@@ -90,6 +90,18 @@ But that's not a big issue as it only happen once.
 
 See [keymaps.md](./docs/keymaps.md)
 
+## Some coding hint
+
+Use command `:LspInstall` to install the lsp server. For example, to set up
+Lua language server, use command `:LspInstall lua`.
+
+Rust and Golang have additional support like pop-up windows or test inside
+the NeoVIM, check details from [rust-tools](https://github.com/simrat39/rust-tools.nvim/)
+and [vim-go](https://github.com/fatih/vim-go)
+
+C/C++ are using clangd as lsp. And you can use clang-format to format the
+code.
+
 ## License
 
 MIT License
