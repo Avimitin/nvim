@@ -103,9 +103,6 @@ return require('packer').startup(function(use)
   --barbar.nvim: bufferline bar--
   use 'kyazdani42/nvim-web-devicons'
 
-  --fancy start page--
-  use 'mhinz/vim-startify'
-
   --markdown preview
 	use {
 		'iamcco/markdown-preview.nvim',
@@ -279,5 +276,12 @@ return require('packer').startup(function(use)
 		config=function()
 			require("plugins.rust")
 		end,
+	}
+
+	use {
+		'glepnir/dashboard-nvim',
+		config=function()
+			require("plugins.dashboard")
+		end
 	}
 end)
