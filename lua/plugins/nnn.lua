@@ -1,8 +1,8 @@
 vim.g["nnn#layout"] = {
 	left='~20%',
 	window= {
-		width= 0.8,
-		height= 0.6,
+		width= 0.7,
+		height= 0.8,
 		highlight='Debug'
 	}
 }
