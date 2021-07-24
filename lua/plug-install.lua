@@ -243,7 +243,8 @@ return require('packer').startup(function(use)
 	}
 
 	use {
-		'sbdchd/neoformat'
+		'sbdchd/neoformat',
+		cmd="Neoformat",
 	}
 
 	-- show color at words
