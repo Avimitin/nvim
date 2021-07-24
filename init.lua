@@ -7,36 +7,55 @@
 ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
 
 Author: Avimitin
+Source: https://github.com/Avimitn/nvim
+Credit:
+	This project is inspired by the following open-source projects:
+		* https://github.com/theniceboy/nvim
+		* https://github.com/siduck76/NvChad
+License:
+	MIT License
+--]]
 
-License: MIT License
-
-Copyright (c) 2018-2021 avimitin
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
-]]
-vim.api.nvim_command 'filetype plugin indent on'
-
+-- Loading basic configuration
 require('options')
 require('mapping')
 
+-- detecting plugin manager
+local has_packer_file = pcall(vim.cmd, [[packadd packer.nvim]])
+local has_packer, error_msg = pcall(require, 'packer')
+
+local no_plugins = false
+
+if not has_packer and not has_packer_file then
+	local install_path = vim.fn.stdpath("data").."/site/pack/packer/opt/packer.nvim"
+	print("Installing packer to "..install_path)
+
+	vim.fn.delete(install_path, "rf")
+	vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
+
+	no_plugins = true
+
+	vim.cmd[[packadd packer.nvim]]
+
+	has_packer, error_msg = pcall(require, 'packer')
+	if not has_packer then
+		print(error_msg)
+		return
+	end -- inner has_packer
+
+end -- outer has_packer
+
+-- Reading plugins configuration
 local ok, error = pcall(require, 'plug')
 if not ok then
-	print("failed to install plugin")
+	print("failed to initialize plugin")
 	print(error)
 end
+
+vim.cmd([[autocmd BufWritePost plug.lua source <afile> | PackerCompile]])
+
+if no_plugins then
+	vim.cmd([[PackerSync]])
+	print("Please quit the neovim after plugins are all successful installed")
+end
+
