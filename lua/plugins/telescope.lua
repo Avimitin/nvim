@@ -1,9 +1,9 @@
 --[[
 -- Copy from https://github.com/siduck76/NvChad/blob/main/lua/plugins/telescope.lua
 --]]
-local present, telescope = pcall(require, "telescope")
-if not present then
-    return
+local ok, telescope = pcall(require, "telescope")
+if not ok  then
+	return
 end
 
 telescope.setup({

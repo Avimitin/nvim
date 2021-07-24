@@ -67,15 +67,16 @@ return require('packer').startup(function(use)
 		},
 	}
 
+	use {
+		'kabouzeid/nvim-lspinstall',
+		event="BufRead",
+	}
+
   --nvim-lspconfig: built-in lsp--
   use {
 		'neovim/nvim-lspconfig',
 		after="nvim-lspinstall",
 		config=function() require("plugins.lsp") end,
-		requires= {{
-		'kabouzeid/nvim-lspinstall',
-		event='BufRead',
-		}}
 	}
 
   --nvim-tree.lua--
