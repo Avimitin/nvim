@@ -51,8 +51,18 @@ return require('packer').startup(function(use)
   --telescope: extensible fuzzy file finder--
 	use {
 		'nvim-telescope/telescope.nvim',
-		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+		cmd='Telescope',
+		requires = {
+			{'nvim-lua/popup.nvim'},
+			{'nvim-lua/plenary.nvim'},
+		},
 		config=function() require("plugins.telescope") end,
+		after="telescope-media-files.nvim",
+	}
+
+	use {
+		'nvim-telescope/telescope-media-files.nvim',
+		cmd='Telescope',
 	}
 
   --nvim-bufferline: better buffer line--
@@ -61,31 +71,34 @@ return require('packer').startup(function(use)
 		config=function() require("plugins.bufferline") end,
 	}
 
-  --nvim-lspinstall: lsp manager--
-  use 'kabouzeid/nvim-lspinstall'
-
   --nvim-compe: code completion--
 	use {
 		'hrsh7th/nvim-compe',
 		config=function() require("plugins.compe") end,
-	}
-
-	use {
-		"L3MON4D3/LuaSnip",
-		config=function()
-			require("plugins.luasnip")
-		end
-	}
-
-	use {
-		"rafamadriz/friendly-snippets",
-		after='LuaSnip',
+		event='InsertEnter',
+		requires={
+			{
+				"L3MON4D3/LuaSnip",
+				config=function()
+					require("plugins.luasnip")
+				end,
+			},
+			{
+				"rafamadriz/friendly-snippets",
+				after='LuaSnip',
+			}
+		},
 	}
 
   --nvim-lspconfig: built-in lsp--
   use {
 		'neovim/nvim-lspconfig',
+		after="nvim-lspinstall",
 		config=function() require("plugins.lsp") end,
+		requires= {{
+		'kabouzeid/nvim-lspinstall',
+		event='BufRead',
+		}}
 	}
 
   --nvim-tree.lua--
@@ -98,10 +111,16 @@ return require('packer').startup(function(use)
 	}
 
   --TrueZen.nvim: zen mode in neovim--
-  use 'Pocco81/TrueZen.nvim'
+  use {
+		'Pocco81/TrueZen.nvim',
+		cmd={'TZAtaraxis', 'TZFocus', "TZMinimalist"}
+	}
 
-  --vim-commentary: for quickly commenting--
-  use 'tpope/vim-commentary'
+  -- vim-commentary: for quickly commenting--
+  use {
+		'tpope/vim-commentary',
+		keys={{'n', 'gcc'}, {'v', 'gc'}}
+  }
 
   --barbar.nvim: bufferline bar--
   use 'kyazdani42/nvim-web-devicons'
@@ -114,7 +133,7 @@ return require('packer').startup(function(use)
 		'iamcco/markdown-preview.nvim',
 		run = function() vim.fn['mkdp#util#install']() end,
 		cmd = 'MarkdownPreview',
-		ft={'md'},
+		ft={'md', 'markdown'},
 	}
 
   --mulit cursor
@@ -124,7 +143,10 @@ return require('packer').startup(function(use)
 	}
 
   --open file when forget sudo
-  use 'lambdalisue/suda.vim'
+  use {
+		'lambdalisue/suda.vim',
+		cmd={'SudaWrite', 'SudaRead'},
+	}
 
   --treesitter: support more colorful highlighting
 	use {
@@ -167,8 +189,13 @@ return require('packer').startup(function(use)
   use {
 		'pechorin/any-jump.vim',
 		config=function()
-			require("plugins.anyjump")
+			vim.g.any_jump_window_width_ratio=0.8
+			vim.g.any_jump_window_height_ratio=0.9
 		end,
+		cmd={
+			'AnyJump',
+			'AnyJumpBack',
+		}
 	}
 
 	--git information
@@ -196,9 +223,7 @@ return require('packer').startup(function(use)
   --align
   use {
 		'junegunn/vim-easy-align',
-		config=function ()
-			vim.api.nvim_set_keymap("v", "<leader>e", ":EasyAlign<CR>", {noremap=true, silent=true})
-		end
+		cmd='EasyAlign',
 	}
 
   --find and replace
@@ -210,7 +235,7 @@ return require('packer').startup(function(use)
   --markdown toc
   use {
 		'mzlogin/vim-markdown-toc',
-		ft={'md'},
+		ft={'md', 'markdown'},
 	}
 
   --clang-format
@@ -226,11 +251,12 @@ return require('packer').startup(function(use)
 			require'hop'.setup {
 				keys = 'etovxqpdygfblzhckisuran'
 			}
-			local options={noremap=true, silent=true}
-			vim.api.nvim_set_keymap('n', 'u'        , ':HopChar2<CR>', options)
-			vim.api.nvim_set_keymap('n', '<Leader>j', ':HopLine<CR>', options)
-			vim.api.nvim_set_keymap('n', '<Leader>k', ':HopLine<CR>', options)
 		end,
+		cmd={
+			'HopChar2',
+			'HopLine',
+			'HopPattern',
+		}
 	}
 
   -- open a big terminal
@@ -266,7 +292,8 @@ return require('packer').startup(function(use)
 		'simrat39/symbols-outline.nvim',
 		config=function()
 			require("plugins.symbols")
-		end
+		end,
+		cmd="SymbolsOutline"
 	}
 
 	use {
