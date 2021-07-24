@@ -8,6 +8,9 @@
 |
 [中文](docs/README_CN.md)
 
+> 中文文档因为我比较懒，所以不能保证完全同步，如果遇到
+> 任何文档不对应的问题，请以英文版为准。
+
 ## Credit
 
 This project is originally inspired by
