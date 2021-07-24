@@ -1,10 +1,10 @@
 # Gopher 的 neovim 配置
 
-![大图](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210228180603.png)
+![大图](../image/screenshot.png)
 
 ## 特性
 
-- 超快！启动仅需 `52ms` （使用命令 `nvim --staruptime`）
+- 超快！启动仅需 `65ms` （使用命令 `nvim --staruptime`）
 - 语法检查支持和自动补全支持！
 - 你一定熟悉的数结构文件管理器
 - IDE 都有的函数和变量名跳转
