@@ -35,22 +35,8 @@ vim.api.nvim_command 'filetype plugin indent on'
 require('options')
 require('mapping')
 
--- Copy from https://github.com/siduck76/NvChad
-local async
-async =
-	vim.loop.new_async(
-	vim.schedule_wrap(
-		function()
-
-			local ok, error = pcall(require, 'plug-install')
-			if not ok then
-				print("failed to install plugin")
-				print(error)
-			end
-
-			async:close()
-		end
-	)
-)
-
-async:send()
+local ok, error = pcall(require, 'plug-install')
+if not ok then
+	print("failed to install plugin")
+	print(error)
+end
