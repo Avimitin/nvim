@@ -18,7 +18,7 @@ require('gitsigns').setup {
 		['n gip'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
 		['n gib'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
 	},
-  numhl = false,
+  numhl = true,
   linehl = false,
   watch_index = {
     interval = 1000,
