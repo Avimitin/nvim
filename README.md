@@ -20,7 +20,7 @@ Take a look at their contribution, which is really fantastic.
 
 ## Features
 
-- Really fast (loading in `56.923ms` with command `nvim --startuptime`) by packer
+- Really fast (loading in `65ms` with command `nvim --startuptime`) by packer
 - LSP support by nvim-lspconfig
 - Completion like VSCode by nvim-compe
 - Tree file manager by nvim-tree
