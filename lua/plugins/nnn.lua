@@ -7,4 +7,3 @@ vim.g["nnn#layout"] = {
 	}
 }
 
-vim.api.nvim_set_keymap('n', '<Leader>o', ':NnnPicker %:p:h<CR>', {noremap=true, silent=true})

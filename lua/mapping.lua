@@ -58,3 +58,5 @@ Map("n", "sl",        "<C-w>l")
 
 Map("i", "<C-c>",     "<ESC>zzi")
 
+--nnn
+Map('n', '<Leader>o', ':NnnPicker %:p:h<CR>')
