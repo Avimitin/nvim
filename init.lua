@@ -35,7 +35,7 @@ vim.api.nvim_command 'filetype plugin indent on'
 require('options')
 require('mapping')
 
-local ok, error = pcall(require, 'plug-install')
+local ok, error = pcall(require, 'plug')
 if not ok then
 	print("failed to install plugin")
 	print(error)
