@@ -155,6 +155,7 @@ return require('packer').startup(function(use)
   use {
 		'mcchrish/nnn.vim',
 		config=function() require("plugins.nnn") end,
+		cmd="NnnPicker",
 	}
 
   --use 'airblade/vim-rooter'
