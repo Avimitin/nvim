@@ -110,7 +110,6 @@ return require('packer').startup(function(use)
 		'iamcco/markdown-preview.nvim',
 		run = function() vim.fn['mkdp#util#install']() end,
 		cmd = 'MarkdownPreview',
-		ft={'md', 'markdown'},
 	}
 
   --mulit cursor
@@ -212,7 +211,7 @@ return require('packer').startup(function(use)
   --markdown toc
   use {
 		'mzlogin/vim-markdown-toc',
-		ft={'md', 'markdown'},
+		cmd={'GenTocGFM'}
 	}
 
   --clang-format
