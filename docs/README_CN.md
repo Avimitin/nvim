@@ -2,40 +2,18 @@
 
 ![大图](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210228180603.png)
 
-## 目录
+## 特性
 
-<details>
-<summary>点击查看</summary>
-<!-- vim-markdown-toc GFM -->
-
-* [参照](#参照)
-* [使用建议](#使用建议)
-* [需要安装的依赖](#需要安装的依赖)
-* [安装之后](#安装之后)
-* [按键介绍](#按键介绍)
-	* [指针](#指针)
-	* [编辑](#编辑)
-	* [窗口](#窗口)
-	* [标签页](#标签页)
-	* [其他功能](#其他功能)
-* [插件键位介绍](#插件键位介绍)
-	* [语法检查和自动补全](#语法检查和自动补全)
-	* [hop](#hop)
-	* [Telescope](#telescope)
-	* [GitSign](#gitsign)
-	* [far.vim](#farvim)
-	* [Vim-easy-align](#vim-easy-align)
-	* [wildfire](#wildfire)
-	* [vim-surround](#vim-surround)
-	* [vim-go](#vim-go)
-	* [lazygit](#lazygit)
-* [Markdown](#markdown)
-	* [预览](#预览)
-	* [Toc](#toc)
-	* [Table](#table)
-
-<!-- vim-markdown-toc -->
-</details>
+- 超快！启动仅需 `52ms` （使用命令 `nvim --staruptime`）
+- 语法检查支持和自动补全支持！
+- 你一定熟悉的数结构文件管理器
+- IDE 都有的函数和变量名跳转
+- 简单好用的缓存管理
+- 高速模糊文件名查询
+- 漂浮的终端窗口
+- 和众多 IDE 一样的 git 信息
+- 超快超顺手的文件位置跳转
+...
 
 ## 参照
 
