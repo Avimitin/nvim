@@ -78,3 +78,6 @@ Map("v", "<leader>e", ":EasyAlign<CR>")
 
 Map('n', '<leader>aj', ':AnyJump<CR>')
 Map('n', '<leader>ab', ':AnyJumpBack<CR>')
+
+Map('n', 'got', ':GoTestFunc<CR>')
+Map('n', 'gor', ':GoRun<CR>')
