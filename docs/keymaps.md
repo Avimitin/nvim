@@ -195,10 +195,19 @@ Press enter to select text.
 
 ## Rust
 
-Must install [rust-analyzer](https://rust-analyzer.github.io/manual.html), rust lsp is configured 
-in `coc-setting.json`
+Use command `:LspInstall rust` to automatically configured up [rust-ananlyzer](https://rust-analyzer.github.io/)
+as lsp server.
 
-> This plugin is not test in Windows system yet. So there is no change on windows branch.
+Also you will have extra command to help you coding in Rust. See
+[rust-tool.nvim](https://github.com/simrat39/rust-tools.nvim/) for more.
+
+## CPP
+
+Use command `:LspInstall cpp` to automatically configured up clangd as lsp server.
+
+Use command `:Neoformat` to format your cpp file.
+[clang-format](https://clang.llvm.org/docs/ClangFormat.html) is needed. It will read `.clang-format`
+from your project root.
 
 # Markdown
 
@@ -228,4 +237,26 @@ or as part of a :global invocation like with :g/TODO/Commentary. That's it.
 # FTerm
 
 Press `<Ctrl>+\` to open a terminal, press it again to close the window.
+
+# Autopairs
+
+## `<CR>`
+
+```text
+Before        Input         After
+------------------------------------
+{|}           <CR>          {
+                              |
+                            }
+------------------------------------
+```
+
+## Fastwrap
+
+```text
+Before        Input                    After
+--------------------------------------------------
+(|foobar      \e then press $        (|foobar)
+(|)(foobar)   \e then press q       (|(foobar))
+```
 
