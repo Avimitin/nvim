@@ -59,7 +59,7 @@ leader key is `<Space>`.
 | `leader` + y | copy to system clipboard (select text at visual mode) |
 | `leader` + p | paste from system clipboard                           |
 
-## Tab page
+## buffer line
 
 | keymap      | function                                     |
 | ------      | --------                                     |
@@ -80,19 +80,12 @@ leader key is `<Space>`.
 
 | keymap        | function                                 |
 | ------        | --------                                 |
-| tt            | open coc explorer                        |
+| tt            | open nvim tree explorer                  |
 | `<LEADER>+o`  | open nnn file manager(install nnn first) |
 
-## File finder
-
-| keymap        | function                   |
-| ---           | ---                        |
-| `<LEADER>+ff` | activate fuzzy file finder |
-| `<LEADER>+fg` | activate live grep         |
-| `<LEADER>+fb` | activate buffer finder     |
-| `<Ctrl+c>`    | exit                       |
-
 ## Hop
+
+![image](https://camo.githubusercontent.com/e71f83e31fd8950c8a584e28d68a5ca97502d3a57919119fb9e21943cb5ff76c/68747470733a2f2f706861617a6f6e2e6e65742f6d656469612f75706c6f6164732f686f705f63686172325f6d6f64652e676966) 
 
 | keymap       | function             |
 | ---          | ---                  |
@@ -149,6 +142,8 @@ the name of references. Check out [fatih/vim-go](https://github.com/fatih/vim-go
 
 ## Git
 
+![img](https://raw.githubusercontent.com/lewis6991/media/main/gitsigns_blame.gif) 
+
 | keymap | function        |
 | ---    | ---             |
 | gis    | stage changes   |
@@ -161,9 +156,13 @@ the name of references. Check out [fatih/vim-go](https://github.com/fatih/vim-go
 
 ## Symbols
 
+![image](https://raw.githubusercontent.com/simrat39/rust-tools-demos/master/symbols-demo.gif) 
+
 Press `<LEADER>` + l to activate it.
 
 ## lazygit
+
+![image](https://raw.githubusercontent.com/jesseduffield/lazygit/assets/staging.gif) 
 
 press `ctrl+g` to activate it. (Install lazygit first)
 
@@ -179,10 +178,13 @@ src="https://camo.githubusercontent.com/334f5a06cbee4141889dfdf18a7c51a0ea408edb
 | ---- | ------------------------------------------------------------                |
 | S    | press big S when you selected text, and press a symble you want to surround |
 | cs   | find and replace symbol                                                     |
+| ds   | revert to original text                                                     |
 
 "HELLO" -> press `CS"'` change double quote to single quote -> 'HELLO'
 
 ## wildfire
+
+![image](https://raw.githubusercontent.com/gcmt/wildfire.vim/master/_assets/preview.gif) 
 
 plugin to help you quick select surrounded object
 
@@ -194,6 +196,8 @@ Press enter to select text.
 > using wildfire and vim-surround can quickly select and changed object symbol.
 
 ## Rust
+
+![img](https://raw.githubusercontent.com/simrat39/rust-tools-demos/master/rust-tools-debug.gif) 
 
 Use command `:LspInstall rust` to automatically configured up [rust-ananlyzer](https://rust-analyzer.github.io/)
 as lsp server.
@@ -210,6 +214,15 @@ Use command `:Neoformat` to format your cpp file.
 from your project root.
 
 # Markdown
+
+## Snippets
+
+```text
+code
+codeblock
+h[1-5]
+...
+```
 
 ## Preview
 
@@ -236,6 +249,8 @@ or as part of a :global invocation like with :g/TODO/Commentary. That's it.
 
 # FTerm
 
+![image](https://user-images.githubusercontent.com/24727447/113905276-999bc580-97f0-11eb-9c01-347de0ff53c9.png) 
+
 Press `<Ctrl>+\` to open a terminal, press it again to close the window.
 
 # Autopairs
@@ -258,5 +273,17 @@ Before        Input                    After
 --------------------------------------------------
 (|foobar      \e then press $        (|foobar)
 (|)(foobar)   \e then press q       (|(foobar))
+```
+
+# Telescope
+
+![screenshot](https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/telmedia.png) 
+
+```text
+<leader>ff Telescope find_files
+<leader>fp Telescope media_files
+<leader>fg Telescope live_grep
+<leader>fb Telescope buffers
+<leader>fh Telescope help_tags
 ```
 
