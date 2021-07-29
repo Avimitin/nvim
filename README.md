@@ -2,6 +2,14 @@
 
 ![User Interface Preview](./image/screenshot.png)
 
+---
+
+![markdown](./image/neovim-md.png) 
+
+---
+
+![coding](./image/neovim-coding.png) 
+
 ## Intro
 
 **[English](./README.md) (You are here)**
@@ -33,6 +41,7 @@ Take a look at their contribution, which is really fantastic.
 - Floating terminal by FTerm
 - Git message by gitsign
 - Quick jump by hop
+- Good markdown work flow
 
 ## Installation
 
