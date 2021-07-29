@@ -9,7 +9,7 @@ require('FTerm').setup {
 		width = 0.9,
 	},
 
-	border = 'single'
+	border = 'double'
 }
 
 local option = {noremap=true, silent=true}
