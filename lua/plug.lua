@@ -153,7 +153,10 @@ return require('packer').startup(function(use)
 	}
 
   --highlight all the word below the cursor
-  use 'RRethy/vim-illuminate'
+  use {
+		'RRethy/vim-illuminate',
+		event="BufRead",
+	}
 
   --file navigation
   use {
@@ -193,10 +196,16 @@ return require('packer').startup(function(use)
 	}
 
   --Select text object
-  use 'gcmt/wildfire.vim'
+  use {
+		'gcmt/wildfire.vim',
+		event="BufRead",
+	}
 
   --surrounding select text with given text
-  use 'tpope/vim-surround'
+  use {
+		"tpope/vim-surround",
+		event="BufRead",
+	}
 
   --align
   use {
