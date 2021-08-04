@@ -141,7 +141,7 @@ return require('packer').startup(function(use)
 	  end,
   }
 
-  use 'morhetz/gruvbox'
+  -- use 'morhetz/gruvbox'
 
 	use {
 		'glepnir/galaxyline.nvim',
@@ -295,6 +295,18 @@ return require('packer').startup(function(use)
 		'glepnir/dashboard-nvim',
 		config=function()
 			require("plugins.dashboard")
+		end
+	}
+
+	use {
+		'andweeb/presence.nvim',
+		event="VimEnter",
+		config=function ()
+			require("presence"):setup({
+					neovim_image_text   = "Why not neovim?",
+					editing_text        = "Wring bugs: %s",
+					workspace_text      = "Suck on %s",
+			})
 		end
 	}
 end)
