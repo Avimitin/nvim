@@ -31,7 +31,7 @@ Map("n", "<C-s>",     ":w<CR>")
 
 Map("n", "<LEADER>q", ":wq<CR>")
 
-Map("n", "<C-q>",     ":q<CR>")
+Map("n", "<C-A-q>",     ":qa<CR>")
 
 Map("v", "<LEADER>y", [["+y]])
 
