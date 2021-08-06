@@ -50,7 +50,7 @@ leader key is `<Space>`.
 | ------                  | --------                |
 | `LEADER`+s              | save                    |
 | `LEADER`+q              | save and quit           |
-| `Ctrl` + q              | quit                    |
+| `Ctrl + Alt` + q              | quit                    |
 
 ## Copy and Paste
 
@@ -67,7 +67,7 @@ leader key is `<Space>`.
 | `.`         | move to front tab                            |
 | `<Alt> + >` | move current tab to next tab                 |
 | `<Alt> + <` | move current tab to front tab                |
-| `<Alt> + x` | open pick mode and close the selected window |
+| `<Ctrl> + c` | open pick mode and close the selected window |
 
 ## Windows manage
 
