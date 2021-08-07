@@ -86,6 +86,7 @@ return require('packer').startup(function(use)
 		config=function()
 			require("plugins.nvimtree")
 		end,
+		cmd={"NvimTreeRefresh", "NvimTreeToggle"},
 		requires='kyazdani42/nvim-web-devicons',
 	}
 
@@ -100,9 +101,6 @@ return require('packer').startup(function(use)
 		'tpope/vim-commentary',
 		keys={{'n', 'gcc'}, {'v', 'gc'}}
   }
-
-  --barbar.nvim: bufferline bar--
-  use 'kyazdani42/nvim-web-devicons'
 
   --markdown preview
 	use {
