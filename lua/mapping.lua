@@ -82,4 +82,5 @@ Map('n', '<leader>ab', ':AnyJumpBack<CR>')
 Map('n', 'got', ':GoTestFunc<CR>')
 Map('n', 'gor', ':GoRun<CR>')
 
-Map("n", "tt", ":NvimTreeRefresh<CR>:NvimTreeToggle<CR>")
+Map("n", "tt", ":NvimTreeToggle<CR>")
+Map("n", "tr", ":NvimTreeRefresh<CR>")
