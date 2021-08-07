@@ -213,6 +213,15 @@ Use command `:Neoformat` to format your cpp file.
 [clang-format](https://clang.llvm.org/docs/ClangFormat.html) is needed. It will read `.clang-format`
 from your project root.
 
+If your project library is individual and the lsp will give you annoying hint like header file not
+found..etc, you can run below command to set up your project.
+
+```bash
+#if you are using cmake
+cmake -BDebug . -DCMAKE_EXPORT_COMPILE_COMMANDS=1
+ln -s Debug/compile_commands.json .
+```
+
 # Markdown
 
 ## Snippets
