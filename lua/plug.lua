@@ -69,15 +69,16 @@ return require('packer').startup(function(use)
 		},
 	}
 
+	use {
+		'kabouzeid/nvim-lspinstall',
+		event="BufRead",
+	}
+
   --nvim-lspconfig: built-in lsp--
   use {
 		'neovim/nvim-lspconfig',
 		config=function() require("plugins.lsp") end,
-		requires={
-			{
-				'kabouzeid/nvim-lspinstall',
-			}
-		}
+		after="nvim-lspinstall",
 	}
 
 	use {
@@ -123,6 +124,7 @@ return require('packer').startup(function(use)
   --mulit cursor
 	use {
 		'mg979/vim-visual-multi',
+		event="BufRead",
 		branch = 'master',
 	}
 
@@ -136,6 +138,7 @@ return require('packer').startup(function(use)
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',
+		event = 'VimEnter',
 		config = function() require('plugins.treesitter') end,
 	}
 
@@ -284,6 +287,7 @@ return require('packer').startup(function(use)
 	use {
 		'RRethy/vim-hexokinase',
 		run='make hexokinase',
+		cmd={"HexokinaseToggle"},
 		config=function()
 			vim.g.Hexokinase_highlighters = {'backgroundfull'}
 			vim.g.Hexokinase_optInPatterns = {'full_hex','rgb','rgba','hsl','hsla'}
@@ -308,6 +312,7 @@ return require('packer').startup(function(use)
 
 	use {
 		'glepnir/dashboard-nvim',
+		cmd={"Dashboard"},
 		config=function()
 			require("plugins.dashboard")
 		end
