@@ -80,6 +80,14 @@ return require('packer').startup(function(use)
 		}
 	}
 
+	use {
+		after = "nvim-lspconfig",
+		"ray-x/lsp_signature.nvim",
+		config = function()
+			require("plugins.lsp-signature")
+		end
+	}
+
   --nvim-tree.lua--
   use {
 		'kyazdani42/nvim-tree.lua',
