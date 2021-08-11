@@ -97,3 +97,4 @@ if undo_stat and has_persist == 1 then
 end
 
 vim.api.nvim_command('autocmd TermOpen term://* startinsert')
+vim.cmd[[set guifont=JetbrainsMono\ Nerd\ Font\ Mono:h10]]
