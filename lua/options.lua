@@ -4,9 +4,6 @@ opt.encoding='utf-8'
 opt.termguicolors=true
 opt.background="dark"
 
--- auto change directory
-opt.autochdir=true
-
 -- enable number and relative line number
 opt.number=true
 
@@ -20,15 +17,16 @@ opt.cursorline=true
 -- Use the appropriate number of spaces to insert a <Tab>.
 opt.expandtab=false
 -- Number of spaces that a <Tab> in the file counts for.
-opt.tabstop=2
+opt.tabstop=8
 opt.shiftwidth=2
 opt.softtabstop=2
 
 -- Copy indent from current line when starting a new line
-opt.autoindent=true
+--opt.autoindent=true
 
 -- A List is an ordered sequence of items.
 opt.list=true
+opt.listchars="tab:<->,trail:·"
 
 -- Minimal number of screen lines to keep above and below the cursor.
 opt.scrolloff=5

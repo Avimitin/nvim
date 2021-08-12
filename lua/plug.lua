@@ -19,10 +19,7 @@ return require('packer').startup(function(use)
 	use {
 		'lukas-reineke/indent-blankline.nvim',
 		config=function()
-			vim.g.indent_blankline_use_treesitter=true
-			vim.g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard", "NvimTree"}
-			vim.g.indent_blankline_buftype_exclude = {"terminal"}
-			vim.g.indent_blankline_char = "|"
+		  require("plugins.indent")
 		end,
 		event='BufEnter',
 	}
@@ -174,7 +171,10 @@ return require('packer').startup(function(use)
 		cmd="NnnPicker",
 	}
 
-  --use 'airblade/vim-rooter'
+  use {
+		'airblade/vim-rooter',
+		event="VimEnter",
+	}
 
   use {
 		'pechorin/any-jump.vim',
