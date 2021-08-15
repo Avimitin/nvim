@@ -63,8 +63,8 @@ Map("i", "<C-c>",     "<ESC>zzi")
 Map('n', '<Leader>o', ':NnnPicker %:p:h<CR>')
 
 --hop
-Map('n', 'u'        , ':HopChar2<CR>')
-Map('v', 'u'        , ':HopChar2<CR>')
+Map('n', 'f'        , ':HopChar2<CR>')
+Map('v', 'f'        , ':HopChar2<CR>')
 Map('n', '<Leader>j', ':HopLine<CR>')
 Map('n', '<Leader>k', ':HopLine<CR>')
 
