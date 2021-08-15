@@ -23,11 +23,11 @@ Map("n", ">",     ">>")
 Map("",  "s",     "<nop>")
 Map("",  "-",     "N")
 Map("",  "=",     "n")
+Map("n",  ";",     ":")
 
 vim.g.mapleader=" "
 
-Map("n", "<LEADER>s", ":w<CR>")
-Map("n", "<C-s>",     ":w<CR>")
+Map("n", ";w",        ":w<CR>")
 
 Map("n", "<LEADER>q", ":wq<CR>")
 
