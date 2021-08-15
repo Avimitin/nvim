@@ -1,5 +1,8 @@
 local ok, error = pcall(require, 'rust-tools')
-if not ok then print(error) end
+if not ok then
+  print(error) 
+  return
+end
 
 local opts = {
     tools = { -- rust-tools options
@@ -75,5 +78,3 @@ local opts = {
 
 require('rust-tools').setup(opts)
 require('rust-tools.inlay_hints').set_inlay_hints()
-
-print("rust set up")
