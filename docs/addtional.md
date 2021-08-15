@@ -38,7 +38,13 @@ modified.
 | ------      | -------- |
 | `Ctrl` + z  | undo     |
 | `Ctrl` + r  | redo     |
-| `Ctrl` + s  | save     |
+| `;` + w     | save     |
+
+- command
+
+In normal mode, you can use `;` to trigger command, no more `Shift` key now.
+For example, you will need to press `Shift + ; + q + Enter` to quit neovim,
+but now `; + q + Enter` is only needed.
 
 ## LEADER key
 
@@ -89,7 +95,7 @@ leader key is `<Space>`.
 
 | keymap       | function             |
 | ---          | ---                  |
-| `u`          | activate hop         |
+| `f`          | activate hop         |
 | `<leader>+j` | easymotion jump line |
 | `<leader>+k` | easymotion jump line |
 
