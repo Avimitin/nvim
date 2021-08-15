@@ -60,7 +60,7 @@ opt.smartcase=true
 
 vim.cmd("set shortmess+=c")
 opt.inccommand='split'
-opt.completeopt="longest,noinsert,menuone,noselect,preview"
+opt.completeopt="noinsert,menuone,noselect,preview"
 opt.ttyfast=true
 opt.lazyredraw=true
 opt.visualbell=true
