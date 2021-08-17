@@ -17,7 +17,7 @@ opt.cursorline=true
 -- Use the appropriate number of spaces to insert a <Tab>.
 opt.expandtab=false
 -- Number of spaces that a <Tab> in the file counts for.
-opt.tabstop=8
+opt.tabstop=2
 opt.shiftwidth=2
 opt.softtabstop=2
 
