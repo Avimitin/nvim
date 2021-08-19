@@ -88,7 +88,8 @@ vim.g.nvim_tree_bindings = {
     {key = "}c", cb = tree_cb("next_git_item")},
     {key = "-", cb = tree_cb("dir_up")},
     {key = "q", cb = tree_cb("close")},
-    {key = "?", cb = tree_cb("toggle_help")}
+    {key = "?", cb = tree_cb("toggle_help")},
+    { key = "<C-A-s>", cb = tree_cb("system_open") },
 }
 
 -- toggle nvim tree
