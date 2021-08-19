@@ -131,14 +131,16 @@ insert_left{
           t      = 'T',
           ['!']  = 'SH',
       }
-      local mode_color = {n = colors.yellow, i = colors.green,v=colors.blue,
-                          [''] = colors.blue,V=colors.blue,
-                          c = colors.magenta,no = colors.red,s = colors.orange,
-                          S=colors.orange,[''] = colors.orange,
-                          ic = colors.yellow,R = colors.violet,Rv = colors.violet,
-                          cv = colors.red,ce=colors.red, r = colors.cyan,
-                          rm = colors.cyan, ['r?'] = colors.cyan,
-                          ['!']  = colors.red,t = colors.red}
+
+      local mode_color = {
+				n = colors.yellow,      i = colors.green,   v=colors.blue,
+        [''] = colors.blue,   V=colors.blue,      c = colors.magenta,
+				no = colors.red,        s = colors.orange,  S=colors.orange,
+				[''] = colors.orange, ic = colors.yellow, R = colors.purple,
+				Rv = colors.purple,     cv = colors.red,    ce=colors.red,
+				r = colors.cyan,        rm = colors.cyan,   ['r?'] = colors.cyan,
+        ['!'] = colors.red,     t = colors.red
+			}
 
       local vim_mode = vim.fn.mode()
       vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color[vim_mode])
