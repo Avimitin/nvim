@@ -26,6 +26,7 @@ vim.g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
 vim.g.nvim_tree_disable_netrw = 1
 vim.g.nvim_tree_hijack_netrw = 1
 vim.g.nvim_tree_update_cwd = 1
+vim.g.nvim_tree_disable_default_keybindings = 1
 
 vim.g.nvim_tree_show_icons = {
     git = 1,
