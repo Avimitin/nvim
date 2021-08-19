@@ -324,9 +324,9 @@ return require('packer').startup(function(use)
 		event="VimEnter",
 		config=function ()
 			require("presence"):setup({
-					neovim_image_text   = "Why not neovim?",
-					editing_text        = "Wring bugs: %s",
-					workspace_text      = "Suck on %s",
+					neovim_image_text   = "HELP!",
+					editing_text        = "STUCK IN THE %s FILE",
+					workspace_text      = "HELP! HOW TO QUIT VIM!",
 			})
 		end
 	}
