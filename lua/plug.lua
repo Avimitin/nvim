@@ -174,6 +174,9 @@ return require('packer').startup(function(use)
   use {
 		'airblade/vim-rooter',
 		event="VimEnter",
+        config=function()
+          vim.g.rooter_patterns = {'.git', 'Cargo.toml'}
+        end
 	}
 
   use {
