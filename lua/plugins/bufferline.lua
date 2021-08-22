@@ -42,3 +42,4 @@ vim.api.nvim_set_keymap("n", ",", [[<Cmd>BufferLineCyclePrev<CR>]], opt)
 -- move tabs
 vim.api.nvim_set_keymap("n", "<A->>", [[<CMD>BufferLineMoveNext<CR>]], opt)
 vim.api.nvim_set_keymap("n", "<A-<>", [[<CMD>BufferLineMovePrev<CR>]], opt)
+vim.api.nvim_set_keymap("n", "<A-p>", [[<CMD>:BufferLinePick<CR>]], opt)
