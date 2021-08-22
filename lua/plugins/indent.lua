@@ -11,7 +11,7 @@ vim.g.indent_blankline_show_trailing_blankline_indent = false
 vim.g.indent_blankline_show_current_context = true
 vim.g.indent_blankline_context_patterns = {
   "class", "function", "method", "block", "list_literal", "selector",
-  "^if", "^table", "if_statement", "while", "for", "^fn", "^use"
+  "^if", "^table", "if_statement", "while", "for", "^fn", "^use", "^impl",
 }
 -- because lazy load indent-blankline so need readd this autocmd
 vim.cmd('autocmd CursorMoved * IndentBlanklineRefresh')
