@@ -167,7 +167,18 @@ return require('packer').startup(function(use)
   --file navigation
   use {
 		'mcchrish/nnn.vim',
-		config=function() require("plugins.nnn") end,
+		config=function()
+          require("nnn").setup({
+            set_default_mappings = 0,
+            action = {
+                ["<c-t>"] = "tab split",
+                ["<c-s>"] = "split",
+                ["<c-v>"] = "vsplit",
+                ["<c-o>"] = "copy_to_clipboard",
+            },
+            layout= { window = { width = 0.7, height = 0.8, highlight = 'Debug' } }
+          })
+        end,
 		cmd="NnnPicker",
 	}
 
