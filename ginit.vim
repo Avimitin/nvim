@@ -4,7 +4,7 @@ set mouse=a
 " Set Editor Font
 if exists(':GuiFont')
     " Use GuiFont! to ignore font errors
-    GuiFont UbuntuMono\ Nerd\ Font\ Mono:h13
+    GuiFont FiraCode\ Nerd\ Font\ Mono:h18
 endif
 
 " Disable GUI Tabline
