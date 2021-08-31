@@ -169,6 +169,7 @@ return require('packer').startup(function(use)
 		'mcchrish/nnn.vim',
 		config=function()
           require("nnn").setup({
+            command="nnn -e -d -D",
             set_default_mappings = 0,
             action = {
                 ["<c-t>"] = "tab split",
