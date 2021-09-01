@@ -27,18 +27,13 @@ return require('packer').startup(function(use)
   --telescope: extensible fuzzy file finder--
 	use {
 		'nvim-telescope/telescope.nvim',
-		cmd='Telescope',
 		requires = {
-			{'nvim-lua/popup.nvim'},
-			{'nvim-lua/plenary.nvim'},
+          'nvim-lua/popup.nvim',
+          'nvim-lua/plenary.nvim',
+          'nvim-telescope/telescope-media-files.nvim',
 		},
 		config=function() require("plugins.telescope") end,
-		after="telescope-media-files.nvim",
-	}
-
-	use {
-		'nvim-telescope/telescope-media-files.nvim',
-		cmd='Telescope',
+        event="BufEnter",
 	}
 
   --nvim-bufferline: better buffer line--
