@@ -1,6 +1,6 @@
 local ok, error = pcall(require, 'rust-tools')
 if not ok then
-  print(error) 
+  print(error)
   return
 end
 
