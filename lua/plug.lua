@@ -321,6 +321,14 @@ return require('packer').startup(function(use)
 		end,
 	}
 
+    use {
+      'rust-lang/rust.vim',
+       event='BufEnter',
+       config=function()
+          vim.g.rust_clip_command = 'xclip -selection clipboard'
+        end,
+    }
+
 	use {
 		'glepnir/dashboard-nvim',
 		cmd={"Dashboard"},
