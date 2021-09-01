@@ -78,3 +78,5 @@ local opts = {
 
 require('rust-tools').setup(opts)
 require('rust-tools.inlay_hints').set_inlay_hints()
+
+vim.api.nvim_set_keymap('n', '<Leader>ra', ':RustHoverActions<CR>', {noremap=true, silent=true})
