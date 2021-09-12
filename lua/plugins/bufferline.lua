@@ -1,11 +1,11 @@
 local diagnostic_function = function(count, level, diagnostics_dict, context)
-  local s = " "
-  for e, n in pairs(diagnostics_dict) do
-    local sym = e == "error" and " "
-      or (e == "warning" and " " or "" )
-    s = s .. n .. sym
-  end
-  return s
+    local s = " "
+    for e, n in pairs(diagnostics_dict) do
+        local sym = e == "error" and " " or
+                        (e == "warning" and " " or "")
+        s = s .. n .. sym
+    end
+    return s
 end
 
 require('bufferline').setup {
@@ -27,10 +27,10 @@ require('bufferline').setup {
         show_buffer_close_icons = true,
         separator_style = "thin",
         always_show_bufferline = true
-    },
+    }
 }
 
-local opt = {noremap=true, silent=true}
+local opt = {noremap = true, silent = true}
 -- bufferline tab stuff
 vim.api.nvim_set_keymap("n", "<A-t>", ":tabnew<CR>", opt) -- new tab
 vim.api.nvim_set_keymap("n", "<C-c>", ":BufferLinePickClose<CR>", opt) -- close tab

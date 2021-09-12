@@ -1,7 +1,5 @@
 local present, compe = pcall(require, "compe")
-if not present then
-    return
-end
+if not present then return end
 
 compe.setup {
     enabled = true,
@@ -21,18 +19,18 @@ compe.setup {
         luasnip = {kind = "﬌", true},
         nvim_lsp = true,
         nvim_lua = true,
-				path = true,
+        path = true
     }
 }
 
 -- Utility functions for compe and luasnip
 local t = function(str)
-	return vim.api.nvim_replace_termcodes(str, true, true, true)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
 local check_back_space = function()
-	local col = vim.fn.col '.' - 1
-	return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' ~= nil
+    local col = vim.fn.col '.' - 1
+    return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' ~= nil
 end
 
 -- Use (s-)tab to:
@@ -41,28 +39,28 @@ end
 local luasnip = require('luasnip')
 
 _G.tab_complete = function()
-	if vim.fn.pumvisible() == 1 then
-		return t'<C-n>'
-	elseif luasnip.expand_or_jumpable() then
-		return t "<cmd>lua require'luasnip'.jump(1)<Cr>"
-	elseif check_back_space() then
-		return t'<Tab>'
-	else
-		return vim.fn['compe#complete']()
-	end
+    if vim.fn.pumvisible() == 1 then
+        return t '<C-n>'
+    elseif luasnip.expand_or_jumpable() then
+        return t "<cmd>lua require'luasnip'.jump(1)<Cr>"
+    elseif check_back_space() then
+        return t '<Tab>'
+    else
+        return vim.fn['compe#complete']()
+    end
 end
 
 _G.s_tab_complete = function()
-	if vim.fn.pumvisible() == 1 then
-		return t '<C-p>'
-	elseif luasnip.jumpable(-1) then
-		return t "<cmd>lua require'luasnip'.jump(-1)<CR>"
-	else
-		return t '<S-Tab>'
-	end
+    if vim.fn.pumvisible() == 1 then
+        return t '<C-p>'
+    elseif luasnip.jumpable(-1) then
+        return t "<cmd>lua require'luasnip'.jump(-1)<CR>"
+    else
+        return t '<S-Tab>'
+    end
 end
 
-local options = { noremap=true, silent=true, expr = true}
+local options = {noremap = true, silent = true, expr = true}
 -- Map tab to the above tab complete functions
 vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.tab_complete()', options)
 vim.api.nvim_set_keymap('s', '<Tab>', 'v:lua.tab_complete()', options)
