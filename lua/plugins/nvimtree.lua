@@ -1,7 +1,7 @@
 local ok, tree_c = pcall(require, "nvim-tree.config")
 if not ok then
-	print(tree_c)
-	return
+    print(tree_c)
+    return
 end
 
 local tree_cb = tree_c.nvim_tree_callback
@@ -10,7 +10,7 @@ vim.g.nvim_tree_side = "left"
 vim.g.nvim_tree_width = 25
 vim.g.nvim_tree_ignore = {".git", "node_modules", ".cache"}
 vim.g.nvim_tree_gitignore = 0
-vim.g.nvim_tree_auto_ignore_ft = {"startify","dashboard"} -- don't open tree on specific fiypes.
+vim.g.nvim_tree_auto_ignore_ft = {"startify", "dashboard"} -- don't open tree on specific fiypes.
 vim.g.nvim_tree_auto_open = 0
 vim.g.nvim_tree_auto_close = 1 -- closes tree when it's the last window
 vim.g.nvim_tree_quit_on_open = 0 -- closes tree when file's opened
@@ -74,24 +74,19 @@ vim.g.nvim_tree_bindings = {
     {key = "J", cb = tree_cb("last_sibling")},
     {key = "I", cb = tree_cb("toggle_ignored")},
     {key = "H", cb = tree_cb("toggle_dotfiles")},
-    {key = "R", cb = tree_cb("refresh")},
-    {key = "a", cb = tree_cb("create")},
-    {key = "d", cb = tree_cb("remove")},
-    {key = "r", cb = tree_cb("rename")},
+    {key = "R", cb = tree_cb("refresh")}, {key = "a", cb = tree_cb("create")},
+    {key = "d", cb = tree_cb("remove")}, {key = "r", cb = tree_cb("rename")},
     {key = "<C->", cb = tree_cb("full_rename")},
-    {key = "x", cb = tree_cb("cut")},
-    {key = "c", cb = tree_cb("copy")},
-    {key = "p", cb = tree_cb("paste")},
-    {key = "y", cb = tree_cb("copy_name")},
+    {key = "x", cb = tree_cb("cut")}, {key = "c", cb = tree_cb("copy")},
+    {key = "p", cb = tree_cb("paste")}, {key = "y", cb = tree_cb("copy_name")},
     {key = "Y", cb = tree_cb("copy_path")},
     {key = "gy", cb = tree_cb("copy_absolute_path")},
     {key = "[c", cb = tree_cb("prev_git_item")},
     {key = "}c", cb = tree_cb("next_git_item")},
-    {key = "-", cb = tree_cb("dir_up")},
-    {key = "q", cb = tree_cb("close")},
+    {key = "-", cb = tree_cb("dir_up")}, {key = "q", cb = tree_cb("close")},
     {key = "?", cb = tree_cb("toggle_help")},
-    { key = "<C-A-s>", cb = tree_cb("system_open") },
+    {key = "<C-A-s>", cb = tree_cb("system_open")}
 }
 
 -- toggle nvim tree
-vim.cmd[[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]]
+vim.cmd [[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]]
