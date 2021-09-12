@@ -1,7 +1,7 @@
 local ok, error = pcall(require, 'rust-tools')
 if not ok then
-  print(error)
-  return
+    print(error)
+    return
 end
 
 local opts = {
@@ -79,4 +79,5 @@ local opts = {
 require('rust-tools').setup(opts)
 require('rust-tools.inlay_hints').set_inlay_hints()
 
-vim.api.nvim_set_keymap('n', '<Leader>ra', ':RustHoverActions<CR>', {noremap=true, silent=true})
+vim.api.nvim_set_keymap('n', '<Leader>ra', ':RustHoverActions<CR>',
+                        {noremap = true, silent = true})
