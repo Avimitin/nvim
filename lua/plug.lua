@@ -49,19 +49,18 @@ return require('packer').startup(function(use)
         }
     }
 
-    use {'kabouzeid/nvim-lspinstall', event = "BufRead"}
-
     -- nvim-lspconfig: built-in lsp--
     use {
         'neovim/nvim-lspconfig',
         config = function() require("plugins.lsp") end,
-        after = "nvim-lspinstall"
+        requires = {'kabouzeid/nvim-lspinstall'},
+        event = "BufRead",
     }
 
     use {
-        after = "nvim-lspconfig",
         "ray-x/lsp_signature.nvim",
-        config = function() require("plugins.lsp-signature") end
+        config = function() require("plugins.lsp-signature") end,
+        after = "nvim-lspconfig",
     }
 
     -- nvim-tree.lua--
@@ -249,8 +248,11 @@ return require('packer').startup(function(use)
 
     use {
         'simrat39/rust-tools.nvim',
-        ft = {"rust"},
-        requires = {{"nvim-lspconfig"}, {"telescope.nvim"}},
+        requires = {
+          "neovim/nvim-lspconfig",
+          "nvim-telescope/telescope.nvim",
+        },
+        after = "nvim-lspconfig",
         config = function()
             require("plugins.rust")
         end
