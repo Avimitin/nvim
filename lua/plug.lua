@@ -248,11 +248,12 @@ return require('packer').startup(function(use)
 
     use {
         'simrat39/rust-tools.nvim',
+        ft = {"rust"},
         requires = {
           "neovim/nvim-lspconfig",
           "nvim-telescope/telescope.nvim",
         },
-        after = "nvim-lspconfig",
+        wants = "nvim-lspconfig",
         config = function()
             require("plugins.rust")
         end
