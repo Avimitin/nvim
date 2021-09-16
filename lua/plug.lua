@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
     use {
         'lukas-reineke/indent-blankline.nvim',
         config = function() require("plugins.indent") end,
-        event = 'BufEnter'
+        event = 'VimEnter'
     }
 
     -- telescope: extensible fuzzy file finder--
@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
             'nvim-telescope/telescope-media-files.nvim'
         },
         config = function() require("plugins.telescope") end,
-        event = "BufEnter"
+        event = "VimEnter"
     }
 
     -- nvim-bufferline: better buffer line--
@@ -61,6 +61,7 @@ return require('packer').startup(function(use)
         "ray-x/lsp_signature.nvim",
         config = function() require("plugins.lsp-signature") end,
         after = "nvim-lspconfig",
+        event = "BufRead",
     }
 
     -- nvim-tree.lua--
@@ -78,7 +79,7 @@ return require('packer').startup(function(use)
     }
 
     -- vim-commentary: for quickly commenting--
-    use {'tpope/vim-commentary', keys = {{'n', 'gcc'}, {'v', 'gc'}}}
+    use {'tpope/vim-commentary', event="VimEnter",}
 
     -- markdown preview
     use {
@@ -89,7 +90,7 @@ return require('packer').startup(function(use)
     }
 
     -- mulit cursor
-    use {'mg979/vim-visual-multi', event = "BufRead", branch = 'master'}
+    use {'mg979/vim-visual-multi', event = "InsertEnter", branch = 'master'}
 
     -- open file when forget sudo
     use {'lambdalisue/suda.vim', cmd = {'SudaWrite', 'SudaRead'}}
@@ -98,7 +99,7 @@ return require('packer').startup(function(use)
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
-        event = 'VimEnter',
+        event = 'BufEnter',
         config = function() require('plugins.treesitter') end
     }
 
@@ -174,10 +175,10 @@ return require('packer').startup(function(use)
     }
 
     -- Select text object
-    use {'gcmt/wildfire.vim', event = "BufRead"}
+    use {'gcmt/wildfire.vim', event = "VimEnter"}
 
     -- surrounding select text with given text
-    use {"tpope/vim-surround", event = "BufRead"}
+    use {"tpope/vim-surround", event = "CursorMoved"}
 
     -- align
     use {'junegunn/vim-easy-align', cmd = 'EasyAlign'}
@@ -206,7 +207,8 @@ return require('packer').startup(function(use)
         config = function()
             require("plugins.fterm")
             require("plugins.lazygit")
-        end
+        end,
+        event = "VimEnter",
     }
 
     use {
@@ -231,7 +233,8 @@ return require('packer').startup(function(use)
     -- show color at words
     use {
         'RRethy/vim-hexokinase',
-        run = 'make hexokinase',
+        run = 'make',
+        cmd = "Hexokinase Toggle",
         config = function()
             vim.g.Hexokinase_highlighters = {'backgroundfull'}
             vim.g.Hexokinase_optInPatterns = {
