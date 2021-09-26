@@ -103,10 +103,7 @@ return require('packer').startup(function(use)
     }
 
     -- neovim color theme
-    use {
-        'Avimitin/neovim-deus',
-        config = function() vim.cmd([[colorscheme deus]]) end
-    }
+    use {'Avimitin/neovim-deus'}
 
     use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 
