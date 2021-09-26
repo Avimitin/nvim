@@ -90,3 +90,25 @@ vim.g.nvim_tree_bindings = {
 
 -- toggle nvim tree
 vim.cmd [[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]]
+
+-- following options are the default
+require'nvim-tree'.setup {
+  disable_netrw       = true,
+  hijack_netrw        = true,
+  open_on_setup       = false,
+  ignore_ft_on_setup  = {},
+  auto_close          = true,
+  open_on_tab         = false,
+  hijack_cursor       = true,
+  update_cwd          = true,
+  lsp_diagnostics     = true,
+  update_focused_file = {
+    enable      = false,
+    update_cwd  = false,
+    ignore_list = {}
+  },
+  system_open = {
+    cmd  = nil,
+    args = {}
+  },
+}
