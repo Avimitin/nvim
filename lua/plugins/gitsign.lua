@@ -51,7 +51,7 @@ require('gitsigns').setup {
     },
     numhl = true,
     linehl = false,
-    watch_index = {interval = 1000, follow_files = true},
+    watch_gitdir = {interval = 1000, follow_files = true},
     current_line_blame = false,
     current_line_blame_opts = {
         virt_text = true,
