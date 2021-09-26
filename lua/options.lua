@@ -1,8 +1,6 @@
 local opt = vim.opt
 
 opt.encoding='utf-8'
-opt.termguicolors=true
-opt.background="dark"
 
 -- enable number and relative line number
 opt.number=true
