@@ -9,9 +9,19 @@ gl.short_line_list = {
 
 -- VistaPlugin = extension.vista_nearest
 
+local current_scheme = vim.g.colors_name
+
+local line_bg_color = '#131A22'
+
+if current_scheme == "everforest" then
+  line_bg_color = "#282E2C"
+elseif current_scheme == "gruvbox" then
+  line_bg_color = "#261C00"
+end
+
 local colors = {
     bg       = '#5C687A',
-    line_bg  = '#131A22',
+    line_bg  =  line_bg_color,
     fg       = '#8FBCBB',
     fg_green = '#65a380',
 
