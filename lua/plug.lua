@@ -53,14 +53,14 @@ return require('packer').startup(function(use)
     use {
         'neovim/nvim-lspconfig',
         config = function() require("plugins.lsp") end,
-        requires = {'kabouzeid/nvim-lspinstall'},
+        requires = {'kabouzeid/nvim-lspinstall'}
     }
 
     use {
         "ray-x/lsp_signature.nvim",
         config = function() require("plugins.lsp-signature") end,
         after = "nvim-lspconfig",
-        event = "BufRead",
+        event = "BufRead"
     }
 
     -- nvim-tree.lua--
@@ -78,7 +78,7 @@ return require('packer').startup(function(use)
     }
 
     -- vim-commentary: for quickly commenting--
-    use {'tpope/vim-commentary', event="VimEnter",}
+    use {'tpope/vim-commentary', event = "VimEnter"}
 
     -- markdown preview
     use {
@@ -108,7 +108,12 @@ return require('packer').startup(function(use)
         config = function() vim.cmd([[colorscheme deus]]) end
     }
 
-    -- use 'morhetz/gruvbox'
+    use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+
+    use {
+        "sainnhe/everforest",
+        config = function() vim.g.everforest_background = 'hard' end
+    }
 
     use {
         'glepnir/galaxyline.nvim',
@@ -207,7 +212,7 @@ return require('packer').startup(function(use)
             require("plugins.fterm")
             require("plugins.lazygit")
         end,
-        event = "VimEnter",
+        event = "VimEnter"
     }
 
     use {
@@ -251,14 +256,9 @@ return require('packer').startup(function(use)
     use {
         'simrat39/rust-tools.nvim',
         ft = {"rust"},
-        requires = {
-          "neovim/nvim-lspconfig",
-          "nvim-telescope/telescope.nvim",
-        },
+        requires = {"neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim"},
         wants = "nvim-lspconfig",
-        config = function()
-            require("plugins.rust")
-        end
+        config = function() require("plugins.rust") end
     }
 
     use {
@@ -289,9 +289,4 @@ return require('packer').startup(function(use)
 
     use {"andrejlevkovitch/vim-lua-format", ft = {"lua"}}
 
-    use { "sainnhe/everforest",
-        config=function()
-          vim.g.everforest_background = 'hard'
-        end
-      }
 end)
