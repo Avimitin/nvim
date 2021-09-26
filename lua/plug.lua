@@ -288,4 +288,10 @@ return require('packer').startup(function(use)
     }
 
     use {"andrejlevkovitch/vim-lua-format", ft = {"lua"}}
+
+    use { "sainnhe/everforest",
+        config=function()
+          vim.g.everforest_background = 'hard'
+        end
+      }
 end)
