@@ -9,19 +9,22 @@ You can create a file named it with `custom.lua` and store it in the lua
 directory, then paste the code below and make your modified.
 
 ```lua
+-- This are default settings
 local settings = {
-	color_scheme = "deus",
+	color_scheme = "everforest",
 	background = "dark",
 }
 
 return settings
 ```
 
-Currently available colorscheme:
+Currently available colorscheme selections:
 
-- deus
-- everforest
-- gruvbox
+```text
+* deus       (high contrast and deep dark background)
+* gruvbox    (Brown background)
+* everforest (green and light background with low contrast color)
+```
 
 ## Basic keys
 
