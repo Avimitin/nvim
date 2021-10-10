@@ -58,6 +58,3 @@ if no_plugins then
     vim.cmd([[PackerSync]])
     print("Please quit the neovim after plugins are all successful installed")
 end
-
--- load colorscheme at the last step
-require("theme")

@@ -1,6 +1,23 @@
+local ok, custom = pcall(require, "custom")
 local opt = vim.opt
 
+local settings = {
+  color_scheme = "everforest",
+  background = "dark",
+}
+
+if ok then
+  settings = custom
+end
+
+
 opt.encoding='utf-8'
+
+-- theme
+opt.termguicolors=true
+opt.background=settings.background
+
+vim.cmd("colorscheme "..settings.color_scheme)
 
 -- enable number and relative line number
 opt.number=true
