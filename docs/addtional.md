@@ -3,6 +3,26 @@
 I won't repeat the default key here, I'll just mention some of the key which
 modified.
 
+## Custom
+
+You can create a file named it with `custom.lua` and store it in the lua
+directory, then paste the code below and make your modified.
+
+```lua
+local settings = {
+	color_scheme = "deus",
+	background = "dark",
+}
+
+return settings
+```
+
+Currently available colorscheme:
+
+- deus
+- everforest
+- gruvbox
+
 ## Basic keys
 
 - Cursor
