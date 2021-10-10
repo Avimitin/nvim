@@ -9,6 +9,7 @@ You can create a file named it with `custom.lua` and store it in the lua
 directory, then paste the code below and make your modified.
 
 ```lua
+-- lua/custom.lua
 -- This are default settings
 local settings = {
 	color_scheme = "everforest",
