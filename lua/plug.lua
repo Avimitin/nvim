@@ -285,4 +285,9 @@ return require('packer').startup(function(use)
 
     use {"andrejlevkovitch/vim-lua-format", ft = {"lua"}}
 
+    use {
+      'famiu/nvim-reload',
+      cmd={"Reload", "Restart"},
+      requires="nvim-lua/plenary.nvim",
+    }
 end)
