@@ -271,6 +271,9 @@ return require('packer').startup(function(use)
     use {
         'andweeb/presence.nvim',
         event = "VimEnter",
+        -- I don't use discord recently, and this plugin delay my neovim.
+        -- Set disable = false to enable this plugin.
+        disable = true,
         config = function()
             require("presence"):setup({
                 neovim_image_text = "HELP!",
