@@ -119,3 +119,4 @@ vim.g.neovide_cursor_vfx_mode = "sonicboom"
 --neoterm specific settings
 vim.g.neoterm_default_mod = "botright"
 vim.g.neoterm_size = "10"
+vim.g.neoterm_automap_keys = "<leader>tt"
