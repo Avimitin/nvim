@@ -13,9 +13,9 @@ opt.cursorline=true
 -- Use a mix of tab and space to avoid mix up file
 -- ]]
 -- Use the appropriate number of spaces to insert a <Tab>.
-opt.expandtab=true
+opt.expandtab=false
 -- Number of spaces that a <Tab> in the file counts for.
-opt.tabstop=4
+opt.tabstop=8
 opt.shiftwidth=2
 opt.softtabstop=2
 
