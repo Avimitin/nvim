@@ -31,16 +31,18 @@ Take a look at their contribution, which is really fantastic.
 
 ## Features
 
-- LSP support by nvim-lspconfig
-- Completion like VSCode by nvim-compe
-- Tree file manager by nvim-tree
-- Symbols by SymbolsOutline
-- Buffer line manager by bufferline.nvim
-- Fuzzy file finder by telescope
-- Floating terminal by FTerm
-- Git message by gitsign
-- Quick jump by hop
-- Good markdown work flow
+- Really fast! Start up in only 50ms!
+- LSP support
+- Completion like VSCode
+- Tree file manager
+- Symbols explorer
+- Buffer line manager
+- Fuzzy file/text/image finder
+- Floating terminal and REPL support
+- Handy git tools
+- Motion on speed
+- Markdown preview and snippet
+- Optimized Rust, C++, Golang, Lua coding experience
 
 ## Installation
 
@@ -53,7 +55,7 @@ own neovim configuration in my opinion.
 git clone https://github.com/Avimitin/nvim ~/.config/nvim
 
 # Optional bootstrap step
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 
 ## Dependency
@@ -84,22 +86,13 @@ yay -S neovim-git
 It's highly recommended to install [nerdfont](https://www.nerdfonts.com/font-downloads) 
 for impressive icon support.
 
-## Check health
+### Check health
 
 Open your neovim and input following command to check if the dependence is all installed or not.
 
 ```vim
 :checkhealth
 ```
-
-## Sync plugins
-
-I'am using [packer](https://github.com/wbthomason/packer.nvim) to manage
-plugins, which I'am not so familiar with. Although I've write script
-to download and load plugin at the first boot, there is still some plugins
-not working at the first boot. So you need to quit the neovim and reopen it.
-But that's not a big issue as it only happen once.
-
 ## Details about my configuration
 
 See [addtional](./docs/addtional.md)
