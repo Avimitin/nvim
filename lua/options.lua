@@ -17,7 +17,7 @@ opt.encoding='utf-8'
 opt.termguicolors=true
 opt.background=settings.background
 
-vim.cmd("colorscheme "..settings.color_scheme)
+pcall(vim.cmd, "colorscheme "..settings.color_scheme)
 
 -- enable number and relative line number
 opt.number=true
