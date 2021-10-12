@@ -19,31 +19,24 @@ require('options')
 require('mapping')
 
 -- detecting plugin manager
-local has_packer_file = pcall(vim.cmd, [[packadd packer.nvim]])
-local has_packer, error_msg = pcall(require, 'packer')
+local no_packer = false
+local fn = vim.fn
+local install_path = vim.fn.stdpath("data") ..
+                         "/site/pack/packer/opt/packer.nvim"
 
-local no_plugins = false
-
-if not has_packer and not has_packer_file then
-    local install_path = vim.fn.stdpath("data") ..
-                             "/site/pack/packer/opt/packer.nvim"
+if fn.empty(fn.glob(install_path)) > 0 then
     print("Installing packer to " .. install_path)
+    no_packer = fn.system({
+        'git', 'clone', '--depth', '1',
+        'https://github.com/wbthomason/packer.nvim', install_path
+    })
+end
 
-    vim.fn.delete(install_path, "rf")
-    vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' ..
-                       install_path)
-
-    no_plugins = true
-
-    vim.cmd [[packadd packer.nvim]]
-
-    has_packer, error_msg = pcall(require, 'packer')
-    if not has_packer then
-        print(error_msg)
-        return
-    end -- inner has_packer
-
-end -- outer has_packer
+local packer_call, error_msg = pcall(vim.cmd, [[packadd packer.nvim]])
+if not packer_call then
+    print(error_msg)
+    return
+end -- inner has_packer
 
 -- Reading plugins configuration
 local ok, error = pcall(require, 'plug')
@@ -54,7 +47,4 @@ end
 
 vim.cmd([[autocmd BufWritePost plug.lua source <afile> | PackerCompile]])
 
-if no_plugins then
-    vim.cmd([[PackerSync]])
-    print("Please quit the neovim after plugins are all successful installed")
-end
+if no_packer then require('packer').sync() end
