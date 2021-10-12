@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
     use {
         'lukas-reineke/indent-blankline.nvim',
         config = function() require("plugins.indent") end,
-        event = 'VimEnter'
+        event = 'BufRead'
     }
 
     -- telescope: extensible fuzzy file finder--
@@ -33,7 +33,8 @@ return require('packer').startup(function(use)
     -- nvim-bufferline: better buffer line--
     use {
         'akinsho/nvim-bufferline.lua',
-        config = function() require("plugins.bufferline") end
+        config = function() require("plugins.bufferline") end,
+        event = "BufRead",
     }
 
     -- nvim-compe: code completion--
@@ -60,7 +61,7 @@ return require('packer').startup(function(use)
         "ray-x/lsp_signature.nvim",
         config = function() require("plugins.lsp-signature") end,
         after = "nvim-lspconfig",
-        event = "BufRead"
+        event = "InsertEnter"
     }
 
     -- nvim-tree.lua--
@@ -78,7 +79,7 @@ return require('packer').startup(function(use)
     }
 
     -- vim-commentary: for quickly commenting--
-    use {'tpope/vim-commentary', event = "VimEnter"}
+    use {'tpope/vim-commentary', event = "BufRead"}
 
     -- markdown preview
     use {
@@ -98,7 +99,7 @@ return require('packer').startup(function(use)
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
-        event = 'BufEnter',
+        event = 'BufRead',
         config = function() require('plugins.treesitter') end
     }
 
