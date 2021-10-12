@@ -1,14 +1,11 @@
 local ok, custom = pcall(require, "custom")
-if not ok then
-  return
-end
 
 local settings = {
   color_scheme = "deus",
   background = "dark",
 }
 
-if custom ~= nil then
+if ok and custom ~= nil then
   if custom.background ~= nil then
     settings.background = custom.background
   end
