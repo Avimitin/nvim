@@ -4,7 +4,7 @@
 
 ## 特性
 
-- 超快！启动仅需 `48ms` （使用命令 `nvim --staruptime`）
+- 超快！启动仅需 `50ms` （使用命令 `nvim --staruptime`）
 - 语法检查支持和自动补全支持！
 - 你一定熟悉的数结构文件管理器
 - IDE 都有的函数和变量名跳转
@@ -31,6 +31,9 @@
 ```bash
 # linux or mac user
 git clone https://github.com/avimitin/nvim ~/.config
+
+# 一次性启动并安装依赖
+nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 
 ## 需要安装的依赖
