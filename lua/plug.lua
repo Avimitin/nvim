@@ -250,12 +250,13 @@ return require('packer').startup(function(use)
         'simrat39/rust-tools.nvim',
         requires = {"neovim/nvim-lspconfig"},
         wants = "nvim-lspconfig",
-        config = function() require("plugins.rust") end
+        config = function() require("plugins.rust") end,
+        event = "InsertEnter",
     }
 
     use {
         'rust-lang/rust.vim',
-        ft = {"rust"},
+        event = "InsertEnter",
         config = function()
             vim.g.rust_clip_command = 'xclip -selection clipboard'
         end
