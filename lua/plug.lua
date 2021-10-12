@@ -34,7 +34,7 @@ return require('packer').startup(function(use)
     use {
         'akinsho/nvim-bufferline.lua',
         config = function() require("plugins.bufferline") end,
-        event = "BufRead",
+        event = "BufRead"
     }
 
     -- nvim-compe: code completion--
@@ -104,7 +104,7 @@ return require('packer').startup(function(use)
     }
 
     -- neovim color theme
-    use { 'Avimitin/neovim-deus'}
+    use { 'Avimitin/neovim-deus', after="packer.nvim", config=function() require("colors") end}
     use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
     use { "sainnhe/everforest" }
     use 'tiagovla/tokyodark.nvim'
@@ -168,8 +168,8 @@ return require('packer').startup(function(use)
     -- Golang support
     use {
         'fatih/vim-go',
-        ft = {'go'},
-        config = function() require("plugins.vim-go") end
+        config = function() require("plugins.vim-go") end,
+        event = "InsertEnter"
     }
 
     -- Select text object
@@ -252,7 +252,7 @@ return require('packer').startup(function(use)
         requires = {"neovim/nvim-lspconfig"},
         wants = "nvim-lspconfig",
         config = function() require("plugins.rust") end,
-        event = "InsertEnter",
+        event = "InsertEnter"
     }
 
     use {
@@ -287,12 +287,10 @@ return require('packer').startup(function(use)
     use {"andrejlevkovitch/vim-lua-format", ft = {"lua"}}
 
     use {
-      'famiu/nvim-reload',
-      cmd={"Reload", "Restart"},
-      requires="nvim-lua/plenary.nvim",
+        'famiu/nvim-reload',
+        cmd = {"Reload", "Restart"},
+        requires = "nvim-lua/plenary.nvim"
     }
 
-    use {
-      'kassio/neoterm'
-    }
+    use {'kassio/neoterm'}
 end)
