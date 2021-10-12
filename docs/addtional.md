@@ -22,9 +22,10 @@ return settings
 Currently available colorscheme selections:
 
 ```text
-* deus       (high contrast and deep dark background)
+* deus       (High contrast and deep dark background)
 * gruvbox    (Brown background)
-* everforest (green and light background with low contrast color)
+* everforest (Green and light background with low contrast color)
+* tokyodark  (Dark purple and normal text is presenting in blue color)
 ```
 
 ## Basic keys
