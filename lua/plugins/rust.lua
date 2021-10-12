@@ -22,7 +22,7 @@ local opts = {
         runnables = {
             -- whether to use telescope for selection menu or not
             -- default: true
-            use_telescope = true
+            use_telescope = false
 
             -- rest of the opts are forwarded to telescope
         },
