@@ -2,7 +2,7 @@ local ok, custom = pcall(require, "custom")
 local opt = vim.opt
 
 local settings = {
-  color_scheme = "everforest",
+  color_scheme = "deus",
   background = "dark",
 }
 
