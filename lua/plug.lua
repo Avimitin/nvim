@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
             'nvim-telescope/telescope-media-files.nvim'
         },
         config = function() require("plugins.telescope") end,
-        event = "VimEnter"
+        cmd = {"Telescope"}
     }
 
     -- nvim-bufferline: better buffer line--
@@ -248,8 +248,7 @@ return require('packer').startup(function(use)
 
     use {
         'simrat39/rust-tools.nvim',
-        ft = {"rust"},
-        requires = {"neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim"},
+        requires = {"neovim/nvim-lspconfig"},
         wants = "nvim-lspconfig",
         config = function() require("plugins.rust") end
     }
