@@ -231,7 +231,8 @@ return require('packer').startup(function(use)
     use {
         'RRethy/vim-hexokinase',
         run = 'make',
-        config = function()
+        cmd = "HexokinaseToggle",
+        setup = function()
             vim.g.Hexokinase_highlighters = {'backgroundfull'}
             vim.g.Hexokinase_optInPatterns = {
                 'full_hex', 'rgb', 'rgba', 'hsl', 'hsla'
