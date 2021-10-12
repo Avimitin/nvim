@@ -51,6 +51,9 @@ own neovim configuration in my opinion.
 ```bash
 # linux or mac user
 git clone https://github.com/Avimitin/nvim ~/.config/nvim
+
+# Optional bootstrap step
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 
 ## Dependency
