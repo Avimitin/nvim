@@ -23,7 +23,7 @@ opt.softtabstop=2
 --opt.autoindent=true
 
 -- A List is an ordered sequence of items.
-opt.list=true
+opt.list=false
 opt.listchars="tab:<->,trail:·"
 
 -- Minimal number of screen lines to keep above and below the cursor.
