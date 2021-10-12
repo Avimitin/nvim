@@ -37,18 +37,23 @@ return require('packer').startup(function(use)
         event = "BufRead"
     }
 
-    -- nvim-compe: code completion--
+    -- nvim-cmp: successor of the nvim-compe
     use {
-        'hrsh7th/nvim-compe',
-        config = function() require("plugins.compe") end,
+        'hrsh7th/nvim-cmp',
         event = 'InsertEnter',
-        requires = {
-            {
-                "L3MON4D3/LuaSnip",
-                config = function() require("plugins.luasnip") end
-            }, {"rafamadriz/friendly-snippets", after = 'LuaSnip'}
-        }
+        config = function() require("plugins.completion") end,
+        requires = {'onsails/lspkind-nvim'}
     }
+
+    use {'hrsh7th/cmp-path', after = {'nvim-cmp'}}
+
+    use {'hrsh7th/cmp-nvim-lsp', after = {'nvim-cmp'}}
+
+    use {'hrsh7th/cmp-buffer', after = {'nvim-cmp'}}
+
+    use {'hrsh7th/cmp-vsnip', after = {'nvim-cmp'}}
+
+    use {'hrsh7th/vim-vsnip', after = {'nvim-cmp'}}
 
     -- nvim-lspconfig: built-in lsp--
     use {
@@ -104,9 +109,13 @@ return require('packer').startup(function(use)
     }
 
     -- neovim color theme
-    use { 'Avimitin/neovim-deus', after="packer.nvim", config=function() require("colors") end}
+    use {
+        'Avimitin/neovim-deus',
+        after = "packer.nvim",
+        config = function() require("colors") end
+    }
     use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
-    use { "sainnhe/everforest" }
+    use {"sainnhe/everforest"}
     use 'tiagovla/tokyodark.nvim'
 
     use {
@@ -212,7 +221,7 @@ return require('packer').startup(function(use)
     use {
         'windwp/nvim-autopairs',
         config = function() require('plugins/autopairs') end,
-        after = 'nvim-compe'
+        event = "InsertEnter"
     }
 
     use {
