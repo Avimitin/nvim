@@ -31,7 +31,6 @@ Take a look at their contribution, which is really fantastic.
 
 ## Features
 
-- Really fast (loading in only `48ms [1]`) by packer
 - LSP support by nvim-lspconfig
 - Completion like VSCode by nvim-compe
 - Tree file manager by nvim-tree
@@ -42,8 +41,6 @@ Take a look at their contribution, which is really fantastic.
 - Git message by gitsign
 - Quick jump by hop
 - Good markdown work flow
-
-> [1] Testing by command `nvim --startuptime startup.log -c exit && tail -100 startup.log`
 
 ## Installation
 
