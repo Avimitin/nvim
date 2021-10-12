@@ -103,12 +103,9 @@ return require('packer').startup(function(use)
     }
 
     -- neovim color theme
-    use {'Avimitin/neovim-deus'}
+    use { 'Avimitin/neovim-deus'}
     use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
-    use {
-        "sainnhe/everforest",
-        config = function() vim.g.everforest_background = 'hard' end
-    }
+    use { "sainnhe/everforest" }
     use 'tiagovla/tokyodark.nvim'
 
     use {
