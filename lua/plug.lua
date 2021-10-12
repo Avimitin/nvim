@@ -286,4 +286,8 @@ return require('packer').startup(function(use)
       cmd={"Reload", "Restart"},
       requires="nvim-lua/plenary.nvim",
     }
+
+    use {
+      'kassio/neoterm'
+    }
 end)
