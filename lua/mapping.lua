@@ -9,6 +9,8 @@ function Map(mode, lhs, rhs, opts)
 		end
 end
 
+Map('n', 'J', '<C-D>')
+Map('n', 'K', '<C-U>')
 Map("",  "L",     "$")
 Map("",  "H",     "0")
 Map("",  "X",     "Vx")
@@ -63,8 +65,8 @@ Map('n', '<Leader>o', ':NnnPicker %:p:h<CR>')
 --hop
 Map('n', 'f', ':HopChar2<CR>')
 Map('v', 'f', ':HopChar2<CR>')
-Map('n', 'J', ':HopLine<CR>')
-Map('n', 'K', ':HopLine<CR>')
+Map('n', '<C-J>', ':HopLine<CR>')
+Map('n', '<C-K>', ':HopLine<CR>')
 
 --telescope
 Map('n', '<leader>ff', [[<cmd>Telescope find_files<cr>]])
