@@ -31,7 +31,7 @@ Take a look at their contribution, which is really fantastic.
 
 ## Features
 
-- Really fast! Start up in only 50ms!
+- Really fast! Start up in only 43ms! (See the bottom of the doc for the data)
 - LSP support
 - Completion like VSCode
 - Tree file manager
@@ -100,3 +100,26 @@ See [addtional](./docs/addtional.md)
 ## License
 
 MIT License
+
+## Start up time test data
+
+```text
+# Open only buffer
+# nvim --startuptime /tmp/nvim-startuptime && tail -n 1 /tmp/nvim-startuptime | awk -F: '{print $1}'
+# test it 3 times
+042.840  000.002
+042.602  000.003
+043.992  000.002
+
+# Open README.md
+# nvim README.md --startuptime /tmp/nvim-startuptime && tail -n 1 /tmp/nvim-startuptime | awk -F: '{print $1}'
+093.170  000.002
+092.512  000.003
+090.087  000.002
+
+# Open Rust file (which will trigger LSP server)
+# nvim lib.rs --startuptime /tmp/nvim-startuptime && tail -n 1 /tmp/nvim-startuptime | awk -F: '{print $1}'
+122.347  000.003
+113.395  000.003
+118.647  000.003
+```
