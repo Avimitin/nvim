@@ -1,3 +1,9 @@
+if vim.g.galaxyline_loaded ~= nil then
+  return
+end
+
+vim.g.galaxyline_loaded = 1
+
 local gl = require('galaxyline')
 local gls = gl.section
 local diagnostic = require('galaxyline.provider_diagnostic')
