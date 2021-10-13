@@ -185,7 +185,10 @@ return require('packer').startup(function(use)
         event = "VimEnter"
     }
 
-    use {'kassio/neoterm'}
+    use {
+      'kassio/neoterm',
+      cmd={'T', "Tkill", "Tclose", "Tmap"}
+    }
 
     -- show color at words
     use {
