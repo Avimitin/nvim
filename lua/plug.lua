@@ -130,6 +130,13 @@ return require('packer').startup(function(use)
         config = function() require("config.gitsign") end
     }
 
+    use {
+	'tpope/vim-fugitive',
+	cmd = {
+	  'Git'
+	}
+    }
+
     -- Golang
     use {
         'fatih/vim-go',
