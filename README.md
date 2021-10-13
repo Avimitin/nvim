@@ -58,6 +58,20 @@ git clone https://github.com/Avimitin/nvim ~/.config/nvim
 nvim -c 'autocmd User PackerComplete quitall'
 ```
 
+### Docker
+
+Just wanna have some fun but do not want to mess up your local environment?
+I have docker script for you!
+
+```bash
+docker run -w /root -it --rm alpine:edge sh -uelic '
+      apk add git neovim ripgrep alpine-sdk --update
+      git clone https://github.com/Avimitin/nvim ~/.config/nvim
+      nvim -c "autocmd User PackerComplete quitall"
+      nvim /root/.config/nvim/README.md
+  '
+```
+
 ## Dependency
 
 ### neovim
