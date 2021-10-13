@@ -37,10 +37,12 @@ return require('packer').startup(function(use)
         event = "BufRead"
     }
 
+    use {'rafamadriz/friendly-snippets', event = "InsertEnter"}
+
     -- nvim-cmp: successor of the nvim-compe
     use {
         'hrsh7th/nvim-cmp',
-        event = 'InsertEnter',
+        after = "friendly-snippets",
         config = function() require("plugins.completion") end,
         requires = {'onsails/lspkind-nvim'}
     }
