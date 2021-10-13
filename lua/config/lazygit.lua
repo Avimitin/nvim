@@ -6,5 +6,4 @@ local lazygit = term:new():setup({
 })
 function _G.fterm_lazygit() lazygit:toggle() end
 
-vim.api.nvim_set_keymap('n', '<C-g>', ':lua _G.fterm_lazygit()<CR>',
-                        {noremap = true, silent = true})
+vim.cmd('command! LazygitToggle lua _G.fterm_lazygit()<CR>')

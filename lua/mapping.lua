@@ -93,3 +93,4 @@ Map("n", "tr", ":NvimTreeRefresh<CR>")
 
 Map("n", "<C-\\>", [[:FTermToggle<CR>]])
 Map("t", "<C-\\>", [[<C-\><C-n>:FTermToggle<CR>]])
+Map('n', '<C-g>', ':LazygitToggle<CR>')
