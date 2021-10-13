@@ -182,7 +182,7 @@ return require('packer').startup(function(use)
             require("config.fterm")
             require("config.lazygit")
         end,
-	cmd={'FTermToggle'}
+	cmd={'FTermToggle', 'LazygitToggle'}
     }
 
     use {'kassio/neoterm', cmd = {'T', "Tkill", "Tclose", "Tmap"}}
