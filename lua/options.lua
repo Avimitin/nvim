@@ -103,3 +103,12 @@ vim.g.neovide_cursor_vfx_mode = "sonicboom"
 vim.g.neoterm_default_mod = "botright"
 vim.g.neoterm_size = "10"
 vim.g.neoterm_automap_keys = "<leader>tt"
+
+--nvui specific settings
+if vim.g.nvui then
+  vim.cmd [[NvuiCmdFontFamily FiraCode Nerd Font Mono]]
+  vim.cmd [[NvuiCmdFontSize 12]]
+  vim.cmd [[NvuiAnimationsEnabled 1]]
+  vim.cmd [[NvuiCmdCenterXPos 0.5]]
+  vim.cmd [[NvuiCmdCenterYPos 0.5]]
+end
