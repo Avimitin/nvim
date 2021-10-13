@@ -8,16 +8,12 @@ local tree_cb = tree_c.nvim_tree_callback
 
 vim.g.nvim_tree_ignore = {".git", "node_modules", ".cache"}
 vim.g.nvim_tree_gitignore = 0
-vim.g.nvim_tree_auto_open = 0
-vim.g.nvim_tree_auto_close = 1 -- closes tree when it's the last window
-vim.g.nvim_tree_follow = 1
 vim.g.nvim_tree_indent_markers = 0
 vim.g.nvim_tree_hide_dotfiles = 1
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_root_folder_modifier = ":t"
 vim.g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
-vim.g.nvim_tree_disable_default_keybindings = 1
 
 vim.g.nvim_tree_show_icons = {
     git = 1,
@@ -62,6 +58,10 @@ require'nvim-tree'.setup {
   open_on_tab         = false,
   hijack_cursor       = true,
   update_cwd          = true,
+  update_to_buf_dir   = {
+    enable = true,
+    auto_open = true,
+  },
   diagnostics = {
       enable = true,
       icons = {
