@@ -20,25 +20,25 @@ return require('packer').startup(function(use)
         'glepnir/galaxyline.nvim',
         branch = 'main',
         after = "nvim-web-devicons",
-        config = function() require("plugins.statusline") end
+        config = function() require("config.statusline") end
     }
 
     use {
         'kyazdani42/nvim-tree.lua',
-        config = function() require("plugins.nvimtree") end,
+        config = function() require("config.nvimtree") end,
         cmd = {"NvimTreeRefresh", "NvimTreeToggle"}
     }
 
     use {
         'lukas-reineke/indent-blankline.nvim',
-        config = function() require("plugins.indent") end,
+        config = function() require("config.indent") end,
         event = 'BufRead'
     }
 
     -- nvim-bufferline: better buffer line--
     use {
         'akinsho/nvim-bufferline.lua',
-        config = function() require("plugins.bufferline_config") end,
+        config = function() require("config.bufferline_config") end,
         event = "BufRead"
     }
 
@@ -57,7 +57,7 @@ return require('packer').startup(function(use)
     use {
         'hrsh7th/nvim-cmp',
         after = "friendly-snippets",
-        config = function() require("plugins.completion") end,
+        config = function() require("config.completion") end,
         requires = {'onsails/lspkind-nvim'}
     }
 
@@ -73,7 +73,7 @@ return require('packer').startup(function(use)
 
     use {
         'windwp/nvim-autopairs',
-        config = function() require('plugins/autopairs') end,
+        config = function() require('config.autopairs') end,
         after = 'nvim-cmp'
     }
 
@@ -82,13 +82,13 @@ return require('packer').startup(function(use)
 
     use {
         'neovim/nvim-lspconfig',
-        config = function() require("plugins.lsp") end,
+        config = function() require("config.lsp") end,
         after = "nvim-lspinstall"
     }
 
     use {
         "ray-x/lsp_signature.nvim",
-        config = function() require("plugins.lsp-signature") end,
+        config = function() require("config.lsp-signature") end,
         after = "nvim-lspconfig"
     }
 
@@ -96,7 +96,7 @@ return require('packer').startup(function(use)
     use {
         'simrat39/rust-tools.nvim',
         wants = "nvim-lspconfig",
-        config = function() require("plugins.rust") end,
+        config = function() require("config.rust") end,
         event = "InsertEnter"
     }
 
@@ -110,7 +110,7 @@ return require('packer').startup(function(use)
 
     use {
         'simrat39/symbols-outline.nvim',
-        config = function() require("plugins.symbols") end,
+        config = function() require("config.symbols") end,
         cmd = "SymbolsOutline"
     }
 
@@ -119,7 +119,7 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
         event = 'BufRead',
-        config = function() require('plugins.treesitter') end
+        config = function() require('config.treesitter') end
     }
 
     -- git information
@@ -127,13 +127,13 @@ return require('packer').startup(function(use)
         'lewis6991/gitsigns.nvim',
         requires = {'nvim-lua/plenary.nvim'},
         event = "BufRead",
-        config = function() require("plugins.gitsign") end
+        config = function() require("config.gitsign") end
     }
 
     -- Golang
     use {
         'fatih/vim-go',
-        config = function() require("plugins.vim-go") end,
+        config = function() require("config.vim-go") end,
         ft = {"go"}
     }
 
@@ -162,7 +162,7 @@ return require('packer').startup(function(use)
     use {
         'iamcco/markdown-preview.nvim',
         run = function() vim.fn['mkdp#util#install']() end,
-        config = function() require("plugins.mkdp") end,
+        config = function() require("config.mkdp") end,
         ft = {"markdown"}
     }
 
@@ -179,8 +179,8 @@ return require('packer').startup(function(use)
     use {
         'numtostr/FTerm.nvim',
         config = function()
-            require("plugins.fterm")
-            require("plugins.lazygit")
+            require("config.fterm")
+            require("config.lazygit")
         end,
 	cmd={'FTermToggle'}
     }
@@ -241,7 +241,7 @@ return require('packer').startup(function(use)
     use {
         'glepnir/dashboard-nvim',
         cmd = {"Dashboard"},
-        config = function() require("plugins.dashboard") end
+        config = function() require("config.dashboard") end
     }
 
     -- highlight all the word below the cursor
@@ -292,7 +292,7 @@ return require('packer').startup(function(use)
             'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim',
             'nvim-telescope/telescope-media-files.nvim'
         },
-        config = function() require("plugins.telescope_config") end,
+        config = function() require("config.telescope_config") end,
         cmd = {"Telescope"}
     }
 
