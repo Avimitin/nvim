@@ -20,7 +20,7 @@ return require('packer').startup(function(use)
         'glepnir/galaxyline.nvim',
         branch = 'main',
         after = "nvim-web-devicons",
-        config = function() require("plugins.galaxyline") end
+        config = function() require("plugins.statusline") end
     }
 
     use {
@@ -39,7 +39,7 @@ return require('packer').startup(function(use)
     -- nvim-bufferline: better buffer line--
     use {
         'akinsho/nvim-bufferline.lua',
-        config = function() require("plugins.bufferline") end,
+        config = function() require("plugins.bufferline_config") end,
         event = "BufRead"
     }
 
@@ -295,7 +295,7 @@ return require('packer').startup(function(use)
             'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim',
             'nvim-telescope/telescope-media-files.nvim'
         },
-        config = function() require("plugins.telescope") end,
+        config = function() require("plugins.telescope_config") end,
         cmd = {"Telescope"}
     }
 
