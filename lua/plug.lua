@@ -57,6 +57,12 @@ return require('packer').startup(function(use)
 
     use {'hrsh7th/vim-vsnip', after = {'nvim-cmp'}}
 
+    use {
+        'windwp/nvim-autopairs',
+        config = function() require('plugins/autopairs') end,
+        after = 'nvim-cmp'
+    }
+
     -- nvim-lspconfig: built-in lsp--
     use {
         'neovim/nvim-lspconfig',
@@ -218,12 +224,6 @@ return require('packer').startup(function(use)
             require("plugins.lazygit")
         end,
         event = "VimEnter"
-    }
-
-    use {
-        'windwp/nvim-autopairs',
-        config = function() require('plugins/autopairs') end,
-        event = "InsertEnter"
     }
 
     use {
