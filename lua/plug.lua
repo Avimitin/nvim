@@ -78,12 +78,13 @@ return require('packer').startup(function(use)
         after = 'nvim-cmp'
     }
 
-    -- ======= LSP ============
+    -- ========= LSP ============
+    use {'kabouzeid/nvim-lspinstall', after = "packer.nvim"}
+
     use {
         'neovim/nvim-lspconfig',
         config = function() require("plugins.lsp") end,
-        requires = {'kabouzeid/nvim-lspinstall'},
-        after = "packer.nvim"
+        after = "nvim-lspinstall"
     }
 
     use {
