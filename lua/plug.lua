@@ -26,8 +26,7 @@ return require('packer').startup(function(use)
     use {
         'kyazdani42/nvim-tree.lua',
         config = function() require("plugins.nvimtree") end,
-        cmd = {"NvimTreeRefresh", "NvimTreeToggle"},
-        after = 'nvim-web-devicons'
+        cmd = {"NvimTreeRefresh", "NvimTreeToggle"}
     }
 
     use {
@@ -182,6 +181,7 @@ return require('packer').startup(function(use)
         config = function()
             require("plugins.fterm")
             require("plugins.lazygit")
+            require("mapping").FTermKeymapSetup()
         end,
         event = "VimEnter"
     }

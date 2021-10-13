@@ -6,12 +6,9 @@ end
 require('FTerm').setup {
     dimensions = {height = 0.9, width = 0.9},
 
-    border = 'double'
+    border = 'rounded',
+
+    hl = 'NormalFloat'
 }
 
-local option = {noremap = true, silent = true}
-vim.api.nvim_set_keymap("n", "<C-\\>",
-                        [[<CMD>lua require("FTerm").toggle()<CR>]], option)
-vim.api.nvim_set_keymap("t", "<C-\\>",
-                        [[<C-\><C-n><CMD>lua require("FTerm").toggle()<CR>]],
-                        option)
+vim.cmd('command! FTermToggle lua require("FTerm").toggle()')
