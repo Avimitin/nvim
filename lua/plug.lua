@@ -13,21 +13,27 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use {"wbthomason/packer.nvim", event = "VimEnter"}
 
+    -- ======================= EDITOR SETUP ==============================
+    use {'kyazdani42/nvim-web-devicons', event = "BufRead"}
+
+    use {
+        'glepnir/galaxyline.nvim',
+        branch = 'main',
+        after = "nvim-web-devicons",
+        config = function() require("plugins.galaxyline") end
+    }
+
+    use {
+        'kyazdani42/nvim-tree.lua',
+        config = function() require("plugins.nvimtree") end,
+        cmd = {"NvimTreeRefresh", "NvimTreeToggle"},
+        after = 'nvim-web-devicons'
+    }
+
     use {
         'lukas-reineke/indent-blankline.nvim',
         config = function() require("plugins.indent") end,
         event = 'BufRead'
-    }
-
-    -- telescope: extensible fuzzy file finder--
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = {
-            'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope-media-files.nvim'
-        },
-        config = function() require("plugins.telescope") end,
-        cmd = {"Telescope"}
     }
 
     -- nvim-bufferline: better buffer line--
@@ -37,9 +43,18 @@ return require('packer').startup(function(use)
         event = "BufRead"
     }
 
+    -- neovim color theme
+    use {
+        'Avimitin/neovim-deus',
+        after = "packer.nvim",
+        config = function() require("colors") end
+    }
+
+    -- ==================== CODING ==================================
+
     use {'rafamadriz/friendly-snippets', event = "InsertEnter"}
 
-    -- nvim-cmp: successor of the nvim-compe
+    -- ======= Completion =========
     use {
         'hrsh7th/nvim-cmp',
         after = "friendly-snippets",
@@ -63,26 +78,126 @@ return require('packer').startup(function(use)
         after = 'nvim-cmp'
     }
 
-    -- nvim-lspconfig: built-in lsp--
+    -- ======= LSP ============
     use {
         'neovim/nvim-lspconfig',
         config = function() require("plugins.lsp") end,
-        requires = {'kabouzeid/nvim-lspinstall'}
+        requires = {'kabouzeid/nvim-lspinstall'},
+        after = "packer.nvim"
     }
 
     use {
         "ray-x/lsp_signature.nvim",
         config = function() require("plugins.lsp-signature") end,
-        after = "nvim-lspconfig",
-        event = "InsertEnter"
+        after = "nvim-lspconfig"
     }
 
-    -- nvim-tree.lua--
+    -- RUST
     use {
-        'kyazdani42/nvim-tree.lua',
-        config = function() require("plugins.nvimtree") end,
-        cmd = {"NvimTreeRefresh", "NvimTreeToggle"},
-        requires = 'kyazdani42/nvim-web-devicons'
+        'simrat39/rust-tools.nvim',
+        wants = "nvim-lspconfig",
+        config = function() require("plugins.rust") end,
+        after = "nvim-lspconfig"
+    }
+
+    use {
+        'rust-lang/rust.vim',
+        after = "rust-tools.nvim",
+        config = function()
+            vim.g.rust_clip_command = 'xclip -selection clipboard'
+        end
+    }
+
+    use {
+        'simrat39/symbols-outline.nvim',
+        config = function() require("plugins.symbols") end,
+        cmd = "SymbolsOutline"
+    }
+
+    -- treesitter: support more colorful highlighting
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+        event = 'BufRead',
+        config = function() require('plugins.treesitter') end
+    }
+
+    -- git information
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = {'nvim-lua/plenary.nvim'},
+        event = "BufRead",
+        config = function() require("plugins.gitsign") end
+    }
+
+    -- Golang
+    use {
+        'fatih/vim-go',
+        config = function() require("plugins.vim-go") end,
+        ft = {"go"}
+    }
+
+    -- CPP
+    use {'rhysd/vim-clang-format', ft = {'cpp', 'c', 'h', 'hpp'}}
+
+    use {
+        'sbdchd/neoformat',
+        cmd = "Neoformat",
+        config = function()
+            vim.g.neoformat_cpp_clangformat = {
+                exe = 'clang-format',
+                args = {'-style=file'}
+            }
+            vim.g.neoformat_enabled_cpp = {'clangformat'}
+            vim.g.neoformat_enabled_c = {'clangformat'}
+        end
+    }
+
+    -- =================== Utilities =========================
+
+    -- markdown toc
+    use {'mzlogin/vim-markdown-toc', cmd = {'GenTocGFM'}}
+
+    -- markdown preview
+    use {
+        'iamcco/markdown-preview.nvim',
+        run = function() vim.fn['mkdp#util#install']() end,
+        config = function() require("plugins.mkdp") end,
+        ft = {"markdown"}
+    }
+
+    -- easy motion
+    use {
+        'phaazon/hop.nvim',
+        config = function()
+            require'hop'.setup {keys = 'etovxqpdygfblzhckisuran'}
+        end,
+        cmd = {'HopChar2', 'HopLine', 'HopPattern'}
+    }
+
+    -- open a big terminal
+    use {
+        'numtostr/FTerm.nvim',
+        config = function()
+            require("plugins.fterm")
+            require("plugins.lazygit")
+        end,
+        event = "VimEnter"
+    }
+
+    use {'kassio/neoterm'}
+
+    -- show color at words
+    use {
+        'RRethy/vim-hexokinase',
+        run = 'make',
+        cmd = "HexokinaseToggle",
+        setup = function()
+            vim.g.Hexokinase_highlighters = {'backgroundfull'}
+            vim.g.Hexokinase_optInPatterns = {
+                'full_hex', 'rgb', 'rgba', 'hsl', 'hsla'
+            }
+        end
     }
 
     -- TrueZen.nvim: zen mode in neovim--
@@ -94,43 +209,39 @@ return require('packer').startup(function(use)
     -- vim-commentary: for quickly commenting--
     use {'tpope/vim-commentary', event = "BufRead"}
 
-    -- markdown preview
-    use {
-        'iamcco/markdown-preview.nvim',
-        run = function() vim.fn['mkdp#util#install']() end,
-        config = function() require("plugins.mkdp") end,
-        ft = {"markdown"}
-    }
-
     -- mulit cursor
     use {'mg979/vim-visual-multi', event = "InsertEnter", branch = 'master'}
 
     -- open file when forget sudo
     use {'lambdalisue/suda.vim', cmd = {'SudaWrite', 'SudaRead'}}
 
-    -- treesitter: support more colorful highlighting
     use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate',
-        event = 'BufRead',
-        config = function() require('plugins.treesitter') end
+        'famiu/nvim-reload',
+        cmd = {"Reload", "Restart"},
+        requires = "nvim-lua/plenary.nvim"
     }
 
-    -- neovim color theme
     use {
-        'Avimitin/neovim-deus',
-        after = "packer.nvim",
-        config = function() require("colors") end
+        'andweeb/presence.nvim',
+        event = "VimEnter",
+        -- I don't use discord recently, and this plugin delay my neovim.
+        -- Set disable = false to enable this plugin.
+        disable = true,
+        config = function()
+            require("presence"):setup({
+                neovim_image_text = "HELP!",
+                editing_text = "STUCK IN THE %s FILE",
+                workspace_text = "HELP! HOW TO QUIT VIM!"
+            })
+        end
     }
-    use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
-    use {"sainnhe/everforest"}
-    use 'tiagovla/tokyodark.nvim'
+
+    use {"andrejlevkovitch/vim-lua-format", ft = {"lua"}}
 
     use {
-        'glepnir/galaxyline.nvim',
-        branch = 'main',
-        requires = {{'kyazdani42/nvim-web-devicons'}},
-        config = function() require("plugins.galaxyline") end
+        'glepnir/dashboard-nvim',
+        cmd = {"Dashboard"},
+        config = function() require("plugins.dashboard") end
     }
 
     -- highlight all the word below the cursor
@@ -159,7 +270,7 @@ return require('packer').startup(function(use)
 
     use {
         'airblade/vim-rooter',
-        event = "VimEnter",
+        event = "BufRead",
         config = function()
             vim.g.rooter_patterns = {'.git', 'Cargo.toml'}
         end
@@ -174,134 +285,23 @@ return require('packer').startup(function(use)
         cmd = {'AnyJump', 'AnyJumpBack'}
     }
 
-    -- git information
+    -- telescope: extensible fuzzy file finder--
     use {
-        'lewis6991/gitsigns.nvim',
-        requires = {'nvim-lua/plenary.nvim'},
-        event = "BufRead",
-        config = function() require("plugins.gitsign") end
-    }
-
-    -- Golang support
-    use {
-        'fatih/vim-go',
-        config = function() require("plugins.vim-go") end,
-        event = "InsertEnter"
+        'nvim-telescope/telescope.nvim',
+        requires = {
+            'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope-media-files.nvim'
+        },
+        config = function() require("plugins.telescope") end,
+        cmd = {"Telescope"}
     }
 
     -- Select text object
     use {'gcmt/wildfire.vim', event = "VimEnter"}
 
     -- surrounding select text with given text
-    use {"tpope/vim-surround", event = "CursorMoved"}
+    use {"tpope/vim-surround", after = "wildfire.vim"}
 
     -- align
     use {'junegunn/vim-easy-align', cmd = 'EasyAlign'}
-
-    -- find and replace
-    use {'brooth/far.vim', cmd = {'Farr', "Farf"}}
-
-    -- markdown toc
-    use {'mzlogin/vim-markdown-toc', cmd = {'GenTocGFM'}}
-
-    -- clang-format
-    use {'rhysd/vim-clang-format', ft = {'cpp', 'c', 'h', 'hpp'}}
-
-    -- easy motion
-    use {
-        'phaazon/hop.nvim',
-        config = function()
-            require'hop'.setup {keys = 'etovxqpdygfblzhckisuran'}
-        end,
-        cmd = {'HopChar2', 'HopLine', 'HopPattern'}
-    }
-
-    -- open a big terminal
-    use {
-        'numtostr/FTerm.nvim',
-        config = function()
-            require("plugins.fterm")
-            require("plugins.lazygit")
-        end,
-        event = "VimEnter"
-    }
-
-    use {
-        'sbdchd/neoformat',
-        cmd = "Neoformat",
-        config = function()
-            vim.g.neoformat_cpp_clangformat = {
-                exe = 'clang-format',
-                args = {'-style=file'}
-            }
-            vim.g.neoformat_enabled_cpp = {'clangformat'}
-            vim.g.neoformat_enabled_c = {'clangformat'}
-        end
-    }
-
-    -- show color at words
-    use {
-        'RRethy/vim-hexokinase',
-        run = 'make',
-        cmd = "HexokinaseToggle",
-        setup = function()
-            vim.g.Hexokinase_highlighters = {'backgroundfull'}
-            vim.g.Hexokinase_optInPatterns = {
-                'full_hex', 'rgb', 'rgba', 'hsl', 'hsla'
-            }
-        end
-    }
-
-    use {
-        'simrat39/symbols-outline.nvim',
-        config = function() require("plugins.symbols") end,
-        cmd = "SymbolsOutline"
-    }
-
-    use {
-        'simrat39/rust-tools.nvim',
-        requires = {"neovim/nvim-lspconfig"},
-        wants = "nvim-lspconfig",
-        config = function() require("plugins.rust") end,
-        event = "InsertEnter"
-    }
-
-    use {
-        'rust-lang/rust.vim',
-        event = "InsertEnter",
-        config = function()
-            vim.g.rust_clip_command = 'xclip -selection clipboard'
-        end
-    }
-
-    use {
-        'glepnir/dashboard-nvim',
-        cmd = {"Dashboard"},
-        config = function() require("plugins.dashboard") end
-    }
-
-    use {
-        'andweeb/presence.nvim',
-        event = "VimEnter",
-        -- I don't use discord recently, and this plugin delay my neovim.
-        -- Set disable = false to enable this plugin.
-        disable = true,
-        config = function()
-            require("presence"):setup({
-                neovim_image_text = "HELP!",
-                editing_text = "STUCK IN THE %s FILE",
-                workspace_text = "HELP! HOW TO QUIT VIM!"
-            })
-        end
-    }
-
-    use {"andrejlevkovitch/vim-lua-format", ft = {"lua"}}
-
-    use {
-        'famiu/nvim-reload',
-        cmd = {"Reload", "Restart"},
-        requires = "nvim-lua/plenary.nvim"
-    }
-
-    use {'kassio/neoterm'}
 end)
