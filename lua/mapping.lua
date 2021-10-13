@@ -91,11 +91,5 @@ Map('n', 'gor', ':GoRun<CR>')
 Map("n", "tt", ":NvimTreeToggle<CR>")
 Map("n", "tr", ":NvimTreeRefresh<CR>")
 
-local M = {}
-
-function M.FTermKeymapSetup()
-  Map("n", "<C-\\>", [[:FTermToggle<CR>]])
-  Map("t", "<C-\\>", [[<C-\><C-n>:FTermToggle<CR>]])
-end
-
-return M
+Map("n", "<C-\\>", [[:FTermToggle<CR>]])
+Map("t", "<C-\\>", [[<C-\><C-n>:FTermToggle<CR>]])

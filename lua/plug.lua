@@ -181,9 +181,8 @@ return require('packer').startup(function(use)
         config = function()
             require("plugins.fterm")
             require("plugins.lazygit")
-            require("mapping").FTermKeymapSetup()
         end,
-        event = "VimEnter"
+	cmd={'FTermToggle'}
     }
 
     use {'kassio/neoterm', cmd = {'T', "Tkill", "Tclose", "Tmap"}}
