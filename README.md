@@ -2,13 +2,7 @@
 
 ![User Interface Preview](./image/screenshot.png)
 
----
-
-![markdown](./image/neovim-md.png) 
-
----
-
-![coding](./image/neovim-coding.png) 
+[More screenshot](#more-screenshot)
 
 ## Guide
 
@@ -137,3 +131,15 @@ MIT License
 113.395  000.003
 118.647  000.003
 ```
+
+## More Screenshot
+
+![markdown](./image/neovim-md.png)
+
+---
+
+![coding](./image/neovim-coding.png) 
+
+---
+
+![lazygit](./image/neovim-lazygit.png)
