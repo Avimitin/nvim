@@ -32,8 +32,9 @@
 # linux or mac user
 git clone https://github.com/avimitin/nvim ~/.config
 
-# 一次性启动并安装依赖
-nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+# neovim 第一次启动可能会遇到插件加载不完全的问题
+# 所以我写了脚本来自动退出
+nvim -c 'autocmd User PackerComplete quitall'
 ```
 
 ## 需要安装的依赖
@@ -50,18 +51,12 @@ sudo apt-get update
 sudo apt install neovim
 
 # Arch 用户只需要下载 nightly-bin
-yay -S neovim-nightly-bin
+yay -S neovim-git
 ```
 
 除了上述依赖以外，我还极力推荐你安装 nerd font 以获得大量图标支持，nerd font 的
 [下载](https://www.nerdfonts.com/font-downloads)与
 （安利一下 `Jetbrains Mono` ，是一款非常美观且非常适合编程的等宽字体）
-
-## 安装之后
-
-我使用 [packer](https://github.com/wbthomason/packer.nvim) 作为插件管理器，
-而我是最近刚从 vim-plug 换过来的还不是很熟悉，可能会有一些小 bug。我目前已经
-写了启动后自动安装，但是因为上述原因可能会有一些问题，重启 neovim 就可以了。
 
 ## 按键介绍
 
@@ -69,22 +64,22 @@ yay -S neovim-nightly-bin
 
 ```text
     ^
-    u
-< h   k >
     j
+< h   l >
+    k
     v
 ```
 
 | key     | function               |
 | ---     | --------               |
 | h       | 左移光标               |
-| k       | 右移光标               |
-| u       | 上移光标               |
+| l       | 右移光标               |
+| k       | 上移光标               |
 | j       | 下移光标               |
 | H       | 把光标移动到行首       |
 | K       | 把光标移动到行尾       |
-| U       | 把光标往上移动5行      |
-| J       | 把光标往下移动5行      |
+| K       | 往上滚动页面           |
+| J       | 往上滚动页面           |
 | W       | 往前移动5个字母        |
 | B       | 往后移动5个字母        |
 | jj      | 退出编辑模式           |

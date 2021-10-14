@@ -3,31 +3,6 @@
 I won't repeat the default key here, I'll just mention some of the key which
 modified.
 
-## Custom
-
-You can create a file named it with `custom.lua` and store it in the lua
-directory, then paste the code below and make your modified.
-
-```lua
--- lua/custom.lua
--- This are default settings
-local settings = {
-	color_scheme = "everforest",
-	background = "dark",
-}
-
-return settings
-```
-
-Currently available colorscheme selections:
-
-```text
-* deus       (High contrast and deep dark background)
-* gruvbox    (Brown background)
-* everforest (Green and light background with low contrast color)
-* tokyodark  (Dark purple and normal text is presenting in blue color)
-```
-
 ## Basic keys
 
 - Cursor
@@ -44,12 +19,11 @@ Currently available colorscheme selections:
 | --- | --------                      |
 | H   | Move to the front of the line |
 | L   | Move to the end of the line   |
-| K   | Move up 5 lines               |
-| J   | Move down 5 lines             |
+| K   | Scroll up                     |
+| J   | Scroll down                   |
 | W   | Move back 5 words             |
 | B   | Move forward 5 words          |
 | jj  | Esc at insert and visual mode |
-| i   | start insert mode             |
 
 - View
 
@@ -81,7 +55,7 @@ leader key is `<Space>`.
 | ------                  | --------                |
 | `LEADER`+s              | save                    |
 | `LEADER`+q              | save and quit           |
-| `Ctrl + Alt` + q              | quit                    |
+| `Ctrl + Alt` + q        | quit                    |
 
 ## Copy and Paste
 
