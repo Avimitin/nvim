@@ -145,7 +145,7 @@ MIT License
 
 ![lazygit](./image/neovim-lazygit.png)
 
---
+---
 
 ![nvui](./image/nvui-ext-cmd.png)
 
