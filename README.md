@@ -37,6 +37,7 @@ Take a look at their contribution, which is really fantastic.
 - Motion on speed
 - Markdown preview and snippet
 - Optimized Rust, C++, Golang, Lua coding experience
+- Configured most of the GUI: nvui, neovide, nvim-qt...
 
 ## Installation
 
@@ -143,3 +144,8 @@ MIT License
 ---
 
 ![lazygit](./image/neovim-lazygit.png)
+
+--
+
+![nvui](./image/nvui-ext-cmd.png)
+
