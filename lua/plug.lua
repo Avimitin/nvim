@@ -130,12 +130,7 @@ return require('packer').startup(function(use)
         config = function() require("config.gitsign") end
     }
 
-    use {
-	'tpope/vim-fugitive',
-	cmd = {
-	  'Git'
-	}
-    }
+    use {'tpope/vim-fugitive', cmd = {'Git'}}
 
     -- Golang
     use {
@@ -189,7 +184,7 @@ return require('packer').startup(function(use)
             require("config.fterm")
             require("config.lazygit")
         end,
-	cmd={'FTermToggle', 'LazygitToggle'}
+        cmd = {'FTermToggle', 'LazygitToggle'}
     }
 
     use {'kassio/neoterm', cmd = {'T', "Tkill", "Tclose", "Tmap"}}
