@@ -121,14 +121,12 @@ lspinstall.post_install_hook = function()
     vim.cmd("bufdo e") -- triggers FileType autocmd that starts the server
 end
 
-vim.fn.sign_define("LspDiagnosticsSignError",
-                   {text = "", numhl = "LspDiagnosticsDefaultError"})
-vim.fn.sign_define("LspDiagnosticsSignWarning",
-                   {text = "", numhl = "LspDiagnosticsDefaultWarning"})
-vim.fn.sign_define("LspDiagnosticsSignInformation",
-                   {text = "", numhl = "LspDiagnosticsDefaultInformation"})
-vim.fn.sign_define("LspDiagnosticsSignHint",
-                   {text = "", numhl = "LspDiagnosticsDefaultHint"})
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
 
 local lsp_publish_diagnostics_options = {
     virtual_text = {prefix = "", spacing = 0},
