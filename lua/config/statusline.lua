@@ -17,7 +17,7 @@ gl.short_line_list = {
 
 local current_scheme = vim.g.colors_name
 
-local line_bg_color = '#131A22'
+local line_bg_color = '#1F253A'
 
 if current_scheme == "everforest" then
   line_bg_color = "#282E2C"
