@@ -16,7 +16,7 @@ License:
 	MIT License
 --]] -- Loading basic configuration
 require('options')
-require('mapping')
+require('keymap')
 
 -- detecting plugin manager
 local no_packer = false
