@@ -117,4 +117,7 @@ if vim.g.nvui then
     vim.cmd [[NvuiCmdPadding 13]]
     vim.cmd [[NvuiPopupMenuBorderWidth 4]]
     vim.cmd [[NvuiPopupMenuBorderColor #6E6C6A]]
+    -- nvui 348697153f2954f0
+    vim.cmd [[autocmd InsertEnter * NvuiIMEEnable]]
+    vim.cmd [[autocmd InsertLeave * NvuiIMEDisable]]
 end
