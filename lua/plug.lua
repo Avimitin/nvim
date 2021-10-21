@@ -78,12 +78,12 @@ return require('packer').startup(function(use)
     }
 
     -- ========= LSP ============
-    use {'kabouzeid/nvim-lspinstall', after = "packer.nvim"}
+    use {'williamboman/nvim-lsp-installer', after = "packer.nvim"}
 
     use {
         'neovim/nvim-lspconfig',
         config = function() require("config.lsp") end,
-        after = "nvim-lspinstall"
+        after = "nvim-lsp-installer"
     }
 
     use {
