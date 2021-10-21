@@ -95,6 +95,7 @@ return require('packer').startup(function(use)
     -- RUST
     use {
         'simrat39/rust-tools.nvim',
+        ft={"rust"},
         wants = "nvim-lspconfig",
         config = function() require("config.rust") end,
         event = "InsertEnter"
