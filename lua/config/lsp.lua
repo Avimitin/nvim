@@ -1,5 +1,5 @@
 local present1, lspconfig = pcall(require, "lspconfig")
-local present2, lspinstall = pcall(require, "lspinstall")
+local present2, installer = pcall(require, "nvim-lsp-installer")
 if not (present1 or present2) then return end
 
 -- Use an on_attach function to only map the following keys
@@ -91,41 +91,51 @@ local lua_setting = {
     }
 }
 
-local function setup_servers()
-    lspinstall.setup()
-    local servers = lspinstall.installed_servers()
+installer.settings {
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+}
 
-    for _, lang in pairs(servers) do
-        if lang ~= "lua" then
-            lspconfig[lang].setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                root_dir = vim.loop.cwd
-            }
-        elseif lang == "lua" then
-            lspconfig[lang].setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                root_dir = vim.loop.cwd,
-                settings = lua_setting
-            }
+local servers = {
+    "rust_analyzer", "clangd", "gopls", "html", "jsonls", "sumneko_lua"
+}
+
+for _, lang in pairs(servers) do
+    local ok, server = installer.get_server(lang)
+    if ok then
+        if not server:is_installed() then
+            print("Installing " .. lang)
+            server:install()
         end
     end
 end
 
-setup_servers()
+installer.on_server_ready(function(server)
+    local opts = {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      root_dir = vim.loop.cwd
+    }
 
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-lspinstall.post_install_hook = function()
-    setup_servers() -- reload installed servers
-    vim.cmd("bufdo e") -- triggers FileType autocmd that starts the server
-end
+    if server.name == "sumneko_lua" then
+      opts.settings = lua_setting
+    end
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+    -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
+    server:setup(opts)
+    vim.cmd [[ do User LspAttachBuffers ]]
+end)
+
+local signs = {Error = " ", Warn = " ", Hint = " ", Info = " "}
 
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = ""})
 end
 
 local lsp_publish_diagnostics_options = {
@@ -146,35 +156,33 @@ vim.lsp.handlers["textDocument/signatureHelp"] =
     vim.lsp.with(vim.lsp.handlers.signature_help, {border = "single"})
 
 local function goto_definition(split_cmd)
-  local util = vim.lsp.util
-  local log = require("vim.lsp.log")
-  local api = vim.api
+    local util = vim.lsp.util
+    local log = require("vim.lsp.log")
+    local api = vim.api
 
-  -- note, this handler style is for neovim 0.5.1/0.6, if on 0.5, call with function(_, method, result)
-  local handler = function(_, result, ctx)
-    if result == nil or vim.tbl_isempty(result) then
-      local _ = log.info() and log.info(ctx.method, "No location found")
-      return nil
+    -- note, this handler style is for neovim 0.5.1/0.6, if on 0.5, call with function(_, method, result)
+    local handler = function(_, result, ctx)
+        if result == nil or vim.tbl_isempty(result) then
+            local _ = log.info() and log.info(ctx.method, "No location found")
+            return nil
+        end
+
+        if split_cmd then vim.cmd(split_cmd) end
+
+        if vim.tbl_islist(result) then
+            util.jump_to_location(result[1])
+
+            if #result > 1 then
+                util.set_qflist(util.locations_to_items(result))
+                api.nvim_command("copen")
+                api.nvim_command("wincmd p")
+            end
+        else
+            util.jump_to_location(result)
+        end
     end
 
-    if split_cmd then
-      vim.cmd(split_cmd)
-    end
-
-    if vim.tbl_islist(result) then
-      util.jump_to_location(result[1])
-
-      if #result > 1 then
-        util.set_qflist(util.locations_to_items(result))
-        api.nvim_command("copen")
-        api.nvim_command("wincmd p")
-      end
-    else
-      util.jump_to_location(result)
-    end
-  end
-
-  return handler
+    return handler
 end
 
 vim.lsp.handlers["textDocument/definition"] = goto_definition('split')
