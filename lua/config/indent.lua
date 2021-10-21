@@ -6,7 +6,7 @@ require("indent_blankline").setup {
       "TelescopeResults", "startify", "dashboard", "dotooagenda", "log",
       "fugitive", "gitcommit", "packer", "vimwiki", "markdown", "txt",
       "vista", "help", "todoist", "NvimTree", "peekaboo", "git",
-      "TelescopePrompt", "undotree", "flutterToolsOutline", ""
+      "TelescopePrompt", "undotree", "flutterToolsOutline","lsp-installer", ""
   },
   buftype_exclude = {"terminal"},
   show_trailing_blankline_indent = false,
