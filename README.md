@@ -48,15 +48,21 @@ own neovim configuration in my opinion.
 ```bash
 # linux or mac user
 git clone https://github.com/Avimitin/nvim ~/.config/nvim
-
-# Bootstrap
-nvim -c 'autocmd User PackerComplete quitall'
 ```
+
+Open your neovim by command `nvim` and wait for all plugins installed. Please
+quit and reopen the neovim for loading all plugins.
+
+**NOTE:** Markdown preview plugin is installed in another thread, please
+wait for it until it response message of installation success. Otherwise, you will find
+that you can't activate it.
 
 ### Docker
 
 Just wanna have some fun but do not want to mess up your local environment?
 I have docker script for you!
+
+**THIS IS EXPERIMENTAL**
 
 ```bash
 docker run -w /root -it --rm alpine:edge sh -uelic '
