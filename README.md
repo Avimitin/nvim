@@ -75,31 +75,38 @@ docker run -w /root -it --rm alpine:edge sh -uelic '
 
 ## Dependency
 
-### neovim
+### Neovim (MUST)
 
-> `IMPORTANT NOTES`: I'am using the pure Lua configuration so you 
-> must use the latest built of the neovim.
->
-> you will need at least `NVIM v0.5.0-dev+1411-gb28d458f8`.
+> Currently I am using `NVIM v0.6.0-dev+501-gcb15055c2`. If you got any error,
+> please check your neovim version.
 
-- Linux
+- Follow [neovim installation](https://github.com/neovim/neovim/wiki/Installing-Neovim).
+- Or if you are Arch Linux user: `yay -S neovim-git`
 
-```bash
-# if you are an Ubuntu user
-# removed out of dated version
-sudo apt remove neovim
-sudo add-apt-repository ppa:neovim-ppa/unstable
-sudo apt-get update
-sudo apt install neovim
+### Install nerdfont (MUST)
 
-# OR if you are a Arch user
-yay -S neovim-git
+Most of my setting are based on nerd font. It's highly recommended to install
+[nerdfont](https://www.nerdfonts.com/font-downloads) for impressive icon support.
+
+### Surf (OPTIONAL)
+
+I am using [Surf](https://surf.suckless.org/) as my markdown preview browser. Firefox
+is too heavy for the preview job. If you have interest on it, please follow the instruction
+from the official pages. If not, you can easily modify the settings:
+
+```sh
+sed -i 's/surf/firefox/g' ./lua/config/mkdp.lua
 ```
 
-### Install nerdfont
+#### How to build surf
 
-It's highly recommended to install [nerdfont](https://www.nerdfonts.com/font-downloads) 
-for impressive icon support.
+```sh
+# Arch linux contains most of the library
+# Other distro need to check out documents yourself
+git clone https://git.suckless.org/surf
+cd surf
+sudo make clean install
+```
 
 ### Check health
 
