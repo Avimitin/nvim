@@ -1,8 +1,5 @@
 # Keymaps
 
-I won't repeat the default key here, I'll just mention some of the key which
-modified.
-
 ## Basic keys
 
 - Cursor
@@ -27,7 +24,7 @@ modified.
 
 - View
 
-| keymap     | function                      | doc                 |
+| keymap     | function                      | note                |
 | ------     | --------                      | ---                 |
 | `Ctrl` + c | put cursor line to the middle | only at insert mode |
 
@@ -48,14 +45,6 @@ but now `; + q + Enter` is only needed.
 ## LEADER key
 
 leader key is `<Space>`.
-
-## Save and Quit
-
-| keymap                  | function                |
-| ------                  | --------                |
-| `LEADER`+s              | save                    |
-| `LEADER`+q              | save and quit           |
-| `Ctrl + Alt` + q        | quit                    |
 
 ## Copy and Paste
 
@@ -96,11 +85,10 @@ leader key is `<Space>`.
 | ---          | ---                  |
 | `f`          | activate hop         |
 | `<leader>+j` | easymotion jump line |
-| `<leader>+k` | easymotion jump line |
 
 Example usage:
 
-Input `u` in normal mode and input two character of the keyword which highlighting. 
+Input `f` in normal mode and input two character of the keyword which highlighting. 
 Then the cursor will jump to that place.
 
 ## neovim-lspconfig 
@@ -115,7 +103,8 @@ Then the cursor will jump to that place.
 
 Check [lsp.lua](../lua/plugins/lsp.lua) for more keymaps.
 
-Using `:LspInstall` to install plugin you want.
+Using `:LspInstall` to install lsp you want. Follow the instruction from
+[nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer).
 
 - Rename variable
 
@@ -147,29 +136,31 @@ the name of references. Check out [fatih/vim-go](https://github.com/fatih/vim-go
 
 ## Git
 
-![img](https://raw.githubusercontent.com/lewis6991/media/main/gitsigns_blame.gif) 
+| keymap           | function                     |
+| ---              | ---                          |
+| gis              | stage changes                |
+| gip              | preview changes              |
+| giu              | undo stage                   |
+| gib              | git blame                    |
+| gir              | reset changes                |
+| gin              | next hunk                    |
+| gim              | previous hunk                |
+| `:Git arguments` | Run git command like the cli does |
 
-| keymap | function        |
-| ---    | ---             |
-| gis    | stage changes   |
-| gip    | preview changes |
-| giu    | undo stage      |
-| gib    | git blame       |
-| gir    | reset changes   |
-| gin    | next hunk       |
-| gim    | previous hunk   |
+For the `:Git` command, follow [fugutive](https://github.com/tpope/vim-fugitive) for more.
 
 ## Symbols
 
 ![image](https://raw.githubusercontent.com/simrat39/rust-tools-demos/master/symbols-demo.gif) 
 
-Press `<LEADER>` + l to activate it.
+Run command `:SymbolOutline` to activate it.
 
 ## lazygit
 
 ![image](https://raw.githubusercontent.com/jesseduffield/lazygit/assets/staging.gif) 
 
-press `ctrl+g` to activate it. (Install lazygit first)
+Press `ctrl+g` to activate it. You need to install
+[lazygit](https://github.com/jesseduffield/lazygit).
 
 ## vim-surround
 
@@ -204,25 +195,20 @@ Press enter to select text.
 
 ![img](https://raw.githubusercontent.com/simrat39/rust-tools-demos/master/rust-tools-debug.gif) 
 
-Use command `:LspInstall rust` to automatically configured up [rust-ananlyzer](https://rust-analyzer.github.io/)
-as lsp server.
+~~Use command `:LspInstall rust` to automatically configured up
+[rust-ananlyzer](https://rust-analyzer.github.io/) as lsp server.~~
+
+> The rust-tools.nvim will set up rust analyzer itself, so it's recommended
+> not to configured Rust LSP yourself. You just need to install rust-analyzer.
 
 Also you will have extra command to help you coding in Rust. See
 [rust-tool.nvim](https://github.com/simrat39/rust-tools.nvim/) for more.
 
 ## CPP
 
-Use command `:LspInstall cpp` to automatically configured up clangd as lsp server.
-
-Use command `:Neoformat` to format your cpp file.
-[clang-format](https://clang.llvm.org/docs/ClangFormat.html) is needed. It will read `.clang-format`
-from your project root.
-
-If your project library is individual and the lsp will give you annoying hint like header file not
-found..etc, you can run below command to set up your project.
+If you are using cmake, use below command to set up your project.
 
 ```bash
-#if you are using cmake
 cmake -BDebug . -DCMAKE_EXPORT_COMPILE_COMMANDS=1
 ln -s Debug/compile_commands.json .
 ```
@@ -235,13 +221,15 @@ ln -s Debug/compile_commands.json .
 code
 codeblock
 h[1-5]
-...
+img
+link
+table
 ```
 
 ## Preview
 
 Press `:MarkdownPreview` command to activate preview, change the default browser
-and port in core/plugins.vim.
+and port in lua/config/mkdp.lua.
 
 ## Toc
 
@@ -291,7 +279,7 @@ Before        Input                    After
 
 # Telescope
 
-![screenshot](https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/telmedia.png) 
+![screenshot](https://raw.githubusercontent.com/siduck76/dotfiles/all/rice%20flex/tel.png) 
 
 ```text
 <leader>ff Telescope find_files
@@ -301,3 +289,24 @@ Before        Input                    After
 <leader>fh Telescope help_tags
 ```
 
+# Suda
+
+When you open a file which have no right to access, you can use this plugin to
+get root priviledge.
+
+```sh
+:SudaWrite (Write with sudo)
+:SudaRead  (Read with sudo)
+```
+
+# Hexokinase
+
+![Hexokinase](https://user-images.githubusercontent.com/21000943/64057161-91d16500-cb67-11e9-83ab-535ad2489c5a.png)
+
+A plugin which can show colors. Use command `:HexokinaseToggle` to activate it.
+
+# Neoterm
+
+![image](https://cloud.githubusercontent.com/assets/120483/8921869/fe459572-34b1-11e5-93c9-c3b6f3b44719.gif)
+
+Use command `:T`, `:Tkill`, `:Tclose`, `:Tmap` to activate it.
