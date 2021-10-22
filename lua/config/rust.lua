@@ -66,7 +66,7 @@ local opts = {
 
             -- whether the hover action window gets automatically focused
             -- default: false
-            auto_focus = false
+            auto_focus = true
         }
     },
 
@@ -77,7 +77,9 @@ local opts = {
 }
 
 require('rust-tools').setup(opts)
-require('rust-tools.inlay_hints').set_inlay_hints()
 
-vim.api.nvim_set_keymap('n', '<Leader>ra', ':RustHoverActions<CR>',
-                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>ra', ':lua require("rust-tools.hover_actions").hover_actions()<CR>',
+                        {noremap = true, silent = false})
+vim.api.nvim_set_keymap('n', '<Leader>ri', ':lua require("rust-tools.inlay_hints").set_inlay_hints()<CR>',
+                        {noremap = true, silent = false})
+
