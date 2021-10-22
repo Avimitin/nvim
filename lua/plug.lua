@@ -78,7 +78,13 @@ return require('packer').startup(function(use)
     }
 
     -- ========= LSP ============
-    use {'williamboman/nvim-lsp-installer', after = "packer.nvim"}
+    use {
+        'williamboman/nvim-lsp-installer',
+        ft = {
+            "bash", "sh", "rust", "c", "cpp", "lua", "markdown", "go", "html",
+            "toml", "json", "python"
+        }
+    }
 
     use {
         'neovim/nvim-lspconfig',
@@ -95,10 +101,8 @@ return require('packer').startup(function(use)
     -- RUST
     use {
         'simrat39/rust-tools.nvim',
-        ft={"rust"},
-        wants = "nvim-lspconfig",
-        config = function() require("config.rust") end,
-        event = "InsertEnter"
+        after = "nvim-lspconfig",
+        config = function() require("config.rust") end
     }
 
     use {
