@@ -102,7 +102,7 @@ installer.settings {
 }
 
 local servers = {
-    "rust_analyzer", "clangd", "gopls", "html", "jsonls", "sumneko_lua"
+    "clangd", "gopls", "html", "jsonls", "sumneko_lua"
 }
 
 for _, lang in pairs(servers) do
