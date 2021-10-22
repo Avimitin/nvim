@@ -1,3 +1,5 @@
+# 这篇文章已经严重过时了，请以英文版为主
+
 # Gopher 的 neovim 配置
 
 ![大图](../image/screenshot.png)
