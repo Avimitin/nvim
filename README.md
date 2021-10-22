@@ -25,7 +25,7 @@ Take a look at their contribution, which is really fantastic.
 
 ## Features
 
-- Really fast! Start up in only 43ms! (See the bottom of the doc for the data)
+- Really fast! Start up in only 34ms! (See the bottom of the doc for the data)
 - LSP support
 - Completion like VSCode
 - Tree file manager
@@ -122,9 +122,9 @@ MIT License
 # Open only buffer
 # nvim --startuptime /tmp/nvim-startuptime && tail -n 1 /tmp/nvim-startuptime | awk -F: '{print $1}'
 # test it 3 times
-042.840  000.002
-042.602  000.003
-043.992  000.002
+031.760  000.002
+030.677  000.002
+034.750  000.002
 
 # Open README.md
 # nvim README.md --startuptime /tmp/nvim-startuptime && tail -n 1 /tmp/nvim-startuptime | awk -F: '{print $1}'
