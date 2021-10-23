@@ -108,7 +108,7 @@ return require('packer').startup(function(use)
     use {
         'rust-lang/rust.vim',
         after = "rust-tools.nvim",
-        config = function()
+        setup = function()
             vim.g.rust_clip_command = 'xclip -selection clipboard'
         end
     }
@@ -157,7 +157,7 @@ return require('packer').startup(function(use)
     use {
         'sbdchd/neoformat',
         cmd = "Neoformat",
-        config = function()
+        setup = function()
             vim.g.neoformat_cpp_clangformat = {
                 exe = 'clang-format',
                 args = {'-style=file'}
@@ -284,15 +284,17 @@ return require('packer').startup(function(use)
 
     use {
         'airblade/vim-rooter',
-        event = "BufRead",
+        cmd = "Rooter",
         setup = function()
+            vim.g.rooter_manual_only = 1
+            vim.g.rooter_change_directory_for_non_project_files = 'current'
             vim.g.rooter_patterns = {'.git', 'Cargo.toml'}
         end
     }
 
     use {
         'pechorin/any-jump.vim',
-        config = function()
+        setup = function()
             vim.g.any_jump_window_width_ratio = 0.8
             vim.g.any_jump_window_height_ratio = 0.9
         end,
