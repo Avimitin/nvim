@@ -1,8 +1,51 @@
 # Keymaps
 
+<!-- vim-markdown-toc GFM -->
+
+  * [Basic keys](#basic-keys)
+    * [Cursor](#cursor)
+    * [View](#view)
+    * [editing](#editing)
+    * [command](#command)
+    * [Copy and Paste](#copy-and-paste)
+    * [buffer line](#buffer-line)
+    * [Windows manage](#windows-manage)
+    * [Tab navigation](#tab-navigation)
+  * [File Explorer](#file-explorer)
+  * [Hop](#hop)
+  * [neovim-lspconfig](#neovim-lspconfig)
+  * [Auto align](#auto-align)
+  * [Golang](#golang)
+  * [Git](#git)
+    * [Neogit](#neogit)
+    * [lazygit](#lazygit)
+  * [Symbols](#symbols)
+  * [vim-surround](#vim-surround)
+  * [wildfire](#wildfire)
+  * [Rust](#rust)
+  * [CPP](#cpp)
+* [Markdown](#markdown)
+  * [Snippets](#snippets)
+  * [Preview](#preview)
+  * [Toc](#toc)
+  * [Table align](#table-align)
+* [vim-commentary](#vim-commentary)
+* [FTerm](#fterm)
+* [Autopairs](#autopairs)
+  * [`<CR>`](#cr)
+  * [Fastwrap](#fastwrap)
+* [Telescope](#telescope)
+* [Suda](#suda)
+* [Hexokinase](#hexokinase)
+* [Neoterm](#neoterm)
+
+<!-- vim-markdown-toc -->
+
 ## Basic keys
 
-- Cursor
+leader key is `<Space>`.
+
+### Cursor
 
 ```text
     ^
@@ -22,13 +65,13 @@
 | B   | Move forward 5 words          |
 | jj  | Esc at insert and visual mode |
 
-- View
+### View
 
 | keymap     | function                      | note                |
 | ------     | --------                      | ---                 |
 | `Ctrl` + c | put cursor line to the middle | only at insert mode |
 
-- editing
+### editing
 
 | keymap      | function |
 | ------      | -------- |
@@ -36,24 +79,20 @@
 | `Ctrl` + r  | redo     |
 | `;` + w     | save     |
 
-- command
+### command
 
 In normal mode, you can use `;` to trigger command, no more `Shift` key now.
 For example, you will need to press `Shift + ; + q + Enter` to quit neovim,
 but now `; + q + Enter` is only needed.
 
-## LEADER key
-
-leader key is `<Space>`.
-
-## Copy and Paste
+### Copy and Paste
 
 | keymap       | function                                              |
 | ------       | --------                                              |
 | `leader` + y | copy to system clipboard (select text at visual mode) |
 | `leader` + p | paste from system clipboard                           |
 
-## buffer line
+### buffer line
 
 | keymap      | function                                     |
 | ------      | --------                                     |
@@ -63,14 +102,20 @@ leader key is `<Space>`.
 | `<Alt> + <` | move current tab to front tab                |
 | `<Ctrl> + c` | open pick mode and close the selected window |
 
-## Windows manage
+### Windows manage
 
-| keymap   | function                            |
-| ------   | --------                            |
-| s+`jhkl` | move cursor to `up/left/down/right` |
-| `arrow`  | Resize windows in normal mode       |
+| keymap            | function                            |
+| ------            | --------                            |
+| `<Ctrl>+w`+`jhkl` | move cursor to `up/left/down/right` |
+| `arrow`           | Resize windows in normal mode       |
 
-## File Exploer
+### Tab navigation
+
+| keymap          | function       | docs                                   |
+| --------------  | -------------- | --------------                         |
+| `<CTRL>T + h/l` | tab naviagate  | h switch to previous, l switch to next |
+
+## File Explorer
 
 | keymap        | function                                 |
 | ------        | --------                                 |
@@ -145,22 +190,31 @@ the name of references. Check out [fatih/vim-go](https://github.com/fatih/vim-go
 | gir              | reset changes                |
 | gin              | next hunk                    |
 | gim              | previous hunk                |
-| `:Git arguments` | Run git command like the cli does |
 
-For the `:Git` command, follow [fugutive](https://github.com/tpope/vim-fugitive) for more.
+### Neogit
+
+![neogit](https://user-images.githubusercontent.com/32014449/109874516-8042af00-7c6f-11eb-8afc-65ef52448c7a.png)
+
+Neogit is an vim alternative of magit.
+
+**NOTE**: Remember to close vim-rooter when you are working in a submodules!
+The vim-rooter plugins will automatically switch directory, and neogit will
+generate a commit file in the parent directory, which might cause the rooter
+switch to parent directory and do the commit job. This will cause unexpected
+error. Use command `:RooterToggle` to close auto chanage directory function.
+
+### lazygit
+
+![image](https://raw.githubusercontent.com/jesseduffield/lazygit/assets/staging.gif) 
+
+Press `ctrl+g` to activate it. You need to install
+[lazygit](https://github.com/jesseduffield/lazygit).
 
 ## Symbols
 
 ![image](https://raw.githubusercontent.com/simrat39/rust-tools-demos/master/symbols-demo.gif) 
 
 Run command `:SymbolOutline` to activate it.
-
-## lazygit
-
-![image](https://raw.githubusercontent.com/jesseduffield/lazygit/assets/staging.gif) 
-
-Press `ctrl+g` to activate it. You need to install
-[lazygit](https://github.com/jesseduffield/lazygit).
 
 ## vim-surround
 
