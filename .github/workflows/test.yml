@@ -1,0 +1,25 @@
+name: Neovim Configuration Test
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  container-job:
+    runs-on: ubuntu-latest
+
+    container:
+      image: alpine:edge
+
+    steps:
+    - name: Install Neovim
+      shell: sh
+      run: apk add git neovim ripgrep alpine-sdk --update
+    - name: Clone Configuration
+      run: git clone https://github.com/Avimitin/nvim $HOME/.config/nvim
+    - name: Test packer complie
+      run: if nvim --headless +PackerCompile -c ":quitall" 2>&1 | rg -qS "err"; then false; fi
