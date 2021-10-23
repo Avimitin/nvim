@@ -5,20 +5,24 @@ function Map(mode, lhs, rhs, opts)
     if not stat then print(error) end
 end
 
-Map('n', 'J', '<C-D>')
-Map('n', 'K', '<C-U>')
-Map("", "L", "$")
-Map("", "H", "0")
-Map("", "X", "Vx")
-Map("", "W", "5w")
-Map("", "B", "5b")
-Map("", "vw", "viw")
-Map("", "<C-z>", "u")
+Map('n', 'J', '5j')
+Map('n', 'K', '5k')
+Map("n", "L", "g_")
+Map("n", "H", "^")
+Map("x", "L", "g_")
+Map("x", "H", "^")
+Map("n", "X", "Vx")
+Map("n", "W", "5w")
+Map("n", "B", "5b")
+Map("n", "vw", "viw")
+Map("n", "<C-z>", "u")
 Map("n", "<", "<<")
 Map("n", ">", ">>")
-Map("", "s", "<nop>")
-Map("", "-", "N")
-Map("", "=", "n")
+Map("x", "<", "<gv")
+Map("x", ">", ">gv")
+Map("n", "s", "<nop>")
+Map("n", "-", "N")
+Map("n", "=", "n")
 Map("n", ";", ":")
 
 Map("n", "<C-T>h", ":tabprevious<CR>")
@@ -30,9 +34,9 @@ Map("n", ";w", ":w<CR>")
 
 Map("n", "<C-A-q>", ":qa<CR>")
 
-Map("v", "<LEADER>y", [["+y]])
+Map("x", "<LEADER>y", [["+y]])
 
-Map("", "<LEADER>p", [["+p]])
+Map("n", "<LEADER>p", [["+p]])
 
 Map("n", "<ESC>", ":nohlsearch<CR>")
 
@@ -51,7 +55,7 @@ Map('n', '<Leader>o', ':NnnPicker %:p:h<CR>')
 
 -- hop
 Map('n', 'f', ':HopChar2<CR>')
-Map('v', 'f', ':HopChar2<CR>')
+Map('x', 'f', '<CMD>HopChar2<CR>')
 Map('n', '<C-J>', ':HopLine<CR>')
 
 -- telescope
@@ -76,3 +80,4 @@ Map("n", "<C-\\>", [[:FTermToggle<CR>]])
 Map("t", "<C-\\>", [[<C-\><C-n>:FTermToggle<CR>]])
 Map("t", "<C-n>", [[<C-\><C-n>]])
 Map('n', '<C-g>', ':LazygitToggle<CR>')
+Map('n', '<LEADER>g', ':Neogit<CR>')
