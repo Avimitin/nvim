@@ -115,14 +115,14 @@ but now `; + q + Enter` is only needed.
 | --------------  | -------------- | --------------                         |
 | `<CTRL>T + h/l` | tab naviagate  | h switch to previous, l switch to next |
 
-## File Explorer
+# File Explorer
 
 | keymap        | function                                 |
 | ------        | --------                                 |
 | tt            | open nvim tree explorer                  |
 | `<LEADER>+o`  | open nnn file manager(install nnn first) |
 
-## Hop
+# Hop
 
 ![image](https://camo.githubusercontent.com/e71f83e31fd8950c8a584e28d68a5ca97502d3a57919119fb9e21943cb5ff76c/68747470733a2f2f706861617a6f6e2e6e65742f6d656469612f75706c6f6164732f686f705f63686172325f6d6f64652e676966) 
 
@@ -136,7 +136,7 @@ Example usage:
 Input `f` in normal mode and input two character of the keyword which highlighting. 
 Then the cursor will jump to that place.
 
-## neovim-lspconfig 
+# neovim-lspconfig 
 
 | keymap       | function               |
 | ------       | --------               |
@@ -157,7 +157,7 @@ Using `:LspInstall` to install lsp you want. Follow the instruction from
 | ---                | ---                          |
 | `<leader>` + r + n | rename variable under cursor |
 
-## Auto align
+# Auto align
 
 <img style="max-width: 500px; max-height: 500px" 
 src="https://raw.githubusercontent.com/junegunn/i/master/easy-align/equals.gif" />
@@ -169,7 +169,7 @@ src="https://raw.githubusercontent.com/junegunn/i/master/easy-align/equals.gif" 
 
 Checkout [junegunn/vim-easy-align](https://github.com/junegunn/vim-easy-align) for more.
 
-## Golang
+# Golang
 
 | keymap | function                            |
 | ---    | ---                                 |
@@ -179,7 +179,7 @@ Checkout [junegunn/vim-easy-align](https://github.com/junegunn/vim-easy-align) f
 Tricks: using `:GoRename` to renamed variable or struct name, can automatically changed all
 the name of references. Check out [fatih/vim-go](https://github.com/fatih/vim-go) for more.
 
-## Git
+# Git
 
 | keymap           | function                     |
 | ---              | ---                          |
@@ -191,32 +191,26 @@ the name of references. Check out [fatih/vim-go](https://github.com/fatih/vim-go
 | gin              | next hunk                    |
 | gim              | previous hunk                |
 
-### Neogit
+## Neogit
 
 ![neogit](https://user-images.githubusercontent.com/32014449/109874516-8042af00-7c6f-11eb-8afc-65ef52448c7a.png)
 
 Neogit is an vim alternative of magit.
 
-**NOTE**: Remember to close vim-rooter when you are working in a submodules!
-The vim-rooter plugins will automatically switch directory, and neogit will
-generate a commit file in the parent directory, which might cause the rooter
-switch to parent directory and do the commit job. This will cause unexpected
-error. Use command `:RooterToggle` to close auto chanage directory function.
-
-### lazygit
+## lazygit
 
 ![image](https://raw.githubusercontent.com/jesseduffield/lazygit/assets/staging.gif) 
 
 Press `ctrl+g` to activate it. You need to install
 [lazygit](https://github.com/jesseduffield/lazygit).
 
-## Symbols
+# Symbols
 
 ![image](https://raw.githubusercontent.com/simrat39/rust-tools-demos/master/symbols-demo.gif) 
 
 Run command `:SymbolOutline` to activate it.
 
-## vim-surround
+# vim-surround
 
 [vim-surround](https://github.com/tpope/vim-surround) 
 can help you do all the 'surround' stuff easyily。
@@ -232,7 +226,7 @@ src="https://camo.githubusercontent.com/334f5a06cbee4141889dfdf18a7c51a0ea408edb
 
 "HELLO" -> press `CS"'` change double quote to single quote -> 'HELLO'
 
-## wildfire
+# wildfire
 
 ![image](https://raw.githubusercontent.com/gcmt/wildfire.vim/master/_assets/preview.gif) 
 
@@ -245,7 +239,7 @@ Press enter to select text.
 
 > using wildfire and vim-surround can quickly select and changed object symbol.
 
-## Rust
+# Rust
 
 ![img](https://raw.githubusercontent.com/simrat39/rust-tools-demos/master/rust-tools-debug.gif) 
 
@@ -258,7 +252,7 @@ Press enter to select text.
 Also you will have extra command to help you coding in Rust. See
 [rust-tool.nvim](https://github.com/simrat39/rust-tools.nvim/) for more.
 
-## CPP
+# CPP
 
 If you are using cmake, use below command to set up your project.
 
@@ -364,3 +358,17 @@ A plugin which can show colors. Use command `:HexokinaseToggle` to activate it.
 ![image](https://cloud.githubusercontent.com/assets/120483/8921869/fe459572-34b1-11e5-93c9-c3b6f3b44719.gif)
 
 Use command `:T`, `:Tkill`, `:Tclose`, `:Tmap` to activate it.
+
+# Vim Rooter
+
+A plugins that can automatically change your directory to the project root.
+It will find `.git` and `Cargo.toml` and mark their pwd as root pattern.
+
+I close the automatical directory change behaviour. This is because when you are working
+in a submodule, neogit plugins will generate commit file in parent directory. And when you
+are editing the commit messages, vim-rooter will try to get into the parent project.
+And this will cause neogit commit in the parent directory not commit in the
+submodule.
+
+So now you will need to input command `:Rooter` manually. But actually this is not a commonly
+use command, so don't worry.
