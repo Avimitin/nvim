@@ -2,7 +2,9 @@
 
 ![User Interface Preview](./image/screenshot.png)
 
-[More screenshot](#more-screenshot)
+![[badge](#more-screenshot)](https://img.shields.io/badge/More%20Screenshot-click-blueviolet?logo=googlephotos)
+![badge](https://github.com/avimitin/nvim/actions/workflows/test.yml/badge.svg)
+![badge](https://img.shields.io/badge/Language-Lua-blue?logo=lua&logoColor=blue)
 
 ## Guide
 
