@@ -21,6 +21,9 @@ Map("", "-", "N")
 Map("", "=", "n")
 Map("n", ";", ":")
 
+Map("n", "<C-T>h", ":tabprevious<CR>")
+Map("n", "<C-T>l", ":tabnext<CR>")
+
 vim.g.mapleader = " "
 
 Map("n", ";w", ":w<CR>")
