@@ -137,6 +137,14 @@ return require('packer').startup(function(use)
 
     use {'tpope/vim-fugitive', cmd = {'Git'}}
 
+    use { 'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim',
+    config=function()
+      local neogit = require('neogit')
+      neogit.setup {}
+    end
+  }
+
     -- Golang
     use {
         'fatih/vim-go',
