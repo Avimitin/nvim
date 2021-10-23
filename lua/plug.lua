@@ -287,7 +287,7 @@ return require('packer').startup(function(use)
     use {
         'airblade/vim-rooter',
         event = "BufRead",
-        config = function()
+        setup = function()
             vim.g.rooter_patterns = {'.git', 'Cargo.toml'}
         end
     }
