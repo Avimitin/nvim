@@ -340,4 +340,24 @@ return require('packer').startup(function(use)
 
     -- align
     use {'junegunn/vim-easy-align', cmd = 'EasyAlign'}
+
+    -- Vim alternative
+    use {
+        'chentau/marks.nvim',
+        config = function()
+            require'marks'.setup {
+                default_mappings = true,
+                cyclic = true,
+                force_write_shada = false,
+                refresh_interval = 250,
+                sign_priority = {
+                    lower = 10,
+                    upper = 15,
+                    builtin = 8,
+                    bookmark = 20
+                },
+                mappings = {}
+            }
+        end
+    }
 end)
