@@ -140,16 +140,16 @@ return require('packer').startup(function(use)
         requires = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'},
         config = function()
             require('neogit').setup {
-              integrations = {diffview = true},
-              -- Change the default way of opening neogit
-              kind = "split_above",
-              -- customize displayed signs
-              signs = {
-                -- { CLOSED, OPENED }
-                section = { "", "" },
-                item = { "", "" },
-                hunk = { "", "" },
-              },
+                integrations = {diffview = true},
+                -- Change the default way of opening neogit
+                kind = "split_above",
+                -- customize displayed signs
+                signs = {
+                    -- { CLOSED, OPENED }
+                    section = {"", ""},
+                    item = {"", ""},
+                    hunk = {"", ""}
+                }
             }
         end,
         cmd = "Neogit"
