@@ -323,6 +323,15 @@ return require('packer').startup(function(use)
         cmd = {"Telescope"}
     }
 
+    use {
+        "AckslD/nvim-neoclip.lua",
+        after='telescope.nvim',
+        config = function()
+          require('neoclip').setup()
+          require('telescope').load_extension('neoclip')
+        end
+    }
+
     -- Select text object
     use {'gcmt/wildfire.vim', event = "VimEnter"}
 
