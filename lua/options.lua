@@ -4,6 +4,7 @@ opt.encoding = 'utf-8'
 
 -- enable number and relative line number
 opt.number = true
+opt.rnu = true
 
 -- line behind cursor
 opt.cursorline = true
