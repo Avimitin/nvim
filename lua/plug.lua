@@ -332,6 +332,20 @@ return require('packer').startup(function(use)
         end
     }
 
+    use {
+        'Shatur/neovim-session-manager',
+        config=function ()
+          require('session_manager').setup({
+            sessions_dir = vim.fn.stdpath('data').."/sessions/",
+            path_replacer = '__',
+            colon_replacer = '++',
+            autoload_last_session = false,
+            autosave_last_session = true,
+            autosave_ignore_not_normal = true,
+          })
+        end
+    }
+
     -- Select text object
     use {'gcmt/wildfire.vim', event = "VimEnter"}
 
