@@ -22,9 +22,22 @@ local opts = {
         runnables = {
             -- whether to use telescope for selection menu or not
             -- default: true
-            use_telescope = false
+            use_telescope = true,
 
             -- rest of the opts are forwarded to telescope
+            prompt_prefix = "  ",
+            selection_caret = "  ",
+            entry_prefix = "  ",
+            initial_mode = "insert",
+            selection_strategy = "reset",
+            sorting_strategy = "descending",
+            layout_strategy = "vertical",
+            layout_config = {
+                width = 0.3,
+                height = 0.50,
+                preview_cutoff = 0,
+                prompt_position = 'bottom',
+            }
         },
 
         -- These apply to the default RustSetInlayHints command
@@ -78,8 +91,9 @@ local opts = {
 
 require('rust-tools').setup(opts)
 
-vim.api.nvim_set_keymap('n', '<Leader>ra', ':lua require("rust-tools.hover_actions").hover_actions()<CR>',
+vim.api.nvim_set_keymap('n', '<Leader>ra',
+                        ':lua require("rust-tools.hover_actions").hover_actions()<CR>',
                         {noremap = true, silent = false})
-vim.api.nvim_set_keymap('n', '<Leader>ri', ':lua require("rust-tools.inlay_hints").set_inlay_hints()<CR>',
+vim.api.nvim_set_keymap('n', '<Leader>ri',
+                        ':lua require("rust-tools.inlay_hints").set_inlay_hints()<CR>',
                         {noremap = true, silent = false})
-
