@@ -15,7 +15,7 @@ if present then
         handler_opts = {
             border = "single" -- double, single, shadow, none
         },
-        zindex = 200, -- by default it will be on top of all floating windows, set to 50 send it to bottom
+        zindex = 50, -- by default it will be on top of all floating windows, set to 50 send it to bottom
         padding = "" -- character to pad on left and right of signature can be ' ', or '|'  etc
     })
 end
