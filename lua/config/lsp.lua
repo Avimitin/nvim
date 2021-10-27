@@ -1,6 +1,9 @@
 local present1, _ = pcall(require, "lspconfig")
 local present2, installer = pcall(require, "nvim-lsp-installer")
-if not (present1 or present2) then return end
+if not (present1 or present2) then
+  vim.notify("Fail to setup LSP", vim.log.levels.ERROR, {title= 'plugins'})
+  return
+end
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
