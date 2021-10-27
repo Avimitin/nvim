@@ -317,7 +317,6 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim',
         requires = {
             'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope-media-files.nvim'
         },
         config = function() require("config.telescope_config") end,
         module = 'telescope'
