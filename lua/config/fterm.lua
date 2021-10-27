@@ -1,5 +1,5 @@
 if not pcall(require, 'FTerm') then
-    print("Failed to call FTerm")
+    vim.notify("Fail to load FTerm", vim.log.levels.ERROR, {title='plugins'})
     return
 end
 

@@ -1,6 +1,6 @@
 local ok, error = pcall(require, 'rust-tools')
 if not ok then
-    print(error)
+    vim.notify(error)
     return
 end
 

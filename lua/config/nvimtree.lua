@@ -1,6 +1,6 @@
 local ok, tree_c = pcall(require, "nvim-tree.config")
 if not ok then
-    print(tree_c)
+    vim.notify(tree_c, vim.log.levels.ERROR)
     return
 end
 
