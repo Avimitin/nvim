@@ -22,6 +22,5 @@ new_cmd('Tsb', [[lua require('telescope.builtin').buffers()]])
 new_cmd('Tst', [[lua require('telescope.builtin').help_tags()]])
 
 -- lazygit
-new_cmd('Lg', [[lua _G.fterm_lazygit()]])
 new_cmd('Ng', [[Neogit]])
 
