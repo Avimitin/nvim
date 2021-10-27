@@ -58,13 +58,6 @@ Map('n', 'f', ':HopChar2<CR>')
 Map('x', 'f', '<CMD>HopChar2<CR>')
 Map('n', '<C-J>', ':HopLine<CR>')
 
--- telescope
-Map('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files()<cr>]])
-Map('n', '<leader>fp', [[<cmd>lua require('telescope').extensions.media_files.media_files()<CR>]])
-Map('n', '<leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<cr>])
-Map('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<cr>]])
-Map('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<cr>]])
-
 -- EasyAlign
 Map("v", "<leader>e", ":EasyAlign<CR>")
 
@@ -79,5 +72,3 @@ Map("n", "tr", ":NvimTreeRefresh<CR>")
 Map("n", "<C-\\>", [[:FTermToggle<CR>]])
 Map("t", "<C-\\>", [[<C-\><C-n>:FTermToggle<CR>]])
 Map("t", "<C-n>", [[<C-\><C-n>]])
-Map('n', '<C-g>', ':LazygitToggle<CR>')
-Map('n', '<LEADER>g', ':Neogit<CR>')
