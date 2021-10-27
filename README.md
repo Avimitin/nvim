@@ -125,6 +125,11 @@ See [addtional](./docs/addtional.md)
 
 MIT License
 
+## TODO
+
+- [ ] Introduce my workflows
+- [ ] Optimized neovim start up time based on each file
+
 ## Start up time test data
 
 ```text
