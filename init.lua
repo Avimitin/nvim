@@ -17,6 +17,7 @@ License:
 --]] -- Loading basic configuration
 require('options')
 require('keymap')
+require('commands')
 
 -- detecting plugin manager
 local no_packer = false
