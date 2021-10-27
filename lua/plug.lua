@@ -384,4 +384,13 @@ return require('packer').startup(function(use)
         --   vim.g.did_load_filetypes = 1
         -- end
     }
+
+    use {
+        'beauwilliams/focus.nvim',
+        cmd = {"FocusSplitNicely", "FocusSplitCycle"},
+        module = "focus",
+        config = function()
+            require("focus").setup({hybridnumber = true, bufnew = true})
+        end
+    }
 end)
