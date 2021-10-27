@@ -377,4 +377,39 @@ return require('packer').startup(function(use)
             require("focus").setup({hybridnumber = true, bufnew = true})
         end
     }
+
+    use {
+      "rmagatti/auto-session",
+      config=function ()
+         require('auto-session').setup {
+          log_level = 'info',
+          auto_session_enable_last_session = false,
+          auto_session_root_dir = vim.fn.stdpath('data').."/sessions/",
+          auto_session_enabled = true,
+          auto_save_enabled = false,
+          auto_restore_enabled = false,
+          auto_session_suppress_dirs = nil
+        }
+        vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,resize,winpos,terminal"
+      end,
+      cmd={
+        'SaveSession',
+        'RestoreSession',
+        'DeleteSession'
+      }
+    }
+
+    use {
+      'rmagatti/session-lens',
+      requires = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'},
+      config = function()
+        require('session-lens').setup({
+          path_display = {'shorten'},
+          previewer = true,
+          prompt_title = 'Select Sessions',
+        })
+      end,
+      cmd="SearchSession",
+    }
+
 end)
