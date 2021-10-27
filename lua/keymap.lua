@@ -59,11 +59,11 @@ Map('x', 'f', '<CMD>HopChar2<CR>')
 Map('n', '<C-J>', ':HopLine<CR>')
 
 -- telescope
-Map('n', '<leader>ff', [[<cmd>Telescope find_files<cr>]])
-Map('n', '<leader>fp', [[<cmd>Telescope media_files<cr>]])
-Map('n', '<leader>fg', [[<cmd>Telescope live_grep<cr>]])
-Map('n', '<leader>fb', [[<cmd>Telescope buffers<cr>]])
-Map('n', '<leader>fh', [[<cmd>Telescope help_tags<cr>]])
+Map('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files()<cr>]])
+Map('n', '<leader>fp', [[<cmd>lua require('telescope').extensions.media_files.media_files()<CR>]])
+Map('n', '<leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<cr>])
+Map('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<cr>]])
+Map('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<cr>]])
 
 -- EasyAlign
 Map("v", "<leader>e", ":EasyAlign<CR>")
