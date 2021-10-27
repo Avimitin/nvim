@@ -57,7 +57,7 @@ opt.wildmenu = true
 opt.ignorecase = true
 opt.smartcase = true
 
-vim.cmd("set shortmess+=cm")
+vim.cmd("set shortmess+=cwm")
 opt.inccommand = 'split'
 opt.completeopt = {"menuone", "noselect", "menu"}
 opt.ttyfast = true
