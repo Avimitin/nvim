@@ -375,6 +375,11 @@ return require('packer').startup(function(use)
         module = "focus",
         config = function()
             require("focus").setup({hybridnumber = true, bufnew = true})
+            Map("n", "<C-W>h", ":FocusSplitLeft<CR>")
+            Map("n", "<C-W>l", ":FocusSplitRight<CR>")
+            Map("n", "<C-W>j", ":FocusSplitDown<CR>")
+            Map("n", "<C-W>k", ":FocusSplitUp<CR>")
+            Map("n", "<C-W>s", ":FocusSplitNicely<CR>")
         end
     }
 
