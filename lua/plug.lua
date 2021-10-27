@@ -320,12 +320,12 @@ return require('packer').startup(function(use)
             'nvim-telescope/telescope-media-files.nvim'
         },
         config = function() require("config.telescope_config") end,
-        cmd = {"Telescope"}
+        module='telescope',
     }
 
     use {
         "AckslD/nvim-neoclip.lua",
-        after='telescope.nvim',
+        cmd={'ClipRec', 'ClipView'},
         config = function()
           require('neoclip').setup()
           require('telescope').load_extension('neoclip')
@@ -334,6 +334,7 @@ return require('packer').startup(function(use)
 
     use {
         'Shatur/neovim-session-manager',
+        cmd={'SaveSession', 'LoadSession'},
         config=function ()
           require('session_manager').setup({
             sessions_dir = vim.fn.stdpath('data').."/sessions/",
