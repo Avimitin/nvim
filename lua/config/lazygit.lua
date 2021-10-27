@@ -5,5 +5,3 @@ local lazygit = term:new():setup({
     dimensions = {height = 0.9, width = 0.9}
 })
 function _G.fterm_lazygit() lazygit:toggle() end
-
-vim.cmd('command! LazygitToggle lua _G.fterm_lazygit()<CR>')
