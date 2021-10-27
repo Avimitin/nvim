@@ -27,6 +27,7 @@ Map("n", ";", ":")
 
 Map("n", "<C-T>h", ":tabprevious<CR>")
 Map("n", "<C-T>l", ":tabnext<CR>")
+Map("n", "<C-T>n", ":tabnew<CR>")
 
 vim.g.mapleader = " "
 
