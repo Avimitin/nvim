@@ -110,7 +110,7 @@ if vim.g.nvui then
     vim.cmd [[NvuiCmdFontSize 12]]
     vim.cmd [[NvuiAnimationsEnabled 1]]
     vim.cmd [[NvuiCmdCenterXPos 0.5]]
-    vim.cmd [[NvuiCmdCenterYPos 0.5]]
+    vim.cmd [[NvuiCmdCenterYPos 0.2]]
     vim.cmd [[NvuiCmdBorderWidth 3]]
     vim.cmd [[NvuiCmdBorderColor #6E6C6A]]
     vim.cmd [[NvuiCmdBigFontScaleFactor 1.3]]
