@@ -14,38 +14,18 @@ Credit:
 		* https://github.com/siduck76/NvChad
 License:
 	MIT License
---]] -- Loading basic configuration
-require('options')
-require('keymap')
-require('commands')
+--]]
 
--- detecting plugin manager
-local no_packer = false
-local fn = vim.fn
-local install_path = vim.fn.stdpath("data") ..
-                         "/site/pack/packer/opt/packer.nvim"
+-- load basic configuration
+local utils = require('utils')
 
-if fn.empty(fn.glob(install_path)) > 0 then
-    print("Installing packer to " .. install_path)
-    no_packer = fn.system({
-        'git', 'clone', '--depth', '1',
-        'https://github.com/wbthomason/packer.nvim', install_path
-    })
+for _, module_name in ipairs({'options', 'keymap', 'commands'}) do
+  local ok, err = pcall(require, module_name)
+  if not ok then
+    local msg = "calling module: "..module_name.." fail: "..err
+    utils.log_err(msg)
+  end
 end
 
-local packer_call, error_msg = pcall(vim.cmd, [[packadd packer.nvim]])
-if not packer_call then
-    print(error_msg)
-    return
-end -- inner has_packer
-
--- Reading plugins configuration
-local ok, error = pcall(require, 'plug')
-if not ok then
-    print("failed to initialize plugin")
-    print(error)
-end
-
-vim.cmd([[autocmd BufWritePost plug.lua source <afile> | PackerCompile]])
-
-if no_packer then require('packer').sync() end
+-- load plugins
+utils.load_plugins()
