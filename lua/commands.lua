@@ -21,3 +21,5 @@ new_cmd('Tst', [[lua require('telescope.builtin').help_tags()]])
 -- lazygit
 new_cmd('Ng', [[Neogit]])
 
+new_cmd("BufCL", [[BufferLineCloseLeft]])
+new_cmd("BufCR", [[BufferLineCloseRight]])
