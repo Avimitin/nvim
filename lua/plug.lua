@@ -282,7 +282,7 @@ return require('packer').startup(function(use)
                   session = "shared",      -- or global/local/shared
                 },
                 picker = {
-                    cmd = "tmux new-session nnn -Pp",
+                    cmd = "tmux new-session fish -c 'n -Pp'",
                     style = {border = "rounded"},
                     session = "shared"
                 },
