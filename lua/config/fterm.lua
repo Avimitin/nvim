@@ -8,7 +8,7 @@ require('FTerm').setup {
 
     border = 'rounded',
 
-    hl = 'NormalFloat'
+    hl = 'FTermBackground'
 }
 
 vim.cmd('command! FTermToggle lua require("FTerm").toggle()')
