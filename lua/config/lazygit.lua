@@ -4,8 +4,10 @@ local term = require("FTerm.terminal")
 M.toggle = function()
   term:new():setup({
     cmd = "lazygit",
-    dimensions = {height = 0.96, width = 0.98}
-})
+    dimensions = {height = 0.92, width = 0.95},
+    border='rounded',
+    hl = 'LazygitBackground'
+  }):toggle()
 end
 
 return M
