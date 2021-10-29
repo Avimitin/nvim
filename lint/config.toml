@@ -1,0 +1,4 @@
+std = "lint/globals"
+
+[rules]
+shadowing = "allow"

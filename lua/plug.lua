@@ -9,6 +9,8 @@ require('packer').init {
     }
 }
 
+local map = require('utils').map
+
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use {"wbthomason/packer.nvim", event = "VimEnter"}
@@ -205,9 +207,10 @@ return require('packer').startup(function(use)
         'numtostr/FTerm.nvim',
         config = function()
             require("config.fterm")
-            require("config.lazygit")
+            require('utils')
+              .new_cmd("LazygitToggle", "lua require('config.lazygit').toggle()")
         end,
-        cmd = {'FTermToggle', 'Lg'}
+        cmd = {'FTermToggle', 'LazygitToggle'}
     }
 
     use {'kassio/neoterm', cmd = {'T', "Tkill", "Tclose", "Tmap"}}
@@ -373,11 +376,11 @@ return require('packer').startup(function(use)
         module = "focus",
         config = function()
             require("focus").setup({hybridnumber = true, bufnew = true})
-            Map("n", "<C-W>h", ":FocusSplitLeft<CR>")
-            Map("n", "<C-W>l", ":FocusSplitRight<CR>")
-            Map("n", "<C-W>j", ":FocusSplitDown<CR>")
-            Map("n", "<C-W>k", ":FocusSplitUp<CR>")
-            Map("n", "<C-W>s", ":FocusSplitNicely<CR>")
+            map("n", "<C-W>h", ":FocusSplitLeft<CR>")
+            map("n", "<C-W>l", ":FocusSplitRight<CR>")
+            map("n", "<C-W>j", ":FocusSplitDown<CR>")
+            map("n", "<C-W>k", ":FocusSplitUp<CR>")
+            map("n", "<C-W>s", ":FocusSplitNicely<CR>")
         end
     }
 
