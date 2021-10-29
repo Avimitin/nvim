@@ -24,4 +24,44 @@ M.new_cmd = function (cmd, repl, force)
     end
 end
 
+M.log_err = function (msg, title)
+  vim.notify(msg, vim.log.levels.ERROR, {title=title})
+end
+
+M.log_info = function (msg, title)
+  vim.notify(msg, vim.log.levels.INFO, {title=title})
+end
+
+M.load_plugins = function()
+  -- detecting plugin manager
+  local no_packer = false
+  local fn = vim.fn
+  local install_path = fn.stdpath("data") ..
+                           "/site/pack/packer/opt/packer.nvim"
+
+  if fn.empty(fn.glob(install_path)) > 0 then
+      M.log_info("Installing packer to " .. install_path)
+      no_packer = fn.system({
+          'git', 'clone', '--depth', '1',
+          'https://github.com/wbthomason/packer.nvim', install_path
+      })
+  end
+
+  local packer_call, error_msg = pcall(vim.cmd, [[packadd packer.nvim]])
+  if not packer_call then
+      M.log_err(error_msg, "load plugin")
+      return
+  end
+
+  -- Reading plugins configuration
+  local ok, error = pcall(require, 'plug')
+  if not ok then
+    M.log_err("Load plugins: "..error, "load plugins")
+  end
+
+  vim.cmd([[autocmd BufWritePost plug.lua source <afile> | PackerCompile]])
+
+  if no_packer then require('packer').sync() end
+end
+
 return M
