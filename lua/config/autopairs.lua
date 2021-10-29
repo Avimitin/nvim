@@ -1,8 +1,4 @@
 require('nvim-autopairs').setup({enable_check_bracket_line = false})
-require('nvim-autopairs.completion.cmp').setup {
-      map_complete = true,
-      map_cr = true,
-}
 
 local npairs = require("nvim-autopairs")
 local Rule = require('nvim-autopairs.rule')
