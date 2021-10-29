@@ -54,7 +54,9 @@ local buffer_not_empty = function()
 end
 
 -- insert_left insert item at the left panel
-local function insert_left(element) table.insert(gls.left, element) end
+local function insert_left(element)
+  table.insert(gls.left, element)
+end
 
 -- insert_blank_line_at_left insert blank line with
 -- line_bg color.
@@ -68,7 +70,9 @@ local function insert_blank_line_at_left()
 end
 
 -- insert_right insert given item into galaxyline.right
-local function insert_right(element) table.insert(gls.right, element) end
+local function insert_right(element)
+  table.insert(gls.right, element)
+end
 
 -- insert_blank_line_at_left insert blank line with
 -- line_bg color.
@@ -256,14 +260,14 @@ insert_left {
     }
 }
 
-DiagnosticError = diagnostic.get_diagnostic_error
-DiagnosticWarn = diagnostic.get_diagnostic_warn
-DiagnosticHint = diagnostic.get_diagnostic_hint
-DiagnosticInfo = diagnostic.get_diagnostic_info
+local DiagnosticError = diagnostic.get_diagnostic_error
+local DiagnosticWarn = diagnostic.get_diagnostic_warn
+local DiagnosticHint = diagnostic.get_diagnostic_hint
+local DiagnosticInfo = diagnostic.get_diagnostic_info
 
 insert_left {
     DiagnosticError = {
-        provider = 'DiagnosticError',
+        provider = DiagnosticError,
         icon = '  ',
         highlight = {colors.red, colors.line_bg}
     }
@@ -271,7 +275,7 @@ insert_left {
 
 insert_left {
     DiagnosticWarn = {
-        provider = 'DiagnosticWarn',
+        provider = DiagnosticWarn,
         condition = checkwidth,
         icon = '  ',
         highlight = {colors.yellow, colors.line_bg}

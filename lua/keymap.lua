@@ -1,75 +1,70 @@
-function Map(mode, lhs, rhs, opts)
-    local options = {noremap = true, silent = true}
-    if opts then options = vim.tbl_extend("force", options, opts) end
-    local stat, error = pcall(vim.api.nvim_set_keymap, mode, lhs, rhs, options)
-    if not stat then vim.notify(error, vim.log.levels.ERROR, {title='keymap'}) end
-end
+local map = require('utils').map
 
-Map('n', 'J', '5j')
-Map('n', 'K', '5k')
-Map("n", "L", "g_")
-Map("n", "H", "^")
-Map("x", "L", "g_")
-Map("x", "H", "^")
-Map("n", "X", "Vx")
-Map("n", "W", "5w")
-Map("n", "B", "5b")
-Map("n", "vw", "viw")
-Map("n", "<C-z>", "u")
-Map("n", "<", "<<")
-Map("n", ">", ">>")
-Map("x", "<", "<gv")
-Map("x", ">", ">gv")
-Map("n", "s", "<nop>")
-Map("n", "-", "N")
-Map("n", "=", "n")
-Map("n", ";", ":")
+map('n', 'J', '5j')
+map('n', 'K', '5k')
+map("n", "L", "g_")
+map("n", "H", "^")
+map("x", "L", "g_")
+map("x", "H", "^")
+map("n", "X", "Vx")
+map("n", "W", "5w")
+map("n", "B", "5b")
+map("n", "vw", "viw")
+map("n", "<C-z>", "u")
+map("n", "<", "<<")
+map("n", ">", ">>")
+map("x", "<", "<gv")
+map("x", ">", ">gv")
+map("n", "s", "<nop>")
+map("n", "-", "N")
+map("n", "=", "n")
+map("n", ";", ":")
 
-Map("n", "<C-T>h", ":tabprevious<CR>")
-Map("n", "<C-T>l", ":tabnext<CR>")
-Map("n", "<C-T>n", ":tabnew<CR>")
+map("n", "<C-T>h", ":tabprevious<CR>")
+map("n", "<C-T>l", ":tabnext<CR>")
+map("n", "<C-T>n", ":tabnew<CR>")
 
 vim.g.mapleader = " "
 
-Map("n", ";w", ":w<CR>")
+map("n", ";w", ":w<CR>")
 
-Map("n", "<C-A-q>", ":qa<CR>")
+map("n", "<C-A-q>", ":qa<CR>")
 
-Map("x", "<LEADER>y", [["+y]])
+map("x", "<LEADER>y", [["+y]])
 
-Map("n", "<LEADER>p", [["+p]])
+map("n", "<LEADER>p", [["+p]])
 
-Map("n", "<ESC>", ":nohlsearch<CR>")
+map("n", "<ESC>", ":nohlsearch<CR>")
 
-Map("i", "jj", "<ESC>")
+map("i", "jj", "<ESC>")
 
-Map("n", "<up>", ":res +5<CR>")
-Map("n", "<down>", ":res -5<CR>")
-Map("n", "<left>", ":vertical resize-5<CR>")
-Map("n", "<right>", ":vertical resize+5<CR>")
+map("n", "<up>", ":res +5<CR>")
+map("n", "<down>", ":res -5<CR>")
+map("n", "<left>", ":vertical resize-5<CR>")
+map("n", "<right>", ":vertical resize+5<CR>")
 
 -- center line
-Map("i", "<C-c>", "<ESC>zzi")
+map("i", "<C-c>", "<ESC>zzi")
 
 -- nnn
-Map('n', '<Leader>o', ':NnnPicker %:p:h<CR>')
+map('n', '<Leader>o', ':NnnPicker %:p:h<CR>')
 
 -- hop
-Map('n', 'f', ':HopChar2<CR>')
-Map('x', 'f', '<CMD>HopChar2<CR>')
-Map('n', '<C-J>', ':HopLine<CR>')
+map('n', 'f', ':HopChar2<CR>')
+map('x', 'f', '<CMD>HopChar2<CR>')
+map('n', '<C-J>', ':HopLine<CR>')
 
 -- EasyAlign
-Map("v", "<leader>e", ":EasyAlign<CR>")
+map("v", "<leader>e", ":EasyAlign<CR>")
 
 -- vim-go
-Map('n', 'got', ':GoTestFunc<CR>')
-Map('n', 'gor', ':GoRun<CR>')
+map('n', 'got', ':GoTestFunc<CR>')
+map('n', 'gor', ':GoRun<CR>')
 
 -- nvim-tree
-Map("n", "tt", ":NvimTreeToggle<CR>")
-Map("n", "tr", ":NvimTreeRefresh<CR>")
+map("n", "tt", ":NvimTreeToggle<CR>")
+map("n", "tr", ":NvimTreeRefresh<CR>")
 
-Map("n", "<C-\\>", [[:FTermToggle<CR>]])
-Map("t", "<C-\\>", [[<C-\><C-n>:FTermToggle<CR>]])
-Map("t", "<C-n>", [[<C-\><C-n>]])
+map("n", "<C-\\>", [[:FTermToggle<CR>]])
+map("t", "<C-\\>", [[<C-\><C-n>:FTermToggle<CR>]])
+map("t", "<C-n>", [[<C-\><C-n>]])

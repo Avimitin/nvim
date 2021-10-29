@@ -1,13 +1,3 @@
-local diagnostic_function = function(count, level, diagnostics_dict, context)
-    local s = " "
-    for e, n in pairs(diagnostics_dict) do
-        local sym = e == "error" and " " or
-                        (e == "warning" and " " or "")
-        s = s .. n .. sym
-    end
-    return s
-end
-
 require('bufferline').setup {
     options = {
         offsets = {{filetype = "NvimTree", text = " Explorer", padding = 1}},
@@ -19,8 +9,7 @@ require('bufferline').setup {
         max_name_length = 14,
         max_prefix_length = 13,
         tab_size = 20,
-        diagnostic = "nvim_lsp",
-        diagnostics_indicator = diagnostic_function,
+        diagnostic = false,
         show_tab_indicators = true,
         enforce_regular_tabs = false,
         view = "multiwindow",
@@ -34,6 +23,7 @@ local opt = {noremap = true, silent = true}
 -- bufferline tab stuff
 vim.api.nvim_set_keymap("n", "<A-t>", ":tabnew<CR>", opt) -- new tab
 vim.api.nvim_set_keymap("n", "<C-c>", ":BufferLinePickClose<CR>", opt) -- close tab
+vim.api.nvim_set_keymap("n", "<A-q>", [[<CMD>:bd<CR>]], opt)
 
 -- move between tabs
 vim.api.nvim_set_keymap("n", ".", [[<Cmd>BufferLineCycleNext<CR>]], opt)
