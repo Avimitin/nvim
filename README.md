@@ -169,3 +169,13 @@ MIT License
 
 ![nvui](./image/nvui-ext-cmd.png)
 
+---
+
+![preview](./image/nnn-preview.png)
+
+#### neogit
+
+![neogit](./image/neogit.png)
+
+![diff-view](./image/diff-view.png)
+
