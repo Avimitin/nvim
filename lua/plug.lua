@@ -274,23 +274,23 @@ return require('packer').startup(function(use)
 
     -- file navigation
     use {
-        'mcchrish/nnn.vim',
+        "luukvbaal/nnn.nvim",
         config = function()
             require("nnn").setup({
-                command = "nnn -e -d -D",
-                set_default_mappings = 0,
-                action = {
-                    ["<c-t>"] = "tab split",
-                    ["<c-s>"] = "split",
-                    ["<c-v>"] = "vsplit",
-                    ["<c-o>"] = "copy_to_clipboard"
+                explorer = {
+                  side = "botright",  -- or botright, location of the explorer window
+                  session = "shared",      -- or global/local/shared
                 },
-                layout = {
-                    window = {width = 0.7, height = 0.8, highlight = 'Debug'}
-                }
+                picker = {
+                    cmd = "tmux new-session nnn -Pp",
+                    style = {border = "rounded"},
+                    session = "shared"
+                },
+                replace_netrw = "picker",
+                window_nav = "<C-l>"
             })
         end,
-        cmd = "NnnPicker"
+        cmd="NnnPicker"
     }
 
     use {
