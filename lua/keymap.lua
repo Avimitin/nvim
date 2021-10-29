@@ -68,3 +68,9 @@ map("n", "tr", ":NvimTreeRefresh<CR>")
 map("n", "<C-\\>", [[:FTermToggle<CR>]])
 map("t", "<C-\\>", [[<C-\><C-n>:FTermToggle<CR>]])
 map("t", "<C-n>", [[<C-\><C-n>]])
+
+map("n", "<LEADER>tf", [[:lua require('telescope.builtin').find_files{}<CR>]])
+map("n", "<LEADER>tg", [[:lua require('telescope.builtin').live_grep{}<CR>]])
+
+map("n", "<LEADER>ng", [[<CMD>Neogit<CR>]])
+map("n", "<LEADER>lg", [[<CMD>LazygitToggle<CR>]])
