@@ -36,7 +36,7 @@ map("n", "<LEADER>p", [["+p]])
 
 map("n", "<ESC>", ":nohlsearch<CR>")
 
-map("i", "jj", "<ESC>")
+map("i", "<A-;>", "<ESC>")
 
 map("n", "<up>", ":res +5<CR>")
 map("n", "<down>", ":res -5<CR>")
