@@ -4,6 +4,7 @@
 
 [![badge](https://img.shields.io/badge/More%20Screenshot-click-blueviolet?logo=googlephotos)](#more-screenshot)
 ![badge](https://github.com/avimitin/nvim/actions/workflows/test.yml/badge.svg)
+![badge](https://github.com/avimitin/nvim/actions/workflows/lint.yml/badge.svg)
 ![badge](https://img.shields.io/badge/Language-Lua-blue?logo=lua&logoColor=blue)
 
 ## Guide
