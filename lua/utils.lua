@@ -61,7 +61,9 @@ M.load_plugins = function()
 
   vim.cmd([[autocmd BufWritePost plug.lua source <afile> | PackerCompile]])
 
-  if no_packer then require('packer').sync() end
+  if no_packer then
+    require('packer').sync()
+  end
 end
 
 return M
