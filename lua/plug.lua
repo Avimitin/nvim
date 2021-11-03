@@ -94,12 +94,6 @@ return require('packer').startup(function(use)
         after = "nvim-lsp-installer"
     }
 
-    use {
-        "ray-x/lsp_signature.nvim",
-        config = function() require("config.lsp-signature") end,
-        after = "nvim-lspconfig"
-    }
-
     -- RUST
     use {
         'simrat39/rust-tools.nvim',
@@ -167,19 +161,6 @@ return require('packer').startup(function(use)
     -- CPP
     use {'rhysd/vim-clang-format', ft = {'cpp', 'c', 'h', 'hpp'}}
 
-    use {
-        'sbdchd/neoformat',
-        cmd = "Neoformat",
-        setup = function()
-            vim.g.neoformat_cpp_clangformat = {
-                exe = 'clang-format',
-                args = {'-style=file'}
-            }
-            vim.g.neoformat_enabled_cpp = {'clangformat'}
-            vim.g.neoformat_enabled_c = {'clangformat'}
-        end
-    }
-
     -- =================== Utilities =========================
 
     -- markdown toc
@@ -231,12 +212,6 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- TrueZen.nvim: zen mode in neovim--
-    use {
-        'Pocco81/TrueZen.nvim',
-        cmd = {'TZAtaraxis', 'TZFocus', "TZMinimalist"}
-    }
-
     -- vim-commentary: for quickly commenting--
     use {'tpope/vim-commentary', event = "BufRead"}
 
@@ -250,21 +225,6 @@ return require('packer').startup(function(use)
         'famiu/nvim-reload',
         cmd = {"Reload", "Restart"},
         requires = "nvim-lua/plenary.nvim"
-    }
-
-    use {
-        'andweeb/presence.nvim',
-        event = "VimEnter",
-        -- I don't use discord recently, and this plugin delay my neovim.
-        -- Set disable = false to enable this plugin.
-        disable = true,
-        config = function()
-            require("presence"):setup({
-                neovim_image_text = "HELP!",
-                editing_text = "STUCK IN THE %s FILE",
-                workspace_text = "HELP! HOW TO QUIT VIM!"
-            })
-        end
     }
 
     use {"andrejlevkovitch/vim-lua-format", ft = {"lua"}}
@@ -344,26 +304,6 @@ return require('packer').startup(function(use)
     -- align
     use {'junegunn/vim-easy-align', cmd = 'EasyAlign'}
 
-    -- Vim alternative
-    use {
-        'chentau/marks.nvim',
-        config = function()
-            require'marks'.setup {
-                default_mappings = true,
-                cyclic = true,
-                force_write_shada = false,
-                refresh_interval = 250,
-                sign_priority = {
-                    lower = 10,
-                    upper = 15,
-                    builtin = 8,
-                    bookmark = 20
-                },
-                mappings = {}
-            }
-        end
-    }
-
     -- speed up neovim!
     use {
         'nathom/filetype.nvim'
@@ -385,37 +325,6 @@ return require('packer').startup(function(use)
             map("n", "<C-W>k", ":FocusSplitUp<CR>")
             map("n", "<C-W>s", ":FocusSplitNicely<CR>")
         end
-    }
-
-    use {
-        "rmagatti/auto-session",
-        config = function()
-            require('auto-session').setup {
-                log_level = 'info',
-                auto_session_enable_last_session = false,
-                auto_session_root_dir = vim.fn.stdpath('data') .. "/sessions/",
-                auto_session_enabled = true,
-                auto_save_enabled = false,
-                auto_restore_enabled = false,
-                auto_session_suppress_dirs = nil
-            }
-            vim.o.sessionoptions =
-                "blank,buffers,curdir,folds,help,tabpages,winsize,resize,winpos,terminal"
-        end,
-        cmd = {'SaveSession', 'RestoreSession', 'DeleteSession'}
-    }
-
-    use {
-        'rmagatti/session-lens',
-        requires = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'},
-        config = function()
-            require('session-lens').setup({
-                path_display = {'shorten'},
-                previewer = true,
-                prompt_title = 'Select Sessions'
-            })
-        end,
-        cmd = "SearchSession"
     }
 
 end)
