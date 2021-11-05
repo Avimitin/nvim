@@ -238,27 +238,6 @@ return require('packer').startup(function(use)
     -- highlight all the word below the cursor
     use {'RRethy/vim-illuminate', event = "BufRead"}
 
-    -- file navigation
-    use {
-        "luukvbaal/nnn.nvim",
-        config = function()
-            require("nnn").setup({
-                explorer = {
-                  side = "botright",  -- or botright, location of the explorer window
-                  session = "shared",      -- or global/local/shared
-                },
-                picker = {
-                    cmd = "tmux new-session fish -c 'n -Pp'",
-                    style = {border = "rounded"},
-                    session = "shared"
-                },
-                replace_netrw = "picker",
-                window_nav = "<C-l>"
-            })
-        end,
-        cmd="NnnPicker"
-    }
-
     use {
         'airblade/vim-rooter',
         cmd = "Rooter",
@@ -296,7 +275,7 @@ return require('packer').startup(function(use)
     }
 
     -- Select text object
-    use {'gcmt/wildfire.vim', event = "VimEnter"}
+    use {'gcmt/wildfire.vim', event = "BufRead"}
 
     -- surrounding select text with given text
     use {"tpope/vim-surround", after = "wildfire.vim"}
