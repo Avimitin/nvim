@@ -10,7 +10,7 @@ local diagnostic = require('galaxyline.provider_diagnostic')
 
 gl.short_line_list = {
     'LuaTree', 'vista', 'dbui', 'startify', 'term', 'nerdtree', 'fugitive',
-    'fugitiveblame', 'plug'
+    'fugitiveblame', 'plug', 'NvimTree'
 }
 
 -- VistaPlugin = extension.vista_nearest
