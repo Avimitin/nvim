@@ -306,4 +306,9 @@ return require('packer').startup(function(use)
         end
     }
 
+    use {
+      'tpope/vim-fugitive',
+      cmd = {'G', 'Git', 'Ggrep', 'Gdiffsplit', 'GBrowse'}
+    }
+
 end)
