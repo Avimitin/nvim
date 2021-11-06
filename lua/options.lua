@@ -94,7 +94,7 @@ if undo_stat and has_persist == 1 then
 end
 
 vim.api.nvim_command('autocmd TermOpen term://* startinsert')
-vim.cmd [[set guifont=FiraCode\ Nerd\ Font\ Mono:h12]]
+vim.cmd [[set guifont=FiraCode\ Nerd\ Font\ Mono:h15]]
 
 -- neovide specific settings
 vim.g.neovide_cursor_vfx_mode = "sonicboom"
