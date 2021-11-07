@@ -5,7 +5,7 @@ M.toggle = function()
   term:new():setup({
     cmd = "lazygit",
     dimensions = {height = 0.92, width = 0.95},
-    border='rounded',
+    border='shadow',
     hl = 'LazygitBackground'
   }):toggle()
 end
