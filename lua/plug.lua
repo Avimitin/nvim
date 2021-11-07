@@ -235,9 +235,6 @@ return require('packer').startup(function(use)
         config = function() require("config.dashboard") end
     }
 
-    -- highlight all the word below the cursor
-    use {'RRethy/vim-illuminate', event = "BufRead"}
-
     use {
         'airblade/vim-rooter',
         cmd = "Rooter",
