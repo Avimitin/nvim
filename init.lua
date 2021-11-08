@@ -29,3 +29,6 @@ end
 
 -- load plugins
 utils.load_plugins()
+
+-- Run rooter when it is the first time enter the neovim
+vim.cmd[[autocmd VimEnter * Rooter]]
