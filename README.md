@@ -124,6 +124,18 @@ See [addtional](./docs/addtional.md)
 
 MIT License
 
+## Commits descriptions
+
+```text
+<N> means new features
+<B> means breaking changes
+<F> means a new fix
+<D> means document update
+<R> means refactor
+```
+
+Hope this can help reading the one line git log.
+
 ## TODO
 
 - [ ] Introduce my workflows
