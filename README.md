@@ -44,13 +44,13 @@ Take a look at their contribution, which is really fantastic.
 
 ## Installation
 
-To keep your customization, fork the configuration and clone
-your repository URL instead of mine. Everyone should build their
-own neovim configuration in my opinion.
+I recommend you to use my configuration as a base and build your own configuration.
+In my opinion, everyone should have their own customized neovim. So you can fork my
+repository and then run:
 
 ```bash
-# linux or mac user
-git clone https://github.com/Avimitin/nvim ~/.config/nvim
+# NO WINDOWS SUPPORT NOW
+git clone https://github.com/YOUR_USER_NAME/nvim ~/.config/nvim
 ```
 
 Open your neovim by command `nvim` and wait for all plugins installed. Please
@@ -62,10 +62,8 @@ that you can't activate it.
 
 ### Docker
 
-Just wanna have some fun but do not want to mess up your local environment?
+Just wanna have a try but do not want to mess up your local environment?
 I have docker script for you!
-
-**THIS IS EXPERIMENTAL**
 
 ```bash
 docker run -w /root -it --rm alpine:edge sh -uelic '

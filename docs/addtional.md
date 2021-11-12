@@ -40,6 +40,23 @@
 * [Neoterm](#neoterm)
 
 <!-- vim-markdown-toc -->
+## Tree view
+
+```text
+.
+├── ginit.vim       // Settings for nvim-qt
+├── init.lua        // Configuration entry
+└── lua
+   ├── config/      // All the plugins configuration
+   ├── colors.lua   // Where I set up my colorscheme
+   ├── commands.lua // Some user define commands
+   ├── keymap.lua   // keymaps
+   ├── options.lua  // neovim editor options and third party GUI options
+   ├── plug.lua     // All the plugins
+   └── utils.lua    // Some functions I don't want to write it twice
+
+6 directories, 23 files
+```
 
 ## Basic keys
 
