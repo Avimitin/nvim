@@ -130,7 +130,6 @@ MIT License
 <N> means new features
 <B> means breaking changes
 <F> means a new fix
-<D> means document update
 <R> means refactor
 ```
 
