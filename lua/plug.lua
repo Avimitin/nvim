@@ -187,12 +187,12 @@ return require('packer').startup(function(use)
     use {
         'numtostr/FTerm.nvim',
         config = function()
-            vim.cmd[[hi LazygitBackground guibg=#1a1b26]]
-            vim.cmd[[hi FTermBackground   guibg=#1a1b26]]
+            vim.cmd [[hi LazygitBackground guibg=#1a1b26]]
+            vim.cmd [[hi FTermBackground   guibg=#1a1b26]]
             require("config.fterm")
-            require('utils')
-              .new_cmd("LazygitToggle",
-                "lua require('config.lazygit').toggle()", true)
+            require('utils').new_cmd("LazygitToggle",
+                                     "lua require('config.lazygit').toggle()",
+                                     true)
         end,
         cmd = {'FTermToggle', 'LazygitToggle'}
     }
@@ -305,8 +305,23 @@ return require('packer').startup(function(use)
     }
 
     use {
-      'tpope/vim-fugitive',
-      cmd = {'G', 'Git', 'Ggrep', 'Gdiffsplit', 'GBrowse'}
+        'tpope/vim-fugitive',
+        cmd = {'G', 'Git', 'Ggrep', 'Gdiffsplit', 'GBrowse'}
     }
 
+    -- Dependency: tmux, nnn
+    -- This is heavily based on my configured nnn
+    use {
+        "luukvbaal/nnn.nvim",
+        config = function()
+            require("nnn").setup({
+                picker = {
+                    cmd = [[NNN_PLUG="p:preview-tui" ICONLOOKUP=1 tmux new-session nnn -a -Pp]],
+                    style = {border = "shadow"},
+                    session = "shared"
+                }
+            })
+        end,
+        cmd = {'NnnPicker', 'NnnExplorer'}
+    }
 end)
