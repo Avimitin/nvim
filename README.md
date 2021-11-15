@@ -126,12 +126,39 @@ MIT License
 
 ## Commits descriptions
 
+I will use a modulize commit convention like what Angular has done.
+But I want to make it simpler and smaller. So I design a convention below.
+
 ```text
-<N> means new features
-<B> means breaking changes
-<F> means a new fix
-<R> means refactor
+[!]T|module: descriptions
 ```
+
+For example, if I create new API or add new plugin, I will commit with the
+message like:
+
+```text
+N|plugins/vsnip: add new keymap for toggle vsnip
+```
+
+If I delete some plugins or drop API support, I will commit with the message
+like:
+
+```text
+# ! means that I've made breaking change, please take a look on it
+!R|plugins/nnn: replace nnn.vim with nnn.nvim
+```
+
+Available type.
+
+```text
+N means new features, use when create something new
+F means a new fix, use when I fix some bug
+R means refactor, use when I modify the exist code
+C means chore, use for non-project stuff like CI/documents/docker build file...etc
+```
+
+> Chore means that user don't need to take care of this change, it
+> won't affect your experience.
 
 Hope this can help reading the one line git log.
 
