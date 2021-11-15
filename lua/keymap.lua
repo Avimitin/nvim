@@ -1,7 +1,9 @@
 local map = require('utils').map
 
 map('n', 'J', '5j')
+map('x', 'J', '5j')
 map('n', 'K', '5k')
+map('x', 'K', '5k')
 map("n", "L", "g_")
 map("n", "H", "^")
 map("x", "L", "g_")
