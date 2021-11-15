@@ -73,6 +73,8 @@ return require('packer').startup(function(use)
 
     use {'hrsh7th/vim-vsnip', after = {'nvim-cmp'}}
 
+    use { 'hrsh7th/cmp-cmdline', after = {'nvim-cmp'} }
+
     use {
         'windwp/nvim-autopairs',
         config = function() require('config.autopairs') end,
