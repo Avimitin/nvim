@@ -128,6 +128,16 @@ MIT License
 
 Please read [commit-convention](https://github.com/Avimitin/commit-convention)
 
+Tldr: all the commit have a letter prefix which mark the commit type.
+
+- N means new update
+- R means refactor
+- F means fix
+- C means not a important commit (aka this commit don't affect the code)
+- ! means breaking change
+
+Users only need to take a look on commit with `!` prefix and `N` prefix.
+
 ## TODO
 
 - [ ] Introduce my workflows
