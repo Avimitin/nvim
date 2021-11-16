@@ -311,6 +311,16 @@ insert_right {
     }
 }
 
+insert_right {
+  GetLspClient = {
+    provider = 'GetLspClient',
+    separator = ' ',
+    separator_highlight = {colors.blue, colors.line_bg},
+    condition = checkwidth,
+    highlight = {colors.fg, colors.line_bg}
+  }
+}
+
 insert_blank_line_at_right()
 
 insert_right {
