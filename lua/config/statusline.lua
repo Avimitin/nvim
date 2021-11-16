@@ -8,11 +8,6 @@ local gl = require('galaxyline')
 local gls = gl.section
 local diagnostic = require('galaxyline.provider_diagnostic')
 
-gl.short_line_list = {
-    'LuaTree', 'vista', 'dbui', 'startify', 'term', 'nerdtree', 'fugitive',
-    'fugitiveblame', 'plug', 'NvimTree'
-}
-
 -- VistaPlugin = extension.vista_nearest
 
 local current_scheme = vim.g.colors_name
@@ -30,6 +25,7 @@ local colors = {
     line_bg  =  line_bg_color,
     fg       = '#8FBCBB',
     fg_green = '#65a380',
+    dark     = '#161622',
 
     yellow   = '#E5C07B',
     cyan     = '#70C0BA',
@@ -346,21 +342,47 @@ insert_right {
     }
 }
 
-insert_right {
-    Encode = {
-        provider = 'FileEncode',
-        separator = '',
-        condition = checkwidth,
-        separator_highlight = {colors.blue, colors.line_bg},
-        highlight = {colors.cyan, colors.line_bg, 'bold'}
-    }
+-- ============================= short line ===============================
+
+gl.short_line_list = {
+    'LuaTree', 'vista', 'dbui', 'startify', 'term', 'nerdtree', 'fugitive',
+    'fugitiveblame', 'plug', 'NvimTree'
 }
 
-insert_blank_line_at_right()
-
-insert_right {
-    Separa = {
-        provider = function() return ' ' end,
-        highlight = {colors.line_bg}
+require ('galaxyline').section.short_line_left = {
+  {
+    ShortLineLeftBufferType = {
+      highlight = {colors.cyan, colors.line_bg},
+      provider = function ()
+        local BufferTypeMap = {
+          ['Mundo'] = 'Mundo History',
+          ['MundoDiff'] = 'Mundo Diff',
+          ['NvimTree'] = ' Tree',
+          ['fugitive'] = 'Fugitive',
+          ['fugitiveblame'] = 'Fugitive Blame',
+          ['help'] = 'Help',
+          ['minimap'] = 'Minimap',
+          ['qf'] = 'Quick Fix',
+          ['tabman'] = 'Tab Manager',
+          ['tagbar'] = 'Tagbar',
+          ['toggleterm'] = 'Terminal',
+          ['FTerm'] = 'Terminal'
+        }
+        local name = BufferTypeMap[vim.bo.filetype] or ' Editor'
+        return string.format('  %s', name)
+      end,
+      separator = ' ',
+      separator_highlight = {colors.line_bg, colors.dark}
     }
+  },
+  {
+    ShortLineLeftWindowNumber = {
+      highlight = {colors.cyan, colors.dark},
+      provider = function()
+        return ' ' .. vim.api.nvim_win_get_number(vim.api.nvim_get_current_win())
+      end,
+      separator = '',
+      separator_highlight = {colors.dark, colors.dark}
+    }
+  }
 }
