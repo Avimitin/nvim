@@ -12,7 +12,7 @@ local diagnostic = require('galaxyline.provider_diagnostic')
 
 local current_scheme = vim.g.colors_name
 
-local line_bg_color = '#1F253A'
+local line_bg_color = '#2F3445'
 
 if current_scheme == "everforest" then
   line_bg_color = "#282E2C"
@@ -25,7 +25,7 @@ local colors = {
     line_bg  =  line_bg_color,
     fg       = '#8FBCBB',
     fg_green = '#65a380',
-    dark     = '#161622',
+    dark     = '#1F253A',
 
     yellow   = '#E5C07B',
     cyan     = '#70C0BA',
@@ -402,7 +402,7 @@ require ('galaxyline').section.short_line_left = {
         return ' ' .. vim.api.nvim_win_get_number(vim.api.nvim_get_current_win())
       end,
       separator = '',
-      separator_highlight = {colors.dark, "#0c0e17"}
+      separator_highlight = {colors.dark, "#1F253A"}
     }
   }
 }
