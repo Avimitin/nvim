@@ -46,8 +46,7 @@ npairs.add_rules({
             return opts.prev_char:match('.%]') ~= nil
         end)
         :use_key(']'),
-    Rule('=', '')
-      :with_pair(cond.not_filetypes({'sh', 'bash', 'tmux', 'fish'}))
+    Rule('=', '', {"cpp", "rust", "go", "lua"})
       :with_pair(cond.not_inside_quote())
       :with_pair(function(opts)
           local last_char = opts.line:sub(opts.col - 1, opts.col - 1)
