@@ -398,7 +398,7 @@ require ('galaxyline').section.short_line_left = {
         return ' ' .. vim.api.nvim_win_get_number(vim.api.nvim_get_current_win())
       end,
       separator = '',
-      separator_highlight = {colors.dark, colors.dark}
+      separator_highlight = {colors.dark, "#0c0e17"}
     }
   }
 }
