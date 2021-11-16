@@ -192,3 +192,7 @@ Users only need to take a look on commit with `!` prefix and `N` prefix.
 
 ![diff-view](./image/diff-view.png)
 
+#### fugitive
+
+![fugitive](./image/neovim-fugitive.png)
+
