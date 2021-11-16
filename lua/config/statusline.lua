@@ -84,15 +84,7 @@ end
 -----------------------------------------------------
 ----------------- start insert ----------------------
 -----------------------------------------------------
-
 -- { mode panel start
-insert_left {
-    Start = {
-        provider = function() return ' ' end,
-        highlight = {colors.line_bg}
-    }
-}
-
 insert_blank_line_at_left()
 
 insert_left {
