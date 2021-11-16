@@ -8,12 +8,7 @@
 
 Author: Avimitin
 Source: https://github.com/Avimitin/nvim
-Credit:
-	This project is inspired by the following open-source projects:
-		* https://github.com/theniceboy/nvim
-		* https://github.com/siduck76/NvChad
-License:
-	MIT License
+License: MIT License
 --]]
 
 -- load basic configuration
