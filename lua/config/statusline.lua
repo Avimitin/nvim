@@ -70,17 +70,6 @@ local function insert_right(element)
   table.insert(gls.right, element)
 end
 
--- insert_blank_line_at_left insert blank line with
--- line_bg color.
-local function insert_blank_line_at_right()
-    insert_right {
-        Space = {
-            provider = function() return ' ' end,
-            highlight = {colors.line_bg, colors.line_bg}
-        }
-    }
-end
-
 -----------------------------------------------------
 ----------------- start insert ----------------------
 -----------------------------------------------------
@@ -196,7 +185,7 @@ insert_blank_line_at_left()
 
 local checkwidth = function()
     local squeeze_width = vim.fn.winwidth(0) / 2
-    if squeeze_width > 40 then return true end
+    if squeeze_width > 50 then return true end
     return false
 end
 
@@ -316,45 +305,55 @@ insert_right {
 }
 
 insert_right {
-  GetLspClient = {
-    provider = 'GetLspClient',
-    separator = ' LSP: ',
-    separator_highlight = {colors.blue, colors.line_bg},
-    condition = checkwidth,
-    highlight = {colors.fg, colors.line_bg}
-  }
-}
-
-insert_blank_line_at_right()
-
-insert_right {
-    FileFormat = {
-        provider = 'FileFormat',
-        separator = ' ',
-        condition = checkwidth,
-        separator_highlight = {colors.blue, colors.line_bg},
-        highlight = {colors.fg, colors.line_bg}
-    }
-}
-
-insert_blank_line_at_right()
-
-insert_right {
     LineInfo = {
         provider = 'LineColumn',
-        separator = ' ',
-        condition = checkwidth,
+        separator = '  ',
         separator_highlight = {colors.green, colors.line_bg},
         highlight = {colors.fg, colors.line_bg}
     }
 }
 
 insert_right {
+    RightEndingSepara = {
+      provider = function() return '' end,
+      highlight = {colors.line_bg, colors.dark}
+    }
+}
+
+insert_right {
+  GetLspClient = {
+    provider = 'GetLspClient',
+    separator = ' LSP: ',
+    separator_highlight = {colors.blue, colors.dark},
+    condition = checkwidth,
+    highlight = {colors.fg, colors.dark}
+  }
+}
+
+insert_right {
     PerCent = {
         provider = 'LinePercent',
-        separator = '',
-        separator_highlight = {colors.blue, colors.line_bg},
-        highlight = {colors.cyan, colors.line_bg}
+        separator = ' ',
+        separator_highlight = {colors.blue, colors.dark},
+        condition = checkwidth,
+        highlight = {colors.cyan, colors.dark}
+    }
+}
+
+insert_right {
+    FileFormat = {
+        provider = 'FileFormat',
+        separator = ' ',
+        condition = checkwidth,
+        separator_highlight = {colors.blue, colors.dark},
+        highlight = {colors.fg, colors.dark}
+    }
+}
+
+insert_right {
+    RightSpace = {
+        provider = function() return ' ' end,
+        highlight = {colors.dark, colors.dark}
     }
 }
 
