@@ -316,8 +316,10 @@ insert_blank_line_at_right()
 insert_right {
     FileFormat = {
         provider = 'FileFormat',
+        separator = ' ',
         condition = checkwidth,
-        highlight = {colors.fg, colors.line_bg, 'bold'}
+        separator_highlight = {colors.blue, colors.line_bg},
+        highlight = {colors.fg, colors.line_bg}
     }
 }
 
@@ -338,7 +340,7 @@ insert_right {
         provider = 'LinePercent',
         separator = '',
         separator_highlight = {colors.blue, colors.line_bg},
-        highlight = {colors.cyan, colors.line_bg, 'bold'}
+        highlight = {colors.cyan, colors.line_bg}
     }
 }
 
