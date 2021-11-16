@@ -32,6 +32,12 @@ M.log_info = function (msg, title)
   vim.notify(msg, vim.log.levels.INFO, {title=title})
 end
 
+-- This is a hook, to setup for lazy loaded plugins
+local function setup_plugins_after_loaded()
+    -- Run rooter when it is the first time enter the neovim
+    vim.cmd[[autocmd VimEnter * Rooter]]
+end
+
 M.load_plugins = function()
   -- detecting plugin manager
   local no_packer = false
@@ -64,6 +70,9 @@ M.load_plugins = function()
   if no_packer then
     require('packer').sync()
   end
+
+  -- add a hook
+  setup_plugins_after_loaded()
 end
 
 M.lsp_attach = function (client, bufnr)
