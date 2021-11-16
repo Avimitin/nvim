@@ -168,7 +168,7 @@ insert_left {
 insert_blank_line_at_left()
 
 insert_left {
-    Separa = {
+    EndingSepara = {
         provider = function() return ' ' end,
         highlight = {colors.line_bg}
     }
@@ -178,32 +178,11 @@ insert_left {
 
 -- {information panel start
 insert_left {
-    Start = {
+    StartSeparate = {
         provider = function() return ' ' end,
         highlight = {colors.line_bg}
     }
 }
-
-insert_left {
-    FileIcon = {
-        provider = 'FileIcon',
-        condition = buffer_not_empty,
-        highlight = {
-            require('galaxyline.provider_fileinfo').get_file_icon_color,
-            colors.line_bg
-        }
-    }
-}
-
-insert_left {
-    BufferType = {
-        provider = 'FileTypeName',
-        condition = has_file_type,
-        highlight = {colors.fg, colors.line_bg}
-    }
-}
-
-insert_blank_line_at_left()
 
 insert_left {
     GitIcon = {
@@ -297,9 +276,42 @@ insert_left {
 }
 
 insert_left {
-    Separa = {
-        provider = function() return ' ' end,
-        highlight = {colors.line_bg}
+    TriangleSeparate = {
+        provider = function() return '' end,
+        highlight = {colors.line_bg, colors.dark}
+    }
+}
+
+insert_left {
+  BlackSpace = {
+    provider = function() return " " end,
+    highlight = {colors.dark, colors.dark}
+  }
+}
+
+insert_left {
+    FileIcon = {
+        provider = 'FileIcon',
+        condition = buffer_not_empty,
+        highlight = {
+            require('galaxyline.provider_fileinfo').get_file_icon_color,
+            colors.dark
+        }
+    }
+}
+
+insert_left {
+    BufferType = {
+        provider = 'FileName',
+        condition = has_file_type,
+        highlight = {colors.fg, colors.dark}
+    }
+}
+
+insert_left {
+    DarkSepara = {
+        provider = function() return '' end,
+        highlight = {colors.dark}
     }
 }
 -- left information panel end}
