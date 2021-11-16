@@ -362,7 +362,7 @@ insert_right {
 
 gl.short_line_list = {
     'LuaTree', 'vista', 'dbui', 'startify', 'term', 'nerdtree', 'fugitive',
-    'fugitiveblame', 'plug', 'NvimTree'
+    'fugitiveblame', 'plug', 'NvimTree', 'DiffviewFiles'
 }
 
 require ('galaxyline').section.short_line_left = {
@@ -385,7 +385,8 @@ require ('galaxyline').section.short_line_left = {
           ['FTerm'] = 'Terminal',
           ['NeogitStatus'] = ' Neogit Status',
           ['NeogitPopup'] = ' Neogit Popup',
-          ['NeogitCommitMessage'] = ' Neogit Commit'
+          ['NeogitCommitMessage'] = ' Neogit Commit',
+          ['DiffviewFiles'] = ' Diff View'
         }
         local name = BufferTypeMap[vim.bo.filetype] or ' Editor'
         return string.format('  %s', name)
