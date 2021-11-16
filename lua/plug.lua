@@ -119,7 +119,7 @@ return require('packer').startup(function(use)
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
-        ft = {"cpp", "toml", "rust", "go", "json", "lua"},
+        ft = {"cpp", "toml", "rust", "go", "json", "lua", "fish"},
         config = function() require('config.treesitter') end
     }
 
