@@ -382,7 +382,10 @@ require ('galaxyline').section.short_line_left = {
           ['tabman'] = 'Tab Manager',
           ['tagbar'] = 'Tagbar',
           ['toggleterm'] = 'Terminal',
-          ['FTerm'] = 'Terminal'
+          ['FTerm'] = 'Terminal',
+          ['NeogitStatus'] = ' Neogit Status',
+          ['NeogitPopup'] = ' Neogit Popup',
+          ['NeogitCommitMessage'] = ' Neogit Commit'
         }
         local name = BufferTypeMap[vim.bo.filetype] or ' Editor'
         return string.format('  %s', name)
