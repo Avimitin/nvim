@@ -318,7 +318,7 @@ insert_right {
 insert_right {
   GetLspClient = {
     provider = 'GetLspClient',
-    separator = ' ',
+    separator = ' LSP: ',
     separator_highlight = {colors.blue, colors.line_bg},
     condition = checkwidth,
     highlight = {colors.fg, colors.line_bg}
