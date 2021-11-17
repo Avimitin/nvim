@@ -11,3 +11,5 @@ new_cmd("FSplit", [[FocusSplitNicely]])
 
 new_cmd("BufCL", [[BufferLineCloseLeft]])
 new_cmd("BufCR", [[BufferLineCloseRight]])
+
+new_cmd("DapUIToggle", [[lua require("dapui").toggle()]])

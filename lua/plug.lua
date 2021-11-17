@@ -102,6 +102,16 @@ return require('packer').startup(function(use)
     }
 
     use {
+      'mfussenegger/nvim-dap',
+      module = "dap",
+    }
+
+    use {
+      'rcarriga/nvim-dap-ui',
+      module = "dapui",
+    }
+
+    use {
         'rust-lang/rust.vim',
         after = "rust-tools.nvim",
         setup = function()
