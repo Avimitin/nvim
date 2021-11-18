@@ -283,6 +283,43 @@ cmake -BDebug . -DCMAKE_EXPORT_COMPILE_COMMANDS=1
 ln -s Debug/compile_commands.json .
 ```
 
+# Debug
+
+- CPP
+
+First you need to
+[build](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#building-lldb-vscode)
+or install lldb-vscode.
+
+> If you are Arch Linux user, run: `pacman -S lldb`
+
+Then build your cpp program with `-g` arguments:
+
+```bash
+clang++ --std=c++17 -Wall -g -o debug.app example.cc
+```
+
+Then add breakpoint in your neovim with command `:DapBreakpoint` or `DapBp`.
+
+Open the debug UI with command `:DapUiToggle`.
+
+And finally run the command `:DapContinue` or `:DapC` to start debugging. You
+will need to add the executable path you built above.
+
+- Rust
+
+Run command `:RustHoverAction` or keymap `<Space>ra`, then choose debug.
+
+Open the debug UI with command `:DapUiToggle`.
+
+---
+
+For details or more setting please read the README from this project.
+
+- Dap(The debug core plugin): https://github.com/mfussenegger/nvim-dap
+- Dap-UI(Debug UI): https://github.com/rcarriga/nvim-dap-ui
+- rust-tools.nvim(Rust Utilities): https://github.com/simrat39/rust-tools.nvim/
+
 # Markdown
 
 ## Snippets
