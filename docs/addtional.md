@@ -384,13 +384,7 @@ Use command `:T`, `:Tkill`, `:Tclose`, `:Tmap` to activate it.
 # Vim Rooter
 
 A plugins that can automatically change your directory to the project root.
-It will find `.git` and `Cargo.toml` and mark their pwd as root pattern.
+It will find `.git` and `Cargo.toml` and mark their pwd as root pattern. It
+will be automatically triggered after opening the neovim.
 
-I close the automatical directory change behaviour. This is because when you are working
-in a submodule, neogit plugins will generate commit file in parent directory. And when you
-are editing the commit messages, vim-rooter will try to get into the parent project.
-And this will cause neogit commit in the parent directory not commit in the
-submodule.
-
-So now you will need to input command `:Rooter` manually. But actually this is not a commonly
-use command, so don't worry.
+You can also run command `:Rooter` to trigger it.
