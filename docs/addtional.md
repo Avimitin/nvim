@@ -208,17 +208,22 @@ the name of references. Check out [fatih/vim-go](https://github.com/fatih/vim-go
 | gin              | next hunk                    |
 | gim              | previous hunk                |
 
+You can also run git command like what you do in the terminal. For example, if you
+want to see the log, just run `:Git log` or `:G log`. If you want to see the blame,
+run `:Git/G blame`. If you want to rebase, you can run `:G rebase -i HEAD~n`. This
+command are all enhanced by plugin vim-fugitive.
+
 ## Neogit
 
 ![neogit](https://user-images.githubusercontent.com/32014449/109874516-8042af00-7c6f-11eb-8afc-65ef52448c7a.png)
 
-Neogit is an vim alternative of magit.
+Neogit is an vim alternative of magit. Press `<Space>ng` to activate it.
 
 ## lazygit
 
 ![image](https://raw.githubusercontent.com/jesseduffield/lazygit/assets/staging.gif) 
 
-Press `ctrl+g` to activate it. You need to install
+Press `<Space>lg` to activate it. You need to install
 [lazygit](https://github.com/jesseduffield/lazygit).
 
 # Symbols
