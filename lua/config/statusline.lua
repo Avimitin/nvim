@@ -385,7 +385,12 @@ require ('galaxyline').section.short_line_left = {
           ['NeogitStatus'] = ' Neogit Status',
           ['NeogitPopup'] = ' Neogit Popup',
           ['NeogitCommitMessage'] = ' Neogit Commit',
-          ['DiffviewFiles'] = ' Diff View'
+          ['DiffviewFiles'] = ' Diff View',
+          ['dapui_scopes'] = 'כֿ Dap Scope',
+          ['dapui_breakpoints'] = ' Dap Breakpoints',
+          ['dapui_stacks'] = ' Dap Stacks',
+          ['dapui_watches'] = 'ﭓ Dap Stacks',
+          ['dap-repl'] = ' Dap REPL',
         }
         local name = BufferTypeMap[vim.bo.filetype] or ' Editor'
         return string.format('  %s', name)

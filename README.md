@@ -196,3 +196,13 @@ Users only need to take a look on commit with `!` prefix and `N` prefix.
 
 ![fugitive](./image/neovim-fugitive.png)
 
+#### Dap Debug
+
+- CPP
+
+![cpp](./image/dap-debug-cpp.png)
+
+- Rust
+
+![Rust](./image/dap-debug-rust.png)
+
