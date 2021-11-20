@@ -69,6 +69,7 @@ M.load_plugins = function()
 
   if no_packer then
     require('packer').sync()
+    return
   end
 
   -- add a hook
