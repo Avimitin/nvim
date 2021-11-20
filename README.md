@@ -16,16 +16,6 @@
 > 中文文档因为我比较懒，所以不能保证完全同步，如果遇到
 > 任何文档不对应的问题，请以英文版为准。
 
-## Credit
-
-This project is originally inspired by
-[theniceboy/nvim](https://github.com/theniceboy/nvim).
-
-And lua code is inspired by
-[siduck76/NvChad](https://github.com/siduck76/NvChad).
-
-Take a look at their contribution, which is really fantastic.
-
 ## Features
 
 - Really fast! Start up in only 34ms! (See the bottom of the doc for the data)
@@ -129,7 +119,17 @@ See [addtional](./docs/addtional.md)
 
 MIT License
 
-## Commits convention
+## Credit
+
+This project is originally inspired by
+[theniceboy/nvim](https://github.com/theniceboy/nvim).
+
+And lua code is inspired by
+[siduck76/NvChad](https://github.com/siduck76/NvChad).
+
+Take a look at their contribution, which is really fantastic.
+
+## What does commit message means
 
 Please read [commit-convention](https://github.com/Avimitin/commit-convention)
 
