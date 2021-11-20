@@ -60,8 +60,13 @@ that you can't activate it.
 You need to clean the below directory for a fresh install.
 
 ```bash
+# plugins directory
 rm -rf ~/.local/share/nvim
+
+# neovim cache file
 rm -r ~/.cache/nvim
+
+# neovim plugins load sequence
 rm -r ~/.config/nvim/plugin
 ```
 
