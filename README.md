@@ -53,8 +53,13 @@ repository and then run:
 git clone https://github.com/YOUR_USER_NAME/nvim ~/.config/nvim
 ```
 
-Open your neovim by command `nvim` and wait for all plugins installed. Please
-quit and reopen the neovim for loading all plugins.
+Open your neovim by command `nvim` and wait for all plugins installed. The plugins
+will be installed automatically. Please quit and reopen the neovim to load all the
+plugins.
+
+> If the neovim don't install plugins automatically, use the command `:PackerSync`
+> to install those plugins manually. And please open a issue to notify me about the
+> error.
 
 **NOTE:** Markdown preview plugin is installed in another thread, please
 wait for it until it response message of installation success. Otherwise, you will find
