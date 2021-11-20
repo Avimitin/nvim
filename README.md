@@ -55,6 +55,16 @@ plugins.
 wait for it until it response message of installation success. Otherwise, you will find
 that you can't activate it.
 
+### Clean Installation
+
+You need to clean the below directory for a fresh install.
+
+```bash
+rm -rf ~/.local/share/nvim
+rm -r ~/.cache/nvim
+rm -r ~/.config/nvim/plugin
+```
+
 ### Docker
 
 Just wanna have a try but do not want to mess up your local environment?
