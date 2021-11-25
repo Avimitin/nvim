@@ -18,7 +18,7 @@
 
 ## Features
 
-- Really fast! Start up in only 34ms! (See the bottom of the doc for the data)
+- Really fast! Start up in only 28ms! (See [`benchmark`](./benchmark.txt))
 - LSP support
 - Completion like VSCode
 - Tree file manager
@@ -162,10 +162,6 @@ Users only need to take a look on commit with `!` prefix and `N` prefix.
 
 - [ ] Introduce my workflows
 - [ ] Optimized neovim start up time based on each file
-
-## Benchmark
-
-See [benchmark.txt](./benchmark.txt)
 
 ## More Screenshot
 
