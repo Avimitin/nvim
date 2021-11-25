@@ -382,6 +382,7 @@ require ('galaxyline').section.short_line_left = {
           ['tagbar'] = 'Tagbar',
           ['toggleterm'] = 'Terminal',
           ['FTerm'] = 'Terminal',
+          ['git'] = ' Git',
           ['NeogitStatus'] = ' Neogit Status',
           ['NeogitPopup'] = ' Neogit Popup',
           ['NeogitCommitMessage'] = ' Neogit Commit',
