@@ -47,8 +47,7 @@ return require('packer').startup(function(use)
     -- neovim color theme
     use {
         'Avimitin/neovim-deus',
-        after = "packer.nvim",
-        config = function() require("colors") end
+        'Shatur/neovim-ayu',
     }
 
     -- ==================== CODING ==================================

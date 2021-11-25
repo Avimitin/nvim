@@ -36,6 +36,7 @@ end
 local function setup_plugins_after_loaded()
     -- Run rooter when it is the first time enter the neovim
     vim.cmd[[autocmd VimEnter * Rooter]]
+    require("colors")
 end
 
 M.load_plugins = function()
