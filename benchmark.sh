@@ -1,13 +1,10 @@
 #!/bin/sh
 set -xef
 
-NVIM_BENCHMARK_ARGS=""
 # run <LOOP_COUNT> <FILE_NAME>
 # example: run 3 lib.rs
 run () {
   count=0
-  $EXEC
-  # open the given file and quit when vim enter
   while [ $count -lt $1 ]
   do
   if [ -n "$2" ]; then
