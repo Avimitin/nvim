@@ -163,28 +163,9 @@ Users only need to take a look on commit with `!` prefix and `N` prefix.
 - [ ] Introduce my workflows
 - [ ] Optimized neovim start up time based on each file
 
-## Start up time test data
+## Benchmark
 
-```text
-# Open only buffer
-# nvim --startuptime /tmp/nvim-startuptime && tail -n 1 /tmp/nvim-startuptime | awk -F: '{print $1}'
-# test it 3 times
-031.760  000.002
-030.677  000.002
-034.750  000.002
-
-# Open README.md
-# nvim README.md --startuptime /tmp/nvim-startuptime && tail -n 1 /tmp/nvim-startuptime | awk -F: '{print $1}'
-093.170  000.002
-092.512  000.003
-090.087  000.002
-
-# Open Rust file (which will trigger LSP server)
-# nvim lib.rs --startuptime /tmp/nvim-startuptime && tail -n 1 /tmp/nvim-startuptime | awk -F: '{print $1}'
-122.347  000.003
-113.395  000.003
-118.647  000.003
-```
+See [benchmark.txt](./benchmark.txt)
 
 ## More Screenshot
 
