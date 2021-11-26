@@ -208,15 +208,6 @@ return require('packer').startup(function(use)
         ft = {"markdown"}
     }
 
-    -- easy motion
-    use {
-        'phaazon/hop.nvim',
-        config = function()
-            require'hop'.setup {keys = 'etovxqpdygfblzhckisuran'}
-        end,
-        cmd = {'HopChar2', 'HopLine', 'HopPattern'}
-    }
-
     -- open a big terminal
     use {
         'numtostr/FTerm.nvim',
@@ -357,5 +348,9 @@ return require('packer').startup(function(use)
             })
         end,
         cmd = {'NnnPicker', 'NnnExplorer'}
+    }
+
+    use {
+      "ggandor/lightspeed.nvim"
     }
 end)

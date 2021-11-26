@@ -4,20 +4,22 @@ map('n', 'J', '5j')
 map('x', 'J', '5j')
 map('n', 'K', '5k')
 map('x', 'K', '5k')
+
 map("n", "L", "g_")
 map("n", "H", "^")
 map("x", "L", "g_")
-map("i", "<C-l>", "<ESC>A")
 map("x", "H", "^")
-map("n", "X", "Vx")
+
 map("n", "W", "5w")
 map("n", "B", "5b")
+
 map("n", "<C-z>", "u")
+
 map("n", "<", "<<")
 map("n", ">", ">>")
 map("x", "<", "<gv")
 map("x", ">", ">gv")
-map("n", "s", "<nop>")
+
 map("n", "-", "N")
 map("n", "=", "n")
 map("n", ";", ":")
@@ -30,11 +32,9 @@ vim.g.mapleader = " "
 
 map("n", ";w", ":w<CR>")
 
-map("n", "<C-A-q>", ":qa<CR>")
+map("x", "<C-y>", [["+y]])
 
-map("x", "<LEADER>y", [["+y]])
-
-map("n", "<LEADER>p", [["+p]])
+map("n", "<C-p>", [["+p]])
 
 map("n", "<ESC>", ":nohlsearch<CR>")
 
@@ -50,11 +50,6 @@ map("i", "<C-c>", "<ESC>zzi")
 
 -- nnn
 map('n', '<Leader>o', ':NnnPicker %:p:h<CR>')
-
--- hop
-map('n', 'f', ':HopChar2<CR>')
-map('x', 'f', '<CMD>HopChar2<CR>')
-map('n', '<C-J>', ':HopLine<CR>')
 
 -- EasyAlign
 map("v", "<leader>e", ":EasyAlign<CR>")
