@@ -208,6 +208,11 @@ return require('packer').startup(function(use)
         ft = {"markdown"}
     }
 
+    use {
+        'plasticboy/vim-markdown',
+        ft = {"markdown"}
+    }
+
     -- open a big terminal
     use {
         'numtostr/FTerm.nvim',
