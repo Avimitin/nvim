@@ -8,18 +8,7 @@ npairs.setup({
     check_ts = true,
     ts_config = {
         lua = {'string'}, -- it will not add pair on that treesitter node
-        javascript = {'template_string'},
-        java = false -- don't check treesitter on java
     },
-    fast_wrap = {
-        map = '\\e',
-        chars = {'{', '[', '(', '"', "'"},
-        pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], '%s+', ''),
-        end_key = '$',
-        keys = 'qwertyuiopzxcvbnmasdfghjkl',
-        check_comma = true,
-        hightlight = 'Search'
-    }
 })
 
 npairs.add_rules({
@@ -67,6 +56,60 @@ npairs.add_rules({
           end
           if prev_2char:match('=') then
               return '<bs><bs>=' .. next_char
+          end
+          return ''
+      end)
+      :set_end_pair_length(0)
+      :with_move(cond.none())
+      :with_del(cond.none()),
+    Rule('>', '', {"cpp", "rust", "go", "lua"})
+      :with_pair(cond.not_inside_quote())
+      :with_pair(function(opts)
+          local last_char = opts.line:sub(opts.col - 1, opts.col - 1)
+          if last_char:match('[%w%>%s]') then
+              return true
+          end
+          return false
+      end)
+      :replace_endpair(function(opts)
+          local prev_2char = opts.line:sub(opts.col - 2, opts.col - 1)
+          local next_char = opts.line:sub(opts.col, opts.col)
+          next_char = next_char == ' ' and '' or ' '
+          if prev_2char:match('%w$') then
+              return '<bs> >' .. next_char
+          end
+          if prev_2char:match('%>$') then
+              return next_char
+          end
+          if prev_2char:match('>') then
+              return '<bs><bs>>' .. next_char
+          end
+          return ''
+      end)
+      :set_end_pair_length(0)
+      :with_move(cond.none())
+      :with_del(cond.none()),
+    Rule('<', '', {"cpp", "rust", "go", "lua"})
+      :with_pair(cond.not_inside_quote())
+      :with_pair(function(opts)
+          local last_char = opts.line:sub(opts.col - 1, opts.col - 1)
+          if last_char:match('[%w%<%s]') then
+              return true
+          end
+          return false
+      end)
+      :replace_endpair(function(opts)
+          local prev_2char = opts.line:sub(opts.col - 2, opts.col - 1)
+          local next_char = opts.line:sub(opts.col, opts.col)
+          next_char = next_char == ' ' and '' or ' '
+          if prev_2char:match('%w$') then
+              return '<bs> <' .. next_char
+          end
+          if prev_2char:match('%=$') then
+              return next_char
+          end
+          if prev_2char:match('=') then
+              return '<bs><bs><' .. next_char
           end
           return ''
       end)
