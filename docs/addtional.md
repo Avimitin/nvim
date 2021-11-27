@@ -2,6 +2,7 @@
 
 <!-- vim-markdown-toc GFM -->
 
+  * [Tree view](#tree-view)
   * [Basic keys](#basic-keys)
     * [Cursor](#cursor)
     * [View](#view)
@@ -11,33 +12,36 @@
     * [buffer line](#buffer-line)
     * [Windows manage](#windows-manage)
     * [Tab navigation](#tab-navigation)
-  * [File Explorer](#file-explorer)
-  * [Hop](#hop)
-  * [neovim-lspconfig](#neovim-lspconfig)
-  * [Auto align](#auto-align)
-  * [Golang](#golang)
-  * [Git](#git)
-    * [Neogit](#neogit)
-    * [lazygit](#lazygit)
-  * [Symbols](#symbols)
-  * [vim-surround](#vim-surround)
-  * [wildfire](#wildfire)
-  * [Rust](#rust)
-  * [CPP](#cpp)
+* [Modify colorscheme](#modify-colorscheme)
+* [File Explorer](#file-explorer)
+* [lighspeed](#lighspeed)
+* [neovim-lspconfig](#neovim-lspconfig)
+* [Auto align](#auto-align)
+* [Golang](#golang)
+* [Git](#git)
+  * [Neogit](#neogit)
+  * [lazygit](#lazygit)
+* [Symbols](#symbols)
+* [vim-surround](#vim-surround)
+* [wildfire](#wildfire)
+* [Rust](#rust)
+* [CPP](#cpp)
+* [Debug](#debug)
 * [Markdown](#markdown)
   * [Snippets](#snippets)
   * [Preview](#preview)
   * [Toc](#toc)
   * [Table align](#table-align)
+  * [Others](#others)
 * [vim-commentary](#vim-commentary)
 * [FTerm](#fterm)
 * [Autopairs](#autopairs)
   * [`<CR>`](#cr)
-  * [Fastwrap](#fastwrap)
 * [Telescope](#telescope)
 * [Suda](#suda)
 * [Hexokinase](#hexokinase)
 * [Neoterm](#neoterm)
+* [Vim Rooter](#vim-rooter)
 
 <!-- vim-markdown-toc -->
 ## Tree view
@@ -72,15 +76,15 @@ leader key is `<Space>`.
     v
 ```
 
-| key | function                      |
-| --- | --------                      |
-| H   | Move to the front of the line |
-| L   | Move to the end of the line   |
-| K   | Scroll up                     |
-| J   | Scroll down                   |
-| W   | Move back 5 words             |
-| B   | Move forward 5 words          |
-| jj  | Esc at insert and visual mode |
+| key       | function                      |
+| ---       | --------                      |
+| H         | Move to the front of the line |
+| L         | Move to the end of the line   |
+| K         | Scroll up                     |
+| J         | Scroll down                   |
+| W         | Move back 5 words             |
+| B         | Move forward 5 words          |
+| `<Alt-;>` | Esc                           |
 
 ### View
 
@@ -106,8 +110,8 @@ but now `; + q + Enter` is only needed.
 
 | keymap       | function                                              |
 | ------       | --------                                              |
-| `leader` + y | copy to system clipboard (select text at visual mode) |
-| `leader` + p | paste from system clipboard                           |
+| `<Ctrl-y>`   | copy to system clipboard (select text at visual mode) |
+| `<Ctrl-p>`   | paste from system clipboard                           |
 
 ### buffer line
 
@@ -117,74 +121,117 @@ but now `; + q + Enter` is only needed.
 | `.`         | move to front tab                            |
 | `<Alt> + >` | move current tab to next tab                 |
 | `<Alt> + <` | move current tab to front tab                |
-| `<Ctrl> + c` | open pick mode and close the selected window |
+| `<Ctrl-c>`  | open pick mode and close the selected window |
+| `<Alt-q>`   | close the current buffer                     |
 
 ### Windows manage
 
 | keymap            | function                            |
 | ------            | --------                            |
-| `<Ctrl>+w`+`jhkl` | move cursor to `up/left/down/right` |
+| `<Ctrl>+w`+`jhkl` | move cursor to `down/left/up/right` |
 | `arrow`           | Resize windows in normal mode       |
 
 ### Tab navigation
 
-| keymap          | function       | docs                                   |
-| --------------  | -------------- | --------------                         |
-| `<CTRL>T + h/l` | tab naviagate  | h switch to previous, l switch to next |
+| keymap           | function       | docs                                   |
+| --------------   | -------------- | --------------                         |
+| `<CTRL-t> + h/l` | tab naviagate  | h switch to previous, l switch to next |
+| `<CTRL-t> + n`   | new tab        | -                                      |
+
+# Modify colorscheme
+
+Now there are
+[neovim-deus](https://github.com/Avimitin/neovim-deus) and
+[neovim-ayu](https://github.com/Shatur/neovim-ayu) can be used.
+
+You can modify the valuable `theme` in `colors.lua` like:
+
+```lua
+local theme = "ayu" -- <- modify this valuable
+```
+
+If you want to add the theme you want, follow the below instruction.
+
+1. Add the theme plugin in the plug.lua.
+
+Search the valuable and add you plugin into the curly brackets:
+
+```lua
+-- neovim color theme
+use {
+    'Avimitin/neovim-deus',
+    'Shatur/neovim-ayu',
+    'YOUR THEME',
+}
+```
+
+2. Add the configuration for this theme in the colors.lua
+
+Assuming that the name of your theme call "nord".
+
+```lua
+local theme = "nord"
+
+local function nord_setup()
+  -- Put your configuration here
+  -- If you don't have configuration for the theme,
+  -- leave it blank here.
+end
+
+local theme_opt = {
+  ["nord"] = nord_setup,
+}
+```
+
+You can see the example in the [colors.lua](../lua/colors.lua) file.
 
 # File Explorer
 
 | keymap        | function                                 |
 | ------        | --------                                 |
 | tt            | open nvim tree explorer                  |
+| tr            | refresh nvim tree explorer               |
 | `<LEADER>+o`  | open nnn file manager(install nnn first) |
 
-# Hop
+# lighspeed
 
-![image](https://camo.githubusercontent.com/e71f83e31fd8950c8a584e28d68a5ca97502d3a57919119fb9e21943cb5ff76c/68747470733a2f2f706861617a6f6e2e6e65742f6d656469612f75706c6f6164732f686f705f63686172325f6d6f64652e676966) 
+![image](https://raw.githubusercontent.com/ggandor/lightspeed.nvim/media/intro_img2_incremental_labeling.gif) 
 
-| keymap       | function             |
-| ---          | ---                  |
-| `f`          | activate hop         |
-| `<leader>+j` | easymotion jump line |
+| keymap | function                 |
+| ---    | ---                      |
+| `s/S`  | search character to jump |
 
-Example usage:
+Please read the lightspeed
+[README](https://github.com/ggandor/lightspeed.nvim#-usage) for details.
 
-Input `f` in normal mode and input two character of the keyword which highlighting. 
-Then the cursor will jump to that place.
 
 # neovim-lspconfig 
 
-| keymap       | function               |
-| ------       | --------               |
-| `[d/]d`      | Jump around diagnostic |
-| `LEADER` + e | show diagnostic        |
-| `LEADER + h` | show help message      |
-| gd           | go to definition       |
-| gD           | go to declaration      |
-
-Check [lsp.lua](../lua/plugins/lsp.lua) for more keymaps.
-
-Using `:LspInstall` to install lsp you want. Follow the instruction from
-[nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer).
-
-- Rename variable
-
 | keymap             | function                     |
-| ---                | ---                          |
+| ------             | --------                     |
+| `[d/]d`            | Jump around diagnostic       |
+| `LEADER` + e       | show diagnostic              |
+| `LEADER + h`       | show help message            |
+| gd                 | go to definition             |
+| gD                 | go to declaration            |
 | `<leader>` + r + n | rename variable under cursor |
+
+Check [keymap.lua](../lua/keymap.lua) for more keymaps.
+
+Use the command `:LspInstall` to install lsp you want. Follow the instruction from
+[nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer).
 
 # Auto align
 
 <img style="max-width: 500px; max-height: 500px" 
 src="https://raw.githubusercontent.com/junegunn/i/master/easy-align/equals.gif" />
 
-| keymap                     | function                                                      |
-| ------                     | --------                                                      |
-| `:EasyAlign<CR>+<KEYWORD>` | In virsual mode or normal mode this will active align plugin. |
-| `<leader>+e`               | Activate easy align when in visual mode                       |
+| keymap       | function                                                      |
+| ------       | --------                                                      |
+| `:EasyAlign` | In virsual mode or normal mode this will active align plugin. |
+| `<leader>+e` | Activate easy align when in visual mode                       |
 
-Checkout [junegunn/vim-easy-align](https://github.com/junegunn/vim-easy-align) for more.
+Read [junegunn/vim-easy-align](https://github.com/junegunn/vim-easy-align) for more.
 
 # Golang
 
@@ -257,9 +304,7 @@ plugin to help you quick select surrounded object
 <img style="max-width: 500px; max-height: 500px" 
 src="https://raw.githubusercontent.com/gcmt/wildfire.vim/master/_assets/preview.gif" />
 
-Press enter to select text.
-
-> using wildfire and vim-surround can quickly select and changed object symbol.
+Press `<Return>` to select text.
 
 # Rust
 
@@ -273,6 +318,8 @@ Press enter to select text.
 
 Also you will have extra command to help you coding in Rust. See
 [rust-tool.nvim](https://github.com/simrat39/rust-tools.nvim/) for more.
+
+Use keymap `<LEADER>ra` to activate `:RustHoverActions`.
 
 # CPP
 
@@ -348,6 +395,12 @@ that suitable for GitLab repository.
 
 Select lines at normal mode, press `:EasyAlign *|` can align your table.
 
+## Others
+
+I've add the vim-markdown to provide some handy markdown tools, read the
+[README](https://github.com/plasticboy/vim-markdown#mappings)
+file for details.
+
 # vim-commentary
 
 Use gcc to comment out a line (takes a count), gc to comment out the target
@@ -375,25 +428,13 @@ Before        Input         After
 ------------------------------------
 ```
 
-## Fastwrap
-
-```text
-Before        Input                    After
---------------------------------------------------
-(|foobar      \e then press $        (|foobar)
-(|)(foobar)   \e then press q       (|(foobar))
-```
-
 # Telescope
 
 ![screenshot](https://raw.githubusercontent.com/siduck76/dotfiles/all/rice%20flex/tel.png) 
 
 ```text
-<leader>ff Telescope find_files
-<leader>fp Telescope media_files
-<leader>fg Telescope live_grep
-<leader>fb Telescope buffers
-<leader>fh Telescope help_tags
+<leader>tf Telescope find_files
+<leader>tg Telescope live_grep
 ```
 
 # Suda
