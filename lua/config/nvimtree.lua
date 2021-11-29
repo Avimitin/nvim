@@ -54,7 +54,7 @@ require'nvim-tree'.setup {
     update_cwd = true,
     update_to_buf_dir = {enable = true, auto_open = true},
     diagnostics = {
-        enable = true,
+        enable = false,
         icons = {hint = "", info = "", warning = "", error = ""}
     },
     update_focused_file = {enable = false, update_cwd = false, ignore_list = {}},
