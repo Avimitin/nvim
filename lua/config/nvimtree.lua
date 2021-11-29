@@ -6,7 +6,6 @@ end
 
 local tree_cb = tree_c.nvim_tree_callback
 
-vim.g.nvim_tree_gitignore = 0
 vim.g.nvim_tree_indent_markers = 0
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_highlight_opened_files = 1
@@ -60,7 +59,9 @@ require'nvim-tree'.setup {
     },
     update_focused_file = {enable = false, update_cwd = false, ignore_list = {}},
     system_open = {cmd = nil, args = {}},
-
+    git = {
+      ignore = false,
+    },
     filters = {
       dotfiles = true,
       custom = {
