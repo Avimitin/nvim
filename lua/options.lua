@@ -31,6 +31,7 @@ opt.listchars = "tab:-->,trail:·"
 opt.scrolloff = 5
 
 -- Time in milliseconds to wait for a key code sequence to complete
+opt.timeoutlen = 200
 opt.ttimeoutlen = 0
 -- no waiting for key combination
 opt.timeout = false

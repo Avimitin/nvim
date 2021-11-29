@@ -39,8 +39,6 @@ map("i", "<C-p>", [[<ESC>"+pi]])
 
 map("n", "<ESC>", ":nohlsearch<CR>")
 
-map("i", "<A-;>", "<ESC>")
-
 map("n", "<up>", ":res +5<CR>")
 map("n", "<down>", ":res -5<CR>")
 map("n", "<left>", ":vertical resize-5<CR>")
