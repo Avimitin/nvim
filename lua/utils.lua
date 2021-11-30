@@ -39,6 +39,14 @@ local function setup_plugins_after_loaded()
     require("colors")
 end
 
+local function setup_plugins_before_loaded()
+  if not vim.fn.has("nvim-0.6") then
+    -- for filetype.nvim
+    -- If using a Neovim version earlier than 0.6.0
+    vim.g.did_load_filetypes = 1
+  end
+end
+
 M.load_plugins = function()
   -- detecting plugin manager
   local no_packer = false
@@ -59,6 +67,9 @@ M.load_plugins = function()
       M.log_err(error_msg, "load plugin")
       return
   end
+
+  -- add a hook
+  setup_plugins_before_loaded()
 
   -- Reading plugins configuration
   local ok, error = pcall(require, 'plug')
