@@ -291,11 +291,14 @@ return require('packer').startup(function(use)
 
     -- speed up neovim!
     use {
-        'nathom/filetype.nvim'
-        -- If using a Neovim version earlier than 0.6.0
-        -- setup = function()
-        --   vim.g.did_load_filetypes = 1
-        -- end
+        'nathom/filetype.nvim',
+        config = function()
+          require("filetype").setup({
+            -- overrides the filetype or function for filetype
+            -- See https://github.com/nathom/filetype.nvim#customization
+            overrides = {}
+          })
+        end
     }
 
     use {
