@@ -361,7 +361,33 @@ insert_right {
 
 gl.short_line_list = {
     'LuaTree', 'vista', 'dbui', 'startify', 'term', 'nerdtree', 'fugitive',
-    'fugitiveblame', 'plug', 'NvimTree', 'DiffviewFiles'
+    'fugitiveblame', 'plug', 'NvimTree', 'DiffviewFiles', 'Outline'
+}
+
+local BufferTypeMap = {
+  ['Mundo'] = 'Mundo History',
+  ['MundoDiff'] = 'Mundo Diff',
+  ['NvimTree'] = ' Tree',
+  ['fugitive'] = ' Fugitive',
+  ['fugitiveblame'] = ' Fugitive Blame',
+  ['help'] = ' Help',
+  ['minimap'] = 'Minimap',
+  ['qf'] = ' Quick Fix',
+  ['tabman'] = 'Tab Manager',
+  ['tagbar'] = 'Tagbar',
+  ['toggleterm'] = 'Terminal',
+  ['FTerm'] = 'Terminal',
+  ['git'] = ' Git',
+  ['NeogitStatus'] = ' Neogit Status',
+  ['NeogitPopup'] = ' Neogit Popup',
+  ['NeogitCommitMessage'] = ' Neogit Commit',
+  ['DiffviewFiles'] = ' Diff View',
+  ['dapui_scopes'] = 'כֿ Dap Scope',
+  ['dapui_breakpoints'] = ' Dap Breakpoints',
+  ['dapui_stacks'] = ' Dap Stacks',
+  ['dapui_watches'] = 'ﭓ Dap Stacks',
+  ['dap-repl'] = ' Dap REPL',
+  ['Outline'] = ' SymbolOutline',
 }
 
 require ('galaxyline').section.short_line_left = {
@@ -369,30 +395,6 @@ require ('galaxyline').section.short_line_left = {
     ShortLineLeftBufferType = {
       highlight = {colors.cyan, colors.line_bg},
       provider = function ()
-        local BufferTypeMap = {
-          ['Mundo'] = 'Mundo History',
-          ['MundoDiff'] = 'Mundo Diff',
-          ['NvimTree'] = ' Tree',
-          ['fugitive'] = ' Fugitive',
-          ['fugitiveblame'] = ' Fugitive Blame',
-          ['help'] = ' Help',
-          ['minimap'] = 'Minimap',
-          ['qf'] = ' Quick Fix',
-          ['tabman'] = 'Tab Manager',
-          ['tagbar'] = 'Tagbar',
-          ['toggleterm'] = 'Terminal',
-          ['FTerm'] = 'Terminal',
-          ['git'] = ' Git',
-          ['NeogitStatus'] = ' Neogit Status',
-          ['NeogitPopup'] = ' Neogit Popup',
-          ['NeogitCommitMessage'] = ' Neogit Commit',
-          ['DiffviewFiles'] = ' Diff View',
-          ['dapui_scopes'] = 'כֿ Dap Scope',
-          ['dapui_breakpoints'] = ' Dap Breakpoints',
-          ['dapui_stacks'] = ' Dap Stacks',
-          ['dapui_watches'] = 'ﭓ Dap Stacks',
-          ['dap-repl'] = ' Dap REPL',
-        }
         local name = BufferTypeMap[vim.bo.filetype] or ' Editor'
         return string.format('  %s', name)
       end,
