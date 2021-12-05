@@ -16,6 +16,13 @@
 > 中文文档因为我比较懒，所以不能保证完全同步，如果遇到
 > 任何文档不对应的问题，请以英文版为准。
 
+If you want a minimal vimrc, use this:
+
+```bash
+# it is not tested yet, feel free to open issues
+curl -SL "https://raw.githubusercontent.com/Avimitin/nvim/master/.vimrc" -o ~/.vimrc
+```
+
 ## Features
 
 - Really fast! Start up in only 28ms! (See [`benchmark`](./benchmark.txt))
