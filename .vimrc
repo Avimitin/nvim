@@ -31,7 +31,7 @@ set whichwrap+=<,>,h,l
 set ignorecase
 set smartcase
 set list
-set listchars=tab:\|\ ,trail:·
+set listchars=tab:\|\ ,trail:-
 " statusline settings
 let g:currentmode={
        \ 'n'  : 'NORMAL ',
