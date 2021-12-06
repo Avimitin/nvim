@@ -90,9 +90,9 @@ xnoremap B 5b
 nnoremap <C-z> u
 
 nnoremap > >>
-xnoremap > gv
+xnoremap > >gv
 nnoremap < <<
-xnoremap < gv
+xnoremap < <gv
 
 nnoremap - N
 nnoremap = n
