@@ -82,21 +82,22 @@ return require('packer').startup(function(use)
     use {
         'williamboman/nvim-lsp-installer',
         ft = {
-            "bash", "sh", "rust", "c", "cpp", "lua", "markdown", "go", "html",
+            "bash", "sh", "rust", "c", "cpp", "lua", "go", "html",
             "toml", "json", "python"
-        }
+        },
+        config = function() require("lspconfig") end,
     }
 
     use {
         'neovim/nvim-lspconfig',
         config = function() require("config.lsp") end,
-        after = "nvim-lsp-installer"
+        module = "lspconfig",
     }
 
     -- RUST
     use {
         'simrat39/rust-tools.nvim',
-        after = "nvim-lspconfig",
+        ft = "rust",
         config = function() require("config.rust") end
     }
 
