@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
     use {'kyazdani42/nvim-web-devicons', event = "BufRead"}
 
     use {
-        'glepnir/galaxyline.nvim',
+        'Avimitin/galaxyline.nvim',
         branch = 'main',
         after = "nvim-web-devicons",
         config = function() require("config.statusline") end
