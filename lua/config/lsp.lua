@@ -1,8 +1,8 @@
 local present1, _ = pcall(require, "lspconfig")
 local present2, installer = pcall(require, "nvim-lsp-installer")
 if not (present1 or present2) then
-  vim.notify("Fail to setup LSP", vim.log.levels.ERROR, {title= 'plugins'})
-  return
+    vim.notify("Fail to setup LSP", vim.log.levels.ERROR, {title = 'plugins'})
+    return
 end
 
 local on_attach = require('utils').lsp_attach
@@ -42,45 +42,43 @@ local lua_setting = {
     }
 }
 
-installer.settings {
-    ui = {
-        icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
+if installer.settings then
+    installer.settings {
+        ui = {
+            icons = {
+                server_installed = "✓",
+                server_pending = "➜",
+                server_uninstalled = "✗"
+            }
         }
     }
-}
 
-local servers = {
-    "clangd", "gopls", "sumneko_lua"
-}
+    local servers = {"clangd", "gopls", "sumneko_lua"}
 
-for _, lang in pairs(servers) do
-    local ok, server = installer.get_server(lang)
-    if ok then
-        if not server:is_installed() then
-            print("Installing " .. lang)
-            server:install()
+    for _, lang in pairs(servers) do
+        local ok, server = installer.get_server(lang)
+        if ok then
+            if not server:is_installed() then
+                print("Installing " .. lang)
+                server:install()
+            end
         end
     end
+
+    installer.on_server_ready(function(server)
+        local opts = {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            root_dir = vim.loop.cwd
+        }
+
+        if server.name == "sumneko_lua" then opts.settings = lua_setting end
+
+        -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
+        server:setup(opts)
+        vim.cmd [[ do User LspAttachBuffers ]]
+    end)
 end
-
-installer.on_server_ready(function(server)
-    local opts = {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      root_dir = vim.loop.cwd
-    }
-
-    if server.name == "sumneko_lua" then
-      opts.settings = lua_setting
-    end
-
-    -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
-    server:setup(opts)
-    vim.cmd [[ do User LspAttachBuffers ]]
-end)
 
 local signs = {Error = " ", Warn = " ", Hint = " ", Info = " "}
 
@@ -118,9 +116,7 @@ local function goto_definition(split_cmd)
             return nil
         end
 
-        if split_cmd then
-          vim.cmd(split_cmd)
-        end
+        if split_cmd then vim.cmd(split_cmd) end
 
         if vim.tbl_islist(result) then
             util.jump_to_location(result[1])
