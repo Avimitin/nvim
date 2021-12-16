@@ -18,18 +18,3 @@ require('bufferline').setup {
         always_show_bufferline = true
     }
 }
-
-local opt = {noremap = true, silent = true}
--- bufferline tab stuff
-vim.api.nvim_set_keymap("n", "<A-t>", ":tabnew<CR>", opt) -- new tab
-vim.api.nvim_set_keymap("n", "<C-c>", ":BufferLinePickClose<CR>", opt) -- close tab
-vim.api.nvim_set_keymap("n", "<A-q>", [[<CMD>:bd<CR>]], opt)
-
--- move between tabs
-vim.api.nvim_set_keymap("n", ".", [[<Cmd>BufferLineCycleNext<CR>]], opt)
-vim.api.nvim_set_keymap("n", ",", [[<Cmd>BufferLineCyclePrev<CR>]], opt)
-
--- move tabs
-vim.api.nvim_set_keymap("n", "<A->>", [[<CMD>BufferLineMoveNext<CR>]], opt)
-vim.api.nvim_set_keymap("n", "<A-<>", [[<CMD>BufferLineMovePrev<CR>]], opt)
-vim.api.nvim_set_keymap("n", "<A-p>", [[<CMD>:BufferLinePick<CR>]], opt)
