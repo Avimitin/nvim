@@ -70,3 +70,18 @@ map("n", "<LEADER>tg", [[:lua require('telescope.builtin').live_grep{}<CR>]])
 
 map("n", "<LEADER>ng", [[<CMD>Neogit<CR>]])
 map("n", "<LEADER>lg", [[<CMD>LazygitToggle<CR>]])
+
+
+-- bufferline tab stuff
+map("n", "<A-t>", ":tabnew<CR>") -- new tab
+map("n", "<C-c>", ":BufferLinePickClose<CR>") -- close tab
+map("n", "<A-q>", [[:Sayonara<CR>]])
+
+-- move between tabs
+map("n", ".", [[<Cmd>BufferLineCycleNext<CR>]])
+map("n", ",", [[<Cmd>BufferLineCyclePrev<CR>]])
+
+-- move tabs
+map("n", "<A->>", [[<CMD>BufferLineMoveNext<CR>]])
+map("n", "<A-<>", [[<CMD>BufferLineMovePrev<CR>]])
+map("n", "<A-p>", [[<CMD>:BufferLinePick<CR>]])

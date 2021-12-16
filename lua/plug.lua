@@ -352,4 +352,12 @@ return require('packer').startup(function(use)
         }
       end
     }
+
+    use {
+      'mhinz/vim-sayonara',
+      setup = function()
+        vim.g.sayonara_confirm_quit = 1
+      end,
+      cmd = 'Sayonara'
+    }
 end)
