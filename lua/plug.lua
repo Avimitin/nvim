@@ -72,6 +72,8 @@ return require('packer').startup(function(use)
 
     use {'hrsh7th/vim-vsnip', after = {'nvim-cmp'}}
 
+    use {"lukas-reineke/cmp-rg", after = {'nvim-cmp'}}
+
     use {
         'windwp/nvim-autopairs',
         config = function() require('config.autopairs') end,
