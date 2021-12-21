@@ -1,7 +1,7 @@
 -- theme
 vim.opt.termguicolors=true
 vim.opt.background="dark"
-local theme = "ayu"
+local theme = "deus"
 
 local function ayu_setup()
   require('ayu').setup({
@@ -11,7 +11,7 @@ local function ayu_setup()
 end
 
 local function deus_setup()
-  vim.g.deus_background = "mid"
+  vim.g.deus_background = "hard"
 end
 
 local theme_opt = {
