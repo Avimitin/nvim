@@ -23,6 +23,7 @@ cmp.setup({
         luasnip = "[LuaSnip]",
         nvim_lua = "[Lua]",
         latex_symbols = "[Latex]",
+        rg = "[RG]"
       })}),
   },
    mapping = {
@@ -62,9 +63,10 @@ cmp.setup({
     { name = 'vsnip' },
     { name = 'buffer' },
     { name = 'path' },
+    { name = 'rg' },
   },
   experimental = {
-    ghost_text=true
+    ghost_text=true,
   },
 })
 
@@ -74,8 +76,3 @@ cmp.setup.cmdline('/', {
     { name = 'buffer' }
   }
 })
-
-vim.cmd([[autocmd FileType
-\ TelescopePrompt,markdown,asciidoc,gitcommit
-\ lua require('cmp').setup.buffer { enabled = false }]])
-
