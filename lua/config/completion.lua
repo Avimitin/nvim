@@ -23,7 +23,7 @@ cmp.setup({
     format = require("lspkind").cmp_format({
       with_text = true,
       menu = ({
-        buffer = "/ ﬘ Buf",
+        buffer = "﬘ Buf",
         nvim_lsp = " LSP",
         luasnip = " LSnip",
         snippet = " VSnip",
