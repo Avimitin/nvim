@@ -85,7 +85,7 @@ return require('packer').startup(function(use)
         'williamboman/nvim-lsp-installer',
         ft = {
             "bash", "sh", "c", "cpp", "lua", "go", "html",
-            "toml", "json", "python"
+            "toml", "json", "python", "javascript"
         },
         config = function() require("lspconfig") end,
     }
@@ -134,7 +134,7 @@ return require('packer').startup(function(use)
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
-        ft = {"cpp", "toml", "rust", "go", "json", "lua", "fish", "c"},
+        ft = {"cpp", "toml", "rust", "go", "json", "lua", "fish", "c", "javascript"},
         config = function() require('config.treesitter') end
     }
 
