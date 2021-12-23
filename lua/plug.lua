@@ -48,6 +48,7 @@ return require('packer').startup(function(use)
     use {
         'Avimitin/neovim-deus',
         'Shatur/neovim-ayu',
+        'rebelot/kanagawa.nvim',
     }
 
     -- ==================== CODING ==================================
