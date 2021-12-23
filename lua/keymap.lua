@@ -71,6 +71,7 @@ map("n", "<LEADER>tg", [[:lua require('telescope.builtin').live_grep{}<CR>]])
 map("n", "<LEADER>ng", [[<CMD>Neogit<CR>]])
 map("n", "<LEADER>lg", [[<CMD>LazygitToggle<CR>]])
 
+map("i", "<A-;>", "<ESC>")
 
 -- bufferline tab stuff
 map("n", "<A-t>", ":tabnew<CR>") -- new tab
