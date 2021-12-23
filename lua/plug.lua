@@ -233,12 +233,6 @@ return require('packer').startup(function(use)
     -- open file when forget sudo
     use {'lambdalisue/suda.vim', cmd = {'SudaWrite', 'SudaRead'}}
 
-    use {
-        'famiu/nvim-reload',
-        cmd = {"Reload", "Restart"},
-        requires = "nvim-lua/plenary.nvim"
-    }
-
     use {"andrejlevkovitch/vim-lua-format", ft = {"lua"}}
 
     use {
