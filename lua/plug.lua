@@ -147,26 +147,6 @@ return require('packer').startup(function(use)
         config = function() require("config.gitsign") end
     }
 
-    use {
-        'TimUntersberger/neogit',
-        requires = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'},
-        config = function()
-            require('neogit').setup {
-                integrations = {diffview = true},
-                -- Change the default way of opening neogit
-                kind = "split_above",
-                -- customize displayed signs
-                signs = {
-                    -- { CLOSED, OPENED }
-                    section = {"", ""},
-                    item = {"", ""},
-                    hunk = {"", ""}
-                }
-            }
-        end,
-        cmd = "Neogit"
-    }
-
     -- Golang
     use {
         'fatih/vim-go',
