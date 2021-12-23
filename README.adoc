@@ -174,15 +174,14 @@ Take a look at their contribution, which is really fantastic.
 Please read
 https://github.com/Avimitin/commit-convention[commit-convention]
 
-Tldr: all the commit have a letter prefix which mark the commit type.
-
-* N means new update
-* R means refactor
-* F means fix
-* C means not a important commit (aka this commit don’t affect the code)
+* new means new update
+* rft means refactor
+* fix means a fix commit
+* chr means it is a trivial commit (this commit don’t affect the code)
+* doc means documents update
 * ! means breaking change
 
-Users only need to take a look on commit with `!` prefix and `N` prefix.
+Users only need to take care of commit with `!` suffix and `new/rft/fix` prefixes.
 
 === TODO
 
