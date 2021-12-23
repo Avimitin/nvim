@@ -3,7 +3,7 @@ vim.opt.termguicolors=true
 vim.opt.background="dark"
 -- Available theme value:
 -- "ayu", "kanagawa", "deus"
-local theme = "kanagawa"
+local theme = "deus"
 
 local function ayu_setup()
   require('ayu').setup({
