@@ -361,7 +361,7 @@ insert_right {
 
 gl.short_line_list = {
     'LuaTree', 'vista', 'dbui', 'startify', 'term', 'nerdtree', 'fugitive',
-    'fugitiveblame', 'plug', 'NvimTree', 'DiffviewFiles', 'Outline'
+    'fugitiveblame', 'plug', 'NvimTree', 'DiffviewFiles', 'Outline', 'neoterm'
 }
 
 local BufferTypeMap = {
@@ -377,6 +377,7 @@ local BufferTypeMap = {
   ['tagbar'] = 'Tagbar',
   ['toggleterm'] = 'Terminal',
   ['FTerm'] = 'Terminal',
+  ['neoterm'] = ' NeoTerm',
   ['git'] = ' Git',
   ['NeogitStatus'] = ' Neogit Status',
   ['NeogitPopup'] = ' Neogit Popup',
@@ -385,7 +386,7 @@ local BufferTypeMap = {
   ['dapui_scopes'] = 'כֿ Dap Scope',
   ['dapui_breakpoints'] = ' Dap Breakpoints',
   ['dapui_stacks'] = ' Dap Stacks',
-  ['dapui_watches'] = 'ﭓ Dap Stacks',
+  ['dapui_watches'] = 'ﭓ Dap Watch',
   ['dap-repl'] = ' Dap REPL',
   ['Outline'] = ' SymbolOutline',
 }
