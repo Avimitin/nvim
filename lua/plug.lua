@@ -175,6 +175,11 @@ return require('packer').startup(function(use)
         ft = {"markdown"}
     }
 
+    use {
+      'dhruvasagar/vim-table-mode',
+      cmd = 'TableModeToggle',
+    }
+
     -- open a big terminal
     use {
         'numtostr/FTerm.nvim',
