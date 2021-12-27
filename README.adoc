@@ -175,13 +175,13 @@ Please read
 https://github.com/Avimitin/commit-convention[commit-convention]
 
 * new means new update
-* rew means refactor
+* rwt means rewrite, similar to refactor
 * fix means a fix commit
 * odd means it is a trivial commit (this commit don’t affect the code)
 * doc means documents update
 * ! means breaking change
 
-Users only need to take care of commit with `!` suffix and `new/rew/fix` prefixes.
+Users only need to take care of commit with `!` suffix and `new/rwt/fix` prefixes.
 
 === TODO
 
