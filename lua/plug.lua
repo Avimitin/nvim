@@ -303,15 +303,16 @@ return require('packer').startup(function(use)
         cmd = {'G', 'Git', 'Ggrep', 'Gdiffsplit', 'GBrowse'}
     }
 
-    -- Dependency: tmux, nnn
-    -- This is heavily based on my configured nnn
     use {
         "luukvbaal/nnn.nvim",
         config = function()
             require("nnn").setup({
                 picker = {
-                    cmd = [[NNN_PLUG="p:preview-tui" ICONLOOKUP=1 tmux new-session nnn -a -Pp]],
-                    style = {border = "shadow"},
+                    style = {
+                      border = "rounded",
+                      width = 0.4,
+                      height = 0.5,
+                    },
                     session = "shared"
                 }
             })
