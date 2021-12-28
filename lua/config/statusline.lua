@@ -361,7 +361,7 @@ insert_right {
 
 gl.short_line_list = {
     'LuaTree', 'vista', 'dbui', 'startify', 'term', 'nerdtree', 'fugitive',
-    'fugitiveblame', 'plug', 'NvimTree', 'DiffviewFiles', 'Outline', 'neoterm'
+    'fugitiveblame', 'plug', 'NvimTree', 'DiffviewFiles', 'Outline', 'neoterm','fern'
 }
 
 local BufferTypeMap = {
@@ -389,6 +389,7 @@ local BufferTypeMap = {
   ['dapui_watches'] = 'ﭓ Dap Watch',
   ['dap-repl'] = ' Dap REPL',
   ['Outline'] = ' SymbolOutline',
+  ['fern'] = ' Fern FM',
 }
 
 require ('galaxyline').section.short_line_left = {
