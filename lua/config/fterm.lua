@@ -4,10 +4,8 @@ if not pcall(require, 'FTerm') then
 end
 
 require('FTerm').setup {
-    dimensions = {height = 0.9, width = 0.9},
-
-    border = 'shadow',
-
+    dimensions = {height = 1, width = 1},
+    border = 'rounded',
     hl = 'FTermBackground'
 }
 
