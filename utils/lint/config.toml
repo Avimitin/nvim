@@ -1,4 +1,4 @@
-std = "lint/globals"
+std = "utils/lint/globals"
 
 [rules]
 shadowing = "allow"
