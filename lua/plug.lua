@@ -304,23 +304,6 @@ return require('packer').startup(function(use)
     }
 
     use {
-        "luukvbaal/nnn.nvim",
-        config = function()
-            require("nnn").setup({
-                picker = {
-                    style = {
-                      border = "rounded",
-                      width = 0.4,
-                      height = 0.5,
-                    },
-                    session = "shared"
-                }
-            })
-        end,
-        cmd = {'NnnPicker', 'NnnExplorer'}
-    }
-
-    use {
       "ggandor/lightspeed.nvim"
     }
 
@@ -330,5 +313,10 @@ return require('packer').startup(function(use)
         vim.g.sayonara_confirm_quit = 1
       end,
       cmd = 'Sayonara'
+    }
+
+    use {
+      'obaland/vfiler.vim',
+      cmd = 'VFiler',
     }
 end)
