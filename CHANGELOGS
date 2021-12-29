@@ -1,0 +1,24 @@
+3.9.10~3.9.11
+==============
+This update contains commit convention update.
+Please read: https://commit-convention.sh1mar.in/ for details.
+
+Breaking Changes
+================
+* plugin: replace file picker plugin (4662acb)
+* keymap: update lazygit keymap (2b99966)
+* plugin: remove neogit (1232b1d)
+* plugins: remove famiu/nvim-reload (12c3db5)
+* escape: replace `jj` with `<A-;>` (d7bdd1c)
+
+Features
+========
+* statusline: add short line icon for fern and neoterm (See commit 0e7def8 and ab2160a)
+* plugins: add plugin vim-table-mode (See commit faebcd9)
+* command: add new command `Glog` (See commit e6e0c4c)
+
+Rewrite
+=======
+* fterm: update fterm and lazygit colorscheme (See commit fcc2c30)
+* keymap: update ~neogit~ and fugitive keymap (See commit 2debc8d)
+* plugin: update vim-lua-format load condition (See commit 89674a4)
