@@ -1,7 +1,7 @@
 #!/bin/sh
 set -xef
 
-OUTPUT_FILE="./utils"
+OUTPUT_FILE="./utils/benchmark.txt"
 
 # run <LOOP_COUNT> <FILE_NAME>
 # example: run 3 lib.rs
