@@ -22,4 +22,4 @@ jobs:
         chmod +x ./selene
     - name: Run lint
       shell: bash
-      run: ./selene --config lint/config.toml lua
+      run: ./selene --config ./utils/lint/config.toml lua
