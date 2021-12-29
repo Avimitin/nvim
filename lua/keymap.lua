@@ -48,7 +48,7 @@ map("n", "<right>", ":vertical resize+5<CR>")
 map("i", "<C-c>", "<ESC>zzi")
 
 -- nnn
-map('n', '<Leader>o', ':NnnPicker %:p:h<CR>')
+map('n', '<Leader>o', ':VFiler -no-listed<CR>')
 
 -- EasyAlign
 map("v", "<leader>e", ":EasyAlign<CR>")
