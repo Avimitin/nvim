@@ -93,7 +93,10 @@ cmp.setup.cmdline('/', {
 
 local function setup_neorg_cmp()
     -- Get the current Neorg state
-  local neorg = require('neorg')
+  local ok, neorg = pcall(require, "neorg")
+  if not ok then
+    return
+  end
 
   --- Loads the Neorg completion module
   local function load_completion()
