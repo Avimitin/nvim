@@ -3,7 +3,7 @@ vim.opt.termguicolors=true
 vim.opt.background="dark"
 -- Available theme value:
 -- "ayu", "kanagawa", "deus"
-local theme = "deus"
+local theme = "kanagawa"
 
 local function ayu_setup()
   require('ayu').setup({
@@ -17,6 +17,7 @@ local function deus_setup()
 end
 
 local function kanagawa_setup()
+  local default = require('kanagawa.colors').setup()
   require('kanagawa').setup({
       undercurl = true,           -- enable undercurls
       commentStyle = "italic",
@@ -29,7 +30,10 @@ local function kanagawa_setup()
       specialException = true,    -- special highlight for exception handling keywords
       transparent = false,        -- do not set background color
       colors = {},
-      overrides = {},
+      overrides = {
+        LazygitBackground = { bg = default.sumilnk3 },
+        FTermBackground = { bg = default.sumilnk3 }
+      },
   })
 end
 

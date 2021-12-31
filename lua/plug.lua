@@ -184,8 +184,6 @@ return require('packer').startup(function(use)
     use {
         'numtostr/FTerm.nvim',
         config = function()
-            vim.cmd [[hi LazygitBackground guibg=#050607]]
-            vim.cmd [[hi FTermBackground   guibg=#050607]]
             require("config.fterm")
             require('utils').new_cmd("LazygitToggle",
                                      "lua require('config.lazygit').toggle()",
