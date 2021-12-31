@@ -216,7 +216,7 @@ return require('packer').startup(function(use)
     -- open file when forget sudo
     use {'lambdalisue/suda.vim', cmd = {'SudaWrite', 'SudaRead'}}
 
-    use {"andrejlevkovitch/vim-lua-format", cmd = {'LuaFormat'}}
+    use {"andrejlevkovitch/vim-lua-format", ft = "lua"}
 
     use {
         'glepnir/dashboard-nvim',
