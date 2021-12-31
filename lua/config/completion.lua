@@ -29,7 +29,8 @@ cmp.setup({
         snippet = " VSnip",
         nvim_lua = " NvimLua",
         latex_symbols = "[Latex]",
-        rg = "גּ RG"
+        rg = "גּ RG",
+        neorg = "[ ORG-MODE]",
       })
     })
   },
@@ -73,7 +74,8 @@ cmp.setup({
     {name = 'vsnip'},
     {name = 'buffer'},
     {name = 'path'},
-    {name = 'rg'}
+    {name = 'rg'},
+    {name = 'neorg'}
   },
   experimental = {
     ghost_text = true
@@ -89,4 +91,31 @@ cmp.setup.cmdline('/', {
   }
 })
 
-vim.cmd[[hi CmpItemMenu guifg=#83a598]]
+local function setup_neorg_cmp()
+    -- Get the current Neorg state
+  local neorg = require('neorg')
+
+  --- Loads the Neorg completion module
+  local function load_completion()
+      neorg.modules.load_module("core.norg.completion", nil, {
+          engine = "nvim-cmp" -- Choose your completion engine here
+      })
+  end
+
+  -- If Neorg is loaded already then don't hesitate and load the completion
+  if neorg.is_loaded() then
+      load_completion()
+  else -- Otherwise wait until Neorg gets started and load the completion module then
+      neorg.callbacks.on_event("core.started", load_completion)
+  end
+end
+
+-- Register setup function here
+local function cmp_setup_hook()
+  local notify_list = { setup_neorg_cmp }
+  for _, regis in ipairs(notify_list) do
+    regis()
+  end
+end
+
+cmp_setup_hook()
