@@ -1,5 +1,23 @@
+3.9.11~3.10.0
+=============
+
+Features
+========
+* plugin: add new plugin neorg (See commit c5fcd4b)
+
+Fix
+===
+* lsp: replace show line diagnostic api (See commit d4d290b)
+* plugin: fix nvim-cmp hook (See commit fd44872)
+* plugin: fix luaformat load sequence (See commit f2780c1)
+
+Chore
+=====
+* colors: use kanagawa as default theme (See commit f2c2890)
+
+=============
 3.9.10~3.9.11
-==============
+=============
 This update contains commit convention update.
 Please read: https://commit-convention.sh1mar.in/ for details.
 
