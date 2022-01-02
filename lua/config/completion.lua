@@ -23,13 +23,13 @@ cmp.setup({
     format = require("lspkind").cmp_format({
       with_text = true,
       menu = ({
-        buffer = "﬘ Buf",
-        nvim_lsp = " LSP",
-        luasnip = " LSnip",
-        snippet = " VSnip",
-        nvim_lua = " NvimLua",
-        latex_symbols = "[Latex]",
-        rg = "גּ RG",
+        buffer = "[﬘ Buf]",
+        nvim_lsp = "[ LSP]",
+        luasnip = "[ LSnip]",
+        snippet = "[ VSnip]",
+        nvim_lua = "[ NvimLua]",
+        latex_symbols = "[ Latex]",
+        rg = "[ RG]",
         neorg = "[ ORG-MODE]",
       })
     })
