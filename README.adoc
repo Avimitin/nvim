@@ -8,6 +8,7 @@ link:#more-screenshot[image:https://img.shields.io/badge/More%20Screenshot-click
 image:https://github.com/avimitin/nvim/actions/workflows/test.yml/badge.svg[badge]
 image:https://github.com/avimitin/nvim/actions/workflows/lint.yml/badge.svg[badge]
 image:https://img.shields.io/badge/Language-Lua-blue?logo=lua&logoColor=blue[badge]
+image:https://img.shields.io/github/forks/Avimitin/nvim?style=social[badge]
 
 == Guide
 
@@ -19,30 +20,10 @@ ____
 任何文档不对应的问题，请以英文版为准。
 ____
 
-If you want a minimal vimrc, use this:
-
-[source,bash]
-----
-# it is not tested yet, feel free to open issues
-curl -SL "https://raw.githubusercontent.com/Avimitin/nvim/master/.vimrc" -o ~/.vimrc
-----
-
 == Features
 
-* Really fast! Start up in only 28ms! (See
-link:./benchmark.txt[`benchmark`])
-* LSP support
-* Completion like VSCode
-* Tree file manager
-* Symbols explorer
-* Buffer line manager
-* Fuzzy file/text/image finder
-* Floating terminal and REPL support
-* Handy git tools
-* Motion on speed
-* Markdown preview and snippet
-* Optimized Rust, C++, Golang, Lua coding experience
-* Configured most of the GUI: nvui, neovide, nvim-qt…
+* With all the stuff that other configuration have and optimized start up speed. (See
+link:./utils/benchmark.txt[`benchmark`])
 
 == Installation
 
@@ -70,7 +51,17 @@ ____
 wait for it until it response message of installation success.
 Otherwise, you will find that you can’t activate it.
 
-=== Clean Installation
+'''''
+
+If you want a minimal vimrc, use this:
+
+[source,bash]
+----
+# it is not tested yet, feel free to open issues
+curl -SL "https://raw.githubusercontent.com/Avimitin/nvim/master/.vimrc" -o ~/.vimrc
+----
+
+=== How to clean the plugin and reinstall
 
 You need to clean the below directory for a fresh install.
 
