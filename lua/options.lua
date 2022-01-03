@@ -1,6 +1,10 @@
 local opt = vim.opt
 
 opt.encoding = 'utf-8'
+-- When file encoding forcely set to UTF-8, some file with non-Unicode
+-- encoding will lose information during the encoding conversion.
+-- If you have problem with this encoding, set value to empty string "".
+opt.fileencoding = 'utf-8'
 
 -- enable number and relative line number
 opt.number = true
