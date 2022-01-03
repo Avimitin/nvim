@@ -42,30 +42,30 @@ docker run -w /root -it --rm alpine:edge sh -uelic '
 
 === Prerequisites
 
-* Neovim (MUST)
+* *Neovim* (MUST)
 
 Currently I am using `NVIM v0.7.0-dev+808-g838631e29e`. If you got any
 error, please check your neovim version.
 
-You can Follow https://github.com/neovim/neovim/wiki/Installing-Neovim[neovim
-installation].
+You can follow https://github.com/neovim/neovim/wiki/Installing-Neovim[neovim
+installation] to build latest neovim.
 
 If you are Arch Linux user, you can simply run: `yay -S neovim-git`
 
-* Nerdfont (MUST)
+* *Nerdfont* (MUST)
 
 Most of my setting are based on nerd font. It’s highly recommended to
 install https://www.nerdfonts.com/font-downloads[nerdfont] for
 impressive icon support.
 
-* ripgrep (MUST)
+* *ripgrep* (MUST)
 
 The telescope, nvim-cmp, and anyjump plugin are configured to use ripgrep
 as the search program. It is an faster grep RIIR alternative.
 
 See its https://github.com/BurntSushi/ripgrep[readme] for more.
 
-* Surf (OPTIONAL)
+* *Surf* (OPTIONAL)
 
 I am using https://surf.suckless.org/[Surf] as my markdown preview
 browser. Firefox is too heavy for the preview job. If you have interest
