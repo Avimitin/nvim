@@ -1,4 +1,6 @@
-== My Neovim Configuration
+= My Neovim Configuration
+:toc: left
+:setnums:
 
 image::./image/screenshot.png[User Interface Preview]
 
@@ -7,7 +9,7 @@ image:https://github.com/avimitin/nvim/actions/workflows/test.yml/badge.svg[badg
 image:https://github.com/avimitin/nvim/actions/workflows/lint.yml/badge.svg[badge]
 image:https://img.shields.io/badge/Language-Lua-blue?logo=lua&logoColor=blue[badge]
 
-=== Guide
+== Guide
 
 *link:./README.md[English] (You are here)* |
 link:docs/README_CN.md[中文]
@@ -25,7 +27,7 @@ If you want a minimal vimrc, use this:
 curl -SL "https://raw.githubusercontent.com/Avimitin/nvim/master/.vimrc" -o ~/.vimrc
 ----
 
-=== Features
+== Features
 
 * Really fast! Start up in only 28ms! (See
 link:./benchmark.txt[`benchmark`])
@@ -42,7 +44,7 @@ link:./benchmark.txt[`benchmark`])
 * Optimized Rust, C++, Golang, Lua coding experience
 * Configured most of the GUI: nvui, neovide, nvim-qt…
 
-=== Installation
+== Installation
 
 I recommend you to use my configuration as a base and build your own
 configuration. In my opinion, everyone should have their own customized
@@ -68,7 +70,7 @@ ____
 wait for it until it response message of installation success.
 Otherwise, you will find that you can’t activate it.
 
-==== Clean Installation
+=== Clean Installation
 
 You need to clean the below directory for a fresh install.
 
@@ -84,7 +86,7 @@ rm -r ~/.cache/nvim
 rm -r ~/.config/nvim/plugin
 ----
 
-==== Docker
+=== Docker
 
 Just wanna have a try but do not want to mess up your local environment?
 I have docker script for you!
@@ -99,12 +101,12 @@ docker run -w /root -it --rm alpine:edge sh -uelic '
   '
 ----
 
-=== Dependency
+== Dependency
 
-==== Neovim (MUST)
+=== Neovim (MUST)
 
 ____
-Currently I am using `NVIM v0.6.0-dev+501-gcb15055c2`. If you got any
+Currently I am using `NVIM v0.7.0-dev+808-g838631e29e`. If you got any
 error, please check your neovim version.
 ____
 
@@ -112,13 +114,13 @@ ____
 installation].
 * Or if you are Arch Linux user: `yay -S neovim-git`
 
-==== Install nerdfont (MUST)
+=== Install nerdfont (MUST)
 
 Most of my setting are based on nerd font. It’s highly recommended to
 install https://www.nerdfonts.com/font-downloads[nerdfont] for
 impressive icon support.
 
-==== Surf (OPTIONAL)
+=== Surf (OPTIONAL)
 
 I am using https://surf.suckless.org/[Surf] as my markdown preview
 browser. Firefox is too heavy for the preview job. If you have interest
@@ -130,7 +132,7 @@ you can easily modify the settings:
 sed -i 's/surf/firefox/g' ./lua/config/mkdp.lua
 ----
 
-===== How to build surf
+==== How to build surf
 
 [source,sh]
 ----
@@ -141,7 +143,7 @@ cd surf
 sudo make clean install
 ----
 
-==== Check health
+=== Check health
 
 Open your neovim and input following command to check if the dependence
 is all installed or not.
@@ -151,15 +153,15 @@ is all installed or not.
 :checkhealth
 ----
 
-=== Details about my configuration
+== Details about my configuration
 
 See link:./docs/addtional.md[addtional]
 
-=== License
+== License
 
 MIT License
 
-=== Credit
+== Credit
 
 This project is originally inspired by
 https://github.com/theniceboy/nvim[theniceboy/nvim].
@@ -169,7 +171,7 @@ https://github.com/siduck76/NvChad[siduck76/NvChad].
 
 Take a look at their contribution, which is really fantastic.
 
-=== What does commit message means
+== What does commit message means
 
 Please read
 https://github.com/Avimitin/commit-convention[commit-convention]
@@ -183,12 +185,12 @@ https://github.com/Avimitin/commit-convention[commit-convention]
 
 Users only need to take care of commit with `!` suffix and `new/rwt/fix` prefixes.
 
-=== TODO
+== TODO
 
 * ☐ Introduce my workflows
 * ☐ Optimized neovim start up time based on each file
 
-=== More Screenshot
+== More Screenshot
 
 image::./image/neovim-md.png[markdown]
 
@@ -206,19 +208,27 @@ image::./image/nvui-ext-cmd.png[nvui]
 
 '''''
 
-image::./image/nnn-preview.png[preview]
+image::./image/vfiler.png[VFiler]
 
-==== neogit
+'''''
 
-image::./image/neogit.png[neogit]
+image::./image/lightspeed.png[LightSpeed]
 
-image::./image/diff-view.png[diff-view]
+'''''
 
-==== fugitive
+image::./image/anyjump.png[Anyjump]
+
+'''''
+
+image::./image/neorg.png[Neorg]
+
+=== fugitive
 
 image::./image/neovim-fugitive.png[fugitive]
 
-==== Dap Debug
+image::./image/fugitive.png[fugitive]
+
+=== Dap Debug
 
 * CPP
 
