@@ -50,6 +50,8 @@ opt.viewoptions = 'cursor,folds,slash,unix'
 opt.wrap = true
 opt.tw = 0
 opt.cindent = true
+opt.splitright = true
+opt.splitbelow = true
 opt.showmode = false
 opt.showcmd = true
 
