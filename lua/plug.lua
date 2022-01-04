@@ -291,12 +291,9 @@ return require('packer').startup(function(use)
     'numtostr/FTerm.nvim',
     config = function()
       require("config.fterm")
-      require('utils').new_cmd("LazygitToggle",
-                               "lua require('config.lazygit').toggle()", true)
     end,
     cmd = {
       'FTermToggle',
-      'LazygitToggle'
     }
   }
 
