@@ -477,6 +477,21 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'Avimitin/lazygit.nvim',
+    setup = function()
+      vim.g.lazygit_floating_window_winblend = 0
+      vim.g.lazygit_floating_window_scaling_factor = 1
+      vim.g.lazygit_floating_window_corner_chars = {'╭', '╮', '╰', '╯'}
+      vim.g.lazygit_floating_window_use_plenary = 0
+      vim.g.lazygit_use_neovim_remote = 1
+      if vim.g.lazygit_use_neovim_remote == 1 and vim.fn.executable('nvr') then
+        vim.env.GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
+      end
+    end,
+    cmd = "LazyGit",
+  }
+
+  use {
     "ggandor/lightspeed.nvim"
   }
 
