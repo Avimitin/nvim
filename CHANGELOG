@@ -1,3 +1,26 @@
+3.10.0..3.11.0
+==========
+
+Breaking Changes
+----------------
+* plugin: delete fterm lazygit setting (See commit 5f2cd7ae)
+
+
+Features
+--------
+* plugin: add new plugin lazygit.nvim (See commit 7c0c2dfe)
+* nvim-cmp: add square bracket in menu (See commit 563bf2fb)
+* options: set fileencoding to utf-8 forcely
+
+
+Changes
+--------
+* options: set tab char as "->" (See commit c2994e5a)
+
+
+-----------------------------------------------------------------------------------------
+
+
 3.9.11~3.10.0
 =============
 
