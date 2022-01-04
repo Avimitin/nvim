@@ -7,21 +7,28 @@ link:#more-screenshot[image:https://img.shields.io/badge/More%20Screenshot-click
 image:https://github.com/avimitin/nvim/actions/workflows/test.yml/badge.svg[badge]
 image:https://github.com/avimitin/nvim/actions/workflows/lint.yml/badge.svg[badge]
 image:https://img.shields.io/badge/Language-Lua-blue?logo=lua&logoColor=blue[badge]
-image:https://img.shields.io/github/forks/Avimitin/nvim?style=social[badge]
 image:https://img.shields.io/github/contributors/Avimitin/nvim?color=dark-green[badge]
-image:https://img.shields.io/github/stars/Avimitin/nvim?style=social[stargazer]
 image:https://img.shields.io/github/issues/Avimitin/nvim[issue]
 image:https://img.shields.io/github/license/Avimitin/nvim[license]
+image:https://img.shields.io/github/forks/Avimitin/nvim?style=social[badge]
+image:https://img.shields.io/github/stars/Avimitin/nvim?style=social[stargazer]
 
-== Features
+== Motivation
 
-* With all the stuff that other configuration have and optimized start up speed. (See
-link:./utils/benchmark.txt[`benchmark`])
+I want a text editor which:
+
+* Really really fast. I don't need to care I will have to spend seconds or minutes on
+opening a text file. (See link:./utils/benchmark.txt[`benchmark`])
+* Really really powerful. I can use it to learn all the programming languages. I don't
+need to install IDE per language.
+* Really really handy. I don't need to move my hand to my mouse. I don't need to click
+the keyboard too much. I can have my cursor in place at the moment my eye first skim.
+* Really really beautiful. I can treat it as a work of art, not a tool.
 
 == Getting Start
 
-I recommend you to use my configuration as a base and build your own
-configuration. In my opinion, everyone should have their own customized
+I recommend you use my configuration as a base and build your
+configuration. In my opinion, everyone should have their customized
 neovim. You can press the fork button to clone my project. (Don't forget
 to smash the star button! :) )
 
@@ -164,11 +171,14 @@ https://github.com/siduck76/NvChad[siduck76/NvChad].
 
 Take a look at their contribution, which is really fantastic.
 
-== What does commit message means
+== Development Related
+
+=== About Commit
 
 Please read
 https://github.com/Avimitin/commit-convention[commit-convention]
 
+Tldr::
 * new means new update
 * rwt means rewrite, similar to refactor
 * fix means a fix commit
@@ -178,10 +188,16 @@ https://github.com/Avimitin/commit-convention[commit-convention]
 
 Users only need to take care of commit with `!` suffix and `new/rwt/fix` prefixes.
 
-== TODO
+=== About version
 
-* ☐ Introduce my workflows
-* ☐ Optimized neovim start up time based on each file
+I am using semantic version as the version style. And I am following
+the https://doc.rust-lang.org/cargo/reference/semver.html#change-categories[Cargo Book]
+as semver guidance.
+
+Bug fix or trivial modification will be treated as a patch change. New plugin
+or any functionality removal will be treated as a minor change. Only when I
+totally rewrite the whole project, I will increase the major number. (Like
+vimscript -> Lua.)
 
 == More Screenshot
 
