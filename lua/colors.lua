@@ -32,7 +32,11 @@ local function kanagawa_setup()
       colors = {},
       overrides = {
         LazygitBackground = { bg = default.sumilnk3 },
-        FTermBackground = { bg = default.sumilnk3 }
+        FTermBackground = { bg = default.sumilnk3 },
+        htmlH1 = { fg = default.peachRed, style = 'bold' },
+        htmlH2 = { fg = default.roninYellow, style = 'bold'},
+        htmlH3 = { fg = default.autumnYellow, style = 'bold'},
+        htmlH4 = { fg = default.autumnGreen, style = 'bold'},
       },
   })
 end
