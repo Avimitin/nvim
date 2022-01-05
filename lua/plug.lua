@@ -464,6 +464,12 @@ return require('packer').startup(function(use)
   use {
     "ggandor/lightspeed.nvim"
   }
+
+  use {
+    -- Enhanced the `%` keymap
+    'andymass/vim-matchup',
+    event = "BufRead",
+  }
 --}}}
 
   -- Git tools{{{
