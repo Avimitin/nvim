@@ -199,6 +199,8 @@ or any functionality removal will be treated as a minor change. Only when I
 totally rewrite the whole project, I will increase the major number. (Like
 vimscript -> Lua.)
 
+Some convention is described here: link:./docs/semver.md[semver]
+
 == More Screenshot
 
 image::./image/neovim-md.png[markdown]
