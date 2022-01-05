@@ -21,6 +21,7 @@ return require('packer').startup(function(use)
   }
 
   -- ======================= EDITOR SETUP ==============================
+  -- Beautify{{{
   use {
     'kyazdani42/nvim-web-devicons',
     event = "BufRead"
@@ -69,9 +70,11 @@ return require('packer').startup(function(use)
     'Shatur/neovim-ayu',
     'rebelot/kanagawa.nvim'
   }
+  -- }}}
 
   -- ==================== CODING ==================================
 
+  -- Completion {{{
   use {
     'rafamadriz/friendly-snippets',
     event = "InsertEnter"
@@ -130,16 +133,9 @@ return require('packer').startup(function(use)
       'nvim-cmp'
     }
   }
+  -- }}}
 
-  use {
-    'windwp/nvim-autopairs',
-    config = function()
-      require('config.autopairs')
-    end,
-    after = 'nvim-cmp'
-  }
-
-  -- ========= LSP ============
+  -- ========= LSP ============{{{
   use {
     'williamboman/nvim-lsp-installer',
     ft = {
@@ -186,6 +182,7 @@ return require('packer').startup(function(use)
     'rcarriga/nvim-dap-ui',
     module = "dapui"
   }
+--}}}
 
   use {
     'rust-lang/rust.vim',
@@ -413,6 +410,7 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- Enhancement{{{
   -- Select text object
   use {
     'gcmt/wildfire.vim',
@@ -464,6 +462,20 @@ return require('packer').startup(function(use)
   }
 
   use {
+    "ggandor/lightspeed.nvim"
+  }
+--}}}
+
+  -- Git tools{{{
+  use {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('config.autopairs')
+    end,
+    after = 'nvim-cmp'
+  }
+
+  use {
     'tpope/vim-fugitive',
     cmd = {
       'G', 'Git',
@@ -487,10 +499,8 @@ return require('packer').startup(function(use)
     end,
     cmd = "LazyGit",
   }
+--}}}
 
-  use {
-    "ggandor/lightspeed.nvim"
-  }
 
   use {
     'mhinz/vim-sayonara',
@@ -530,3 +540,5 @@ return require('packer').startup(function(use)
     }
   }
 end)
+
+-- vim: foldmethod=marker
