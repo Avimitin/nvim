@@ -37,6 +37,7 @@ local function kanagawa_setup()
         htmlH2 = { fg = default.roninYellow, style = 'bold'},
         htmlH3 = { fg = default.autumnYellow, style = 'bold'},
         htmlH4 = { fg = default.autumnGreen, style = 'bold'},
+        Todo = { fg = default.fujiWhite, bg = default.samuraiRed, style = 'bold' }
       },
   })
 end
