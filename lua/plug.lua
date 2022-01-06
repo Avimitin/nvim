@@ -182,7 +182,7 @@ return require('packer').startup(function(use)
     'rcarriga/nvim-dap-ui',
     module = "dapui"
   }
---}}}
+  -- }}}
 
   use {
     'rust-lang/rust.vim',
@@ -290,7 +290,7 @@ return require('packer').startup(function(use)
       require("config.fterm")
     end,
     cmd = {
-      'FTermToggle',
+      'FTermToggle'
     }
   }
 
@@ -468,9 +468,9 @@ return require('packer').startup(function(use)
   use {
     -- Enhanced the `%` keymap
     'andymass/vim-matchup',
-    event = "BufRead",
+    event = "BufRead"
   }
---}}}
+  -- }}}
 
   -- Git tools{{{
   use {
@@ -496,17 +496,19 @@ return require('packer').startup(function(use)
     setup = function()
       vim.g.lazygit_floating_window_winblend = 0
       vim.g.lazygit_floating_window_scaling_factor = 1
-      vim.g.lazygit_floating_window_corner_chars = {'╭', '╮', '╰', '╯'}
+      vim.g.lazygit_floating_window_corner_chars = {
+        '╭','╮',
+        '╰','╯'
+      }
       vim.g.lazygit_floating_window_use_plenary = 0
       vim.g.lazygit_use_neovim_remote = 1
       if vim.g.lazygit_use_neovim_remote == 1 and vim.fn.executable('nvr') then
         vim.env.GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
       end
     end,
-    cmd = "LazyGit",
+    cmd = "LazyGit"
   }
---}}}
-
+  -- }}}
 
   use {
     'mhinz/vim-sayonara',
