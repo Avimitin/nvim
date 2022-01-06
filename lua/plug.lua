@@ -518,7 +518,17 @@ return require('packer').startup(function(use)
 
   use {
     'obaland/vfiler.vim',
-    cmd = 'VFiler'
+    cmd = 'VFiler',
+    requires = {
+      'obaland/vfiler-column-devicons'
+    },
+    config = function()
+      require'vfiler/config'.setup {
+        options = {
+          columns = 'indent,devicons,name,mode,size,time'
+        }
+      }
+    end
   }
 end)
 
