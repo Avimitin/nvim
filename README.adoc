@@ -229,10 +229,6 @@ image::./image/lightspeed.png[LightSpeed]
 
 image::./image/anyjump.png[Anyjump]
 
-'''''
-
-image::./image/neorg.png[Neorg]
-
 === fugitive
 
 image::./image/neovim-fugitive.png[fugitive]
