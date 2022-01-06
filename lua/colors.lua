@@ -57,6 +57,9 @@ local function kanagawa_setup()
         fg = default.fujiWhite,
         bg = default.samuraiRed,
         style = 'bold'
+      },
+      Visual = {
+        bg = default.lightBlue,
       }
     }
   })
