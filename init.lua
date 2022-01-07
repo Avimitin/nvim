@@ -24,3 +24,5 @@ end
 
 -- load plugins
 utils.load_plugins()
+-- neovide transparency
+vim.g.neovide_transparency=0.9
