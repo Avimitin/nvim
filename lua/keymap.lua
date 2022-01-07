@@ -1,5 +1,9 @@
 local map = require('utils').map
 
+-- make jj to ESC jk to Right
+map('i','jj','<ESC>')
+map('i','jk','<right>')
+
 map('n', 'J', '5j')
 map('x', 'J', '5j')
 map('n', 'K', '5k')
