@@ -210,7 +210,6 @@ return require('packer').startup(function(use)
       "json", "lua",
       "fish", "c",
       "javascript",
-      "norg"
     },
     config = function()
       require('config.treesitter')
