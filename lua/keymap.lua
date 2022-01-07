@@ -35,7 +35,7 @@ map("n", ";w", ":w<CR>")
 map("x", "<C-y>", [["+y]])
 
 map("n", "<C-p>", [["+p]])
-map("i", "<C-p>", [[<ESC>"+pi]])
+map("i", "<C-p>", [[<ESC>"+pa]])
 
 map("n", "<ESC>", ":nohlsearch<CR>")
 
