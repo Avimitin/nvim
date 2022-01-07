@@ -63,7 +63,7 @@ local function kanagawa_setup()
       },
       NormalFloat = {
         fg = default.fujiWhite,
-        bg = default.waveBlue1,
+        bg = default.winterBlue,
       },
     }
   })
