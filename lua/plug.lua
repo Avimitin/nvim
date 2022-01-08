@@ -531,6 +531,9 @@ return require('packer').startup(function(use)
       }
     end
   }
-end)
 
+  use {
+    "wakatime/vim-wakatime"
+  }
+end)
 -- vim: foldmethod=marker
