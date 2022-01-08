@@ -1,3 +1,33 @@
+3.13.0
+======
+
+
+Breaking Changes
+----------------
+* keymap: remove keymap for go plugin
+
+
+Features
+--------
+* lsp: integrate lspsaga into lspconfig
+* plugin: add nerd font icon for vfiler.vim
+
+
+Fix
+---
+* keymap: fix <C-P> cursor place
+
+
+Changes
+--------
+* color: set type style to bold
+* plugin: disable treesitter in neorg
+* colors: set normal float background to blue
+
+
+-----------------------------------------------------------------------------------------
+
+
 3.12.0
 ==========
 
