@@ -58,9 +58,6 @@ local function kanagawa_setup()
         bg = default.samuraiRed,
         style = 'bold'
       },
-      Visual = {
-        bg = default.lightBlue,
-      },
       NormalFloat = {
         fg = default.fujiWhite,
         bg = default.winterBlue,
