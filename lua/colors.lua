@@ -24,7 +24,7 @@ local function kanagawa_setup()
     functionStyle = "bold",
     keywordStyle = "italic",
     statementStyle = "bold",
-    typeStyle = "NONE",
+    typeStyle = "bold",
     variablebuiltinStyle = "italic",
     specialReturn = true, -- special highlight for the return keyword
     specialException = true, -- special highlight for exception handling keywords
