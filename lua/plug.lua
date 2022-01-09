@@ -255,11 +255,28 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     ft = {
-      "cpp", "toml",
+      -- This are some filetype I used common
+      -- Add yours below.
+      -- {{{
+      -- programming language
+      "c", "cpp",
       "rust", "go",
       "json", "lua",
+      "lua",
       "fish", "c",
-      "javascript"
+      "javascript",
+      "python",
+      "ruby",
+      -- shell
+      "zsh",
+      "bash", "sh",
+      -- configuration format
+      "json",
+      "toml",
+      "yaml",
+      -- frontend
+      "css", "html"
+      -- }}}
     },
     config = function()
       require('config.treesitter')
@@ -585,6 +602,11 @@ return require('packer').startup(function(use)
 
   use {
     "wakatime/vim-wakatime"
+  }
+
+  use {
+    'AndrewRadev/splitjoin.vim',
+    after = "nvim-treesitter"
   }
 end)
 -- vim: foldmethod=marker
