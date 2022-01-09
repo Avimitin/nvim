@@ -237,14 +237,6 @@ return require('packer').startup(function(use)
   -- }}}
 
   use {
-    'rust-lang/rust.vim',
-    after = "rust-tools.nvim",
-    setup = function()
-      vim.g.rust_clip_command = 'xclip -selection clipboard'
-    end
-  }
-
-  use {
     'simrat39/symbols-outline.nvim',
     config = function()
       require("config.symbols")
