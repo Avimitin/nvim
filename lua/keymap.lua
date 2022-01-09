@@ -57,10 +57,6 @@ map('n', '<Leader>o', ':VFiler -no-listed<CR>')
 -- EasyAlign
 map("v", "<leader>e", ":EasyAlign<CR>")
 
--- vim-go
-map('n', 'got', ':GoTestFunc<CR>')
-map('n', 'gor', ':GoRun<CR>')
-
 -- nvim-tree
 map("n", "tt", ":NvimTreeToggle<CR>")
 map("n", "tr", ":NvimTreeRefresh<CR>")

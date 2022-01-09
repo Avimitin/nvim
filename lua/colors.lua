@@ -24,7 +24,7 @@ local function kanagawa_setup()
     functionStyle = "bold",
     keywordStyle = "italic",
     statementStyle = "bold",
-    typeStyle = "NONE",
+    typeStyle = "bold",
     variablebuiltinStyle = "italic",
     specialReturn = true, -- special highlight for the return keyword
     specialException = true, -- special highlight for exception handling keywords
@@ -57,9 +57,6 @@ local function kanagawa_setup()
         fg = default.fujiWhite,
         bg = default.samuraiRed,
         style = 'bold'
-      },
-      Visual = {
-        bg = default.lightBlue,
       },
       NormalFloat = {
         fg = default.fujiWhite,

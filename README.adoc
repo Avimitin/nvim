@@ -229,6 +229,14 @@ image::./image/lightspeed.png[LightSpeed]
 
 image::./image/anyjump.png[Anyjump]
 
+'''''
+
+image::./image/help.png[lsp]
+
+image::./image/codeaction.png[lsp]
+
+image::./image/diagnostic.png[lsp]
+
 === fugitive
 
 image::./image/neovim-fugitive.png[fugitive]

@@ -99,10 +99,6 @@ if undo_stat and has_persist == 1 then
 end
 
 vim.api.nvim_command('autocmd TermOpen term://* startinsert')
-vim.cmd [[set guifont=FiraCode\ Nerd\ Font\ Mono:h15]]
-
--- neovide specific settings
-vim.g.neovide_cursor_vfx_mode = "sonicboom"
 
 -- neoterm specific settings
 vim.g.neoterm_default_mod = "botright"
@@ -111,6 +107,7 @@ vim.g.neoterm_automap_keys = "<leader>tt"
 
 -- nvui specific settings
 if vim.g.nvui then
+    vim.opt.guifont = [[Cascadia Code:h12,FiraCode\ Nerd\ Font\ Mono:h12]]
     vim.cmd [[NvuiCmdFontFamily FiraCode Nerd Font Mono]]
     vim.cmd [[NvuiCmdFontSize 12]]
     vim.cmd [[NvuiAnimationsEnabled 1]]
@@ -127,4 +124,10 @@ if vim.g.nvui then
     vim.cmd [[autocmd InsertLeave * NvuiIMEDisable]]
     -- nvui g87f61c0 feature
     vim.cmd [[hi Normal guisp=#6899B8]]
+end
+
+if vim.g.neovide then
+  -- neovide specific settings
+  vim.g.neovide_cursor_vfx_mode = "sonicboom"
+  vim.opt.guifont = [[FiraCode\ Nerd\ Font\ Mono:h12]]
 end
