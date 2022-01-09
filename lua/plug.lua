@@ -165,6 +165,7 @@ return require('packer').startup(function(use)
     'tami5/lspsaga.nvim',
     after = "nvim-lspconfig",
     config = function()
+      -- saga config {{{
       local lspsaga = require 'lspsaga'
       lspsaga.setup { -- defaults ...
         debug = false,
@@ -208,6 +209,7 @@ return require('packer').startup(function(use)
         server_filetype_map = {},
         diagnostic_prefix_format = "%d. "
       }
+      --}}}
     end
   }
 
