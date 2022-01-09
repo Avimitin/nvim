@@ -1,5 +1,5 @@
 #!/bin/sh
-set -xef
+set -ef
 
 OUTPUT_FILE="./utils/benchmark.txt"
 
