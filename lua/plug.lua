@@ -597,6 +597,11 @@ return require('packer').startup(function(use)
       }
     end
   }
+
+  use {
+    'AndrewRadev/splitjoin.vim',
+    after = "nvim-treesitter"
+  }
 end)
 
 -- vim: foldmethod=marker
