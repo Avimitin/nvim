@@ -107,7 +107,7 @@ vim.g.neoterm_automap_keys = "<leader>tt"
 
 -- nvui specific settings
 if vim.g.nvui then
-    vim.opt.guifont = [[Cascadia Code:h12,FiraCode\ Nerd\ Font\ Mono:h12]]
+    vim.opt.guifont = [[Cascadia Code:h14,FiraCode\ Nerd\ Font\ Mono:h14]]
     vim.cmd [[NvuiCmdFontFamily FiraCode Nerd Font Mono]]
     vim.cmd [[NvuiCmdFontSize 12]]
     vim.cmd [[NvuiAnimationsEnabled 1]]
