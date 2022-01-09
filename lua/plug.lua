@@ -601,6 +601,11 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'AndrewRadev/splitjoin.vim',
+    after = "nvim-treesitter"
+  }
+
+  use {
     "wakatime/vim-wakatime"
   }
 
