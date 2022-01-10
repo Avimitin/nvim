@@ -252,3 +252,5 @@ image::./image/dap-debug-cpp.png[cpp]
 * Rust
 
 image::./image/dap-debug-rust.png[Rust]
+
+// vim: tw=80 fo+=t
