@@ -351,10 +351,16 @@ return require('packer').startup(function(use)
 
   -- open file when forget sudo
   use {
-    'lambdalisue/suda.vim',
+    'tpope/vim-eunuch',
     cmd = {
-      'SudaWrite',
-      'SudaRead'
+      'SudoWrite',
+      'SudoEdit',
+      'Delete',
+      'Unlink',
+      'Move',
+      'Rename',
+      'Chmod',
+      'Mkdir',
     }
   }
 
