@@ -23,3 +23,5 @@ new_cmd("DapC", [[lua require("dap").continue()]])
 new_cmd("DapStepOver", [[lua require("dap").step_over()]])
 
 new_cmd("Glog", [[Git log --oneline]])
+
+new_cmd("Neogen", [[lua require("neogen").generate()]])
