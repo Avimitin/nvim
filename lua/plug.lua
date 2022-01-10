@@ -309,12 +309,8 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'kassio/neoterm',
-    cmd = {
-      'T', "Tkill",
-      "Tclose",
-      "Tmap"
-    }
+    'tpope/vim-dispatch',
+    cmd = "Dispatch",
   }
 
   -- show color at words
