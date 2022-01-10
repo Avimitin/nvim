@@ -9,28 +9,35 @@ end
 
 local on_attach = require('utils').lsp_attach
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.documentationFormat = {
-  "markdown",
-  "plaintext"
-}
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.preselectSupport = true
-capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
-capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-capabilities.textDocument.completion.completionItem.commitCharactersSupport =
-    true
-capabilities.textDocument.completion.completionItem.tagSupport = {
-  valueSet = {1}
-}
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    "documentation",
-    "detail",
-    "additionalTextEdits"
+-- Gets a new ClientCapabilities object describing the LSP client
+-- capabilities.
+local function setup_capabilities()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem = {
+    documentationFormat = {
+      "markdown",
+      "plaintext"
+    },
+    snippetSupport = true,
+    preselectSupport = true,
+    insertReplaceSupport = true,
+    labelDetailsSupport = true,
+    deprecatedSupport = true,
+    commitCharactersSupport = true,
+    tagSupport = {
+      valueSet = {1}
+    },
+    resolveSupport = {
+      properties = {
+        "documentation",
+        "detail",
+        "additionalTextEdits"
+      }
+    }
   }
-}
+
+  return capabilities
+end
 
 -- lspInstall + lspconfig stuff
 
@@ -66,13 +73,13 @@ if installer.settings then
     }
   }
 
-  local servers = {
+  local ensure_installed_server = {
     "clangd",
     "gopls",
     "sumneko_lua"
   }
 
-  for _, lang in pairs(servers) do
+  for _, lang in pairs(ensure_installed_server) do
     local ok, server = installer.get_server(lang)
     if ok then
       if not server:is_installed() then
@@ -85,7 +92,7 @@ if installer.settings then
   installer.on_server_ready(function(server)
     local opts = {
       on_attach = on_attach,
-      capabilities = capabilities,
+      capabilities = setup_capabilities(),
       root_dir = vim.loop.cwd
     }
 
@@ -138,37 +145,3 @@ vim.lsp.handlers["textDocument/signatureHelp"] =
     vim.lsp.with(vim.lsp.handlers.signature_help, {
       border = "single"
     })
-
-local function goto_definition(split_cmd)
-  local util = vim.lsp.util
-  local log = require("vim.lsp.log")
-  local api = vim.api
-
-  -- note, this handler style is for neovim 0.5.1/0.6, if on 0.5, call with function(_, method, result)
-  local handler = function(_, result, ctx)
-    if result == nil or vim.tbl_isempty(result) then
-      local _ = log.info() and log.info(ctx.method, "No location found")
-      return nil
-    end
-
-    if split_cmd then
-      vim.cmd(split_cmd)
-    end
-
-    if vim.tbl_islist(result) then
-      util.jump_to_location(result[1])
-
-      if #result > 1 then
-        util.set_qflist(util.locations_to_items(result))
-        api.nvim_command("copen")
-        api.nvim_command("wincmd p")
-      end
-    else
-      util.jump_to_location(result)
-    end
-  end
-
-  return handler
-end
-
-vim.lsp.handlers["textDocument/definition"] = goto_definition('split')
