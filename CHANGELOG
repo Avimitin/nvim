@@ -1,3 +1,35 @@
+3.14.0
+======
+Some plugin had been replaced in this release. But their functionality is still
+keep the same. Like the command :SudaWrite is just replaced by :SudoWrite.
+
+Breaking Changes
+----------------
+* plugin: replace neoterm with dispather
+* plugin: replace suda.vim with vim-eunuch
+* plugin: remove rust-lang/rust.vim plugin
+
+Features
+--------
+* plugin: add neogen to help generating annotation
+* option: add rust fmt option
+* plugin: add splitjoin.vim
+
+Changes
+--------
+* lspsaga: move lspsaga settings under lua/config
+* lspsaga: replace icon to nerd font icon
+* lsp: rewrite the lspconfig code
+* keymap: fix lsp keymap conflict
+* plugin: add more filetype for treesitter
+* option: increase nvui font size
+* option: set fallbackfont for nvui
+* option: enable settings only when neovide open
+
+
+-----------------------------------------------------------------------------------------
+
+
 3.13.0
 ======
 
