@@ -596,6 +596,16 @@ return require('packer').startup(function(use)
     'AndrewRadev/splitjoin.vim',
     after = "nvim-treesitter"
   }
+
+  use {
+      "danymat/neogen",
+      config = function()
+          require('neogen').setup {
+              enabled = true
+          }
+      end,
+      module = "neogen",
+  }
 end)
 
 -- vim: foldmethod=marker
