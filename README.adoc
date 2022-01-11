@@ -178,16 +178,6 @@ Take a look at their contribution, which is really fantastic.
 Please read
 https://github.com/Avimitin/commit-convention[commit-convention]
 
-Tldr::
-* new means new update
-* rwt means rewrite, similar to refactor
-* fix means a fix commit
-* odd means it is a trivial commit (this commit don’t affect the code)
-* doc means documents update
-* ! means breaking change
-
-Users only need to take care of commit with `!` suffix and `new/rwt/fix` prefixes.
-
 === About version
 
 I am using semantic version as the version style. And I am following
