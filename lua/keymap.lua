@@ -75,7 +75,6 @@ map("n", "<LEADER>l", [[<CMD>LazyGit<CR>]])
 map("i", "<A-;>", "<ESC>")
 
 -- bufferline tab stuff
-map("n", "<A-t>", ":tabnew<CR>") -- new tab
 map("n", "<C-c>", ":BufferLinePickClose<CR>") -- close tab
 map("n", "<A-q>", [[:Sayonara<CR>]])
 
