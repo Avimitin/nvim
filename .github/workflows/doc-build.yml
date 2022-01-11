@@ -17,10 +17,11 @@ jobs:
         with:
            mdbook-version: 'latest'
 
-      - run: cd docs && mdbook build
+      - name: Build document
+        run: cd docs && mdbook build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: docs/book # The folder the action should deploy.
+          branch: gh-pages
+          folder: docs/book
