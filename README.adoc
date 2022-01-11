@@ -155,7 +155,7 @@ is all installed or not.
 
 == Details about my configuration
 
-See link:./docs/addtional.md[addtional]
+See https://avimitin.github.io/nvim[document(WIP)].
 
 == License
 
