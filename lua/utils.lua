@@ -87,7 +87,7 @@ M.load_plugins = function()
   setup_plugins_before_loaded()
 
   -- Reading plugins configuration
-  local ok, error = pcall(require, 'plug')
+  local ok, error = pcall(require, 'plugins')
   if not ok then
     M.log_err("Load plugins: " .. error, "load plugins")
   end
