@@ -457,6 +457,11 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- Fix the CursorHold performance bug
+  use {
+    'antoinemadec/FixCursorHold.nvim'
+  }
+
   use {
     'beauwilliams/focus.nvim',
     cmd = {
