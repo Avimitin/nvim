@@ -564,6 +564,11 @@ return require('packer').startup(function(use)
       end,
       module = "neogen",
   }
+
+  use {
+    'dstein64/vim-startuptime',
+    cmd = "StartupTime",
+  }
 end)
 
 -- vim: foldmethod=marker
