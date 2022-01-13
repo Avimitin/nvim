@@ -1,3 +1,27 @@
+3.14.4
+======
+I am working on the new document: https://avimitin.github.io/nvim.
+The basic keymap section is finished now.
+
+Breaking Chnages:
+----------------
+* keymap: add ctrl as prefix key when resize (See commit b545fafe)
+* keymap: use arrow key to navigate between windows (See commit 70576e9d)
+* keymap: delete the duplicate new tab keymap, only `<C-t> n` is kept (See commit 6369ca63)
+* keymap: set `gf` to buffer format, set `gq` to set_loclist, set `gt` to...
+  ...type_definition (See commit 346bfe58 and 3111d496)
+
+Features:
+---------
+* plugin: add plugin vim-startuptime, you can see the startuptime graph by...
+  ...command `:StartupTime` (See commit 7018a3e3)
+* command: add `Cmt` to make a commit, add `Psh` to push changes. (See commit 8b9d959a)
+* plugin: add new plugin FixCursorHold.nvim to fix the laggy event (See commit 0164a37d)
+
+
+-----------------------------------------------------------------------------------------
+
+
 3.14.0
 ======
 Some plugin had been replaced in this release. But their functionality is still
