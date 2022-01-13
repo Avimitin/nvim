@@ -11,6 +11,7 @@
     - [Packer](packer.md)
     - [nvim-tree.lua](nvim-tree.md)
     - [nvim-bufferline.lua](nvim-bufferline.md)
+    - [lightspeed.nvim](lighspeed.md)
 
 ---
 
