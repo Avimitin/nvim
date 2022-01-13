@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">English</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Basics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="en_us/keymap.html"><strong aria-hidden="true">1.1.</strong> Keymap</a></li><li class="chapter-item expanded "><a href="en_us/colors.html"><strong aria-hidden="true">1.2.</strong> Colors</a></li></ol></li><li class="chapter-item expanded "><a href="en_us/plugins.html"><strong aria-hidden="true">2.</strong> Plugins</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="en_us/plugins/packer.html"><strong aria-hidden="true">2.1.</strong> Packer</a></li><li class="chapter-item expanded "><a href="en_us/plugins/nvim-tree.html"><strong aria-hidden="true">2.2.</strong> nvim-tree.lua</a></li><li class="chapter-item expanded "><a href="en_us/plugins/nvim-bufferline.html"><strong aria-hidden="true">2.3.</strong> nvim-bufferline.lua</a></li><li class="chapter-item expanded "><a href="en_us/plugins/lighspeed.html"><strong aria-hidden="true">2.4.</strong> lightspeed.nvim</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">中文</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 基础设置</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="zh_cn/keymap_cn.html"><strong aria-hidden="true">3.1.</strong> 键位设置</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 插件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="zh_cn/plugins/nvim-tree_cn.html"><strong aria-hidden="true">4.1.</strong> nvim-tree.lua</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">English</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Basics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="en_us/keymap.html"><strong aria-hidden="true">1.1.</strong> Keymap</a></li><li class="chapter-item expanded "><a href="en_us/colors.html"><strong aria-hidden="true">1.2.</strong> Colors</a></li></ol></li><li class="chapter-item expanded "><a href="en_us/plugins.html"><strong aria-hidden="true">2.</strong> Plugins</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="en_us/plugins/packer.html"><strong aria-hidden="true">2.1.</strong> Packer</a></li><li class="chapter-item expanded "><a href="en_us/plugins/nvim-tree.html"><strong aria-hidden="true">2.2.</strong> nvim-tree.lua</a></li><li class="chapter-item expanded "><a href="en_us/plugins/nvim-bufferline.html"><strong aria-hidden="true">2.3.</strong> nvim-bufferline.lua</a></li><li class="chapter-item expanded "><a href="en_us/plugins/lighspeed.html"><strong aria-hidden="true">2.4.</strong> lightspeed.nvim</a></li><li class="chapter-item expanded "><a href="en_us/plugins/fugitive.html"><strong aria-hidden="true">2.5.</strong> vim-fugitive</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">中文</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 基础设置</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="zh_cn/keymap_cn.html"><strong aria-hidden="true">3.1.</strong> 键位设置</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 插件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="zh_cn/plugins/nvim-tree_cn.html"><strong aria-hidden="true">4.1.</strong> nvim-tree.lua</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -236,10 +236,11 @@ local theme_opt = {
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="plugins"><a class="header" href="#plugins">Plugins</a></h1>
 <ul>
-<li><a href="en_us/packer.html">Packer</a>: plugin manager</li>
-<li><a href="en_us/nvim-tree.html">nvim-tree.lua</a>: tree view file explorer</li>
-<li><a href="en_us/nvim-bufferline.html">nvim-bufferline.lua</a>: buffer manager</li>
-<li><a href="en_us/lighspeed.html">lightspeed.nvim</a>: cursor move enhancer</li>
+<li><a href="en_us/./plugins/packer.html">Packer</a>: plugin manager</li>
+<li><a href="en_us/./plugins/nvim-tree.html">nvim-tree.lua</a>: tree view file explorer</li>
+<li><a href="en_us/./plugins/nvim-bufferline.html">nvim-bufferline.lua</a>: buffer manager</li>
+<li><a href="en_us/./plugins/lighspeed.html">lightspeed.nvim</a>: cursor move enhancer</li>
+<li><a href="en_us/./plugins/fugitive.html">vim-fugitive</a>: the git swiss knife in vim</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="packer"><a class="header" href="#packer">Packer</a></h1>
 <p>Packer is a plugin manager. It will download plugins from GitHub
@@ -419,6 +420,23 @@ manage more than tab page.</p>
 <p>See more usage here: https://github.com/ggandor/lightspeed.nvim#2-character-search-sx</p>
 <h2 id="notes"><a class="header" href="#notes">Notes</a></h2>
 <p>The <code>S</code> key in visual mode is conflict with the vim-surround. I am still thinking a workaround.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="vim-fugitive"><a class="header" href="#vim-fugitive">vim-fugitive</a></h1>
+<p>vim-fugitive is a handy git tools. If you are a emacs user you may familiar with it.
+It is like the magit in emacs.</p>
+<p>See details in: <a href="https://github.com/tpope/vim-fugitive">https://github.com/tpope/vim-fugitive</a></p>
+<h2 id="commands-1"><a class="header" href="#commands-1">Commands</a></h2>
+<p>Always remember the key <code>g?</code>, it will provide cheatsheet.</p>
+<ul>
+<li><code>:G/:Git</code>: Call the status page</li>
+</ul>
+<p><img src="en_us/plugins/../../../../image/fugitive.png" alt="image" /></p>
+<p>Press <code>s</code> to stage file, press <code>+</code> to open diff, press <code>u</code> to unstage file,
+press <code>x</code> to discard changes, press <code>cc</code> to commit, press <code>ca</code> to amend changes.</p>
+<ul>
+<li><code>:Git commit/rebase/push</code>: Same as the command line, but integrate into neovim</li>
+<li><code>:Git blame</code>: view blame line by line</li>
+</ul>
+<p><img src="en_us/plugins/../../../../image/neovim-fugitive.png" alt="image" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="键位设置"><a class="header" href="#键位设置">键位设置</a></h1>
 <h2 id="leader-key-1"><a class="header" href="#leader-key-1">Leader key</a></h2>
 <p>leader key 设置到了空格键上。</p>
