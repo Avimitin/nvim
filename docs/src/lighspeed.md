@@ -17,3 +17,7 @@ Lightspeed is a plugin that help you move your cursor in place easily.
 * Press `F` in normal mode to search forward.
 
 See more usage here: https://github.com/ggandor/lightspeed.nvim#2-character-search-sx
+
+## Notes
+
+The `S` key in visual mode is conflict with the vim-surround. I am still thinking a workaround.
