@@ -7,7 +7,7 @@
 - [Basics]()
     - [Keymap](keymap.md)
     - [Colors](colors.md)
-- [Plugins]()
+- [Plugins](./plugins.md)
     - [Packer](packer.md)
     - [nvim-tree.lua](nvim-tree.md)
     - [nvim-bufferline.lua](nvim-bufferline.md)
