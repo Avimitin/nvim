@@ -136,9 +136,9 @@ M.lsp_attach = function(client, bufnr)
 
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gm', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>',
+  buf_set_keymap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>',
                  opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.set_loclist()<CR>',
+  buf_set_keymap('n', 'gq', '<cmd>lua vim.diagnostic.set_loclist()<CR>',
                  opts)
 
   -- Set some keybinds conditional on server capabilities
