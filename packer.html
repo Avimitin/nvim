@@ -138,7 +138,139 @@
 <p>Packer is a plugin manager. It will download plugins from GitHub
 and add plugin into runtime path automatically. What it differ to other
 is that it can lazyload plugins easily.</p>
-<p>vim: tw=80 fo+=t</p>
+<p>Here I will describe some usage and give some useful tips.
+For more details please read the packer.nvim README file:
+https://github.com/wbthomason/packer.nvim</p>
+<h2 id="basic"><a class="header" href="#basic">Basic</a></h2>
+<p>The packer plugin is initialized in the <code>lua/plugins.lua</code> file.</p>
+<p>I called the <code>require('packer').init</code> in the beginning, and put two settings
+into it.</p>
+<p>The display setting set a floatting window with single line border for the
+packer panel.
+You can see the visual effect when you call any packer command.</p>
+<p>The git setting sets a timeout which will abort the update process when the git
+clone process is over 1 minute.</p>
+<p>And the <code>require('packer').startup</code> function at the end will handle all the
+plugins.</p>
+<h2 id="commands"><a class="header" href="#commands">Commands</a></h2>
+<ul>
+<li><code>:PackerInstall</code>: Run install process when you import new plugin.</li>
+<li><code>:PackerClean</code>: Remove local plugins which is not in the plugin list.</li>
+<li><code>:PackerUpdate</code>: Update all the plugin in the plugin list.</li>
+<li><code>:PackerSync</code>: Run all the above command in one.</li>
+</ul>
+<h2 id="add-new-plugin"><a class="header" href="#add-new-plugin">Add new plugin</a></h2>
+<p>If you want to add a plugin from GitHub, you can use the <code>use</code> function
+to add the plugin.</p>
+<p>For example, if you want to add the plugin <code>trouble.nvim</code>, and it's URL is
+https://github.com/folke/trouble.nvim, you only need to add the below snippet
+inside the <code>require('packer').startup</code> function:</p>
+<pre><code class="language-lua">use {
+  'folke/trouble.nvim'
+}
+</code></pre>
+<p>After saving the file, run command <code>:PackerInstall</code> to install the plugin.</p>
+<h2 id="delete-plugins"><a class="header" href="#delete-plugins">Delete plugins</a></h2>
+<p>You just need to delete the declaration line, then run <code>:PackerClean</code>.</p>
+<h2 id="useful-fields"><a class="header" href="#useful-fields">Useful fields</a></h2>
+<p>This is the key to make your neovim faster.</p>
+<table><thead><tr><th>fields</th><th>value</th><th>usage</th></tr></thead><tbody>
+<tr><td>disable</td><td>boolean</td><td>Mark a plugin as inactive</td></tr>
+<tr><td>as</td><td>string</td><td>Specifies an alias under which to install the plugin</td></tr>
+<tr><td>installer</td><td>function</td><td>Specifies custom installer. See &quot;custom installers&quot; below.</td></tr>
+<tr><td>updater</td><td>function</td><td>Specifies custom updater. See &quot;custom installers&quot; below.</td></tr>
+<tr><td>after</td><td>string or list</td><td>Specifies plugins to load before this plugin. See &quot;sequencing&quot; below</td></tr>
+<tr><td>rtp</td><td>string</td><td>Specifies a subdirectory of the plugin to add to runtimepath.</td></tr>
+<tr><td>opt</td><td>boolean</td><td>Manually marks a plugin as optional.</td></tr>
+<tr><td>branch</td><td>string</td><td>Specifies a git branch to use</td></tr>
+<tr><td>tag</td><td>string</td><td>Specifies a git tag to use</td></tr>
+<tr><td>commit</td><td>string</td><td>Specifies a git commit to use</td></tr>
+<tr><td>lock</td><td>boolean</td><td>Skip updating this plugin in updates/syncs. Still cleans.</td></tr>
+<tr><td>run</td><td>string, function, or table</td><td>Post-update/install hook. See &quot;update/install hooks&quot;.</td></tr>
+<tr><td>requires</td><td>string or list</td><td>Specifies plugin dependencies. <strong>Plugin in requires list can't be lazyload.</strong></td></tr>
+<tr><td>rocks</td><td>string or list</td><td>Specifies Luarocks dependencies for the plugin</td></tr>
+<tr><td>config</td><td>string or function</td><td>Specifies code to run after this plugin is loaded.</td></tr>
+</tbody></table>
+<h2 id="lazyload-settings"><a class="header" href="#lazyload-settings">Lazyload settings</a></h2>
+<table><thead><tr><th>fields</th><th>value</th><th>usage</th></tr></thead><tbody>
+<tr><td>setup</td><td>string or function</td><td>pecifies code to run before this plugin is loaded.</td></tr>
+<tr><td>cmd</td><td>string or list</td><td>Specifies commands which load this plgin. Can be an autocmd pattern.</td></tr>
+<tr><td>ft</td><td>string or list</td><td>Specifies filetypes which load this plugin.</td></tr>
+<tr><td>key</td><td>string or list</td><td>Specifies maps which load this plugin. See &quot;Keybindings&quot;.</td></tr>
+<tr><td>event</td><td>string or list</td><td>Specifies autocommand events which load this plugin.</td></tr>
+<tr><td>fn</td><td>string or list</td><td>Specifies functions which load this plugin.</td></tr>
+<tr><td>cond</td><td>str/func/list of str/func</td><td>Specifies a conditional test to load this plugin</td></tr>
+<tr><td>module</td><td>string or list</td><td>Specifies Lua module names for require. When requiring a string which starts with one of these module names, the plugin will be loaded.</td></tr>
+<tr><td>module_pattern</td><td>string/list</td><td>Specifies Lua pattern of Lua module names for require. When requiring a string which matches one of these patterns, the plugin will be loaded.</td></tr>
+</tbody></table>
+<h2 id="faq"><a class="header" href="#faq">FAQ</a></h2>
+<h3 id="how-to-set-up-options-before-plugin-load"><a class="header" href="#how-to-set-up-options-before-plugin-load">How to set up options <strong>before</strong> plugin load?</a></h3>
+<p>Use the setup field. Example config:</p>
+<pre><code class="language-lua">use {
+  'path/to/plugin',
+  setup = function()
+    -- this function will be called before the plugin loaded
+    vim.g.settings = &quot;your settings&quot;
+  end
+}
+</code></pre>
+<h3 id="how-to-setup-config-after-plugin-load"><a class="header" href="#how-to-setup-config-after-plugin-load">How to setup config <strong>after</strong> plugin load?</a></h3>
+<p>Use the config field. Example config:</p>
+<pre><code class="language-lua">use {
+  'plugin',
+  config = function()
+    require('plugin').setup{}
+  end
+}
+</code></pre>
+<h3 id="how-to-load-plugin-only-when-you-called-its-command"><a class="header" href="#how-to-load-plugin-only-when-you-called-its-command">How to load plugin only when you called it's command</a></h3>
+<p>For example, the vim-fugitive provide command <code>:Git</code>, you can load the
+vim-fugitive command only when you call the Git command:</p>
+<pre><code class="language-lua">use {
+  'tpope/vim-fugitive',
+  cmd = {
+    'G', 'Git',
+    'Ggrep',
+    'Gdiffsplit',
+    'GBrowse'
+  }
+}
+</code></pre>
+<p>With the above settings, vim-fugitive will not be sourced when you open the
+editor. It will only be sourced after you called the
+<code>:G/:Git/:Ggrep/:Gdiffsplit/:GBrowse</code> command.</p>
+<h3 id="how-to-load-plugin-only-in-specific-filetype"><a class="header" href="#how-to-load-plugin-only-in-specific-filetype">How to load plugin only in specific filetype</a></h3>
+<p>In the below example, nvim-lsp-installer will only be loaded when you open file
+with <code>.json</code>, <code>.py</code>, and <code>.js</code> extension.</p>
+<pre><code class="language-lua">use {
+  'williamboman/nvim-lsp-installer',
+  ft = { &quot;json&quot;, &quot;python&quot;, &quot;javascript&quot; },
+  config = function()
+    require(&quot;lspconfig&quot;)
+  end
+}
+</code></pre>
+<blockquote>
+<p><strong>Important notes</strong>:</p>
+<p>The ft field has more priviledge than the after field.
+So if you have <code>ft</code> and <code>after</code> for same plugin, it will first evaluate the
+filetype not the after field.</p>
+</blockquote>
+<h3 id="how-to-load-plugin-for-specific-module-call"><a class="header" href="#how-to-load-plugin-for-specific-module-call">How to load plugin for specific module call</a></h3>
+<p>The telescope.nvim here will only be loaded after any code call the
+<code>require(&quot;telescope&quot;)</code>.</p>
+<pre><code class="language-lua">use {
+  'nvim-telescope/telescope.nvim',
+  requires = {
+    'nvim-lua/popup.nvim',
+    'nvim-lua/plenary.nvim'
+  },
+  config = function()
+    require(&quot;config.telescope_config&quot;)
+  end,
+  module = 'telescope'
+}
+</code></pre>
 
                     </main>
 
