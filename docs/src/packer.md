@@ -57,23 +57,23 @@ You just need to delete the declaration line, then run `:PackerClean`.
 
 This is the key to make your neovim faster.
 
-| fields    | value                      | usage                                                                |
-|-----------|----------------------------|----------------------------------------------------------------------|
-| disable   | boolean                    | Mark a plugin as inactive                                            |
-| as        | string                     | Specifies an alias under which to install the plugin                 |
-| installer | function                   | Specifies custom installer. See "custom installers" below.           |
-| updater   | function                   | Specifies custom updater. See "custom installers" below.             |
-| after     | string or list             | Specifies plugins to load before this plugin. See "sequencing" below |
-| rtp       | string                     | Specifies a subdirectory of the plugin to add to runtimepath.        |
-| opt       | boolean                    | Manually marks a plugin as optional.                                 |
-| branch    | string                     | Specifies a git branch to use                                        |
-| tag       | string                     | Specifies a git tag to use                                           |
-| commit    | string                     | Specifies a git commit to use                                        |
-| lock      | boolean                    | Skip updating this plugin in updates/syncs. Still cleans.            |
-| run       | string, function, or table | Post-update/install hook. See "update/install hooks".                |
-| requires  | string or list             | Specifies plugin dependencies. See "dependencies".                   |
-| rocks     | string or list             | Specifies Luarocks dependencies for the plugin                       |
-| config    | string or function         | Specifies code to run after this plugin is loaded.                   |
+| fields      | value                        | usage                                                                         |
+| ----------- | ---------------------------- | ----------------------------------------------------------------------        |
+| disable     | boolean                      | Mark a plugin as inactive                                                     |
+| as          | string                       | Specifies an alias under which to install the plugin                          |
+| installer   | function                     | Specifies custom installer. See "custom installers" below.                    |
+| updater     | function                     | Specifies custom updater. See "custom installers" below.                      |
+| after       | string or list               | Specifies plugins to load before this plugin. See "sequencing" below          |
+| rtp         | string                       | Specifies a subdirectory of the plugin to add to runtimepath.                 |
+| opt         | boolean                      | Manually marks a plugin as optional.                                          |
+| branch      | string                       | Specifies a git branch to use                                                 |
+| tag         | string                       | Specifies a git tag to use                                                    |
+| commit      | string                       | Specifies a git commit to use                                                 |
+| lock        | boolean                      | Skip updating this plugin in updates/syncs. Still cleans.                     |
+| run         | string, function, or table   | Post-update/install hook. See "update/install hooks".                         |
+| requires    | string or list               | Specifies plugin dependencies. **Plugin in requires list can't be lazyload.** |
+| rocks       | string or list               | Specifies Luarocks dependencies for the plugin                                |
+| config      | string or function           | Specifies code to run after this plugin is loaded.                            |
 
 ## Lazyload settings
 
