@@ -6,6 +6,7 @@
 
 - [Basics]()
     - [Keymap](keymap.md)
+    - [Colors](colors.md)
 - [Plugins]()
     - [Packer](packer.md)
     - [nvim-tree.lua](nvim-tree.md)
