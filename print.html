@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">English</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Basics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="keymap.html"><strong aria-hidden="true">1.1.</strong> Keymap</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Plugins</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="packer.html"><strong aria-hidden="true">2.1.</strong> Packer</a></li><li class="chapter-item expanded "><a href="nvim-tree.html"><strong aria-hidden="true">2.2.</strong> nvim-tree.lua</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">中文</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 基础设置</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="keymap_cn.html"><strong aria-hidden="true">3.1.</strong> 键位设置</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 插件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="nvim-tree_cn.html"><strong aria-hidden="true">4.1.</strong> nvim-tree.lua</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">English</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Basics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="keymap.html"><strong aria-hidden="true">1.1.</strong> Keymap</a></li><li class="chapter-item expanded "><a href="colors.html"><strong aria-hidden="true">1.2.</strong> Colors</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Plugins</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="packer.html"><strong aria-hidden="true">2.1.</strong> Packer</a></li><li class="chapter-item expanded "><a href="nvim-tree.html"><strong aria-hidden="true">2.2.</strong> nvim-tree.lua</a></li><li class="chapter-item expanded "><a href="nvim-bufferline.html"><strong aria-hidden="true">2.3.</strong> nvim-bufferline.lua</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">中文</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 基础设置</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="keymap_cn.html"><strong aria-hidden="true">3.1.</strong> 键位设置</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 插件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="nvim-tree_cn.html"><strong aria-hidden="true">4.1.</strong> nvim-tree.lua</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -196,6 +196,44 @@ https://github.com/Avimitin/nvim</p>
 <tr><td><kbd>Ctrl-z</kbd></td><td>Reverse changes</td></tr>
 <tr><td><kbd>;</kbd></td><td>Call the command line directly</td></tr>
 </tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="colors"><a class="header" href="#colors">Colors</a></h1>
+<p>This section describe how I manage the colorscheme.</p>
+<h2 id="config-path"><a class="header" href="#config-path">Config path</a></h2>
+<pre><code class="language-text">lua/colors.lua
+</code></pre>
+<h2 id="change-theme"><a class="header" href="#change-theme">Change theme</a></h2>
+<p>You can modify the variable <code>theme</code> in <code>colors.lua</code> like:</p>
+<pre><code class="language-lua">local theme = &quot;ayu&quot; -- &lt;- modify this valuable
+</code></pre>
+<h2 id="add-your-theme"><a class="header" href="#add-your-theme">Add your theme</a></h2>
+<p>If you want to add the theme you want, follow the below instruction.</p>
+<ol>
+<li>Add the theme plugin in the plug.lua.</li>
+</ol>
+<p>Search the pattern &quot;/neovim color theme&quot; and add you plugin into the curly brackets:</p>
+<pre><code class="language-lua">-- neovim color theme
+use {
+    'Avimitin/neovim-deus',
+    'Shatur/neovim-ayu',
+    'YOUR THEME',
+}
+</code></pre>
+<ol start="2">
+<li>Add the configuration for this theme in the colors.lua</li>
+</ol>
+<p>Assuming that the name of your theme call &quot;nord&quot;.</p>
+<pre><code class="language-lua">local theme = &quot;nord&quot;
+
+local function nord_setup()
+  -- Put your configuration here
+  -- If you don't have configuration for the theme,
+  -- leave it blank here.
+end
+
+local theme_opt = {
+  [&quot;nord&quot;] = nord_setup,
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="packer"><a class="header" href="#packer">Packer</a></h1>
 <p>Packer is a plugin manager. It will download plugins from GitHub
 and add plugin into runtime path automatically. What it differ to other
@@ -341,6 +379,22 @@ filetype not the after field.</p>
 <li>Use <kbd>tt</kbd> to toggle the tree view.</li>
 <li>Use <kbd>tr</kbd> to refresh the file.</li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nvim-bufferlinelua"><a class="header" href="#nvim-bufferlinelua">nvim-bufferline.lua</a></h1>
+<p>nvim-bufferline.lua is a buffer manager. It looks like tab page, but it can
+manage more than tab page.</p>
+<p><img src="https://user-images.githubusercontent.com/22454918/111993085-1d299700-8b0e-11eb-96eb-c1c289e36b08.png" alt="image" /></p>
+<h2 id="configuration-file"><a class="header" href="#configuration-file">Configuration file</a></h2>
+<p>lua/config/bufferline_config.lua</p>
+<h2 id="keymap-2"><a class="header" href="#keymap-2">keymap</a></h2>
+<ul>
+<li>Use <kbd>.</kbd> to go to next page.</li>
+<li>Use <kbd>,</kbd> to go to next page.</li>
+<li>Use <kbd>Ctrl-c</kbd> to open picker mode and close the buffer.</li>
+<li>Use <kbd>Alt-&lt;</kbd> to move the current page forward.</li>
+<li>Use <kbd>Alt-&gt;</kbd> to move the current page backward.</li>
+<li>Use <kbd>Alt-p</kbd> to pick buffer.</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/22454918/111993296-5bbf5180-8b0e-11eb-9ad9-fcf9619436fd.gif" alt="image" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="键位设置"><a class="header" href="#键位设置">键位设置</a></h1>
 <h2 id="leader-key-1"><a class="header" href="#leader-key-1">Leader key</a></h2>
 <p>leader key 设置到了空格键上。</p>

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Keymap - Nvim Guide Book</title>
+        <title>Colors - Nvim Guide Book</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">English</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Basics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="keymap.html" class="active"><strong aria-hidden="true">1.1.</strong> Keymap</a></li><li class="chapter-item expanded "><a href="colors.html"><strong aria-hidden="true">1.2.</strong> Colors</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Plugins</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="packer.html"><strong aria-hidden="true">2.1.</strong> Packer</a></li><li class="chapter-item expanded "><a href="nvim-tree.html"><strong aria-hidden="true">2.2.</strong> nvim-tree.lua</a></li><li class="chapter-item expanded "><a href="nvim-bufferline.html"><strong aria-hidden="true">2.3.</strong> nvim-bufferline.lua</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">中文</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 基础设置</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="keymap_cn.html"><strong aria-hidden="true">3.1.</strong> 键位设置</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 插件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="nvim-tree_cn.html"><strong aria-hidden="true">4.1.</strong> nvim-tree.lua</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">English</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Basics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="keymap.html"><strong aria-hidden="true">1.1.</strong> Keymap</a></li><li class="chapter-item expanded "><a href="colors.html" class="active"><strong aria-hidden="true">1.2.</strong> Colors</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Plugins</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="packer.html"><strong aria-hidden="true">2.1.</strong> Packer</a></li><li class="chapter-item expanded "><a href="nvim-tree.html"><strong aria-hidden="true">2.2.</strong> nvim-tree.lua</a></li><li class="chapter-item expanded "><a href="nvim-bufferline.html"><strong aria-hidden="true">2.3.</strong> nvim-bufferline.lua</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">中文</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 基础设置</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="keymap_cn.html"><strong aria-hidden="true">3.1.</strong> 键位设置</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 插件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="nvim-tree_cn.html"><strong aria-hidden="true">4.1.</strong> nvim-tree.lua</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -134,73 +134,53 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="keymap"><a class="header" href="#keymap">Keymap</a></h1>
-<h2 id="leader-key"><a class="header" href="#leader-key">Leader key</a></h2>
-<p>leader key is set to <kbd>Space</kbd>.</p>
-<h2 id="navigation"><a class="header" href="#navigation">Navigation</a></h2>
-<pre><code class="language-text">Basic movement
-
-  ^
-  k
-&lt;h l&gt;
-  j
+                        <h1 id="colors"><a class="header" href="#colors">Colors</a></h1>
+<p>This section describe how I manage the colorscheme.</p>
+<h2 id="config-path"><a class="header" href="#config-path">Config path</a></h2>
+<pre><code class="language-text">lua/colors.lua
 </code></pre>
-<table><thead><tr><th>Keymap</th><th>Function</th></tr></thead><tbody>
-<tr><td><kbd>H</kbd></td><td>Go to the first character of the line</td></tr>
-<tr><td><kbd>L</kbd></td><td>Go to the last character of the line</td></tr>
-<tr><td><kbd>J</kbd></td><td>Go down 5 lines</td></tr>
-<tr><td><kbd>K</kbd></td><td>Go up 5 lines</td></tr>
-<tr><td><kbd>W</kbd></td><td>Go 5 words forward</td></tr>
-<tr><td><kbd>B</kbd></td><td>Go 5 words backward</td></tr>
-<tr><td><kbd>Up</kbd></td><td>Go to the window above</td></tr>
-<tr><td><kbd>Down</kbd></td><td>Go to the window below</td></tr>
-<tr><td><kbd>Right</kbd></td><td>Go to the right window</td></tr>
-<tr><td><kbd>Left</kbd></td><td>Go to the left window</td></tr>
-</tbody></table>
-<h2 id="search"><a class="header" href="#search">Search</a></h2>
-<table><thead><tr><th>Keymap</th><th>Function</th></tr></thead><tbody>
-<tr><td><kbd>-</kbd></td><td>Go to the before matches</td></tr>
-<tr><td><kbd>=</kbd></td><td>Go to the following matches</td></tr>
-<tr><td><kbd>ESC</kbd></td><td>Close the search highlight</td></tr>
-</tbody></table>
-<h2 id="tabpages"><a class="header" href="#tabpages">Tabpages</a></h2>
-<table><thead><tr><th>Keymap</th><th>Function</th></tr></thead><tbody>
-<tr><td><kbd>Ctrl-t h</kbd></td><td>Go to the previous tab</td></tr>
-<tr><td><kbd>Ctrl-t l</kbd></td><td>Go to the next tab</td></tr>
-<tr><td><kbd>Ctrl-t n</kbd></td><td>Create new tab</td></tr>
-</tbody></table>
-<h2 id="copy-and-paste"><a class="header" href="#copy-and-paste">Copy and Paste</a></h2>
-<table><thead><tr><th>Keymap</th><th>Function</th><th>notes</th></tr></thead><tbody>
-<tr><td><kbd>y</kbd></td><td>Copy to register</td><td></td></tr>
-<tr><td><kbd>p</kbd></td><td>Paste from the register</td><td></td></tr>
-<tr><td><kbd>Ctrl-p</kbd></td><td>Paste from the clipboard</td><td>In normal and insert mode</td></tr>
-<tr><td><kbd>Ctrl-y</kbd></td><td>Copy to clipboard</td><td>Only in visual mode</td></tr>
-</tbody></table>
-<h2 id="text-move"><a class="header" href="#text-move">Text move</a></h2>
-<table><thead><tr><th>Keymap</th><th>Function</th><th>notes</th></tr></thead><tbody>
-<tr><td><kbd>&lt;</kbd></td><td>Reduce one indent level</td><td>In normal and selection mode</td></tr>
-<tr><td><kbd>&gt;</kbd></td><td>Increse one indent level</td><td>In normal and selection mode</td></tr>
-</tbody></table>
-<h2 id="save-and-quit"><a class="header" href="#save-and-quit">Save and Quit</a></h2>
-<table><thead><tr><th>Keymap</th><th>Function</th><th>Notes</th></tr></thead><tbody>
-<tr><td><kbd>; w</kbd></td><td>save</td><td></td></tr>
-<tr><td><kbd>Alt q</kbd></td><td>delete buffer</td><td></td></tr>
-<tr><td><kbd>Alt ;</kbd></td><td>Leave the insert mode</td><td>Only in insert mode</td></tr>
-</tbody></table>
-<h2 id="others"><a class="header" href="#others">Others</a></h2>
-<table><thead><tr><th>Keymap</th><th>Function</th></tr></thead><tbody>
-<tr><td><kbd>Ctrl-z</kbd></td><td>Reverse changes</td></tr>
-<tr><td><kbd>;</kbd></td><td>Call the command line directly</td></tr>
-</tbody></table>
+<h2 id="change-theme"><a class="header" href="#change-theme">Change theme</a></h2>
+<p>You can modify the variable <code>theme</code> in <code>colors.lua</code> like:</p>
+<pre><code class="language-lua">local theme = &quot;ayu&quot; -- &lt;- modify this valuable
+</code></pre>
+<h2 id="add-your-theme"><a class="header" href="#add-your-theme">Add your theme</a></h2>
+<p>If you want to add the theme you want, follow the below instruction.</p>
+<ol>
+<li>Add the theme plugin in the plug.lua.</li>
+</ol>
+<p>Search the pattern &quot;/neovim color theme&quot; and add you plugin into the curly brackets:</p>
+<pre><code class="language-lua">-- neovim color theme
+use {
+    'Avimitin/neovim-deus',
+    'Shatur/neovim-ayu',
+    'YOUR THEME',
+}
+</code></pre>
+<ol start="2">
+<li>Add the configuration for this theme in the colors.lua</li>
+</ol>
+<p>Assuming that the name of your theme call &quot;nord&quot;.</p>
+<pre><code class="language-lua">local theme = &quot;nord&quot;
+
+local function nord_setup()
+  -- Put your configuration here
+  -- If you don't have configuration for the theme,
+  -- leave it blank here.
+end
+
+local theme_opt = {
+  [&quot;nord&quot;] = nord_setup,
+}
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="keymap.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="colors.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="packer.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -209,10 +189,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="keymap.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                    <a rel="next" href="colors.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="packer.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
