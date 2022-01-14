@@ -349,6 +349,8 @@ return require('packer').startup(function(use)
   use {
     'tpope/vim-eunuch',
     cmd = {
+      -- Sudo needs you to configured the /etc/sudo.conf file to set the
+      -- correct askpass executable.
       'SudoWrite',
       'SudoEdit',
       'Delete',
