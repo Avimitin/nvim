@@ -243,4 +243,10 @@ image::./image/dap-debug-cpp.png[cpp]
 
 image::./image/dap-debug-rust.png[Rust]
 
+=== Colorscheme Galery
+
+* Everforest
+
+image::./image/everforest.png[Everforest]
+
 // vim: tw=80 fo+=t

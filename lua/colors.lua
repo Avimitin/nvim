@@ -3,7 +3,7 @@ vim.opt.termguicolors = true
 vim.opt.background = "dark"
 -- Available theme value:
 -- "ayu", "kanagawa", "deus"
-local theme = "kanagawa"
+local theme = "everforest"
 
 local function ayu_setup()
   require('ayu').setup({
@@ -66,10 +66,18 @@ local function kanagawa_setup()
   })
 end
 
+local function everforest_setup()
+  vim.g.everforest_background = 'hard'
+  vim.g.everforest_enable_italic = 1
+  vim.g.everforest_ui_contrast = 'high'
+  vim.g.everforest_diagnostic_text_highlight = 1
+end
+
 local theme_opt = {
   ["ayu"] = ayu_setup,
   ["deus"] = deus_setup,
-  ["kanagawa"] = kanagawa_setup
+  ["kanagawa"] = kanagawa_setup,
+  ["everforest"] = everforest_setup,
 }
 
 theme_opt[theme]()
