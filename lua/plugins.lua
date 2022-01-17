@@ -530,13 +530,29 @@ return require('packer').startup(function(use)
   }
 
   use {
-    "ggandor/lightspeed.nvim"
+    "ggandor/lightspeed.nvim",
+    keys = {
+      {'n', 's'},
+      {'v', 's'},
+      {'n', 'S'},
+      {'n', 'f'},
+      {'n', 'F'},
+      {'n', 't'},
+      {'n', 'T'},
+      {'v', 'f'},
+      {'v', 'F'},
+      {'v', 't'},
+      {'v', 'T'},
+    }
   }
 
   use {
     -- Enhanced the `%` keymap
     'andymass/vim-matchup',
-    event = "BufRead"
+    keys = {
+      {'n', '%'},
+      {'v', '%'},
+    }
   }
   -- }}}
 
