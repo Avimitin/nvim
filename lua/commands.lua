@@ -27,3 +27,8 @@ new_cmd("Psh", [[Git! push]])
 new_cmd("Cmt", [[Git commit -sS]])
 
 new_cmd("Neogen", [[lua require("neogen").generate()]])
+
+new_cmd("CrateUpdate", [[lua require("crates").update_crate()]])
+new_cmd("CrateUpgrade", [[lua require("crates").upgrade_crate()]])
+new_cmd("CrateMenu", [[lua require("crates").show_popup()]])
+new_cmd("CrateReload", [[lua require("crates").reload()]])

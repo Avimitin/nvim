@@ -114,7 +114,7 @@ return require('packer').startup(function(use)
       require("colors").gruvbox_setup()
     end
   }
-    -- }}}
+  -- }}}
   -- }}}
 
   -- ==================== CODING ==================================
@@ -224,12 +224,23 @@ return require('packer').startup(function(use)
   }
 
   use {
-      'saecki/crates.nvim',
-      event = { "BufRead Cargo.toml" },
-      requires = { { 'nvim-lua/plenary.nvim' } },
-      config = function()
-          require('crates').setup()
-      end,
+    'saecki/crates.nvim',
+    event = {
+      "BufRead Cargo.toml"
+    },
+    requires = {
+      {
+        'nvim-lua/plenary.nvim'
+      }
+    },
+    config = function()
+      require('crates').setup({
+        popup = {
+          autofocus = true,
+          border = "single"
+        }
+      })
+    end
   }
   -- }}}
 
@@ -365,7 +376,7 @@ return require('packer').startup(function(use)
 
   use {
     'tpope/vim-dispatch',
-    cmd = "Dispatch",
+    cmd = "Dispatch"
   }
 
   -- show color at words
@@ -413,7 +424,7 @@ return require('packer').startup(function(use)
       'Move',
       'Rename',
       'Chmod',
-      'Mkdir',
+      'Mkdir'
     }
   }
 
@@ -552,7 +563,7 @@ return require('packer').startup(function(use)
       {'v', 'f'},
       {'v', 'F'},
       {'v', 't'},
-      {'v', 'T'},
+      {'v', 'T'}
     }
   }
 
@@ -561,7 +572,7 @@ return require('packer').startup(function(use)
     'andymass/vim-matchup',
     keys = {
       {'n', '%'},
-      {'v', '%'},
+      {'v', '%'}
     }
   }
   -- }}}
@@ -634,18 +645,18 @@ return require('packer').startup(function(use)
   }
 
   use {
-      "danymat/neogen",
-      config = function()
-          require('neogen').setup {
-              enabled = true
-          }
-      end,
-      module = "neogen",
+    "danymat/neogen",
+    config = function()
+      require('neogen').setup {
+        enabled = true
+      }
+    end,
+    module = "neogen"
   }
 
   use {
     'dstein64/vim-startuptime',
-    cmd = "StartupTime",
+    cmd = "StartupTime"
   }
 end)
 
