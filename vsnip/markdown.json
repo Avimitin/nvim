@@ -3,6 +3,13 @@
     "prefix": "date",
     "body": [
       "${VIM:system('date +%Y-%m-%d')}"
-    ]
+    ],
+    "description": "Add current date, useful for frontmatter"
+  },
+
+  "keyboard tag": {
+    "prefix": "kbd",
+    "body": "<kbd>${1}</kbd> ${0}",
+    "description": "Add an HTML keyboard tag"
   }
 }
