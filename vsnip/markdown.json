@@ -1,0 +1,8 @@
+{
+  "date": {
+    "prefix": "date",
+    "body": [
+      "${VIM:system('date +%Y-%m-%d')}"
+    ]
+  }
+}
