@@ -201,38 +201,69 @@
 <h2 id="config-path"><a class="header" href="#config-path">Config path</a></h2>
 <pre><code class="language-text">lua/colors.lua
 </code></pre>
-<h2 id="change-theme"><a class="header" href="#change-theme">Change theme</a></h2>
-<p>You can modify the variable <code>theme</code> in <code>colors.lua</code> like:</p>
-<pre><code class="language-lua">local theme = &quot;ayu&quot; -- &lt;- modify this valuable
+<h2 id="change-the-theme"><a class="header" href="#change-the-theme">Change the theme</a></h2>
+<p>You can modify the variable <code>M.theme</code> in <code>colors.lua</code> file.
+Currently, we have:</p>
+<ul>
+<li>deus</li>
+</ul>
+<pre><code class="language-lua">M.theme = &quot;deus&quot;
 </code></pre>
+<p><img src="en_us/../../images/deus.png" alt="images" /> </p>
+<ul>
+<li>kanagawa </li>
+</ul>
+<pre><code class="language-lua">M.theme = &quot;kanagawa&quot;
+</code></pre>
+<p><img src="en_us/../../images/kanagawa.png" alt="images" /> </p>
+<ul>
+<li>everforest </li>
+</ul>
+<pre><code class="language-lua">M.theme = &quot;everforest&quot;
+</code></pre>
+<p><img src="en_us/../../images/everforest.png" alt="images" /> </p>
+<ul>
+<li>ayu </li>
+</ul>
+<pre><code class="language-lua">M.theme = &quot;ayu&quot;
+</code></pre>
+<p><img src="en_us/../../images/ayu.png" alt="images" /> </p>
+<ul>
+<li>gruvbox </li>
+</ul>
+<pre><code class="language-lua">M.theme = &quot;gruvbox&quot;
+</code></pre>
+<p><img src="en_us/../../images/gruvbox.png" alt="images" /> </p>
 <h2 id="add-your-theme"><a class="header" href="#add-your-theme">Add your theme</a></h2>
-<p>If you want to add the theme you want, follow the below instruction.</p>
+<p>If you want to add the theme you prefer, follow the below instruction.</p>
 <ol>
 <li>Add the theme plugin in the plug.lua.</li>
 </ol>
-<p>Search the pattern &quot;/neovim color theme&quot; and add you plugin into the curly brackets:</p>
-<pre><code class="language-lua">-- neovim color theme
-use {
-    'Avimitin/neovim-deus',
-    'Shatur/neovim-ayu',
-    'YOUR THEME',
+<p>Assuming that the name of your theme call &quot;nord&quot;.</p>
+<pre><code class="language-lua">use {
+  'somebody/nord',
+  cond = function()
+    return require(&quot;colors&quot;).theme == &quot;nord&quot;
+  end,
+  config = function()
+    require(&quot;colors&quot;).nord_setup()
+  end
 }
 </code></pre>
+<p>You can read the lua/plugins.lua file for example.</p>
 <ol start="2">
-<li>Add the configuration for this theme in the colors.lua</li>
+<li>Add the configuration in the colors.lua</li>
 </ol>
-<p>Assuming that the name of your theme call &quot;nord&quot;.</p>
-<pre><code class="language-lua">local theme = &quot;nord&quot;
+<pre><code class="language-lua">-- select the theme
+M.theme = &quot;nord&quot;
 
-local function nord_setup()
-  -- Put your configuration here
-  -- If you don't have configuration for the theme,
-  -- leave it blank here.
+M.nord_setup = function()
+  -- leave it blank here if you don't have any config
+  vim.g.background = &quot;dark&quot;
+
+  -- And don't forget this step, it is the final step to load the theme
+  set_color(&quot;nord&quot;)
 end
-
-local theme_opt = {
-  [&quot;nord&quot;] = nord_setup,
-}
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="plugins"><a class="header" href="#plugins">Plugins</a></h1>
 <ul>
