@@ -56,6 +56,9 @@ local function setup_plugins_before_loaded()
     -- If using a Neovim version earlier than 0.6.0
     vim.g.did_load_filetypes = 1
   end
+
+  -- for vsnip
+  vim.g.vsnip_snippet_dir = vim.fn.expand("~/.config/nvim/vsnip")
 end
 
 M.load_plugins = function()
