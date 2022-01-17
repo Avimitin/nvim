@@ -1,6 +1,6 @@
 ++++
 <h1 align="center">My Neovim Configuration</h1>
-<img src="./image/screenshot.png" width="45%" align="right"/>
+<img src="./docs/images/screenshot.png" width="45%" align="right"/>
 ++++
 
 link:#more-screenshot[image:https://img.shields.io/badge/More%20Screenshot-click-blueviolet?logo=googlephotos[badge]]
