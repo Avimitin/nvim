@@ -1,3 +1,18 @@
+3.14.5
+======
+
+Changes:
+--------
+
+* colors: add colorscheme gruvbox (See commit 0ad3b12c)
+* colors: add new colorscheme "everforest" (See commit 9c6def1a)
+* colors: add lazyload for all colors (See commit 52fc2681)
+* plugins: add lazyload for lightspeed and matchup (See commit 99fb3261)
+
+
+-----------------------------------------------------------------------------------------
+
+
 3.14.4
 ======
 I am working on the new document: https://avimitin.github.io/nvim.
