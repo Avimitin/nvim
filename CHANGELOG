@@ -1,3 +1,15 @@
+3.14.6
+======
+
+Changes:
+--------
+* commands: add commands for crates.nvim (See commit 253794e7)
+* plugins: add new plugin "crates.nvim" (See commit b8c04f4e)
+
+
+-----------------------------------------------------------------------------------------
+
+
 3.14.5
 ======
 
