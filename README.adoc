@@ -193,60 +193,58 @@ Some convention is described here: link:./docs/semver.md[semver]
 
 == More Screenshot
 
-image::./image/neovim-md.png[markdown]
+image::./docs/images/neovim-md.png[markdown]
 
 '''''
 
-image::./image/neovim-coding.png[coding]
+image::./docs/images/neovim-coding.png[coding]
 
 '''''
 
-image::./image/neovim-lazygit.png[lazygit]
+image::./docs/images/neovim-lazygit.png[lazygit]
 
 '''''
 
-image::./image/nvui-ext-cmd.png[nvui]
+image::./docs/images/nvui-ext-cmd.png[nvui]
 
 '''''
 
-image::./image/vfiler.png[VFiler]
+image::./docs/images/vfiler.png[VFiler]
 
 '''''
 
-image::./image/lightspeed.png[LightSpeed]
+image::./docs/images/lightspeed.png[LightSpeed]
 
 '''''
 
-image::./image/anyjump.png[Anyjump]
+image::./docs/images/anyjump.png[Anyjump]
 
 '''''
 
-image::./image/help.png[lsp]
+image::./docs/images/help.png[lsp]
 
-image::./image/codeaction.png[lsp]
+image::./docs/images/codeaction.png[lsp]
 
-image::./image/diagnostic.png[lsp]
+image::./docs/images/diagnostic.png[lsp]
 
 === fugitive
 
-image::./image/neovim-fugitive.png[fugitive]
+image::./docs/images/neovim-fugitive.png[fugitive]
 
-image::./image/fugitive.png[fugitive]
+image::./docs/images/fugitive.png[fugitive]
 
 === Dap Debug
 
 * CPP
 
-image::./image/dap-debug-cpp.png[cpp]
+image::./docs/images/dap-debug-cpp.png[cpp]
 
 * Rust
 
-image::./image/dap-debug-rust.png[Rust]
+image::./docs/images/dap-debug-rust.png[Rust]
 
 === Colorscheme Galery
 
-* Everforest
-
-image::./image/everforest.png[Everforest]
+See link:./docs/src/en_us/colors.md[Colors document]
 
 // vim: tw=80 fo+=t
