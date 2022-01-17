@@ -84,4 +84,9 @@ M.everforest_setup = function()
   set_color("everforest")
 end
 
+M.gruvbox_setup = function ()
+  vim.g.gruvbox_contrast_dark = 'hard'
+  set_color("gruvbox")
+end
+
 return M

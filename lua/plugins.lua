@@ -104,6 +104,16 @@ return require('packer').startup(function(use)
       require("colors").everforest_setup()
     end
   }
+
+  use {
+    'morhetz/gruvbox',
+    cond = function()
+      return require("colors").theme == "gruvbox"
+    end,
+    config = function()
+      require("colors").gruvbox_setup()
+    end
+  }
     -- }}}
   -- }}}
 
