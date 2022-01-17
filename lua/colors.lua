@@ -1,22 +1,31 @@
 -- theme
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
--- Available theme value:
--- "ayu", "kanagawa", "deus"
-local theme = "everforest"
 
-local function ayu_setup()
+local M = {}
+
+local function set_color(color_name)
+  vim.cmd("colorscheme " .. color_name)
+end
+
+-- Available theme value:
+-- "ayu", "kanagawa", "deus", "everforest"
+M.theme = "everforest"
+
+M.ayu_setup = function()
   require('ayu').setup({
     mirage = true,
     overrides = {}
   })
+  set_color("ayu")
 end
 
-local function deus_setup()
+M.deus_setup = function()
   vim.g.deus_background = "hard"
+  set_color("deus")
 end
 
-local function kanagawa_setup()
+M.kanagawa_setup = function()
   local default = require('kanagawa.colors').setup()
   require('kanagawa').setup({
     undercurl = true, -- enable undercurls
@@ -60,26 +69,19 @@ local function kanagawa_setup()
       },
       NormalFloat = {
         fg = default.fujiWhite,
-        bg = default.winterBlue,
-      },
+        bg = default.winterBlue
+      }
     }
   })
+  set_color("kanagawa")
 end
 
-local function everforest_setup()
+M.everforest_setup = function()
   vim.g.everforest_background = 'hard'
   vim.g.everforest_enable_italic = 1
   vim.g.everforest_ui_contrast = 'high'
   vim.g.everforest_diagnostic_text_highlight = 1
+  set_color("everforest")
 end
 
-local theme_opt = {
-  ["ayu"] = ayu_setup,
-  ["deus"] = deus_setup,
-  ["kanagawa"] = kanagawa_setup,
-  ["everforest"] = everforest_setup,
-}
-
-theme_opt[theme]()
-
-vim.cmd("colorscheme " .. theme)
+return M

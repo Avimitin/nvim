@@ -64,13 +64,47 @@ return require('packer').startup(function(use)
     event = "BufRead"
   }
 
-  -- neovim color theme
+  -- neovim color theme {{{
   use {
     'Avimitin/neovim-deus',
-    'Shatur/neovim-ayu',
-    'rebelot/kanagawa.nvim',
-    'sainnhe/everforest',
+    cond = function()
+      return require("colors").theme == "deus"
+    end,
+    config = function()
+      require("colors").deus_setup()
+    end
   }
+
+  use {
+    'Shatur/neovim-ayu',
+    cond = function()
+      return require("colors").theme == "ayu"
+    end,
+    config = function()
+      require("colors").ayu_setup()
+    end
+  }
+
+  use {
+    'rebelot/kanagawa.nvim',
+    cond = function()
+      return require("colors").theme == "kanagawa"
+    end,
+    config = function()
+      require("colors").kanagawa_setup()
+    end
+  }
+
+  use {
+    'sainnhe/everforest',
+    cond = function()
+      return require("colors").theme == "everforest"
+    end,
+    config = function()
+      require("colors").everforest_setup()
+    end
+  }
+    -- }}}
   -- }}}
 
   -- ==================== CODING ==================================
