@@ -19,7 +19,7 @@ Currently, we have:
 M.theme = "deus"
 ```
 
-![images](../../images/deus.png) 
+![images](https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/deus.png)
 
 * kanagawa 
 
@@ -27,7 +27,7 @@ M.theme = "deus"
 M.theme = "kanagawa"
 ```
 
-![images](../../images/kanagawa.png) 
+![images](https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/kanagawa.png)
 
 * everforest 
 
@@ -35,7 +35,7 @@ M.theme = "kanagawa"
 M.theme = "everforest"
 ```
 
-![images](../../images/everforest.png) 
+![images](https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/everforest.png) 
 
 * ayu 
 
@@ -43,7 +43,7 @@ M.theme = "everforest"
 M.theme = "ayu"
 ```
 
-![images](../../images/ayu.png) 
+![images](https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/ayu.png) 
 
 * gruvbox 
 
@@ -51,7 +51,7 @@ M.theme = "ayu"
 M.theme = "gruvbox"
 ```
 
-![images](../../images/gruvbox.png) 
+![images](https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/gruvbox.png) 
 
 ## Add your theme
 
