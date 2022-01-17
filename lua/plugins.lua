@@ -214,7 +214,7 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- RUST
+  -- RUST {{{
   use {
     'simrat39/rust-tools.nvim',
     ft = "rust",
@@ -222,6 +222,16 @@ return require('packer').startup(function(use)
       require("config.rust")
     end
   }
+
+  use {
+      'saecki/crates.nvim',
+      event = { "BufRead Cargo.toml" },
+      requires = { { 'nvim-lua/plenary.nvim' } },
+      config = function()
+          require('crates').setup()
+      end,
+  }
+  -- }}}
 
   use {
     'mfussenegger/nvim-dap',
