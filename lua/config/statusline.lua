@@ -13,9 +13,11 @@ local diagnostic = require('galaxyline.provider_diagnostic')
 local current_scheme = vim.g.colors_name
 
 local line_bg_color = '#2F3445'
+local dark = '#1F253A'
 
 if current_scheme == "everforest" then
   line_bg_color = "#282E2C"
+  dark = "#222B28"
 elseif current_scheme == "gruvbox" then
   line_bg_color = "#261C00"
 end
@@ -25,7 +27,7 @@ local colors = {
     line_bg  =  line_bg_color,
     fg       = '#8FBCBB',
     fg_green = '#65a380',
-    dark     = '#1F253A',
+    dark     = dark,
 
     yellow   = '#E5C07B',
     cyan     = '#70C0BA',
