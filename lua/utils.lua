@@ -59,6 +59,9 @@ local function setup_plugins_before_loaded()
 
   -- for vsnip
   vim.g.vsnip_snippet_dir = vim.fn.expand("~/.config/nvim/vsnip")
+
+  -- for wildfire
+  vim.g.wildfire_objects = {"i'", 'i"', "i)", "i]", "i}", "ip", "it", "i`"}
 end
 
 M.load_plugins = function()
