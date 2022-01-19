@@ -32,18 +32,26 @@ configuration. In my opinion, everyone should have their customized
 neovim. You can press the fork button to clone my project. (Don't forget
 to smash the star button! :) )
 
-Then, follow the installation instruction here:
+Then, clone the repo:
+
+[source,bash]
+----
+git clone https://github.com/Avimitin/nvim.git ~/.config/nvim
+----
+
+You can see the full instruction here:
 https://avimitin.github.io/nvim/en_us/installation.html[document(WIP)]
 
-''''
-
-If you want a minimal vimrc, use this:
-
-....
+++++
+<details>
+  <summary>minimal vimrc</summary>
+  <p>If you want a minimal vimrc, use this:<p>
+  <pre>
 # it is not tested yet, feel free to open issues
 
 curl -SL "https://raw.githubusercontent.com/Avimitin/nvim/master/.vimrc" -o ~/.vimrc
-....
+  </pre>
+++++
 
 == Details about my configuration
 
