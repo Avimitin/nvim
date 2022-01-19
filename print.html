@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">English</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Basics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="en_us/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="en_us/keymap.html"><strong aria-hidden="true">1.2.</strong> Keymap</a></li><li class="chapter-item expanded "><a href="en_us/colors.html"><strong aria-hidden="true">1.3.</strong> Colors</a></li></ol></li><li class="chapter-item expanded "><a href="en_us/plugins.html"><strong aria-hidden="true">2.</strong> Plugins</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="en_us/plugins/packer.html"><strong aria-hidden="true">2.1.</strong> Packer</a></li><li class="chapter-item expanded "><a href="en_us/plugins/nvim-tree.html"><strong aria-hidden="true">2.2.</strong> nvim-tree.lua</a></li><li class="chapter-item expanded "><a href="en_us/plugins/nvim-bufferline.html"><strong aria-hidden="true">2.3.</strong> nvim-bufferline.lua</a></li><li class="chapter-item expanded "><a href="en_us/plugins/lighspeed.html"><strong aria-hidden="true">2.4.</strong> lightspeed.nvim</a></li><li class="chapter-item expanded "><a href="en_us/plugins/fugitive.html"><strong aria-hidden="true">2.5.</strong> vim-fugitive</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">中文</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 基础设置</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="zh_cn/keymap_cn.html"><strong aria-hidden="true">3.1.</strong> 键位设置</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 插件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="zh_cn/plugins/nvim-tree_cn.html"><strong aria-hidden="true">4.1.</strong> nvim-tree.lua</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">English</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Basics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="en_us/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="en_us/keymap.html"><strong aria-hidden="true">1.2.</strong> Keymap</a></li><li class="chapter-item expanded "><a href="en_us/colors.html"><strong aria-hidden="true">1.3.</strong> Colors</a></li></ol></li><li class="chapter-item expanded "><a href="en_us/plugins.html"><strong aria-hidden="true">2.</strong> Plugins</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="en_us/plugins/packer.html"><strong aria-hidden="true">2.1.</strong> Packer</a></li><li class="chapter-item expanded "><a href="en_us/plugins/nvim-tree.html"><strong aria-hidden="true">2.2.</strong> nvim-tree.lua</a></li><li class="chapter-item expanded "><a href="en_us/plugins/nvim-bufferline.html"><strong aria-hidden="true">2.3.</strong> nvim-bufferline.lua</a></li><li class="chapter-item expanded "><a href="en_us/plugins/lighspeed.html"><strong aria-hidden="true">2.4.</strong> lightspeed.nvim</a></li><li class="chapter-item expanded "><a href="en_us/plugins/fugitive.html"><strong aria-hidden="true">2.5.</strong> vim-fugitive</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Others</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="en_us/development.html"><strong aria-hidden="true">3.1.</strong> Development</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">中文</li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 基础设置</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="zh_cn/keymap_cn.html"><strong aria-hidden="true">4.1.</strong> 键位设置</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 插件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="zh_cn/plugins/nvim-tree_cn.html"><strong aria-hidden="true">5.1.</strong> nvim-tree.lua</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -549,6 +549,54 @@ press <code>x</code> to discard changes, press <code>cc</code> to commit, press 
 <li><code>:Git blame</code>: view blame line by line</li>
 </ul>
 <p><img src="en_us/plugins/../../../../image/neovim-fugitive.png" alt="image" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="development-specifications"><a class="header" href="#development-specifications">Development specifications</a></h1>
+<h2 id="commit-convention"><a class="header" href="#commit-convention">Commit convention</a></h2>
+<p>Use format: <code>&lt;type&gt;[!][module]: &lt;summary&gt;</code>.</p>
+<h3 id="available-type"><a class="header" href="#available-type">Available type</a></h3>
+<ul>
+<li>feat: for new feature</li>
+<li>fix: for bug fixes</li>
+<li>triv: for chore</li>
+<li>reft: for refactor</li>
+<li>docs: for document</li>
+</ul>
+<p>Use the bang &quot;!&quot; to indicate that this commit contains breaking changes.</p>
+<h2 id="semantic-version"><a class="header" href="#semantic-version">Semantic version</a></h2>
+<p>This document add additional details for how to increase semantic version.</p>
+<h3 id="api-compatibility"><a class="header" href="#api-compatibility">API Compatibility</a></h3>
+<ul>
+<li>Plugins
+<ul>
+<li>Major: Remove/Replace any plugin</li>
+<li>Minor: Add new plugin</li>
+<li>Minor: Modify plugin setting</li>
+</ul>
+</li>
+<li>Keymaps
+<ul>
+<li>Major: Remove any keymap</li>
+<li>Minor: Add/Replace keymap</li>
+</ul>
+</li>
+<li>Options
+<ul>
+<li>Minor: Update options</li>
+</ul>
+</li>
+<li>Colorscheme
+<ul>
+<li>Major: Remove any colorscheme</li>
+<li>Minor: Update colorscheme setting</li>
+<li>Minor: Replace default colorscheme</li>
+</ul>
+</li>
+<li>utils.lua
+<ul>
+<li>Major: Remove any functionality</li>
+<li>Minor: Add/Replace/Modify function</li>
+</ul>
+</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="键位设置"><a class="header" href="#键位设置">键位设置</a></h1>
 <h2 id="leader-key-1"><a class="header" href="#leader-key-1">Leader key</a></h2>
 <p>leader key 设置到了空格键上。</p>
