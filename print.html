@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">English</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Basics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="en_us/keymap.html"><strong aria-hidden="true">1.1.</strong> Keymap</a></li><li class="chapter-item expanded "><a href="en_us/colors.html"><strong aria-hidden="true">1.2.</strong> Colors</a></li></ol></li><li class="chapter-item expanded "><a href="en_us/plugins.html"><strong aria-hidden="true">2.</strong> Plugins</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="en_us/plugins/packer.html"><strong aria-hidden="true">2.1.</strong> Packer</a></li><li class="chapter-item expanded "><a href="en_us/plugins/nvim-tree.html"><strong aria-hidden="true">2.2.</strong> nvim-tree.lua</a></li><li class="chapter-item expanded "><a href="en_us/plugins/nvim-bufferline.html"><strong aria-hidden="true">2.3.</strong> nvim-bufferline.lua</a></li><li class="chapter-item expanded "><a href="en_us/plugins/lighspeed.html"><strong aria-hidden="true">2.4.</strong> lightspeed.nvim</a></li><li class="chapter-item expanded "><a href="en_us/plugins/fugitive.html"><strong aria-hidden="true">2.5.</strong> vim-fugitive</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">中文</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 基础设置</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="zh_cn/keymap_cn.html"><strong aria-hidden="true">3.1.</strong> 键位设置</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 插件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="zh_cn/plugins/nvim-tree_cn.html"><strong aria-hidden="true">4.1.</strong> nvim-tree.lua</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">English</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Basics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="en_us/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="en_us/keymap.html"><strong aria-hidden="true">1.2.</strong> Keymap</a></li><li class="chapter-item expanded "><a href="en_us/colors.html"><strong aria-hidden="true">1.3.</strong> Colors</a></li></ol></li><li class="chapter-item expanded "><a href="en_us/plugins.html"><strong aria-hidden="true">2.</strong> Plugins</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="en_us/plugins/packer.html"><strong aria-hidden="true">2.1.</strong> Packer</a></li><li class="chapter-item expanded "><a href="en_us/plugins/nvim-tree.html"><strong aria-hidden="true">2.2.</strong> nvim-tree.lua</a></li><li class="chapter-item expanded "><a href="en_us/plugins/nvim-bufferline.html"><strong aria-hidden="true">2.3.</strong> nvim-bufferline.lua</a></li><li class="chapter-item expanded "><a href="en_us/plugins/lighspeed.html"><strong aria-hidden="true">2.4.</strong> lightspeed.nvim</a></li><li class="chapter-item expanded "><a href="en_us/plugins/fugitive.html"><strong aria-hidden="true">2.5.</strong> vim-fugitive</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">中文</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 基础设置</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="zh_cn/keymap_cn.html"><strong aria-hidden="true">3.1.</strong> 键位设置</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 插件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="zh_cn/plugins/nvim-tree_cn.html"><strong aria-hidden="true">4.1.</strong> nvim-tree.lua</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -138,6 +138,87 @@
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <p>Here is a detail document. For installation please read
 <a href="https://github.com/Avimitin/nvim">https://github.com/Avimitin/nvim</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h1>
+<ul>
+<li><strong>Neovim</strong> (MUST)</li>
+</ul>
+<p>Currently I am using <code>NVIM v0.7.0-dev+808-g838631e29e</code>. If you got any
+error, please check your neovim version.</p>
+<p>You can follow
+<a href="https://github.com/neovim/neovim/wiki/Installing-Neovim">neovim installation</a>
+to build latest neovim.</p>
+<p>If you are Arch Linux user, you can simply run: <code>yay -S neovim-git</code></p>
+<ul>
+<li><strong>Nerdfont</strong> (MUST)</li>
+</ul>
+<p>Most of my setting are based on nerd font. It’s highly recommended to
+install <a href="https://www.nerdfonts.com/font-downloads">nerdfont</a> for
+impressive icon support.</p>
+<ul>
+<li><strong>ripgrep</strong> (MUST)</li>
+</ul>
+<p>The telescope, nvim-cmp, and anyjump plugin are configured to use ripgrep
+as the search program. It is an faster grep RIIR alternative.</p>
+<p>See its <a href="https://github.com/BurntSushi/ripgrep">readme</a> for more.</p>
+<ul>
+<li><em>Surf</em> (OPTIONAL)</li>
+</ul>
+<p>I am using <a href="https://surf.suckless.org/">Surf</a> as my markdown preview
+browser. Firefox is too heavy for the preview job. If you have interest
+on it, please follow the instruction from the official pages. If not,
+you can easily modify the settings:</p>
+<pre><code class="language-bash">sed -i 's/surf/firefox/g' ./lua/config/mkdp.lua
+</code></pre>
+<blockquote>
+<ul>
+<li>How to build surf</li>
+</ul>
+<pre><code class="language-bash"># Arch linux contains most of the library
+# Other distro need to check out documents yourself
+git clone https://git.suckless.org/surf
+cd surf
+sudo make clean install
+</code></pre>
+</blockquote>
+<h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
+<pre><code class="language-bash"># NO WINDOWS SUPPORT NOW
+git clone https://github.com/YOUR_USER_NAME/nvim ~/.config/nvim
+</code></pre>
+<p>Open your neovim by command <code>nvim</code> and wait for all plugins installed.
+The plugins will be installed automatically. Please quit and reopen the
+neovim to load all the plugins.</p>
+<p>If the neovim don’t install plugins automatically, use the command
+<code>:PackerSync</code> to install those plugins manually. And please open a issue
+to notify me about the error.</p>
+<p><strong>NOTE:</strong> Markdown preview plugin is installed in another thread, please
+wait for it until it response message of installation success.
+Otherwise, you will find that you can’t activate it.</p>
+<h1 id="clean-up"><a class="header" href="#clean-up">Clean up</a></h1>
+<p>You need to clean the below directory for a fresh install.</p>
+<pre><code class="language-bash"># plugins directory
+rm -rf ~/.local/share/nvim
+
+# neovim cache file
+rm -r ~/.cache/nvim
+
+# neovim plugins load sequence
+rm -r ~/.config/nvim/plugin
+</code></pre>
+<h1 id="check-health"><a class="header" href="#check-health">Check health</a></h1>
+<p>Open your neovim and input following command to check if the dependence
+is all installed or not.</p>
+<pre><code class="language-text">:checkhealth
+</code></pre>
+<h3 id="docker"><a class="header" href="#docker">Docker</a></h3>
+<p>Just wanna have a try but do not want to mess up your local environment?
+I have docker script for you!</p>
+<pre><code class="language-bash">docker run -w /root -it --rm alpine:edge sh -uelic '
+      apk add git neovim ripgrep alpine-sdk --update
+      git clone 'https://github.com/Avimitin/nvim' ~/.config/nvim
+      nvim -c &quot;autocmd User PackerComplete quitall&quot;
+      nvim /root/.config/nvim/README.md
+  '
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="keymap"><a class="header" href="#keymap">Keymap</a></h1>
 <h2 id="leader-key"><a class="header" href="#leader-key">Leader key</a></h2>
 <p>leader key is set to <kbd>Space</kbd>.</p>
