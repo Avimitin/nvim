@@ -1,8 +1,24 @@
-# SemVer Convention
+# Development specifications
+
+## Commit convention
+
+Use format: `<type>[!][module]: <summary>`.
+
+### Available type
+
+- feat: for new feature
+- fix: for bug fixes
+- triv: for chore
+- reft: for refactor
+- docs: for document
+
+Use the bang "!" to indicate that this commit contains breaking changes.
+
+## Semantic version
 
 This document add additional details for how to increase semantic version.
 
-## API Compatibility
+### API Compatibility
 
 - Plugins
   - Major: Remove/Replace any plugin
