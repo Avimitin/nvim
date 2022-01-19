@@ -1,7 +1,6 @@
 <h1 align="center">My Neovim Configuration</h1>
 <img src="./docs/images/screenshot.png" width="45%" align="right"/>
 
-![[more](#more-screenshot)](https://img.shields.io/badge/More%20Screenshot-click-blueviolet?logo=googlephotos)
 ![badge](https://github.com/avimitin/nvim/actions/workflows/test.yml/badge.svg)
 ![badge](https://github.com/avimitin/nvim/actions/workflows/lint.yml/badge.svg)
 ![badge](https://img.shields.io/badge/Language-Lua-blue?logo=lua&logoColor=blue)
@@ -53,13 +52,100 @@ curl -SL "https://raw.githubusercontent.com/Avimitin/nvim/master/.vimrc" -o ~/.v
 
 Please read [nvim book(WIP)](https://avimitin.github.io/nvim).
 
+## Show cases
+
+So, what will you get from my configuration?
+
+### Speed
+
+I have optimized almost every plugins.
+Plugins can only be loaded when they are required.
+They will not delay the editor to start up.
+For an empty buffer, neovim takes only *25ms* to start up in average.
+
+You can read the [benchmark file](./utils/benchmark.txt)
+for the speed.
+
+### Motion
+
+With the help from lightspeed, I can hop in place with few keys.
+
+![LightSpeed](./docs/images/lightspeed.png)
+
+### Markdown
+
+Markdown can be generated in time with command `:MarkdownPreview`.
+
+![image](./docs/images/neovim-md.png)
+
+Also, there are bunch of other utilities provided by
+[vim-markdown](https://github.com/plasticboy/vim-markdown).
+
+Besides, we have the most powerful table tools in vim:
+[vim-table-mode](https://github.com/dhruvasagar/vim-table-mode/)
+
+### Coding
+
+First of all, you will have configured completion menu.
+
+![coding](./docs/images/neovim-coding.png)
+
+Then, you can use `:LspInstall` to install language server.
+
+![lspserver](./docs/images/lspinstall.png)
+
+`Rust`, `C++`, `Lua`, `Golang` are configured by default.
+After the installation, you will get a VSCode like coding editor:
+
+* Document pop up
+
+![lsp](./docs/images/help.png)
+
+* Code actions
+
+![lsp](./docs/images/codeaction.png)
+
+* diagnostic panel
+
+![lsp](./docs/images/diagnostic.png)
+
+* Debug
+
+1. CPP
+
+![cpp](./docs/images/dap-debug-cpp.png)
+
+2. Rust
+
+![Rust](./docs/images/dap-debug-rust.png)
+
+* Code navigate
+
+![Anyjump](./docs/images/anyjump.png)
+
+* Git tools
+
+1. fugitive
+
+![fugitive](./docs/images/neovim-fugitive.png)
+
+![fugitive](./docs/images/fugitive.png)
+
+2. lazygit
+
+![lazygit](./docs/images/neovim-lazygit.png)
+
+* file manager
+
+![VFiler](./docs/images/vfiler.png)
+
 ## License
 
 MIT License
 
 ## Credit
 
-The v0.1-v1.0-vimscript version is originally inspired by
+The v1.0-vimscript version is originally inspired by
 [theniceboy/nvim](https://github.com/theniceboy/nvim).
 
 And lua code since v2.0 is inspired by
@@ -70,55 +156,3 @@ Take a look at their contribution, which is really fantastic.
 ## Development Related
 
 Please read [development specifications](./docs/src/en_us/development.md).
-
-### More Screenshot
-
-![image](./docs/images/neovim-md.png) 
-
-'''''
-
-![coding](./docs/images/neovim-coding.png)
-
-'''''
-
-![lazygit](./docs/images/neovim-lazygit.png)
-
-'''''
-
-![nvui](./docs/images/nvui-ext-cmd.png)
-
-'''''
-
-![VFiler](./docs/images/vfiler.png)
-
-'''''
-
-![LightSpeed](./docs/images/lightspeed.png)
-
-'''''
-
-![Anyjump](./docs/images/anyjump.png)
-
-'''''
-
-![lsp](./docs/images/help.png)
-
-![lsp](./docs/images/codeaction.png)
-
-![lsp](./docs/images/diagnostic.png)
-
-=== fugitive
-
-![fugitive](./docs/images/neovim-fugitive.png)
-
-![fugitive](./docs/images/fugitive.png)
-
-=== Dap Debug
-
-* CPP
-
-![cpp](./docs/images/dap-debug-cpp.png)
-
-* Rust
-
-![Rust](./docs/images/dap-debug-rust.png)
