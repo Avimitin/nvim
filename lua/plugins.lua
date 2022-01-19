@@ -597,7 +597,7 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'Avimitin/lazygit.nvim',
+    'kdheepak/lazygit.nvim',
     setup = function()
       vim.g.lazygit_floating_window_winblend = 0
       vim.g.lazygit_floating_window_scaling_factor = 1
