@@ -1,19 +1,17 @@
-++++
 <h1 align="center">My Neovim Configuration</h1>
 <img src="./docs/images/screenshot.png" width="45%" align="right"/>
-++++
 
-link:#more-screenshot[image:https://img.shields.io/badge/More%20Screenshot-click-blueviolet?logo=googlephotos[badge]]
-image:https://github.com/avimitin/nvim/actions/workflows/test.yml/badge.svg[badge]
-image:https://github.com/avimitin/nvim/actions/workflows/lint.yml/badge.svg[badge]
-image:https://img.shields.io/badge/Language-Lua-blue?logo=lua&logoColor=blue[badge]
-image:https://img.shields.io/github/contributors/Avimitin/nvim?color=dark-green[badge]
-image:https://img.shields.io/github/issues/Avimitin/nvim[issue]
-image:https://img.shields.io/github/license/Avimitin/nvim[license]
-image:https://img.shields.io/github/forks/Avimitin/nvim?style=social[badge]
-image:https://img.shields.io/github/stars/Avimitin/nvim?style=social[stargazer]
+![[more](#more-screenshot)](https://img.shields.io/badge/More%20Screenshot-click-blueviolet?logo=googlephotos)
+![badge](https://github.com/avimitin/nvim/actions/workflows/test.yml/badge.svg)
+![badge](https://github.com/avimitin/nvim/actions/workflows/lint.yml/badge.svg)
+![badge](https://img.shields.io/badge/Language-Lua-blue?logo=lua&logoColor=blue)
+![badge](https://img.shields.io/github/contributors/Avimitin/nvim?color=dark-green)
+![badge](https://img.shields.io/github/issues/Avimitin/nvim)
+![badge](https://img.shields.io/github/license/Avimitin/nvim)
+![badge](https://img.shields.io/github/forks/Avimitin/nvim?style=social)
+![badge](https://img.shields.io/github/stars/Avimitin/nvim?style=social)
 
-== Motivation
+## Motivation
 
 I want a text editor which:
 
@@ -25,24 +23,22 @@ need to install IDE per language.
 the keyboard too much. I can have my cursor in place at the moment my eye first skim.
 * Really really beautiful. I can treat it as a work of art, not a tool.
 
-== Getting Start
+## Getting Start
 
 I recommend you use my configuration as a base and build your
 configuration. In my opinion, everyone should have their customized
 neovim. You can press the fork button to clone my project. (Don't forget
-to smash the star button! :) )
+to smash the star button! `:)`)
 
 Then, clone the repo:
 
-[source,bash]
-----
+```bash
 git clone https://github.com/Avimitin/nvim.git ~/.config/nvim
-----
+```
 
-You can see the full instruction here:
-https://avimitin.github.io/nvim/en_us/installation.html[document(WIP)]
+You can read the full installation documentation here:
+[*Installation Guide*](https://avimitin.github.io/nvim/en_us/installation.html)
 
-++++
 <details>
   <summary>minimal vimrc</summary>
   <p>If you want a minimal vimrc, use this:<p>
@@ -51,100 +47,78 @@ https://avimitin.github.io/nvim/en_us/installation.html[document(WIP)]
 
 curl -SL "https://raw.githubusercontent.com/Avimitin/nvim/master/.vimrc" -o ~/.vimrc
   </pre>
-++++
+</details>
 
-== Details about my configuration
+## Details about my configuration
 
-See https://avimitin.github.io/nvim[document(WIP)].
+Please read [nvim book(WIP)](https://avimitin.github.io/nvim).
 
-== License
+## License
 
 MIT License
 
-== Credit
+## Credit
 
-This project is originally inspired by
-https://github.com/theniceboy/nvim[theniceboy/nvim].
+The v0.1-v1.0-vimscript version is originally inspired by
+[theniceboy/nvim](https://github.com/theniceboy/nvim).
 
-And lua code is inspired by
-https://github.com/siduck76/NvChad[siduck76/NvChad].
+And lua code since v2.0 is inspired by
+[siduck76/NvChad](https://github.com/siduck76/NvChad).
 
 Take a look at their contribution, which is really fantastic.
 
-== Development Related
+## Development Related
 
-=== About Commit
+Please read [development specifications](./docs/src/en_us/development.md).
 
-Please read
-https://github.com/Avimitin/commit-convention[commit-convention]
+### More Screenshot
 
-=== About version
-
-I am using semantic version as the version style. And I am following
-the https://doc.rust-lang.org/cargo/reference/semver.html#change-categories[Cargo Book]
-as semver guidance.
-
-Bug fix or trivial modification will be treated as a patch change. New plugin
-or any functionality removal will be treated as a minor change. Only when I
-totally rewrite the whole project, I will increase the major number. (Like
-vimscript -> Lua.)
-
-Some convention is described here: link:./docs/semver.md[semver]
-
-== More Screenshot
-
-image::./docs/images/neovim-md.png[markdown]
+![image](./docs/images/neovim-md.png) 
 
 '''''
 
-image::./docs/images/neovim-coding.png[coding]
+![coding](./docs/images/neovim-coding.png)
 
 '''''
 
-image::./docs/images/neovim-lazygit.png[lazygit]
+![lazygit](./docs/images/neovim-lazygit.png)
 
 '''''
 
-image::./docs/images/nvui-ext-cmd.png[nvui]
+![nvui](./docs/images/nvui-ext-cmd.png)
 
 '''''
 
-image::./docs/images/vfiler.png[VFiler]
+![VFiler](./docs/images/vfiler.png)
 
 '''''
 
-image::./docs/images/lightspeed.png[LightSpeed]
+![LightSpeed](./docs/images/lightspeed.png)
 
 '''''
 
-image::./docs/images/anyjump.png[Anyjump]
+![Anyjump](./docs/images/anyjump.png)
 
 '''''
 
-image::./docs/images/help.png[lsp]
+![lsp](./docs/images/help.png)
 
-image::./docs/images/codeaction.png[lsp]
+![lsp](./docs/images/codeaction.png)
 
-image::./docs/images/diagnostic.png[lsp]
+![lsp](./docs/images/diagnostic.png)
 
 === fugitive
 
-image::./docs/images/neovim-fugitive.png[fugitive]
+![fugitive](./docs/images/neovim-fugitive.png)
 
-image::./docs/images/fugitive.png[fugitive]
+![fugitive](./docs/images/fugitive.png)
 
 === Dap Debug
 
 * CPP
 
-image::./docs/images/dap-debug-cpp.png[cpp]
+![cpp](./docs/images/dap-debug-cpp.png)
 
 * Rust
 
-image::./docs/images/dap-debug-rust.png[Rust]
-
-=== Colorscheme Galery
-
-See link:./docs/src/en_us/colors.md[Colors document]
-
-// vim: tw=80 fo+=t
+![Rust](./docs/images/dap-debug-rust.png)
