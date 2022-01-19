@@ -5,6 +5,7 @@
 # English
 
 - [Basics]()
+    - [Installation](./en_us/installation.md)
     - [Keymap](./en_us/keymap.md)
     - [Colors](./en_us/colors.md)
 - [Plugins](./en_us/plugins.md)
