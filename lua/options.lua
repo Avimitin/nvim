@@ -29,7 +29,7 @@ opt.softtabstop = 2
 
 -- A List is an ordered sequence of items.
 opt.list = true
-opt.listchars = "tab:->,trail:·"
+opt.listchars = "tab:> ,trail:·"
 
 -- Minimal number of screen lines to keep above and below the cursor.
 opt.scrolloff = 5
