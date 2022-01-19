@@ -14,6 +14,8 @@
     - [nvim-bufferline.lua](./en_us/plugins/nvim-bufferline.md)
     - [lightspeed.nvim](./en_us/plugins/lighspeed.md)
     - [vim-fugitive](./en_us/plugins/fugitive.md)
+- [Others]()
+    - [Development](./en_us/development.md)
 
 ---
 
