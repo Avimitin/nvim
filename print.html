@@ -551,16 +551,107 @@ press <code>x</code> to discard changes, press <code>cc</code> to commit, press 
 <p><img src="en_us/plugins/../../../../image/neovim-fugitive.png" alt="image" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="development-specifications"><a class="header" href="#development-specifications">Development specifications</a></h1>
 <h2 id="commit-convention"><a class="header" href="#commit-convention">Commit convention</a></h2>
+<h3 id="title"><a class="header" href="#title">Title</a></h3>
 <p>Use format: <code>&lt;type&gt;[!][module]: &lt;summary&gt;</code>.</p>
-<h3 id="available-type"><a class="header" href="#available-type">Available type</a></h3>
 <ul>
-<li>feat: for new feature</li>
-<li>fix: for bug fixes</li>
-<li>triv: for chore</li>
-<li>reft: for refactor</li>
-<li>docs: for document</li>
+<li><em><strong>Available type</strong></em></li>
 </ul>
-<p>Use the bang &quot;!&quot; to indicate that this commit contains breaking changes.</p>
+<ul>
+<li><strong>feat</strong>: for new feature</li>
+<li><strong>fix</strong>: for bug fixes</li>
+<li><strong>triv</strong>: for chore</li>
+<li><strong>reft</strong>: for refactor</li>
+<li><strong>docs</strong>: for document</li>
+<li>Use the bang &quot;!&quot; to indicate that this commit contains breaking changes.</li>
+</ul>
+<p>Title should be wrap in 50 Latin characters.
+The first word of the title <em>should</em> be lower case and <em>must</em> be a verb.
+Don't end with a period and don't attach any tense on it. You <em>must</em> write
+the commit in the imperative.</p>
+<p><em>This is good:</em></p>
+<pre><code class="language-text">refactor subsystem X for readability
+update getting started documentation
+remove deprecated methods
+release version 1.0.0
+</code></pre>
+<p><em>And this is bad:</em></p>
+<pre><code class="language-text">fixed bug with Y              ==&gt; don't use tense
+changing behavior of X        ==&gt; don't use tense
+more fixes for broken stuff   ==&gt; use verb to make order
+sweet new API methods         ==&gt; there is no verb
+</code></pre>
+<p>A rule of thumb is to fill this sentence:
+&quot;This patch will modify the project to...&quot;.</p>
+<ul>
+<li>This patch will modify the project to refactor subsystem X for readability</li>
+<li>This patch will modify the project to update getting started documentation</li>
+<li>This patch will modify the project to remove deprecated methods</li>
+<li>This patch will modify the project to release version 1.0.0</li>
+</ul>
+<p>So now the none-imperative commit are not working:</p>
+<ul>
+<li>This patch will modify the project to fixed bug with Y</li>
+<li>This patch will modify the project to changing behavior of X</li>
+<li>This patch will modify the project to more fixes for broken stuff</li>
+<li>This patch will modify the project to sweet new API methods</li>
+</ul>
+<h3 id="example"><a class="header" href="#example">Example</a></h3>
+<pre><code class="language-text">feat/plugins: add new plugin
+fix/lazygit: fix the submodule issue
+reft!/colors: replace the NormalFloat color         &lt;- This one contains breaking change
+    ^
+docs/readme: update the installation guide
+triv: rename the ci filename
+</code></pre>
+<p>The module name is optional. If you write the module name, please use <code>/</code> to separate
+the type and module.</p>
+<h3 id="body"><a class="header" href="#body">Body</a></h3>
+<p>Body is optional. You can use any markup language that is well-knowing
+in the body section. And you should write down what you have done and
+why you did this. Don't write about how you do this.</p>
+<p>If you are woring on a new PR, remember to attach the issue ID and PR ID.</p>
+<p>Also if this commit contains breaking change, remember to attach
+<code>BREAKING CHANGE:</code> to told what has been change at the end of the body
+section. See the section &quot;Full Example&quot; for details.</p>
+<ul>
+<li>Recommend format</li>
+</ul>
+<p>My daily practice are listed below:</p>
+<pre>
+## Section
+
+`short code`
+
+```rust
+codeblock
+```
+
+* item 1
+* item 2
+
+Lorem ipsum dolor sit amet, qui minim labore {ref-1}
+adipisicing minim sint cillum sint consectetur cupidatat.
+
+Ref:
+ref-1: https://github.com/Avimitin/commit-convention
+</pre>
+<ul>
+<li>One Line Per Sentence</li>
+</ul>
+<p>Besides, I recommend using one line per sentence.
+Imaging you are editing a large paragraph, and you find yourself have syntax
+error at the previous sentences.
+You remove or add new word, it cause the editing line over 80 characters.
+So you have to edit the whole paragraph to fit in 80 characters per line.</p>
+<p>You can read
+<a href="https://rhodesmill.org/brandon/2012/one-sentence-per-line/">this article</a>
+to know more benefit you can gain from this.</p>
+<h3 id="footer"><a class="header" href="#footer">Footer</a></h3>
+<p>Footer should contains all the collaborators's name and email. If someone
+mention a bug, attach &quot;Reported-by: Tom &lt;Tom@example.com&gt;&quot;. If someone
+help you test the code, attach &quot;Tested-by: Sam &lt;Sam@example.com&gt;&quot;.</p>
+<p>If you are using GPG to sign your commit, you can attach your name at the end
+of the rooter like: &quot;Signed-off-by: Yourname &lt;name@example.com&gt;&quot;.</p>
 <h2 id="semantic-version"><a class="header" href="#semantic-version">Semantic version</a></h2>
 <p>This document add additional details for how to increase semantic version.</p>
 <h3 id="api-compatibility"><a class="header" href="#api-compatibility">API Compatibility</a></h3>
