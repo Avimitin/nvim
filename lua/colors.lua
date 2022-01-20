@@ -10,7 +10,7 @@ end
 
 -- Available theme value:
 -- "ayu", "kanagawa", "deus", "everforest"
-M.theme = "everforest"
+M.theme = "kanagawa"
 
 M.ayu_setup = function()
   require('ayu').setup({
