@@ -84,6 +84,12 @@ Also, there are bunch of other utilities provided by
 Besides, we have the most powerful table tools in vim:
 [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode/)
 
+### Colorscheme
+
+With the help from treesitter, we can have amazing code highlight.
+
+You can see available colorscheme here: [colors.md](./docs/src/en_us/colors.md)
+
 ### Coding
 
 First of all, you will have configured completion menu.
