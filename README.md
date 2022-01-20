@@ -12,15 +12,15 @@
 
 ## Motivation
 
-I want a text editor which:
+I want a text editor which is:
 
-* Really really fast. I don't need to care I will have to spend seconds or minutes on
-opening a text file. (See link:./utils/benchmark.txt[`benchmark`])
-* Really really powerful. I can use it to learn all the programming languages. I don't
+* Fast. I don't need to care if I will have to spend seconds or minutes on
+opening a text file.
+* Powerful. I can use it to learn all the programming languages. I don't
 need to install IDE per language.
-* Really really handy. I don't need to move my hand to my mouse. I don't need to click
+* Handy. I don't need to move my hand to my mouse. I don't need to click
 the keyboard too much. I can have my cursor in place at the moment my eye first skim.
-* Really really beautiful. I can treat it as a work of art, not a tool.
+* Fansy. I can treat it as a work of art, not a tool.
 
 ## Getting Start
 
