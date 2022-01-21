@@ -270,28 +270,6 @@ return require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    ft = {
-      -- This are some filetype I used common
-      -- Add yours below.
-      -- {{{
-      -- programming language
-      "c", "cpp",
-      "rust", "go",
-      "lua",
-      "javascript",
-      "python",
-      "ruby",
-      -- shell
-      "fish",
-      "bash", "sh",
-      -- configuration format
-      "json",
-      "toml",
-      "yaml",
-      -- frontend
-      "css", "html"
-      -- }}}
-    },
     config = function()
       require('config.treesitter')
     end
