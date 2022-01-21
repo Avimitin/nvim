@@ -82,6 +82,9 @@ opt.formatoptions = 'qj'
 
 opt.hidden = true
 
+opt.conceallevel = 2
+opt.concealcursor = 'nc'
+
 -- Changed home directory here
 local backup_dir = vim.fn.stdpath("cache") .. "/backup"
 local backup_stat = pcall(os.execute, "mkdir -p " .. backup_dir)

@@ -74,6 +74,7 @@ cmp.setup({
     {name = 'buffer'},
     {name = 'path'},
     {name = 'rg'},
+    {name = 'orgmode'},
   },
   experimental = {
     ghost_text = true
