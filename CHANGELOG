@@ -1,3 +1,26 @@
+3.14.7 <Jan 21 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+==================================================================
+
+The installation guide is now moved into the book:
+https://avimitin.github.io/nvim
+
+Changes:
+--------
+* Snippet:
+  - add snippet "<kbd>" (See commit 0743464d)
+  - add custom markdown snippets (See commit b32aa8c4)
+* Plugins:
+  - feat/plugin: add new plugin nvim-orgmode (See commit 6e47dcc3)
+  - treesitter: disable treesitter lazy-loading (See commit 47cb9ca5)
+  - lazygit: update the lazygit to upstream version (See commit abcefe9f)
+  - wildfire: add text object "i`" to quick select (See commit 14374bbc)
+* Options:
+  - options: rewrite the tab listchars (See commit ed506d03)
+
+
+-----------------------------------------------------------------------------------------
+
+
 3.14.6
 ======
 
