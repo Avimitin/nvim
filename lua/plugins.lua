@@ -636,6 +636,16 @@ return require('packer').startup(function(use)
     'dstein64/vim-startuptime',
     cmd = "StartupTime"
   }
+
+  use {
+    'nvim-orgmode/orgmode',
+    config = function()
+      require('orgmode').setup {
+        org_agenda_files = {'~/Documents/orgfiles/**/*'},
+        org_default_notes_file = '~/Documents/orgfiles/notebook.org',
+      }
+    end
+  }
 end)
 
 -- vim: foldmethod=marker
