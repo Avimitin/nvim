@@ -52,9 +52,6 @@ map("n", "<C-left>", ":vertical resize+5<CR>")
 -- center line
 map("i", "<C-c>", "<ESC>zzi")
 
--- nnn
-map('n', '<Leader>o', ':VFiler -no-listed<CR>')
-
 -- EasyAlign
 map("v", "<leader>e", ":EasyAlign<CR>")
 
