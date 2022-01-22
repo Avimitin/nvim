@@ -83,3 +83,5 @@ map("n", ",", [[<Cmd>BufferLineCyclePrev<CR>]])
 map("n", "<A->>", [[<CMD>BufferLineMoveNext<CR>]])
 map("n", "<A-<>", [[<CMD>BufferLineMovePrev<CR>]])
 map("n", "<A-p>", [[<CMD>:BufferLinePick<CR>]])
+
+map("n", "<Leader><Enter>", ":lua require('utils').fek('<Plug>(wildfire-quick-select)', '')<CR>")
