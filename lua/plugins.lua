@@ -476,7 +476,10 @@ return require('packer').startup(function(use)
   -- Select text object
   use {
     'gcmt/wildfire.vim',
-    event = "BufRead"
+    keys = {
+      {"n", "<Enter>"},
+      {"n", "<leader><Enter>"},
+    },
   }
 
   -- surrounding select text with given text

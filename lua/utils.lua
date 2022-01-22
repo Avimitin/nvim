@@ -156,4 +156,11 @@ M.lsp_attach = function(client, bufnr)
   end
 end
 
+M.fek = function(key, mode)
+  vim.fn.feedkeys(
+    vim.api.nvim_replace_termcodes(key, true, true, true),
+    mode
+  )
+end
+
 return M
