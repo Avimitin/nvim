@@ -645,7 +645,7 @@ return require('packer').startup(function(use)
     config = function()
       require('orgmode').setup {
         org_agenda_files = {'~/Documents/orgfiles/**/*'},
-        org_default_notes_file = '~/Documents/orgfiles/notebook.org',
+        org_default_notes_file = '~/Documents/orgfiles/inbox.org',
       }
     end
   }
