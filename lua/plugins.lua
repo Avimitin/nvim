@@ -82,11 +82,6 @@ return require('packer').startup(function(use)
     }
   }
 
-  use {
-    'tpope/vim-dispatch',
-    cmd = "Dispatch"
-  }
-
   -- show color at words
   use {
     'RRethy/vim-hexokinase',
@@ -104,20 +99,6 @@ return require('packer').startup(function(use)
         'hsla'
       }
     end
-  }
-
-  -- vim-commentary: for quickly commenting--
-  use {
-    'numToStr/Comment.nvim',
-    config = function ()
-      require("Comment").setup()
-    end,
-    keys = {
-      {'n', 'gcc'},
-      {'n', 'gbc'},
-      {'v', 'gc'},
-      {'v', 'gb'},
-    }
   }
 
   -- mulit cursor
@@ -145,11 +126,6 @@ return require('packer').startup(function(use)
   }
 
   use {
-    "andrejlevkovitch/vim-lua-format",
-    ft = "lua"
-  }
-
-  use {
     'glepnir/dashboard-nvim',
     cmd = {
       "Dashboard"
@@ -170,19 +146,6 @@ return require('packer').startup(function(use)
         'Cargo.toml'
       }
     end
-  }
-
-  use {
-    'pechorin/any-jump.vim',
-    setup = function()
-      vim.g.any_jump_window_width_ratio = 0.8
-      vim.g.any_jump_window_height_ratio = 0.9
-      vim.g.any_jump_disable_default_keybindings = 1
-    end,
-    cmd = {
-      'AnyJump',
-      'AnyJumpBack'
-    }
   }
 
   -- telescope: extensible fuzzy file finder--
@@ -330,16 +293,6 @@ return require('packer').startup(function(use)
   use {
     'AndrewRadev/splitjoin.vim',
     after = "nvim-treesitter"
-  }
-
-  use {
-    "danymat/neogen",
-    config = function()
-      require('neogen').setup {
-        enabled = true
-      }
-    end,
-    module = "neogen"
   }
 
   use {
