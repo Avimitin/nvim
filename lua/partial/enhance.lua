@@ -271,5 +271,15 @@ return {
         org_default_notes_file = '~/Documents/orgfiles/inbox.org',
       }
     end
+  },
+
+  {
+    'akinsho/org-bullets.nvim',
+    after = 'orgmode',
+    config = function ()
+      require("org-bullets").setup {
+        symbols = { "◉", "○", "✸", "✿" }
+      }
+    end
   }
 }
