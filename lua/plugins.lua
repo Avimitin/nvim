@@ -64,7 +64,7 @@ return require('packer').startup(function(use)
     event = "BufRead"
   }
 
-  local component = {'colors', 'cmp', 'coding'}
+  local component = {'colors', 'cmp', 'coding', 'mkd'}
   for _, compo in ipairs(component) do
     for _, plugin in ipairs(require("partial."..compo)) do
       use(plugin)
@@ -81,40 +81,6 @@ return require('packer').startup(function(use)
     config = function()
       require("config.gitsign")
     end
-  }
-
-  -- markdown toc
-  use {
-    'mzlogin/vim-markdown-toc',
-    cmd = {
-      'GenTocGFM'
-    }
-  }
-
-  -- markdown preview
-  use {
-    'iamcco/markdown-preview.nvim',
-    run = function()
-      vim.fn['mkdp#util#install']()
-    end,
-    config = function()
-      require("config.mkdp")
-    end,
-    ft = {
-      "markdown"
-    }
-  }
-
-  use {
-    'plasticboy/vim-markdown',
-    ft = {
-      "markdown"
-    }
-  }
-
-  use {
-    'dhruvasagar/vim-table-mode',
-    cmd = 'TableModeToggle'
   }
 
   -- open a big terminal
