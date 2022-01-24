@@ -64,12 +64,11 @@ return require('packer').startup(function(use)
     event = "BufRead"
   }
 
-  for _, plugin in ipairs(require("partial.colors")) do
-    use(plugin)
-  end
-
-  for _, plugin in ipairs(require("partial.cmp")) do
-    use(plugin)
+  local component = {'colors', 'cmp'}
+  for _, compo in ipairs(component) do
+    for _, plugin in ipairs(require("partial."..compo)) do
+      use(plugin)
+    end
   end
 
 
