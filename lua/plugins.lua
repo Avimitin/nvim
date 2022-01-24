@@ -371,8 +371,16 @@ return require('packer').startup(function(use)
 
   -- vim-commentary: for quickly commenting--
   use {
-    'tpope/vim-commentary',
-    event = "BufRead"
+    'numToStr/Comment.nvim',
+    config = function ()
+      require("Comment").setup()
+    end,
+    keys = {
+      {'n', 'gcc'},
+      {'n', 'gbc'},
+      {'v', 'gc'},
+      {'v', 'gb'},
+    }
   }
 
   -- mulit cursor
