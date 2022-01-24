@@ -64,114 +64,14 @@ return require('packer').startup(function(use)
     event = "BufRead"
   }
 
-  -- neovim color theme {{{
-  use {
-    'Avimitin/neovim-deus',
-    cond = function()
-      return require("colors").theme == "deus"
-    end,
-    config = function()
-      require("colors").deus_setup()
-    end
-  }
+  for _, plugin in ipairs(require("partial.colors")) do
+    use(plugin)
+  end
 
-  use {
-    'Shatur/neovim-ayu',
-    cond = function()
-      return require("colors").theme == "ayu"
-    end,
-    config = function()
-      require("colors").ayu_setup()
-    end
-  }
+  for _, plugin in ipairs(require("partial.cmp")) do
+    use(plugin)
+  end
 
-  use {
-    'rebelot/kanagawa.nvim',
-    cond = function()
-      return require("colors").theme == "kanagawa"
-    end,
-    config = function()
-      require("colors").kanagawa_setup()
-    end
-  }
-
-  use {
-    'sainnhe/everforest',
-    cond = function()
-      return require("colors").theme == "everforest"
-    end,
-    config = function()
-      require("colors").everforest_setup()
-    end
-  }
-
-  use {
-    'morhetz/gruvbox',
-    cond = function()
-      return require("colors").theme == "gruvbox"
-    end,
-    config = function()
-      require("colors").gruvbox_setup()
-    end
-  }
-  -- }}}
-  -- }}}
-
-  -- ==================== CODING ==================================
-
-  -- Completion {{{
-  use {
-    'rafamadriz/friendly-snippets',
-    event = "InsertEnter"
-  }
-
-  -- ======= Completion =========
-  use {
-    'hrsh7th/nvim-cmp',
-    after = "friendly-snippets",
-    config = function()
-      require("config.completion")
-    end,
-    requires = {
-      'onsails/lspkind-nvim'
-    }
-  }
-
-  use {
-    'hrsh7th/cmp-path',
-    after = {
-      'nvim-cmp'
-    }
-  }
-
-  use {
-    'hrsh7th/cmp-nvim-lsp',
-    after = {
-      'nvim-cmp'
-    }
-  }
-
-  use {
-    'hrsh7th/cmp-buffer',
-    after = {
-      'nvim-cmp'
-    }
-  }
-
-  use {
-    'hrsh7th/cmp-vsnip',
-    after = {
-      'nvim-cmp'
-    }
-  }
-
-  use {
-    'hrsh7th/vim-vsnip',
-    after = {
-      'nvim-cmp'
-    }
-  }
-  -- }}}
 
   -- ========= LSP ============{{{
   use {
