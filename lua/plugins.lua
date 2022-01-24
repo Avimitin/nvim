@@ -478,7 +478,7 @@ return require('packer').startup(function(use)
   -- surrounding select text with given text
   use {
     "tpope/vim-surround",
-    after = "wildfire.vim"
+    event = "BufRead",
   }
 
   -- align
