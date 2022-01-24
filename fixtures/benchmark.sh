@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ef
 
-OUTPUT_FILE="./utils/benchmark.txt"
+OUTPUT_FILE="./fixtures/benchmark.txt"
 
 # run <LOOP_COUNT> <FILE_NAME>
 # example: run 3 lib.rs
