@@ -171,13 +171,6 @@ return require('packer').startup(function(use)
       'nvim-cmp'
     }
   }
-
-  use {
-    "lukas-reineke/cmp-rg",
-    after = {
-      'nvim-cmp'
-    }
-  }
   -- }}}
 
   -- ========= LSP ============{{{

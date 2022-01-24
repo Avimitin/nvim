@@ -29,7 +29,6 @@ cmp.setup({
         snippet = "[ VSnip]",
         nvim_lua = "[ NvimLua]",
         latex_symbols = "[ Latex]",
-        rg = "[ RG]",
       })
     })
   },
@@ -73,7 +72,6 @@ cmp.setup({
     {name = 'vsnip'},
     {name = 'buffer'},
     {name = 'path'},
-    {name = 'rg'},
     {name = 'orgmode'},
   },
   experimental = {
