@@ -104,5 +104,53 @@ return {
       'cpp', 'c',
       'h', 'hpp'
     }
+  },
+
+  -- use `gcc` `gbc` to comment
+  {
+    'numToStr/Comment.nvim',
+    config = function ()
+      require("Comment").setup()
+    end,
+    keys = {
+      {'n', 'gcc'},
+      {'n', 'gbc'},
+      {'v', 'gc'},
+      {'v', 'gb'},
+    }
+  },
+
+  {
+    "andrejlevkovitch/vim-lua-format",
+    ft = "lua"
+  },
+
+  {
+    'pechorin/any-jump.vim',
+    setup = function()
+      vim.g.any_jump_window_width_ratio = 0.8
+      vim.g.any_jump_window_height_ratio = 0.9
+      vim.g.any_jump_disable_default_keybindings = 1
+    end,
+    cmd = {
+      'AnyJump',
+      'AnyJumpBack'
+    }
+  },
+
+  {
+    "danymat/neogen",
+    config = function()
+      require('neogen').setup {
+        enabled = true
+      }
+    end,
+    module = "neogen"
+  },
+
+  {
+    'tpope/vim-dispatch',
+    cmd = "Dispatch"
   }
+
 }
