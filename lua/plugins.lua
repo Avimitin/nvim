@@ -11,8 +11,6 @@ require('packer').init {
   }
 }
 
-local map = require('utils').map
-
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use {
