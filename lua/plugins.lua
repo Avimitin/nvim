@@ -64,108 +64,12 @@ return require('packer').startup(function(use)
     event = "BufRead"
   }
 
-  local component = {'colors', 'cmp'}
+  local component = {'colors', 'cmp', 'coding'}
   for _, compo in ipairs(component) do
     for _, plugin in ipairs(require("partial."..compo)) do
       use(plugin)
     end
   end
-
-
-  -- ========= LSP ============{{{
-  use {
-    'williamboman/nvim-lsp-installer',
-    ft = {
-      "bash", "sh",
-      "c", "cpp",
-      "lua", "go",
-      "html",
-      "toml",
-      "json",
-      "python",
-      "javascript"
-    },
-    config = function()
-      require("lspconfig")
-    end
-  }
-
-  use {
-    'neovim/nvim-lspconfig',
-    config = function()
-      require("config.lsp")
-    end,
-    module = "lspconfig"
-  }
-
-  use {
-    'tami5/lspsaga.nvim',
-    after = "nvim-lspconfig",
-    config = function()
-      require("config.lspsaga_setting")
-    end
-  }
-
-  -- RUST {{{
-  use {
-    'simrat39/rust-tools.nvim',
-    ft = "rust",
-    config = function()
-      require("config.rust")
-    end
-  }
-
-  use {
-    'saecki/crates.nvim',
-    event = {
-      "BufRead Cargo.toml"
-    },
-    requires = {
-      {
-        'nvim-lua/plenary.nvim'
-      }
-    },
-    config = function()
-      require('crates').setup({
-        popup = {
-          autofocus = true,
-          border = "single"
-        }
-      })
-    end
-  }
-  -- }}}
-
-  use {
-    'mfussenegger/nvim-dap',
-    module = "dap",
-    config = function()
-      require("config.dap_config")
-    end
-  }
-
-  use {
-    'rcarriga/nvim-dap-ui',
-    module = "dapui"
-  }
-  -- }}}
-
-  use {
-    'simrat39/symbols-outline.nvim',
-    config = function()
-      require("config.symbols")
-    end,
-    cmd = "SymbolsOutline"
-  }
-
-  -- treesitter: support more colorful highlighting
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = function()
-      require('config.treesitter')
-    end
-  }
 
   -- git information
   use {
@@ -178,26 +82,6 @@ return require('packer').startup(function(use)
       require("config.gitsign")
     end
   }
-
-  -- Golang
-  use {
-    'fatih/vim-go',
-    config = function()
-      require("config.vim-go")
-    end,
-    ft = {"go"}
-  }
-
-  -- CPP
-  use {
-    'rhysd/vim-clang-format',
-    ft = {
-      'cpp', 'c',
-      'h', 'hpp'
-    }
-  }
-
-  -- =================== Utilities =========================
 
   -- markdown toc
   use {
