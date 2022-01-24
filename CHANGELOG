@@ -1,3 +1,28 @@
+3.15.0 <Jan 24 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+
+This version rewrite the plugins structure. Now all plugins are classified and put into the
+lua/partial directory.
+
+BREAKING CHANGES:
+-----------------
+* nvim-cmp source rg had been removed due to the performance problem (See commit 3dd333d6)
+* vim-commentary is replaced by Comment.nvim due to absence of maintenance (See commit 6af6af2b)
+* vim-startuptime and focus.nvim is removed as they are rarely used (See commit ead4715c)
+
+Changes:
+--------
+* plugins: separate plugins to the lua/partial directory. (See commit b87f2efa to ead4715c)
+* vim-surround: rewrite the conditions of the plugin call (See commit 3fe64080)
+* orgmode: replace the default file path (See commit cda57c67)
+* keymap: add keymap for wildfire quick select functionality(See commit 87a72276)
+* feat/vsnip: add snippet for orgmode (See commit d86a30c6)
+* reft/keymap: remove the vfiler keymap (See commit 577a520f)
+
+
+-----------------------------------------------------------------------------------------
+
+
 3.14.7 <Jan 21 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ==================================================================
 
