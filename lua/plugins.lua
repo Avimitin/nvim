@@ -64,24 +64,12 @@ return require('packer').startup(function(use)
     event = "BufRead"
   }
 
-  local component = {'colors', 'cmp', 'coding', 'mkd'}
+  local component = {'colors', 'cmp', 'coding', 'mkd', 'git_tools'}
   for _, compo in ipairs(component) do
     for _, plugin in ipairs(require("partial."..compo)) do
       use(plugin)
     end
   end
-
-  -- git information
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim'
-    },
-    event = "BufRead",
-    config = function()
-      require("config.gitsign")
-    end
-  }
 
   -- open a big terminal
   use {
@@ -308,7 +296,6 @@ return require('packer').startup(function(use)
   }
   -- }}}
 
-  -- Git tools{{{
   use {
     'windwp/nvim-autopairs',
     config = function()
@@ -316,36 +303,6 @@ return require('packer').startup(function(use)
     end,
     after = 'nvim-cmp'
   }
-
-  use {
-    'tpope/vim-fugitive',
-    cmd = {
-      'G', 'Git',
-      'Ggrep',
-      'Gdiffsplit',
-      'GBrowse'
-    }
-  }
-
-  use {
-    'kdheepak/lazygit.nvim',
-    setup = function()
-      vim.g.lazygit_floating_window_winblend = 0
-      vim.g.lazygit_floating_window_scaling_factor = 1
-      vim.g.lazygit_floating_window_corner_chars = {
-        '╭',
-        '╮',
-        '╰', '╯'
-      }
-      vim.g.lazygit_floating_window_use_plenary = 0
-      vim.g.lazygit_use_neovim_remote = 1
-      if vim.g.lazygit_use_neovim_remote == 1 and vim.fn.executable('nvr') then
-        vim.env.GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
-      end
-    end,
-    cmd = "LazyGit"
-  }
-  -- }}}
 
   use {
     'mhinz/vim-sayonara',
