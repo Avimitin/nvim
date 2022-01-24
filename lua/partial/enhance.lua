@@ -154,6 +154,12 @@ return {
   {
     "tpope/vim-surround",
     event = "BufRead",
+    config = function ()
+      -- release the S key to the lightspeed
+      require('utils').map("x", "S", "<Plug>Lightspeed_S", {noremap = false})
+      -- and remap it to gs
+      require('utils').map("x", "gs", "<Plug>VSurround", {noremap = false})
+    end
   },
 
   -- a swiss knife for aligning text
@@ -186,6 +192,7 @@ return {
       {'n', 's'},
       {'v', 's'},
       {'n', 'S'},
+      {'v', 'S'},
       {'n', 'f'},
       {'n', 'F'},
       {'n', 't'},
