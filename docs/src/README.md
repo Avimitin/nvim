@@ -1,4 +1,4 @@
 # Introduction
 
-Here is a detail document. For installation please read
-<https://github.com/Avimitin/nvim>
+Here is a detail document. It is still work in progress.
+And PR is welcomed.
