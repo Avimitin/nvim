@@ -103,11 +103,6 @@ end
 
 vim.api.nvim_command('autocmd TermOpen term://* startinsert')
 
--- neoterm specific settings
-vim.g.neoterm_default_mod = "botright"
-vim.g.neoterm_size = "10"
-vim.g.neoterm_automap_keys = "<leader>tt"
-
 -- nvui specific settings
 if vim.g.nvui then
     vim.opt.guifont = [[Cascadia Code:h12,FiraCode\ Nerd\ Font\ Mono:h12]]
