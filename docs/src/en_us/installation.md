@@ -2,14 +2,33 @@
 
 * **Neovim** (MUST)
 
-Currently I am using `NVIM v0.7.0-dev+808-g838631e29e`. If you got any
-error, please check your neovim version.
+This configuration is compatible with neovim version 0.5.0 - 0.6.1.
+There are some LSP breaking changes in v0.7, and some LSP plugin didn't work
+as expect.
 
 You can follow
 [neovim installation](https://github.com/neovim/neovim/wiki/Installing-Neovim)
-to build latest neovim.
+for the installation guidance.
 
-If you are Arch Linux user, you can simply run: `yay -S neovim-git`
+If you are Arch Linux user, you can download PKGBUILD file with your aur helper,
+and then add a prepare script to build stable version:
+
+```bash
+# Assuming that you are using paru
+paru -G neovim-git
+```
+
+Then edit the PKGBUILD file and this lines before the `build()` function:
+
+```diff
++prepare() {
++  cd "${pkgname}"
++  git checkout stable
++}
++
+```
+
+Finally, run the `makepkg -si` to install the neovim.
 
 * **Nerdfont** (MUST)
 
