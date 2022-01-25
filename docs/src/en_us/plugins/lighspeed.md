@@ -8,13 +8,13 @@ Lightspeed is a plugin that help you move your cursor in place easily.
 
 **Two chars serach**:
 
-* Press `s` in normal mode to search forward.
-* Press `S` in normal mode to search backward.
+* Press `s` in normal/visual mode to jump forward.
+* Press `S` in normal/visual mode to jump backward.
 
 **Inline jump**:
 
-* Press `f` in normal mode to search forward.
-* Press `F` in normal mode to search backward.
+* Press `f` in normal/visual mode to jump forward.
+* Press `F` in normal/visual mode to jump backward.
 
 See more usage here: https://github.com/ggandor/lightspeed.nvim#2-character-search-sx
 
