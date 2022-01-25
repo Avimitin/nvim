@@ -23,4 +23,4 @@ for _, module_name in ipairs({'options', 'keymap', 'commands'}) do
 end
 
 -- load plugins
-utils.load_plugins()
+require('plugins').load()
