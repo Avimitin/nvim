@@ -31,7 +31,7 @@ vim.g.mapleader = " "
 
 map("n", ";w", ":w<CR>")
 -- quit needs user to confirm
-map("n", ";q", ":wq<CR>")
+map("n", ";q", ":Sayonara<CR>")
 
 map("x", "<C-y>", [["+y]])
 
@@ -73,7 +73,6 @@ map("i", "<A-;>", "<ESC>")
 
 -- bufferline tab stuff
 map("n", "<C-c>", ":BufferLinePickClose<CR>") -- close tab
-map("n", "<A-q>", [[:Sayonara<CR>]])
 
 -- move between tabs
 map("n", ".", [[<Cmd>BufferLineCycleNext<CR>]])
