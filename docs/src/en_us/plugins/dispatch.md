@@ -5,7 +5,7 @@ If you are using tmux, it will create the window in tmux.
 
 If the build job contains any error, it will prompt up a quick fix list.
 
-![image](./images/)
+![image](https://raw.githubusercontent.com/Avimitin/nvim/3.16.0/docs/images/dispatch.png)
 
 # Usage
 
