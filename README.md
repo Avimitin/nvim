@@ -10,6 +10,14 @@
 ![badge](https://img.shields.io/github/forks/Avimitin/nvim?style=social)
 ![badge](https://img.shields.io/github/stars/Avimitin/nvim?style=social)
 
+## Important Notes
+
+This project is still under active development, so new versions and breaking changes
+will be released frequently.
+
+Although version 3.0 has been released, the reason for 3.0 here is that vimscript
+has been replaced with Lua, so you should think of this project as a 0.x version of Lua.
+
 ## Motivation
 
 I want a text editor which is:
