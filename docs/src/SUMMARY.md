@@ -17,6 +17,7 @@
     - [nvim-cmp](./en_us/plugins/nvim-cmp.md)
     - [lspconfig](./en_us/plugins/lspconfig.md)
     - [wildfire](./en_us/plugins/wildfire.md)
+    - [dispatch](./en_us/plugins/dispatch.md)
 - [Others]()
     - [Development](./en_us/development.md)
 
