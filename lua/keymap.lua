@@ -44,10 +44,10 @@ map("n", "<down>", "<C-w>j")
 map("n", "<right>", "<C-w>l")
 map("n", "<left>", "<C-w>h")
 
-map("n", "<C-up>", ":res +5<CR>")
-map("n", "<C-down>", ":res -5<CR>")
-map("n", "<C-right>", ":vertical resize-5<CR>")
-map("n", "<C-left>", ":vertical resize+5<CR>")
+map("n", "<C-S-up>", ":res +5<CR>")
+map("n", "<C-S-down>", ":res -5<CR>")
+map("n", "<C-S-right>", ":vertical resize-5<CR>")
+map("n", "<C-S-left>", ":vertical resize+5<CR>")
 
 -- center line
 map("i", "<C-c>", "<ESC>zzi")
