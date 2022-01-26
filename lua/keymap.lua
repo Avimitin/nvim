@@ -22,7 +22,6 @@ map("x", ">", ">gv")
 
 map("n", "-", "N")
 map("n", "=", "n")
-map("n", ";", ":")
 
 map("n", "<C-T>h", ":tabprevious<CR>")
 map("n", "<C-T>l", ":tabnext<CR>")
@@ -31,6 +30,8 @@ map("n", "<C-T>n", ":tabnew<CR>")
 vim.g.mapleader = " "
 
 map("n", ";w", ":w<CR>")
+-- quit needs user to confirm
+map("n", ";q", ":wq<CR>")
 
 map("x", "<C-y>", [["+y]])
 
