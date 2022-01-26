@@ -6,5 +6,5 @@ Nvim-tree.lua is a plugin that show files in tree view.
 
 ## Keymap
 
-* Use <kbd>tt</kbd> to toggle the tree view.
-* Use <kbd>tr</kbd> to refresh the file.
+* Use <kbd>;t</kbd> to toggle the tree view.
+* Press `?` inside the nvim-tree to get list of keymap.

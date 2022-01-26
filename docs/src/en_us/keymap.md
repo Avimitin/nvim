@@ -15,18 +15,32 @@ Basic movement
   j
 ```
 
-| Keymap           | Function                              |
-|------------------|---------------------------------------|
-| <kbd>H</kbd>     | Go to the first character of the line |
-| <kbd>L</kbd>     | Go to the last character of the line  |
-| <kbd>J</kbd>     | Go down 5 lines                       |
-| <kbd>K</kbd>     | Go up 5 lines                         |
-| <kbd>W</kbd>     | Go 5 words forward                    |
-| <kbd>B</kbd>     | Go 5 words backward                   |
-| <kbd>Up</kbd>    | Go to the window above                |
-| <kbd>Down</kbd>  | Go to the window below                |
-| <kbd>Right</kbd> | Go to the right window                |
-| <kbd>Left</kbd>  | Go to the left window                 |
+| Keymap                      | Function                               |
+|-----------------------------|----------------------------------------|
+| <kbd>H</kbd>                | Go to the first character of the line  |
+| <kbd>L</kbd>                | Go to the last character of the line   |
+| <kbd>J</kbd>                | Go down 5 lines                        |
+| <kbd>K</kbd>                | Go up 5 lines                          |
+| <kbd>W</kbd>                | Go 5 words forward                     |
+| <kbd>B</kbd>                | Go 5 words backward                    |
+
+## Windows Navigation
+
+| Keymap        | Function               |
+|---------------|------------------------|
+| <kbd>;k</kbd> | Go to the window above |
+| <kbd>;j</kbd> | Go to the window below |
+| <kbd>;h</kbd> | Go to the right window |
+| <kbd>;l</kbd> | Go to the left window  |
+
+## Windows resize
+
+| Keymap                      | Function                               |
+|-----------------------------|----------------------------------------|
+| <kbd>Ctrl Shift Up</kbd>    | Resize the top border of window        |
+| <kbd>Ctrl Shift Down</kbd>  | Resize the bottom border of the window |
+| <kbd>Ctrl Shift Left</kbd>  | Resize the left border of the window   |
+| <kbd>Ctrl Shift Right</kbd> | Resize the right border of the window  |
 
 ## Search
 
@@ -62,15 +76,15 @@ Basic movement
 
 ## Save and Quit
 
-| Keymap           | Function              | Notes                |
-|------------------|-----------------------|----------------------|
-| <kbd>; w</kbd>   | save                  |                      |
-| <kbd>Alt q</kbd> | delete buffer         |                      |
-| <kbd>Alt ;</kbd> | Leave the insert mode | Only in insert mode  |
+| Keymap           | Function              | Notes               |
+|------------------|-----------------------|---------------------|
+| <kbd>; w</kbd>   | Save                  |                     |
+| <kbd>; q</kbd>   | Quit                  |                     |
+| <kbd>Alt q</kbd> | delete buffer         |                     |
+| <kbd>Alt ;</kbd> | Leave the insert mode | Only in insert mode |
 
 ## Others
 
-| Keymap            | Function                       |
-|-------------------|--------------------------------|
-| <kbd>Ctrl-z</kbd> | Reverse changes                |
-| <kbd>;</kbd>      | Call the command line directly |
+| Keymap            | Function        |
+|-------------------|-----------------|
+| <kbd>Ctrl-z</kbd> | Reverse changes |
