@@ -39,10 +39,10 @@ map("i", "<C-p>", [[<ESC>"+pa]])
 
 map("n", "<ESC>", ":nohlsearch<CR>")
 
-map("n", "<up>", "<C-w>k")
-map("n", "<down>", "<C-w>j")
-map("n", "<right>", "<C-w>l")
-map("n", "<left>", "<C-w>h")
+map("n", ";k", "<C-w>k")
+map("n", ";j", "<C-w>j")
+map("n", ";l", "<C-w>l")
+map("n", ";h", "<C-w>h")
 
 map("n", "<C-S-up>", ":res +5<CR>")
 map("n", "<C-S-down>", ":res -5<CR>")
