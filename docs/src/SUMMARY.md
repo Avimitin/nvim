@@ -16,6 +16,7 @@
     - [vim-fugitive](./en_us/plugins/fugitive.md)
     - [nvim-cmp](./en_us/plugins/nvim-cmp.md)
     - [lspconfig](./en_us/plugins/lspconfig.md)
+    - [wildfire](./en_us/plugins/wildfire.md)
 - [Others]()
     - [Development](./en_us/development.md)
 
