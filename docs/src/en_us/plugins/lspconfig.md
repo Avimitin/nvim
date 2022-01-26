@@ -30,6 +30,11 @@ local ensure_installed_server = {
 [^1]: Rust server is set up by rust-tools.nvim. For detail please read
 [Rust.md(WIP)](./.)
 
+## Keymaps
+
+Keymaps are defined in lua/utils.lua by function `M.lsp_attach`.
+You can get the cheatsheets by command: `:nmap g`.
+
 ## Configuration
 
 * Lua
@@ -39,3 +44,8 @@ The Lua language server is configured to import neovim API by default.
 * Diagnostic Signs
 
 The diagnostic text will have nerdfont icon support.
+
+* Lspsaga
+
+I installed the lspsaga plugin to beautify all the LSP code action,
+you can configure the display in lua/config/lspsaga_settings.lua.
