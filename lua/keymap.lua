@@ -56,8 +56,7 @@ map("i", "<C-c>", "<ESC>zzi")
 map("v", "<leader>e", ":EasyAlign<CR>")
 
 -- nvim-tree
-map("n", "tt", ":NvimTreeToggle<CR>")
-map("n", "tr", ":NvimTreeRefresh<CR>")
+map("n", ";t", ":NvimTreeToggle<CR>")
 
 map("n", "<C-\\>", [[:FTermToggle<CR>]])
 map("t", "<C-\\>", [[<C-\><C-n>:FTermToggle<CR>]])
