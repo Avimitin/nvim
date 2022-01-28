@@ -32,7 +32,7 @@ local function add_packer()
     return
   end
 
-  vim.cmd([[autocmd BufWritePost plug.lua source <afile> | PackerCompile]])
+  vim.cmd([[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]])
 end
 
 -- init_packer will setup the packer style
