@@ -2,6 +2,7 @@
 <!-- vim-markdown-toc GFM -->
 
 * [markdown](#markdown)
+  * [table mode](#table-mode)
   * [Preview](#preview)
     * [About surf](#about-surf)
   * [TOC](#toc)
@@ -12,6 +13,15 @@
 
 I have configured some useful plugins to enhaced the markdown writing
 experience.
+
+## table mode
+
+This is the most powerful plugin to improve your markdown writing experience.
+Talk is cheap, click the below image to watch the video demo.
+
+[![video](https://user-images.githubusercontent.com/30021675/151665583-353d155c-9dc3-44f6-b472-c67fe3c2b821.png)](https://user-images.githubusercontent.com/30021675/151665473-d8527c7f-fc2a-415a-9878-e39927c49fc8.mp4 "Click to see the video")
+
+You can use command `:TableModeToggle` to trigger this plugin.
 
 ## Preview
 
