@@ -139,9 +139,30 @@
 If you are using tmux, it will create the window in tmux.</p>
 <p>If the build job contains any error, it will prompt up a quick fix list.</p>
 <p><img src="https://raw.githubusercontent.com/Avimitin/nvim/3.16.0/docs/images/dispatch.png" alt="image" /></p>
-<h1 id="usage"><a class="header" href="#usage">Usage</a></h1>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
 <pre><code class="language-text">:Dispatch &lt;Your Commands&gt;
 </code></pre>
+<h2 id="keymaps"><a class="header" href="#keymaps">keymaps</a></h2>
+<table><thead><tr><th>keymaps</th><th>function</th></tr></thead><tbody>
+<tr><td><code>m&lt;CR&gt;</code></td><td><code>:Make&lt;CR&gt;</code></td></tr>
+<tr><td><code>m&lt;Space&gt;</code></td><td><code>:Make&lt;Space&gt;</code></td></tr>
+<tr><td>m!</td><td>:Make!</td></tr>
+<tr><td>m?</td><td>Show 'makeprg'</td></tr>
+<tr><td>`<code>&lt;CR&gt;</code></td><td>:Dispatch<code>&lt;CR&gt;</code></td></tr>
+<tr><td>`<code>&lt;Space&gt;</code></td><td>:Dispatch<code>&lt;Space&gt;</code></td></tr>
+<tr><td>`!</td><td>:Dispatch!</td></tr>
+<tr><td>`?</td><td>:FocusDispatch<code>&lt;CR&gt;</code></td></tr>
+<tr><td>'<code>&lt;CR&gt;</code></td><td>:Start<code>&lt;CR&gt;</code></td></tr>
+<tr><td>'<code>&lt;Space&gt;</code></td><td>:Start<code>&lt;Space&gt;</code></td></tr>
+<tr><td>'!</td><td>:Start!</td></tr>
+<tr><td>'?</td><td>show b:start</td></tr>
+<tr><td>g'<code>&lt;CR&gt;</code></td><td>:Spawn<code>&lt;CR&gt;</code></td></tr>
+<tr><td>g'<code>&lt;Space&gt;</code></td><td>:Spawn<code>&lt;Space&gt;</code></td></tr>
+<tr><td>g'!</td><td>:Spawn!</td></tr>
+<tr><td>g'?</td><td>Show 'shell'</td></tr>
+</tbody></table>
+<h2 id="more"><a class="header" href="#more">More</a></h2>
+<p>See <code>:h dispatch</code></p>
 
                     </main>
 
