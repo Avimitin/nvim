@@ -19,6 +19,7 @@
     - [wildfire](./en_us/plugins/wildfire.md)
     - [dispatch](./en_us/plugins/dispatch.md)
     - [rooter](./en_us/plugins/rooter.md)
+    - [markdown](./en_us/plugins/markdown.md)
 - [Others]()
     - [Development](./en_us/development.md)
 
