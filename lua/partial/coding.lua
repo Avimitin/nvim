@@ -139,16 +139,6 @@ return {
   },
 
   {
-    "danymat/neogen",
-    config = function()
-      require('neogen').setup {
-        enabled = true
-      }
-    end,
-    module = "neogen"
-  },
-
-  {
     'tpope/vim-dispatch',
     cmd = "Dispatch"
   }
