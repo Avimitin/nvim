@@ -2,7 +2,7 @@
 
 The plugin rust-tools.nvim has already set up LSP, format, and debug utilities.
 
-See https://github.com/simrat39/rust-tools.nvim/
+See https://github.com/simrat39/rust-tools.nvim/ for what it can do.
 
 ## Inlay hint
 
@@ -27,3 +27,7 @@ program.
 
 You need to install lldb-vscode. Then run `:RustDebuggables`, it will open the
 debug panel automatically.
+
+## Gallery
+
+Please read [demo](https://github.com/simrat39/rust-tools.nvim/#demos).
