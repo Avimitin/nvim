@@ -17,6 +17,11 @@ $ ln -s Debug/compile_commands.json .
 
 You can use the keymap provided by LSP.
 
+## Makefile
+
+If you are writing C and using the Makefile, you can use the `:Dispatch` or `:Make`
+command to easily build and debug your code.
+
 ## Resources
 
 * Clangd official site: <https://clangd.llvm.org/>
