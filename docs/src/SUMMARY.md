@@ -22,6 +22,7 @@
       - [lspconfig](./en_us/plugins/lspconfig.md)
       - [dispatch](./en_us/plugins/dispatch.md)
       - [rust](./en_us/plugins/rust.md)
+      - [c/cpp](./en_us/plugins/cpp.md)
 - [Others]()
     - [Development](./en_us/development.md)
 
