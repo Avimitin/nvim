@@ -64,6 +64,16 @@ sed -i 's/surf/firefox/g' ./lua/config/mkdp.lua
 > sudo make clean install
 > ```
 
+# foreword
+
+I recommend you to fork my project.
+The reason I build this configuration is that I don't want to use the same neovim
+as the community.
+I don't know if you agree with it or not, but I indeed expect that everyone can build
+their neovim.
+And I know that it is hard to start from empty.
+So you can use my configuration as a base to build yours.
+
 # Installation
 
 ```bash
@@ -107,7 +117,7 @@ is all installed or not.
 :checkhealth
 ```
 
-### Docker
+# Docker
 
 Just wanna have a try but do not want to mess up your local environment?
 I have docker script for you!
