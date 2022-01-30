@@ -23,6 +23,7 @@
       - [dispatch](./en_us/plugins/dispatch.md)
       - [rust](./en_us/plugins/rust.md)
       - [c/cpp](./en_us/plugins/cpp.md)
+      - [golang](./en_us/plugins/golang.md)
 - [Others]()
     - [Development](./en_us/development.md)
 
