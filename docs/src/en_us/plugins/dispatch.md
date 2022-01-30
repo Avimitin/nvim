@@ -9,9 +9,13 @@ If the build job contains any error, it will prompt up a quick fix list.
 
 ## Usage
 
+You can use command:
+
 ```text
 :Dispatch <Your Commands>
 ```
+
+or keymap <kbd>\`</kbd> <kbd>space</kbd> to trigger it.
 
 ## keymaps
 
