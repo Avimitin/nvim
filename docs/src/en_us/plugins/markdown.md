@@ -8,7 +8,8 @@ experience.
 This is the most powerful plugin to improve your markdown writing experience.
 Talk is cheap, click the below image to watch the video demo.
 
-![preview-gif](https://user-images.githubusercontent.com/30021675/151688524-3f180024-1625-42ad-9f02-e6fc32507fb8.gif)
+<video src="https://user-images.githubusercontent.com/30021675/151665473-d8527c7f-fc2a-415a-9878-e39927c49fc8.mp4" controls>
+</video>
 
 You can use command `:TableModeToggle` to trigger this plugin.
 
