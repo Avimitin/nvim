@@ -281,5 +281,10 @@ return {
         symbols = { "◉", "○", "✸", "✿" }
       }
     end
+  },
+
+  {
+    -- adjust the shiftwidth and expandtab settins
+    'tpope/vim-sleuth'
   }
 }
