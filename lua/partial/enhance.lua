@@ -49,21 +49,20 @@ return {
 
   -- generate color from hex/rgb code
   {
-    'RRethy/vim-hexokinase',
-    run = 'make',
-    cmd = "HexokinaseToggle",
-    setup = function()
-      vim.g.Hexokinase_highlighters = {
-        'backgroundfull'
-      }
-      vim.g.Hexokinase_optInPatterns = {
-        'full_hex',
-        'rgb',
-        'rgba',
-        'hsl',
-        'hsla'
-      }
-    end
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require'colorizer'.setup({
+        '*', -- Highlight all files, but customize some others.
+        css = {
+          rgb_fn = true
+        } -- Enable parsing rgb(...) functions in css.
+      })
+    end,
+    cmd = {
+      'ColorizerToggle',
+      -- this help generate color for no filetype file
+      'ColorizerAttachToBuffer'
+    }
   },
 
   -- editing with multiple cursor
@@ -145,20 +144,29 @@ return {
   {
     'gcmt/wildfire.vim',
     keys = {
-      {"n", "<Enter>"},
-      {"n", "<leader><Enter>"},
-    },
+      {
+        "n",
+        "<Enter>"
+      }, {
+        "n",
+        "<leader><Enter>"
+      }
+    }
   },
 
   -- surrounding select text with given signs
   {
     "tpope/vim-surround",
     event = "BufRead",
-    config = function ()
+    config = function()
       -- release the S key to the lightspeed
-      require('utils').map("x", "S", "<Plug>Lightspeed_S", {noremap = false})
+      require('utils').map("x", "S", "<Plug>Lightspeed_S", {
+        noremap = false
+      })
       -- and remap it to gs
-      require('utils').map("x", "gs", "<Plug>VSurround", {noremap = false})
+      require('utils').map("x", "gs", "<Plug>VSurround", {
+        noremap = false
+      })
     end
   },
 
@@ -250,7 +258,7 @@ return {
   -- split lines and join lines, useful for closing bracket
   {
     'AndrewRadev/splitjoin.vim',
-    after = "nvim-treesitter",
+    after = "nvim-treesitter"
   },
 
   -- generate line for indent
@@ -267,28 +275,29 @@ return {
     'nvim-orgmode/orgmode',
     config = function()
       require('orgmode').setup {
-        org_agenda_files = {'~/Documents/orgfiles/**/*'},
-        org_default_notes_file = '~/Documents/orgfiles/inbox.org',
+        org_agenda_files = {
+          '~/Documents/orgfiles/**/*'
+        },
+        org_default_notes_file = '~/Documents/orgfiles/inbox.org'
       }
     end
-  },
-
-  {
+  }, {
     'akinsho/org-bullets.nvim',
     after = 'orgmode',
-    config = function ()
+    config = function()
       require("org-bullets").setup {
-        symbols = { "◉", "○", "✸", "✿" }
+        symbols = {
+          "◉",
+          "○",
+          "✸",
+          "✿"
+        }
       }
     end
-  },
-
-  {
+  }, {
     -- adjust the shiftwidth and expandtab settins
     'tpope/vim-sleuth'
-  },
-
-  {
+  }, {
     'tpope/vim-repeat',
     keys = {
       {'n', '.'}
