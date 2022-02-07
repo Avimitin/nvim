@@ -286,5 +286,12 @@ return {
   {
     -- adjust the shiftwidth and expandtab settins
     'tpope/vim-sleuth'
+  },
+
+  {
+    'tpope/vim-repeat',
+    keys = {
+      {'n', '.'}
+    }
   }
 }
