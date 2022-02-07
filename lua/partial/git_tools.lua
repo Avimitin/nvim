@@ -41,4 +41,19 @@ return {
       require("config.gitsign")
     end
   },
+
+  {
+    'sindrets/diffview.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function ()
+      require("diffview").setup({
+        -- see configuration in
+        -- https://github.com/sindrets/diffview.nvim#configuration
+      })
+    end,
+    cmd = {
+      "DiffviewOpen",
+      "DiffviewFileHistory"
+    }
+  }
 }
