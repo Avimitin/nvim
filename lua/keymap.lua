@@ -66,7 +66,7 @@ map("t", "<C-n>", [[<C-\><C-n>]])
 map("n", ";f", [[:lua require('telescope.builtin').find_files{}<CR>]])
 map("n", "<LEADER>tg", [[:lua require('telescope.builtin').live_grep{}<CR>]])
 
-map("n", "<LEADER>g", [[<CMD>Git<CR>]])
+map("n", ";g", [[<CMD>Git<CR>]])
 map("n", "<LEADER>l", [[<CMD>LazyGit<CR>]])
 
 map("i", "<A-;>", "<ESC>")
