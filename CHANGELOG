@@ -1,3 +1,26 @@
+3.17.0 <Feb 07 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+
+BREAKING CHANGES:
+-----------------
+keymaps:
+  * bufferline: rewrite bufferline keymap (See commit c5be031e)
+  * fugitive: rewrite the fugitive keymap (See commit e9c44d93)
+  * keymap: rewrite the telescope keymap (See commit 8cd716a5)
+
+plugins:
+  * plugin: remove neogen (See commit 96694e6b)
+  * plugin: replace Hexokinase with colorizer (See commit 455ab684)
+
+changes:
+--------
+* plugin: add new plugin tpope/vim-sleuth (See commit 697cc6ab)
+* plugin: update the autocmd filename (See commit 44da667f)
+* plugin: add diffview.nvim (See commit c49688f3)
+* plugin: add vim-repeat (See commit 8f618162)
+* dispatch: add key trigger (See commit e4c10789)
+
+
 3.16.0 <Jan 26 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 
