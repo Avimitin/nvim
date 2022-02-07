@@ -75,8 +75,8 @@ map("i", "<A-;>", "<ESC>")
 map("n", "<C-c>", ":BufferLinePickClose<CR>") -- close tab
 
 -- move between tabs
-map("n", ".", [[<Cmd>BufferLineCycleNext<CR>]])
-map("n", ",", [[<Cmd>BufferLineCyclePrev<CR>]])
+map("n", ";n", [[<Cmd>BufferLineCycleNext<CR>]])
+map("n", ";p", [[<Cmd>BufferLineCyclePrev<CR>]])
 
 -- move tabs
 map("n", "<A->>", [[<CMD>BufferLineMoveNext<CR>]])
