@@ -24,6 +24,7 @@
       - [rust](./en_us/plugins/rust.md)
       - [c/cpp](./en_us/plugins/cpp.md)
       - [golang](./en_us/plugins/golang.md)
+      - [splitjoin](./en_us/plugins/splitjoin.md)
 - [Others]()
     - [Development](./en_us/development.md)
 
