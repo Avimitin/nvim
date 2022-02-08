@@ -55,5 +55,11 @@ return {
       "DiffviewOpen",
       "DiffviewFileHistory"
     }
+  },
+
+  {
+    'rbong/vim-flog',
+    -- run command after the vim fugitive
+    cmd = {"Flog", "Flogsplit"},
   }
 }
