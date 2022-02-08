@@ -15,7 +15,7 @@ You can use command:
 :Dispatch <Your Commands>
 ```
 
-or keymap <kbd>\`</kbd> <kbd>space</kbd> to trigger it.
+or keymap <kbd>;d</kbd> to open the command prompt.
 
 ## keymaps
 
