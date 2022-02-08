@@ -82,3 +82,5 @@ map("n", ";p", [[<Cmd>BufferLineCyclePrev<CR>]])
 map("n", "<A->>", [[<CMD>BufferLineMoveNext<CR>]])
 map("n", "<A-<>", [[<CMD>BufferLineMovePrev<CR>]])
 map("n", "<A-p>", [[<CMD>:BufferLinePick<CR>]])
+
+map("n", ";d", ":Dispatch ", {noremap = true, silent = false})

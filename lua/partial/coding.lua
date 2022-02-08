@@ -141,9 +141,6 @@ return {
   {
     'tpope/vim-dispatch',
     cmd = "Dispatch",
-    keys = {
-      { 'n', '`<space>' }
-    }
   },
 
   {
