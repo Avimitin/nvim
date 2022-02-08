@@ -258,7 +258,10 @@ return {
   -- split lines and join lines, useful for closing bracket
   {
     'AndrewRadev/splitjoin.vim',
-    after = "nvim-treesitter"
+    keys = {
+      {'n', 'gJ'},
+      {'n', 'gS'},
+    }
   },
 
   -- generate line for indent
