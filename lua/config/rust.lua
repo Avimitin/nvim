@@ -8,6 +8,7 @@ local opts = {
     tools = {
         autoSetHints = true,
         hover_with_actions = true,
+        executor = require("rust-tools/executors").termopen,
         runnables = {
             use_telescope = true,
 
@@ -29,6 +30,7 @@ local opts = {
         -- These apply to the default RustSetInlayHints command
         inlay_hints = {
             show_parameter_hints = true,
+            show_variable_name = true,
             parameter_hints_prefix = "<- ",
             other_hints_prefix = "=> ",
             max_len_align = false,
