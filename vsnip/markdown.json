@@ -17,7 +17,7 @@
     "prefix": "hugofmt",
     "body": [
       "+++",
-      "title = '${1}'",
+      "title = '${1:$TM_FILENAME_BASE}'",
       "date = '${VIM:system('date +%Y-%m-%d')}'",
       "tag = ['${2}']",
       "author = '${VIM:\\$USER}'",
