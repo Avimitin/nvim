@@ -11,5 +11,19 @@
     "prefix": "kbd",
     "body": "<kbd>${1}</kbd> ${0}",
     "description": "Add an HTML keyboard tag"
+  },
+
+  "hugo frontmatter": {
+    "prefix": "hugofmt",
+    "body": [
+      "+++",
+      "title = '${1}'",
+      "date = '${VIM:system('date +%Y-%m-%d')}'",
+      "tag = ['${2}']",
+      "author = '${VIM:\\$USER}'",
+      "+++",
+      "${0}"
+    ],
+    "description": "Add hugo TOML frontmatter"
   }
 }
