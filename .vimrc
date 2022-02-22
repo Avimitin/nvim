@@ -31,41 +31,7 @@ set whichwrap+=<,>,h,l
 set ignorecase
 set smartcase
 set list
-set listchars=tab:\|\ ,trail:-
-" statusline settings
-let g:currentmode={
-       \ 'n'  : 'NORMAL ',
-       \ 'v'  : 'VISUAL ',
-       \ 'V'  : 'V·Line ',
-       \ "\<C-V>" : 'V·Block ',
-       \ 'i'  : 'INSERT ',
-       \ 'R'  : 'R ',
-       \ 'Rv' : 'V·Replace ',
-       \ 'c'  : 'Command ',
-       \}
-
-set statusline=
-set statusline+=%1*
-set statusline+=\ %{toupper(g:currentmode[mode()])}
-set statusline+=%{&spell?'[SPELL]':''}
-set statusline+=%#WarningMsg#
-set statusline+=%{&paste?'[PASTE]':''}
-set statusline+=%2*
-set statusline+=\ %F
-set statusline+=%{&modified?'\ [+]':''}
-set statusline+=%{&readonly?'\ []':''}
-set statusline+=%<
-set statusline+=%=
-set statusline+=%{&filetype!=#''?&filetype.'\ ':'none\ '}
-set statusline+=%#WarningMsg#
-set statusline+=%{&fileencoding!='utf-8'?'['.&fileencoding.']':''}
-set statusline+=%2*
-set statusline+=%-7([%{&fileformat}]%)
-set statusline+=%#WarningMsg#
-set statusline+=%{&bomb?'[BOM]':''}
-set statusline+=%1*
-set statusline+=[%l/%L]
-set statusline+=\ col:%2c
+set listchars=tab:> ,trail:-
 
 "===== keymaps =====
 nnoremap J 5j
@@ -90,8 +56,6 @@ xnoremap > >gv
 nnoremap < <<
 xnoremap < <gv
 
-nnoremap - N
-nnoremap = n
 nnoremap ; :
 nnoremap ;w :w<CR>
 
@@ -103,12 +67,6 @@ nnoremap <up> :res +5<CR>
 nnoremap <down> :res -5<CR>
 nnoremap <left> :vertical resize-5<CR>
 nnoremap <right> :vertical resize+5<CR>
-
-nnoremap <esc> :nohlsearch<CR>
-
-xnoremap <C-y> "+y
-nnoremap <C-p> "+p
-inoremap <C-p> "+p
 
 inoremap jj <ESC>
 
