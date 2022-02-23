@@ -34,6 +34,11 @@ local autoload = {
   {
     "antoinemadec/FixCursorHold.nvim",
   },
+
+  -- cache everything!
+  {
+    'lewis6991/impatient.nvim'
+  }
 }
 
 local markdown_plugins = {

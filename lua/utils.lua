@@ -1,5 +1,8 @@
 local M = {}
-vim.notify = require("notify")
+local ok, notify = require("notify")
+if ok then
+  vim.notify = notify
+end
 
 -- map create a new mapping
 -- @mode specify vim mode
