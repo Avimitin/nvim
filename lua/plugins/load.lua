@@ -144,9 +144,6 @@ local git_tools = {
       "Flog",
       "Flogsplit",
     },
-    setup = function()
-      require("packer").loader("vim-fugitive")
-    end
   },
 }
 
