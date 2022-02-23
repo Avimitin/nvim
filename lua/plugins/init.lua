@@ -47,7 +47,9 @@ local function init_packer()
     },
     git = {
       clone_timeout = 60 -- Timeout, in seconds, for git clones
-    }
+    },
+   auto_clean = true,
+   compile_on_sync = true,
   }
 end
 
@@ -60,11 +62,8 @@ local function setup_plugins()
       event = "VimEnter"
     }
 
-    local component = {'colors', 'cmp', 'coding', 'mkd', 'git_tools', 'enhance'}
-    for _, compo in ipairs(component) do
-      for _, plugin in ipairs(require("partial."..compo)) do
-        use(plugin)
-      end
+    for _, plugin in ipairs(require("plugins.load")) do
+      use(plugin)
     end
   end)
 end
