@@ -537,7 +537,7 @@ local coding_enhance = {
     "mfussenegger/nvim-dap",
     module = "dap",
     config = function()
-      require("config.dap_config")
+      require("config.dap_cfg")
     end,
   },
 
