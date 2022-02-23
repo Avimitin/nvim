@@ -50,6 +50,9 @@ local function init_packer()
     },
     auto_clean = true,
     compile_on_sync = true,
+    profile = {
+      enable = true,
+    }
   })
 end
 
