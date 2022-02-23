@@ -50,7 +50,7 @@ local function init_packer()
     compile_on_sync = true,
     profile = {
       enable = true,
-    }
+    },
   })
 end
 
