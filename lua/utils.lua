@@ -1,6 +1,11 @@
 local M = {}
 vim.notify = require("notify")
 
+-- map create a new mapping
+-- @mode specify vim mode
+-- @lhs specify the new keymap
+-- @rhs specify the keymap or commands
+-- @opts setting options. Default: { noremap = true, silent = true, eval = false }
 M.map = function(mode, lhs, rhs, opts)
   local options = {
     noremap = true,
@@ -17,6 +22,7 @@ M.map = function(mode, lhs, rhs, opts)
   end
 end
 
+-- new_cmd create a new command
 M.new_cmd = function(cmd, repl, force)
   local command
   if force then
@@ -32,18 +38,25 @@ M.new_cmd = function(cmd, repl, force)
   end
 end
 
-M.log_err = function(msg, title)
+-- errorL notify a message in error level
+-- @msg: logging message
+-- @title: the logging title
+M.errorL = function(msg, title)
   vim.notify(msg, vim.log.levels.ERROR, {
     title = title,
   })
 end
 
-M.log_info = function(msg, title)
+-- infoL notify a message in info level
+-- @msg: logging message
+-- @title: the logging title
+M.infoL = function(msg, title)
   vim.notify(msg, vim.log.levels.INFO, {
     title = title,
   })
 end
 
+-- this function serve the LSP
 M.lsp_attach = function(client, bufnr)
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)

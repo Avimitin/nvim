@@ -18,7 +18,7 @@ for _, module_name in ipairs({ "options", "mappings", "commands", "autocmd" }) d
   local ok, err = pcall(require, module_name)
   if not ok then
     local msg = "calling module: " .. module_name .. " fail: " .. err
-    utils.log_err(msg)
+    utils.errorL(msg)
   end
 end
 
