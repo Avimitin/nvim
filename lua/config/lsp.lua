@@ -124,7 +124,7 @@ end
 
 local lsp_publish_diagnostics_options = {
   virtual_text = {
-    prefix = "",
+    prefix = "﮿",
     spacing = 0
   },
   signs = true,
