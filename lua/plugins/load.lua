@@ -633,10 +633,13 @@ local coding_enhance = {
 }
 
 local completion = {
+  -- lot's of pre-set snippets
   {
     "rafamadriz/friendly-snippets",
     event = "InsertEnter",
   },
+
+  -- the completion core
   {
     "hrsh7th/nvim-cmp",
     after = "friendly-snippets",
@@ -647,30 +650,40 @@ local completion = {
       "onsails/lspkind-nvim",
     },
   },
+
+  -- completion source for system path
   {
     "hrsh7th/cmp-path",
     after = {
       "nvim-cmp",
     },
   },
+
+  -- completion source for lspconfig
   {
     "hrsh7th/cmp-nvim-lsp",
     after = {
       "nvim-cmp",
     },
   },
+
+  -- completion source for word in current buffer
   {
     "hrsh7th/cmp-buffer",
     after = {
       "nvim-cmp",
     },
   },
+
+  -- completion source for vsnip snippet plugin
   {
     "hrsh7th/cmp-vsnip",
     after = {
       "nvim-cmp",
     },
   },
+
+  -- the snippet core
   {
     "hrsh7th/vim-vsnip",
     after = {
@@ -680,6 +693,7 @@ local completion = {
 }
 
 return {
+  autoload,
   markdown_plugins,
   git_tools,
   editor_enhance,
