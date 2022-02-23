@@ -31,7 +31,7 @@ vim.g.mapleader = " "
 
 map("n", ";w", ":w<CR>")
 -- quit needs user to confirm
-map("n", ";q", ":Sayonara<CR>")
+map("n", ";q", ":lua require('plugins.bufdel').delete_buffer()<CR>")
 
 map("x", "<C-y>", [["+y]])
 
