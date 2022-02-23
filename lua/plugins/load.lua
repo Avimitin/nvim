@@ -603,10 +603,8 @@ local coding_enhance = {
       { "v", "gb" },
     },
   },
-  {
-    "andrejlevkovitch/vim-lua-format",
-    ft = "lua",
-  },
+
+  -- find definition, reference
   {
     "pechorin/any-jump.vim",
     setup = function()
