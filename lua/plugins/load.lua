@@ -37,8 +37,8 @@ local autoload = {
 
   -- cache everything!
   {
-    'lewis6991/impatient.nvim'
-  }
+    "lewis6991/impatient.nvim",
+  },
 }
 
 local markdown_plugins = {
