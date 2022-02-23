@@ -15,10 +15,7 @@ License: MIT License
 local utils = require("utils")
 
 -- Try to call the cache plugin
-local cache_ok, cache_err = pcall(require, "impatient")
-if not cache_ok then
-  utils.errorL(cache_err, "cache")
-end
+pcall(require, "impatient")
 
 for _, module_name in ipairs({ "options", "mappings", "commands", "autocmd" }) do
   local ok, err = pcall(require, module_name)
