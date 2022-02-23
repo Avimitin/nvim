@@ -13,7 +13,7 @@ local function install_packer()
   -- detecting plugin manager
   local fn = vim.fn
 
-  utils.log_info("Installing packer to " .. install_path)
+  utils.infoL("Installing packer to " .. install_path)
   fn.system({
     "git",
     "clone",
@@ -28,7 +28,7 @@ end
 local function add_packer()
   local packer_call, error_msg = pcall(vim.cmd, [[packadd packer.nvim]])
   if not packer_call then
-    utils.log_err(error_msg, "load plugin")
+    utils.errorL(error_msg, "load plugin")
     return
   end
 
