@@ -20,6 +20,20 @@ local autoload = {
   {
     "rcarriga/nvim-notify",
   },
+
+  -- deserialize code to generate text object for highlight and other enhancement
+  {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+    config = function()
+      require("config.treesitter")
+    end,
+  },
+
+  -- Fix the CursorHold performance bug
+  {
+    "antoinemadec/FixCursorHold.nvim",
+  },
 }
 
 local markdown_plugins = {
@@ -105,6 +119,8 @@ local git_tools = {
       require("config.gitsign")
     end,
   },
+
+  -- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
   {
     "sindrets/diffview.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -119,6 +135,8 @@ local git_tools = {
       "DiffviewFileHistory",
     },
   },
+
+  -- Flog is a lightweight and powerful git branch viewer that integrates with fugitive.
   {
     "rbong/vim-flog",
     -- run command after the vim fugitive
@@ -126,6 +144,9 @@ local git_tools = {
       "Flog",
       "Flogsplit",
     },
+    setup = function()
+      require("packer").loader("vim-fugitive")
+    end
   },
 }
 
@@ -279,10 +300,6 @@ local editor_enhance = {
         "n",
         "<Enter>",
       },
-      {
-        "n",
-        "<leader><Enter>",
-      },
     },
   },
 
@@ -306,11 +323,6 @@ local editor_enhance = {
   {
     "junegunn/vim-easy-align",
     cmd = "EasyAlign",
-  },
-
-  -- Fix the CursorHold performance bug
-  {
-    "antoinemadec/FixCursorHold.nvim",
   },
 
   -- Move cursor by text search
@@ -350,15 +362,6 @@ local editor_enhance = {
     after = "nvim-cmp",
   },
 
-  -- close buffer and tab gracefully
-  {
-    "mhinz/vim-sayonara",
-    setup = function()
-      vim.g.sayonara_confirm_quit = 1
-    end,
-    cmd = "Sayonara",
-  },
-
   -- file manager without any dependency
   {
     "obaland/vfiler.vim",
@@ -375,7 +378,7 @@ local editor_enhance = {
     end,
   },
 
-  -- split lines and join lines, useful for closing bracket
+  -- split single line and join multiple lines, useful for closing bracket
   {
     "AndrewRadev/splitjoin.vim",
     keys = {
@@ -384,7 +387,7 @@ local editor_enhance = {
     },
   },
 
-  -- generate line for indent
+  -- generate line for guiding indent
   {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
@@ -392,49 +395,23 @@ local editor_enhance = {
     end,
     event = "BufRead",
   },
+
+  -- repeat your last action, what ever command or keymaps or inputs
   {
     "tpope/vim-repeat",
     keys = {
       { "n", "." },
     },
   },
+
+  -- a curl wrapper in neovim
   {
     "NTBBloodbath/rest.nvim",
     requires = {
       "nvim-lua/plenary.nvim",
     },
     config = function()
-      require("rest-nvim").setup({
-        -- Open request results in a horizontal split
-        result_split_horizontal = false,
-        -- Skip SSL verification, useful for unknown certificates
-        skip_ssl_verification = false,
-        -- Highlight request on run
-        highlight = {
-          enabled = true,
-          timeout = 150,
-        },
-        result = {
-          -- toggle showing URL, HTTP info, headers at top the of result window
-          show_url = true,
-          show_http_info = true,
-          show_headers = true,
-        },
-        -- Jump to request line on run
-        jump_to_request = false,
-        env_file = ".env",
-        custom_dynamic_variables = {},
-        yank_dry_run = true,
-      })
-
-      local bufmap = vim.api.nvim_buf_set_keymap
-      local opts = {
-        noremap = true,
-        expr = false,
-      }
-      bufmap(0, "n", "<Leader>rn", ":lua require('rest-nvim').run()<CR>", opts)
-      bufmap(0, "n", "<Leader>rp", ":lua require('rest-nvim').run(true)<CR>", opts)
-      bufmap(0, "n", "<Leader>rl", ":lua require('rest-nvim').last()<CR>", opts)
+      require("config.rest_nvim_cfg")
     end,
     ft = "http",
   },
@@ -489,6 +466,7 @@ local colorscheme = {
 }
 
 local coding_enhance = {
+  -- automatically download and manage lsp server
   {
     "williamboman/nvim-lsp-installer",
     ft = {
@@ -508,6 +486,8 @@ local coding_enhance = {
       require("lspconfig")
     end,
   },
+
+  -- manage the lsp server
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -515,6 +495,8 @@ local coding_enhance = {
     end,
     module = "lspconfig",
   },
+
+  -- enhance the lsp UI
   {
     "tami5/lspsaga.nvim",
     after = "nvim-lspconfig",
@@ -522,6 +504,8 @@ local coding_enhance = {
       require("config.lspsaga_setting")
     end,
   },
+
+  -- Pre-set for rust lsp
   {
     "simrat39/rust-tools.nvim",
     ft = "rust",
@@ -529,6 +513,8 @@ local coding_enhance = {
       require("config.rust")
     end,
   },
+
+  -- enhance the Cargo dependencies management
   {
     "saecki/crates.nvim",
     event = {
@@ -547,7 +533,9 @@ local coding_enhance = {
         },
       })
     end,
-  }, -- }}}
+  },
+
+  -- debugger plugin
   {
     "mfussenegger/nvim-dap",
     module = "dap",
@@ -555,10 +543,14 @@ local coding_enhance = {
       require("config.dap_config")
     end,
   },
+
+  -- UI for nvim-dap
   {
     "rcarriga/nvim-dap-ui",
     module = "dapui",
   },
+
+  -- generate quick jump list in side panel
   {
     "simrat39/symbols-outline.nvim",
     config = function()
@@ -566,13 +558,8 @@ local coding_enhance = {
     end,
     cmd = "SymbolsOutline",
   },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-    config = function()
-      require("config.treesitter")
-    end,
-  },
+
+  -- go coding enhancement
   {
     "fatih/vim-go",
     config = function()
@@ -580,6 +567,8 @@ local coding_enhance = {
     end,
     ft = { "go" },
   },
+
+  -- format code use clang-format
   {
     "rhysd/vim-clang-format",
     ft = {
@@ -617,10 +606,14 @@ local coding_enhance = {
       "AnyJumpBack",
     },
   },
+
+  -- run command in separate vim/nvim/tmux window
   {
     "tpope/vim-dispatch",
     cmd = "Dispatch",
   },
+
+  -- add a progress bar for lsp server
   {
     "j-hui/fidget.nvim",
     after = "nvim-lspconfig",
