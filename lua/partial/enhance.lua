@@ -319,5 +319,9 @@ return {
       bufmap(0, "n", "<Leader>rl", ":lua require('rest-nvim').last()<CR>", opts)
     end,
     ft = "http"
-  }
+  },
+
+   {
+    'rcarriga/nvim-notify',
+   }
 }
