@@ -15,6 +15,8 @@ local autoload = {
   {
     "tpope/vim-sleuth",
   },
+
+  -- add notify window
   {
     "rcarriga/nvim-notify",
   },
