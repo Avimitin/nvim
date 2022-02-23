@@ -71,7 +71,7 @@ Plugins can only be loaded when they are required.
 They will not delay the editor to start up.
 For an empty buffer, neovim takes only *25ms* to start up in average.
 
-You can read the [benchmark file](./utils/benchmark.txt)
+You can read the [benchmark file](./fixtures/benchmark.txt)
 for the speed.
 
 ### Motion
