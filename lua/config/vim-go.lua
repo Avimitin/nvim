@@ -25,4 +25,3 @@ vim.g.go_highlight_types = 1
 vim.g.go_highlight_variable_assignments = 0
 vim.g.go_highlight_variable_declarations = 0
 vim.g.go_doc_keywordprg_enabled = 0
-
