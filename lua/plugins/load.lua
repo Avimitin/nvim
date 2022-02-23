@@ -26,7 +26,7 @@ local autoload = {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     config = function()
-      require("config.treesitter")
+      require("config.treesitter_cfg")
     end,
   },
 
@@ -52,7 +52,7 @@ local markdown_plugins = {
       vim.fn["mkdp#util#install"]()
     end,
     config = function()
-      require("config.mkdp")
+      require("config.markdown_preview_cfg")
     end,
     ft = {
       "markdown",
@@ -116,7 +116,7 @@ local git_tools = {
     },
     event = "BufRead",
     config = function()
-      require("config.gitsign")
+      require("config.gitsign_cfg")
     end,
   },
 
@@ -160,7 +160,7 @@ local editor_enhance = {
     branch = "main",
     after = "nvim-web-devicons",
     config = function()
-      require("config.statusline")
+      require("config.galaxyline_cfg")
     end,
   },
 
@@ -168,7 +168,7 @@ local editor_enhance = {
   {
     "akinsho/nvim-bufferline.lua",
     config = function()
-      require("config.bufferline_config")
+      require("config.bufferline_cfg")
     end,
     event = "BufRead",
   },
@@ -177,7 +177,7 @@ local editor_enhance = {
   {
     "kyazdani42/nvim-tree.lua",
     config = function()
-      require("config.nvimtree")
+      require("config.nvimtree_cfg")
     end,
     cmd = {
       "NvimTreeRefresh",
@@ -189,7 +189,7 @@ local editor_enhance = {
   {
     "numtostr/FTerm.nvim",
     config = function()
-      require("config.fterm")
+      require("config.fterm_cfg")
     end,
     cmd = {
       "FTermToggle",
@@ -245,7 +245,7 @@ local editor_enhance = {
       "Dashboard",
     },
     config = function()
-      require("config.dashboard")
+      require("config.dashboard_cfg")
     end,
   },
 
@@ -271,7 +271,7 @@ local editor_enhance = {
       "nvim-lua/plenary.nvim",
     },
     config = function()
-      require("config.telescope_config")
+      require("config.telescope_cfg")
     end,
     module = "telescope",
   },
@@ -354,7 +354,7 @@ local editor_enhance = {
   {
     "windwp/nvim-autopairs",
     config = function()
-      require("config.autopairs")
+      require("config.autopairs_cfg")
     end,
     after = "nvim-cmp",
   },
@@ -388,7 +388,7 @@ local editor_enhance = {
   {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
-      require("config.indent")
+      require("config.indent_cfg")
     end,
     event = "BufRead",
   },
@@ -488,7 +488,7 @@ local coding_enhance = {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("config.lsp")
+      require("config.lspconfig_cfg")
     end,
     module = "lspconfig",
   },
@@ -498,7 +498,7 @@ local coding_enhance = {
     "tami5/lspsaga.nvim",
     after = "nvim-lspconfig",
     config = function()
-      require("config.lspsaga_setting")
+      require("config.lspsaga_cfg")
     end,
   },
 
@@ -507,7 +507,7 @@ local coding_enhance = {
     "simrat39/rust-tools.nvim",
     ft = "rust",
     config = function()
-      require("config.rust")
+      require("config.rust_tools")
     end,
   },
 
@@ -551,7 +551,7 @@ local coding_enhance = {
   {
     "simrat39/symbols-outline.nvim",
     config = function()
-      require("config.symbols")
+      require("config.symboloutline_cfg")
     end,
     cmd = "SymbolsOutline",
   },
@@ -560,7 +560,7 @@ local coding_enhance = {
   {
     "fatih/vim-go",
     config = function()
-      require("config.vim-go")
+      require("config.vim_go_cfg")
     end,
     ft = { "go" },
   },
@@ -632,7 +632,7 @@ local completion = {
     "hrsh7th/nvim-cmp",
     after = "friendly-snippets",
     config = function()
-      require("config.completion")
+      require("config.nvimcmp_cfg")
     end,
     requires = {
       "onsails/lspkind-nvim",
