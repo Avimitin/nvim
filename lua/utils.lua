@@ -1,4 +1,5 @@
 local M = {}
+vim.notify = require("notify")
 
 M.map = function(mode, lhs, rhs, opts)
   local options = {
