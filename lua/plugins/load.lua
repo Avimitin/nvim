@@ -1,3 +1,4 @@
+-- @file the plugin file
 function LoadCfg(file)
   local prefix = "plugins.config."
   require(prefix..file)
@@ -62,7 +63,7 @@ local markdown_plugins = {
       vim.fn["mkdp#util#install"]()
     end,
     config = function()
-      require("config.markdown_preview_cfg")
+      LoadCfg("markdown_preview_cfg")
     end,
     ft = {
       "markdown",
@@ -418,7 +419,7 @@ local editor_enhance = {
       "nvim-lua/plenary.nvim",
     },
     config = function()
-      require("config.rest_nvim_cfg")
+      LoadCfg("rest_nvim_cfg")
     end,
     ft = "http",
   },
@@ -517,7 +518,7 @@ local coding_enhance = {
     "simrat39/rust-tools.nvim",
     ft = "rust",
     config = function()
-      require("config.rust_tools")
+      LoadCfg("rust_tools_cfg")
     end,
   },
 
@@ -570,7 +571,7 @@ local coding_enhance = {
   {
     "fatih/vim-go",
     config = function()
-      require("config.vim_go_cfg")
+      LoadCfg("vim_go_cfg")
     end,
     ft = { "go" },
   },
