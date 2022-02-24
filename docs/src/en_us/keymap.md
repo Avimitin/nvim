@@ -46,8 +46,8 @@ Basic movement
 
 | Keymap         | Function                    |
 |----------------|-----------------------------|
-| <kbd>-</kbd>   | Go to the before matches    |
-| <kbd>=</kbd>   | Go to the following matches |
+| <kbd>N</kbd>   | Go to the before matches    |
+| <kbd>n</kbd>   | Go to the following matches |
 | <kbd>ESC</kbd> | Close the search highlight  |
 
 ## Tabpages
@@ -76,12 +76,12 @@ Basic movement
 
 ## Save and Quit
 
-| Keymap           | Function              | Notes               |
-|------------------|-----------------------|---------------------|
-| <kbd>; w</kbd>   | Save                  |                     |
-| <kbd>; q</kbd>   | Quit                  |                     |
-| <kbd>Alt q</kbd> | delete buffer         |                     |
-| <kbd>Alt ;</kbd> | Leave the insert mode | Only in insert mode |
+| Keymap           | Function                                                 | Notes               |
+|------------------|----------------------------------------------------------|---------------------|
+| <kbd>; w</kbd>   | Save                                                     |                     |
+| <kbd>; q</kbd>   | Quit buffer (Auto quit nvim when last buffer is deleted) |                     |
+| <kbd>: q</kbd>   | Quit neovim, window, tabs                                |                     |
+| <kbd>Alt ;</kbd> | Leave the insert mode (Same as ESC)                      | Only in insert mode |
 
 ## Others
 
