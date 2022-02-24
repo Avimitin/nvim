@@ -626,7 +626,11 @@ local coding_enhance = {
     "j-hui/fidget.nvim",
     after = "nvim-lspconfig",
     config = function()
-      require("fidget").setup({})
+      require("fidget").setup({
+        text = {
+          spinner = "dots"
+        }
+      })
     end,
   },
 }
