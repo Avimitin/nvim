@@ -1,6 +1,6 @@
 local M = {}
-local ok, notify = pcall(require, "notify")
-if ok then
+local ntf_loaded, notify = pcall(require, "notify")
+if ntf_loaded then
   vim.notify = notify
 end
 
