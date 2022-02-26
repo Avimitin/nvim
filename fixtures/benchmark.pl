@@ -118,13 +118,19 @@ EOF
 }
 
 # run empty buffer test
+print "Running empty buffer test...";
 my %buffer  = run_test(10);
+print "Done\n";
 
 # run markdown file test
+print "Running markdown file test...";
 my %md  = run_test(10, "README.md");
+print "Done\n";
 
 # run lua file test
+print "Running lua code test...";
 my %lua  = run_test(10, "init.lua");
+print "Done\n";
 
 # and finally write the result
 write_result(\%buffer, \%md, \%lua);
