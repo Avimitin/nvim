@@ -33,7 +33,7 @@ end
 -- @param rhs specify the keymap or commands
 -- @param opts setting options. Default: { noremap = true, silent = true, eval = false }
 local function xmap (lhs, rhs, opts)
-  map("n", lhs, rhs, opts)
+  map("x", lhs, rhs, opts)
 end
 
 return {
