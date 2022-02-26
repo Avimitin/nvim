@@ -57,7 +57,6 @@ local on_attach = function(client, bufnr)
   end
 end
 
-
 -- Gets a new ClientCapabilities object describing the LSP client
 -- capabilities.
 local function setup_capabilities()
@@ -194,7 +193,6 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
   border = "single",
 })
 
-
 return {
-  set_lsp_key = on_attach
+  set_lsp_key = on_attach,
 }
