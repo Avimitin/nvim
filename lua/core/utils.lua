@@ -4,27 +4,6 @@ if ntf_loaded then
   vim.notify = notify
 end
 
--- map create a new mapping
--- @mode specify vim mode
--- @lhs specify the new keymap
--- @rhs specify the keymap or commands
--- @opts setting options. Default: { noremap = true, silent = true, eval = false }
-M.map = function(mode, lhs, rhs, opts)
-  local options = {
-    noremap = true,
-    silent = true,
-  }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  local stat, error = pcall(vim.api.nvim_set_keymap, mode, lhs, rhs, options)
-  if not stat then
-    vim.notify(error, vim.log.levels.ERROR, {
-      title = "keymap",
-    })
-  end
-end
-
 -- new_cmd create a new command
 M.new_cmd = function(cmd, repl, force)
   local command

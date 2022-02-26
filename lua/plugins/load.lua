@@ -316,7 +316,7 @@ local editor_enhance = {
     "tpope/vim-surround",
     event = "BufRead",
     config = function()
-      local map = require("core.utils").map
+      local map = require("mappings.utils").map
       -- release the S key to the lightspeed
       map("x", "S", "<Plug>Lightspeed_S", {
         noremap = false,
