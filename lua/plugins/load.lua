@@ -424,6 +424,14 @@ local editor_enhance = {
     end,
     ft = "http",
   },
+
+  {
+    "sQVe/sort.nvim",
+    config = function()
+      require("sort").setup({})
+    end,
+    cmd = "Sort",
+  },
 }
 
 local colorscheme = {
