@@ -4,22 +4,6 @@ if ntf_loaded then
   vim.notify = notify
 end
 
--- new_cmd create a new command
-M.new_cmd = function(cmd, repl, force)
-  local command
-  if force then
-    command = "command! " .. cmd .. " " .. repl
-  else
-    command = "command " .. cmd .. " " .. repl
-  end
-  local ok, err = pcall(vim.cmd, command)
-  if not ok then
-    vim.notify("setting cmd: " .. cmd .. " " .. err, vim.log.levels.ERROR, {
-      title = "command",
-    })
-  end
-end
-
 -- errorL notify a message in error level
 -- @msg: logging message
 -- @title: the logging title
