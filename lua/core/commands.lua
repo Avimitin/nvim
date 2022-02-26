@@ -1,34 +1,51 @@
-local new_cmd = require("core.utils").new_cmd
+-- alias can help create new vim command.
+-- @param cmd The user command
+-- @param repl The actual command or function
+-- @param force force create command? boolean
+local alias = function(cmd, repl, force)
+  local command
+  if force then
+    command = "command! " .. cmd .. " " .. repl
+  else
+    command = "command " .. cmd .. " " .. repl
+  end
+  local ok, err = pcall(vim.cmd, command)
+  if not ok then
+    vim.notify("setting cmd: " .. cmd .. " " .. err, vim.log.levels.ERROR, {
+      title = "command",
+    })
+  end
+end
+
 -- plugin neoclip
-new_cmd("ClipRec", [[lua require('neoclip').start()]])
-new_cmd("ClipView", [[Telescope neoclip]])
+alias("ClipRec", [[lua require('neoclip').start()]])
+alias("ClipView", [[Telescope neoclip]])
 
--- plugin lua formmater
-new_cmd("LuaFormat", [[call LuaFormat()]])
+-- run stylua in background
+alias("LuaFormat", [[Dispatch! stylua %]])
 
--- plugin focus
-new_cmd("FSplit", [[FocusSplitNicely]])
+-- close buffer
+alias("BufCL", [[BufferLineCloseLeft]])
+alias("BufCR", [[BufferLineCloseRight]])
 
-new_cmd("BufCL", [[BufferLineCloseLeft]])
-new_cmd("BufCR", [[BufferLineCloseRight]])
+-- debug ui
+alias("DapUIToggle", [[lua require("dapui").toggle()]])
 
-new_cmd("DapUIToggle", [[lua require("dapui").toggle()]])
+-- debug function
+alias("DapBreakpoint", [[lua require("dap").toggle_breakpoint()]])
+alias("DapBp", [[lua require("dap").toggle_breakpoint()]])
 
-new_cmd("DapBreakpoint", [[lua require("dap").toggle_breakpoint()]])
-new_cmd("DapBp", [[lua require("dap").toggle_breakpoint()]])
+alias("DapContinue", [[lua require("dap").continue()]])
+alias("DapC", [[lua require("dap").continue()]])
 
-new_cmd("DapContinue", [[lua require("dap").continue()]])
-new_cmd("DapC", [[lua require("dap").continue()]])
+alias("DapStepOver", [[lua require("dap").step_over()]])
 
-new_cmd("DapStepOver", [[lua require("dap").step_over()]])
+-- fugitive
+alias("Psh", [[Git! push]])
+alias("Cmt", [[Git commit -sS]])
 
-new_cmd("Glog", [[Git log --oneline]])
-new_cmd("Psh", [[Git! push]])
-new_cmd("Cmt", [[Git commit -sS]])
-
-new_cmd("Neogen", [[lua require("neogen").generate()]])
-
-new_cmd("CrateUpdate", [[lua require("crates").update_crate()]])
-new_cmd("CrateUpgrade", [[lua require("crates").upgrade_crate()]])
-new_cmd("CrateMenu", [[lua require("crates").show_popup()]])
-new_cmd("CrateReload", [[lua require("crates").reload()]])
+-- Crate.nvim
+alias("CrateUpdate", [[lua require("crates").update_crate()]])
+alias("CrateUpgrade", [[lua require("crates").upgrade_crate()]])
+alias("CrateMenu", [[lua require("crates").show_popup()]])
+alias("CrateReload", [[lua require("crates").reload()]])
