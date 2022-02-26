@@ -81,7 +81,7 @@ sub run_test {
 # write the result
 sub write_result {
   # open the $output_file
-  open(fh, ">", $output_file);
+  open(FH, ">", $output_file);
 
   # result format
   my $hint = << "EOF";
@@ -108,13 +108,13 @@ EOF
   my ($ia, $ib, $ic) = @_;
 
   # print the result to the file
-  printf fh $hint,
+  printf FH $hint,
     $ia->{max}, $ia->{min}, $ia->{avg},
     $ib->{max}, $ib->{min}, $ib->{avg},
     $ic->{max}, $ic->{min}, $ic->{avg};
 
   # close the file
-  close(fh);
+  close(FH);
 }
 
 # run empty buffer test
