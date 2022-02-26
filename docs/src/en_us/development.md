@@ -145,3 +145,13 @@ This document add additional details for how to increase semantic version.
 - utils.lua
   - Major: Remove any functionality
   - Minor: Add/Replace/Modify function
+
+## Benchmark
+
+I've write a Perl script to handle the benchmark.
+
+```bash
+perl ./fixtures/benchmark.pl
+```
+
+It will write result into the `./fixtures/benchmark.txt` file.
