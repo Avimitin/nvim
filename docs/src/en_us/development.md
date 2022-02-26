@@ -4,15 +4,15 @@
 
 ### Title
 
-Use format: `<type>[!][module]: <summary>`.
+Use format: `<type>[!] [module]: <summary>`.
 
 * _**Available type**_
 
-- **feat**: for new feature
-- **fix**: for bug fixes
-- **triv**: for chore
-- **reft**: for refactor
-- **docs**: for document
+- **NEW**: for new feature
+- **FIX**: for bug fixes
+- **MSC**: for chore
+- **RFT**: for refactor
+- **DOC**: for document
 - Use the bang "!" to indicate that this commit contains breaking changes.
 
 Title should be wrap in 50 Latin characters.
@@ -56,12 +56,12 @@ So now the none-imperative commit are not working:
 ### Example
 
 ```text
-feat/plugins: add new plugin
-fix/lazygit: fix the submodule issue
-reft!/colors: replace the NormalFloat color         <- This one contains breaking change
-    ^
-docs/readme: update the installation guide
-triv: rename the ci filename
+NEW plugins: add new plugin
+FIX lazygit: fix the submodule issue
+RFT! colors: replace the NormalFloat color         <- This one contains breaking change
+   ^
+DOC readme: update the installation guide
+MSC: rename the ci filename
 ```
 
 The module name is optional. If you write the module name, please use `/` to separate
@@ -84,22 +84,25 @@ section. See the section "Full Example" for details.
 My daily practice are listed below:
 
 <pre>
-## Section
+Section
+=======
 
 `short code`
 
-```rust
-codeblock
-```
+  fn main() {
+    println!("Hello World");
+  }
+^^ <- indent here
 
 * item 1
+  * item 1.1
 * item 2
 
-Lorem ipsum dolor sit amet, qui minim labore {ref-1}
+Lorem ipsum dolor sit amet, qui minim labore [ref-1]
 adipisicing minim sint cillum sint consectetur cupidatat.
 
 Ref:
-ref-1: https://github.com/Avimitin/commit-convention
+[ref-1]: https://github.com/Avimitin/commit-convention
 </pre>
 
 * One Line Per Sentence
