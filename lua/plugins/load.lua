@@ -1,7 +1,7 @@
 -- @file the plugin file
 function LoadCfg(file)
   local prefix = "plugins.config."
-  require(prefix..file)
+  require(prefix .. file)
 end
 
 local autoload = {
@@ -316,12 +316,13 @@ local editor_enhance = {
     "tpope/vim-surround",
     event = "BufRead",
     config = function()
+      local map = require("core.utils").map
       -- release the S key to the lightspeed
-      require("utils").map("x", "S", "<Plug>Lightspeed_S", {
+      map("x", "S", "<Plug>Lightspeed_S", {
         noremap = false,
       })
       -- and remap it to gs
-      require("utils").map("x", "gs", "<Plug>VSurround", {
+      map("x", "gs", "<Plug>VSurround", {
         noremap = false,
       })
     end,
@@ -429,46 +430,46 @@ local colorscheme = {
   {
     "Avimitin/neovim-deus",
     cond = function()
-      return require("colors").theme == "deus"
+      return require("core.colors").theme == "deus"
     end,
     config = function()
-      require("colors").deus_setup()
+      require("core.colors").deus_setup()
     end,
   },
   {
     "Shatur/neovim-ayu",
     cond = function()
-      return require("colors").theme == "ayu"
+      return require("core.colors").theme == "ayu"
     end,
     config = function()
-      require("colors").ayu_setup()
+      require("core.colors").ayu_setup()
     end,
   },
   {
     "rebelot/kanagawa.nvim",
     cond = function()
-      return require("colors").theme == "kanagawa"
+      return require("core.colors").theme == "kanagawa"
     end,
     config = function()
-      require("colors").kanagawa_setup()
+      require("core.colors").kanagawa_setup()
     end,
   },
   {
     "sainnhe/everforest",
     cond = function()
-      return require("colors").theme == "everforest"
+      return require("core.colors").theme == "everforest"
     end,
     config = function()
-      require("colors").everforest_setup()
+      require("core.colors").everforest_setup()
     end,
   },
   {
     "morhetz/gruvbox",
     cond = function()
-      return require("colors").theme == "gruvbox"
+      return require("core.colors").theme == "gruvbox"
     end,
     config = function()
-      require("colors").gruvbox_setup()
+      require("core.colors").gruvbox_setup()
     end,
   },
 }
@@ -628,8 +629,8 @@ local coding_enhance = {
     config = function()
       require("fidget").setup({
         text = {
-          spinner = "dots"
-        }
+          spinner = "dots",
+        },
       })
     end,
   },

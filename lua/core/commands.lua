@@ -1,4 +1,4 @@
-local new_cmd = require("utils").new_cmd
+local new_cmd = require("core.utils").new_cmd
 -- plugin neoclip
 new_cmd("ClipRec", [[lua require('neoclip').start()]])
 new_cmd("ClipView", [[Telescope neoclip]])

@@ -25,7 +25,7 @@ opt.shiftwidth = 2
 opt.softtabstop = 2
 
 -- Copy indent from current line when starting a new line
-opt.autoindent=true
+opt.autoindent = true
 
 -- A List is an ordered sequence of items.
 opt.list = true

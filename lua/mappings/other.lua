@@ -1,4 +1,4 @@
-local map = require("utils").map
+local map = require("core.utils").map
 -- EasyAlign
 map("v", "<leader>e", ":EasyAlign<CR>")
 
