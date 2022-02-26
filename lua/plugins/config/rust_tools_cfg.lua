@@ -58,7 +58,4 @@ local opts = {
 
 require("rust-tools").setup(opts)
 
-local map = require("core.utils").map
-map("n", "<Leader>ra", ':lua require("rust-tools.hover_actions").hover_actions()<CR>')
-
 vim.g.rustfmt_options = "--edition=2021"

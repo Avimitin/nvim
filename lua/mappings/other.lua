@@ -1,32 +1,41 @@
-local map = require("core.utils").map
+local map = require("mappings.utils").map
+local nmap = require("mappings.utils").nmap
+
 -- EasyAlign
 map("v", "<leader>e", ":EasyAlign<CR>")
 
 -- nvim-tree
-map("n", ";t", ":NvimTreeToggle<CR>")
+nmap(";t", ":NvimTreeToggle<CR>")
 
-map("n", "<C-\\>", [[:FTermToggle<CR>]])
+-- fterm
+nmap("<C-\\>", [[:FTermToggle<CR>]])
 map("t", "<C-\\>", [[<C-\><C-n>:FTermToggle<CR>]])
 map("t", "<C-n>", [[<C-\><C-n>]])
 
-map("n", ";f", [[:lua require('telescope.builtin').find_files{}<CR>]])
-map("n", "<LEADER>tg", [[:lua require('telescope.builtin').live_grep{}<CR>]])
+-- telescope
+nmap(";f", [[:lua require('telescope.builtin').find_files{}<CR>]])
+nmap("<LEADER>tg", [[:lua require('telescope.builtin').live_grep{}<CR>]])
 
-map("n", ";g", [[<CMD>Git<CR>]])
-map("n", "<LEADER>l", [[<CMD>LazyGit<CR>]])
+-- fugitive
+nmap(";g", [[<CMD>Git<CR>]])
 
-map("i", "<A-;>", "<ESC>")
+-- lazygit
+nmap("<LEADER>l", [[<CMD>LazyGit<CR>]])
 
 -- bufferline tab stuff
-map("n", "<C-c>", ":BufferLinePickClose<CR>") -- close tab
+nmap("<C-c>", ":BufferLinePickClose<CR>") -- close tab
 
 -- move between tabs
-map("n", ";n", [[<Cmd>BufferLineCycleNext<CR>]])
-map("n", ";p", [[<Cmd>BufferLineCyclePrev<CR>]])
+nmap(";n", [[<Cmd>BufferLineCycleNext<CR>]])
+nmap(";p", [[<Cmd>BufferLineCyclePrev<CR>]])
 
 -- move tabs
-map("n", "<A->>", [[<CMD>BufferLineMoveNext<CR>]])
-map("n", "<A-<>", [[<CMD>BufferLineMovePrev<CR>]])
-map("n", "<A-p>", [[<CMD>:BufferLinePick<CR>]])
+nmap("<A->>", [[<CMD>BufferLineMoveNext<CR>]])
+nmap("<A-<>", [[<CMD>BufferLineMovePrev<CR>]])
+nmap("<A-p>", [[<CMD>:BufferLinePick<CR>]])
 
-map("n", ";d", ":Dispatch ", { noremap = true, silent = false })
+-- dispatch
+nmap(";d", ":Dispatch ", { noremap = true, silent = false })
+
+-- rust-tools.nvim
+nmap("<Leader>ra", ':lua require("rust-tools.hover_actions").hover_actions()<CR>')
