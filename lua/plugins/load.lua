@@ -488,16 +488,16 @@ local coding_enhance = {
     "williamboman/nvim-lsp-installer",
     ft = {
       "bash",
-      "sh",
       "c",
       "cpp",
-      "lua",
       "go",
       "html",
-      "toml",
-      "json",
-      "python",
       "javascript",
+      "json",
+      "lua",
+      "python",
+      "sh",
+      "toml",
     },
     config = function()
       require("lspconfig")
