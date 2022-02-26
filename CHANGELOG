@@ -1,3 +1,53 @@
+4.0.0-rc1 <Feb 26 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+In this version, I rewrite the whole configuration structure and simplify
+some plugins.
+
+Also I am now using [stylua] to format the Lua code>
+
+Besides, I am using [impatient.nvim] to cache the neovim modules.
+So remember to call the function `:LuaCacheClear` after you modify the neovim
+configuration.
+
+[stylua]: https://github.com/johnnymorganz/stylua
+[impatient.nvim]: https://github.com/lewis6991/impatient.nvim
+
+
+New Features:
+-------------
+plugins:
+  * rust: enable variable name in inlay hint (See commit 2f3b25f7)
+  * keymap: add `;d` for dispatch (See commit 4619fe33)
+  * plugin: add plugin to view git log (See commit 921b5817)
+  * plugin: add plugin to show lsp loading status (See commit c4d2f8df)
+  * plugin: add rest.nvim (See commit 60163157)
+  * vsnip: add fronmatter snippet (See commit e6b997c5)
+  * plugin: add nvim-notify (See commit 3e7f46e9)
+  * plugins: add bufdel.lua (See commit c23be93b)
+  * plugins: add impatient.nvim to optimize the start up time (See commit 4ea10f41)
+
+autocmd:
+  * autocmd: add rnu and nu autocmd (See commit 2e535362)
+
+keymap:
+  * keymap: separate the editor keymap and plugin keymap (See commit 87709236)
+
+Breaking Changes:
+-----------------
+  * plugins: rewrite the plugin file structure (See commit dfd2f18a)
+  * lspconfig: move lsp_attach to lspconfig (See commit bcc3ca70)
+  * commands: move utils.new_cmd to commands.alias (See commit 9fe3ad46)
+  * plugins: remove vim-lua-format (See commit f0ee2689)
+  * plugins: remove setup function for flog (See commit df90cdc2)
+  * plugins: rename all plugin config suffix with _cfg (See commit 86706692)
+  * plugins: move config dir into plugins dir (See commit bb16ba1a)
+  * format: replace luaformat with stylua (See commit 51bb5119)
+  * nvim: move utils.map to mappings.utils.map (See commit 49de74ee)
+  * nvim: move neovim settings to core directory (See commit 6137b27d)
+  * reft!/keymap: remove wildfire range keymap (See commit 25b4e453)
+  * reft!/plugin: remove orgmode (See commit fc94ef62)
+
+
 3.17.0 <Feb 07 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 
