@@ -3,7 +3,7 @@
 -- @param lhs specify the new keymap
 -- @param rhs specify the keymap or commands
 -- @param opts setting options. Default: { noremap = true, silent = true, expr = false }
-local function map (mode, lhs, rhs, opts)
+local function map(mode, lhs, rhs, opts)
   local options = {
     noremap = true,
     silent = true,
@@ -24,7 +24,7 @@ end
 -- @param lhs specify the new keymap
 -- @param rhs specify the keymap or commands
 -- @param opts setting options. Default: { noremap = true, silent = true, eval = false }
-local function nmap (lhs, rhs, opts)
+local function nmap(lhs, rhs, opts)
   map("n", lhs, rhs, opts)
 end
 
@@ -32,7 +32,7 @@ end
 -- @param lhs specify the new keymap
 -- @param rhs specify the keymap or commands
 -- @param opts setting options. Default: { noremap = true, silent = true, eval = false }
-local function xmap (lhs, rhs, opts)
+local function xmap(lhs, rhs, opts)
   map("x", lhs, rhs, opts)
 end
 
