@@ -7,7 +7,7 @@ if not (present1 or present2) then
   return
 end
 
-local on_attach = require("utils").lsp_attach
+local on_attach = require("core.utils").lsp_attach
 
 -- Gets a new ClientCapabilities object describing the LSP client
 -- capabilities.

@@ -53,12 +53,12 @@ local opts = {
       auto_focus = true,
     },
   },
-  server = { on_attach = require("utils").lsp_attach }, -- rust-analyer options
+  server = { on_attach = require("core.utils").lsp_attach }, -- rust-analyer options
 }
 
 require("rust-tools").setup(opts)
 
-local map = require("utils").map
+local map = require("core.utils").map
 map("n", "<Leader>ra", ':lua require("rust-tools.hover_actions").hover_actions()<CR>')
 
 vim.g.rustfmt_options = "--edition=2021"
