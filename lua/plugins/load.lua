@@ -290,10 +290,7 @@ local editor_enhance = {
   -- record and manage your paste history
   {
     "AckslD/nvim-neoclip.lua",
-    cmd = {
-      "ClipRec",
-      "ClipView",
-    },
+    event = "TextYankPost",
     config = function()
       require("neoclip").setup()
       require("telescope").load_extension("neoclip")
