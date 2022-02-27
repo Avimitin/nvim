@@ -7,6 +7,11 @@ use Data::Dumper;
 
 my $git_log_cmd = "git log --oneline --pretty=\"format:%s (See commit %h)\"";
 
+# Accept commandline argument like:
+# --from verA --to verB
+# OR:
+# --range verA..verB
+# Follow the git worktree syntax
 sub parse_cmdline {
   my $from;
   my $to;
@@ -24,6 +29,7 @@ sub parse_cmdline {
   )
 }
 
+# Get log message by git log
 sub get_log {
   my $iargs = shift;
   if (!$iargs) {
@@ -43,11 +49,14 @@ sub get_log {
 
   my $exec = $git_log_cmd." ".$range;
   my $output = `$exec`;
+
+  # split the whole result to line by line array
   my @output = split("\n", $output);
 
   return @output;
 }
 
+# Helper function
 sub beautify {
   my @in = shift;
   foreach my $cmt (@in) {
@@ -55,6 +64,7 @@ sub beautify {
   }
 }
 
+# Categorize log
 sub parse_log {
   my $in = shift;
 
@@ -70,6 +80,8 @@ sub parse_log {
   my @other = ();
 
   for my $line (@$in) {
+    # Match rule like
+    # [TYPE] MODULE: SUMMARY
     if ($line =~ m/\[([A-Z!]{3})(!?)\] ([a-zA-z\/-_]+): (.*)/) {
       my %cmt = (
         type => $1,
@@ -95,6 +107,7 @@ sub parse_log {
     }
   }
 
+  # Return reference to the array to save memory.
   return (
     feat     => \@nc,
     fix      => \@fc,
@@ -104,6 +117,7 @@ sub parse_log {
   )
 }
 
+# Parse result in restructure text format.
 sub parse {
   my $title = shift;
   my (@inp) = @_;
@@ -123,6 +137,7 @@ sub parse {
   return $temp;
 }
 
+# Main
 my %cliargs = parse_cmdline();
 my @output = get_log(\%cliargs);
 my %result = parse_log(\@output);
