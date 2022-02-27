@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 use Getopt::Long qw(GetOptions);
+use Data::Dumper;
 
 my $git_log_cmd = "git log --oneline --pretty=\"format:%s (See commit %h)\"";
 
@@ -44,12 +45,39 @@ sub get_log {
   my $output = `$exec`;
   my @output = split("\n", $output);
 
-  for my $line (@output) {
-    if ($line =~ m/\[([A-Z!]{3})\]/) {
-      print "Type: $1\n";
+  return @output;
+}
+
+sub parse_log {
+  my $in = shift;
+
+  # new feature collector
+  my @nc = ();
+  # fix collector
+  my @fc = ();
+  # refactor collector
+  my @rc = ();
+  # breaking change collector
+  my @bc = ();
+
+  for my $line (@$in) {
+    if ($line =~ m/\[([A-Z!]{3})(!?)\] ([a-zA-z\/-_]+): (.*)/) {
+      if ( ! $1 || ! $3 || ! $4 ) {
+        print "WARN: commit not in valid format: $line\n";
+        next;
+      }
+      my %cmt = (
+        type => $1,
+        break => $2 ? 1 : 0,
+        module => $3,
+        summary => $4,
+      );
+      print Dumper \%cmt;
     }
   }
 }
 
+
 my %cliargs = parse_cmdline();
-get_log(\%cliargs);
+my @output = get_log(\%cliargs);
+parse_log(\@output);
