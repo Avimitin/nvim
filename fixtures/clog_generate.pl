@@ -62,10 +62,6 @@ sub parse_log {
 
   for my $line (@$in) {
     if ($line =~ m/\[([A-Z!]{3})(!?)\] ([a-zA-z\/-_]+): (.*)/) {
-      if ( ! $1 || ! $3 || ! $4 ) {
-        print "WARN: commit not in valid format: $line\n";
-        next;
-      }
       my %cmt = (
         type => $1,
         break => $2 ? 1 : 0,
@@ -73,6 +69,8 @@ sub parse_log {
         summary => $4,
       );
       print Dumper \%cmt;
+    } else {
+      print "WARN: commit not in valid format: $line\n";
     }
   }
 }
