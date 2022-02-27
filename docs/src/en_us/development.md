@@ -158,3 +158,9 @@ perl ./fixtures/benchmark.pl
 ```
 
 It will write result into the `./fixtures/benchmark.txt` file.
+
+## Changelog Generate
+
+```bash
+perl ./fixtures/clog_generate.pl
+```
