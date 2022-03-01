@@ -173,7 +173,7 @@ end
 local lsp_publish_diagnostics_options = {
   virtual_text = {
     prefix = "﮿",
-    spacing = 0,
+    spacing = 4,
   },
   signs = true,
   underline = true,
