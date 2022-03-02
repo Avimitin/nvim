@@ -1,3 +1,23 @@
+4.0.0-rc2 <Mar 02 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+
+Fix:
+----
+  * nvim-tree: fix auto resize when open file (See commit 91bccbcc)
+  * lsp: use spacing option to fix the nerdfont align issue (See commit 11c01a99)
+  * benchmark: fix file handler warning (See commit ea34ca7d)
+
+Changes:
+--------
+  * plugins: update nvim-tree icon (See commit 2c78214e)
+  * plugins: rewrite neocilp load condition (See commit 240b8e0e)
+
+Others:
+-------
+  * Use perl to generate changelog and run benchmark script
+    (See fixtures/genlog.pl and benmark.pl)
+
+
 4.0.0-rc1 <Feb 26 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 In this version, I rewrite the whole configuration structure and simplify
@@ -354,3 +374,5 @@ Rewrite
 * fterm: update fterm and lazygit colorscheme (See commit fcc2c30)
 * keymap: update ~neogit~ and fugitive keymap (See commit 2debc8d)
 * plugin: update vim-lua-format load condition (See commit 89674a4)
+
+.. vim: filetype=rst
