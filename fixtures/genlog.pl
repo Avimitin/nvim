@@ -82,7 +82,7 @@ sub parse_log {
   for my $line (@$in) {
     # Match rule like
     # [TYPE] MODULE: SUMMARY
-    if ($line =~ m/\[([A-Z!]{3})(!?)\] ([a-zA-z\/-_]+): (.*)/) {
+    if ($line =~ m/\[([A-Z!]{3})(!?)\] ([a-zA-Z\/\-_]+): (.*)/) {
       my %cmt = (
         type => $1,
         break => $2 ? 1 : 0,
