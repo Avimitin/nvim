@@ -70,12 +70,28 @@ require("nvim-tree").setup({
       ".cache",
     },
   },
-
+  actions = {
+    change_dir = {
+      enable = true,
+      global = false,
+    },
+    open_file = {
+      quit_on_open = false,
+      resize_window = false,
+      window_picker = {
+        enable = true,
+        chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+        exclude = {
+          filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame", },
+          buftype  = { "nofile", "terminal", "help", },
+        }
+      }
+    }
+  },
   view = {
     width = 25,
     -- height = 30,
     side = "left",
-    auto_resize = false,
     mappings = {
       custom_only = true,
       list = {
