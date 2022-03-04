@@ -1,3 +1,7 @@
+Changes:
+  * treesitter: enable vim-matchup
+
+
 4.0.0-rc2 <Mar 02 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 
