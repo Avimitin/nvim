@@ -107,7 +107,7 @@ M.load = function()
   posthook()
 end
 
-M.load_cfg = function (file)
+M.load_cfg = function(file)
   local prefix = "plugins.config."
   require(prefix .. file)
 end
