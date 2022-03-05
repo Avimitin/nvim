@@ -31,24 +31,35 @@ require("gitsigns").setup({
       linehl = "GitSignsChangeLn",
     },
   },
-  keymaps = {
-    -- Default keymap options
-    noremap = true,
-    ["n gin"] = {
-      expr = true,
-      "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'",
-    },
-    ["n gim"] = {
-      expr = true,
-      "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'",
-    },
+  on_attach = function(bufnr)
+    local function map(mode, lhs, rhs, opts)
+        opts = vim.tbl_extend('force', {noremap = true, silent = true}, opts or {})
+        vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
+    end
 
-    ["n gis"] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-    ["n giu"] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-    ["n gir"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-    ["n gip"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-    ["n gib"] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
-  },
+    -- Navigation
+    map('n', 'gij', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
+    map('n', 'gik', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
+
+    -- Actions
+    map('n', 'gis', ':Gitsigns stage_hunk<CR>')
+    map('v', 'gis', ':Gitsigns stage_hunk<CR>')
+    map('n', 'gir', ':Gitsigns reset_hunk<CR>')
+    map('v', 'gir', ':Gitsigns reset_hunk<CR>')
+    map('n', 'giS', '<cmd>Gitsigns stage_buffer<CR>')
+    map('n', 'giu', '<cmd>Gitsigns undo_stage_hunk<CR>')
+    map('n', 'giR', '<cmd>Gitsigns reset_buffer<CR>')
+    map('n', 'gip', '<cmd>Gitsigns preview_hunk<CR>')
+    map('n', 'giB', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>')
+    map('n', 'gib', '<cmd>Gitsigns toggle_current_line_blame<CR>')
+    map('n', 'gid', '<cmd>Gitsigns diffthis<CR>')
+    map('n', 'giD', '<cmd>lua require"gitsigns".diffthis("~")<CR>')
+    map('n', 'gih', '<cmd>Gitsigns toggle_deleted<CR>')
+
+    -- Text object
+    map('o', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+    map('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+  end,
   numhl = true,
   linehl = false,
   watch_gitdir = { interval = 1000, follow_files = true },
