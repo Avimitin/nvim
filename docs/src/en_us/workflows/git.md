@@ -18,6 +18,8 @@ This plugin can add sign column on the left to highlight the changes.
 And it gives functionality to do some git work like stage hunks, reset changes,
 preview change, git blame...etc.
 
+You can update gitsigns configuration in `lua/plugins/config/gitsigns_cfg.lua` file.
+
 ## Workflow 1: The git status panel
 
 The fugitive plugin provides a command `:G` to open a magit like panel.
