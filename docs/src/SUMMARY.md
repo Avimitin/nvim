@@ -8,6 +8,8 @@
     - [Installation](./en_us/installation.md)
     - [Keymap](./en_us/keymap.md)
     - [Colors](./en_us/colors.md)
+- [Workflow Introduction]()
+    - [How to interact with git](./en_us/workflows/git.md)
 - [Plugins](./en_us/plugins.md)
     - [Packer](./en_us/plugins/packer.md)
     - [nvim-tree.lua](./en_us/plugins/nvim-tree.md)
