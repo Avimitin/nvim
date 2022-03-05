@@ -413,6 +413,7 @@ local editor_enhance = {
     ft = "http",
   },
 
+  -- sort the number or text
   {
     "sQVe/sort.nvim",
     config = function()
@@ -421,6 +422,7 @@ local editor_enhance = {
     cmd = "Sort",
   },
 
+  -- scroll smoothly
   {
     "karb94/neoscroll.nvim",
     config = function()
@@ -429,6 +431,7 @@ local editor_enhance = {
     keys = { { "n", "<C-e>" }, { "n", "<C-y>" }, { "n", "<C-f>" }, { "n", "<C-b>" } },
   },
 
+  -- search and replace with a panel
   {
     "windwp/nvim-spectre",
     requires = { "nvim-lua/plenary.nvim" },
