@@ -437,6 +437,12 @@ local editor_enhance = {
     requires = { "nvim-lua/plenary.nvim" },
     module = "spectre",
   },
+
+  {
+    "beauwilliams/focus.nvim",
+    event = "WinEnter",
+    config = function() require("focus").setup() end
+  }
 }
 
 local colorscheme = {
