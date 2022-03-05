@@ -24,4 +24,5 @@ jobs:
     - name: Test packer complie
       run: |
         LOG_FILE=$(mktemp)
-        if nvim --headless +PackerCompile -c ":quitall" 2>&1 > $LOG_FILE | rg -qS "err"; then cat $LOG_FILE; false; fi
+        nvim --headless +PackerCompile -c ":quitall" 2>&1 > $LOG_FILE
+        if rg -qS "err" $LOG_FILE; then cat $LOG_FILE; false; fi
