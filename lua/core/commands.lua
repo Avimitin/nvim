@@ -45,3 +45,6 @@ alias("CrateUpdate", [[lua require("crates").update_crate()]])
 alias("CrateUpgrade", [[lua require("crates").upgrade_crate()]])
 alias("CrateMenu", [[lua require("crates").show_popup()]])
 alias("CrateReload", [[lua require("crates").reload()]])
+
+-- nvim-spectre
+alias("SpectreOpen", "lua require('spectre').open()")
