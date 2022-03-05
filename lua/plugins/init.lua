@@ -1,9 +1,4 @@
 local utils = require("core.utils")
-local M = {}
-
--- load options for plugins
--- People must call it before the plugins loaded, to avoid lazyloading issue.
-require("plugins.options")
 
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 
@@ -73,11 +68,22 @@ local function setup_plugins()
   end)
 end
 
+local function prehook()
+  -- load options for plugins
+  -- People must call it before the plugins loaded, to avoid lazyloading issue.
+  require("plugins.options")
+end
+
 -- posthook run script after plugins loaded
 local function posthook()
   -- Run rooter when it is the first time enter the neovim
   vim.cmd([[autocmd VimEnter * Rooter]])
 end
+
+-- ======================================================
+-- public functions
+-- ======================================================
+local M = {}
 
 -- load will try to detect the packer installation status.
 -- It will automatically install packer to the install_path.
@@ -96,6 +102,7 @@ M.load = function()
 
   add_packer()
   init_packer()
+  prehook()
   setup_plugins()
   posthook()
 end
