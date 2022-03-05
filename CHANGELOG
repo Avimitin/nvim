@@ -2,7 +2,8 @@
 ====================================================================
 
 BREAKING CHANGES!
------------------
+------------------
+  * gitsigns: update git sign keymaps (See commit abf53d99)
   * commands: remove fugitive command alias (See commit f4a45ba4)
 
 New Features:
@@ -19,6 +20,7 @@ Changes:
 
 Others:
 -------
+  * book: add fugitive workflows (See commit 8e66b190)
   * genlog: fix feature list reference (See commit 2d1a0c69)
 
 
