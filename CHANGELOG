@@ -1,5 +1,25 @@
+4.0.0-rc3 <Mar 05 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+
+BREAKING CHANGES!
+-----------------
+  * commands: remove fugitive command alias (See commit f4a45ba4)
+
+New Features:
+-------------
+  * plugins: add spetre to enhance search and replace (See commit 852bebcc)
+  * plugins: add neoscroll to scroll smoothly (See commit c2ae4bff)
+  * keymap: add keymap for fugitive (See commit c1c9e66b)
+  * everforest: enable virtual text highlight (See commit d506a1e6)
+  * treesitter: enable matchup in treesitter (See commit 23a9eab4)
+
 Changes:
-  * treesitter: enable vim-matchup
+--------
+  * plugins: replace terminal plugin (See commit c9c22f11)
+
+Others:
+-------
+  * genlog: fix feature list reference (See commit 2d1a0c69)
 
 
 4.0.0-rc2 <Mar 02 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
