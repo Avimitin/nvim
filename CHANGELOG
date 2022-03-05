@@ -8,14 +8,18 @@ BREAKING CHANGES!:
 
 New Features:
 -------------
+  * plugins: add focus.nvim for split window (See commit 9a879728)
   * plugins: use defer to delay plugins module loading (See commit 87ffff14)
 
 Changes:
 --------
+  * options: set no conceal for normal mode (See commit a86c47a8)
   * plugins: expose load cfg as a public function (See commit 1931be24)
 
 Others:
 -------
+  * book: remove colorscheme description (See commit 1c99b7b1)
+  * benchmark: update benchmark (See commit 96682e66)
   * book: finish the git workflow pages (See commit bd72ab27)
 
 
