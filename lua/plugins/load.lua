@@ -437,6 +437,7 @@ local editor_enhance = {
 }
 
 local colorscheme = {
+  -- dark green color scheme
   {
     "Avimitin/neovim-deus",
     cond = function()
@@ -446,15 +447,8 @@ local colorscheme = {
       require("core.colors").deus_setup()
     end,
   },
-  {
-    "Shatur/neovim-ayu",
-    cond = function()
-      return require("core.colors").theme == "ayu"
-    end,
-    config = function()
-      require("core.colors").ayu_setup()
-    end,
-  },
+
+  -- dark purple color scheme
   {
     "rebelot/kanagawa.nvim",
     cond = function()
@@ -462,24 +456,6 @@ local colorscheme = {
     end,
     config = function()
       require("core.colors").kanagawa_setup()
-    end,
-  },
-  {
-    "sainnhe/everforest",
-    cond = function()
-      return require("core.colors").theme == "everforest"
-    end,
-    config = function()
-      require("core.colors").everforest_setup()
-    end,
-  },
-  {
-    "morhetz/gruvbox",
-    cond = function()
-      return require("core.colors").theme == "gruvbox"
-    end,
-    config = function()
-      require("core.colors").gruvbox_setup()
     end,
   },
 }
