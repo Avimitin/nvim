@@ -442,7 +442,13 @@ local editor_enhance = {
     "beauwilliams/focus.nvim",
     event = "WinEnter",
     config = function()
-      require("focus").setup()
+      require("focus").setup({
+        tmux = false,
+        hybridnumber = true,
+        excluded_filetypes = { 'fterm', 'term', 'toggleterm' },
+        signcolumn = 'number',
+        absolutenumber = false,
+      })
     end,
   },
 }
