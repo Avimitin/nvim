@@ -24,6 +24,6 @@ require("nvim-treesitter.configs").setup({
     additional_vim_regex_highlighting = { "org" },
   },
   matchup = {
-    enable = true
-  }
+    enable = true,
+  },
 })

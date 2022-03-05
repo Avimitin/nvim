@@ -402,7 +402,7 @@ gl.short_line_list = {
   "Outline",
   "neoterm",
   "fern",
-  "toggleterm"
+  "toggleterm",
 }
 
 local BufferTypeMap = {

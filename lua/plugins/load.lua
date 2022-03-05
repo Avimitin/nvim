@@ -441,8 +441,10 @@ local editor_enhance = {
   {
     "beauwilliams/focus.nvim",
     event = "WinEnter",
-    config = function() require("focus").setup() end
-  }
+    config = function()
+      require("focus").setup()
+    end,
+  },
 }
 
 local colorscheme = {
