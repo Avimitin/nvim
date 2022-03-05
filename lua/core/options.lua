@@ -98,8 +98,10 @@ opt.formatoptions = "qj"
 
 opt.hidden = true
 
+-- conceal the text
 opt.conceallevel = 2
-opt.concealcursor = "nc"
+-- show hiding character at cursor line
+opt.concealcursor = ""
 
 -- Changed home directory here
 local backup_dir = vim.fn.stdpath("cache") .. "/backup"
