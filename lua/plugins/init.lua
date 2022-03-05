@@ -1,6 +1,10 @@
 local utils = require("core.utils")
 local M = {}
 
+-- load options for plugins
+-- People must call it before the plugins loaded, to avoid lazyloading issue.
+require("plugins.options")
+
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 
 -- has_packer return the packer install status
@@ -69,25 +73,6 @@ local function setup_plugins()
   end)
 end
 
--- prehook setup global variables before plugins loaded
-local function prehook()
-  if not vim.fn.has("nvim-0.6") then
-    -- for filetype.nvim
-    -- If using a Neovim version earlier than 0.6.0
-    vim.g.did_load_filetypes = 1
-  end
-
-  -- for vsnip
-  vim.g.vsnip_snippet_dir = vim.fn.expand("~/.config/nvim/vsnip")
-
-  -- for wildfire
-  vim.g.wildfire_objects = { "i'", 'i"', "i)", "i]", "i}", "ip", "it", "i`" }
-
-  -- for vim-markdown
-  vim.g.vim_markdown_conceal_code_blocks = 0
-  vim.g.vim_markdown_strikethrough = 1
-end
-
 -- posthook run script after plugins loaded
 local function posthook()
   -- Run rooter when it is the first time enter the neovim
@@ -111,7 +96,6 @@ M.load = function()
 
   add_packer()
   init_packer()
-  prehook()
   setup_plugins()
   posthook()
 end
