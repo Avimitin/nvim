@@ -15,7 +15,6 @@
     - [nvim-tree.lua](./en_us/plugins/nvim-tree.md)
     - [nvim-bufferline.lua](./en_us/plugins/nvim-bufferline.md)
     - [lightspeed.nvim](./en_us/plugins/lightspeed.md)
-    - [vim-fugitive](./en_us/plugins/fugitive.md)
     - [wildfire](./en_us/plugins/wildfire.md)
     - [rooter](./en_us/plugins/rooter.md)
     - [markdown](./en_us/plugins/markdown.md)
