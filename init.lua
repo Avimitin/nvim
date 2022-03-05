@@ -25,5 +25,7 @@ for _, module_name in ipairs({ "core.options", "mappings", "core.commands", "cor
   end
 end
 
--- load plugins
-require("plugins").load()
+-- since we have packer compiled, we don't need to load this immediately
+vim.defer_fn(function()
+  require("plugins").load()
+end, 0)
