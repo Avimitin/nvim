@@ -24,5 +24,5 @@ jobs:
     - name: Test packer complie
       run: |
         LOG_FILE=$(mktemp)
-        nvim --headless +PackerCompile -c ":quitall" > $LOG_FILE 2>&1
+        nvim --headless -c "au VimEnter * quitall" > $LOG_FILE 2>&1
         if rg -qS "err" $LOG_FILE; then cat $LOG_FILE; false; fi
