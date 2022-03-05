@@ -5,7 +5,7 @@ This section describe how I manage the colorscheme.
 ## Config path
 
 ```text
-lua/colors.lua
+lua/core/colors.lua
 ```
 
 ## Change the theme
@@ -28,30 +28,6 @@ M.theme = "kanagawa"
 ```
 
 ![images](https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/kanagawa.png)
-
-* everforest 
-
-```lua
-M.theme = "everforest"
-```
-
-![images](https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/everforest.png) 
-
-* ayu 
-
-```lua
-M.theme = "ayu"
-```
-
-![images](https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/ayu.png) 
-
-* gruvbox 
-
-```lua
-M.theme = "gruvbox"
-```
-
-![images](https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/gruvbox.png) 
 
 ## Add your theme
 
