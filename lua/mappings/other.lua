@@ -8,7 +8,8 @@ map("v", "<leader>e", ":EasyAlign<CR>")
 nmap(";t", ":NvimTreeToggle<CR>")
 
 -- fterm
-nmap("<C-\\>", [[:FTermToggle<CR>]])
+nmap("<C-\\>", [[:ToggleTerm direction=float<CR>]])
+nmap("<M-`>", [[:ToggleTerm direction=horizontal<CR>]])
 map("t", "<C-\\>", [[<C-\><C-n>:FTermToggle<CR>]])
 map("t", "<C-n>", [[<C-\><C-n>]])
 

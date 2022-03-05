@@ -196,15 +196,12 @@ local editor_enhance = {
     },
   },
 
-  -- open a popup terminal
   {
-    "numtostr/FTerm.nvim",
+    "akinsho/toggleterm.nvim",
     config = function()
-      LoadCfg("fterm_cfg")
+      LoadCfg("toggleterm_cfg")
     end,
-    cmd = {
-      "FTermToggle",
-    },
+    cmd = "ToggleTerm",
   },
 
   -- generate color from hex/rgb code
@@ -440,9 +437,9 @@ local editor_enhance = {
 
   {
     "windwp/nvim-spectre",
-    requires = { 'nvim-lua/plenary.nvim' },
+    requires = { "nvim-lua/plenary.nvim" },
     module = "spectre",
-  }
+  },
 }
 
 local colorscheme = {

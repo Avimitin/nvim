@@ -402,6 +402,7 @@ gl.short_line_list = {
   "Outline",
   "neoterm",
   "fern",
+  "toggleterm"
 }
 
 local BufferTypeMap = {
@@ -415,9 +416,9 @@ local BufferTypeMap = {
   ["qf"] = " Quick Fix",
   ["tabman"] = "Tab Manager",
   ["tagbar"] = "Tagbar",
-  ["toggleterm"] = "Terminal",
   ["FTerm"] = "Terminal",
   ["neoterm"] = " NeoTerm",
+  ["toggleterm"] = " ToggleTerm",
   ["git"] = " Git",
   ["NeogitStatus"] = " Neogit Status",
   ["NeogitPopup"] = " Neogit Popup",
