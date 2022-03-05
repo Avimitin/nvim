@@ -1,3 +1,24 @@
+4.0.0-rc4 <Mar 05 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+
+BREAKING CHANGES!:
+------------------
+  * colorscheme: remove colorschemes (See commit bf3f7a21)
+  * plugins: move prehook to options.lua (See commit b91fec41)
+
+New Features:
+-------------
+  * plugins: use defer to delay plugins module loading (See commit 87ffff14)
+
+Changes:
+--------
+  * plugins: expose load cfg as a public function (See commit 1931be24)
+
+Others:
+-------
+  * book: finish the git workflow pages (See commit bd72ab27)
+
+
 4.0.0-rc3 <Mar 05 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 
