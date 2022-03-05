@@ -429,6 +429,14 @@ local editor_enhance = {
     end,
     cmd = "Sort",
   },
+
+  {
+    "karb94/neoscroll.nvim",
+    config = function()
+      LoadCfg("neoscroll_cfg")
+    end,
+    keys = { { "n", "<C-e>" }, { "n", "<C-y>" }, { "n", "<C-f>" }, { "n", "<C-b>" } },
+  },
 }
 
 local colorscheme = {
