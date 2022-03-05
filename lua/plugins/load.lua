@@ -437,6 +437,12 @@ local editor_enhance = {
     end,
     keys = { { "n", "<C-e>" }, { "n", "<C-y>" }, { "n", "<C-f>" }, { "n", "<C-b>" } },
   },
+
+  {
+    "windwp/nvim-spectre",
+    requires = { 'nvim-lua/plenary.nvim' },
+    module = "spectre",
+  }
 }
 
 local colorscheme = {
