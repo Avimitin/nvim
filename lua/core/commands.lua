@@ -40,10 +40,6 @@ alias("DapC", [[lua require("dap").continue()]])
 
 alias("DapStepOver", [[lua require("dap").step_over()]])
 
--- fugitive
-alias("Psh", [[Git! push]])
-alias("Cmt", [[Git commit -sS]])
-
 -- Crate.nvim
 alias("CrateUpdate", [[lua require("crates").update_crate()]])
 alias("CrateUpgrade", [[lua require("crates").upgrade_crate()]])
