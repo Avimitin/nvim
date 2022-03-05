@@ -482,15 +482,6 @@ local colorscheme = {
       require("core.colors").gruvbox_setup()
     end,
   },
-  {
-    "folke/tokyonight.nvim",
-    cond = function()
-      return require("core.colors").theme == "tokyonight"
-    end,
-    config = function()
-      require("core.colors").tokyonight_setup()
-    end,
-  }
 }
 
 local coding_enhance = {

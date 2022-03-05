@@ -91,11 +91,4 @@ M.gruvbox_setup = function()
   set_color("gruvbox")
 end
 
-M.tokyonight_setup = function()
-  vim.g.tokyonight_style = "night" -- "storm", "night", "day"
-  vim.g.tokyonight_italic_functions = true
-  vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
-  set_color("tokyonight")
-end
-
 return M
