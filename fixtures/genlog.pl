@@ -144,7 +144,7 @@ my %result = parse_log(\@output);
 
 print parse("BREAKING CHANGES!", @ { $result{breaking} });
 print "\n";
-print parse("New Features", @ { $result{feature} });
+print parse("New Features", @ { $result{feat} });
 print "\n";
 print parse("Fix", @ { $result{fix} });
 print "\n";
