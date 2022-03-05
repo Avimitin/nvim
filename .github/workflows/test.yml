@@ -22,4 +22,6 @@ jobs:
     - name: Clone Configuration
       run: git clone https://github.com/Avimitin/nvim $HOME/.config/nvim
     - name: Test packer complie
-      run: if nvim --headless +PackerCompile -c ":quitall" 2>&1 | rg -qS "err"; then false; fi
+      run: |
+        LOG_FILE=$(mktemp)
+        if nvim --headless +PackerCompile -c ":quitall" 2>&1 > $LOG_FILE | rg -qS "err"; then cat $LOG_FILE; false; fi
