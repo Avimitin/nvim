@@ -10,7 +10,7 @@ nmap(";t", ":NvimTreeToggle<CR>")
 -- fterm
 nmap("<C-\\>", [[:ToggleTerm direction=float<CR>]])
 nmap("<M-`>", [[:ToggleTerm direction=horizontal<CR>]])
-map("t", "<C-\\>", [[<C-\><C-n>:FTermToggle<CR>]])
+map("t", "<C-\\>", [[<C-\><C-n>:ToggleTerm<CR>]])
 map("t", "<C-n>", [[<C-\><C-n>]])
 
 -- telescope
