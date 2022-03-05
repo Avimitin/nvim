@@ -9,16 +9,8 @@ local function set_color(color_name)
 end
 
 -- Available theme value:
--- "ayu", "kanagawa", "deus", "everforest"
+-- "kanagawa", "deus"
 M.theme = "kanagawa"
-
-M.ayu_setup = function()
-  require("ayu").setup({
-    mirage = true,
-    overrides = {},
-  })
-  set_color("ayu")
-end
 
 M.deus_setup = function()
   vim.g.deus_background = "hard"
@@ -74,21 +66,6 @@ M.kanagawa_setup = function()
     },
   })
   set_color("kanagawa")
-end
-
-M.everforest_setup = function()
-  vim.g.everforest_background = "hard"
-  vim.g.everforest_enable_italic = 1
-  vim.g.everforest_ui_contrast = "high"
-  vim.g.everforest_diagnostic_text_highlight = 1
-  vim.g.everforest_diagnostic_virtual_text = 'colored'
-  vim.g.everforest_better_performance = 1
-  set_color("everforest")
-end
-
-M.gruvbox_setup = function()
-  vim.g.gruvbox_contrast_dark = "hard"
-  set_color("gruvbox")
 end
 
 return M
