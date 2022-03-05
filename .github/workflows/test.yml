@@ -7,6 +7,7 @@ on:
     paths:
       - "lua/**"
       - "init.lua"
+      - ".github/workflows/test.yml"
 
 jobs:
   container-job:
