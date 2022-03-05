@@ -107,5 +107,10 @@ M.load = function()
   posthook()
 end
 
+M.load_cfg = function (file)
+  local prefix = "plugins.config."
+  require(prefix .. file)
+end
+
 return M
 -- vim: foldmethod=marker
