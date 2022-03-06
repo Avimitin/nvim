@@ -16,11 +16,6 @@ local autoload = {
     "tpope/vim-sleuth",
   },
 
-  -- add notify window
-  {
-    "rcarriga/nvim-notify",
-  },
-
   -- deserialize code to generate text object for highlight and other enhancement
   {
     "nvim-treesitter/nvim-treesitter",
@@ -470,6 +465,16 @@ local editor_enhance = {
       require("dressing").setup({})
     end,
   },
+
+  -- add notify window
+  {
+    "rcarriga/nvim-notify",
+    module = "vim",
+    config = function()
+      vim.notify = require("notify")
+    end
+  },
+
 }
 
 local colorscheme = {
