@@ -23,7 +23,7 @@ local autoload = {
     config = function()
       require("plugins").load_cfg("treesitter_cfg")
     end,
-    ft = require("plugins").treesitter_ft
+    ft = require("plugins").treesitter_ft,
   },
 
   {
@@ -473,9 +473,8 @@ local editor_enhance = {
     module = "vim",
     config = function()
       vim.notify = require("notify")
-    end
+    end,
   },
-
 }
 
 local colorscheme = {
