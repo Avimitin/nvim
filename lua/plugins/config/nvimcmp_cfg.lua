@@ -27,6 +27,7 @@ cmp.setup({
         snippet = "[ VSnip]",
         nvim_lua = "[ NvimLua]",
         latex_symbols = "[ Latex]",
+        dictionary = "[韛Dict]",
       },
     }),
   },
@@ -73,6 +74,7 @@ cmp.setup({
     { name = "buffer" },
     { name = "path" },
     { name = "orgmode" },
+    { name = "dictionary", keyword_length = 2 }
   },
   experimental = {
     ghost_text = true,
