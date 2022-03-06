@@ -122,8 +122,6 @@ if installer.settings then
   })
 
   local ensure_installed_server = {
-    "clangd",
-    "gopls",
     "sumneko_lua",
   }
 
