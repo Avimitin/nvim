@@ -32,7 +32,7 @@ local autoload = {
 
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    after = "nvim-treesitter"
+    after = "nvim-treesitter",
   },
 
   -- Fix the CursorHold performance bug
@@ -161,11 +161,11 @@ local editor_enhance = {
   {
     "sindrets/winshift.nvim",
     cmd = {
-      "WinShift"
+      "WinShift",
     },
-    config = function ()
+    config = function()
       require("winshift").setup({})
-    end
+    end,
   },
 
   -- list of nerdfont icons
@@ -458,7 +458,7 @@ local editor_enhance = {
     event = "WinEnter",
     config = function()
       require("focus").setup({
-        excluded_filetypes = { 'fterm', 'term', 'toggleterm' },
+        excluded_filetypes = { "fterm", "term", "toggleterm" },
       })
     end,
   },
@@ -466,10 +466,10 @@ local editor_enhance = {
   {
     "stevearc/dressing.nvim",
     module = "vim.ui",
-    config = function ()
+    config = function()
       require("dressing").setup({})
-    end
-  }
+    end,
+  },
 }
 
 local colorscheme = {
@@ -715,6 +715,21 @@ local completion = {
     after = {
       "nvim-cmp",
     },
+  },
+
+  {
+    "uga-rosa/cmp-dictionary",
+    after = "nvim-cmp",
+    config = function()
+      require("cmp_dictionary").setup({
+        dic = {
+          ["*"] = "/usr/share/dict/en.dic",
+        },
+        first_case_insensitive = true,
+        document = true,
+      })
+      require("cmp_dictionary").update() -- THIS
+    end,
   },
 }
 
