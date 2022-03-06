@@ -1,8 +1,4 @@
 local M = {}
-local ntf_loaded, notify = pcall(require, "notify")
-if ntf_loaded then
-  vim.notify = notify
-end
 
 -- errorL notify a message in error level
 -- @msg: logging message
