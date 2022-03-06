@@ -30,6 +30,11 @@ local autoload = {
     end,
   },
 
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    after = "nvim-treesitter"
+  },
+
   -- Fix the CursorHold performance bug
   {
     "antoinemadec/FixCursorHold.nvim",
