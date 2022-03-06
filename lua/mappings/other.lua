@@ -45,4 +45,4 @@ nmap("<Leader>ra", ':lua require("rust-tools.hover_actions").hover_actions()<CR>
 -- keep the same prefix as the git sign
 -- See git-sign keymap in lua/plugins/config/gitsign_cfg.lua
 nmap("gic", ":Git commit -sS<CR>")
-nmap("giP", ":Git push ", { silent = false })
+nmap("giP", ":Git! push ", { silent = false })
