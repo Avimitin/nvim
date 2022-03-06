@@ -103,9 +103,6 @@ opt.conceallevel = 2
 -- show hiding character at cursor line
 opt.concealcursor = ""
 
--- enable spelling
-opt.spell = true
-
 -- Changed home directory here
 local backup_dir = vim.fn.stdpath("cache") .. "/backup"
 local backup_stat = pcall(os.execute, "mkdir -p " .. backup_dir)
