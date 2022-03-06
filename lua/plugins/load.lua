@@ -447,6 +447,14 @@ local editor_enhance = {
       })
     end,
   },
+
+  {
+    "stevearc/dressing.nvim",
+    module = "vim.ui",
+    config = function ()
+      require("dressing").setup({})
+    end
+  }
 }
 
 local colorscheme = {
