@@ -112,5 +112,34 @@ M.load_cfg = function(file)
   require(prefix .. file)
 end
 
+-- enable treesitter for what filetype?
+M.treesitter_ft = {
+  "c",
+  "comment",
+  "cpp",
+  "go",
+  "javascript",
+  "json",
+  "lua",
+  "markdown",
+  "rust",
+  "toml",
+}
+
+-- enable lspconfig for what filetype?
+M.lspconfig_ft = {
+  "bash",
+  "c",
+  "cpp",
+  "go",
+  "html",
+  "javascript",
+  "json",
+  "lua",
+  "python",
+  "sh",
+  "toml",
+}
+
 return M
 -- vim: foldmethod=marker
