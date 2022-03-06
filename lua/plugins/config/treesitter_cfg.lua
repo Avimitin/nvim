@@ -2,6 +2,7 @@ require("nvim-treesitter.configs").setup({
   ensure_installed = require("plugins").treesitter_ft,
   highlight = {
     enable = true,
+    additional_vim_regex_highlighting = { "markdown" },
   },
   matchup = {
     enable = true,
