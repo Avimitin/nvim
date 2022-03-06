@@ -158,6 +158,16 @@ local git_tools = {
 }
 
 local editor_enhance = {
+  {
+    "sindrets/winshift.nvim",
+    cmd = {
+      "WinShift"
+    },
+    config = function ()
+      require("winshift").setup({})
+    end
+  },
+
   -- list of nerdfont icons
   {
     "kyazdani42/nvim-web-devicons",
