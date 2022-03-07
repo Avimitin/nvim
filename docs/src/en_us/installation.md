@@ -52,7 +52,7 @@ on it, please follow the instruction from the official pages. If not,
 you can easily modify the settings:
 
 ```bash
-sed -i 's/surf/firefox/g' ./lua/config/mkdp.lua
+sed -i 's/surf/firefox/g' lua/plugins/config/markdown_preview_cfg.lua
 ```
 
 > * How to build surf
