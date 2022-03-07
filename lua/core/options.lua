@@ -119,8 +119,6 @@ if undo_stat and has_persist == 1 then
   opt.undodir = undo_dir
 end
 
-vim.api.nvim_command("autocmd TermOpen term://* startinsert")
-
 -- nvui specific settings
 if vim.g.nvui then
   vim.opt.guifont = [[Cascadia Code:h12,FiraCode\ Nerd\ Font\ Mono:h12]]
