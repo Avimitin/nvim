@@ -2,16 +2,17 @@
 
 * **Neovim** (MUST)
 
-This configuration is compatible with neovim version 0.5.0 - 0.6.1.
-There are some LSP breaking changes in v0.7, and some LSP plugin didn't work
-as expect.
+This configuration is compatible with neovim version 0.5.0 - 0.7.0.
 
 You can follow
 [neovim installation](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 for the installation guidance.
 
-If you are Arch Linux user, you can download PKGBUILD file with your aur helper,
-and then add a prepare script to build stable version:
+## Install stable version in Arch Linux
+
+If you are Arch Linux user, and you found that there are some bug in the latest version
+, you can download PKGBUILD file with your aur helper, and then add a prepare script to
+build stable version:
 
 ```bash
 # Assuming that you are using paru
@@ -95,7 +96,7 @@ Otherwise, you will find that you can’t activate it.
 
 # Clean up
 
-You need to clean the below directory for a fresh install.
+You need to clean the below directory to do a fresh install.
 
 ```bash
 # plugins directory
