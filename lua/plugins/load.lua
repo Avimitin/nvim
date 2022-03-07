@@ -455,6 +455,7 @@ local editor_enhance = {
     config = function()
       require("focus").setup({
         excluded_filetypes = { "fterm", "term", "toggleterm" },
+        signcolumn = false,
       })
     end,
   },
