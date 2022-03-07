@@ -49,11 +49,13 @@ You can read the full installation documentation here:
 <details>
   <summary>minimal vimrc</summary>
   <p>If you want a minimal vimrc, use this:<p>
-  <pre>
+<pre>
+<code>
 # it is not tested yet, feel free to open issues
 
 curl -SL "https://raw.githubusercontent.com/Avimitin/nvim/master/.vimrc" -o ~/.vimrc
-  </pre>
+</code>
+</pre>
 </details>
 
 ## Details about my configuration
