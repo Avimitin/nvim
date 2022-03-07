@@ -25,5 +25,11 @@
       "${0}"
     ],
     "description": "Add hugo TOML frontmatter"
+  },
+
+  "notebook tag": {
+    "prefix": "nbtag",
+    "body": "<!-- tag: ${1} -->\n${0}",
+    "description": "Add a tag span"
   }
 }
