@@ -143,14 +143,14 @@ And PR is welcomed.</p>
 <ul>
 <li><strong>Neovim</strong> (MUST)</li>
 </ul>
-<p>This configuration is compatible with neovim version 0.5.0 - 0.6.1.
-There are some LSP breaking changes in v0.7, and some LSP plugin didn't work
-as expect.</p>
+<p>This configuration is compatible with neovim version 0.5.0 - 0.7.0.</p>
 <p>You can follow
 <a href="https://github.com/neovim/neovim/wiki/Installing-Neovim">neovim installation</a>
 for the installation guidance.</p>
-<p>If you are Arch Linux user, you can download PKGBUILD file with your aur helper,
-and then add a prepare script to build stable version:</p>
+<h2 id="install-stable-version-in-arch-linux"><a class="header" href="#install-stable-version-in-arch-linux">Install stable version in Arch Linux</a></h2>
+<p>If you are Arch Linux user, and you found that there are some bug in the latest version
+, you can download PKGBUILD file with your aur helper, and then add a prepare script to
+build stable version:</p>
 <pre><code class="language-bash"># Assuming that you are using paru
 paru -G neovim-git
 </code></pre>
@@ -181,7 +181,7 @@ as the search program. It is an faster grep RIIR alternative.</p>
 browser. Firefox is too heavy for the preview job. If you have interest
 on it, please follow the instruction from the official pages. If not,
 you can easily modify the settings:</p>
-<pre><code class="language-bash">sed -i 's/surf/firefox/g' ./lua/config/mkdp.lua
+<pre><code class="language-bash">sed -i 's/surf/firefox/g' lua/plugins/config/markdown_preview_cfg.lua
 </code></pre>
 <blockquote>
 <ul>
@@ -216,7 +216,7 @@ to notify me about the error.</p>
 wait for it until it response message of installation success.
 Otherwise, you will find that you can’t activate it.</p>
 <h1 id="clean-up"><a class="header" href="#clean-up">Clean up</a></h1>
-<p>You need to clean the below directory for a fresh install.</p>
+<p>You need to clean the below directory to do a fresh install.</p>
 <pre><code class="language-bash"># plugins directory
 rm -rf ~/.local/share/nvim
 
