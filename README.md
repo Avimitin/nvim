@@ -46,17 +46,12 @@ git clone https://github.com/Avimitin/nvim.git ~/.config/nvim
 You can read the full installation documentation here:
 [*Installation Guide*](https://avimitin.github.io/nvim/en_us/installation.html)
 
-<details>
-  <summary>minimal vimrc</summary>
-  <p>If you want a minimal vimrc, use this:<p>
-<pre>
-<code>
-# it is not tested yet, feel free to open issues
-
-curl -SL "https://raw.githubusercontent.com/Avimitin/nvim/master/.vimrc" -o ~/.vimrc
-</code>
-</pre>
-</details>
+> ***Minimal vimrc***: If you want a minimal vimrc, use this
+>
+> ```bash
+> # it is not tested yet, feel free to open issues
+> curl -SL "https://raw.githubusercontent.com/Avimitin/nvim/master/.vimrc" -o ~/.vimrc
+>```
 
 ## Details about my configuration
 
