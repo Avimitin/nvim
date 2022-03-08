@@ -82,10 +82,10 @@ sub parse_log {
   for my $line (@$in) {
     # Match rule like
     # [TYPE] MODULE: SUMMARY
-    if ($line =~ m/\[([A-Z!]{3})(!?)\] ([a-zA-Z\/\-_]+): (.*)/) {
+    if ($line =~ m/([NFRDM]{1})(\.|!) ([a-zA-Z\/\-_]+): (.*)/) {
       my %cmt = (
         type => $1,
-        break => $2 ? 1 : 0,
+        break => $2 eq "!" ? 1 : 0,
         module => $3,
         summary => $4,
       );
@@ -97,10 +97,10 @@ sub parse_log {
 
       SWITCH:
       for ($cmt{type}) {
-        if (/NEW|FET/) { push @nc, \%cmt; last SWITCH; }
-        if (/FIX/) { push @fc, \%cmt; last SWITCH;}
-        if (/RFT|RWT/) { push @rc, \%cmt; last SWITCH;}
-        if (/DOC|MSC/) { push @other, \%cmt; last SWITCH;}
+        if (/N/) { push @nc, \%cmt; last SWITCH; }
+        if (/F/) { push @fc, \%cmt; last SWITCH;}
+        if (/R/) { push @rc, \%cmt; last SWITCH;}
+        if (/D|M/) { push @other, \%cmt; last SWITCH;}
       }
     } else {
       print "WARN: commit not in valid format: $line\n";
