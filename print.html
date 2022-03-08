@@ -869,16 +869,16 @@ command to easily build and debug your code.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="development-specifications"><a class="header" href="#development-specifications">Development specifications</a></h1>
 <h2 id="commit-convention"><a class="header" href="#commit-convention">Commit convention</a></h2>
 <h3 id="title"><a class="header" href="#title">Title</a></h3>
-<p>Use format: <code>&lt;type&gt;[!] [module]: &lt;summary&gt;</code>.</p>
+<p>Use format: <code>&lt;type&gt;[.|!] &lt;module&gt;: &lt;summary&gt;</code>.</p>
 <ul>
 <li><em><strong>Available type</strong></em></li>
 </ul>
 <ul>
-<li><strong>NEW</strong>: for new feature</li>
-<li><strong>FIX</strong>: for bug fixes</li>
-<li><strong>MSC</strong>: for chore</li>
-<li><strong>RFT</strong>: for refactor</li>
-<li><strong>DOC</strong>: for document</li>
+<li><strong>N</strong>: for new feature</li>
+<li><strong>F</strong>: for bug fixes</li>
+<li><strong>M</strong>: for miscellaneous changes</li>
+<li><strong>R</strong>: for refactor</li>
+<li><strong>D</strong>: for document</li>
 <li>Use the bang &quot;!&quot; to indicate that this commit contains breaking changes.</li>
 </ul>
 <p>Title should be wrap in 50 Latin characters.
@@ -913,12 +913,12 @@ sweet new API methods         ==&gt; there is no verb
 <li>This patch will modify the project to sweet new API methods</li>
 </ul>
 <h3 id="example"><a class="header" href="#example">Example</a></h3>
-<pre><code class="language-text">NEW plugins: add new plugin
-FIX lazygit: fix the submodule issue
-RFT! colors: replace the NormalFloat color         &lt;- This one contains breaking change
-   ^
-DOC readme: update the installation guide
-MSC: rename the ci filename
+<pre><code class="language-text">N. plugins: add new plugin
+F. lazygit: fix the submodule issue
+R! colors: replace the NormalFloat color         &lt;- This one contains breaking change
+ ^
+D. readme: update the installation guide
+M. ci: rename the ci filename
 </code></pre>
 <p>The module name is optional. If you write the module name, please use <code>/</code> to separate
 the type and module.</p>
