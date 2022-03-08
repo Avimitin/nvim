@@ -3,23 +3,39 @@
 
 BREAKING CHANGES!:
 ------------------
+  * lspinstall: remove some ensure install server (See commit 66ef74e4)
   * colorscheme: remove colorschemes (See commit bf3f7a21)
   * plugins: move prehook to options.lua (See commit b91fec41)
 
 New Features:
 -------------
+  * vsnip: add tag snippet for markdown (See commit 5e5dc265)
+  * plugins: use a global filetype settings for treesitter and lspconfig (See commit 36e37358)
+  * nvim-cmp: add cmp source dictionary (See commit 4113b285)
+  * plugins: add winshift.nvim to handle window movement (See commit b019cc99)
+  * plugins: extend text object by treesitter (See commit 36526ed4)
+  * plugins: add dressing.nvim to pretty the vim.ui.select panel (See commit a71358df)
   * plugins: add focus.nvim for split window (See commit 9a879728)
   * plugins: use defer to delay plugins module loading (See commit 87ffff14)
 
+Fix:
+----
+  * mappings: update outdated term keymap (See commit 37b60a20)
+
 Changes:
 --------
+  * autocmd: move TermOpen command to autocmd.lua file (See commit e80d81ef)
+  * treesitter: remove org file (See commit a323dba4)
+  * mappings: add bang to the git push key (See commit 5091ab3f)
+  * plugins: use module to lazy-load notify (See commit 219df876)
   * options: set no conceal for normal mode (See commit a86c47a8)
   * plugins: expose load cfg as a public function (See commit 1931be24)
 
 Others:
 -------
+  * readme: fix vimrc download link (See commit 868e665c)
+  * benchmark: update benchmark (See commit 20ccc06f)
   * book: remove colorscheme description (See commit 1c99b7b1)
-  * benchmark: update benchmark (See commit 96682e66)
   * book: finish the git workflow pages (See commit bd72ab27)
 
 
