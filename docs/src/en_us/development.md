@@ -4,15 +4,15 @@
 
 ### Title
 
-Use format: `<type>[!] [module]: <summary>`.
+Use format: `<type>[.|!] <module>: <summary>`.
 
 * _**Available type**_
 
-- **NEW**: for new feature
-- **FIX**: for bug fixes
-- **MSC**: for chore
-- **RFT**: for refactor
-- **DOC**: for document
+- **N**: for new feature
+- **F**: for bug fixes
+- **M**: for miscellaneous changes
+- **R**: for refactor
+- **D**: for document
 - Use the bang "!" to indicate that this commit contains breaking changes.
 
 Title should be wrap in 50 Latin characters.
@@ -56,12 +56,12 @@ So now the none-imperative commit are not working:
 ### Example
 
 ```text
-NEW plugins: add new plugin
-FIX lazygit: fix the submodule issue
-RFT! colors: replace the NormalFloat color         <- This one contains breaking change
-   ^
-DOC readme: update the installation guide
-MSC: rename the ci filename
+N. plugins: add new plugin
+F. lazygit: fix the submodule issue
+R! colors: replace the NormalFloat color         <- This one contains breaking change
+ ^
+D. readme: update the installation guide
+M. ci: rename the ci filename
 ```
 
 The module name is optional. If you write the module name, please use `/` to separate
