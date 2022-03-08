@@ -11,6 +11,7 @@
 - [Workflow Introduction]()
     - [How to interact with git](./en_us/workflows/git.md)
     - [How to interact with window](./en_us/workflows/windows.md)
+    - [How to interact with LSP server](./en_us/workflows/lspconfig.md)
 - [Plugins](./en_us/plugins.md)
     - [Packer](./en_us/plugins/packer.md)
     - [nvim-tree.lua](./en_us/plugins/nvim-tree.md)
