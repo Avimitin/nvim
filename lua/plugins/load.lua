@@ -709,6 +709,13 @@ local completion = {
   },
 
   {
+    "hrsh7th/cmp-cmdline",
+    after = {
+      "nvim-cmp"
+    }
+  },
+
+  {
     "uga-rosa/cmp-dictionary",
     after = "nvim-cmp",
     config = function()
