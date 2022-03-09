@@ -107,11 +107,16 @@ EOF
   # get the input params
   my ($ia, $ib, $ic) = @_;
 
-  # print the result to the file
-  printf FH $hint,
+  my $result = sprintf $hint,
     $ia->{max}, $ia->{min}, $ia->{avg},
     $ib->{max}, $ib->{min}, $ib->{avg},
     $ic->{max}, $ic->{min}, $ic->{avg};
+
+  # print the result to the file
+  print FH $result;
+
+  # print the result to the screen
+  print $result;
 
   # close the file
   close(FH);
