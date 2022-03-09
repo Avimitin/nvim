@@ -103,7 +103,7 @@ First of all, you will have configured completion menu.
 
 Then, you can use `:LspInstall` to install language server.
 
-![lspserver](./docs/images/lspinstall.png)
+![lspserver](https://user-images.githubusercontent.com/6705160/150685720-782e33ba-172c-44b6-8558-fb4e98495294.png)
 
 `Rust`, `C++`, `Lua`, `Golang` are configured by default.
 After the installation, you will get a VSCode like coding editor:
