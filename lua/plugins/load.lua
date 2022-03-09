@@ -16,21 +16,6 @@ local autoload = {
     "tpope/vim-sleuth",
   },
 
-  -- deserialize code to generate text object for highlight and other enhancement
-  {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-    config = function()
-      require("plugins").load_cfg("treesitter_cfg")
-    end,
-    ft = vim.g.enable_treesitter_ft,
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    after = "nvim-treesitter",
-  },
-
   -- Fix the CursorHold performance bug
   {
     "antoinemadec/FixCursorHold.nvim",
@@ -498,6 +483,21 @@ local colorscheme = {
 }
 
 local coding_enhance = {
+  -- deserialize code to generate text object for highlight and other enhancement
+  {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+    config = function()
+      require("plugins").load_cfg("treesitter_cfg")
+    end,
+    ft = vim.g.enable_treesitter_ft,
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    after = "nvim-treesitter",
+  },
+
   -- automatically download and manage lsp server
   {
     "williamboman/nvim-lsp-installer",
