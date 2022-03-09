@@ -36,6 +36,7 @@ local kind_icons = {
   Event = "",
   Operator = "",
   TypeParameter = "",
+  CmdLine = ""
 }
 
 local source_menu = {
@@ -46,7 +47,6 @@ local source_menu = {
   nvim_lua = "[ NvimLua]",
   latex_symbols = "[ Latex]",
   dictionary = "[韛Dict]",
-  cmdline = "[ CMD]",
 }
 
 cmp.setup({
@@ -58,6 +58,11 @@ cmp.setup({
   },
   formatting = {
     format = function(entry, item)
+      -- return special icon for cmdline completion
+      if entry.source.name == "cmdline" then
+        item.kind = string.format("%s %s", kind_icons["CmdLine"], "Command")
+        return item
+      end
       item.kind = string.format("%s %s", kind_icons[item.kind], item.kind)
       item.menu = (source_menu)[entry.source.name]
       return item
