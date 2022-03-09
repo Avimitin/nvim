@@ -23,7 +23,7 @@ local autoload = {
     config = function()
       require("plugins").load_cfg("treesitter_cfg")
     end,
-    ft = require("plugins").treesitter_ft,
+    ft = vim.g.enable_treesitter_ft,
   },
 
   {
@@ -501,7 +501,7 @@ local coding_enhance = {
   -- automatically download and manage lsp server
   {
     "williamboman/nvim-lsp-installer",
-    ft = require("plugins").lspconfig_ft,
+    ft = vim.g.enable_lspconfig_ft,
     config = function()
       require("lspconfig")
     end,

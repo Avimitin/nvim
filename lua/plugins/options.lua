@@ -25,3 +25,31 @@ g.rooter_patterns = {
   "package.json",
   "tsconfig.json",
 }
+
+-- enable treesitter for what filetype?
+g.enable_treesitter_ft = {
+  "c",
+  "comment",
+  "cpp",
+  "go",
+  "javascript",
+  "json",
+  "lua",
+  "rust",
+  "toml",
+}
+
+-- enable lspconfig for what filetype?
+g.enable_lspconfig_ft = {
+  "bash",
+  "c",
+  "cpp",
+  "go",
+  "html",
+  "javascript",
+  "json",
+  "lua",
+  "python",
+  "sh",
+  "toml",
+}
