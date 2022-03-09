@@ -2,7 +2,6 @@ require("nvim-treesitter.configs").setup({
   ensure_installed = vim.g.enable_treesitter_ft,
   highlight = {
     enable = true,
-    additional_vim_regex_highlighting = { "markdown" },
   },
   matchup = {
     enable = true,
