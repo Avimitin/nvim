@@ -68,18 +68,6 @@ local function setup_plugins()
   end)
 end
 
-local function prehook()
-  -- load options for plugins
-  -- People must call it before the plugins loaded, to avoid lazyloading issue.
-  require("plugins.options")
-end
-
--- posthook run script after plugins loaded
-local function posthook()
-  -- Run rooter when it is the first time enter the neovim
-  vim.cmd([[autocmd VimEnter * Rooter]])
-end
-
 -- ======================================================
 -- public functions
 -- ======================================================
@@ -102,43 +90,13 @@ M.load = function()
 
   add_packer()
   init_packer()
-  prehook()
   setup_plugins()
-  posthook()
 end
 
 M.load_cfg = function(file)
   local prefix = "plugins.config."
   require(prefix .. file)
 end
-
--- enable treesitter for what filetype?
-M.treesitter_ft = {
-  "c",
-  "comment",
-  "cpp",
-  "go",
-  "javascript",
-  "json",
-  "lua",
-  "rust",
-  "toml",
-}
-
--- enable lspconfig for what filetype?
-M.lspconfig_ft = {
-  "bash",
-  "c",
-  "cpp",
-  "go",
-  "html",
-  "javascript",
-  "json",
-  "lua",
-  "python",
-  "sh",
-  "toml",
-}
 
 return M
 -- vim: foldmethod=marker
