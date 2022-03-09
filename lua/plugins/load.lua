@@ -265,14 +265,9 @@ local editor_enhance = {
   -- cd into the root directory
   {
     "airblade/vim-rooter",
-    cmd = "Rooter",
-    setup = function()
-      vim.g.rooter_manual_only = 1
-      vim.g.rooter_change_directory_for_non_project_files = "current"
-      vim.g.rooter_patterns = {
-        ".git",
-        "Cargo.toml",
-      }
+    event = "BufReadPost",
+    config = function()
+      vim.cmd("Rooter")
     end,
   },
 
