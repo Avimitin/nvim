@@ -10,6 +10,45 @@ local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
+local kind_icons = {
+  Text = "",
+  Method = "",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "ﴯ",
+  Interface = "",
+  Module = "",
+  Property = "ﰠ",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
+}
+
+local source_menu = {
+  buffer = "[﬘ Buf]",
+  nvim_lsp = "[ LSP]",
+  luasnip = "[ LSnip]",
+  snippet = "[ VSnip]",
+  nvim_lua = "[ NvimLua]",
+  latex_symbols = "[ Latex]",
+  dictionary = "[韛Dict]",
+  cmdline = "[ CMD]",
+}
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -18,18 +57,11 @@ cmp.setup({
     end,
   },
   formatting = {
-    format = require("lspkind").cmp_format({
-      with_text = true,
-      menu = {
-        buffer = "[﬘ Buf]",
-        nvim_lsp = "[ LSP]",
-        luasnip = "[ LSnip]",
-        snippet = "[ VSnip]",
-        nvim_lua = "[ NvimLua]",
-        latex_symbols = "[ Latex]",
-        dictionary = "[韛Dict]",
-      },
-    }),
+    format = function(entry, item)
+      item.kind = string.format('%s %s', kind_icons[item.kind], item.kind)
+      item.menu = (source_menu)[entry.source.name]
+      return item
+    end,
   },
   mapping = {
     ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {

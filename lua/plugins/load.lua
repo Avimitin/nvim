@@ -666,9 +666,6 @@ local completion = {
     config = function()
       require("plugins").load_cfg("nvimcmp_cfg")
     end,
-    requires = {
-      "onsails/lspkind-nvim",
-    },
   },
 
   -- completion source for system path
