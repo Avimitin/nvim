@@ -32,12 +32,6 @@ M.kanagawa_setup = function()
     transparent = false, -- do not set background color
     colors = {},
     overrides = {
-      LazygitBackground = {
-        bg = default.sumilnk3,
-      },
-      FTermBackground = {
-        bg = default.sumilnk3,
-      },
       htmlH1 = {
         fg = default.peachRed,
         style = "bold",
