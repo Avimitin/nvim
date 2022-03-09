@@ -1,3 +1,37 @@
+4.0.0-rc5 <Mar 09 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+
+New Features:
+-------------
+  * plugins: add cmp-cmdline (See commit 1cbe60ce)
+  * nvim-cmp: add cmdline completion (See commit 4d092550)
+  * markdown: enable latex math conceal (See commit 7e2aee94)
+
+Fix:
+----
+  * plugins: fix vim-rooter (See commit 6291602f)
+  * plugins: set up autocmd before packer sync (See commit 978dc724)
+
+Changes:
+--------
+  * plugins: re-categorize treesitter plugin (See commit 562dbe6d)
+  * plugins: move treesitter and lspconfig filetype setting to options.lua (See commit f1886fba)
+  * plugins: remove prehook and posthook function (See commit 9f7bcff4)
+  * nvim-cmp: use local icon list for completion (See commit 08941738)
+  * nvim-cmp: remove orgmode completion (See commit 3b325147)
+  * nvim-cmp: increase the lspconfig priority (See commit 69b358c0)
+  * treesitter: remove markdown support (See commit 5ca5f4fb)
+  * book: update the commit convention (See commit 0e71dbb3)
+
+Others:
+-------
+  * benchmark: update benchmark (See commit 8b023f93)
+  * book: add lspconfig tutorial (See commit 2074ccd2)
+  * book: add workflow about the windows (See commit b056c7b4)
+  * readme: fix the vimrc link (See commit 751898d9)
+  * genlog: rewrite the log generate script for new commit convention (See commit b095dad9)
+
+
 4.0.0-rc4 <Mar 05 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 
