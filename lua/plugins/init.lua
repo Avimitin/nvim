@@ -93,10 +93,10 @@ M.load = function()
     install_packer()
     add_packer()
     setup_plugins()
-    require("packer").sync()
     vim.cmd(
       "au User PackerComplete echom 'Plugins are installed successfully, please use :qa to restart the neovim'"
     )
+    require("packer").sync()
     return
   end
 
