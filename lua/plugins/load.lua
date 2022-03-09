@@ -706,8 +706,8 @@ local completion = {
   {
     "hrsh7th/cmp-cmdline",
     after = {
-      "nvim-cmp"
-    }
+      "nvim-cmp",
+    },
   },
 
   {
