@@ -54,10 +54,6 @@ M.kanagawa_setup = function()
         bg = default.samuraiRed,
         style = "bold",
       },
-      NormalFloat = {
-        fg = default.fujiWhite,
-        bg = default.winterBlue,
-      },
     },
   })
   set_color("kanagawa")
