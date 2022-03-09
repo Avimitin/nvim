@@ -54,6 +54,9 @@ M.kanagawa_setup = function()
         bg = default.samuraiRed,
         style = "bold",
       },
+      Pmenu = {
+        bg = default.sumiInk1,
+      }
     },
   })
   set_color("kanagawa")
