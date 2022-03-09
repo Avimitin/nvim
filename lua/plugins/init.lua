@@ -121,7 +121,6 @@ M.treesitter_ft = {
   "javascript",
   "json",
   "lua",
-  "markdown",
   "rust",
   "toml",
 }
