@@ -13,3 +13,4 @@ vim.g.wildfire_objects = { "i'", 'i"', "i)", "i]", "i}", "ip", "it", "i`" }
 -- for vim-markdown
 vim.g.vim_markdown_conceal_code_blocks = 0
 vim.g.vim_markdown_strikethrough = 1
+vim.g.vim_markdown_math = 1
