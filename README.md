@@ -97,30 +97,38 @@ You can see available colorscheme here: [colors.md](./docs/src/en_us/colors.md)
 
 ### Coding
 
+- nvim-cmp
+
 First of all, you will have configured completion menu.
 
-![coding](./docs/images/neovim-coding.png)
+![coding](./docs/images/nvim-cmp.png)
+
+Command line can also be completed:
+
+![cmp-cmdline](./docs/images/nvim-cmp-cmdline.png)
+
+- lspconfig
 
 Then, you can use `:LspInstall` to install language server.
 
 ![lspserver](https://user-images.githubusercontent.com/6705160/150685720-782e33ba-172c-44b6-8558-fb4e98495294.png)
 
-`Rust`, `C++`, `Lua`, `Golang` are configured by default.
-After the installation, you will get a VSCode like coding editor:
+After the installing your prefer lsp server, you will get a IDE like
+coding editor:
 
 * Document pop up
 
-![lsp](./docs/images/help.png)
+![lsp-popup](./docs/images/help.png)
 
 * Code actions
 
-![lsp](./docs/images/codeaction.png)
+![lsp-codeaction](./docs/images/codeaction.png)
 
 * diagnostic panel
 
-![lsp](./docs/images/diagnostic.png)
+![lsp-diagnostic](./docs/images/diagnostic.png)
 
-* Debug
+* Debug Panel
 
 1. CPP
 
