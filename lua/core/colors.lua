@@ -30,6 +30,7 @@ M.kanagawa_setup = function()
     specialReturn = true, -- special highlight for the return keyword
     specialException = true, -- special highlight for exception handling keywords
     transparent = false, -- do not set background color
+    dimInactive = true,
     colors = {},
     overrides = {
       htmlH1 = {
