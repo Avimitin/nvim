@@ -73,8 +73,7 @@ cmp.setup({
     { name = "vsnip" },
     { name = "buffer" },
     { name = "path" },
-    { name = "orgmode" },
-    { name = "dictionary", keyword_length = 2 }
+    { name = "dictionary", keyword_length = 2 },
   },
   experimental = {
     ghost_text = true,
