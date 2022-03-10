@@ -15,8 +15,11 @@
 This project is still under active development, so new versions and breaking changes
 will be released frequently.
 
-Although version 3.0 has been released, the reason for 3.0 here is that vimscript
-has been replaced with Lua, so you should think of this project as a 0.x version of Lua.
+---
+
+The [latest neovim changes(PR #17462)](https://github.com/neovim/neovim/pull/17462)
+will breaks the highlight.
+Please don't upgrade for now.
 
 ## Motivation
 
