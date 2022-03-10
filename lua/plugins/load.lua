@@ -652,6 +652,10 @@ local completion = {
   {
     "rafamadriz/friendly-snippets",
     event = "InsertEnter",
+    keys = {
+      {"n", ":"},
+      {"n", "/"},
+    }
   },
 
   -- the completion core
