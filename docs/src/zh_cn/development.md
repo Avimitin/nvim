@@ -18,7 +18,7 @@
 标题应该是少于50个的拉丁字符。
 标题的第一个词*应该*是小写的，而且*必须*是动词。
 不要以句号结束，也不要在上面附加任何时态。
-你*必须*使用承诺的语气。
+你*必须*使用命令式的语气。
 
 *正确示例:*
 
@@ -38,7 +38,7 @@ more fixes for broken stuff   ==> 第一个词应是动词
 sweet new API methods         ==> 没有动词
 ```
 
-填写这句话:
+如果你不太清楚该往 title 里写什么，一个简单的办法就是利用下面这个句式来进行完形填空：
 "This patch will modify the project to...".
 
 * This patch will modify the project to refactor subsystem X for readability
@@ -46,7 +46,7 @@ sweet new API methods         ==> 没有动词
 * This patch will modify the project to remove deprecated methods
 * This patch will modify the project to release version 1.0.0
 
-使用错误示例不能组合为正确的句子:
+所以通过完形填空你可以看到，非命令式语气的句子在组合之后，语法就出现问题了:
 
 * This patch will modify the project to fixed bug with Y
 * This patch will modify the project to changing behavior of X
@@ -66,14 +66,14 @@ M. ci: rename the ci filename
 
 module name 是可选的. 如果你使用了 module name，请使用 `/` 来分开 type 和 module.
 
-### 主体
+### 正文
 
-主体是可选的，
-你可以在正文部分使用任何熟知的标记语言在正文部分，
+正文是可选的，
+你可以在正文部分使用任何令人熟知的标记语言
 你应该写下你做了什么以及你为什么这样做。
 不要写你是如何做的。
 
-如果你提交一个新的PR，请附上你的ISSUES ID 和PR ID。
+如果你提交一个新的PR，请附上对应的ISSUES ID 和PR ID。
 
 另外，如果这个提交包含了破坏性的改变，记得要附上
 `BREAKING CHANGE:` 在正文的最后部分来告诉大家有什么变化。
@@ -108,9 +108,9 @@ Ref:
 * 每行一句
 
 此外，我建议每行一句。
-在编辑一个大段落时，如果你发现自己在前几句有语法错误。
-你删除或添加了新的单词，这导致编辑行超过80个字符。
-因此，你必须编辑整个段落每行少于80个字符。
+想象一下你正在编辑一大段文字。
+这时你发现段落前几句有语法错误，在你添加或删改之后，
+句子可能会超出 80 个字符，你就不得不去修改整个段落来保持 80 字符的长度。
 
 你可以阅读
 [这篇文章](https://rhodesmill.org/brandon/2012/one-sentence-per-line/)，
