@@ -1,0 +1,7 @@
+{
+  "allow_deadcode": {
+    "prefix": "deadcode",
+    "body": "#[allow(dead_code)]",
+    "description": "Close the dead code warning"
+  }
+}
