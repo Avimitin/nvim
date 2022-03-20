@@ -143,5 +143,5 @@ end
 if vim.g.neovide then
   -- neovide specific settings
   vim.g.neovide_cursor_vfx_mode = "sonicboom"
-  vim.opt.guifont = [[FiraCode\ Nerd\ Font\ Mono:h12]]
+  vim.opt.guifont = [[monospace:h14]]
 end
