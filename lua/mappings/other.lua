@@ -12,6 +12,10 @@ nmap("<C-\\>", [[:ToggleTerm direction=float<CR>]])
 nmap("<M-`>", [[:ToggleTerm direction=horizontal<CR>]])
 map("t", "<C-\\>", [[<C-\><C-n>:ToggleTerm<CR>]])
 map("t", "<C-n>", [[<C-\><C-n>]])
+-- This for horizontal terminal
+map("t", ";k", [[<C-\><C-n><C-w>k]])
+-- This for vertical terminal
+map("t", ";h", [[<C-\><C-n><C-w>h]])
 
 -- telescope
 nmap(";f", [[:lua require('telescope.builtin').find_files{}<CR>]])
