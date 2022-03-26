@@ -48,3 +48,6 @@ alias("CrateReload", [[lua require("crates").reload()]])
 
 -- nvim-spectre
 alias("SpectreOpen", "lua require('spectre').open()")
+
+alias("HiCurLine", [[call matchadd('HighlightLineMatches', '\%'.line('.').'l')]])
+alias("HiCurLineOff", [[call clearmatches()]])
