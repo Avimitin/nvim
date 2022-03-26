@@ -56,6 +56,9 @@ M.kanagawa_setup = function()
       },
       Pmenu = {
         bg = default.sumiInk1,
+      },
+      HighLightLineMatches = {
+        bg = default.winterYellow,
       }
     },
   })
