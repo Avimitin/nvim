@@ -315,8 +315,29 @@ I have docker script for you!</p>
 <pre><code class="language-text">lua/core/colors.lua
 </code></pre>
 <h2 id="change-the-theme"><a class="header" href="#change-the-theme">Change the theme</a></h2>
-<p>You can modify the variable <code>M.theme</code> in <code>colors.lua</code> file.
-Currently, we have:</p>
+<ol>
+<li><strong>Change default value</strong></li>
+</ol>
+<p>This configuration has &quot;kanagawa&quot; as the default colorscheme value.
+If you want to change the default value, you can modify the <code>default_value</code> variable.</p>
+<pre><code class="language-lua">local default_theme = &quot;kanagawa&quot; -- &lt;- change this value
+</code></pre>
+<ol start="2">
+<li><strong>Change local value</strong></li>
+</ol>
+<p>There is also another mechanism to modify this value.
+You can create a file named <code>custom.lua</code> under the lua directory.
+Then return a table value in the below form:</p>
+<pre><code class="language-lua">-- ~/.config/nvim/lua/custom.lua
+
+local M = {
+  theme = &quot;deus&quot;
+}
+
+return M
+</code></pre>
+<p>The <code>custom.lua</code> file is ignored by git, so you can change the colorscheme whatever you like.</p>
+<h2 id="gallery"><a class="header" href="#gallery">Gallery</a></h2>
 <ul>
 <li>deus</li>
 </ul>
@@ -329,6 +350,14 @@ Currently, we have:</p>
 <pre><code class="language-lua">M.theme = &quot;kanagawa&quot;
 </code></pre>
 <p><img src="https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/kanagawa.png" alt="images" /></p>
+<ul>
+<li>nightfox</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/2746374/158456286-9e3ee657-60e6-49d8-b85e-dcab285b31c3.png" alt="nightfox-image" /> </p>
+<ul>
+<li>dawnfox</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/2746374/158456278-c5d656de-c445-44b8-9813-9fc91ffbce4c.png" alt="dawnfox-image" /> </p>
 <h2 id="add-your-theme"><a class="header" href="#add-your-theme">Add your theme</a></h2>
 <p>If you want to add the theme you prefer, follow the below instruction.</p>
 <ol>
@@ -886,7 +915,7 @@ program.</p>
 <h2 id="debug"><a class="header" href="#debug">Debug</a></h2>
 <p>You need to install lldb-vscode. Then run <code>:RustDebuggables</code>, it will open the
 debug panel automatically.</p>
-<h2 id="gallery"><a class="header" href="#gallery">Gallery</a></h2>
+<h2 id="gallery-1"><a class="header" href="#gallery-1">Gallery</a></h2>
 <p>Please read <a href="https://github.com/simrat39/rust-tools.nvim/#demos">demo</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ccpp"><a class="header" href="#ccpp">c/cpp</a></h1>
 <p>C/CPP is configured to use clangd as default LSP server.</p>
