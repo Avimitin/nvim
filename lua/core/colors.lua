@@ -7,17 +7,16 @@ local ok, custom = pcall(require, "custom")
 
 -- Available theme value:
 -- "kanagawa", "deus", "night","dawn","day","nord","dusk"+"fox"
-local default_theme = "kanagawa"
-
-local function apply()
-  if ok and custom and custom.theme then
-    vim.cmd("colorscheme " .. custom.theme)
-  else
-    vim.cmd("colorscheme " .. default_theme)
-  end
+if ok and custom and custom.theme then
+  M.theme = custom.theme
+else
+  -- "kanagawa" by default
+  M.theme = "kanagawa"
 end
 
-M.theme = "dawnfox"
+local function apply()
+  vim.cmd("colorscheme " .. M.theme)
+end
 
 M.deus_setup = function()
   vim.g.deus_background = "hard"
