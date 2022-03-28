@@ -2,27 +2,42 @@
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
-local M = {}
-local ok, custom = pcall(require, "custom")
+local M = {
+  -- "kanagawa" by default
+  -- Available theme value:
+  --  "kanagawa", "deus", "night","dawn","day","nord","dusk"+"fox"
+  theme = "kanagawa"
+}
 
--- Available theme value:
--- "kanagawa", "deus", "night","dawn","day","nord","dusk"+"fox"
+-- Try to update the theme value if the lua/custom.lua file exist.
+-- User should return their custom value in the below form:
+--
+-- ```lua
+-- local M = {
+--     theme = "deus",
+-- }
+--
+-- return M
+-- ```
+
+local ok, custom = pcall(require, "custom")
+-- if file exist, return table exist and return table has `theme` field
 if ok and custom and custom.theme then
   M.theme = custom.theme
-else
-  -- "kanagawa" by default
-  M.theme = "kanagawa"
 end
 
+-- This functions finally apply the colorscheme
 local function apply()
   vim.cmd("colorscheme " .. M.theme)
 end
 
+-- configure the deus theme
 M.deus_setup = function()
   vim.g.deus_background = "hard"
   apply()
 end
 
+-- configure the kanagawa theme
 M.kanagawa_setup = function()
   local default = require("kanagawa.colors").setup()
   require("kanagawa").setup({
@@ -71,6 +86,7 @@ M.kanagawa_setup = function()
   apply()
 end
 
+-- configure the nightfox theme
 M.nightfox_setup = function ()
   require('nightfox').setup({
     options = {
@@ -99,4 +115,5 @@ M.nightfox_setup = function ()
   apply()
 end
 
+-- return the configuration for load condition
 return M

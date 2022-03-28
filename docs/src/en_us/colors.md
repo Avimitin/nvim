@@ -16,7 +16,9 @@ This configuration has "kanagawa" as the default colorscheme value.
 If you want to change the default value, you can modify the `default_value` variable.
 
 ```lua
-local default_theme = "kanagawa" -- <- change this value
+local M = {
+  theme = "kanagawa" -- <- change this value
+}
 ```
 
 2. **Change local value**
