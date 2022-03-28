@@ -90,6 +90,11 @@ M.nightfox_setup = function ()
         types = "italic,bold",
         variables = "NONE",
       },
+    },
+    groups = {
+      HighLightLineMatches = {
+        bg = "#FFDE83",
+      }
     }
   })
   apply()
