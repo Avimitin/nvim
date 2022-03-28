@@ -491,6 +491,23 @@ local colorscheme = {
       require("core.colors").kanagawa_setup()
     end,
   },
+
+  -- dark blue and light yellow color scheme
+  {
+    "EdenEast/nightfox.nvim",
+    cond = function()
+      local select = require("core.colors").theme
+      for _, avail in ipairs({"nightfox", "dayfox", "dawnfox", "nordfox", "duskfox"}) do
+        if select == avail then
+          return true
+        end
+      end
+      return false
+    end,
+    config = function()
+      require("core.colors").nightfox_setup()
+    end,
+  },
 }
 
 local coding_enhance = {
