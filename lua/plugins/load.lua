@@ -1,3 +1,14 @@
+-- [[
+-- Components:
+--   autoload,          (This plugins will always be sources)
+--   markdown_plugins,  (markdown plugins)
+--   git_tools,         (git plugins)
+--   editor_enhance,    (plugins to enhance neovim)
+--   colorscheme,       (colorscheme plugins)
+--   completion,        (nvim-cmp and its plugins)
+--   coding_enhance,    (plugins for coding)
+-- ]]
+
 local autoload = {
   -- speed up neovim!
   {
