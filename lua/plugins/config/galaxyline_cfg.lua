@@ -21,6 +21,9 @@ if current_scheme == "everforest" then
 elseif current_scheme == "gruvbox" then
   line_bg_color = "#261C00"
   dark = "#3A2300"
+elseif current_scheme == "dawnfox" then
+  line_bg_color = "#898180"
+  dark = "#625c5c"
 end
 
 local colors = {
