@@ -3,18 +3,25 @@ vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
 local M = {}
-
-local function set_color(color_name)
-  vim.cmd("colorscheme " .. color_name)
-end
+local ok, custom = pcall(require, "custom")
 
 -- Available theme value:
 -- "kanagawa", "deus", "night","dawn","day","nord","dusk"+"fox"
-M.theme = "kanagawa"
+local default_theme = "kanagawa"
+
+local function apply()
+  if ok and custom and custom.theme then
+    vim.cmd("colorscheme " .. custom.theme)
+  else
+    vim.cmd("colorscheme " .. default_theme)
+  end
+end
+
+M.theme = "dawnfox"
 
 M.deus_setup = function()
   vim.g.deus_background = "hard"
-  set_color("deus")
+  apply()
 end
 
 M.kanagawa_setup = function()
@@ -62,7 +69,7 @@ M.kanagawa_setup = function()
       }
     },
   })
-  set_color("kanagawa")
+  apply()
 end
 
 M.nightfox_setup = function ()
@@ -85,7 +92,7 @@ M.nightfox_setup = function ()
       },
     }
   })
-  set_color(M.theme)
+  apply()
 end
 
 return M
