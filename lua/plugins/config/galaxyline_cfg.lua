@@ -11,31 +11,13 @@ local diagnostic = require("galaxyline.provider_diagnostic")
 -- VistaPlugin = extension.vista_nearest
 
 local current_scheme = vim.g.colors_name
-
-local line_bg_color = "#2F3445"
-local dark = "#1F253A"
-
-if current_scheme == "everforest" then
-  line_bg_color = "#282E2C"
-  dark = "#222B28"
-elseif current_scheme == "gruvbox" then
-  line_bg_color = "#261C00"
-  dark = "#3A2300"
-elseif current_scheme == "dawnfox" then
-  line_bg_color = "#898180"
-  dark = "#625c5c"
-end
-
 local colors = {
-  bg = "#5C687A",
-  line_bg = line_bg_color,
+  bg = "#2F3445",
   fg = "#8FBCBB",
-  fg_green = "#65a380",
-  dark = dark,
-
+  black = "#1F253A",
   yellow = "#E5C07B",
   cyan = "#70C0BA",
-  darkblue = "#83A598",
+  dimblue = "#83A598",
   green = "#98C379",
   orange = "#FF8800",
   purple = "#C678DD",
@@ -43,6 +25,34 @@ local colors = {
   blue = "#73BA9F",
   red = "#D54E53",
 }
+
+if current_scheme == "everforest" then
+  colors.bg = "#282E2C"
+  colors.black = "#222B28"
+elseif current_scheme == "gruvbox" then
+  colors.bg = "#261C00"
+  colors.black = "#3A2300"
+elseif current_scheme == "dawnfox" then
+  colors.bg = "#898180"
+  colors.black = "#625c5c"
+elseif current_scheme:match("github_light[%l_]*") then
+  local custom = {
+    fg = '#24292f',
+    bg = "#bbd6ee",
+    black = "#9fc5e8",
+    yellow = '#dbab09',
+    cyan = '#0598bc',
+    green = '#28a745',
+    orange = '#d18616',
+    magenta = '#5a32a3',
+    purple = '#5a32a3',
+    blue = '#0366d6',
+    red = '#d73a49',
+  }
+
+  -- merge custom color to default
+  colors = vim.tbl_deep_extend("force", {}, colors, custom)
+end
 
 local function has_file_type()
   local f_type = vim.bo.filetype
@@ -72,7 +82,7 @@ local function insert_blank_line_at_left()
       provider = function()
         return " "
       end,
-      highlight = { colors.line_bg, colors.line_bg },
+      highlight = { colors.bg, colors.bg },
     },
   })
 end
@@ -153,7 +163,7 @@ insert_left({
       vim.api.nvim_command("hi GalaxyViMode guifg=" .. mode_color[vim_mode])
       return alias[vim_mode]
     end,
-    highlight = { colors.line_bg, colors.line_bg },
+    highlight = { colors.bg, colors.bg },
   },
 })
 
@@ -164,7 +174,7 @@ insert_left({
     provider = function()
       return " "
     end,
-    highlight = { colors.line_bg },
+    highlight = { colors.bg },
   },
 })
 
@@ -176,7 +186,7 @@ insert_left({
     provider = function()
       return " "
     end,
-    highlight = { colors.line_bg },
+    highlight = { colors.bg },
   },
 })
 
@@ -186,7 +196,7 @@ insert_left({
       return "  "
     end,
     condition = require("galaxyline.provider_vcs").check_git_workspace,
-    highlight = { colors.orange, colors.line_bg },
+    highlight = { colors.orange, colors.bg },
   },
 })
 
@@ -194,7 +204,7 @@ insert_left({
   GitBranch = {
     provider = "GitBranch",
     condition = require("galaxyline.provider_vcs").check_git_workspace,
-    highlight = { "#8FBCBB", colors.line_bg },
+    highlight = { colors.fg, colors.bg },
   },
 })
 
@@ -213,7 +223,7 @@ insert_left({
     provider = "DiffAdd",
     condition = checkwidth,
     icon = "  ",
-    highlight = { colors.green, colors.line_bg },
+    highlight = { colors.green, colors.bg },
   },
 })
 
@@ -222,7 +232,7 @@ insert_left({
     provider = "DiffModified",
     condition = checkwidth,
     icon = "  ",
-    highlight = { colors.orange, colors.line_bg },
+    highlight = { colors.orange, colors.bg },
   },
 })
 
@@ -231,7 +241,7 @@ insert_left({
     provider = "DiffRemove",
     condition = checkwidth,
     icon = "  ",
-    highlight = { colors.red, colors.line_bg },
+    highlight = { colors.red, colors.bg },
   },
 })
 
@@ -244,7 +254,7 @@ insert_left({
   DiagnosticError = {
     provider = DiagnosticError,
     icon = "  ",
-    highlight = { colors.red, colors.line_bg },
+    highlight = { colors.red, colors.bg },
   },
 })
 
@@ -253,7 +263,7 @@ insert_left({
     provider = DiagnosticWarn,
     condition = checkwidth,
     icon = "  ",
-    highlight = { colors.yellow, colors.line_bg },
+    highlight = { colors.yellow, colors.bg },
   },
 })
 
@@ -261,7 +271,7 @@ insert_left({
   DiagnosticInfo = {
     provider = DiagnosticInfo,
     condition = checkwidth,
-    highlight = { colors.green, colors.line_bg },
+    highlight = { colors.green, colors.bg },
     icon = "  ",
   },
 })
@@ -270,7 +280,7 @@ insert_left({
   DiagnosticHint = {
     provider = DiagnosticHint,
     condition = checkwidth,
-    highlight = { colors.white, colors.line_bg },
+    highlight = { colors.white, colors.bg },
     icon = "  ",
   },
 })
@@ -280,7 +290,7 @@ insert_left({
     provider = function()
       return ""
     end,
-    highlight = { colors.line_bg, colors.dark },
+    highlight = { colors.bg, colors.black },
   },
 })
 
@@ -289,7 +299,7 @@ insert_left({
     provider = function()
       return " "
     end,
-    highlight = { colors.dark, colors.dark },
+    highlight = { colors.black, colors.black },
   },
 })
 
@@ -299,7 +309,7 @@ insert_left({
     condition = buffer_not_empty,
     highlight = {
       require("galaxyline.provider_fileinfo").get_file_icon_color,
-      colors.dark,
+      colors.black,
     },
   },
 })
@@ -308,7 +318,7 @@ insert_left({
   BufferType = {
     provider = "FileName",
     condition = has_file_type,
-    highlight = { colors.fg, colors.dark },
+    highlight = { colors.fg, colors.black },
   },
 })
 
@@ -317,7 +327,7 @@ insert_left({
     provider = function()
       return ""
     end,
-    highlight = { colors.dark },
+    highlight = { colors.black },
   },
 })
 -- left information panel end}
@@ -327,7 +337,7 @@ insert_right({
     provider = function()
       return " "
     end,
-    highlight = { colors.line_bg },
+    highlight = { colors.bg },
   },
 })
 
@@ -335,8 +345,8 @@ insert_right({
   LineInfo = {
     provider = "LineColumn",
     separator = "  ",
-    separator_highlight = { colors.green, colors.line_bg },
-    highlight = { colors.fg, colors.line_bg },
+    separator_highlight = { colors.green, colors.bg },
+    highlight = { colors.fg, colors.bg },
   },
 })
 
@@ -345,7 +355,7 @@ insert_right({
     provider = function()
       return ""
     end,
-    highlight = { colors.line_bg, colors.dark },
+    highlight = { colors.bg, colors.black },
   },
 })
 
@@ -353,9 +363,9 @@ insert_right({
   GetLspClient = {
     provider = "GetLspClient",
     separator = " LSP: ",
-    separator_highlight = { colors.blue, colors.dark },
+    separator_highlight = { colors.blue, colors.black },
     condition = checkwidth,
-    highlight = { colors.fg, colors.dark },
+    highlight = { colors.fg, colors.black },
   },
 })
 
@@ -363,9 +373,9 @@ insert_right({
   PerCent = {
     provider = "LinePercent",
     separator = " ",
-    separator_highlight = { colors.blue, colors.dark },
+    separator_highlight = { colors.blue, colors.black },
     condition = checkwidth,
-    highlight = { colors.cyan, colors.dark },
+    highlight = { colors.cyan, colors.black },
   },
 })
 
@@ -374,8 +384,8 @@ insert_right({
     provider = "FileFormat",
     separator = " ",
     condition = checkwidth,
-    separator_highlight = { colors.blue, colors.dark },
-    highlight = { colors.fg, colors.dark },
+    separator_highlight = { colors.blue, colors.black },
+    highlight = { colors.fg, colors.black },
   },
 })
 
@@ -384,7 +394,7 @@ insert_right({
     provider = function()
       return " "
     end,
-    highlight = { colors.dark, colors.dark },
+    highlight = { colors.black, colors.black },
   },
 })
 
@@ -439,23 +449,23 @@ local BufferTypeMap = {
 require("galaxyline").section.short_line_left = {
   {
     ShortLineLeftBufferType = {
-      highlight = { colors.cyan, colors.line_bg },
+      highlight = { colors.cyan, colors.bg },
       provider = function()
         local name = BufferTypeMap[vim.bo.filetype] or " Editor"
         return string.format("  %s", name)
       end,
       separator = " ",
-      separator_highlight = { colors.line_bg, colors.dark },
+      separator_highlight = { colors.bg, colors.black },
     },
   },
   {
     ShortLineLeftWindowNumber = {
-      highlight = { colors.cyan, colors.dark },
+      highlight = { colors.cyan, colors.black },
       provider = function()
         return " " .. vim.api.nvim_win_get_number(vim.api.nvim_get_current_win())
       end,
       separator = "",
-      separator_highlight = { colors.dark, "#1F253A" },
+      separator_highlight = { colors.black, "#1F253A" },
     },
   },
 }
