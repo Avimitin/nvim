@@ -36,7 +36,7 @@ local kind_icons = {
   Event = "",
   Operator = "",
   TypeParameter = "",
-  VimCmdLine = ""
+  VimCmdLine = "",
 }
 
 local source_menu = {
