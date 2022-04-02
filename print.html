@@ -339,6 +339,61 @@ local M = {
 return M
 </code></pre>
 <p>The <code>custom.lua</code> file is ignored by git, so you can change the colorscheme whatever you like.</p>
+<p>Additionally, with this custom script file, you can switch day and night theme
+automatically.</p>
+<p>Example script:</p>
+<pre><code class="language-lua">-- ~/.config/nvim/lua/custom.lua
+
+local M = {
+  -- leave this unchange
+  theme = &quot;&quot;,
+  -- Here define the colorscheme for day
+  day_theme = &quot;github_light&quot;,
+  -- Here define the colorscheme for night
+  night_theme = &quot;kanagawa&quot;,
+  -- Here setup night mode duration with format &quot;Hour:Min&quot;
+  darkmode_time = {
+    begin = &quot;19:00&quot;,
+    ending = &quot;7:00&quot;,
+  },
+}
+
+-- This function will parse our string time to a table to a unix timestamp
+local function parse_time(str)
+  if str then
+    local hour, min = str:match(&quot;(%d+):(%d+)&quot;)
+    return os.time({
+      hour = hour,
+      min = min,
+      day = 1,
+      month = 1,
+      year = 1970,
+    })
+  end
+end
+
+-- if user setup the darkmode related fields
+if M.darkmode_time and M.darkmode_time.begin and M.darkmode_time.ending then
+  local begin = parse_time(M.darkmode_time.begin)
+  local ending = parse_time(M.darkmode_time.ending)
+  local now = parse_time(os.date(&quot;%H:%M&quot;))
+
+  -- we might want the 7:00 in next day
+  if ending &lt; begin then
+    -- add 24 hour
+    ending = ending + 72000
+  end
+
+  -- if the night has come
+  if (now &gt;= begin) and (now &lt;= ending) then
+    M.theme = M.night_theme
+  else
+    M.theme = M.day_theme
+  end
+end
+
+return M
+</code></pre>
 <h2 id="gallery"><a class="header" href="#gallery">Gallery</a></h2>
 <ul>
 <li>deus</li>
@@ -359,7 +414,11 @@ return M
 <ul>
 <li>dawnfox</li>
 </ul>
-<p><img src="https://user-images.githubusercontent.com/2746374/158456278-c5d656de-c445-44b8-9813-9fc91ffbce4c.png" alt="dawnfox-image" /> </p>
+<p><img src="https://user-images.githubusercontent.com/2746374/158456278-c5d656de-c445-44b8-9813-9fc91ffbce4c.png" alt="dawnfox-image" /></p>
+<ul>
+<li>GitHub</li>
+</ul>
+<p><img src="https://camo.githubusercontent.com/4bb7ad6c319b5ce63bed16cb25753e603fee510d59a1fad0245bc3d0bda8445d/68747470733a2f2f696d6775722e636f6d2f4f5077424449342e706e67" alt="GitHub-image" /></p>
 <h2 id="add-your-theme"><a class="header" href="#add-your-theme">Add your theme</a></h2>
 <p>If you want to add the theme you prefer, follow the below instruction.</p>
 <ol>
