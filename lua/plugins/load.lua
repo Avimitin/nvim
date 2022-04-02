@@ -492,12 +492,31 @@ local colorscheme = {
     end,
   },
 
+  -- GitHub light and dark colorscheme
+  {
+    "projekt0n/github-nvim-theme",
+    cond = function()
+      local select = require("core.colors").theme
+      for _, avail in
+        ipairs({ "github_dark", "github_dimmed", "github_light", "github_light_default" })
+      do
+        if select == avail then
+          return true
+        end
+      end
+      return false
+    end,
+    config = function()
+      require("core.colors").github_setup()
+    end,
+  },
+
   -- dark blue and light yellow color scheme
   {
     "EdenEast/nightfox.nvim",
     cond = function()
       local select = require("core.colors").theme
-      for _, avail in ipairs({"nightfox", "dayfox", "dawnfox", "nordfox", "duskfox"}) do
+      for _, avail in ipairs({ "nightfox", "dayfox", "dawnfox", "nordfox", "duskfox" }) do
         if select == avail then
           return true
         end
@@ -681,9 +700,9 @@ local completion = {
     "rafamadriz/friendly-snippets",
     event = "InsertEnter",
     keys = {
-      {"n", ":"},
-      {"n", "/"},
-    }
+      { "n", ":" },
+      { "n", "/" },
+    },
   },
 
   -- the completion core
