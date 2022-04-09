@@ -35,6 +35,7 @@ g.enable_treesitter_ft = {
   "javascript",
   "json",
   "lua",
+  "nix",
   "rust",
   "toml",
 }
