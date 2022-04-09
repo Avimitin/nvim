@@ -31,7 +31,7 @@ set whichwrap+=<,>,h,l
 set ignorecase
 set smartcase
 set list
-set listchars=tab:> ,trail:-
+set listchars=tab:>\ ,trail:-
 
 "===== keymaps =====
 nnoremap J 5j
