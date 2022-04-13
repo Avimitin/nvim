@@ -1,3 +1,38 @@
+4.0.1 <Apr 13 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+
+New Features:
+-------------
+  * rust: add key mapping for rust (See commit a4b6f266)
+  * plugins: enable nix for treesitter (See commit 8c4a7e47)
+  * statusline: add colorscheme for dawnfox (See commit dffd2b36)
+  * galaxyline: adjust the github light theme (See commit 231cdb79)
+  * colorscheme: add github colorscheme (See commit 7f773e14)
+  * colorscheme: add color set nightfox (See commit ec1a81c4)
+  * commands: add command for highlight multiple lines (See commit 2b3686f6)
+  * mappings: add terminal keymapping (See commit 4a7aacc5)
+  * nvim-cmp: add load trigger for key ":" and "/" (See commit b5e56203)
+
+Fix:
+----
+  * vimrc: fix invalid listchars (See commit 605d02a8)
+  * colorscheme: fix colorscheme not loading issue (See commit 08f8f674)
+
+Changes:
+--------
+  * colorscheme: move default value inside table (See commit 6429755a)
+  * neovide: use monospace for flexible font choice (See commit 5dce1f8d)
+  * nvim-cmp: change the source name to Vim (See commit 41d370f0)
+  * treesitter: remove markdown regex (See commit f910c12b)
+  * kanagawa: enable inactive window dim color (See commit e3a22e01)
+
+Others:
+-------
+  * books: add document for how to switch nightmode automatically (See commit 47cf5f59)
+  * colorscheme: update colorscheme document (See commit b95d897f)
+  * plugins: add component document (See commit fcefe899)
+
+
 4.0.0 <Mar 12 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 In this version, I rewrite the whole configuration structure.
