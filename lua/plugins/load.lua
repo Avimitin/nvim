@@ -497,9 +497,12 @@ local colorscheme = {
     "projekt0n/github-nvim-theme",
     cond = function()
       local select = require("core.colors").theme
-      for _, avail in
-        ipairs({ "github_dark", "github_dimmed", "github_light", "github_light_default" })
-      do
+      for _, avail in ipairs({
+        "github_dark",
+        "github_dimmed",
+        "github_light",
+        "github_light_default",
+      }) do
         if select == avail then
           return true
         end

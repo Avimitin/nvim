@@ -37,17 +37,17 @@ elseif current_scheme == "dawnfox" then
   colors.black = "#625c5c"
 elseif current_scheme:match("github_light[%l_]*") then
   local custom = {
-    fg = '#24292f',
+    fg = "#24292f",
     bg = "#bbd6ee",
     black = "#9fc5e8",
-    yellow = '#dbab09',
-    cyan = '#0598bc',
-    green = '#28a745',
-    orange = '#d18616',
-    magenta = '#5a32a3',
-    purple = '#5a32a3',
-    blue = '#0366d6',
-    red = '#d73a49',
+    yellow = "#dbab09",
+    cyan = "#0598bc",
+    green = "#28a745",
+    orange = "#d18616",
+    magenta = "#5a32a3",
+    purple = "#5a32a3",
+    blue = "#0366d6",
+    red = "#d73a49",
   }
 
   -- merge custom color to default
