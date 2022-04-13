@@ -49,6 +49,12 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
   buf_set_keymap("n", "gq", "<cmd>lua vim.diagnostic.set_loclist()<CR>", opts)
 
+  -- add rust specific keymappings
+  if client.name == "rust_analyzer" then
+    buf_set_keymap("n", "<leader>rr", "<cmd>RustRunnables<CR>", opts)
+    buf_set_keymap("n", "<leader>ra", "<cmd>RustHoverAction<CR>", opts)
+  end
+
   -- Set some keybinds conditional on server capabilities
   if client.resolved_capabilities.document_formatting then
     buf_set_keymap("n", "gf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
