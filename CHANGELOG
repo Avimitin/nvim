@@ -1,3 +1,16 @@
+4.0.2 <Apr 15 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+Fix:
+----
+  * treesitter: enable fish (See commit 17d17827)
+
+
+Others:
+-------
+  * changelog: release 4.0.1 (See commit 35adeb1f)
+  * Fix linting error
+
+
 4.0.1 <Apr 13 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 
