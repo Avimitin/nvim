@@ -22,6 +22,12 @@ But there are also other changes that might incompatible with your computer.
 
 - libvterm 0.1 is now required, as neovim has bug with 0.2 version. This might
 make your terminal can't handle keymap correctly.
+> Arch Linux can use this mechanic to replace the dependency:
+> https://github.com/neovim/neovim/issues/17956#issuecomment-1086647838/
+>
+> Bug Report: https://github.com/neovim/neovim/issues/16699
+>
+> Fix PR: https://github.com/neovim/neovim/pull/17329
 
 ## Motivation
 
