@@ -17,9 +17,11 @@ will be released frequently.
 
 ---
 
-The [latest neovim changes(PR #17462)](https://github.com/neovim/neovim/pull/17462)
-will breaks the highlight.
-Please don't upgrade for now.
+Neovim v0.7.0 has released. The configuration itself is working fine.
+But there are also other changes that might incompatible with your computer.
+
+- libvterm 0.1 is now required, as neovim has bug with 0.2 version. This might
+make your terminal can't handle keymap correctly.
 
 ## Motivation
 
