@@ -12,11 +12,6 @@
 
 ## Important Notes
 
-This project is still under active development, so new versions and breaking changes
-will be released frequently.
-
----
-
 Neovim v0.7.0 has released. The configuration itself is working fine.
 But there are also other changes that might incompatible with your computer.
 
