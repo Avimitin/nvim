@@ -2,7 +2,6 @@ local utils = require("mappings.utils")
 local map = utils.map
 local nmap = utils.nmap
 local xmap = utils.xmap
-local fmap = utils.fmap
 local desc = utils.new_desc
 
 vim.g.mapleader = " "
@@ -42,9 +41,6 @@ nmap("<C-T>n", ":tabnew<CR>")
 
 -- save quickly
 nmap(";w", ":w<CR>", desc("Save buffer"))
-
--- kill buffer with ;q , quit window with :q . This make sense.
-fmap("n", ";q", require("plugins.bufdel").delete_buffer)
 
 -- do thing like ctrl c and ctrl v
 xmap("<C-y>", [["+y]])
