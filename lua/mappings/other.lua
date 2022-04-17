@@ -1,5 +1,6 @@
 local map = require("mappings.utils").map
 local nmap = require("mappings.utils").nmap
+local fmap = require("mappings.utils").fmap
 
 -- EasyAlign
 map("v", "<leader>e", ":EasyAlign<CR>")
@@ -18,8 +19,8 @@ map("t", ";k", [[<C-\><C-n><C-w>k]])
 map("t", ";h", [[<C-\><C-n><C-w>h]])
 
 -- telescope
-nmap(";f", [[:lua require('telescope.builtin').find_files{}<CR>]])
-nmap("<LEADER>tg", [[:lua require('telescope.builtin').live_grep{}<CR>]])
+fmap("n", ";f", require("telescope.builtin").find_files)
+fmap("n", "<LEADER>tg", require("telescope.builtin").live_grep)
 
 -- fugitive
 nmap(";g", [[<CMD>Git<CR>]])
@@ -41,9 +42,6 @@ nmap("<A-p>", [[<CMD>:BufferLinePick<CR>]])
 
 -- dispatch
 nmap(";d", ":Dispatch ", { noremap = true, silent = false })
-
--- rust-tools.nvim
-nmap("<Leader>ra", ':lua require("rust-tools.hover_actions").hover_actions()<CR>')
 
 -- fugitive
 -- keep the same prefix as the git sign
