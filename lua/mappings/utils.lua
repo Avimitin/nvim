@@ -12,7 +12,7 @@ local function map(mode, lhs, rhs, opts)
   if opts then
     options = vim.tbl_extend("force", options, opts)
   end
-  local stat, error = pcall(vim.api.nvim_set_keymap, mode, lhs, rhs, options)
+  local stat, error = pcall(vim.keymap.set, mode, lhs, rhs, options)
   if not stat then
     vim.notify(error, vim.log.levels.ERROR, {
       title = "keymap",

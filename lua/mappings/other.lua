@@ -1,6 +1,5 @@
 local map = require("mappings.utils").map
 local nmap = require("mappings.utils").nmap
-local fmap = require("mappings.utils").fmap
 
 -- EasyAlign
 map("v", "<leader>e", ":EasyAlign<CR>")
@@ -19,8 +18,8 @@ map("t", ";k", [[<C-\><C-n><C-w>k]])
 map("t", ";h", [[<C-\><C-n><C-w>h]])
 
 -- telescope
-fmap("n", ";f", require("telescope.builtin").find_files)
-fmap("n", "<LEADER>tg", require("telescope.builtin").live_grep)
+nmap(";f", require("telescope.builtin").find_files)
+nmap("<LEADER>tg", require("telescope.builtin").live_grep)
 
 -- fugitive
 nmap(";g", [[<CMD>Git<CR>]])
@@ -48,3 +47,6 @@ nmap(";d", ":Dispatch ", { noremap = true, silent = false })
 -- See git-sign keymap in lua/plugins/config/gitsign_cfg.lua
 nmap("gic", ":Git commit -sS<CR>")
 nmap("giP", ":Git! push ", { silent = false })
+
+-- kill buffer with ;q , quit window with :q . This make sense.
+nmap(";q", require("plugins.bufdel").delete_buffer)
