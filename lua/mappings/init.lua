@@ -2,6 +2,8 @@ local utils = require("mappings.utils")
 local map = utils.map
 local nmap = utils.nmap
 local xmap = utils.xmap
+local fmap = utils.fmap
+local desc = utils.new_desc
 
 vim.g.mapleader = " "
 
@@ -9,29 +11,29 @@ vim.g.mapleader = " "
 require("mappings.other")
 
 -- quicker motion
-nmap("J", "5j")
-xmap("J", "5j")
+nmap("J", "5j", desc("Jump 5 lines down"))
+xmap("J", "5j", desc("Jump 5 lines down"))
 
-nmap("K", "5k")
-xmap("K", "5k")
+nmap("K", "5k", desc("Jump 5 lines up"))
+xmap("K", "5k", desc("Jump 5 lines up"))
 
-nmap("L", "g_")
-nmap("H", "^")
+nmap("L", "g_", desc("Jump to the end of the character"))
+nmap("H", "^", desc("Jump to the beginning of the character"))
 
-xmap("L", "g_")
-xmap("H", "^")
+xmap("L", "g_", desc("Jump to the end of the character"))
+xmap("H", "^", desc("Jump to the beginning of the character"))
 
-nmap("W", "5w")
-nmap("B", "5b")
+nmap("W", "5w", desc("Jump 5 word forward"))
+nmap("B", "5b", desc("Jump 5 word backward"))
 
 -- no more background key
-nmap("<C-z>", "u")
+nmap("<C-z>", "u", desc("Revert change"))
 
 -- move block easily
-nmap("<", "<<")
-nmap(">", ">>")
-xmap("<", "<gv")
-xmap(">", ">gv")
+nmap("<", "<<", desc("Decrease indent"))
+nmap(">", ">>", desc("Increase indent"))
+xmap("<", "<gv", desc("Increase indent"))
+xmap(">", ">gv", desc("Decrease indent"))
 
 -- create tab like window
 nmap("<C-T>h", ":tabprevious<CR>")
@@ -39,10 +41,10 @@ nmap("<C-T>l", ":tabnext<CR>")
 nmap("<C-T>n", ":tabnew<CR>")
 
 -- save quickly
-nmap(";w", ":w<CR>")
+nmap(";w", ":w<CR>", desc("Save buffer"))
 
 -- kill buffer with ;q , quit window with :q . This make sense.
-nmap(";q", ":lua require('plugins.bufdel').delete_buffer()<CR>")
+fmap("n", ";q", require("plugins.bufdel").delete_buffer)
 
 -- do thing like ctrl c and ctrl v
 xmap("<C-y>", [["+y]])
@@ -52,7 +54,7 @@ map("i", "<C-p>", [[<ESC>"+pa]])
 -- shut down the search high light
 nmap("<ESC>", ":nohlsearch<CR>")
 -- no more finger expansion
-map("i", "<A-;>", "<ESC>")
+map("i", "<A-;>", "<ESC>", desc("Exit the insert mode"))
 
 -- move around the window
 nmap(";k", "<C-w>k")

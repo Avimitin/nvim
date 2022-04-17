@@ -36,8 +36,19 @@ local function xmap(lhs, rhs, opts)
   map("x", lhs, rhs, opts)
 end
 
+-- fmap create a new mapping for lua function
+local function fmap(mode, key, func)
+  map(mode, key, '', { callback = func })
+end
+
+local function new_desc(d)
+  return { desc = d }
+end
+
 return {
   map = map,
   nmap = nmap,
   xmap = xmap,
+  fmap = fmap,
+  new_desc = new_desc
 }
