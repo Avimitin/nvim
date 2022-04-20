@@ -1,3 +1,24 @@
+5.0.0 <Apr 20 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+BREAKING CHANGES!:
+------------------
+  * nvim: implement new neovim v0.7.0 Lua API (See commit 0f24a99a)
+  * scripts: rename fixtures to script (See commit 0320de72)
+
+New Features:
+-------------
+  * autocmd: use new api for autocommands (See commit d93b9455)
+  * commands: use new api to define command (See commit c6aaca63)
+  * keys: add more description for keys (See commit 8a637246)
+  * treesitter: enable more filetype (See commit 103cf557)
+  * vsnip: create snippet for cargo.toml (See commit e9d7b42e)
+
+Changes:
+--------
+  * scripts: grant execute permission for perl script (See commit 90b61c50)
+  * ci: update test script (See commit 2eb73b0e)
+
+
 4.0.2 <Apr 15 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 Fix:
