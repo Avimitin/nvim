@@ -1,24 +1,17 @@
--- alias can help create new vim command.
--- @param cmd The user command
--- @param repl The actual command or function
--- @param force force create command? boolean
-local alias = function(cmd, repl, force)
-  local command
-  if force then
-    command = "command! " .. cmd .. " " .. repl
-  else
-    command = "command " .. cmd .. " " .. repl
+local alias = function(new, old, opts)
+  local option = {}
+  if opts then
+    option = opts
   end
-  local ok, err = pcall(vim.cmd, command)
-  if not ok then
-    vim.notify("setting cmd: " .. cmd .. " " .. err, vim.log.levels.ERROR, {
-      title = "command",
-    })
-  end
+  vim.api.nvim_create_user_command(new, old, option)
 end
 
 -- plugin neoclip
-alias("ClipRec", [[lua require('neoclip').start()]])
+alias("ClipRec", function()
+  require("neoclip").start()
+  require("telescope").load_extension("neoclip")
+end)
+
 alias("ClipView", [[Telescope neoclip]])
 
 -- run stylua in background
@@ -29,25 +22,31 @@ alias("BufCL", [[BufferLineCloseLeft]])
 alias("BufCR", [[BufferLineCloseRight]])
 
 -- debug ui
-alias("DapUIToggle", [[lua require("dapui").toggle()]])
+alias("DapUIToggle", require("dapui").toggle)
 
 -- debug function
-alias("DapBreakpoint", [[lua require("dap").toggle_breakpoint()]])
-alias("DapBp", [[lua require("dap").toggle_breakpoint()]])
+alias("DapBreakpoint", require("dap").toggle_breakpoint)
+alias("DapBp", require("dap").toggle_breakpoint)
 
-alias("DapContinue", [[lua require("dap").continue()]])
-alias("DapC", [[lua require("dap").continue()]])
+alias("DapContinue", require("dap").continue)
+alias("DapC", require("dap").continue)
 
-alias("DapStepOver", [[lua require("dap").step_over()]])
+alias("DapStepOver", require("dap").step_over)
 
 -- Crate.nvim
-alias("CrateUpdate", [[lua require("crates").update_crate()]])
-alias("CrateUpgrade", [[lua require("crates").upgrade_crate()]])
-alias("CrateMenu", [[lua require("crates").show_popup()]])
-alias("CrateReload", [[lua require("crates").reload()]])
+alias("CrateUpdate", require("crates").update_crate)
+alias("CrateUpgrade", require("crates").upgrade_crate)
+alias("CrateMenu", require("crates").show_popup)
+alias("CrateReload", require("crates").reload)
 
 -- nvim-spectre
-alias("SpectreOpen", "lua require('spectre').open()")
+alias("SpectreOpen", require('spectre').open)
 
 alias("HiCurLine", [[call matchadd('HighlightLineMatches', '\%'.line('.').'l')]])
 alias("HiCurLineOff", [[call clearmatches()]])
+
+alias("Glog", function()
+  -- It will check if the vim-fugitive is loaded, so don't worry
+  require("packer").loader("vim-fugitive")
+  vim.cmd("Flog")
+end)
