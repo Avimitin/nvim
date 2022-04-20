@@ -1,4 +1,0 @@
-std = "fixtures/lint/globals"
-
-[rules]
-shadowing = "allow"
