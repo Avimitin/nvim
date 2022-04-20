@@ -1,3 +1,15 @@
+5.0.1 <Apr 20 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+New Features:
+-------------
+  * rust: enable all features for analyzer (See commit 54b564a6)
+
+Others:
+-------
+  * docs: add configuration structure description (See commit cfe9e82b)
+  * readme: add incompatible notice (See commit 8db142cb)
+
+
 5.0.0 <Apr 20 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 BREAKING CHANGES!:
