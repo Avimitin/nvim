@@ -22,25 +22,47 @@ alias("BufCL", [[BufferLineCloseLeft]])
 alias("BufCR", [[BufferLineCloseRight]])
 
 -- debug ui
-alias("DapUIToggle", require("dapui").toggle)
+alias("DapUIToggle", function()
+  require("dapui").toggle()
+end)
 
 -- debug function
-alias("DapBreakpoint", require("dap").toggle_breakpoint)
-alias("DapBp", require("dap").toggle_breakpoint)
+alias("DapBreakpoint", function()
+  require("dap").toggle_breakpoint()
+end)
+alias("DapBp", function()
+  require("dap").toggle_breakpoint()
+end)
 
-alias("DapContinue", require("dap").continue)
-alias("DapC", require("dap").continue)
+alias("DapContinue", function()
+  require("dap").continue()
+end)
+alias("DapC", function()
+  require("dap").continue()
+end)
 
-alias("DapStepOver", require("dap").step_over)
+alias("DapStepOver", function()
+  require("dap").step_over()
+end)
 
 -- Crate.nvim
-alias("CrateUpdate", require("crates").update_crate)
-alias("CrateUpgrade", require("crates").upgrade_crate)
-alias("CrateMenu", require("crates").show_popup)
-alias("CrateReload", require("crates").reload)
+alias("CrateUpdate", function()
+  require("crates").update_crate()
+end)
+alias("CrateUpgrade", function()
+  require("crates").upgrade_crate()
+end)
+alias("CrateMenu", function()
+  require("crates").show_popup()
+end)
+alias("CrateReload", function()
+  require("crates").reload()
+end)
 
 -- nvim-spectre
-alias("SpectreOpen", require("spectre").open)
+alias("SpectreOpen", function()
+  require("spectre").open()
+end)
 
 alias("HiCurLine", [[call matchadd('HighlightLineMatches', '\%'.line('.').'l')]])
 alias("HiCurLineOff", [[call clearmatches()]])
