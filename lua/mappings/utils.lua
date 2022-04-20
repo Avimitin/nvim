@@ -12,7 +12,7 @@ local function map(mode, lhs, rhs, opts)
   if opts then
     options = vim.tbl_extend("force", options, opts)
   end
-  local stat, error = pcall(vim.api.nvim_set_keymap, mode, lhs, rhs, options)
+  local stat, error = pcall(vim.keymap.set, mode, lhs, rhs, options)
   if not stat then
     vim.notify(error, vim.log.levels.ERROR, {
       title = "keymap",
@@ -36,8 +36,19 @@ local function xmap(lhs, rhs, opts)
   map("x", lhs, rhs, opts)
 end
 
+-- fmap create a new mapping for lua function
+local function fmap(mode, key, func)
+  map(mode, key, "", { callback = func })
+end
+
+local function new_desc(d)
+  return { desc = d }
+end
+
 return {
   map = map,
   nmap = nmap,
   xmap = xmap,
+  fmap = fmap,
+  new_desc = new_desc,
 }
