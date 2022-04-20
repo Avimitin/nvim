@@ -2,7 +2,7 @@ local utils = require("mappings.utils")
 local map = utils.map
 local nmap = utils.nmap
 local xmap = utils.xmap
-local desc = utils.new_desc
+local d = utils.new_desc
 
 vim.g.mapleader = " "
 
@@ -10,29 +10,29 @@ vim.g.mapleader = " "
 require("mappings.other")
 
 -- quicker motion
-nmap("J", "5j", desc("Jump 5 lines down"))
-xmap("J", "5j", desc("Jump 5 lines down"))
+nmap("J", "5j", d("Jump 5 lines down"))
+xmap("J", "5j", d("Jump 5 lines down"))
 
-nmap("K", "5k", desc("Jump 5 lines up"))
-xmap("K", "5k", desc("Jump 5 lines up"))
+nmap("K", "5k", d("Jump 5 lines up"))
+xmap("K", "5k", d("Jump 5 lines up"))
 
-nmap("L", "g_", desc("Jump to the end of the character"))
-nmap("H", "^", desc("Jump to the beginning of the character"))
+nmap("L", "g_", d("Jump to the end of the character"))
+nmap("H", "^", d("Jump to the beginning of the character"))
 
-xmap("L", "g_", desc("Jump to the end of the character"))
-xmap("H", "^", desc("Jump to the beginning of the character"))
+xmap("L", "g_", d("Jump to the end of the character"))
+xmap("H", "^", d("Jump to the beginning of the character"))
 
-nmap("W", "5w", desc("Jump 5 word forward"))
-nmap("B", "5b", desc("Jump 5 word backward"))
+nmap("W", "5w", d("Jump 5 word forward"))
+nmap("B", "5b", d("Jump 5 word backward"))
 
 -- no more background key
-nmap("<C-z>", "u", desc("Revert change"))
+nmap("<C-z>", "u", d("Revert change"))
 
 -- move block easily
-nmap("<", "<<", desc("Decrease indent"))
-nmap(">", ">>", desc("Increase indent"))
-xmap("<", "<gv", desc("Increase indent"))
-xmap(">", ">gv", desc("Decrease indent"))
+nmap("<", "<<", d("Decrease indent"))
+nmap(">", ">>", d("Increase indent"))
+xmap("<", "<gv", d("Increase indent"))
+xmap(">", ">gv", d("Decrease indent"))
 
 -- create tab like window
 nmap("<C-T>h", ":tabprevious<CR>")
@@ -40,7 +40,7 @@ nmap("<C-T>l", ":tabnext<CR>")
 nmap("<C-T>n", ":tabnew<CR>")
 
 -- save quickly
-nmap(";w", ":w<CR>", desc("Save buffer"))
+nmap(";w", ":w<CR>", d("Save buffer"))
 
 -- do thing like ctrl c and ctrl v
 xmap("<C-y>", [["+y]])
@@ -50,7 +50,7 @@ map("i", "<C-p>", [[<ESC>"+pa]])
 -- shut down the search high light
 nmap("<ESC>", ":nohlsearch<CR>")
 -- no more finger expansion
-map("i", "<A-;>", "<ESC>", desc("Exit the insert mode"))
+map("i", "<A-;>", "<ESC>", d("Exit the insert mode"))
 
 -- move around the window
 nmap(";k", "<C-w>k")
