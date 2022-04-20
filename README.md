@@ -23,6 +23,14 @@ make your terminal can't handle keymap correctly.
 > Bug Report: https://github.com/neovim/neovim/issues/16699
 >
 > Fix PR: https://github.com/neovim/neovim/pull/17329
+- The configuration is no more compatible with neovim 0.6.0 now.
+
+    > If you are still using neovim 0.6.0, please checkout to the 4.0.2 version:
+
+    ```bash
+    git clone https://github.com/Avimitin/nvim
+    git checkout 4.0.2
+    ```
 
 ## Motivation
 
