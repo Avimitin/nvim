@@ -28,17 +28,20 @@ g.rooter_patterns = {
 
 -- enable treesitter for what filetype?
 g.enable_treesitter_ft = {
+  "bash",
   "c",
   "comment",
   "cpp",
   "fish",
   "go",
+  "html",
   "javascript",
   "json",
   "lua",
   "nix",
   "rust",
   "toml",
+  "vim",
 }
 
 -- enable lspconfig for what filetype?
