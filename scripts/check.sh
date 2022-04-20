@@ -4,7 +4,7 @@
 set -e
 
 echo -n "Formatting code..."
-stylua lua/ init.lua
+stylua --check lua/ init.lua
 echo "Done"
 
 echo -n "Linting code..."
