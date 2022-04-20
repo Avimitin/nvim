@@ -61,7 +61,7 @@ nmap(";h", "<C-w>h", d("Jump to the righ window"))
 -- resize the window
 nmap("<C-S-up>", ":res +5<CR>", d("Extend the upper boundary of the current window"))
 nmap("<C-S-down>", ":res -5<CR>", d("Extend the lower boundary of the current window"))
-nmap("<C-S-right>", ":vertical resize-5<CR>", d("Extend the right boundary of the current window") )
+nmap("<C-S-right>", ":vertical resize-5<CR>", d("Extend the right boundary of the current window"))
 nmap("<C-S-left>", ":vertical resize+5<CR>", d("Extend the right boundary of the current window"))
 
 -- center editing line
