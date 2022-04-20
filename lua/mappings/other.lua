@@ -18,8 +18,12 @@ map("t", ";k", [[<C-\><C-n><C-w>k]])
 map("t", ";h", [[<C-\><C-n><C-w>h]])
 
 -- telescope
-nmap(";f", function() require("telescope.builtin").find_files() end)
-nmap("<LEADER>tg", function() require("telescope.builtin").live_grep() end)
+nmap(";f", function()
+  require("telescope.builtin").find_files()
+end)
+nmap("<LEADER>tg", function()
+  require("telescope.builtin").live_grep()
+end)
 
 -- fugitive
 nmap(";g", [[<CMD>Git<CR>]])
