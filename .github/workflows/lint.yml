@@ -29,6 +29,6 @@ jobs:
         chmod +x ./stylua
     - name: Run lint
       shell: bash
-      env:
-        PATH: '$PATH:$PWD'
-      run: ./scripts/check.sh
+      run: |
+        export PATH=$PWD:$PATH
+        ./scripts/check.sh
