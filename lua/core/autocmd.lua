@@ -1,9 +1,11 @@
+local au = vim.api.nvim_create_autocmd
+
 -- use relativenumber when editing
-vim.cmd([[ au InsertEnter * set norelativenumber ]])
-vim.cmd([[ au InsertLeave * set relativenumber ]])
+au({ "InsertEnter" }, { pattern = { "*" }, command = "set nornu" })
+au({ "InsertLeave" }, { pattern = { "*" }, command = "set rnu" })
 
 -- auto compile when editing the load.lua file
-vim.cmd([[autocmd BufWritePost load.lua source <afile> | PackerCompile]])
+au({ "BufWritePost" }, { pattern = "load.lua", command = "source <afile> | PackerCompile" })
 
 -- start insert when enter the terminal
-vim.cmd("autocmd TermOpen term://* startinsert")
+au({ "TermOpen" }, { pattern = "term://*", command = "startinsert" })
