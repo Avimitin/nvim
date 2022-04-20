@@ -40,7 +40,7 @@ alias("CrateMenu", require("crates").show_popup)
 alias("CrateReload", require("crates").reload)
 
 -- nvim-spectre
-alias("SpectreOpen", require('spectre').open)
+alias("SpectreOpen", require("spectre").open)
 
 alias("HiCurLine", [[call matchadd('HighlightLineMatches', '\%'.line('.').'l')]])
 alias("HiCurLineOff", [[call clearmatches()]])
