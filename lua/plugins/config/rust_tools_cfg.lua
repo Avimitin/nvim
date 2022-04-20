@@ -55,11 +55,11 @@ local opts = {
   },
   server = {
     settings = {
-      ['rust-analyzer'] = {
+      ["rust-analyzer"] = {
         cargo = {
-          allFeatures = true
-        }
-      }
+          allFeatures = true,
+        },
+      },
     },
     on_attach = require("plugins.config.lspconfig_cfg").set_lsp_key,
   }, -- rust-analyer options
