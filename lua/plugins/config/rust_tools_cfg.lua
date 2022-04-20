@@ -53,7 +53,16 @@ local opts = {
       auto_focus = true,
     },
   },
-  server = { on_attach = require("plugins.config.lspconfig_cfg").set_lsp_key }, -- rust-analyer options
+  server = {
+    settings = {
+      ['rust-analyzer'] = {
+        cargo = {
+          allFeatures = true
+        }
+      }
+    },
+    on_attach = require("plugins.config.lspconfig_cfg").set_lsp_key,
+  }, -- rust-analyer options
 }
 
 require("rust-tools").setup(opts)
