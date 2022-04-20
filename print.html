@@ -139,6 +139,36 @@
 <p>Here is a detail document. It is still work in progress.
 And PR is welcomed.</p>
 <p>中文版的更新可能有延迟，请以英文版为主。</p>
+<h1 id="structure"><a class="header" href="#structure">Structure</a></h1>
+<p>The configuration structure:</p>
+<pre><code class="language-text">.
+├── lua
+│  ├── core            ==&gt; neovim settings
+│  │  ├── autocmd.lua  ==&gt; auto commands definition
+│  │  ├── colors.lua   ==&gt; colorscheme settings
+│  │  ├── commands.lua ==&gt; user commands
+│  │  ├── options.lua  ==&gt; neovim options
+│  │  └── utils.lua    ==&gt; other utility script, not important
+│  ├── mappings        ==&gt; neovim key mappings
+│  │  ├── init.lua     ==&gt; neovim builtin mappings
+│  │  ├── other.lua    ==&gt; plugin mappings
+│  │  └── utils.lua    ==&gt; other utility script, not important
+│  └── plugins         ==&gt; plugins definition
+│     ├── config       ==&gt; configuration for single plugin
+│     ├── bufdel.lua   ==&gt; buffer delete script
+│     ├── init.lua     ==&gt; plugin manager settings
+│     ├── load.lua     ==&gt; plugins definition
+│     └── options.lua  ==&gt; options for plugins
+├── vsnip              ==&gt; snippets
+│  ├── markdown.json
+│  ├── org.json
+│  ├── rust.json
+│  └── toml.json
+├── ginit.vim          ==&gt; gui settings for nvim-qt
+├── init.lua           ==&gt; main entry
+└── README.md
+
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h1>
 <ul>
 <li><strong>Neovim</strong> (MUST)</li>
