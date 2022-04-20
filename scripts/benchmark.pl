@@ -3,7 +3,7 @@ use warnings;
 use strict;
 
 # which file to write the result
-my $output_file = "./fixtures/benchmark.txt";
+my $output_file = "./scripts/benchmark.txt";
 
 # where to get the neovim startup time data
 my $sttime_file = "/tmp/nvim-startuptime";
