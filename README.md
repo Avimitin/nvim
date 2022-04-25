@@ -103,6 +103,8 @@ Also, there are bunch of other utilities provided by
 Besides, we have the most powerful table tools in vim:
 [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode/)
 
+![vim-table-mode-gif](./docs/images/tablemode.gif)
+
 ### Colorscheme
 
 With the help from treesitter, we can have amazing code highlight.
