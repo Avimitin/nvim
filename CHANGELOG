@@ -1,3 +1,15 @@
+5.2.0 <Apr 25 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+BREAKING CHANGES:
+-----------------
+  * keymaps: rewrite the telescope key mappings
+  * vim-visual-multi: rewrite the key mappings
+
+changes:
+--------
+  * commands: emebed flog commands into `Glog` and `GlogS`
+
+
 5.1.0 <Apr 25 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 New Features:
