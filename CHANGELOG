@@ -1,3 +1,23 @@
+5.1.0 <Apr 25 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+New Features:
+-------------
+  * treesitter: add text object detection for function call
+
+BREAKING CHANGES:
+-----------------
+  * treesitter: remove the ``move`` keymappings
+
+
+5.0.2 <Apr 25 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+Fix:
+----
+plugins:
+  * nvim-tree: fix outdated options
+  * nvim-cmp: fix keymaps
+
+
 5.0.1 <Apr 20 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 New Features:
