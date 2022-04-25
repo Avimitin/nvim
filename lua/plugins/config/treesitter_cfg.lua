@@ -21,6 +21,8 @@ require("nvim-treesitter.configs").setup({
         ["ic"] = "@class.inner",
         ["ab"] = "@block.outer",
         ["ib"] = "@block.inner",
+        ["al"] = "@call.outer",
+        ["il"] = "@call.inner",
       },
     },
     move = {
