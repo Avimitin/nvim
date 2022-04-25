@@ -21,8 +21,11 @@ map("t", ";h", [[<C-\><C-n><C-w>h]])
 nmap(";f", function()
   require("telescope.builtin").find_files()
 end)
-nmap("<LEADER>tg", function()
+nmap(";s", function()
   require("telescope.builtin").live_grep()
+end)
+nmap("<leader>t", function()
+  require("telescope.command").load_command(nil, nil, nil, "builtin", "theme=ivy")
 end)
 
 -- fugitive
