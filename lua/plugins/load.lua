@@ -141,11 +141,9 @@ local git_tools = {
   -- Flog is a lightweight and powerful git branch viewer that integrates with fugitive.
   {
     "rbong/vim-flog",
-    -- run command after the vim fugitive
-    cmd = {
-      "Flog",
-      "Flogsplit",
-    },
+    -- please don't use this plugin directly, I embed it with vim-fugitive
+    -- See lua/core/commands.lua
+    opt = true
   },
 }
 
