@@ -161,6 +161,6 @@ M.nord_setup = function()
   vim.g.background = "dark"
 
   -- And don't forget this step, it is the final step to load the theme
-  set_color("nord")
+  apply()
 end
 ```
