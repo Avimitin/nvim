@@ -1,3 +1,24 @@
+5.2.1 <Apr 29 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+
+New Features:
+-------------
+  * rust: detect ".rust-analyzer.json" file per projects (See commit c246a6a8)
+
+Fix:
+----
+  * nvim-tree: update outdated options (See commit 039f4f68)
+
+Changes:
+--------
+  * rust: remove outdated configuration (See commit 360e758d)
+
+Others:
+-------
+  * docs: fix colors custom theme (See commit 2798cd97)
+  * readme: add table mode demo (See commit 661c57aa)
+
+
 5.2.0 <Apr 25 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 BREAKING CHANGES:
