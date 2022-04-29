@@ -16,7 +16,7 @@ So you need to manually run command `:w` when you first open the rust code.
 ## Code action
 
 You can use the keymap <kbd>LEADER ra</kbd> or keymap `gx` set by LSP to view and select
-the action for Rust code.
+the action for Rust code. Also you can press <kbd>LEADER rr</kbd> to run test or function.
 
 ## Code format
 
@@ -27,6 +27,25 @@ program.
 
 You need to install lldb-vscode. Then run `:RustDebuggables`, it will open the
 debug panel automatically.
+
+## Rust Analyzer Settings
+
+You might want to make some specific rust-analyzer settings for your project.
+You can create a file with name `.rust-analyzer.json` in the same directory
+with the `Cargo.toml` file. Then put all the configuration you want into it.
+
+Configuration reference: <https://rust-analyzer.github.io/manual.html#configuration>
+
+For example, if you want to enable all feature when editing the code:
+
+```bash
+# cd to the root directory of your project
+echo '{
+  "cargo": {
+    "allFeatures": true
+  }
+}' > .rust-analyzer.json
+```
 
 ## Gallery
 
