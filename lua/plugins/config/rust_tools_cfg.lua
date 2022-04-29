@@ -40,7 +40,7 @@ local settings = parse_config(filename)
 local default = {
   cargo = {
     autoreload = true,
-  }
+  },
 }
 
 if settings then
@@ -81,7 +81,7 @@ local opts = {
   },
   server = {
     settings = {
-      ["rust-analyzer"] = default
+      ["rust-analyzer"] = default,
     },
     on_attach = require("plugins.config.lspconfig_cfg").set_lsp_key,
   }, -- rust-analyer options
