@@ -145,13 +145,26 @@ It will only show up after you save the buffer.
 So you need to manually run command <code>:w</code> when you first open the rust code.</p>
 <h2 id="code-action"><a class="header" href="#code-action">Code action</a></h2>
 <p>You can use the keymap <kbd>LEADER ra</kbd> or keymap <code>gx</code> set by LSP to view and select
-the action for Rust code.</p>
+the action for Rust code. Also you can press <kbd>LEADER rr</kbd> to run test or function.</p>
 <h2 id="code-format"><a class="header" href="#code-format">Code format</a></h2>
 <p>You can use <code>gf</code> to run the LSP built in format API. It will called the rustfmt
 program.</p>
 <h2 id="debug"><a class="header" href="#debug">Debug</a></h2>
 <p>You need to install lldb-vscode. Then run <code>:RustDebuggables</code>, it will open the
 debug panel automatically.</p>
+<h2 id="rust-analyzer-settings"><a class="header" href="#rust-analyzer-settings">Rust Analyzer Settings</a></h2>
+<p>You might want to make some specific rust-analyzer settings for your project.
+You can create a file with name <code>.rust-analyzer.json</code> in the same directory
+with the <code>Cargo.toml</code> file. Then put all the configuration you want into it.</p>
+<p>Configuration reference: <a href="https://rust-analyzer.github.io/manual.html#configuration">https://rust-analyzer.github.io/manual.html#configuration</a></p>
+<p>For example, if you want to enable all feature when editing the code:</p>
+<pre><code class="language-bash"># cd to the root directory of your project
+echo '{
+  &quot;cargo&quot;: {
+    &quot;allFeatures&quot;: true
+  }
+}' &gt; .rust-analyzer.json
+</code></pre>
 <h2 id="gallery"><a class="header" href="#gallery">Gallery</a></h2>
 <p>Please read <a href="https://github.com/simrat39/rust-tools.nvim/#demos">demo</a>.</p>
 
