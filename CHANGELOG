@@ -1,3 +1,15 @@
+5.2.2 <Apr 30 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+
+New Features:
+-------------
+  * vsnip: add collase block snippet (See commit 3d6b9556)
+
+Others:
+-------
+  * readme: add more descriptions (See commit ad791488)
+
+
 5.2.1 <Apr 29 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 
