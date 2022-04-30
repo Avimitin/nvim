@@ -12,25 +12,34 @@
 
 ## Important Notes
 
+<details>
+    <summary markdown="span">Neovim v0.7.0 Incompatible Alert</summary>
+
 Neovim v0.7.0 has released. The configuration itself is working fine.
 But there are also other changes that might incompatible with your computer.
 
 - libvterm 0.1 is now required, as neovim has bug with 0.2 version. This might
 make your terminal can't handle keymap correctly.
-> Arch Linux can use this mechanic to replace the dependency:
-> https://github.com/neovim/neovim/issues/17956#issuecomment-1086647838/
->
-> Bug Report: https://github.com/neovim/neovim/issues/16699
->
-> Fix PR: https://github.com/neovim/neovim/pull/17329
-- The configuration is no more compatible with neovim 0.6.0 now.
 
-    > If you are still using neovim 0.6.0, please checkout to the 4.0.2 version:
+    > Arch Linux can use this mechanic to replace the dependency:
+    > https://github.com/neovim/neovim/issues/17956#issuecomment-1086647838/
+    >
+    > Bug Report: https://github.com/neovim/neovim/issues/16699
+    >
+    > Fix PR: https://github.com/neovim/neovim/pull/17329
 
-    ```bash
-    git clone https://github.com/Avimitin/nvim
-    git checkout 4.0.2
-    ```
+</details>
+
+<details>
+    <summary markdown="span">Configuration Incompatible Alert</summary>
+The configuration is no more compatible with neovim 0.6.0 now.
+If you are still using neovim 0.6.0, please checkout to the 4.0.2 version:
+
+```bash
+git clone https://github.com/Avimitin/nvim
+git checkout 4.0.2
+```
+</details>
 
 ## Motivation
 
@@ -46,18 +55,32 @@ the keyboard too much. I can have my cursor in place at the moment my eye first 
 
 ## Getting Start
 
+This neovim config is personally biased and was not created for generic use.
 I recommend you use my configuration as a base and build your
 configuration. In my opinion, everyone should have their customized
-neovim. You can press the fork button to clone my project. (Don't forget
-to smash the star button! `:)`)
+neovim.
 
-Then, clone the repo:
+You can press the fork button to clone my project (Don't forget
+to smash the star button! `:)`) and pull the repo:
 
 ```bash
-git clone https://github.com/Avimitin/nvim.git ~/.config/nvim
+git clone https://github.com/YOUR_USERNAME/nvim.git ~/.config/nvim
 ```
 
-You can read the full installation documentation here:
+Then rename the default branch to `upstream` and switch to a new `master` branch:
+
+```bash
+# rename master to upstream. Not necessary to be upstream, you can pick whatever you like as branch name.
+git branch -m master upstream
+
+# create new branch with name "master". Not necessary to be master too.
+git branch master
+```
+
+Working with two different branches, you can always pull or pick new bugfix or feature
+from my configuration without messing up your configuration.
+
+You can read the full installation instruction here:
 [*Installation Guide*](https://avimitin.github.io/nvim/en_us/installation.html)
 
 > ***Minimal vimrc***: If you want a minimal vimrc, use this
@@ -67,11 +90,11 @@ You can read the full installation documentation here:
 > curl -SL "https://raw.githubusercontent.com/Avimitin/nvim/master/.vimrc" -o ~/.vimrc
 >```
 
-## Details about my configuration
+## Document (WIP)
 
-Please read [nvim book(WIP)](https://avimitin.github.io/nvim).
+Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
 
-## Show cases
+## Gallery
 
 So, what will you get from my configuration?
 
