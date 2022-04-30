@@ -31,5 +31,15 @@
     "prefix": "nbtag",
     "body": "<!-- tag: ${1} -->\n${0}",
     "description": "Add a tag span"
+  },
+
+  "collapse": {
+    "prefix": "collapse",
+    "body": [
+      "<details>",
+      "    <summary markdown=\"span\">${1}</summary>",
+      "</details>"
+    ],
+    "description": "Create a collapsible content"
   }
 }
