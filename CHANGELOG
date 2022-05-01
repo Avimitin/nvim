@@ -1,3 +1,21 @@
+6.0.0 <May 1 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+
+BREAKING CHANGES!:
+------------------
+  * keys: rewrite bufferline key mappings (See commit 3b9918d9)
+  * plugin: remove repeat.vim (See commit ca761cfa)
+  * lspconfig: update deprecated options (See commit 44e43da8)
+
+Others:
+-------
+  * book: update nvim-cmp document (See commit 611bd8f0)
+  * book: update bufferline document (See commit 01456373)
+  * book: merge and correct the lspconfig document (See commit 260f2eae)
+  * book: update capability hint (See commit de9525d4)
+  * book: fix color section (See commit fa24c72a)
+
+
 5.2.2 <Apr 30 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 
