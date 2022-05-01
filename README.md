@@ -80,6 +80,12 @@ git branch master
 Working with two different branches, you can always pull or pick new bugfix or feature
 from my configuration without messing up your configuration.
 
+> I will always write changes into CHANGELOG and release a new version after changes are made.
+> Please read the changelog each time you pull new changes. And if you are not satisfied
+> with the changes, you can `git checkout` the old version. You are also welcome to open an issue
+> to discussion with me. This config is considered as **MY** personal configuration,
+> and I can't guarantee I will stabilize it as the community do.
+
 You can read the full installation instruction here:
 [*Installation Guide*](https://avimitin.github.io/nvim/en_us/installation.html)
 
