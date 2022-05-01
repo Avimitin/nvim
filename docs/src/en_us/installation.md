@@ -2,7 +2,7 @@
 
 * **Neovim** (MUST)
 
-This configuration is compatible with neovim version 0.5.0 - 0.7.0.
+This configuration is compatible with neovim version v0.7.0-v0.8.0 only.
 
 You can follow
 [neovim installation](https://github.com/neovim/neovim/wiki/Installing-Neovim)
