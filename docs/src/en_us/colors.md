@@ -13,7 +13,7 @@ lua/core/colors.lua
 1. **Change default value**
 
 This configuration has "kanagawa" as the default colorscheme value.
-If you want to change the default value, you can modify the `default_value` variable.
+If you want to change the default value, you can modify the `M.theme` variable.
 
 ```lua
 local M = {
@@ -24,7 +24,7 @@ local M = {
 2. **Change local value**
 
 There is also another mechanism to modify this value.
-You can create a file named `custom.lua` under the lua directory.
+You can create a file named `custom.lua` under the `lua` directory.
 Then return a table value in the below form:
 
 ```lua
@@ -132,12 +132,12 @@ M.theme = "kanagawa"
 
 If you want to add the theme you prefer, follow the below instruction.
 
-1. Add the theme plugin in the plug.lua.
+1. Add the theme plugin in the `load.lua`.
 
 Assuming that the name of your theme call "nord".
 
 ```lua
-use {
+{
   'somebody/nord',
   cond = function()
     return require("colors").theme == "nord"
@@ -148,7 +148,7 @@ use {
 }
 ```
 
-You can read the lua/plugins.lua file for example.
+You can read the `lua/plugins/load.lua` file for example.
 
 2. Add the configuration in the colors.lua
 
