@@ -134,30 +134,58 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="how-to-install-new-lsp-server"><a class="header" href="#how-to-install-new-lsp-server">How to install new lsp server</a></h1>
+                        <h1 id="lspconfig"><a class="header" href="#lspconfig">lspconfig</a></h1>
+<p>The lspconfig integrate the Microsoft Language Server Protocol into
+neovim, so you can have syntax check while coding.</p>
+<h2 id="files"><a class="header" href="#files">Files</a></h2>
+<p>The lspconfig definition is put into the lua/plugins/load.lua.
+The configuration for lspconfig is put into the lua/plugins/config/lspconfig_cfg.lua.</p>
+<h2 id="keymaps"><a class="header" href="#keymaps">Keymaps</a></h2>
+<p>To separate the normal key mappings and code key mappings, key mappings are attach
+to buffer when launching LSP server. Those key mappings are set in
+<code>lua/plugins/config/lspconfig_cfg.lua</code> file by function <code>M.lsp_attach</code>.
+You can get the cheatsheets by command: <code>:nmap g</code>.</p>
+<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<ul>
+<li>Lua</li>
+</ul>
+<p>The Lua language server is configured to import neovim API by default.</p>
+<ul>
+<li>Diagnostic Signs</li>
+</ul>
+<p>The diagnostic text will have nerdfont icon support.</p>
+<ul>
+<li>Lspsaga</li>
+</ul>
+<p>I installed the lspsaga plugin to beautify all the LSP code action,
+you can configure the display in lua/plugins/config/lspsaga_settings.lua.</p>
+<h2 id="how-to-install-new-lsp-server"><a class="header" href="#how-to-install-new-lsp-server">How to install new lsp server</a></h2>
 <p>You can use command <code>:LspInstall &lt;Language&gt;</code> to install new lspserver.
 This command is provided by <a href="https://github.com/williamboman/nvim-lsp-installer">nvim-lsp-installer</a>.</p>
-<p>The Lua LSP server will be installed when you using this configuration.
-Other LSP server should be installed manually. You can add more automatically installed
-server in <code>lua/plugins/config/lspconfig_cfg.lua</code> file.</p>
-<p>Use vimgrep to find the value <code>ensure_installed_server</code> and append your LSP server
-name inside the array.</p>
-<p>For example, if you want the Golang LSP server always be installed automatically,
-you can append <code>gopls</code> inside the list.</p>
-<pre><code class="language-lua">local ensure_installed_server = {
-  &quot;sumneko_lua&quot;,
+<p>Before installing server, you should first append the corresponding filetype into
+<code>lua/plugins/options.lua</code> file. There is a variable named <code>g.enable_lspconfig_ft</code> inside
+the file, append the language name into it.
+You can check filetype by using command <code>echo &amp;filetype</code>.</p>
+<p>You can also use the <code>:LspInstallInfo</code> to use a panel to manage the servers.</p>
+<p>The plugin will ensure Lua<sup class="footnote-reference"><a href="#1">1</a></sup> language servers is installed.
+You can add or delete those ensure installed server in the lua/config/lsp.lua file.
+Use the <code>/</code> to find the <code>ensure_installed_server</code> variable.</p>
+<pre><code class="language-lua">-- add yours or delete in this variable
+local ensure_installed_server = {
+  &quot;clangd&quot;,
   &quot;gopls&quot;,
+  &quot;sumneko_lua&quot;,
 }
 </code></pre>
 <blockquote>
 <p>I know it is hard to find out and setting this variable. I will try to expose it
 in outer file someday.</p>
 </blockquote>
-<h1 id="where-to-rewrite-the-code-action-key-mappings"><a class="header" href="#where-to-rewrite-the-code-action-key-mappings">Where to rewrite the code action key mappings</a></h1>
-<p>To separate the normal key mappings and code key mappings, key mappings are attach
-to buffer when launching LSP server. So it might be hard to find but the code
-key mappings are set in <code>lua/plugins/config/lspconfig_cfg.lua</code> file.</p>
-<h1 id="how-to-change-diagnostic-signs"><a class="header" href="#how-to-change-diagnostic-signs">How to change diagnostic signs</a></h1>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Rust server is also automatically installed and set up by rust-tools.nvim.
+For detail please read <a href="../plugins/rust.html">Rust.md(WIP)</a></p>
+</div>
+<h2 id="how-to-change-diagnostic-signs"><a class="header" href="#how-to-change-diagnostic-signs">How to change diagnostic signs</a></h2>
 <p>You can find use vimgrep to find value <code>signs</code> inside the <code>lua/plugins/config/lspconfig_cfg.lua</code>
 file.</p>
 

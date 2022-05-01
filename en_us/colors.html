@@ -144,7 +144,7 @@
 <li><strong>Change default value</strong></li>
 </ol>
 <p>This configuration has &quot;kanagawa&quot; as the default colorscheme value.
-If you want to change the default value, you can modify the <code>default_value</code> variable.</p>
+If you want to change the default value, you can modify the <code>M.theme</code> variable.</p>
 <pre><code class="language-lua">local M = {
   theme = &quot;kanagawa&quot; -- &lt;- change this value
 }
@@ -153,7 +153,7 @@ If you want to change the default value, you can modify the <code>default_value<
 <li><strong>Change local value</strong></li>
 </ol>
 <p>There is also another mechanism to modify this value.
-You can create a file named <code>custom.lua</code> under the lua directory.
+You can create a file named <code>custom.lua</code> under the <code>lua</code> directory.
 Then return a table value in the below form:</p>
 <pre><code class="language-lua">-- ~/.config/nvim/lua/custom.lua
 
@@ -247,10 +247,10 @@ return M
 <h2 id="add-your-theme"><a class="header" href="#add-your-theme">Add your theme</a></h2>
 <p>If you want to add the theme you prefer, follow the below instruction.</p>
 <ol>
-<li>Add the theme plugin in the plug.lua.</li>
+<li>Add the theme plugin in the <code>load.lua</code>.</li>
 </ol>
 <p>Assuming that the name of your theme call &quot;nord&quot;.</p>
-<pre><code class="language-lua">use {
+<pre><code class="language-lua">{
   'somebody/nord',
   cond = function()
     return require(&quot;colors&quot;).theme == &quot;nord&quot;
@@ -260,7 +260,7 @@ return M
   end
 }
 </code></pre>
-<p>You can read the lua/plugins.lua file for example.</p>
+<p>You can read the <code>lua/plugins/load.lua</code> file for example.</p>
 <ol start="2">
 <li>Add the configuration in the colors.lua</li>
 </ol>

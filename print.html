@@ -173,7 +173,7 @@ And PR is welcomed.</p>
 <ul>
 <li><strong>Neovim</strong> (MUST)</li>
 </ul>
-<p>This configuration is compatible with neovim version 0.5.0 - 0.7.0.</p>
+<p>This configuration is compatible with neovim version v0.7.0-v0.8.0 only.</p>
 <p>You can follow
 <a href="https://github.com/neovim/neovim/wiki/Installing-Neovim">neovim installation</a>
 for the installation guidance.</p>
@@ -349,7 +349,7 @@ I have docker script for you!</p>
 <li><strong>Change default value</strong></li>
 </ol>
 <p>This configuration has &quot;kanagawa&quot; as the default colorscheme value.
-If you want to change the default value, you can modify the <code>default_value</code> variable.</p>
+If you want to change the default value, you can modify the <code>M.theme</code> variable.</p>
 <pre><code class="language-lua">local M = {
   theme = &quot;kanagawa&quot; -- &lt;- change this value
 }
@@ -358,7 +358,7 @@ If you want to change the default value, you can modify the <code>default_value<
 <li><strong>Change local value</strong></li>
 </ol>
 <p>There is also another mechanism to modify this value.
-You can create a file named <code>custom.lua</code> under the lua directory.
+You can create a file named <code>custom.lua</code> under the <code>lua</code> directory.
 Then return a table value in the below form:</p>
 <pre><code class="language-lua">-- ~/.config/nvim/lua/custom.lua
 
@@ -452,10 +452,10 @@ return M
 <h2 id="add-your-theme"><a class="header" href="#add-your-theme">Add your theme</a></h2>
 <p>If you want to add the theme you prefer, follow the below instruction.</p>
 <ol>
-<li>Add the theme plugin in the plug.lua.</li>
+<li>Add the theme plugin in the <code>load.lua</code>.</li>
 </ol>
 <p>Assuming that the name of your theme call &quot;nord&quot;.</p>
-<pre><code class="language-lua">use {
+<pre><code class="language-lua">{
   'somebody/nord',
   cond = function()
     return require(&quot;colors&quot;).theme == &quot;nord&quot;
@@ -465,7 +465,7 @@ return M
   end
 }
 </code></pre>
-<p>You can read the lua/plugins.lua file for example.</p>
+<p>You can read the <code>lua/plugins/load.lua</code> file for example.</p>
 <ol start="2">
 <li>Add the configuration in the colors.lua</li>
 </ol>
@@ -580,30 +580,58 @@ You should input this command twice to get the below layout.</p>
 |                |            |
 +----------------+------------+
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-install-new-lsp-server"><a class="header" href="#how-to-install-new-lsp-server">How to install new lsp server</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lspconfig"><a class="header" href="#lspconfig">lspconfig</a></h1>
+<p>The lspconfig integrate the Microsoft Language Server Protocol into
+neovim, so you can have syntax check while coding.</p>
+<h2 id="files"><a class="header" href="#files">Files</a></h2>
+<p>The lspconfig definition is put into the lua/plugins/load.lua.
+The configuration for lspconfig is put into the lua/plugins/config/lspconfig_cfg.lua.</p>
+<h2 id="keymaps"><a class="header" href="#keymaps">Keymaps</a></h2>
+<p>To separate the normal key mappings and code key mappings, key mappings are attach
+to buffer when launching LSP server. Those key mappings are set in
+<code>lua/plugins/config/lspconfig_cfg.lua</code> file by function <code>M.lsp_attach</code>.
+You can get the cheatsheets by command: <code>:nmap g</code>.</p>
+<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<ul>
+<li>Lua</li>
+</ul>
+<p>The Lua language server is configured to import neovim API by default.</p>
+<ul>
+<li>Diagnostic Signs</li>
+</ul>
+<p>The diagnostic text will have nerdfont icon support.</p>
+<ul>
+<li>Lspsaga</li>
+</ul>
+<p>I installed the lspsaga plugin to beautify all the LSP code action,
+you can configure the display in lua/plugins/config/lspsaga_settings.lua.</p>
+<h2 id="how-to-install-new-lsp-server"><a class="header" href="#how-to-install-new-lsp-server">How to install new lsp server</a></h2>
 <p>You can use command <code>:LspInstall &lt;Language&gt;</code> to install new lspserver.
 This command is provided by <a href="https://github.com/williamboman/nvim-lsp-installer">nvim-lsp-installer</a>.</p>
-<p>The Lua LSP server will be installed when you using this configuration.
-Other LSP server should be installed manually. You can add more automatically installed
-server in <code>lua/plugins/config/lspconfig_cfg.lua</code> file.</p>
-<p>Use vimgrep to find the value <code>ensure_installed_server</code> and append your LSP server
-name inside the array.</p>
-<p>For example, if you want the Golang LSP server always be installed automatically,
-you can append <code>gopls</code> inside the list.</p>
-<pre><code class="language-lua">local ensure_installed_server = {
-  &quot;sumneko_lua&quot;,
+<p>Before installing server, you should first append the corresponding filetype into
+<code>lua/plugins/options.lua</code> file. There is a variable named <code>g.enable_lspconfig_ft</code> inside
+the file, append the language name into it.
+You can check filetype by using command <code>echo &amp;filetype</code>.</p>
+<p>You can also use the <code>:LspInstallInfo</code> to use a panel to manage the servers.</p>
+<p>The plugin will ensure Lua<sup class="footnote-reference"><a href="#1">1</a></sup> language servers is installed.
+You can add or delete those ensure installed server in the lua/config/lsp.lua file.
+Use the <code>/</code> to find the <code>ensure_installed_server</code> variable.</p>
+<pre><code class="language-lua">-- add yours or delete in this variable
+local ensure_installed_server = {
+  &quot;clangd&quot;,
   &quot;gopls&quot;,
+  &quot;sumneko_lua&quot;,
 }
 </code></pre>
 <blockquote>
 <p>I know it is hard to find out and setting this variable. I will try to expose it
 in outer file someday.</p>
 </blockquote>
-<h1 id="where-to-rewrite-the-code-action-key-mappings"><a class="header" href="#where-to-rewrite-the-code-action-key-mappings">Where to rewrite the code action key mappings</a></h1>
-<p>To separate the normal key mappings and code key mappings, key mappings are attach
-to buffer when launching LSP server. So it might be hard to find but the code
-key mappings are set in <code>lua/plugins/config/lspconfig_cfg.lua</code> file.</p>
-<h1 id="how-to-change-diagnostic-signs"><a class="header" href="#how-to-change-diagnostic-signs">How to change diagnostic signs</a></h1>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Rust server is also automatically installed and set up by rust-tools.nvim.
+For detail please read <a href="en_us/workflows/../plugins/rust.html">Rust.md(WIP)</a></p>
+</div>
+<h2 id="how-to-change-diagnostic-signs"><a class="header" href="#how-to-change-diagnostic-signs">How to change diagnostic signs</a></h2>
 <p>You can find use vimgrep to find value <code>signs</code> inside the <code>lua/plugins/config/lspconfig_cfg.lua</code>
 file.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="plugins"><a class="header" href="#plugins">Plugins</a></h1>
@@ -771,11 +799,11 @@ manage more than tab page.</p>
 <h2 id="keymap-2"><a class="header" href="#keymap-2">keymap</a></h2>
 <ul>
 <li>Use <kbd>.</kbd> to go to next page.</li>
-<li>Use <kbd>,</kbd> to go to next page.</li>
+<li>Use <kbd>,</kbd> to go to previous page.</li>
 <li>Use <kbd>Ctrl-c</kbd> to open picker mode and close the buffer.</li>
 <li>Use <kbd>Alt-&lt;</kbd> to move the current page forward.</li>
 <li>Use <kbd>Alt-&gt;</kbd> to move the current page backward.</li>
-<li>Use <kbd>Alt-p</kbd> to pick buffer.</li>
+<li>Use <kbd>;p</kbd> to pick buffer.</li>
 </ul>
 <p><img src="https://user-images.githubusercontent.com/22454918/111993296-5bbf5180-8b0e-11eb-9ad9-fcf9619436fd.gif" alt="image" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lightspeednvim"><a class="header" href="#lightspeednvim">lightspeed.nvim</a></h1>
@@ -823,7 +851,7 @@ is waiting for your next action.</p>
 <p>Press <kbd>Enter</kbd> in
 <code>&quot;&quot;</code>, <code>()</code>, <code>{}</code>, <code>[]</code>, <code>''</code>, <code>``</code>, <code>&lt;tag&gt;&lt;/tag&gt;</code>.
 And this plugin will automatically select text inside this surrounding signs.</p>
-<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<h2 id="configuration-1"><a class="header" href="#configuration-1">Configuration</a></h2>
 <p>The configuration is defined in lua/plugins.lua by <code>prehook()</code> function.
 You can modify the <code>vim.g.wildfire_objects</code> variable.</p>
 <p>You can add the bracket you want inside it.
@@ -835,7 +863,7 @@ The root pattern is like <code>.git</code>, <code>go.mod</code>, <code>Cargo.tom
 <h2 id="usage-1"><a class="header" href="#usage-1">Usage</a></h2>
 <p>Rooter will run once when you open the editor at the first time.
 You can also trigger it by command <code>:Rooter</code>.</p>
-<h2 id="configuration-1"><a class="header" href="#configuration-1">Configuration</a></h2>
+<h2 id="configuration-2"><a class="header" href="#configuration-2">Configuration</a></h2>
 <p>The rooter config is set in the lua/partial/enhance.lua file.</p>
 <pre><code class="language-lua">-- set this to 0, the rooter will automatically cd into root dir
 vim.g.rooter_manual_only = 1
@@ -892,7 +920,7 @@ This means that this plugin will be loaded after you enter the insert mode.</p>
 <h2 id="file-location"><a class="header" href="#file-location">file location</a></h2>
 <p>The nvim-cmp plugin itself is defined in the lua/partial/cmp.lua file.
 And its config is placed in the lua/config/completion.lua file.</p>
-<h2 id="configuration-2"><a class="header" href="#configuration-2">Configuration</a></h2>
+<h2 id="configuration-3"><a class="header" href="#configuration-3">Configuration</a></h2>
 <p>The nvim-cmp is configured to use lspkind to show nerdfont icons.</p>
 <p>I also enabled the ghost text feature so you can always get inline hint.
 For those who don't like this feature, you can close this by updating the
@@ -904,59 +932,19 @@ ghost_text variable:</p>
 <h2 id="sources"><a class="header" href="#sources">Sources</a></h2>
 <p>Below are the available sources:</p>
 <ul>
-<li>cmp-path: a system path completion plugin, use it by pressing <code>./</code> or <code>/</code></li>
+<li>cmp-path: a system path completion plugin, use it by inputting the path prefix <code>./</code> or <code>/</code></li>
 <li>cmp-buffer: a word completion for the current buffer.</li>
 <li>nvim-lsp: a syntax completion, require LSP is set up.</li>
 <li>cmp-vsnip: a snippet completion. It is already has some basic snippets.
 You can define yours in the vsnip/ directory.</li>
-<li>orgmode: a orgmode completion. It doesn't works due to some lazyloadding issue.</li>
+<li>cmp-cmdline: press <code>/</code> or <code>:</code> key will trigger nvim-cmp to complete neovim buffer and command.</li>
 </ul>
 <h2 id="reference"><a class="header" href="#reference">Reference</a></h2>
 <ul>
 <li><code>:h nvim-cmp</code></li>
 <li><code>:h vsnip</code></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="lspconfig"><a class="header" href="#lspconfig">lspconfig</a></h1>
-<p>The lspconfig integrate the Microsoft Language Server Protocol into
-neovim, so you can have syntax check while coding.</p>
-<h2 id="files"><a class="header" href="#files">Files</a></h2>
-<p>The lspconfig definition is put into the lua/partial/coding.lua.
-The configuration for lspconfig is put into the lua/config/lsp.lua.</p>
-<h2 id="servers"><a class="header" href="#servers">Servers</a></h2>
-<p>I have add <code>lspinstall</code> plugin to help simplify the language server installation.
-You can use <code>:LspInstall</code> command to install the server you want.
-You can also use the <code>:LspInstallInfo</code> to use a panel to manage the servers.</p>
-<p>The plugin will ensure CPP/Lua/Golang/Rust<sup class="footnote-reference"><a href="#1">1</a></sup> lanaguge servers are installed.
-You can add or delete those ensure installed server in the lua/config/lsp.lua file.
-Use the <code>/</code> to find the <code>ensure_installed_server</code> variable.</p>
-<pre><code class="language-lua">-- add yours or delete in this variable
-local ensure_installed_server = {
-  &quot;clangd&quot;,
-  &quot;gopls&quot;,
-  &quot;sumneko_lua&quot;,
-}
-</code></pre>
-<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
-<p>Rust server is set up by rust-tools.nvim. For detail please read
-<a href="en_us/plugins/./.">Rust.md(WIP)</a></p>
-</div>
-<h2 id="keymaps"><a class="header" href="#keymaps">Keymaps</a></h2>
-<p>Keymaps are defined in lua/utils.lua by function <code>M.lsp_attach</code>.
-You can get the cheatsheets by command: <code>:nmap g</code>.</p>
-<h2 id="configuration-3"><a class="header" href="#configuration-3">Configuration</a></h2>
-<ul>
-<li>Lua</li>
-</ul>
-<p>The Lua language server is configured to import neovim API by default.</p>
-<ul>
-<li>Diagnostic Signs</li>
-</ul>
-<p>The diagnostic text will have nerdfont icon support.</p>
-<ul>
-<li>Lspsaga</li>
-</ul>
-<p>I installed the lspsaga plugin to beautify all the LSP code action,
-you can configure the display in lua/config/lspsaga_settings.lua.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lspconfig-1"><a class="header" href="#lspconfig-1">lspconfig</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dispatch"><a class="header" href="#dispatch">Dispatch</a></h1>
 <p>The dispatch plugin can help you run build job in a separate window.
 If you are using tmux, it will create the window in tmux.</p>
