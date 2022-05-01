@@ -27,12 +27,12 @@ experimental = {
 
 Below are the available sources:
 
-- cmp-path: a system path completion plugin, use it by pressing `./` or `/`
+- cmp-path: a system path completion plugin, use it by inputting the path prefix `./` or `/`
 - cmp-buffer: a word completion for the current buffer.
 - nvim-lsp: a syntax completion, require LSP is set up.
 - cmp-vsnip: a snippet completion. It is already has some basic snippets.
 You can define yours in the vsnip/ directory.
-- orgmode: a orgmode completion. It doesn't works due to some lazyloadding issue.
+- cmp-cmdline: press `/` or `:` key will trigger nvim-cmp to complete neovim buffer and command.
 
 ## Reference
 
