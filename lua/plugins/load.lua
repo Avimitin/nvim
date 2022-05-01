@@ -393,14 +393,6 @@ local editor_enhance = {
     event = "BufRead",
   },
 
-  -- repeat your last action, what ever command or keymaps or inputs
-  {
-    "tpope/vim-repeat",
-    keys = {
-      { "n", "." },
-    },
-  },
-
   -- a curl wrapper in neovim
   {
     "NTBBloodbath/rest.nvim",
