@@ -3,7 +3,7 @@
 
 Changes:
 --------
-  * rust: replace upstream (See commit e695763b)
+  * rust: replace upstream (See commit [`e695763b`](https://github.com/Avimitin/nvim/commit/e695763b))
 
 
 6.1.0 <May 2 2022>
@@ -11,12 +11,12 @@ Changes:
 
 Changes:
 --------
-  * lsp: replace lspsaga upstream (See commit 9b5e9f77)
+  * lsp: replace lspsaga upstream (See commit [`9b5e9f77`](https://github.com/Avimitin/nvim/commit/9b5e9f77))
 
 Others:
 -------
-  * readme: add version reminder (See commit 284775d7)
-  * readme: add API stablize hint (See commit 1054482d)
+  * readme: add version reminder (See commit [`284775d7`](https://github.com/Avimitin/nvim/commit/284775d7))
+  * readme: add API stablize hint (See commit [`1054482d`](https://github.com/Avimitin/nvim/commit/1054482d))
 
 
 6.0.0 <May 1 2022>
@@ -24,17 +24,17 @@ Others:
 
 BREAKING CHANGES!:
 ------------------
-  * keys: rewrite bufferline key mappings (See commit 3b9918d9)
-  * plugin: remove repeat.vim (See commit ca761cfa)
-  * lspconfig: update deprecated options (See commit 44e43da8)
+  * keys: rewrite bufferline key mappings (See commit [`3b9918d9`](https://github.com/Avimitin/nvim/commit/3b9918d9))
+  * plugin: remove repeat.vim (See commit [`ca761cfa`](https://github.com/Avimitin/nvim/commit/ca761cfa))
+  * lspconfig: update deprecated options (See commit [`44e43da8`](https://github.com/Avimitin/nvim/commit/44e43da8))
 
 Others:
 -------
-  * book: update nvim-cmp document (See commit 611bd8f0)
-  * book: update bufferline document (See commit 01456373)
-  * book: merge and correct the lspconfig document (See commit 260f2eae)
-  * book: update capability hint (See commit de9525d4)
-  * book: fix color section (See commit fa24c72a)
+  * book: update nvim-cmp document (See commit [`611bd8f0`](https://github.com/Avimitin/nvim/commit/611bd8f0))
+  * book: update bufferline document (See commit [`01456373`](https://github.com/Avimitin/nvim/commit/01456373))
+  * book: merge and correct the lspconfig document (See commit [`260f2eae`](https://github.com/Avimitin/nvim/commit/260f2eae))
+  * book: update capability hint (See commit [`de9525d4`](https://github.com/Avimitin/nvim/commit/de9525d4))
+  * book: fix color section (See commit [`fa24c72a`](https://github.com/Avimitin/nvim/commit/fa24c72a))
 
 
 5.2.2 <Apr 30 2022>
@@ -42,11 +42,11 @@ Others:
 
 New Features:
 -------------
-  * vsnip: add collase block snippet (See commit 3d6b9556)
+  * vsnip: add collase block snippet (See commit [`3d6b9556`](https://github.com/Avimitin/nvim/commit/3d6b9556))
 
 Others:
 -------
-  * readme: add more descriptions (See commit ad791488)
+  * readme: add more descriptions (See commit [`ad791488`](https://github.com/Avimitin/nvim/commit/ad791488))
 
 
 5.2.1 <Apr 29 2022>
@@ -54,20 +54,20 @@ Others:
 
 New Features:
 -------------
-  * rust: detect ".rust-analyzer.json" file per projects (See commit c246a6a8)
+  * rust: detect ".rust-analyzer.json" file per projects (See commit [`c246a6a8`](https://github.com/Avimitin/nvim/commit/c246a6a8))
 
 Fix:
 ----
-  * nvim-tree: update outdated options (See commit 039f4f68)
+  * nvim-tree: update outdated options (See commit [`039f4f68`](https://github.com/Avimitin/nvim/commit/039f4f68))
 
 Changes:
 --------
-  * rust: remove outdated configuration (See commit 360e758d)
+  * rust: remove outdated configuration (See commit [`360e758d`](https://github.com/Avimitin/nvim/commit/360e758d))
 
 Others:
 -------
-  * docs: fix colors custom theme (See commit 2798cd97)
-  * readme: add table mode demo (See commit 661c57aa)
+  * docs: fix colors custom theme (See commit [`2798cd97`](https://github.com/Avimitin/nvim/commit/2798cd97))
+  * readme: add table mode demo (See commit [`661c57aa`](https://github.com/Avimitin/nvim/commit/661c57aa))
 
 
 5.2.0 <Apr 25 2022>
@@ -106,45 +106,45 @@ plugins:
 ====================================================================
 New Features:
 -------------
-  * rust: enable all features for analyzer (See commit 54b564a6)
+  * rust: enable all features for analyzer (See commit [`54b564a6`](https://github.com/Avimitin/nvim/commit/54b564a6))
 
 Others:
 -------
-  * docs: add configuration structure description (See commit cfe9e82b)
-  * readme: add incompatible notice (See commit 8db142cb)
+  * docs: add configuration structure description (See commit [`cfe9e82b`](https://github.com/Avimitin/nvim/commit/cfe9e82b))
+  * readme: add incompatible notice (See commit [`8db142cb`](https://github.com/Avimitin/nvim/commit/8db142cb))
 
 
 5.0.0 <Apr 20 2022>
 ====================================================================
 BREAKING CHANGES!:
 ------------------
-  * nvim: implement new neovim v0.7.0 Lua API (See commit 0f24a99a)
-  * scripts: rename fixtures to script (See commit 0320de72)
+  * nvim: implement new neovim v0.7.0 Lua API (See commit [`0f24a99a`](https://github.com/Avimitin/nvim/commit/0f24a99a))
+  * scripts: rename fixtures to script (See commit [`0320de72`](https://github.com/Avimitin/nvim/commit/0320de72))
 
 New Features:
 -------------
-  * autocmd: use new api for autocommands (See commit d93b9455)
-  * commands: use new api to define command (See commit c6aaca63)
-  * keys: add more description for keys (See commit 8a637246)
-  * treesitter: enable more filetype (See commit 103cf557)
-  * vsnip: create snippet for cargo.toml (See commit e9d7b42e)
+  * autocmd: use new api for autocommands (See commit [`d93b9455`](https://github.com/Avimitin/nvim/commit/d93b9455))
+  * commands: use new api to define command (See commit [`c6aaca63`](https://github.com/Avimitin/nvim/commit/c6aaca63))
+  * keys: add more description for keys (See commit [`8a637246`](https://github.com/Avimitin/nvim/commit/8a637246))
+  * treesitter: enable more filetype (See commit [`103cf557`](https://github.com/Avimitin/nvim/commit/103cf557))
+  * vsnip: create snippet for cargo.toml (See commit [`e9d7b42e`](https://github.com/Avimitin/nvim/commit/e9d7b42e))
 
 Changes:
 --------
-  * scripts: grant execute permission for perl script (See commit 90b61c50)
-  * ci: update test script (See commit 2eb73b0e)
+  * scripts: grant execute permission for perl script (See commit [`90b61c50`](https://github.com/Avimitin/nvim/commit/90b61c50))
+  * ci: update test script (See commit [`2eb73b0e`](https://github.com/Avimitin/nvim/commit/2eb73b0e))
 
 
 4.0.2 <Apr 15 2022>
 ====================================================================
 Fix:
 ----
-  * treesitter: enable fish (See commit 17d17827)
+  * treesitter: enable fish (See commit [`17d17827`](https://github.com/Avimitin/nvim/commit/17d17827))
 
 
 Others:
 -------
-  * changelog: release 4.0.1 (See commit 35adeb1f)
+  * changelog: release 4.0.1 (See commit [`35adeb1f`](https://github.com/Avimitin/nvim/commit/35adeb1f))
   * Fix linting error
 
 
@@ -153,34 +153,34 @@ Others:
 
 New Features:
 -------------
-  * rust: add key mapping for rust (See commit a4b6f266)
-  * plugins: enable nix for treesitter (See commit 8c4a7e47)
-  * statusline: add colorscheme for dawnfox (See commit dffd2b36)
-  * galaxyline: adjust the github light theme (See commit 231cdb79)
-  * colorscheme: add github colorscheme (See commit 7f773e14)
-  * colorscheme: add color set nightfox (See commit ec1a81c4)
-  * commands: add command for highlight multiple lines (See commit 2b3686f6)
-  * mappings: add terminal keymapping (See commit 4a7aacc5)
-  * nvim-cmp: add load trigger for key ":" and "/" (See commit b5e56203)
+  * rust: add key mapping for rust (See commit [`a4b6f266`](https://github.com/Avimitin/nvim/commit/a4b6f266))
+  * plugins: enable nix for treesitter (See commit [`8c4a7e47`](https://github.com/Avimitin/nvim/commit/8c4a7e47))
+  * statusline: add colorscheme for dawnfox (See commit [`dffd2b36`](https://github.com/Avimitin/nvim/commit/dffd2b36))
+  * galaxyline: adjust the github light theme (See commit [`231cdb79`](https://github.com/Avimitin/nvim/commit/231cdb79))
+  * colorscheme: add github colorscheme (See commit [`7f773e14`](https://github.com/Avimitin/nvim/commit/7f773e14))
+  * colorscheme: add color set nightfox (See commit [`ec1a81c4`](https://github.com/Avimitin/nvim/commit/ec1a81c4))
+  * commands: add command for highlight multiple lines (See commit [`2b3686f6`](https://github.com/Avimitin/nvim/commit/2b3686f6))
+  * mappings: add terminal keymapping (See commit [`4a7aacc5`](https://github.com/Avimitin/nvim/commit/4a7aacc5))
+  * nvim-cmp: add load trigger for key ":" and "/" (See commit [`b5e56203`](https://github.com/Avimitin/nvim/commit/b5e56203))
 
 Fix:
 ----
-  * vimrc: fix invalid listchars (See commit 605d02a8)
-  * colorscheme: fix colorscheme not loading issue (See commit 08f8f674)
+  * vimrc: fix invalid listchars (See commit [`605d02a8`](https://github.com/Avimitin/nvim/commit/605d02a8))
+  * colorscheme: fix colorscheme not loading issue (See commit [`08f8f674`](https://github.com/Avimitin/nvim/commit/08f8f674))
 
 Changes:
 --------
-  * colorscheme: move default value inside table (See commit 6429755a)
-  * neovide: use monospace for flexible font choice (See commit 5dce1f8d)
-  * nvim-cmp: change the source name to Vim (See commit 41d370f0)
-  * treesitter: remove markdown regex (See commit f910c12b)
-  * kanagawa: enable inactive window dim color (See commit e3a22e01)
+  * colorscheme: move default value inside table (See commit [`6429755a`](https://github.com/Avimitin/nvim/commit/6429755a))
+  * neovide: use monospace for flexible font choice (See commit [`5dce1f8d`](https://github.com/Avimitin/nvim/commit/5dce1f8d))
+  * nvim-cmp: change the source name to Vim (See commit [`41d370f0`](https://github.com/Avimitin/nvim/commit/41d370f0))
+  * treesitter: remove markdown regex (See commit [`f910c12b`](https://github.com/Avimitin/nvim/commit/f910c12b))
+  * kanagawa: enable inactive window dim color (See commit [`e3a22e01`](https://github.com/Avimitin/nvim/commit/e3a22e01))
 
 Others:
 -------
-  * books: add document for how to switch nightmode automatically (See commit 47cf5f59)
-  * colorscheme: update colorscheme document (See commit b95d897f)
-  * plugins: add component document (See commit fcefe899)
+  * books: add document for how to switch nightmode automatically (See commit [`47cf5f59`](https://github.com/Avimitin/nvim/commit/47cf5f59))
+  * colorscheme: update colorscheme document (See commit [`b95d897f`](https://github.com/Avimitin/nvim/commit/b95d897f))
+  * plugins: add component document (See commit [`fcefe899`](https://github.com/Avimitin/nvim/commit/fcefe899))
 
 
 4.0.0 <Mar 12 2022>
@@ -231,66 +231,66 @@ My future goal is to finish all the tutorial about the workflow I use with neovi
 
 Breaking Changes:
 -----------------
-  * lspconfig: move lsp_attach to lspconfig (See commit bcc3ca70)
-  * plugins: remove vim-lua-format (See commit f0ee2689)
-  * plugins: rename all plugin config suffix with _cfg (See commit 86706692)
-  * format: replace luaformat with stylua (See commit 51bb5119)
-  * reft!/keymap: remove wildfire range keymap (See commit 25b4e453)
-  * reft!/plugin: remove orgmode (See commit fc94ef62)
-  * gitsigns: update git sign keymaps (See commit abf53d99)
-  * commands: remove fugitive command alias (See commit f4a45ba4)
-  * lspinstall: remove some ensure install server (See commit 66ef74e4)
-  * colorscheme: remove colorschemes (See commit bf3f7a21)
-  * plugins: move prehook settings to options.lua (See commit b91fec41)
+  * lspconfig: move lsp_attach to lspconfig (See commit [`bcc3ca70`](https://github.com/Avimitin/nvim/commit/bcc3ca70))
+  * plugins: remove vim-lua-format (See commit [`f0ee2689`](https://github.com/Avimitin/nvim/commit/f0ee2689))
+  * plugins: rename all plugin config suffix with _cfg (See commit [`86706692`](https://github.com/Avimitin/nvim/commit/86706692))
+  * format: replace luaformat with stylua (See commit [`51bb5119`](https://github.com/Avimitin/nvim/commit/51bb5119))
+  * reft!/keymap: remove wildfire range keymap (See commit [`25b4e453`](https://github.com/Avimitin/nvim/commit/25b4e453))
+  * reft!/plugin: remove orgmode (See commit [`fc94ef62`](https://github.com/Avimitin/nvim/commit/fc94ef62))
+  * gitsigns: update git sign keymaps (See commit [`abf53d99`](https://github.com/Avimitin/nvim/commit/abf53d99))
+  * commands: remove fugitive command alias (See commit [`f4a45ba4`](https://github.com/Avimitin/nvim/commit/f4a45ba4))
+  * lspinstall: remove some ensure install server (See commit [`66ef74e4`](https://github.com/Avimitin/nvim/commit/66ef74e4))
+  * colorscheme: remove colorschemes (See commit [`bf3f7a21`](https://github.com/Avimitin/nvim/commit/bf3f7a21))
+  * plugins: move prehook settings to options.lua (See commit [`b91fec41`](https://github.com/Avimitin/nvim/commit/b91fec41))
 
 
 New Features:
 -------------
 plugins:
-  * plugins: add cmp-cmdline (See commit 1cbe60ce)
-  * nvim-cmp: add cmdline completion (See commit 4d092550)
-  * markdown: enable latex math conceal (See commit 7e2aee94)
-  * plugins: add winshift.nvim to handle window movement (See commit b019cc99)
-  * plugins: extend text object by treesitter (See commit 36526ed4)
-  * plugins: add dressing.nvim to pretty the vim.ui.select panel (See commit a71358df)
-  * plugins: add focus.nvim for split window (See commit 9a879728)
-  * nvim-cmp: add cmp source dictionary (See commit 4113b285)
-  * plugins: use a global filetype settings for treesitter and lspconfig (See commit 36e37358)
-  * rust: enable variable name in inlay hint (See commit 2f3b25f7)
-  * keymap: add `;d` for dispatch (See commit 4619fe33)
-  * plugin: add plugin to view git log (See commit 921b5817)
-  * plugin: add plugin to show lsp loading status (See commit c4d2f8df)
-  * plugin: add rest.nvim (See commit 60163157)
-  * vsnip: add fronmatter snippet (See commit e6b997c5)
-  * plugin: add nvim-notify (See commit 3e7f46e9)
-  * plugins: add bufdel.lua (See commit c23be93b)
-  * plugins: add impatient.nvim to optimize the start up time (See commit 4ea10f41)
-  * nvim-cmp: add load trigger for key ":" and "/" (See commit b5e56203)
-  * nvim-cmp: use special format for cmdline cmp (See commit c542b111)
-  * plugins: add spetre to enhance search and replace (See commit 852bebcc)
-  * plugins: add neoscroll to scroll smoothly (See commit c2ae4bff)
-  * treesitter: enable matchup in treesitter (See commit 23a9eab4)
-  * plugins: use toggleterm instead of fterm (See commit c9c22f11)
+  * plugins: add cmp-cmdline (See commit [`1cbe60ce`](https://github.com/Avimitin/nvim/commit/1cbe60ce))
+  * nvim-cmp: add cmdline completion (See commit [`4d092550`](https://github.com/Avimitin/nvim/commit/4d092550))
+  * markdown: enable latex math conceal (See commit [`7e2aee94`](https://github.com/Avimitin/nvim/commit/7e2aee94))
+  * plugins: add winshift.nvim to handle window movement (See commit [`b019cc99`](https://github.com/Avimitin/nvim/commit/b019cc99))
+  * plugins: extend text object by treesitter (See commit [`36526ed4`](https://github.com/Avimitin/nvim/commit/36526ed4))
+  * plugins: add dressing.nvim to pretty the vim.ui.select panel (See commit [`a71358df`](https://github.com/Avimitin/nvim/commit/a71358df))
+  * plugins: add focus.nvim for split window (See commit [`9a879728`](https://github.com/Avimitin/nvim/commit/9a879728))
+  * nvim-cmp: add cmp source dictionary (See commit [`4113b285`](https://github.com/Avimitin/nvim/commit/4113b285))
+  * plugins: use a global filetype settings for treesitter and lspconfig (See commit [`36e37358`](https://github.com/Avimitin/nvim/commit/36e37358))
+  * rust: enable variable name in inlay hint (See commit [`2f3b25f7`](https://github.com/Avimitin/nvim/commit/2f3b25f7))
+  * keymap: add `;d` for dispatch (See commit [`4619fe33`](https://github.com/Avimitin/nvim/commit/4619fe33))
+  * plugin: add plugin to view git log (See commit [`921b5817`](https://github.com/Avimitin/nvim/commit/921b5817))
+  * plugin: add plugin to show lsp loading status (See commit [`c4d2f8df`](https://github.com/Avimitin/nvim/commit/c4d2f8df))
+  * plugin: add rest.nvim (See commit [`60163157`](https://github.com/Avimitin/nvim/commit/60163157))
+  * vsnip: add fronmatter snippet (See commit [`e6b997c5`](https://github.com/Avimitin/nvim/commit/e6b997c5))
+  * plugin: add nvim-notify (See commit [`3e7f46e9`](https://github.com/Avimitin/nvim/commit/3e7f46e9))
+  * plugins: add bufdel.lua (See commit [`c23be93b`](https://github.com/Avimitin/nvim/commit/c23be93b))
+  * plugins: add impatient.nvim to optimize the start up time (See commit [`4ea10f41`](https://github.com/Avimitin/nvim/commit/4ea10f41))
+  * nvim-cmp: add load trigger for key ":" and "/" (See commit [`b5e56203`](https://github.com/Avimitin/nvim/commit/b5e56203))
+  * nvim-cmp: use special format for cmdline cmp (See commit [`c542b111`](https://github.com/Avimitin/nvim/commit/c542b111))
+  * plugins: add spetre to enhance search and replace (See commit [`852bebcc`](https://github.com/Avimitin/nvim/commit/852bebcc))
+  * plugins: add neoscroll to scroll smoothly (See commit [`c2ae4bff`](https://github.com/Avimitin/nvim/commit/c2ae4bff))
+  * treesitter: enable matchup in treesitter (See commit [`23a9eab4`](https://github.com/Avimitin/nvim/commit/23a9eab4))
+  * plugins: use toggleterm instead of fterm (See commit [`c9c22f11`](https://github.com/Avimitin/nvim/commit/c9c22f11))
 
 autocmd:
-  * autocmd: add rnu and nu autocmd (See commit 2e535362)
+  * autocmd: add rnu and nu autocmd (See commit [`2e535362`](https://github.com/Avimitin/nvim/commit/2e535362))
 
 FIX:
 ----
-  * nvim-tree: fix auto resize when open file (See commit 91bccbcc)
-  * lsp: use spacing option to fix the nerdfont align issue (See commit 11c01a99)
-  * options: set no conceal for normal mode (See commit a86c47a8)
-  * plugins: fix vim-rooter (See commit 6291602f)
-  * plugins: set up autocmd before packer sync (See commit 978dc724)
+  * nvim-tree: fix auto resize when open file (See commit [`91bccbcc`](https://github.com/Avimitin/nvim/commit/91bccbcc))
+  * lsp: use spacing option to fix the nerdfont align issue (See commit [`11c01a99`](https://github.com/Avimitin/nvim/commit/11c01a99))
+  * options: set no conceal for normal mode (See commit [`a86c47a8`](https://github.com/Avimitin/nvim/commit/a86c47a8))
+  * plugins: fix vim-rooter (See commit [`6291602f`](https://github.com/Avimitin/nvim/commit/6291602f))
+  * plugins: set up autocmd before packer sync (See commit [`978dc724`](https://github.com/Avimitin/nvim/commit/978dc724))
 
 Changes:
 --------
-  * kanagawa: use darker pmenu highlight (See commit 3209e838)
-  * kanagawa: use default float highlight (See commit ff06f4fb)
-  * kanagawa: enable inactive window dim color (See commit e3a22e01)
-  * colors: remove redundant highlight group (See commit 60943299)
-  * nvim-cmp: use local icon list for completion (See commit 08941738)
-  * nvim-cmp: increase the lspconfig priority (See commit 69b358c0)
+  * kanagawa: use darker pmenu highlight (See commit [`3209e838`](https://github.com/Avimitin/nvim/commit/3209e838))
+  * kanagawa: use default float highlight (See commit [`ff06f4fb`](https://github.com/Avimitin/nvim/commit/ff06f4fb))
+  * kanagawa: enable inactive window dim color (See commit [`e3a22e01`](https://github.com/Avimitin/nvim/commit/e3a22e01))
+  * colors: remove redundant highlight group (See commit [`60943299`](https://github.com/Avimitin/nvim/commit/60943299))
+  * nvim-cmp: use local icon list for completion (See commit [`08941738`](https://github.com/Avimitin/nvim/commit/08941738))
+  * nvim-cmp: increase the lspconfig priority (See commit [`69b358c0`](https://github.com/Avimitin/nvim/commit/69b358c0))
 
 
 4.0.0-rc5 <Mar 09 2022>
@@ -298,33 +298,33 @@ Changes:
 
 New Features:
 -------------
-  * plugins: add cmp-cmdline (See commit 1cbe60ce)
-  * nvim-cmp: add cmdline completion (See commit 4d092550)
-  * markdown: enable latex math conceal (See commit 7e2aee94)
+  * plugins: add cmp-cmdline (See commit [`1cbe60ce`](https://github.com/Avimitin/nvim/commit/1cbe60ce))
+  * nvim-cmp: add cmdline completion (See commit [`4d092550`](https://github.com/Avimitin/nvim/commit/4d092550))
+  * markdown: enable latex math conceal (See commit [`7e2aee94`](https://github.com/Avimitin/nvim/commit/7e2aee94))
 
 Fix:
 ----
-  * plugins: fix vim-rooter (See commit 6291602f)
-  * plugins: set up autocmd before packer sync (See commit 978dc724)
+  * plugins: fix vim-rooter (See commit [`6291602f`](https://github.com/Avimitin/nvim/commit/6291602f))
+  * plugins: set up autocmd before packer sync (See commit [`978dc724`](https://github.com/Avimitin/nvim/commit/978dc724))
 
 Changes:
 --------
-  * plugins: re-categorize treesitter plugin (See commit 562dbe6d)
-  * plugins: move treesitter and lspconfig filetype setting to options.lua (See commit f1886fba)
-  * plugins: remove prehook and posthook function (See commit 9f7bcff4)
-  * nvim-cmp: use local icon list for completion (See commit 08941738)
-  * nvim-cmp: remove orgmode completion (See commit 3b325147)
-  * nvim-cmp: increase the lspconfig priority (See commit 69b358c0)
-  * treesitter: remove markdown support (See commit 5ca5f4fb)
-  * book: update the commit convention (See commit 0e71dbb3)
+  * plugins: re-categorize treesitter plugin (See commit [`562dbe6d`](https://github.com/Avimitin/nvim/commit/562dbe6d))
+  * plugins: move treesitter and lspconfig filetype setting to options.lua (See commit [`f1886fba`](https://github.com/Avimitin/nvim/commit/f1886fba))
+  * plugins: remove prehook and posthook function (See commit [`9f7bcff4`](https://github.com/Avimitin/nvim/commit/9f7bcff4))
+  * nvim-cmp: use local icon list for completion (See commit [`08941738`](https://github.com/Avimitin/nvim/commit/08941738))
+  * nvim-cmp: remove orgmode completion (See commit [`3b325147`](https://github.com/Avimitin/nvim/commit/3b325147))
+  * nvim-cmp: increase the lspconfig priority (See commit [`69b358c0`](https://github.com/Avimitin/nvim/commit/69b358c0))
+  * treesitter: remove markdown support (See commit [`5ca5f4fb`](https://github.com/Avimitin/nvim/commit/5ca5f4fb))
+  * book: update the commit convention (See commit [`0e71dbb3`](https://github.com/Avimitin/nvim/commit/0e71dbb3))
 
 Others:
 -------
-  * benchmark: update benchmark (See commit 8b023f93)
-  * book: add lspconfig tutorial (See commit 2074ccd2)
-  * book: add workflow about the windows (See commit b056c7b4)
-  * readme: fix the vimrc link (See commit 751898d9)
-  * genlog: rewrite the log generate script for new commit convention (See commit b095dad9)
+  * benchmark: update benchmark (See commit [`8b023f93`](https://github.com/Avimitin/nvim/commit/8b023f93))
+  * book: add lspconfig tutorial (See commit [`2074ccd2`](https://github.com/Avimitin/nvim/commit/2074ccd2))
+  * book: add workflow about the windows (See commit [`b056c7b4`](https://github.com/Avimitin/nvim/commit/b056c7b4))
+  * readme: fix the vimrc link (See commit [`751898d9`](https://github.com/Avimitin/nvim/commit/751898d9))
+  * genlog: rewrite the log generate script for new commit convention (See commit [`b095dad9`](https://github.com/Avimitin/nvim/commit/b095dad9))
 
 
 4.0.0-rc4 <Mar 05 2022>
@@ -332,40 +332,40 @@ Others:
 
 BREAKING CHANGES!:
 ------------------
-  * lspinstall: remove some ensure install server (See commit 66ef74e4)
-  * colorscheme: remove colorschemes (See commit bf3f7a21)
-  * plugins: move prehook to options.lua (See commit b91fec41)
+  * lspinstall: remove some ensure install server (See commit [`66ef74e4`](https://github.com/Avimitin/nvim/commit/66ef74e4))
+  * colorscheme: remove colorschemes (See commit [`bf3f7a21`](https://github.com/Avimitin/nvim/commit/bf3f7a21))
+  * plugins: move prehook to options.lua (See commit [`b91fec41`](https://github.com/Avimitin/nvim/commit/b91fec41))
 
 New Features:
 -------------
-  * vsnip: add tag snippet for markdown (See commit 5e5dc265)
-  * plugins: use a global filetype settings for treesitter and lspconfig (See commit 36e37358)
-  * nvim-cmp: add cmp source dictionary (See commit 4113b285)
-  * plugins: add winshift.nvim to handle window movement (See commit b019cc99)
-  * plugins: extend text object by treesitter (See commit 36526ed4)
-  * plugins: add dressing.nvim to pretty the vim.ui.select panel (See commit a71358df)
-  * plugins: add focus.nvim for split window (See commit 9a879728)
-  * plugins: use defer to delay plugins module loading (See commit 87ffff14)
+  * vsnip: add tag snippet for markdown (See commit [`5e5dc265`](https://github.com/Avimitin/nvim/commit/5e5dc265))
+  * plugins: use a global filetype settings for treesitter and lspconfig (See commit [`36e37358`](https://github.com/Avimitin/nvim/commit/36e37358))
+  * nvim-cmp: add cmp source dictionary (See commit [`4113b285`](https://github.com/Avimitin/nvim/commit/4113b285))
+  * plugins: add winshift.nvim to handle window movement (See commit [`b019cc99`](https://github.com/Avimitin/nvim/commit/b019cc99))
+  * plugins: extend text object by treesitter (See commit [`36526ed4`](https://github.com/Avimitin/nvim/commit/36526ed4))
+  * plugins: add dressing.nvim to pretty the vim.ui.select panel (See commit [`a71358df`](https://github.com/Avimitin/nvim/commit/a71358df))
+  * plugins: add focus.nvim for split window (See commit [`9a879728`](https://github.com/Avimitin/nvim/commit/9a879728))
+  * plugins: use defer to delay plugins module loading (See commit [`87ffff14`](https://github.com/Avimitin/nvim/commit/87ffff14))
 
 Fix:
 ----
-  * mappings: update outdated term keymap (See commit 37b60a20)
+  * mappings: update outdated term keymap (See commit [`37b60a20`](https://github.com/Avimitin/nvim/commit/37b60a20))
 
 Changes:
 --------
-  * autocmd: move TermOpen command to autocmd.lua file (See commit e80d81ef)
-  * treesitter: remove org file (See commit a323dba4)
-  * mappings: add bang to the git push key (See commit 5091ab3f)
-  * plugins: use module to lazy-load notify (See commit 219df876)
-  * options: set no conceal for normal mode (See commit a86c47a8)
-  * plugins: expose load cfg as a public function (See commit 1931be24)
+  * autocmd: move TermOpen command to autocmd.lua file (See commit [`e80d81ef`](https://github.com/Avimitin/nvim/commit/e80d81ef))
+  * treesitter: remove org file (See commit [`a323dba4`](https://github.com/Avimitin/nvim/commit/a323dba4))
+  * mappings: add bang to the git push key (See commit [`5091ab3f`](https://github.com/Avimitin/nvim/commit/5091ab3f))
+  * plugins: use module to lazy-load notify (See commit [`219df876`](https://github.com/Avimitin/nvim/commit/219df876))
+  * options: set no conceal for normal mode (See commit [`a86c47a8`](https://github.com/Avimitin/nvim/commit/a86c47a8))
+  * plugins: expose load cfg as a public function (See commit [`1931be24`](https://github.com/Avimitin/nvim/commit/1931be24))
 
 Others:
 -------
-  * readme: fix vimrc download link (See commit 868e665c)
-  * benchmark: update benchmark (See commit 20ccc06f)
-  * book: remove colorscheme description (See commit 1c99b7b1)
-  * book: finish the git workflow pages (See commit bd72ab27)
+  * readme: fix vimrc download link (See commit [`868e665c`](https://github.com/Avimitin/nvim/commit/868e665c))
+  * benchmark: update benchmark (See commit [`20ccc06f`](https://github.com/Avimitin/nvim/commit/20ccc06f))
+  * book: remove colorscheme description (See commit [`1c99b7b1`](https://github.com/Avimitin/nvim/commit/1c99b7b1))
+  * book: finish the git workflow pages (See commit [`bd72ab27`](https://github.com/Avimitin/nvim/commit/bd72ab27))
 
 
 4.0.0-rc3 <Mar 05 2022>
@@ -373,25 +373,25 @@ Others:
 
 BREAKING CHANGES!
 ------------------
-  * gitsigns: update git sign keymaps (See commit abf53d99)
-  * commands: remove fugitive command alias (See commit f4a45ba4)
+  * gitsigns: update git sign keymaps (See commit [`abf53d99`](https://github.com/Avimitin/nvim/commit/abf53d99))
+  * commands: remove fugitive command alias (See commit [`f4a45ba4`](https://github.com/Avimitin/nvim/commit/f4a45ba4))
 
 New Features:
 -------------
-  * plugins: add spetre to enhance search and replace (See commit 852bebcc)
-  * plugins: add neoscroll to scroll smoothly (See commit c2ae4bff)
-  * keymap: add keymap for fugitive (See commit c1c9e66b)
-  * everforest: enable virtual text highlight (See commit d506a1e6)
-  * treesitter: enable matchup in treesitter (See commit 23a9eab4)
+  * plugins: add spetre to enhance search and replace (See commit [`852bebcc`](https://github.com/Avimitin/nvim/commit/852bebcc))
+  * plugins: add neoscroll to scroll smoothly (See commit [`c2ae4bff`](https://github.com/Avimitin/nvim/commit/c2ae4bff))
+  * keymap: add keymap for fugitive (See commit [`c1c9e66b`](https://github.com/Avimitin/nvim/commit/c1c9e66b))
+  * everforest: enable virtual text highlight (See commit [`d506a1e6`](https://github.com/Avimitin/nvim/commit/d506a1e6))
+  * treesitter: enable matchup in treesitter (See commit [`23a9eab4`](https://github.com/Avimitin/nvim/commit/23a9eab4))
 
 Changes:
 --------
-  * plugins: replace terminal plugin (See commit c9c22f11)
+  * plugins: replace terminal plugin (See commit [`c9c22f11`](https://github.com/Avimitin/nvim/commit/c9c22f11))
 
 Others:
 -------
-  * book: add fugitive workflows (See commit 8e66b190)
-  * genlog: fix feature list reference (See commit 2d1a0c69)
+  * book: add fugitive workflows (See commit [`8e66b190`](https://github.com/Avimitin/nvim/commit/8e66b190))
+  * genlog: fix feature list reference (See commit [`2d1a0c69`](https://github.com/Avimitin/nvim/commit/2d1a0c69))
 
 
 4.0.0-rc2 <Mar 02 2022>
@@ -399,14 +399,14 @@ Others:
 
 Fix:
 ----
-  * nvim-tree: fix auto resize when open file (See commit 91bccbcc)
-  * lsp: use spacing option to fix the nerdfont align issue (See commit 11c01a99)
-  * benchmark: fix file handler warning (See commit ea34ca7d)
+  * nvim-tree: fix auto resize when open file (See commit [`91bccbcc`](https://github.com/Avimitin/nvim/commit/91bccbcc))
+  * lsp: use spacing option to fix the nerdfont align issue (See commit [`11c01a99`](https://github.com/Avimitin/nvim/commit/11c01a99))
+  * benchmark: fix file handler warning (See commit [`ea34ca7d`](https://github.com/Avimitin/nvim/commit/ea34ca7d))
 
 Changes:
 --------
-  * plugins: update nvim-tree icon (See commit 2c78214e)
-  * plugins: rewrite neocilp load condition (See commit 240b8e0e)
+  * plugins: update nvim-tree icon (See commit [`2c78214e`](https://github.com/Avimitin/nvim/commit/2c78214e))
+  * plugins: rewrite neocilp load condition (See commit [`240b8e0e`](https://github.com/Avimitin/nvim/commit/240b8e0e))
 
 Others:
 -------
@@ -432,36 +432,36 @@ configuration.
 New Features:
 -------------
 plugins:
-  * rust: enable variable name in inlay hint (See commit 2f3b25f7)
-  * keymap: add `;d` for dispatch (See commit 4619fe33)
-  * plugin: add plugin to view git log (See commit 921b5817)
-  * plugin: add plugin to show lsp loading status (See commit c4d2f8df)
-  * plugin: add rest.nvim (See commit 60163157)
-  * vsnip: add fronmatter snippet (See commit e6b997c5)
-  * plugin: add nvim-notify (See commit 3e7f46e9)
-  * plugins: add bufdel.lua (See commit c23be93b)
-  * plugins: add impatient.nvim to optimize the start up time (See commit 4ea10f41)
+  * rust: enable variable name in inlay hint (See commit [`2f3b25f7`](https://github.com/Avimitin/nvim/commit/2f3b25f7))
+  * keymap: add `;d` for dispatch (See commit [`4619fe33`](https://github.com/Avimitin/nvim/commit/4619fe33))
+  * plugin: add plugin to view git log (See commit [`921b5817`](https://github.com/Avimitin/nvim/commit/921b5817))
+  * plugin: add plugin to show lsp loading status (See commit [`c4d2f8df`](https://github.com/Avimitin/nvim/commit/c4d2f8df))
+  * plugin: add rest.nvim (See commit [`60163157`](https://github.com/Avimitin/nvim/commit/60163157))
+  * vsnip: add fronmatter snippet (See commit [`e6b997c5`](https://github.com/Avimitin/nvim/commit/e6b997c5))
+  * plugin: add nvim-notify (See commit [`3e7f46e9`](https://github.com/Avimitin/nvim/commit/3e7f46e9))
+  * plugins: add bufdel.lua (See commit [`c23be93b`](https://github.com/Avimitin/nvim/commit/c23be93b))
+  * plugins: add impatient.nvim to optimize the start up time (See commit [`4ea10f41`](https://github.com/Avimitin/nvim/commit/4ea10f41))
 
 autocmd:
-  * autocmd: add rnu and nu autocmd (See commit 2e535362)
+  * autocmd: add rnu and nu autocmd (See commit [`2e535362`](https://github.com/Avimitin/nvim/commit/2e535362))
 
 keymap:
-  * keymap: separate the editor keymap and plugin keymap (See commit 87709236)
+  * keymap: separate the editor keymap and plugin keymap (See commit [`87709236`](https://github.com/Avimitin/nvim/commit/87709236))
 
 Breaking Changes:
 -----------------
-  * plugins: rewrite the plugin file structure (See commit dfd2f18a)
-  * lspconfig: move lsp_attach to lspconfig (See commit bcc3ca70)
-  * commands: move utils.new_cmd to commands.alias (See commit 9fe3ad46)
-  * plugins: remove vim-lua-format (See commit f0ee2689)
-  * plugins: remove setup function for flog (See commit df90cdc2)
-  * plugins: rename all plugin config suffix with _cfg (See commit 86706692)
-  * plugins: move config dir into plugins dir (See commit bb16ba1a)
-  * format: replace luaformat with stylua (See commit 51bb5119)
-  * nvim: move utils.map to mappings.utils.map (See commit 49de74ee)
-  * nvim: move neovim settings to core directory (See commit 6137b27d)
-  * reft!/keymap: remove wildfire range keymap (See commit 25b4e453)
-  * reft!/plugin: remove orgmode (See commit fc94ef62)
+  * plugins: rewrite the plugin file structure (See commit [`dfd2f18a`](https://github.com/Avimitin/nvim/commit/dfd2f18a))
+  * lspconfig: move lsp_attach to lspconfig (See commit [`bcc3ca70`](https://github.com/Avimitin/nvim/commit/bcc3ca70))
+  * commands: move utils.new_cmd to commands.alias (See commit [`9fe3ad46`](https://github.com/Avimitin/nvim/commit/9fe3ad46))
+  * plugins: remove vim-lua-format (See commit [`f0ee2689`](https://github.com/Avimitin/nvim/commit/f0ee2689))
+  * plugins: remove setup function for flog (See commit [`df90cdc2`](https://github.com/Avimitin/nvim/commit/df90cdc2))
+  * plugins: rename all plugin config suffix with _cfg (See commit [`86706692`](https://github.com/Avimitin/nvim/commit/86706692))
+  * plugins: move config dir into plugins dir (See commit [`bb16ba1a`](https://github.com/Avimitin/nvim/commit/bb16ba1a))
+  * format: replace luaformat with stylua (See commit [`51bb5119`](https://github.com/Avimitin/nvim/commit/51bb5119))
+  * nvim: move utils.map to mappings.utils.map (See commit [`49de74ee`](https://github.com/Avimitin/nvim/commit/49de74ee))
+  * nvim: move neovim settings to core directory (See commit [`6137b27d`](https://github.com/Avimitin/nvim/commit/6137b27d))
+  * reft!/keymap: remove wildfire range keymap (See commit [`25b4e453`](https://github.com/Avimitin/nvim/commit/25b4e453))
+  * reft!/plugin: remove orgmode (See commit [`fc94ef62`](https://github.com/Avimitin/nvim/commit/fc94ef62))
 
 
 3.17.0 <Feb 07 2022>
@@ -470,21 +470,21 @@ Breaking Changes:
 BREAKING CHANGES:
 -----------------
 keymaps:
-  * bufferline: rewrite bufferline keymap (See commit c5be031e)
-  * fugitive: rewrite the fugitive keymap (See commit e9c44d93)
-  * keymap: rewrite the telescope keymap (See commit 8cd716a5)
+  * bufferline: rewrite bufferline keymap (See commit [`c5be031e`](https://github.com/Avimitin/nvim/commit/c5be031e))
+  * fugitive: rewrite the fugitive keymap (See commit [`e9c44d93`](https://github.com/Avimitin/nvim/commit/e9c44d93))
+  * keymap: rewrite the telescope keymap (See commit [`8cd716a5`](https://github.com/Avimitin/nvim/commit/8cd716a5))
 
 plugins:
-  * plugin: remove neogen (See commit 96694e6b)
-  * plugin: replace Hexokinase with colorizer (See commit 455ab684)
+  * plugin: remove neogen (See commit [`96694e6b`](https://github.com/Avimitin/nvim/commit/96694e6b))
+  * plugin: replace Hexokinase with colorizer (See commit [`455ab684`](https://github.com/Avimitin/nvim/commit/455ab684))
 
 changes:
 --------
-* plugin: add new plugin tpope/vim-sleuth (See commit 697cc6ab)
-* plugin: update the autocmd filename (See commit 44da667f)
-* plugin: add diffview.nvim (See commit c49688f3)
-* plugin: add vim-repeat (See commit 8f618162)
-* dispatch: add key trigger (See commit e4c10789)
+* plugin: add new plugin tpope/vim-sleuth (See commit [`697cc6ab`](https://github.com/Avimitin/nvim/commit/697cc6ab))
+* plugin: update the autocmd filename (See commit [`44da667f`](https://github.com/Avimitin/nvim/commit/44da667f))
+* plugin: add diffview.nvim (See commit [`c49688f3`](https://github.com/Avimitin/nvim/commit/c49688f3))
+* plugin: add vim-repeat (See commit [`8f618162`](https://github.com/Avimitin/nvim/commit/8f618162))
+* dispatch: add key trigger (See commit [`e4c10789`](https://github.com/Avimitin/nvim/commit/e4c10789))
 
 
 3.16.0 <Jan 26 2022>
@@ -493,14 +493,14 @@ changes:
 BREAKING CHANGES:
 -----------------
 keymaps:
-  * remap the Sayonara command (See commit a7282480)
-  * integrate the `;` key (See commit 27fa7637)
-  * rewrite the window navigate keys (See commit 460a5137)
-  * fix the multi cursor keymap conflict (See commit 5c81c484)
-  * rewrite the nvim tree keymap (See commit 47d4432d)
+  * remap the Sayonara command (See commit [`a7282480`](https://github.com/Avimitin/nvim/commit/a7282480))
+  * integrate the `;` key (See commit [`27fa7637`](https://github.com/Avimitin/nvim/commit/27fa7637))
+  * rewrite the window navigate keys (See commit [`460a5137`](https://github.com/Avimitin/nvim/commit/460a5137))
+  * fix the multi cursor keymap conflict (See commit [`5c81c484`](https://github.com/Avimitin/nvim/commit/5c81c484))
+  * rewrite the nvim tree keymap (See commit [`47d4432d`](https://github.com/Avimitin/nvim/commit/47d4432d))
 
 plugins:
-  * markdown: update the vim-markdown config (See commit 3e57ba13)
+  * markdown: update the vim-markdown config (See commit [`3e57ba13`](https://github.com/Avimitin/nvim/commit/3e57ba13))
 
 
 3.15.0 <Jan 24 2022>
@@ -511,18 +511,18 @@ lua/partial directory.
 
 BREAKING CHANGES:
 -----------------
-* nvim-cmp source rg had been removed due to the performance problem (See commit 3dd333d6)
-* vim-commentary is replaced by Comment.nvim due to absence of maintenance (See commit 6af6af2b)
-* vim-startuptime and focus.nvim is removed as they are rarely used (See commit ead4715c)
+* nvim-cmp source rg had been removed due to the performance problem (See commit [`3dd333d6`](https://github.com/Avimitin/nvim/commit/3dd333d6))
+* vim-commentary is replaced by Comment.nvim due to absence of maintenance (See commit [`6af6af2b`](https://github.com/Avimitin/nvim/commit/6af6af2b))
+* vim-startuptime and focus.nvim is removed as they are rarely used (See commit [`ead4715c`](https://github.com/Avimitin/nvim/commit/ead4715c))
 
 Changes:
 --------
 * plugins: separate plugins to the lua/partial directory. (See commit b87f2efa to ead4715c)
-* vim-surround: rewrite the conditions of the plugin call (See commit 3fe64080)
-* orgmode: replace the default file path (See commit cda57c67)
-* keymap: add keymap for wildfire quick select functionality(See commit 87a72276)
-* feat/vsnip: add snippet for orgmode (See commit d86a30c6)
-* reft/keymap: remove the vfiler keymap (See commit 577a520f)
+* vim-surround: rewrite the conditions of the plugin call (See commit [`3fe64080`](https://github.com/Avimitin/nvim/commit/3fe64080))
+* orgmode: replace the default file path (See commit [`cda57c67`](https://github.com/Avimitin/nvim/commit/cda57c67))
+* keymap: add keymap for wildfire quick select functionality(See commit [`87a72276`](https://github.com/Avimitin/nvim/commit/87a72276))
+* feat/vsnip: add snippet for orgmode (See commit [`d86a30c6`](https://github.com/Avimitin/nvim/commit/d86a30c6))
+* reft/keymap: remove the vfiler keymap (See commit [`577a520f`](https://github.com/Avimitin/nvim/commit/577a520f))
 
 
 -----------------------------------------------------------------------------------------
@@ -537,15 +537,15 @@ https://avimitin.github.io/nvim
 Changes:
 --------
 * Snippet:
-  - add snippet "<kbd>" (See commit 0743464d)
-  - add custom markdown snippets (See commit b32aa8c4)
+  - add snippet "<kbd>" (See commit [`0743464d`](https://github.com/Avimitin/nvim/commit/0743464d))
+  - add custom markdown snippets (See commit [`b32aa8c4`](https://github.com/Avimitin/nvim/commit/b32aa8c4))
 * Plugins:
-  - feat/plugin: add new plugin nvim-orgmode (See commit 6e47dcc3)
-  - treesitter: disable treesitter lazy-loading (See commit 47cb9ca5)
-  - lazygit: update the lazygit to upstream version (See commit abcefe9f)
-  - wildfire: add text object "i`" to quick select (See commit 14374bbc)
+  - feat/plugin: add new plugin nvim-orgmode (See commit [`6e47dcc3`](https://github.com/Avimitin/nvim/commit/6e47dcc3))
+  - treesitter: disable treesitter lazy-loading (See commit [`47cb9ca5`](https://github.com/Avimitin/nvim/commit/47cb9ca5))
+  - lazygit: update the lazygit to upstream version (See commit [`abcefe9f`](https://github.com/Avimitin/nvim/commit/abcefe9f))
+  - wildfire: add text object "i`" to quick select (See commit [`14374bbc`](https://github.com/Avimitin/nvim/commit/14374bbc))
 * Options:
-  - options: rewrite the tab listchars (See commit ed506d03)
+  - options: rewrite the tab listchars (See commit [`ed506d03`](https://github.com/Avimitin/nvim/commit/ed506d03))
 
 
 -----------------------------------------------------------------------------------------
@@ -556,8 +556,8 @@ Changes:
 
 Changes:
 --------
-* commands: add commands for crates.nvim (See commit 253794e7)
-* plugins: add new plugin "crates.nvim" (See commit b8c04f4e)
+* commands: add commands for crates.nvim (See commit [`253794e7`](https://github.com/Avimitin/nvim/commit/253794e7))
+* plugins: add new plugin "crates.nvim" (See commit [`b8c04f4e`](https://github.com/Avimitin/nvim/commit/b8c04f4e))
 
 
 -----------------------------------------------------------------------------------------
@@ -569,10 +569,10 @@ Changes:
 Changes:
 --------
 
-* colors: add colorscheme gruvbox (See commit 0ad3b12c)
-* colors: add new colorscheme "everforest" (See commit 9c6def1a)
-* colors: add lazyload for all colors (See commit 52fc2681)
-* plugins: add lazyload for lightspeed and matchup (See commit 99fb3261)
+* colors: add colorscheme gruvbox (See commit [`0ad3b12c`](https://github.com/Avimitin/nvim/commit/0ad3b12c))
+* colors: add new colorscheme "everforest" (See commit [`9c6def1a`](https://github.com/Avimitin/nvim/commit/9c6def1a))
+* colors: add lazyload for all colors (See commit [`52fc2681`](https://github.com/Avimitin/nvim/commit/52fc2681))
+* plugins: add lazyload for lightspeed and matchup (See commit [`99fb3261`](https://github.com/Avimitin/nvim/commit/99fb3261))
 
 
 -----------------------------------------------------------------------------------------
@@ -585,18 +585,18 @@ The basic keymap section is finished now.
 
 Breaking Chnages:
 ----------------
-* keymap: add ctrl as prefix key when resize (See commit b545fafe)
-* keymap: use arrow key to navigate between windows (See commit 70576e9d)
-* keymap: delete the duplicate new tab keymap, only `<C-t> n` is kept (See commit 6369ca63)
+* keymap: add ctrl as prefix key when resize (See commit [`b545fafe`](https://github.com/Avimitin/nvim/commit/b545fafe))
+* keymap: use arrow key to navigate between windows (See commit [`70576e9d`](https://github.com/Avimitin/nvim/commit/70576e9d))
+* keymap: delete the duplicate new tab keymap, only `<C-t> n` is kept (See commit [`6369ca63`](https://github.com/Avimitin/nvim/commit/6369ca63))
 * keymap: set `gf` to buffer format, set `gq` to set_loclist, set `gt` to...
   ...type_definition (See commit 346bfe58 and 3111d496)
 
 Features:
 ---------
 * plugin: add plugin vim-startuptime, you can see the startuptime graph by...
-  ...command `:StartupTime` (See commit 7018a3e3)
-* command: add `Cmt` to make a commit, add `Psh` to push changes. (See commit 8b9d959a)
-* plugin: add new plugin FixCursorHold.nvim to fix the laggy event (See commit 0164a37d)
+  ...command `:StartupTime` (See commit [`7018a3e3`](https://github.com/Avimitin/nvim/commit/7018a3e3))
+* command: add `Cmt` to make a commit, add `Psh` to push changes. (See commit [`8b9d959a`](https://github.com/Avimitin/nvim/commit/8b9d959a))
+* plugin: add new plugin FixCursorHold.nvim to fix the laggy event (See commit [`0164a37d`](https://github.com/Avimitin/nvim/commit/0164a37d))
 
 
 -----------------------------------------------------------------------------------------
@@ -707,19 +707,19 @@ Features
 
 Breaking Changes
 ----------------
-* plugin: delete fterm lazygit setting (See commit 5f2cd7ae)
+* plugin: delete fterm lazygit setting (See commit [`5f2cd7ae`](https://github.com/Avimitin/nvim/commit/5f2cd7ae))
 
 
 Features
 --------
-* plugin: add new plugin lazygit.nvim (See commit 7c0c2dfe)
-* nvim-cmp: add square bracket in menu (See commit 563bf2fb)
+* plugin: add new plugin lazygit.nvim (See commit [`7c0c2dfe`](https://github.com/Avimitin/nvim/commit/7c0c2dfe))
+* nvim-cmp: add square bracket in menu (See commit [`563bf2fb`](https://github.com/Avimitin/nvim/commit/563bf2fb))
 * options: set fileencoding to utf-8 forcely
 
 
 Changes
 --------
-* options: set tab char as "->" (See commit c2994e5a)
+* options: set tab char as "->" (See commit [`c2994e5a`](https://github.com/Avimitin/nvim/commit/c2994e5a))
 
 
 -----------------------------------------------------------------------------------------
@@ -730,17 +730,17 @@ Changes
 
 Features
 ========
-* plugin: add new plugin neorg (See commit c5fcd4b)
+* plugin: add new plugin neorg (See commit [`c5fcd4b`](https://github.com/Avimitin/nvim/commit/c5fcd4b))
 
 Fix
 ===
-* lsp: replace show line diagnostic api (See commit d4d290b)
-* plugin: fix nvim-cmp hook (See commit fd44872)
-* plugin: fix luaformat load sequence (See commit f2780c1)
+* lsp: replace show line diagnostic api (See commit [`d4d290b`](https://github.com/Avimitin/nvim/commit/d4d290b))
+* plugin: fix nvim-cmp hook (See commit [`fd44872`](https://github.com/Avimitin/nvim/commit/fd44872))
+* plugin: fix luaformat load sequence (See commit [`f2780c1`](https://github.com/Avimitin/nvim/commit/f2780c1))
 
 Chore
 =====
-* colors: use kanagawa as default theme (See commit f2c2890)
+* colors: use kanagawa as default theme (See commit [`f2c2890`](https://github.com/Avimitin/nvim/commit/f2c2890))
 
 
 ------------------------------------------------------------------------------------------
@@ -762,13 +762,13 @@ Breaking Changes
 Features
 ========
 * statusline: add short line icon for fern and neoterm (See commit 0e7def8 and ab2160a)
-* plugins: add plugin vim-table-mode (See commit faebcd9)
-* command: add new command `Glog` (See commit e6e0c4c)
+* plugins: add plugin vim-table-mode (See commit [`faebcd9`](https://github.com/Avimitin/nvim/commit/faebcd9))
+* command: add new command `Glog` (See commit [`e6e0c4c`](https://github.com/Avimitin/nvim/commit/e6e0c4c))
 
 Rewrite
 =======
-* fterm: update fterm and lazygit colorscheme (See commit fcc2c30)
-* keymap: update ~neogit~ and fugitive keymap (See commit 2debc8d)
-* plugin: update vim-lua-format load condition (See commit 89674a4)
+* fterm: update fterm and lazygit colorscheme (See commit [`fcc2c30`](https://github.com/Avimitin/nvim/commit/fcc2c30))
+* keymap: update ~neogit~ and fugitive keymap (See commit [`2debc8d`](https://github.com/Avimitin/nvim/commit/2debc8d))
+* plugin: update vim-lua-format load condition (See commit [`89674a4`](https://github.com/Avimitin/nvim/commit/89674a4))
 
-.. vim: filetype=markdown
+<!-- vim: filetype=markdown -->
