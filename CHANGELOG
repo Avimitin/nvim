@@ -1,3 +1,12 @@
+6.2.0 <May 2 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+
+Changes:
+--------
+  * rust: replace upstream (See commit e695763b)
+
+
+
 6.1.0 <May 2 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 
@@ -763,4 +772,4 @@ Rewrite
 * keymap: update ~neogit~ and fugitive keymap (See commit 2debc8d)
 * plugin: update vim-lua-format load condition (See commit 89674a4)
 
-.. vim: filetype=rst
+.. vim: filetype=markdown
