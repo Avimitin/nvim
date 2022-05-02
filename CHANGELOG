@@ -3,7 +3,7 @@
 
 Changes:
 --------
-  * rust: replace upstream (See commit e695763b)
+  * rust: replace upstream (See commit `e695763b <|CommitPrefix|e695763b>`_)
 
 
 6.1.0 <May 2 2022>
@@ -11,12 +11,12 @@ Changes:
 
 Changes:
 --------
-  * lsp: replace lspsaga upstream (See commit 9b5e9f77)
+  * lsp: replace lspsaga upstream (See commit `9b5e9f77 <|CommitPrefix|9b5e9f77>`_)
 
 Others:
 -------
-  * readme: add version reminder (See commit 284775d7)
-  * readme: add API stablize hint (See commit 1054482d)
+  * readme: add version reminder (See commit `284775d7 <|CommitPrefix|284775d7>`_)
+  * readme: add API stablize hint (See commit `1054482d <|CommitPrefix|1054482d>`_)
 
 
 6.0.0 <May 1 2022>
@@ -24,17 +24,17 @@ Others:
 
 BREAKING CHANGES!:
 ------------------
-  * keys: rewrite bufferline key mappings (See commit 3b9918d9)
-  * plugin: remove repeat.vim (See commit ca761cfa)
-  * lspconfig: update deprecated options (See commit 44e43da8)
+  * keys: rewrite bufferline key mappings (See commit `3b9918d9 <|CommitPrefix|3b9918d9>`_)
+  * plugin: remove repeat.vim (See commit `ca761cfa <|CommitPrefix|ca761cfa>`_)
+  * lspconfig: update deprecated options (See commit `44e43da8 <|CommitPrefix|44e43da8>`_)
 
 Others:
 -------
-  * book: update nvim-cmp document (See commit 611bd8f0)
-  * book: update bufferline document (See commit 01456373)
-  * book: merge and correct the lspconfig document (See commit 260f2eae)
-  * book: update capability hint (See commit de9525d4)
-  * book: fix color section (See commit fa24c72a)
+  * book: update nvim-cmp document (See commit `611bd8f0 <|CommitPrefix|611bd8f0>`_)
+  * book: update bufferline document (See commit `01456373 <|CommitPrefix|01456373>`_)
+  * book: merge and correct the lspconfig document (See commit `260f2eae <|CommitPrefix|260f2eae>`_)
+  * book: update capability hint (See commit `de9525d4 <|CommitPrefix|de9525d4>`_)
+  * book: fix color section (See commit `fa24c72a <|CommitPrefix|fa24c72a>`_)
 
 
 5.2.2 <Apr 30 2022>
@@ -42,11 +42,11 @@ Others:
 
 New Features:
 -------------
-  * vsnip: add collase block snippet (See commit 3d6b9556)
+  * vsnip: add collase block snippet (See commit `3d6b9556 <|CommitPrefix|3d6b9556>`_)
 
 Others:
 -------
-  * readme: add more descriptions (See commit ad791488)
+  * readme: add more descriptions (See commit `ad791488 <|CommitPrefix|ad791488>`_)
 
 
 5.2.1 <Apr 29 2022>
@@ -54,20 +54,20 @@ Others:
 
 New Features:
 -------------
-  * rust: detect ".rust-analyzer.json" file per projects (See commit c246a6a8)
+  * rust: detect ".rust-analyzer.json" file per projects (See commit `c246a6a8 <|CommitPrefix|c246a6a8>`_)
 
 Fix:
 ----
-  * nvim-tree: update outdated options (See commit 039f4f68)
+  * nvim-tree: update outdated options (See commit `039f4f68 <|CommitPrefix|039f4f68>`_)
 
 Changes:
 --------
-  * rust: remove outdated configuration (See commit 360e758d)
+  * rust: remove outdated configuration (See commit `360e758d <|CommitPrefix|360e758d>`_)
 
 Others:
 -------
-  * docs: fix colors custom theme (See commit 2798cd97)
-  * readme: add table mode demo (See commit 661c57aa)
+  * docs: fix colors custom theme (See commit `2798cd97 <|CommitPrefix|2798cd97>`_)
+  * readme: add table mode demo (See commit `661c57aa <|CommitPrefix|661c57aa>`_)
 
 
 5.2.0 <Apr 25 2022>
@@ -106,45 +106,45 @@ plugins:
 ====================================================================
 New Features:
 -------------
-  * rust: enable all features for analyzer (See commit 54b564a6)
+  * rust: enable all features for analyzer (See commit `54b564a6 <|CommitPrefix|54b564a6>`_)
 
 Others:
 -------
-  * docs: add configuration structure description (See commit cfe9e82b)
-  * readme: add incompatible notice (See commit 8db142cb)
+  * docs: add configuration structure description (See commit `cfe9e82b <|CommitPrefix|cfe9e82b>`_)
+  * readme: add incompatible notice (See commit `8db142cb <|CommitPrefix|8db142cb>`_)
 
 
 5.0.0 <Apr 20 2022>
 ====================================================================
 BREAKING CHANGES!:
 ------------------
-  * nvim: implement new neovim v0.7.0 Lua API (See commit 0f24a99a)
-  * scripts: rename fixtures to script (See commit 0320de72)
+  * nvim: implement new neovim v0.7.0 Lua API (See commit `0f24a99a <|CommitPrefix|0f24a99a>`_)
+  * scripts: rename fixtures to script (See commit `0320de72 <|CommitPrefix|0320de72>`_)
 
 New Features:
 -------------
-  * autocmd: use new api for autocommands (See commit d93b9455)
-  * commands: use new api to define command (See commit c6aaca63)
-  * keys: add more description for keys (See commit 8a637246)
-  * treesitter: enable more filetype (See commit 103cf557)
-  * vsnip: create snippet for cargo.toml (See commit e9d7b42e)
+  * autocmd: use new api for autocommands (See commit `d93b9455 <|CommitPrefix|d93b9455>`_)
+  * commands: use new api to define command (See commit `c6aaca63 <|CommitPrefix|c6aaca63>`_)
+  * keys: add more description for keys (See commit `8a637246 <|CommitPrefix|8a637246>`_)
+  * treesitter: enable more filetype (See commit `103cf557 <|CommitPrefix|103cf557>`_)
+  * vsnip: create snippet for cargo.toml (See commit `e9d7b42e <|CommitPrefix|e9d7b42e>`_)
 
 Changes:
 --------
-  * scripts: grant execute permission for perl script (See commit 90b61c50)
-  * ci: update test script (See commit 2eb73b0e)
+  * scripts: grant execute permission for perl script (See commit `90b61c50 <|CommitPrefix|90b61c50>`_)
+  * ci: update test script (See commit `2eb73b0e <|CommitPrefix|2eb73b0e>`_)
 
 
 4.0.2 <Apr 15 2022>
 ====================================================================
 Fix:
 ----
-  * treesitter: enable fish (See commit 17d17827)
+  * treesitter: enable fish (See commit `17d17827 <|CommitPrefix|17d17827>`_)
 
 
 Others:
 -------
-  * changelog: release 4.0.1 (See commit 35adeb1f)
+  * changelog: release 4.0.1 (See commit `35adeb1f <|CommitPrefix|35adeb1f>`_)
   * Fix linting error
 
 
@@ -153,34 +153,34 @@ Others:
 
 New Features:
 -------------
-  * rust: add key mapping for rust (See commit a4b6f266)
-  * plugins: enable nix for treesitter (See commit 8c4a7e47)
-  * statusline: add colorscheme for dawnfox (See commit dffd2b36)
-  * galaxyline: adjust the github light theme (See commit 231cdb79)
-  * colorscheme: add github colorscheme (See commit 7f773e14)
-  * colorscheme: add color set nightfox (See commit ec1a81c4)
-  * commands: add command for highlight multiple lines (See commit 2b3686f6)
-  * mappings: add terminal keymapping (See commit 4a7aacc5)
-  * nvim-cmp: add load trigger for key ":" and "/" (See commit b5e56203)
+  * rust: add key mapping for rust (See commit `a4b6f266 <|CommitPrefix|a4b6f266>`_)
+  * plugins: enable nix for treesitter (See commit `8c4a7e47 <|CommitPrefix|8c4a7e47>`_)
+  * statusline: add colorscheme for dawnfox (See commit `dffd2b36 <|CommitPrefix|dffd2b36>`_)
+  * galaxyline: adjust the github light theme (See commit `231cdb79 <|CommitPrefix|231cdb79>`_)
+  * colorscheme: add github colorscheme (See commit `7f773e14 <|CommitPrefix|7f773e14>`_)
+  * colorscheme: add color set nightfox (See commit `ec1a81c4 <|CommitPrefix|ec1a81c4>`_)
+  * commands: add command for highlight multiple lines (See commit `2b3686f6 <|CommitPrefix|2b3686f6>`_)
+  * mappings: add terminal keymapping (See commit `4a7aacc5 <|CommitPrefix|4a7aacc5>`_)
+  * nvim-cmp: add load trigger for key ":" and "/" (See commit `b5e56203 <|CommitPrefix|b5e56203>`_)
 
 Fix:
 ----
-  * vimrc: fix invalid listchars (See commit 605d02a8)
-  * colorscheme: fix colorscheme not loading issue (See commit 08f8f674)
+  * vimrc: fix invalid listchars (See commit `605d02a8 <|CommitPrefix|605d02a8>`_)
+  * colorscheme: fix colorscheme not loading issue (See commit `08f8f674 <|CommitPrefix|08f8f674>`_)
 
 Changes:
 --------
-  * colorscheme: move default value inside table (See commit 6429755a)
-  * neovide: use monospace for flexible font choice (See commit 5dce1f8d)
-  * nvim-cmp: change the source name to Vim (See commit 41d370f0)
-  * treesitter: remove markdown regex (See commit f910c12b)
-  * kanagawa: enable inactive window dim color (See commit e3a22e01)
+  * colorscheme: move default value inside table (See commit `6429755a <|CommitPrefix|6429755a>`_)
+  * neovide: use monospace for flexible font choice (See commit `5dce1f8d <|CommitPrefix|5dce1f8d>`_)
+  * nvim-cmp: change the source name to Vim (See commit `41d370f0 <|CommitPrefix|41d370f0>`_)
+  * treesitter: remove markdown regex (See commit `f910c12b <|CommitPrefix|f910c12b>`_)
+  * kanagawa: enable inactive window dim color (See commit `e3a22e01 <|CommitPrefix|e3a22e01>`_)
 
 Others:
 -------
-  * books: add document for how to switch nightmode automatically (See commit 47cf5f59)
-  * colorscheme: update colorscheme document (See commit b95d897f)
-  * plugins: add component document (See commit fcefe899)
+  * books: add document for how to switch nightmode automatically (See commit `47cf5f59 <|CommitPrefix|47cf5f59>`_)
+  * colorscheme: update colorscheme document (See commit `b95d897f <|CommitPrefix|b95d897f>`_)
+  * plugins: add component document (See commit `fcefe899 <|CommitPrefix|fcefe899>`_)
 
 
 4.0.0 <Mar 12 2022>
@@ -231,66 +231,66 @@ My future goal is to finish all the tutorial about the workflow I use with neovi
 
 Breaking Changes:
 -----------------
-  * lspconfig: move lsp_attach to lspconfig (See commit bcc3ca70)
-  * plugins: remove vim-lua-format (See commit f0ee2689)
-  * plugins: rename all plugin config suffix with _cfg (See commit 86706692)
-  * format: replace luaformat with stylua (See commit 51bb5119)
-  * reft!/keymap: remove wildfire range keymap (See commit 25b4e453)
-  * reft!/plugin: remove orgmode (See commit fc94ef62)
-  * gitsigns: update git sign keymaps (See commit abf53d99)
-  * commands: remove fugitive command alias (See commit f4a45ba4)
-  * lspinstall: remove some ensure install server (See commit 66ef74e4)
-  * colorscheme: remove colorschemes (See commit bf3f7a21)
-  * plugins: move prehook settings to options.lua (See commit b91fec41)
+  * lspconfig: move lsp_attach to lspconfig (See commit `bcc3ca70 <|CommitPrefix|bcc3ca70>`_)
+  * plugins: remove vim-lua-format (See commit `f0ee2689 <|CommitPrefix|f0ee2689>`_)
+  * plugins: rename all plugin config suffix with _cfg (See commit `86706692 <|CommitPrefix|86706692>`_)
+  * format: replace luaformat with stylua (See commit `51bb5119 <|CommitPrefix|51bb5119>`_)
+  * reft!/keymap: remove wildfire range keymap (See commit `25b4e453 <|CommitPrefix|25b4e453>`_)
+  * reft!/plugin: remove orgmode (See commit `fc94ef62 <|CommitPrefix|fc94ef62>`_)
+  * gitsigns: update git sign keymaps (See commit `abf53d99 <|CommitPrefix|abf53d99>`_)
+  * commands: remove fugitive command alias (See commit `f4a45ba4 <|CommitPrefix|f4a45ba4>`_)
+  * lspinstall: remove some ensure install server (See commit `66ef74e4 <|CommitPrefix|66ef74e4>`_)
+  * colorscheme: remove colorschemes (See commit `bf3f7a21 <|CommitPrefix|bf3f7a21>`_)
+  * plugins: move prehook settings to options.lua (See commit `b91fec41 <|CommitPrefix|b91fec41>`_)
 
 
 New Features:
 -------------
 plugins:
-  * plugins: add cmp-cmdline (See commit 1cbe60ce)
-  * nvim-cmp: add cmdline completion (See commit 4d092550)
-  * markdown: enable latex math conceal (See commit 7e2aee94)
-  * plugins: add winshift.nvim to handle window movement (See commit b019cc99)
-  * plugins: extend text object by treesitter (See commit 36526ed4)
-  * plugins: add dressing.nvim to pretty the vim.ui.select panel (See commit a71358df)
-  * plugins: add focus.nvim for split window (See commit 9a879728)
-  * nvim-cmp: add cmp source dictionary (See commit 4113b285)
-  * plugins: use a global filetype settings for treesitter and lspconfig (See commit 36e37358)
-  * rust: enable variable name in inlay hint (See commit 2f3b25f7)
-  * keymap: add `;d` for dispatch (See commit 4619fe33)
-  * plugin: add plugin to view git log (See commit 921b5817)
-  * plugin: add plugin to show lsp loading status (See commit c4d2f8df)
-  * plugin: add rest.nvim (See commit 60163157)
-  * vsnip: add fronmatter snippet (See commit e6b997c5)
-  * plugin: add nvim-notify (See commit 3e7f46e9)
-  * plugins: add bufdel.lua (See commit c23be93b)
-  * plugins: add impatient.nvim to optimize the start up time (See commit 4ea10f41)
-  * nvim-cmp: add load trigger for key ":" and "/" (See commit b5e56203)
-  * nvim-cmp: use special format for cmdline cmp (See commit c542b111)
-  * plugins: add spetre to enhance search and replace (See commit 852bebcc)
-  * plugins: add neoscroll to scroll smoothly (See commit c2ae4bff)
-  * treesitter: enable matchup in treesitter (See commit 23a9eab4)
-  * plugins: use toggleterm instead of fterm (See commit c9c22f11)
+  * plugins: add cmp-cmdline (See commit `1cbe60ce <|CommitPrefix|1cbe60ce>`_)
+  * nvim-cmp: add cmdline completion (See commit `4d092550 <|CommitPrefix|4d092550>`_)
+  * markdown: enable latex math conceal (See commit `7e2aee94 <|CommitPrefix|7e2aee94>`_)
+  * plugins: add winshift.nvim to handle window movement (See commit `b019cc99 <|CommitPrefix|b019cc99>`_)
+  * plugins: extend text object by treesitter (See commit `36526ed4 <|CommitPrefix|36526ed4>`_)
+  * plugins: add dressing.nvim to pretty the vim.ui.select panel (See commit `a71358df <|CommitPrefix|a71358df>`_)
+  * plugins: add focus.nvim for split window (See commit `9a879728 <|CommitPrefix|9a879728>`_)
+  * nvim-cmp: add cmp source dictionary (See commit `4113b285 <|CommitPrefix|4113b285>`_)
+  * plugins: use a global filetype settings for treesitter and lspconfig (See commit `36e37358 <|CommitPrefix|36e37358>`_)
+  * rust: enable variable name in inlay hint (See commit `2f3b25f7 <|CommitPrefix|2f3b25f7>`_)
+  * keymap: add `;d` for dispatch (See commit `4619fe33 <|CommitPrefix|4619fe33>`_)
+  * plugin: add plugin to view git log (See commit `921b5817 <|CommitPrefix|921b5817>`_)
+  * plugin: add plugin to show lsp loading status (See commit `c4d2f8df <|CommitPrefix|c4d2f8df>`_)
+  * plugin: add rest.nvim (See commit `60163157 <|CommitPrefix|60163157>`_)
+  * vsnip: add fronmatter snippet (See commit `e6b997c5 <|CommitPrefix|e6b997c5>`_)
+  * plugin: add nvim-notify (See commit `3e7f46e9 <|CommitPrefix|3e7f46e9>`_)
+  * plugins: add bufdel.lua (See commit `c23be93b <|CommitPrefix|c23be93b>`_)
+  * plugins: add impatient.nvim to optimize the start up time (See commit `4ea10f41 <|CommitPrefix|4ea10f41>`_)
+  * nvim-cmp: add load trigger for key ":" and "/" (See commit `b5e56203 <|CommitPrefix|b5e56203>`_)
+  * nvim-cmp: use special format for cmdline cmp (See commit `c542b111 <|CommitPrefix|c542b111>`_)
+  * plugins: add spetre to enhance search and replace (See commit `852bebcc <|CommitPrefix|852bebcc>`_)
+  * plugins: add neoscroll to scroll smoothly (See commit `c2ae4bff <|CommitPrefix|c2ae4bff>`_)
+  * treesitter: enable matchup in treesitter (See commit `23a9eab4 <|CommitPrefix|23a9eab4>`_)
+  * plugins: use toggleterm instead of fterm (See commit `c9c22f11 <|CommitPrefix|c9c22f11>`_)
 
 autocmd:
-  * autocmd: add rnu and nu autocmd (See commit 2e535362)
+  * autocmd: add rnu and nu autocmd (See commit `2e535362 <|CommitPrefix|2e535362>`_)
 
 FIX:
 ----
-  * nvim-tree: fix auto resize when open file (See commit 91bccbcc)
-  * lsp: use spacing option to fix the nerdfont align issue (See commit 11c01a99)
-  * options: set no conceal for normal mode (See commit a86c47a8)
-  * plugins: fix vim-rooter (See commit 6291602f)
-  * plugins: set up autocmd before packer sync (See commit 978dc724)
+  * nvim-tree: fix auto resize when open file (See commit `91bccbcc <|CommitPrefix|91bccbcc>`_)
+  * lsp: use spacing option to fix the nerdfont align issue (See commit `11c01a99 <|CommitPrefix|11c01a99>`_)
+  * options: set no conceal for normal mode (See commit `a86c47a8 <|CommitPrefix|a86c47a8>`_)
+  * plugins: fix vim-rooter (See commit `6291602f <|CommitPrefix|6291602f>`_)
+  * plugins: set up autocmd before packer sync (See commit `978dc724 <|CommitPrefix|978dc724>`_)
 
 Changes:
 --------
-  * kanagawa: use darker pmenu highlight (See commit 3209e838)
-  * kanagawa: use default float highlight (See commit ff06f4fb)
-  * kanagawa: enable inactive window dim color (See commit e3a22e01)
-  * colors: remove redundant highlight group (See commit 60943299)
-  * nvim-cmp: use local icon list for completion (See commit 08941738)
-  * nvim-cmp: increase the lspconfig priority (See commit 69b358c0)
+  * kanagawa: use darker pmenu highlight (See commit `3209e838 <|CommitPrefix|3209e838>`_)
+  * kanagawa: use default float highlight (See commit `ff06f4fb <|CommitPrefix|ff06f4fb>`_)
+  * kanagawa: enable inactive window dim color (See commit `e3a22e01 <|CommitPrefix|e3a22e01>`_)
+  * colors: remove redundant highlight group (See commit `60943299 <|CommitPrefix|60943299>`_)
+  * nvim-cmp: use local icon list for completion (See commit `08941738 <|CommitPrefix|08941738>`_)
+  * nvim-cmp: increase the lspconfig priority (See commit `69b358c0 <|CommitPrefix|69b358c0>`_)
 
 
 4.0.0-rc5 <Mar 09 2022>
@@ -298,33 +298,33 @@ Changes:
 
 New Features:
 -------------
-  * plugins: add cmp-cmdline (See commit 1cbe60ce)
-  * nvim-cmp: add cmdline completion (See commit 4d092550)
-  * markdown: enable latex math conceal (See commit 7e2aee94)
+  * plugins: add cmp-cmdline (See commit `1cbe60ce <|CommitPrefix|1cbe60ce>`_)
+  * nvim-cmp: add cmdline completion (See commit `4d092550 <|CommitPrefix|4d092550>`_)
+  * markdown: enable latex math conceal (See commit `7e2aee94 <|CommitPrefix|7e2aee94>`_)
 
 Fix:
 ----
-  * plugins: fix vim-rooter (See commit 6291602f)
-  * plugins: set up autocmd before packer sync (See commit 978dc724)
+  * plugins: fix vim-rooter (See commit `6291602f <|CommitPrefix|6291602f>`_)
+  * plugins: set up autocmd before packer sync (See commit `978dc724 <|CommitPrefix|978dc724>`_)
 
 Changes:
 --------
-  * plugins: re-categorize treesitter plugin (See commit 562dbe6d)
-  * plugins: move treesitter and lspconfig filetype setting to options.lua (See commit f1886fba)
-  * plugins: remove prehook and posthook function (See commit 9f7bcff4)
-  * nvim-cmp: use local icon list for completion (See commit 08941738)
-  * nvim-cmp: remove orgmode completion (See commit 3b325147)
-  * nvim-cmp: increase the lspconfig priority (See commit 69b358c0)
-  * treesitter: remove markdown support (See commit 5ca5f4fb)
-  * book: update the commit convention (See commit 0e71dbb3)
+  * plugins: re-categorize treesitter plugin (See commit `562dbe6d <|CommitPrefix|562dbe6d>`_)
+  * plugins: move treesitter and lspconfig filetype setting to options.lua (See commit `f1886fba <|CommitPrefix|f1886fba>`_)
+  * plugins: remove prehook and posthook function (See commit `9f7bcff4 <|CommitPrefix|9f7bcff4>`_)
+  * nvim-cmp: use local icon list for completion (See commit `08941738 <|CommitPrefix|08941738>`_)
+  * nvim-cmp: remove orgmode completion (See commit `3b325147 <|CommitPrefix|3b325147>`_)
+  * nvim-cmp: increase the lspconfig priority (See commit `69b358c0 <|CommitPrefix|69b358c0>`_)
+  * treesitter: remove markdown support (See commit `5ca5f4fb <|CommitPrefix|5ca5f4fb>`_)
+  * book: update the commit convention (See commit `0e71dbb3 <|CommitPrefix|0e71dbb3>`_)
 
 Others:
 -------
-  * benchmark: update benchmark (See commit 8b023f93)
-  * book: add lspconfig tutorial (See commit 2074ccd2)
-  * book: add workflow about the windows (See commit b056c7b4)
-  * readme: fix the vimrc link (See commit 751898d9)
-  * genlog: rewrite the log generate script for new commit convention (See commit b095dad9)
+  * benchmark: update benchmark (See commit `8b023f93 <|CommitPrefix|8b023f93>`_)
+  * book: add lspconfig tutorial (See commit `2074ccd2 <|CommitPrefix|2074ccd2>`_)
+  * book: add workflow about the windows (See commit `b056c7b4 <|CommitPrefix|b056c7b4>`_)
+  * readme: fix the vimrc link (See commit `751898d9 <|CommitPrefix|751898d9>`_)
+  * genlog: rewrite the log generate script for new commit convention (See commit `b095dad9 <|CommitPrefix|b095dad9>`_)
 
 
 4.0.0-rc4 <Mar 05 2022>
@@ -332,40 +332,40 @@ Others:
 
 BREAKING CHANGES!:
 ------------------
-  * lspinstall: remove some ensure install server (See commit 66ef74e4)
-  * colorscheme: remove colorschemes (See commit bf3f7a21)
-  * plugins: move prehook to options.lua (See commit b91fec41)
+  * lspinstall: remove some ensure install server (See commit `66ef74e4 <|CommitPrefix|66ef74e4>`_)
+  * colorscheme: remove colorschemes (See commit `bf3f7a21 <|CommitPrefix|bf3f7a21>`_)
+  * plugins: move prehook to options.lua (See commit `b91fec41 <|CommitPrefix|b91fec41>`_)
 
 New Features:
 -------------
-  * vsnip: add tag snippet for markdown (See commit 5e5dc265)
-  * plugins: use a global filetype settings for treesitter and lspconfig (See commit 36e37358)
-  * nvim-cmp: add cmp source dictionary (See commit 4113b285)
-  * plugins: add winshift.nvim to handle window movement (See commit b019cc99)
-  * plugins: extend text object by treesitter (See commit 36526ed4)
-  * plugins: add dressing.nvim to pretty the vim.ui.select panel (See commit a71358df)
-  * plugins: add focus.nvim for split window (See commit 9a879728)
-  * plugins: use defer to delay plugins module loading (See commit 87ffff14)
+  * vsnip: add tag snippet for markdown (See commit `5e5dc265 <|CommitPrefix|5e5dc265>`_)
+  * plugins: use a global filetype settings for treesitter and lspconfig (See commit `36e37358 <|CommitPrefix|36e37358>`_)
+  * nvim-cmp: add cmp source dictionary (See commit `4113b285 <|CommitPrefix|4113b285>`_)
+  * plugins: add winshift.nvim to handle window movement (See commit `b019cc99 <|CommitPrefix|b019cc99>`_)
+  * plugins: extend text object by treesitter (See commit `36526ed4 <|CommitPrefix|36526ed4>`_)
+  * plugins: add dressing.nvim to pretty the vim.ui.select panel (See commit `a71358df <|CommitPrefix|a71358df>`_)
+  * plugins: add focus.nvim for split window (See commit `9a879728 <|CommitPrefix|9a879728>`_)
+  * plugins: use defer to delay plugins module loading (See commit `87ffff14 <|CommitPrefix|87ffff14>`_)
 
 Fix:
 ----
-  * mappings: update outdated term keymap (See commit 37b60a20)
+  * mappings: update outdated term keymap (See commit `37b60a20 <|CommitPrefix|37b60a20>`_)
 
 Changes:
 --------
-  * autocmd: move TermOpen command to autocmd.lua file (See commit e80d81ef)
-  * treesitter: remove org file (See commit a323dba4)
-  * mappings: add bang to the git push key (See commit 5091ab3f)
-  * plugins: use module to lazy-load notify (See commit 219df876)
-  * options: set no conceal for normal mode (See commit a86c47a8)
-  * plugins: expose load cfg as a public function (See commit 1931be24)
+  * autocmd: move TermOpen command to autocmd.lua file (See commit `e80d81ef <|CommitPrefix|e80d81ef>`_)
+  * treesitter: remove org file (See commit `a323dba4 <|CommitPrefix|a323dba4>`_)
+  * mappings: add bang to the git push key (See commit `5091ab3f <|CommitPrefix|5091ab3f>`_)
+  * plugins: use module to lazy-load notify (See commit `219df876 <|CommitPrefix|219df876>`_)
+  * options: set no conceal for normal mode (See commit `a86c47a8 <|CommitPrefix|a86c47a8>`_)
+  * plugins: expose load cfg as a public function (See commit `1931be24 <|CommitPrefix|1931be24>`_)
 
 Others:
 -------
-  * readme: fix vimrc download link (See commit 868e665c)
-  * benchmark: update benchmark (See commit 20ccc06f)
-  * book: remove colorscheme description (See commit 1c99b7b1)
-  * book: finish the git workflow pages (See commit bd72ab27)
+  * readme: fix vimrc download link (See commit `868e665c <|CommitPrefix|868e665c>`_)
+  * benchmark: update benchmark (See commit `20ccc06f <|CommitPrefix|20ccc06f>`_)
+  * book: remove colorscheme description (See commit `1c99b7b1 <|CommitPrefix|1c99b7b1>`_)
+  * book: finish the git workflow pages (See commit `bd72ab27 <|CommitPrefix|bd72ab27>`_)
 
 
 4.0.0-rc3 <Mar 05 2022>
@@ -373,25 +373,25 @@ Others:
 
 BREAKING CHANGES!
 ------------------
-  * gitsigns: update git sign keymaps (See commit abf53d99)
-  * commands: remove fugitive command alias (See commit f4a45ba4)
+  * gitsigns: update git sign keymaps (See commit `abf53d99 <|CommitPrefix|abf53d99>`_)
+  * commands: remove fugitive command alias (See commit `f4a45ba4 <|CommitPrefix|f4a45ba4>`_)
 
 New Features:
 -------------
-  * plugins: add spetre to enhance search and replace (See commit 852bebcc)
-  * plugins: add neoscroll to scroll smoothly (See commit c2ae4bff)
-  * keymap: add keymap for fugitive (See commit c1c9e66b)
-  * everforest: enable virtual text highlight (See commit d506a1e6)
-  * treesitter: enable matchup in treesitter (See commit 23a9eab4)
+  * plugins: add spetre to enhance search and replace (See commit `852bebcc <|CommitPrefix|852bebcc>`_)
+  * plugins: add neoscroll to scroll smoothly (See commit `c2ae4bff <|CommitPrefix|c2ae4bff>`_)
+  * keymap: add keymap for fugitive (See commit `c1c9e66b <|CommitPrefix|c1c9e66b>`_)
+  * everforest: enable virtual text highlight (See commit `d506a1e6 <|CommitPrefix|d506a1e6>`_)
+  * treesitter: enable matchup in treesitter (See commit `23a9eab4 <|CommitPrefix|23a9eab4>`_)
 
 Changes:
 --------
-  * plugins: replace terminal plugin (See commit c9c22f11)
+  * plugins: replace terminal plugin (See commit `c9c22f11 <|CommitPrefix|c9c22f11>`_)
 
 Others:
 -------
-  * book: add fugitive workflows (See commit 8e66b190)
-  * genlog: fix feature list reference (See commit 2d1a0c69)
+  * book: add fugitive workflows (See commit `8e66b190 <|CommitPrefix|8e66b190>`_)
+  * genlog: fix feature list reference (See commit `2d1a0c69 <|CommitPrefix|2d1a0c69>`_)
 
 
 4.0.0-rc2 <Mar 02 2022>
@@ -399,14 +399,14 @@ Others:
 
 Fix:
 ----
-  * nvim-tree: fix auto resize when open file (See commit 91bccbcc)
-  * lsp: use spacing option to fix the nerdfont align issue (See commit 11c01a99)
-  * benchmark: fix file handler warning (See commit ea34ca7d)
+  * nvim-tree: fix auto resize when open file (See commit `91bccbcc <|CommitPrefix|91bccbcc>`_)
+  * lsp: use spacing option to fix the nerdfont align issue (See commit `11c01a99 <|CommitPrefix|11c01a99>`_)
+  * benchmark: fix file handler warning (See commit `ea34ca7d <|CommitPrefix|ea34ca7d>`_)
 
 Changes:
 --------
-  * plugins: update nvim-tree icon (See commit 2c78214e)
-  * plugins: rewrite neocilp load condition (See commit 240b8e0e)
+  * plugins: update nvim-tree icon (See commit `2c78214e <|CommitPrefix|2c78214e>`_)
+  * plugins: rewrite neocilp load condition (See commit `240b8e0e <|CommitPrefix|240b8e0e>`_)
 
 Others:
 -------
@@ -432,36 +432,36 @@ configuration.
 New Features:
 -------------
 plugins:
-  * rust: enable variable name in inlay hint (See commit 2f3b25f7)
-  * keymap: add `;d` for dispatch (See commit 4619fe33)
-  * plugin: add plugin to view git log (See commit 921b5817)
-  * plugin: add plugin to show lsp loading status (See commit c4d2f8df)
-  * plugin: add rest.nvim (See commit 60163157)
-  * vsnip: add fronmatter snippet (See commit e6b997c5)
-  * plugin: add nvim-notify (See commit 3e7f46e9)
-  * plugins: add bufdel.lua (See commit c23be93b)
-  * plugins: add impatient.nvim to optimize the start up time (See commit 4ea10f41)
+  * rust: enable variable name in inlay hint (See commit `2f3b25f7 <|CommitPrefix|2f3b25f7>`_)
+  * keymap: add `;d` for dispatch (See commit `4619fe33 <|CommitPrefix|4619fe33>`_)
+  * plugin: add plugin to view git log (See commit `921b5817 <|CommitPrefix|921b5817>`_)
+  * plugin: add plugin to show lsp loading status (See commit `c4d2f8df <|CommitPrefix|c4d2f8df>`_)
+  * plugin: add rest.nvim (See commit `60163157 <|CommitPrefix|60163157>`_)
+  * vsnip: add fronmatter snippet (See commit `e6b997c5 <|CommitPrefix|e6b997c5>`_)
+  * plugin: add nvim-notify (See commit `3e7f46e9 <|CommitPrefix|3e7f46e9>`_)
+  * plugins: add bufdel.lua (See commit `c23be93b <|CommitPrefix|c23be93b>`_)
+  * plugins: add impatient.nvim to optimize the start up time (See commit `4ea10f41 <|CommitPrefix|4ea10f41>`_)
 
 autocmd:
-  * autocmd: add rnu and nu autocmd (See commit 2e535362)
+  * autocmd: add rnu and nu autocmd (See commit `2e535362 <|CommitPrefix|2e535362>`_)
 
 keymap:
-  * keymap: separate the editor keymap and plugin keymap (See commit 87709236)
+  * keymap: separate the editor keymap and plugin keymap (See commit `87709236 <|CommitPrefix|87709236>`_)
 
 Breaking Changes:
 -----------------
-  * plugins: rewrite the plugin file structure (See commit dfd2f18a)
-  * lspconfig: move lsp_attach to lspconfig (See commit bcc3ca70)
-  * commands: move utils.new_cmd to commands.alias (See commit 9fe3ad46)
-  * plugins: remove vim-lua-format (See commit f0ee2689)
-  * plugins: remove setup function for flog (See commit df90cdc2)
-  * plugins: rename all plugin config suffix with _cfg (See commit 86706692)
-  * plugins: move config dir into plugins dir (See commit bb16ba1a)
-  * format: replace luaformat with stylua (See commit 51bb5119)
-  * nvim: move utils.map to mappings.utils.map (See commit 49de74ee)
-  * nvim: move neovim settings to core directory (See commit 6137b27d)
-  * reft!/keymap: remove wildfire range keymap (See commit 25b4e453)
-  * reft!/plugin: remove orgmode (See commit fc94ef62)
+  * plugins: rewrite the plugin file structure (See commit `dfd2f18a <|CommitPrefix|dfd2f18a>`_)
+  * lspconfig: move lsp_attach to lspconfig (See commit `bcc3ca70 <|CommitPrefix|bcc3ca70>`_)
+  * commands: move utils.new_cmd to commands.alias (See commit `9fe3ad46 <|CommitPrefix|9fe3ad46>`_)
+  * plugins: remove vim-lua-format (See commit `f0ee2689 <|CommitPrefix|f0ee2689>`_)
+  * plugins: remove setup function for flog (See commit `df90cdc2 <|CommitPrefix|df90cdc2>`_)
+  * plugins: rename all plugin config suffix with _cfg (See commit `86706692 <|CommitPrefix|86706692>`_)
+  * plugins: move config dir into plugins dir (See commit `bb16ba1a <|CommitPrefix|bb16ba1a>`_)
+  * format: replace luaformat with stylua (See commit `51bb5119 <|CommitPrefix|51bb5119>`_)
+  * nvim: move utils.map to mappings.utils.map (See commit `49de74ee <|CommitPrefix|49de74ee>`_)
+  * nvim: move neovim settings to core directory (See commit `6137b27d <|CommitPrefix|6137b27d>`_)
+  * reft!/keymap: remove wildfire range keymap (See commit `25b4e453 <|CommitPrefix|25b4e453>`_)
+  * reft!/plugin: remove orgmode (See commit `fc94ef62 <|CommitPrefix|fc94ef62>`_)
 
 
 3.17.0 <Feb 07 2022>
@@ -470,21 +470,21 @@ Breaking Changes:
 BREAKING CHANGES:
 -----------------
 keymaps:
-  * bufferline: rewrite bufferline keymap (See commit c5be031e)
-  * fugitive: rewrite the fugitive keymap (See commit e9c44d93)
-  * keymap: rewrite the telescope keymap (See commit 8cd716a5)
+  * bufferline: rewrite bufferline keymap (See commit `c5be031e <|CommitPrefix|c5be031e>`_)
+  * fugitive: rewrite the fugitive keymap (See commit `e9c44d93 <|CommitPrefix|e9c44d93>`_)
+  * keymap: rewrite the telescope keymap (See commit `8cd716a5 <|CommitPrefix|8cd716a5>`_)
 
 plugins:
-  * plugin: remove neogen (See commit 96694e6b)
-  * plugin: replace Hexokinase with colorizer (See commit 455ab684)
+  * plugin: remove neogen (See commit `96694e6b <|CommitPrefix|96694e6b>`_)
+  * plugin: replace Hexokinase with colorizer (See commit `455ab684 <|CommitPrefix|455ab684>`_)
 
 changes:
 --------
-* plugin: add new plugin tpope/vim-sleuth (See commit 697cc6ab)
-* plugin: update the autocmd filename (See commit 44da667f)
-* plugin: add diffview.nvim (See commit c49688f3)
-* plugin: add vim-repeat (See commit 8f618162)
-* dispatch: add key trigger (See commit e4c10789)
+* plugin: add new plugin tpope/vim-sleuth (See commit `697cc6ab <|CommitPrefix|697cc6ab>`_)
+* plugin: update the autocmd filename (See commit `44da667f <|CommitPrefix|44da667f>`_)
+* plugin: add diffview.nvim (See commit `c49688f3 <|CommitPrefix|c49688f3>`_)
+* plugin: add vim-repeat (See commit `8f618162 <|CommitPrefix|8f618162>`_)
+* dispatch: add key trigger (See commit `e4c10789 <|CommitPrefix|e4c10789>`_)
 
 
 3.16.0 <Jan 26 2022>
@@ -493,14 +493,14 @@ changes:
 BREAKING CHANGES:
 -----------------
 keymaps:
-  * remap the Sayonara command (See commit a7282480)
-  * integrate the `;` key (See commit 27fa7637)
-  * rewrite the window navigate keys (See commit 460a5137)
-  * fix the multi cursor keymap conflict (See commit 5c81c484)
-  * rewrite the nvim tree keymap (See commit 47d4432d)
+  * remap the Sayonara command (See commit `a7282480 <|CommitPrefix|a7282480>`_)
+  * integrate the `;` key (See commit `27fa7637 <|CommitPrefix|27fa7637>`_)
+  * rewrite the window navigate keys (See commit `460a5137 <|CommitPrefix|460a5137>`_)
+  * fix the multi cursor keymap conflict (See commit `5c81c484 <|CommitPrefix|5c81c484>`_)
+  * rewrite the nvim tree keymap (See commit `47d4432d <|CommitPrefix|47d4432d>`_)
 
 plugins:
-  * markdown: update the vim-markdown config (See commit 3e57ba13)
+  * markdown: update the vim-markdown config (See commit `3e57ba13 <|CommitPrefix|3e57ba13>`_)
 
 
 3.15.0 <Jan 24 2022>
@@ -511,18 +511,18 @@ lua/partial directory.
 
 BREAKING CHANGES:
 -----------------
-* nvim-cmp source rg had been removed due to the performance problem (See commit 3dd333d6)
-* vim-commentary is replaced by Comment.nvim due to absence of maintenance (See commit 6af6af2b)
-* vim-startuptime and focus.nvim is removed as they are rarely used (See commit ead4715c)
+* nvim-cmp source rg had been removed due to the performance problem (See commit `3dd333d6 <|CommitPrefix|3dd333d6>`_)
+* vim-commentary is replaced by Comment.nvim due to absence of maintenance (See commit `6af6af2b <|CommitPrefix|6af6af2b>`_)
+* vim-startuptime and focus.nvim is removed as they are rarely used (See commit `ead4715c <|CommitPrefix|ead4715c>`_)
 
 Changes:
 --------
 * plugins: separate plugins to the lua/partial directory. (See commit b87f2efa to ead4715c)
-* vim-surround: rewrite the conditions of the plugin call (See commit 3fe64080)
-* orgmode: replace the default file path (See commit cda57c67)
-* keymap: add keymap for wildfire quick select functionality(See commit 87a72276)
-* feat/vsnip: add snippet for orgmode (See commit d86a30c6)
-* reft/keymap: remove the vfiler keymap (See commit 577a520f)
+* vim-surround: rewrite the conditions of the plugin call (See commit `3fe64080 <|CommitPrefix|3fe64080>`_)
+* orgmode: replace the default file path (See commit `cda57c67 <|CommitPrefix|cda57c67>`_)
+* keymap: add keymap for wildfire quick select functionality(See commit `87a72276 <|CommitPrefix|87a72276>`_)
+* feat/vsnip: add snippet for orgmode (See commit `d86a30c6 <|CommitPrefix|d86a30c6>`_)
+* reft/keymap: remove the vfiler keymap (See commit `577a520f <|CommitPrefix|577a520f>`_)
 
 
 -----------------------------------------------------------------------------------------
@@ -537,15 +537,15 @@ https://avimitin.github.io/nvim
 Changes:
 --------
 * Snippet:
-  - add snippet "<kbd>" (See commit 0743464d)
-  - add custom markdown snippets (See commit b32aa8c4)
+  - add snippet "<kbd>" (See commit `0743464d <|CommitPrefix|0743464d>`_)
+  - add custom markdown snippets (See commit `b32aa8c4 <|CommitPrefix|b32aa8c4>`_)
 * Plugins:
-  - feat/plugin: add new plugin nvim-orgmode (See commit 6e47dcc3)
-  - treesitter: disable treesitter lazy-loading (See commit 47cb9ca5)
-  - lazygit: update the lazygit to upstream version (See commit abcefe9f)
-  - wildfire: add text object "i`" to quick select (See commit 14374bbc)
+  - feat/plugin: add new plugin nvim-orgmode (See commit `6e47dcc3 <|CommitPrefix|6e47dcc3>`_)
+  - treesitter: disable treesitter lazy-loading (See commit `47cb9ca5 <|CommitPrefix|47cb9ca5>`_)
+  - lazygit: update the lazygit to upstream version (See commit `abcefe9f <|CommitPrefix|abcefe9f>`_)
+  - wildfire: add text object "i`" to quick select (See commit `14374bbc <|CommitPrefix|14374bbc>`_)
 * Options:
-  - options: rewrite the tab listchars (See commit ed506d03)
+  - options: rewrite the tab listchars (See commit `ed506d03 <|CommitPrefix|ed506d03>`_)
 
 
 -----------------------------------------------------------------------------------------
@@ -556,8 +556,8 @@ Changes:
 
 Changes:
 --------
-* commands: add commands for crates.nvim (See commit 253794e7)
-* plugins: add new plugin "crates.nvim" (See commit b8c04f4e)
+* commands: add commands for crates.nvim (See commit `253794e7 <|CommitPrefix|253794e7>`_)
+* plugins: add new plugin "crates.nvim" (See commit `b8c04f4e <|CommitPrefix|b8c04f4e>`_)
 
 
 -----------------------------------------------------------------------------------------
@@ -569,10 +569,10 @@ Changes:
 Changes:
 --------
 
-* colors: add colorscheme gruvbox (See commit 0ad3b12c)
-* colors: add new colorscheme "everforest" (See commit 9c6def1a)
-* colors: add lazyload for all colors (See commit 52fc2681)
-* plugins: add lazyload for lightspeed and matchup (See commit 99fb3261)
+* colors: add colorscheme gruvbox (See commit `0ad3b12c <|CommitPrefix|0ad3b12c>`_)
+* colors: add new colorscheme "everforest" (See commit `9c6def1a <|CommitPrefix|9c6def1a>`_)
+* colors: add lazyload for all colors (See commit `52fc2681 <|CommitPrefix|52fc2681>`_)
+* plugins: add lazyload for lightspeed and matchup (See commit `99fb3261 <|CommitPrefix|99fb3261>`_)
 
 
 -----------------------------------------------------------------------------------------
@@ -585,18 +585,18 @@ The basic keymap section is finished now.
 
 Breaking Chnages:
 ----------------
-* keymap: add ctrl as prefix key when resize (See commit b545fafe)
-* keymap: use arrow key to navigate between windows (See commit 70576e9d)
-* keymap: delete the duplicate new tab keymap, only `<C-t> n` is kept (See commit 6369ca63)
+* keymap: add ctrl as prefix key when resize (See commit `b545fafe <|CommitPrefix|b545fafe>`_)
+* keymap: use arrow key to navigate between windows (See commit `70576e9d <|CommitPrefix|70576e9d>`_)
+* keymap: delete the duplicate new tab keymap, only `<C-t> n` is kept (See commit `6369ca63 <|CommitPrefix|6369ca63>`_)
 * keymap: set `gf` to buffer format, set `gq` to set_loclist, set `gt` to...
   ...type_definition (See commit 346bfe58 and 3111d496)
 
 Features:
 ---------
 * plugin: add plugin vim-startuptime, you can see the startuptime graph by...
-  ...command `:StartupTime` (See commit 7018a3e3)
-* command: add `Cmt` to make a commit, add `Psh` to push changes. (See commit 8b9d959a)
-* plugin: add new plugin FixCursorHold.nvim to fix the laggy event (See commit 0164a37d)
+  ...command `:StartupTime` (See commit `7018a3e3 <|CommitPrefix|7018a3e3>`_)
+* command: add `Cmt` to make a commit, add `Psh` to push changes. (See commit `8b9d959a <|CommitPrefix|8b9d959a>`_)
+* plugin: add new plugin FixCursorHold.nvim to fix the laggy event (See commit `0164a37d <|CommitPrefix|0164a37d>`_)
 
 
 -----------------------------------------------------------------------------------------
@@ -707,19 +707,19 @@ Features
 
 Breaking Changes
 ----------------
-* plugin: delete fterm lazygit setting (See commit 5f2cd7ae)
+* plugin: delete fterm lazygit setting (See commit `5f2cd7ae <|CommitPrefix|5f2cd7ae>`_)
 
 
 Features
 --------
-* plugin: add new plugin lazygit.nvim (See commit 7c0c2dfe)
-* nvim-cmp: add square bracket in menu (See commit 563bf2fb)
+* plugin: add new plugin lazygit.nvim (See commit `7c0c2dfe <|CommitPrefix|7c0c2dfe>`_)
+* nvim-cmp: add square bracket in menu (See commit `563bf2fb <|CommitPrefix|563bf2fb>`_)
 * options: set fileencoding to utf-8 forcely
 
 
 Changes
 --------
-* options: set tab char as "->" (See commit c2994e5a)
+* options: set tab char as "->" (See commit `c2994e5a <|CommitPrefix|c2994e5a>`_)
 
 
 -----------------------------------------------------------------------------------------
@@ -730,17 +730,17 @@ Changes
 
 Features
 ========
-* plugin: add new plugin neorg (See commit c5fcd4b)
+* plugin: add new plugin neorg (See commit `c5fcd4b <|CommitPrefix|c5fcd4b>`_)
 
 Fix
 ===
-* lsp: replace show line diagnostic api (See commit d4d290b)
-* plugin: fix nvim-cmp hook (See commit fd44872)
-* plugin: fix luaformat load sequence (See commit f2780c1)
+* lsp: replace show line diagnostic api (See commit `d4d290b <|CommitPrefix|d4d290b>`_)
+* plugin: fix nvim-cmp hook (See commit `fd44872 <|CommitPrefix|fd44872>`_)
+* plugin: fix luaformat load sequence (See commit `f2780c1 <|CommitPrefix|f2780c1>`_)
 
 Chore
 =====
-* colors: use kanagawa as default theme (See commit f2c2890)
+* colors: use kanagawa as default theme (See commit `f2c2890 <|CommitPrefix|f2c2890>`_)
 
 
 ------------------------------------------------------------------------------------------
@@ -762,13 +762,14 @@ Breaking Changes
 Features
 ========
 * statusline: add short line icon for fern and neoterm (See commit 0e7def8 and ab2160a)
-* plugins: add plugin vim-table-mode (See commit faebcd9)
-* command: add new command `Glog` (See commit e6e0c4c)
+* plugins: add plugin vim-table-mode (See commit `faebcd9 <|CommitPrefix|faebcd9>`_)
+* command: add new command `Glog` (See commit `e6e0c4c <|CommitPrefix|e6e0c4c>`_)
 
 Rewrite
 =======
-* fterm: update fterm and lazygit colorscheme (See commit fcc2c30)
-* keymap: update ~neogit~ and fugitive keymap (See commit 2debc8d)
-* plugin: update vim-lua-format load condition (See commit 89674a4)
+* fterm: update fterm and lazygit colorscheme (See commit `fcc2c30 <|CommitPrefix|fcc2c30>`_)
+* keymap: update ~neogit~ and fugitive keymap (See commit `2debc8d <|CommitPrefix|2debc8d>`_)
+* plugin: update vim-lua-format load condition (See commit `89674a4 <|CommitPrefix|89674a4>`_)
 
-.. vim: filetype=markdown
+.. vim: filetype=rst
+.. |CommitPrefix| replace:: https://github.com/Avimitin/nvim/commit/
