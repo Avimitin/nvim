@@ -41,6 +41,8 @@ git checkout 4.0.2
 ```
 </details>
 
+- Neovim version I am using: `NVIM v0.8.0-dev+98-g069da468d5`
+
 ## Motivation
 
 I want a text editor which is:
