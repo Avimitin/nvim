@@ -558,7 +558,7 @@ local coding_enhance = {
 
   -- enhance the lsp UI
   {
-    "tami5/lspsaga.nvim",
+    "Avimitin/lspsaga.nvim",
     after = "nvim-lspconfig",
     config = function()
       require("plugins").load_cfg("lspsaga_cfg")
