@@ -1,4 +1,4 @@
-6.2.0 <May 2 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+6.2.0 <May 2 2022>
 ====================================================================
 
 Changes:
@@ -6,8 +6,7 @@ Changes:
   * rust: replace upstream (See commit e695763b)
 
 
-
-6.1.0 <May 2 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+6.1.0 <May 2 2022>
 ====================================================================
 
 Changes:
@@ -20,7 +19,7 @@ Others:
   * readme: add API stablize hint (See commit 1054482d)
 
 
-6.0.0 <May 1 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+6.0.0 <May 1 2022>
 ====================================================================
 
 BREAKING CHANGES!:
@@ -38,7 +37,7 @@ Others:
   * book: fix color section (See commit fa24c72a)
 
 
-5.2.2 <Apr 30 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+5.2.2 <Apr 30 2022>
 ====================================================================
 
 New Features:
@@ -50,7 +49,7 @@ Others:
   * readme: add more descriptions (See commit ad791488)
 
 
-5.2.1 <Apr 29 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+5.2.1 <Apr 29 2022>
 ====================================================================
 
 New Features:
@@ -71,7 +70,7 @@ Others:
   * readme: add table mode demo (See commit 661c57aa)
 
 
-5.2.0 <Apr 25 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+5.2.0 <Apr 25 2022>
 ====================================================================
 BREAKING CHANGES:
 -----------------
@@ -83,7 +82,7 @@ changes:
   * commands: emebed flog commands into `Glog` and `GlogS`
 
 
-5.1.0 <Apr 25 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+5.1.0 <Apr 25 2022>
 ====================================================================
 New Features:
 -------------
@@ -94,7 +93,7 @@ BREAKING CHANGES:
   * treesitter: remove the ``move`` keymappings
 
 
-5.0.2 <Apr 25 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+5.0.2 <Apr 25 2022>
 ====================================================================
 Fix:
 ----
@@ -103,7 +102,7 @@ plugins:
   * nvim-cmp: fix keymaps
 
 
-5.0.1 <Apr 20 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+5.0.1 <Apr 20 2022>
 ====================================================================
 New Features:
 -------------
@@ -115,7 +114,7 @@ Others:
   * readme: add incompatible notice (See commit 8db142cb)
 
 
-5.0.0 <Apr 20 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+5.0.0 <Apr 20 2022>
 ====================================================================
 BREAKING CHANGES!:
 ------------------
@@ -136,7 +135,7 @@ Changes:
   * ci: update test script (See commit 2eb73b0e)
 
 
-4.0.2 <Apr 15 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+4.0.2 <Apr 15 2022>
 ====================================================================
 Fix:
 ----
@@ -149,7 +148,7 @@ Others:
   * Fix linting error
 
 
-4.0.1 <Apr 13 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+4.0.1 <Apr 13 2022>
 ====================================================================
 
 New Features:
@@ -184,7 +183,7 @@ Others:
   * plugins: add component document (See commit fcefe899)
 
 
-4.0.0 <Mar 12 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+4.0.0 <Mar 12 2022>
 ====================================================================
 In this version, I rewrite the whole configuration structure.
 This is how it looks like now::
@@ -294,7 +293,7 @@ Changes:
   * nvim-cmp: increase the lspconfig priority (See commit 69b358c0)
 
 
-4.0.0-rc5 <Mar 09 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+4.0.0-rc5 <Mar 09 2022>
 ====================================================================
 
 New Features:
@@ -328,7 +327,7 @@ Others:
   * genlog: rewrite the log generate script for new commit convention (See commit b095dad9)
 
 
-4.0.0-rc4 <Mar 05 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+4.0.0-rc4 <Mar 05 2022>
 ====================================================================
 
 BREAKING CHANGES!:
@@ -369,7 +368,7 @@ Others:
   * book: finish the git workflow pages (See commit bd72ab27)
 
 
-4.0.0-rc3 <Mar 05 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+4.0.0-rc3 <Mar 05 2022>
 ====================================================================
 
 BREAKING CHANGES!
@@ -395,7 +394,7 @@ Others:
   * genlog: fix feature list reference (See commit 2d1a0c69)
 
 
-4.0.0-rc2 <Mar 02 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+4.0.0-rc2 <Mar 02 2022>
 ====================================================================
 
 Fix:
@@ -415,7 +414,7 @@ Others:
     (See fixtures/genlog.pl and benmark.pl)
 
 
-4.0.0-rc1 <Feb 26 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+4.0.0-rc1 <Feb 26 2022>
 ====================================================================
 In this version, I rewrite the whole configuration structure and simplify
 some plugins.
@@ -465,7 +464,7 @@ Breaking Changes:
   * reft!/plugin: remove orgmode (See commit fc94ef62)
 
 
-3.17.0 <Feb 07 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+3.17.0 <Feb 07 2022>
 ====================================================================
 
 BREAKING CHANGES:
@@ -488,7 +487,7 @@ changes:
 * dispatch: add key trigger (See commit e4c10789)
 
 
-3.16.0 <Jan 26 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+3.16.0 <Jan 26 2022>
 ====================================================================
 
 BREAKING CHANGES:
@@ -504,7 +503,7 @@ plugins:
   * markdown: update the vim-markdown config (See commit 3e57ba13)
 
 
-3.15.0 <Jan 24 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+3.15.0 <Jan 24 2022>
 ====================================================================
 
 This version rewrite the plugins structure. Now all plugins are classified and put into the
@@ -529,7 +528,7 @@ Changes:
 -----------------------------------------------------------------------------------------
 
 
-3.14.7 <Jan 21 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+3.14.7 <Jan 21 2022>
 ==================================================================
 
 The installation guide is now moved into the book:
