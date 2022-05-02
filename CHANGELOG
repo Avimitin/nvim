@@ -1,3 +1,16 @@
+6.1.0 <May 2 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
+====================================================================
+
+Changes:
+--------
+  * lsp: replace lspsaga upstream (See commit 9b5e9f77)
+
+Others:
+-------
+  * readme: add version reminder (See commit 284775d7)
+  * readme: add API stablize hint (See commit 1054482d)
+
+
 6.0.0 <May 1 2022> // Signed-off-by: Avimitin <avimitin@gmail.com>
 ====================================================================
 
