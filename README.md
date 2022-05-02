@@ -41,7 +41,17 @@ git checkout 4.0.2
 ```
 </details>
 
-- Neovim version I am using: `NVIM v0.8.0-dev+98-g069da468d5`
+<details>
+    <summary markdown="span">Configuration capabilities list</summary>
+
+| Neovim Version                   | Configuration Version |
+|----------------------------------|-----------------------|
+| `NVIM-v0.8.0-dev+98-g069da468d5` | `HEAD`                |
+| `NVIM v0.8.0`                    | `6.0.0`               |
+| `NVIM v0.7*`                     | `5.2.2`               |
+| `NVIM v0.6*`                     | `4.0.2`               |
+
+</details>
 
 ## Motivation
 
