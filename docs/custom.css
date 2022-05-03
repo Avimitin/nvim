@@ -1,0 +1,11 @@
+kbd {
+  border: 2px solid #828282;
+  box-shadow: 2px 2px #b5b5b5;
+  font-size: .85em;
+  line-height: .85em;
+  display: inline-block;
+  font-weight: 600;
+  letter-spacing: .05em;
+  padding: 3px 5px;
+  white-space: nowrap;
+}
