@@ -83,7 +83,7 @@ section. See the section "Full Example" for details.
 
 My daily practice are listed below:
 
-<pre>
+```text
 Section
 =======
 
@@ -103,7 +103,7 @@ adipisicing minim sint cillum sint consectetur cupidatat.
 
 Ref:
 [ref-1]: https://github.com/Avimitin/commit-convention
-</pre>
+```
 
 * One Line Per Sentence
 
