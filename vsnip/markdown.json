@@ -2,7 +2,7 @@
   "date": {
     "prefix": "date",
     "body": [
-      "${VIM:system('date +%Y-%m-%d')}"
+      "${VIM:strftime('%Y-%m-%d')}"
     ],
     "description": "Add current date, useful for frontmatter"
   },
@@ -18,7 +18,7 @@
     "body": [
       "+++",
       "title = '${1:$TM_FILENAME_BASE}'",
-      "date = '${VIM:system('date +%Y-%m-%d')}'",
+      "date = '${VIM:strftime('%Y-%m-%d')}'",
       "tag = ['${2}']",
       "author = '${VIM:\\$USER}'",
       "+++",
