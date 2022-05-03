@@ -5,8 +5,8 @@ use warnings;
 use Getopt::Long qw(GetOptions);
 use Data::Dumper;
 
-my $commit_link_prefix = "https://github.com/Avimitin/nvim/commit"
-my $git_log_cmd = "git log --oneline --pretty=\"format:%s (See commit [`%h`]($commit_link_prefix/%h))\"";
+my $commit_link_prefix = "https://github.com/Avimitin/nvim/commit";
+my $git_log_cmd = "git log --oneline --pretty=\"format:%s (See commit [\\`%h\\`]($commit_link_prefix/%h))\"";
 
 # Accept commandline argument like:
 # --from verA --to verB
