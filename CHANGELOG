@@ -1,4 +1,12 @@
-6.2.1 <May 2 2022>
+6.2.2 <May 3 2022>
+==================
+
+Changes:
+--------
+  * vsnip: replace date provider with built-in strftime (See commit [`69d39368`](https://github.com/Avimitin/nvim/commit/69d39368))
+
+
+6.2.1 <May 3 2022>
 ==================
 
 New Features:
