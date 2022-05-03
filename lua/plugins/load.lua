@@ -152,7 +152,7 @@ local editor_enhance = {
   {
     "simnalamburt/vim-mundo",
     cmd = {
-      "MundoToggle"
+      "MundoToggle",
     },
   },
 
