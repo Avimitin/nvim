@@ -148,6 +148,15 @@ local git_tools = {
 }
 
 local editor_enhance = {
+  -- manage undo history
+  {
+    "simnalamburt/vim-mundo",
+    cmd = {
+      "MundoToggle"
+    },
+  },
+
+  -- manage windows
   {
     "sindrets/winshift.nvim",
     cmd = {
@@ -435,7 +444,7 @@ local editor_enhance = {
     event = "WinEnter",
     config = function()
       require("focus").setup({
-        excluded_filetypes = { "fterm", "term", "toggleterm" },
+        excluded_filetypes = { "fterm", "term", "toggleterm", "Mundo", "MundoDiff" },
         signcolumn = false,
       })
     end,
