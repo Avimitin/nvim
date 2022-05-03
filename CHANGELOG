@@ -1,3 +1,15 @@
+6.2.1 <May 2 2022>
+==================
+
+New Features:
+-------------
+  * plugin: add vim-mundo for undo history management (See commit [`e5a43baf`](https://github.com/Avimitin/nvim/commit/e5a43baf))
+
+Others:
+-------
+  * book: replace <kbd> css with Apple magic keyboard style (See commit [`c3ace766`](https://github.com/Avimitin/nvim/commit/c3ace766))
+
+
 6.2.0 <May 2 2022>
 ====================================================================
 
@@ -771,4 +783,4 @@ Rewrite
 * keymap: update ~neogit~ and fugitive keymap (See commit [`2debc8d`](https://github.com/Avimitin/nvim/commit/2debc8d))
 * plugin: update vim-lua-format load condition (See commit [`89674a4`](https://github.com/Avimitin/nvim/commit/89674a4))
 
-<!-- vim: filetype=markdown -->
+<!-- vim: set filetype=markdown: -->
