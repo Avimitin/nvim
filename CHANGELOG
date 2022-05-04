@@ -1,3 +1,24 @@
+6.4.0 <May 4 2022>
+==================
+
+BREAKING CHANGES!:
+------------------
+  * keys: fix conflict keymapping (See commit [`40d28348`](https://github.com/Avimitin/nvim/commit/40d28348))
+
+New Features:
+-------------
+  * keys: add some motion key in insert mode (See commit [`d5e39e1d`](https://github.com/Avimitin/nvim/commit/d5e39e1d))
+
+Changes:
+--------
+  * which-key: ignore some special key (See commit [`276b09db`](https://github.com/Avimitin/nvim/commit/276b09db))
+  * lsp: use version compare to increase capability (See commit [`7e9ded3c`](https://github.com/Avimitin/nvim/commit/7e9ded3c))
+
+Others:
+-------
+  * books: update key mapping document (See commit [`6f1b92f8`](https://github.com/Avimitin/nvim/commit/6f1b92f8))
+
+
 6.3.0 <May 4 2022>
 ==================
 
