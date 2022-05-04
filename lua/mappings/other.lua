@@ -53,7 +53,7 @@ nmap(";d", ":Dispatch ", { noremap = true, silent = false })
 -- keep the same prefix as the git sign
 -- See git-sign keymap in lua/plugins/config/gitsign_cfg.lua
 nmap("gic", ":Git commit -sS<CR>")
-nmap("giP", ":Git! push ", { silent = false })
+nmap("giP", ":Dispatch! git push ", { silent = false })
 
 -- kill buffer with ;q , quit window with :q . This make sense.
 nmap(";q", require("plugins.bufdel").delete_buffer)
