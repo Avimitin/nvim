@@ -19,7 +19,7 @@ map("t", ";h", [[<C-\><C-n><C-w>h]])
 
 -- telescope
 nmap(";f", function()
-  require("telescope.builtin").find_files()
+  require("telescope.builtin").find_files(require("telescope.themes").get_ivy())
 end)
 nmap(";s", function()
   require("telescope.builtin").live_grep()
