@@ -148,6 +148,16 @@ local git_tools = {
 }
 
 local editor_enhance = {
+  -- prompt up panel to give a key mapping hint
+  {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup({
+        triggers = "auto"
+      })
+    end,
+  },
+
   -- manage undo history
   {
     "simnalamburt/vim-mundo",
