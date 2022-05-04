@@ -146,6 +146,10 @@ Besides, we have the most powerful table tools in vim:
 
 ![vim-table-mode-gif](./docs/images/tablemode.gif)
 
+### Keymap hinting
+
+![which-key.gif](./docs/images/which-key.gif)
+
 ### Colorscheme
 
 With the help from treesitter, we can have amazing code highlight.
