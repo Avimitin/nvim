@@ -156,6 +156,7 @@ local editor_enhance = {
         triggers = "auto",
       })
     end,
+    module = "which-key",
   },
 
   -- manage undo history
