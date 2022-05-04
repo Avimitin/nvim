@@ -69,7 +69,11 @@ map("i", "<C-c>", "<ESC>zzi", d("Place the current line to the middle of the scr
 
 -- After plugin loaded
 vim.defer_fn(function()
-  local wk = require("which-key")
+  local ok, wk = pcall(require, "which-key")
+  if not ok then
+    -- this might be the first time running the neovim, so require will failed
+    return
+  end
 
   wk.register({
     gi = {
