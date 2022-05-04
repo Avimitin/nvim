@@ -69,10 +69,10 @@ Basic movement
 
 ## Text move
 
-| Keymap       | Function                 | notes                        |
-|--------------|--------------------------|------------------------------|
-| <kbd><</kbd> | Reduce one indent level  | In normal and selection mode |
-| <kbd>></kbd> | Increse one indent level | In normal and selection mode |
+| Keymap         | Function                   | notes                          |
+| -------------- | -------------------------- | ------------------------------ |
+| <kbd><<</kbd>  | Reduce one indent level    | In normal and selection mode   |
+| <kbd>>></kbd>  | Increse one indent level   | In normal and selection mode   |
 
 ## Save and Quit
 
