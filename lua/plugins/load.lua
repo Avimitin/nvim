@@ -154,6 +154,14 @@ local editor_enhance = {
     config = function()
       require("which-key").setup({
         triggers = "auto",
+        triggers_blacklist = {
+          -- list of mode / prefixes that should never be hooked by WhichKey
+          -- this is mostly relevant for key maps that start with a native binding
+          -- most people should not need to change this
+          n = { "/", ":", ">i", ">a", "<i", "<a", "<", ">"},
+          i = { "j", "k" },
+          v = { "j", "k" },
+        },
       })
       require("mappings.whichkey")
     end,
