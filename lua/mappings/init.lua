@@ -67,57 +67,60 @@ nmap("<C-S-left>", ":vertical resize+5<CR>", d("Extend the right boundary of the
 -- center editing line
 map("i", "<C-c>", "<ESC>zzi", d("Place the current line to the middle of the screen"))
 
-local wk = require("which-key")
+-- After plugin loaded
+vim.defer_fn(function()
+  local wk = require("which-key")
 
-wk.register({
-  gi = {
-    name = "+Git",
-    B = "Toggle git blame (Popup Panel)",
-    b = "Toggle inline git blame (Virtual text)",
-    c = "Commit staged changes",
-    D = "Toggle diff panel",
-    d = "Toggle diff panel",
-    h = "Toggle deleted",
-    j = "Jump to next hunk",
-    k = "Jump to previouse hunk",
-    P = "Create a git push prompt",
-    p = "Preview current diff",
-    r = "Reset current hunk",
-    R = "Reset whole buffer",
-    S = "Stage current buffer",
-    s = "Stage current hunk",
-    u = "Undo staged hunk",
-  },
-})
+  wk.register({
+    gi = {
+      name = "+Git",
+      B = "Toggle git blame (Popup Panel)",
+      b = "Toggle inline git blame (Virtual text)",
+      c = "Commit staged changes",
+      D = "Toggle diff panel",
+      d = "Toggle diff panel",
+      h = "Toggle deleted",
+      j = "Jump to next hunk",
+      k = "Jump to previouse hunk",
+      P = "Create a git push prompt",
+      p = "Preview current diff",
+      r = "Reset current hunk",
+      R = "Reset whole buffer",
+      S = "Stage current buffer",
+      s = "Stage current hunk",
+      u = "Undo staged hunk",
+    },
+  })
 
-wk.register({
-  [";"] = {
-    name = "+Quick Operation",
-    d = "Open cmdline to dispatch commands",
-    f = "Open quick find file panel",
-    g = "Open git status panel",
-    h = "Jump to left window",
-    j = "Jump to below window",
-    k = "Jump to upper window",
-    l = "Jump to right window",
-    p = "Enter buffer pick mode",
-    q = "Quit current buffer",
-    s = "Open live grep panel",
-    t = "Open tree file manager",
-    w = "Save buffer to file",
-  },
-})
+  wk.register({
+    [";"] = {
+      name = "+Quick Operation",
+      d = "Open cmdline to dispatch commands",
+      f = "Open quick find file panel",
+      g = "Open git status panel",
+      h = "Jump to left window",
+      j = "Jump to below window",
+      k = "Jump to upper window",
+      l = "Jump to right window",
+      p = "Enter buffer pick mode",
+      q = "Quit current buffer",
+      s = "Open live grep panel",
+      t = "Open tree file manager",
+      w = "Save buffer to file",
+    },
+  })
 
-wk.register({
-  ["<leader>"] = {
-    t = "Open telescope",
-    l = "Open lazygit",
-  },
-})
+  wk.register({
+    ["<leader>"] = {
+      t = "Open telescope",
+      l = "Open lazygit",
+    },
+  })
 
-wk.register({
-  c = {
-    name = "+Comments",
-    c = { "Comment current line" },
-  },
-}, { prefix = "g" })
+  wk.register({
+    c = {
+      name = "+Comments",
+      c = { "Comment current line" },
+    },
+  }, { prefix = "g" })
+end, 10)
