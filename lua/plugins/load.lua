@@ -155,8 +155,10 @@ local editor_enhance = {
       require("which-key").setup({
         triggers = "auto",
       })
+      require("mappings.whichkey")
     end,
-    module = "which-key",
+    -- load this plugin after Neovim UI is already rendered
+    event = "VimEnter",
   },
 
   -- manage undo history
