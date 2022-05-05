@@ -91,8 +91,6 @@ M.load = function()
   add_packer()
   init_packer()
   setup_plugins()
-
-  require("plugins.rocks")
 end
 
 M.load_cfg = function(file)
