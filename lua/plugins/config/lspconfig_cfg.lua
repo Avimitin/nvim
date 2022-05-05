@@ -107,26 +107,35 @@ end
 
 -- lspInstall + lspconfig stuff
 
-local lua_setting = {
-  Lua = {
-    diagnostics = {
-      globals = {
-        "vim",
+-- provide analyse, completion for neovim runtime file
+-- @return table
+local function neovim_lua_setting()
+  local runtime_path = vim.split(package.path, ';')
+  table.insert(runtime_path, "lua/?.lua")
+  table.insert(runtime_path, "lua/?/init.lua")
+  return {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+        -- Setup your lua path
+        path = runtime_path,
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { 'vim' },
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
       },
     },
-    workspace = {
-      library = {
-        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-        [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-      },
-      maxPreload = 100000,
-      preloadFileSize = 10000,
-    },
-    telemetry = {
-      enable = false,
-    },
-  },
-}
+  }
+end
 
 if installer.settings then
   installer.settings({
@@ -161,7 +170,7 @@ if installer.settings then
     }
 
     if server.name == "sumneko_lua" then
-      opts.settings = lua_setting
+      opts.settings = neovim_lua_setting()
     end
 
     -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
