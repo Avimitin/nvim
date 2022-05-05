@@ -1,3 +1,15 @@
+6.4.1 <May 5 2022>
+==================
+
+Fix:
+----
+  * lsp: fix Lua language server settings (See commit [`59856ba3`](https://github.com/Avimitin/nvim/commit/59856ba3))
+
+Changes:
+--------
+  * telescope: change find file theme to ivy (See commit [`69e09104`](https://github.com/Avimitin/nvim/commit/69e09104))
+
+
 6.4.0 <May 4 2022>
 ==================
 
