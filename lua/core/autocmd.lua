@@ -9,3 +9,10 @@ au({ "BufWritePost" }, { pattern = "load.lua", command = "source <afile> | Packe
 
 -- start insert when enter the terminal
 au({ "TermOpen" }, { pattern = "term://*", command = "startinsert" })
+
+-- highlight yanked text
+au("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank({ higroup = "HighLightLineMatches", timeout = 200 })
+  end,
+})
