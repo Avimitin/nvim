@@ -24,6 +24,15 @@ Basic movement
 | <kbd>W</kbd>                | Go 5 words forward                     |
 | <kbd>B</kbd>                | Go 5 words backward                    |
 
+## Cursor move in insert mode
+
+| Keymap            | Function                             |
+|-------------------|--------------------------------------|
+| <kbd>Ctrl h</kbd> | Act like <kbd>Home</kbd>             |
+| <kbd>Ctrl e</kbd> | Act like <kbd>End</kbd>              |
+| <kbd>Ctrl f</kbd> | Act like <kbd>w</kbd> in normal mode |
+| <kbd>Ctrl b</kbd> | Act like <kbd>b</kbd> in normal mode |
+
 ## Windows Navigation
 
 | Keymap        | Function               |
@@ -71,8 +80,8 @@ Basic movement
 
 | Keymap         | Function                   | notes                          |
 | -------------- | -------------------------- | ------------------------------ |
-| <kbd><<</kbd>  | Reduce one indent level    | In normal and selection mode   |
-| <kbd>>></kbd>  | Increse one indent level   | In normal and selection mode   |
+| <kbd><</kbd>  | Reduce one indent level    | In normal and selection mode   |
+| <kbd>></kbd>  | Increse one indent level   | In normal and selection mode   |
 
 ## Save and Quit
 
