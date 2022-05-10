@@ -66,4 +66,4 @@ local text_objects = {
   ["il"] = "Select the function call inside",
 }
 
-wk.register(text_objects, { mode = "o", prefix = ""})
+wk.register(text_objects, { mode = "o", prefix = "" })
