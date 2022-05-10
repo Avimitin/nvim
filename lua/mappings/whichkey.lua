@@ -54,3 +54,16 @@ local keys = {
 }
 
 wk.register(keys)
+
+local text_objects = {
+  ["af"] = "Select the whole function definition (Include function keyword)",
+  ["if"] = "Select the function parameter definition",
+  ["ac"] = "Select the whole Class/Struct definition (Include `class/struct` keyword)",
+  ["ic"] = "Select the Class fields",
+  ["ab"] = "Select the whole block",
+  ["ib"] = "Select the block inside",
+  ["al"] = "Select the whole function call",
+  ["il"] = "Select the function call inside",
+}
+
+wk.register(text_objects, { mode = "o", prefix = ""})
