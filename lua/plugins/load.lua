@@ -673,7 +673,7 @@ local coding_enhance = {
   {
     "numToStr/Comment.nvim",
     config = function()
-      require("Comment").setup()
+      require("Comment").setup({})
     end,
     keys = {
       { "n", "gcc" },
