@@ -53,7 +53,7 @@ local keys = {
       name = "Rust keymap (Available in Rust buffer only)",
       r = { "Open runnable" },
       a = { "Trigger actions" },
-    }
+    },
   },
   ["<C-t>"] = {
     l = "Next tab",
@@ -64,7 +64,7 @@ local keys = {
     a = { "Trigger LSP code action" },
     d = { "Preview definition" },
     h = { "View document" },
-    s = {"Open signature help"},
+    s = { "Open signature help" },
     o = { "Show diagnostic for current line" },
     j = { "Jump to next diagnostic" },
     k = { "Jump to previous diagnostic" },
@@ -74,7 +74,7 @@ local keys = {
     t = { "Jump to type definition" },
     q = { "Set loclist" },
     f = { "Format current buffer" },
-  }
+  },
 }
 
 wk.register(keys)
