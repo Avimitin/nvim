@@ -16,6 +16,7 @@
     <summary markdown="span">Neovim v0.8.0 Incompatible Alert</summary>
 
 - Markdown Preview failed to open due to `NVIM_LISTEN_ADDRESS` [removal](https://github.com/iamcco/markdown-preview.nvim/issues/452).
+Fix available in my [fork](https://github.com/Avimitin/markdown-preview.nvim).
 
 </details>
 

@@ -49,7 +49,7 @@ local markdown_plugins = {
 
   -- markdown preview
   {
-    "iamcco/markdown-preview.nvim",
+    "Avimitin/markdown-preview.nvim",
     run = function()
       vim.fn["mkdp#util#install"]()
     end,
