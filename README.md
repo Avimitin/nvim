@@ -13,6 +13,13 @@
 ## Important Notes
 
 <details>
+    <summary markdown="span">Neovim v0.8.0 Incompatible Alert</summary>
+
+- Markdown Preview failed to open due to `NVIM_LISTEN_ADDRESS` [removal](https://github.com/iamcco/markdown-preview.nvim/issues/452).
+
+</details>
+
+<details>
     <summary markdown="span">Neovim v0.7.0 Incompatible Alert</summary>
 
 Neovim v0.7.0 has released. The configuration itself is working fine.
