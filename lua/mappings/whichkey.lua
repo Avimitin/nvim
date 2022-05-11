@@ -39,8 +39,12 @@ local keys = {
     w = "Save buffer to file",
   },
   gc = {
-    name = "+Comments",
+    name = "+Comments (Line)",
     c = { "Comment current line" },
+  },
+  gb = {
+    name = "+Comments (Block)",
+    c = { "Comment with block comment" },
   },
   ["<leader>"] = {
     t = "Open telescope",
