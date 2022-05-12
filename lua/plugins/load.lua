@@ -597,7 +597,7 @@ local coding_enhance = {
 
   -- Pre-set for rust lsp
   {
-    "Avimitin/rust-tools.nvim",
+    "simrat39/rust-tools.nvim",
     ft = "rust",
     config = function()
       require("plugins").load_cfg("rust_tools_cfg")
