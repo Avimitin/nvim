@@ -1,3 +1,36 @@
+6.5.0 <May 5 2022>
+==================
+
+BREAKING CHANGES!:
+------------------
+  * lspconfig: fix conflict key mapping (See commit [`c8106efe`](https://github.com/Avimitin/nvim/commit/c8106efe))
+  * json: update json library (See commit [`4e64646b`](https://github.com/Avimitin/nvim/commit/4e64646b))
+
+New Features:
+-------------
+  * whichkey: add lspconfig key description (See commit [`317d1c0f`](https://github.com/Avimitin/nvim/commit/317d1c0f))
+  * whichkey: add more descriptions (See commit [`4fc5144d`](https://github.com/Avimitin/nvim/commit/4fc5144d))
+  * which-key: add text object key descriptions (See commit [`de2234e5`](https://github.com/Avimitin/nvim/commit/de2234e5))
+  * autocmd: add fcitx5 auto switcher (See commit [`6e0495d9`](https://github.com/Avimitin/nvim/commit/6e0495d9))
+  * autocmd: hightlight the yanked text (See commit [`7e50204b`](https://github.com/Avimitin/nvim/commit/7e50204b))
+
+Fix:
+----
+  * markdown: replace markdown preview upstream (See commit [`68833b9b`](https://github.com/Avimitin/nvim/commit/68833b9b))
+
+Changes:
+--------
+  * which-key: remove useless blocklist (See commit [`48d728d4`](https://github.com/Avimitin/nvim/commit/48d728d4))
+  * json: fix linting (See commit [`e7ed1389`](https://github.com/Avimitin/nvim/commit/e7ed1389))
+
+Others:
+-------
+  * readme: add 0.8.0 alert (See commit [`02a1bbf4`](https://github.com/Avimitin/nvim/commit/02a1bbf4))
+  * lspconfig: increase code readability (See commit [`02d14c9a`](https://github.com/Avimitin/nvim/commit/02d14c9a))
+  * book: add insert mode keymapping document (See commit [`3c972328`](https://github.com/Avimitin/nvim/commit/3c972328))
+  * book: add customize document (See commit [`8160db87`](https://github.com/Avimitin/nvim/commit/8160db87))
+
+
 6.4.1 <May 5 2022>
 ==================
 
