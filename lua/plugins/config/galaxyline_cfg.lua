@@ -364,7 +364,10 @@ insert_right({
     provider = "GetLspClient",
     separator = " LSP: ",
     separator_highlight = { colors.blue, colors.black },
-    condition = checkwidth,
+    condition = function()
+      local clients = vim.lsp.get_active_clients()
+      return checkwidth() and next(clients) ~= nil
+    end,
     highlight = { colors.fg, colors.black },
   },
 })
