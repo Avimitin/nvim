@@ -54,12 +54,13 @@ M.kanagawa_setup = function()
     dimInactive = true,
     colors = {},
     overrides = {
+      -- use gradient yellow for heading
       htmlH1 = {
-        fg = default.peachRed,
+        fg = default.waveRed,
         style = "bold",
       },
       htmlH2 = {
-        fg = default.roninYellow,
+        fg = default.surimiOrange,
         style = "bold",
       },
       htmlH3 = {
@@ -67,7 +68,22 @@ M.kanagawa_setup = function()
         style = "bold",
       },
       htmlH4 = {
-        fg = default.autumnGreen,
+        fg = default.carpYellow,
+        style = "bold",
+      },
+      htmlH5 = {
+        fg = default.boatYellow2,
+        style = "bold",
+      },
+      htmlH6 = {
+        fg = default.boatYellow1,
+        style = "italic",
+      },
+      mkdHeading = {
+        fg = default.sumiInk4,
+      },
+      mkdListItem = {
+        fg = default.surimiOrange,
         style = "bold",
       },
       Todo = {
