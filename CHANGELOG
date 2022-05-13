@@ -1,3 +1,16 @@
+6.5.1 <May 13 2022>
+===================
+
+New Features:
+-------------
+  * statusline: hide lsp server when empty (See commit [`483b4afe`](https://github.com/Avimitin/nvim/commit/483b4afe))
+
+Changes:
+--------
+  * colors: modify the markdown heading highlight (See commit [`069cd32b`](https://github.com/Avimitin/nvim/commit/069cd32b))
+  * rust: replace upstream (See commit [`0b120f3a`](https://github.com/Avimitin/nvim/commit/0b120f3a))
+
+
 6.5.0 <May 5 2022>
 ==================
 
