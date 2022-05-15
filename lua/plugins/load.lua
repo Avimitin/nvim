@@ -371,6 +371,14 @@ local editor_enhance = {
       { "v", "t" },
       { "v", "T" },
     },
+    config = function()
+      require("lightspeed").setup({
+        substitute_chars = {
+          ["\r"] = "",
+          [" "] = "␣",
+        },
+      })
+    end,
   },
 
   -- Enhanced the `%` keymap
