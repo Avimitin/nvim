@@ -3,5 +3,21 @@
     "prefix": "deadcode",
     "body": "#[allow(dead_code)]",
     "description": "Close the dead code warning"
+  },
+  "closure": {
+    "prefix": "closure",
+    "body": [
+      "|${1:Params}|${2| ,-> |} {",
+      "    ${0}",
+      "}"
+    ]
+  },
+  "closure as variable": {
+    "prefix": "closure_var",
+    "body": [
+      "let ${1:Var} = |${2:Params}|${3| ,-> |} {",
+      "    ${0}",
+      "};"
+    ]
   }
 }
