@@ -23,7 +23,13 @@ require("nvim-treesitter.configs").setup({
         ["ib"] = "@block.inner",
         ["al"] = "@call.outer",
         ["il"] = "@call.inner",
+        ["ap"] = "@parameter.outer",
+        ["ip"] = "@parameter.inner",
       },
     },
   },
 })
+
+-- extends those text objects for wildfire, and now we can simply press <ENTER> to select
+-- inside function/class/blck/function call/parameters
+vim.g.wildfire_objects = vim.list_extend(vim.g.wildfire_objects, { "if", "ic", "ib", "il", "ip" })
