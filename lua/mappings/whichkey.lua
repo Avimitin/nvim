@@ -79,15 +79,21 @@ local keys = {
 
 wk.register(keys)
 
+-- Treesitter text object
 local text_objects = {
-  ["af"] = "Select the whole function definition (Include function keyword)",
-  ["if"] = "Select the function parameter definition",
-  ["ac"] = "Select the whole Class/Struct definition (Include `class/struct` keyword)",
-  ["ic"] = "Select the Class fields",
-  ["ab"] = "Select the whole block",
-  ["ib"] = "Select the block inside",
-  ["al"] = "Select the whole function call",
-  ["il"] = "Select the function call inside",
+  ["af"] = "function (AROUND)",
+  ["if"] = "function (INNER)",
+  ["ac"] = "class (AROUND)",
+  ["ic"] = "class (INNER)",
+  ["ab"] = "block (AROUND)",
+  ["ib"] = "block (INNER)",
+  ["al"] = "function call (AROUND)",
+  ["il"] = "function call (INNER)",
+  ["ap"] = "parameter (AROUND)",
+  ["ip"] = "parameter (INNER)",
+  ["ao"] = "condition (AROUND)",
+  ["io"] = "condition (INNER)",
+  ["as"] = "statement (AROUND)",
 }
 
 wk.register(text_objects, { mode = "o", prefix = "" })
