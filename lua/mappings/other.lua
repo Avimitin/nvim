@@ -27,6 +27,12 @@ end)
 nmap("<leader>t", function()
   require("telescope.command").load_command(nil, nil, nil, "builtin", "theme=ivy")
 end)
+nmap("<leader>s", function()
+  require("telescope.builtin.lsp").document_symbols(require("telescope.themes").get_ivy())
+end)
+nmap("<leader>w", function()
+  require("telescope.builtin.lsp").workspace_symbols(require("telescope.themes").get_ivy())
+end)
 
 -- fugitive
 nmap(";g", [[<CMD>Git<CR>]])
