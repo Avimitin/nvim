@@ -1,11 +1,14 @@
-local present1, _ = pcall(require, "lspconfig")
-local present2, installer = pcall(require, "nvim-lsp-installer")
-if not (present1 or present2) then
-  vim.notify("Fail to setup LSP", vim.log.levels.ERROR, {
+local present1, lspconfig = pcall(require, "lspconfig")
+if not present1 then
+  vim.notify("Fail to load LSP", vim.log.levels.ERROR, {
     title = "plugins",
   })
   return
 end
+
+-- [[ =================================================================================
+--  LSP Settings
+-- =================================================================================]]
 
 local on_attach = function(client, bufnr)
   local function bmap(...)
@@ -127,47 +130,50 @@ local function neovim_lua_setting()
   }
 end
 
-if installer.settings then
-  installer.settings({
-    ui = {
-      icons = {
-        server_installed = "✓",
-        server_pending = "➜",
-        server_uninstalled = "✗",
-      },
+-- [[ =================================================================================
+--  LSP SETUP MAIN LOGIC
+-- =================================================================================]]
+
+require("nvim-lsp-installer").setup({
+  -- only ensure Lua language server is installed
+  ensure_installed = { "sumneko_lua" },
+  automatic_installation = false,
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗",
     },
-  })
+  },
+})
 
-  local ensure_installed_server = {
-    "sumneko_lua",
+-- Preconfigured language server, still need to use command to installed
+-- `:LspInstall`
+-- rust-analyzer is set up by plugin "rust-tools.nvim", *DONT* configured it manually here
+local servers = {
+  "eslint",
+  "sumneko_lua",
+  "clangd",
+  "gopls",
+}
+
+for _, v in ipairs(servers) do
+  local opts = {
+    on_attach = on_attach,
+    capabilities = setup_capabilities(),
+    root_dir = vim.loop.cwd,
   }
-
-  for _, lang in pairs(ensure_installed_server) do
-    local ok, server = installer.get_server(lang)
-    if ok then
-      if not server:is_installed() then
-        print("Installing " .. lang)
-        server:install()
-      end
-    end
+  if v == "sumneko_lua" then
+    opts.settings = neovim_lua_setting()
   end
 
-  installer.on_server_ready(function(server)
-    local opts = {
-      on_attach = on_attach,
-      capabilities = setup_capabilities(),
-      root_dir = vim.loop.cwd,
-    }
-
-    if server.name == "sumneko_lua" then
-      opts.settings = neovim_lua_setting()
-    end
-
-    -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
-    server:setup(opts)
-    vim.cmd([[ do User LspAttachBuffers ]])
-  end)
+  lspconfig[v].setup(opts)
+  vim.cmd([[ do User LspAttachBuffers ]])
 end
+
+-- [[ =================================================================================
+-- CHORES
+-- =================================================================================]]
 
 local signs = {
   Error = " ",
