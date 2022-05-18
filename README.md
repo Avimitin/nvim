@@ -184,3 +184,15 @@ Take a look at their contribution, which is really fantastic.
 ## Development Related
 
 Please read [development specifications](./docs/src/en_us/development.md).
+
+---
+
+<sub>有不少朋友问我翻斗花园是什么花园呢？其实就是大耳朵图图的家啦！</sub>
+<br>
+<br>
+<sup>
+<s>
+我的 neovim 配置是翻斗花园第一配置，不服来打，我家住在翻斗大街翻斗花园2号楼1001室。
+我爸胡英俊，我妈张小丽，我叫胡图图，你来你看我干不干你就完事儿了。
+</s>
+</sup>
