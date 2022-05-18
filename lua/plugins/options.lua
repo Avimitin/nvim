@@ -1,4 +1,4 @@
-local present, custom = pcall(require, 'custom')
+local present, custom = pcall(require, "custom")
 
 local g = vim.g
 
