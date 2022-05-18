@@ -36,12 +36,27 @@ you can configure the display in lua/plugins/config/lspsaga_settings.lua.
 You can use command `:LspInstall <Language>` to install new lspserver.
 This command is provided by [nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer).
 
-Before installing server, you should first append the corresponding filetype into
-`lua/plugins/options.lua` file. There is a variable named `g.enable_lspconfig_ft` inside
-the file, append the language name into it.
+Before installing server, you might need to configured in `lua/custom.lua` file.
+See [Customization](../customize.md) for more.
 You can check filetype by using command `echo &filetype`.
 
-You can also use the `:LspInstallInfo` to use a panel to manage the servers.
+Default enabled filetype:
+
+```text
+bash
+c
+cpp
+go
+html
+javascript
+json
+lua
+python
+sh
+toml
+```
+
+You can use the `:LspInstallInfo` to use a panel to manage the servers.
 
 The plugin will ensure Lua[^1] language servers is installed.
 You can add or delete those ensure installed server in the lua/config/lsp.lua file.

@@ -29,7 +29,7 @@
       - [golang](./en_us/plugins/golang.md)
       - [splitjoin](./en_us/plugins/splitjoin.md)
       - [sort.nvim](./en_us/plugins/sort.md)
-      - [telescope.nvim](./en_us/telescope.md)
+      - [telescope.nvim](./en_us/plugins/telescope.md)
 - [Others]()
     - [Development](./en_us/development.md)
 

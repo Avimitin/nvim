@@ -13,6 +13,7 @@ not be tracked.
 Create a new configuration table and return it at the end.
 
 ```lua
+-- example
 local M = {
   theme = "kanagawa",
   has_fcitx5 = true,
@@ -23,6 +24,11 @@ local M = {
       "gopls",
       "eslint",
     },
+    ft = {
+      "lua",
+      "go",
+      "rust"
+    }
   },
 
   treesitter = {
@@ -57,6 +63,23 @@ See what lsp servers you can use: [Available Lsps](https://github.com/williambom
 | option    | meaning                                                                                                                           |
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------|
 | `servers` | A list of server name that will be setup connection to the neovim. Key mappings, capabilities... will be attached to those buffer |
+| `ft`      | A list of filetype that lspconfig plugin will be enable.                                                                          |
+
+- Default enable filetype
+
+```text
+bash
+c
+cpp
+go
+html
+javascript
+json
+lua
+python
+sh
+toml
+```
 
 ### Treesitter
 
