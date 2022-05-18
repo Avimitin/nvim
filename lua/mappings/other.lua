@@ -21,17 +21,51 @@ map("t", ";h", [[<C-\><C-n><C-w>h]])
 nmap(";f", function()
   require("telescope.builtin").find_files(require("telescope.themes").get_ivy())
 end)
+
 nmap(";s", function()
-  require("telescope.builtin").live_grep()
-end)
-nmap("<leader>t", function()
-  require("telescope.command").load_command(nil, nil, nil, "builtin", "theme=ivy")
-end)
-nmap("<leader>s", function()
-  require("telescope.builtin.lsp").document_symbols(require("telescope.themes").get_ivy())
-end)
-nmap("<leader>w", function()
-  require("telescope.builtin.lsp").workspace_symbols(require("telescope.themes").get_ivy())
+  local pickers = require("telescope.pickers")
+  local finders = require("telescope.finders")
+  local conf = require("telescope.config").values
+  local actions = require("telescope.actions")
+  local action_state = require("telescope.actions.state")
+  local builtin = require("telescope.builtin")
+  local opts = {
+    sorting_strategy = "ascending",
+    results_title = false,
+    layout_strategy = "center",
+    layout_config = {
+      width = 50,
+      height = 9,
+    },
+    borderchars = {
+      prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+      results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+      preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+    },
+  }
+
+  pickers.new(opts, {
+    prompt_title = "Search",
+    finder = finders.new_table({
+      results = { "live grep", "buffer symbols", "workspace symbols" },
+    }),
+    sorter = conf.generic_sorter(opts),
+    attach_mappings = function(prompt_bufnr, _)
+      actions.select_default:replace(function()
+        actions.close(prompt_bufnr)
+        local selection = action_state.get_selected_entry()
+
+        local response = {
+          ["live grep"] = "live_grep",
+          ["buffer symbols"] = "lsp_document_symbols",
+          ["workspace symbols"] = "lsp_workspace_symbols",
+        }
+
+        builtin[response[selection[1]]](require("telescope.themes").get_ivy())
+      end)
+      return true
+    end,
+  }):find()
 end)
 
 -- fugitive
