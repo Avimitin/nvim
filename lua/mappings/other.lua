@@ -61,7 +61,12 @@ nmap(";s", function()
           ["workspace symbols"] = "lsp_workspace_symbols",
         }
 
-        builtin[response[selection[1]]](require("telescope.themes").get_ivy())
+        local func = response[selection[1]]
+        if func == nil then
+          return
+        end
+
+        builtin[func](require("telescope.themes").get_ivy())
       end)
       return true
     end,
