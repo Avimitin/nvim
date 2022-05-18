@@ -55,6 +55,10 @@ g.enable_lspconfig_ft = {
   "toml",
 }
 
+if present then
+  g.enable_lspconfig_ft = vim.list_extend(g.enable_lspconfig_ft, custom.lspconfig.ft)
+end
+
 -- visual multi mappings
 -- clean the keymap `u` and initialize the new keymap set
 require("mappings.utils").map("", "u", "<nop>")
