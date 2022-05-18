@@ -155,7 +155,7 @@ local servers = {
   "sumneko_lua",
 }
 
-if have_custom then
+if have_custom and custom.lspconfig and custom.lspconfig.servers then
   servers = vim.list_extend(servers, custom.lspconfig.servers)
 end
 

@@ -36,7 +36,7 @@ g.enable_treesitter_ft = {
 }
 
 -- append some customize treesitter filetype
-if present then
+if present and custom.treesitter and custom.treesitter.language then
   g.enable_treesitter_ft = vim.list_extend(g.enable_treesitter_ft, custom.treesitter.language)
 end
 
@@ -55,7 +55,7 @@ g.enable_lspconfig_ft = {
   "toml",
 }
 
-if present then
+if present and custom.lspconfig and custom.lspconfig.ft then
   g.enable_lspconfig_ft = vim.list_extend(g.enable_lspconfig_ft, custom.lspconfig.ft)
 end
 
