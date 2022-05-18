@@ -1,3 +1,16 @@
+6.6.2 <May 18 2022>
+===================
+
+New Features:
+-------------
+  * custom: add lspconfig filetype customization (See commit [`d547cada`](https://github.com/Avimitin/nvim/commit/d547cada))
+
+Others:
+-------
+  * books: update lspconfig document (See commit [`c404dd92`](https://github.com/Avimitin/nvim/commit/c404dd92))
+  * docs: add telescope document (See commit [`705a2ce1`](https://github.com/Avimitin/nvim/commit/705a2ce1))
+
+
 6.6.1 <May 18 2022>
 ===================
 
