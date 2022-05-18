@@ -1,3 +1,11 @@
+6.6.1 <May 18 2022>
+===================
+
+Changes:
+--------
+  * custom: move default settings to custom region (See commit [`31dcb0dd`](https://github.com/Avimitin/nvim/commit/31dcb0dd))
+
+
 6.6.0 <May 18 2022>
 ===================
 
