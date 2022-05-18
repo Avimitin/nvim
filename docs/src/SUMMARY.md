@@ -8,7 +8,7 @@
     - [Installation](./en_us/installation.md)
     - [Keymap](./en_us/keymap.md)
     - [Colors](./en_us/colors.md)
-    - [Customize](./en_us/customize.md)
+    - [Customization](./en_us/customize.md)
 - [Workflow Introduction]()
     - [How to interact with git](./en_us/workflows/git.md)
     - [How to interact with window](./en_us/workflows/windows.md)

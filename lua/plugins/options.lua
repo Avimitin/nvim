@@ -1,3 +1,5 @@
+local present, custom = pcall(require, 'custom')
+
 local g = vim.g
 
 if not vim.fn.has("nvim-0.6") then
@@ -28,21 +30,15 @@ g.rooter_patterns = {
 
 -- enable treesitter for what filetype?
 g.enable_treesitter_ft = {
-  "bash",
-  "c",
-  "comment",
-  "cpp",
-  "fish",
-  "go",
-  "html",
-  "javascript",
   "json",
   "lua",
-  "nix",
-  "rust",
-  "toml",
   "vim",
 }
+
+-- append some customize treesitter filetype
+if present then
+  g.enable_treesitter_ft = vim.list_extend(g.enable_treesitter_ft, custom.treesitter.language)
+end
 
 -- enable lspconfig for what filetype?
 g.enable_lspconfig_ft = {

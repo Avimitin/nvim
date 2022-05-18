@@ -1,4 +1,5 @@
 local present1, lspconfig = pcall(require, "lspconfig")
+local have_custom, custom = pcall(require, "custom")
 if not present1 then
   vim.notify("Fail to load LSP", vim.log.levels.ERROR, {
     title = "plugins",
@@ -151,11 +152,12 @@ require("nvim-lsp-installer").setup({
 -- `:LspInstall`
 -- rust-analyzer is set up by plugin "rust-tools.nvim", *DONT* configured it manually here
 local servers = {
-  "eslint",
   "sumneko_lua",
-  "clangd",
-  "gopls",
 }
+
+if have_custom then
+  servers = vim.list_extend(servers, custom.lspconfig.servers)
+end
 
 for _, v in ipairs(servers) do
   local opts = {
