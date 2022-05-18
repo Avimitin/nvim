@@ -135,7 +135,22 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h1>
+                        <!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="#prerequisites">Prerequisites</a>
+<ul>
+<li><a href="#install-stable-version-in-arch-linux">Install stable version in Arch Linux</a></li>
+</ul>
+</li>
+<li><a href="#fork-before-pull">Fork before pull</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#how-to-get-update">How to get update</a></li>
+<li><a href="#clean-up">Clean up</a></li>
+<li><a href="#check-health">Check health</a></li>
+<li><a href="#docker">Docker</a></li>
+</ul>
+<!-- vim-markdown-toc -->
+<h1 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h1>
 <ul>
 <li><strong>Neovim</strong> (MUST)</li>
 </ul>
@@ -190,13 +205,16 @@ cd surf
 sudo make clean install
 </code></pre>
 </blockquote>
-<h1 id="foreword"><a class="header" href="#foreword">foreword</a></h1>
-<p>I recommend you to fork my project.
+<h1 id="fork-before-pull"><a class="header" href="#fork-before-pull">Fork before pull</a></h1>
+<p>I recommend you use my configuration as a base and build your
+configuration.</p>
+<p>This neovim config is biased and was not created for generic use.
 The reason I build this configuration is that I don't want to use the same neovim
-as the community.
-I don't know if you agree with it or not, but I indeed expect that everyone can build
-their neovim.
-And I know that it is hard to start from empty.
+as the community. And it is really tired to always make compatibility for an
+editor configuration. It will gradually expand the size of the configuration,
+amount of the bug, and uninteresting of the maintenance.</p>
+<p>And I know that someone like me want to build their own configurationt too,
+but it is hard to start from empty.
 So you can use my configuration as a base to build yours.</p>
 <h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
 <pre><code class="language-bash"># NO WINDOWS SUPPORT NOW
@@ -211,6 +229,21 @@ to notify me about the error.</p>
 <p><strong>NOTE:</strong> Markdown preview plugin is installed in another thread, please
 wait for it until it response message of installation success.
 Otherwise, you will find that you can’t activate it.</p>
+<h1 id="how-to-get-update"><a class="header" href="#how-to-get-update">How to get update</a></h1>
+<p>You can rename the default branch to <code>upstream</code> and switch to a new <code>master</code> branch:</p>
+<pre><code class="language-bash"># rename master to upstream. Not necessary to be upstream, you can pick whatever you like as branch name.
+git branch -m master upstream
+
+# create new branch with name &quot;master&quot;. Not necessary to be master too.
+git branch master
+</code></pre>
+<p>Working with two different branches, you can always pull or pick new bugfix or feature
+from my configuration without messing up your configuration.</p>
+<p>I will always write changes into CHANGELOG and release a new version after changes are made.
+Please read the changelog each time you pull new changes. And if you are not satisfied
+with the changes, you can <code>git checkout</code> the old version. You are also welcome to open an issue
+to discuss with me. This config is considered as <strong>MY</strong> personal configuration,
+and I can't guarantee I will stabilize it as the community do.</p>
 <h1 id="clean-up"><a class="header" href="#clean-up">Clean up</a></h1>
 <p>You need to clean the below directory to do a fresh install.</p>
 <pre><code class="language-bash"># plugins directory
