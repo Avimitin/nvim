@@ -1,3 +1,27 @@
+6.6.0 <May 18 2022>
+===================
+
+BREAKING CHANGES!:
+------------------
+  * telescope: merge search keymaps (See commit [`998f1a58`](https://github.com/Avimitin/nvim/commit/998f1a58))
+
+New Features:
+-------------
+  * telescope: add keymaps to trigger symbols search (See commit [`b9ff8685`](https://github.com/Avimitin/nvim/commit/b9ff8685))
+  * treesitter: add more text objects (See commit [`8a70bc34`](https://github.com/Avimitin/nvim/commit/8a70bc34))
+  * wildfire: append treesitter text objects into wildfire objects (See commit [`ef60df35`](https://github.com/Avimitin/nvim/commit/ef60df35))
+  * vsnip: add closure snippet (See commit [`d614150d`](https://github.com/Avimitin/nvim/commit/d614150d))
+
+Changes:
+--------
+  * lsp: rewrite the outdated lsp configuration (See commit [`58d04fd4`](https://github.com/Avimitin/nvim/commit/58d04fd4))
+  * lightspeed: use more friendly icons for listchars (See commit [`5ae52cc2`](https://github.com/Avimitin/nvim/commit/5ae52cc2))
+
+Others:
+-------
+  * readme: simplify the project description, add more pictures (See commit [`7885dcf8`](https://github.com/Avimitin/nvim/commit/7885dcf8))
+
+
 6.5.2 <May 14 2022>
 ===================
 
