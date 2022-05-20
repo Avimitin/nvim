@@ -108,9 +108,20 @@ Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
 
 ## Gallery
 
-| Motion                                      | Markdown                              | Table                                              |
-|---------------------------------------------|---------------------------------------|----------------------------------------------------|
-| ![LightSpeed](./docs/images/lightspeed.png) | ![image](./docs/images/neovim-md.png) | ![vim-table-mode-gif](./docs/images/tablemode.gif) |
+| Easy in-file jump                             |
+| --------------------------------------------- |
+| ![LightSpeed](./docs/images/lightspeed.png)   |
+
+
+| Table                                              |
+|----------------------------------------------------|
+| ![vim-table-mode-gif](./docs/images/tablemode.gif) |
+
+---
+
+| Markdown                                           |
+|----------------------------------------------------|
+| ![image](./docs/images/neovim-md.png)              |
 
 ---
 
