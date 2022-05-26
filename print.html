@@ -761,6 +761,22 @@ For detail please read <a href="en_us/workflows/../plugins/rust.html">Rust.md(WI
 <h2 id="how-to-change-diagnostic-signs"><a class="header" href="#how-to-change-diagnostic-signs">How to change diagnostic signs</a></h2>
 <p>You can find use vimgrep to find value <code>signs</code> inside the <code>lua/plugins/config/lspconfig_cfg.lua</code>
 file.</p>
+<h2 id="keymappings"><a class="header" href="#keymappings">Keymappings</a></h2>
+<table><thead><tr><th>Key</th><th>Function</th></tr></thead><tbody>
+<tr><td><kbd>gd</kbd></td><td>Open a menu of definition and reference of the hover symbol</td></tr>
+<tr><td><kbd>gp</kbd></td><td>Preview definition of the hover symbol</td></tr>
+<tr><td><kbd>gh</kbd></td><td>Open document of the hover symbol</td></tr>
+<tr><td><kbd>gs</kbd></td><td>Open help page of the current signature</td></tr>
+<tr><td><kbd>go</kbd></td><td>Open details of the error message</td></tr>
+<tr><td><kbd>gj</kbd></td><td>Jump to next error</td></tr>
+<tr><td><kbd>gk</kbd></td><td>Jump to previous error</td></tr>
+<tr><td><kbd>ga</kbd></td><td>Open menu of all available code action (Import, Fmt, Swap params)</td></tr>
+<tr><td><kbd>gD</kbd></td><td>Go to declaration (Most LSP server don't support this)</td></tr>
+<tr><td><kbd>gm</kbd></td><td>Go to Type implementation</td></tr>
+<tr><td><kbd>gt</kbd></td><td>Go to Type definition</td></tr>
+<tr><td><kbd>gq</kbd></td><td>Open loclist of diagnostic</td></tr>
+<tr><td><kbd>gf</kbd></td><td>Run formatter (Require your lsp support, like rust-analyzer/gopls...)</td></tr>
+</tbody></table>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="plugins"><a class="header" href="#plugins">Plugins</a></h1>
 <p>Plugins definition are all separated into the <code>lua/partial</code> directory.
 They will be imported by the <code>lua/plugins.lua</code> file.</p>
