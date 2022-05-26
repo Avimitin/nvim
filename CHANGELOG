@@ -1,3 +1,12 @@
+v6.7.0 <May 26 2022>
+===================
+
+BREAKING CHANGES!:
+------------------
+  * lspsaga: remapping the `gd` key to `lsp_finder` action, mapping the `gp` key to preview definition (See commit [`f63140c9`](https://github.com/Avimitin/nvim/commit/f63140c9))
+  * tag: use `vX.Y.Z[-rcN]` as git tag convention now
+
+
 6.6.2 <May 18 2022>
 ===================
 
