@@ -81,3 +81,21 @@ For detail please read [Rust.md(WIP)](../plugins/rust.md)
 
 You can find use vimgrep to find value `signs` inside the `lua/plugins/config/lspconfig_cfg.lua`
 file.
+
+## Keymappings
+
+| Key           | Function                                                              |
+|---------------|-----------------------------------------------------------------------|
+| <kbd>gd</kbd> | Open a menu of definition and reference of the hover symbol           |
+| <kbd>gp</kbd> | Preview definition of the hover symbol                                |
+| <kbd>gh</kbd> | Open document of the hover symbol                                     |
+| <kbd>gs</kbd> | Open help page of the current signature                               |
+| <kbd>go</kbd> | Open details of the error message                                     |
+| <kbd>gj</kbd> | Jump to next error                                                    |
+| <kbd>gk</kbd> | Jump to previous error                                                |
+| <kbd>ga</kbd> | Open menu of all available code action (Import, Fmt, Swap params)     |
+| <kbd>gD</kbd> | Go to declaration (Most LSP server don't support this)                |
+| <kbd>gm</kbd> | Go to Type implementation                                             |
+| <kbd>gt</kbd> | Go to Type definition                                                 |
+| <kbd>gq</kbd> | Open loclist of diagnostic                                            |
+| <kbd>gf</kbd> | Run formatter (Require your lsp support, like rust-analyzer/gopls...) |

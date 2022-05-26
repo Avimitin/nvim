@@ -1,5 +1,5 @@
 local lspsaga = require("lspsaga")
-lspsaga.setup({ -- defaults ...
+lspsaga.setup({
   debug = false,
   use_saga_diagnostic_sign = true,
   -- diagnostic sign
@@ -21,9 +21,9 @@ lspsaga.setup({ -- defaults ...
   finder_reference_icon = "  ",
   max_preview_lines = 10,
   finder_action_keys = {
-    open = "o",
+    open = "<CR>",
     vsplit = "s",
-    split = "i",
+    split = "v",
     quit = "q",
     scroll_down = "<C-f>",
     scroll_up = "<C-b>",

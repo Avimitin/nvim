@@ -28,7 +28,8 @@ local on_attach = function(client, bufnr)
     noremap = true,
     silent = true,
   }
-  bmap("n", "gd", "<Cmd>Lspsaga preview_definition<CR>", opts)
+  bmap("n", "gd", "<Cmd>Lspsaga lsp_finder<CR>", opts)
+  bmap("n", "gp", "<Cmd>Lspsaga preview_definition<CR>", opts)
   bmap("n", "gh", "<Cmd>Lspsaga hover_doc<CR>", opts)
   bmap("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<cr>", opts)
   bmap("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>", opts)
@@ -39,6 +40,7 @@ local on_attach = function(client, bufnr)
   bmap("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
   bmap("n", "ga", "<cmd>Lspsaga code_action<CR>", opts)
 
+  -- most of the lsp server don't implement textDocument/Declaration, so gD is useless for now.
   bmap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   bmap("n", "gm", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   bmap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
