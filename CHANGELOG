@@ -1,3 +1,11 @@
+v6.8.0 <May 26 2022>
+===================
+
+BREAKING CHANGES!:
+------------------
+  * plugin: remove any-jump.vim (See commit [`e2248977`](https://github.com/Avimitin/nvim/commit/e2248977))
+
+
 v6.7.0 <May 26 2022>
 ===================
 
