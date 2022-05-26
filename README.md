@@ -160,7 +160,7 @@ Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
 
 | Code navigate                         |
 |---------------------------------------|
-| ![Anyjump](./docs/images/anyjump.png) |
+| ![Navigate](./docs/images/def-ref.png) |
 
 
 | Fugitive                                       | Lazygit                                      |
