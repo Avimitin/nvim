@@ -17,6 +17,15 @@ au("TextYankPost", {
   end,
 })
 
+-- Uncomment this if you want the galaxyline to auto reload after resizing the window.
+-- Side effect: this autocommand can be invoked by scrolling window.
+--
+--[[ au("WinScrolled", {
+  callback = function()
+    require('galaxyline').load_galaxyline()
+  end,
+}) ]]
+
 -- Automatically close and activate fcitx5
 -- Enable this feature in `~/.config/lua/custom.lua` file
 -- If you don't have one, just create it.
