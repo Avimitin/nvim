@@ -632,6 +632,8 @@ local coding_enhance = {
           border = "single",
         },
       })
+      require("packer").loader("nvim-cmp")
+      require("cmp").setup.buffer({ sources = { { name = "crates" } } })
     end,
   },
 
