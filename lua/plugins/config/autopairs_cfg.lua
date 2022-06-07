@@ -40,6 +40,19 @@ npairs.add_rules({
       return opts.prev_char:match(".%]") ~= nil
     end)
     :use_key("]"),
+  Rule("| ", " |", { "rust" })
+    :with_pair(function()
+      return true
+    end)
+    :with_move(function(opts)
+      return opts.prev_char:match(".%|") ~= nil
+    end)
+    :use_key("|"),
+  Rule("<%w", ">", { "rust" })
+    :with_move(function(opts)
+      return opts.prev_char:match(".%>") ~= nil
+    end)
+    :use_regex(true),
   Rule("=", "", { "cpp", "rust", "go", "lua" })
     :with_pair(cond.not_inside_quote())
     :with_pair(function(opts)
