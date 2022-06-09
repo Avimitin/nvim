@@ -6,41 +6,6 @@ end
 
 local tree_cb = tree_c.nvim_tree_callback
 
-vim.g.nvim_tree_git_hl = 1
-vim.g.nvim_tree_highlight_opened_files = 1
-vim.g.nvim_tree_root_folder_modifier = ":t"
-vim.g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
-
-vim.g.nvim_tree_show_icons = {
-  git = 1,
-  folders = 1,
-  files = 1,
-  -- folder_arrows= 1
-}
-vim.g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "",
-    staged = "",
-    unmerged = "",
-    renamed = "凜",
-    untracked = "",
-    deleted = "",
-    ignored = "",
-  },
-  folder = {
-    -- arrow_open = "",
-    -- arrow_closed = "",
-    default = "",
-    open = "ﱮ",
-    empty = "", -- 
-    empty_open = "",
-    symlink = "",
-    symlink_open = "",
-  },
-}
-
 -- following options are the default
 require("nvim-tree").setup({
   disable_netrw = true,
@@ -87,6 +52,10 @@ require("nvim-tree").setup({
     },
   },
   renderer = {
+    add_trailing = false,
+    highlight_git = true,
+    highlight_opened_files = "bold",
+    root_folder_modifier = ":t",
     indent_markers = {
       enable = false,
       icons = {
@@ -97,6 +66,35 @@ require("nvim-tree").setup({
     },
     icons = {
       webdev_colors = true,
+      show = {
+        git = true,
+        folder = true,
+        file = true,
+        folder_arrow = false,
+      },
+      glyphs = {
+        default = "",
+        symlink = "",
+        git = {
+          unstaged = "",
+          staged = "",
+          unmerged = "",
+          renamed = "凜",
+          untracked = "",
+          deleted = "",
+          ignored = "",
+        },
+        folder = {
+          -- arrow_open = "",
+          -- arrow_closed = "",
+          default = "",
+          open = "ﱮ",
+          empty = "", -- 
+          empty_open = "",
+          symlink = "",
+          symlink_open = "",
+        },
+      },
     },
   },
   view = {
