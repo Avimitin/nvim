@@ -50,6 +50,7 @@ local function init_packer()
     profile = {
       enable = true,
     },
+    max_jobs = 50
   })
 end
 
