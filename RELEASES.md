@@ -1,4 +1,28 @@
-v6.8.0 <May 26 2022>
+v6.9.0 (Jun 13 2022)
+===================
+
+New Features:
+-------------
+  * plugin: add nvim-cmp support for crates.nvim (See commit [`e7551d20`](https://github.com/Avimitin/nvim/commit/e7551d20))
+  * autocmd: add statusline auto resize command (See commit [`9782e99d`](https://github.com/Avimitin/nvim/commit/9782e99d))
+
+Fix:
+----
+  * kanagawa: fix outdated options (See commit [`fe21cdf5`](https://github.com/Avimitin/nvim/commit/fe21cdf5))
+  * nvim-tree: fix ignore key mapping (See commit [`5bfb530b`](https://github.com/Avimitin/nvim/commit/5bfb530b))
+  * packer: fix packer UI freeze issues (See commit [`6162fdda`](https://github.com/Avimitin/nvim/commit/6162fdda))
+
+Changes:
+--------
+  * nvim-tree: fix outdated options settings (See commit [`bd6ecea1`](https://github.com/Avimitin/nvim/commit/bd6ecea1))
+  * neovide: add blur for neovide (See commit [`012205fa`](https://github.com/Avimitin/nvim/commit/012205fa))
+
+Others:
+-------
+  * readme: update screenshot (See commit [`2219cbbf`](https://github.com/Avimitin/nvim/commit/2219cbbf))
+
+
+v6.8.0 (May 26 2022)
 ===================
 
 BREAKING CHANGES!:
@@ -6,7 +30,7 @@ BREAKING CHANGES!:
   * plugin: remove any-jump.vim (See commit [`e2248977`](https://github.com/Avimitin/nvim/commit/e2248977))
 
 
-v6.7.0 <May 26 2022>
+v6.7.0 (May 26 2022)
 ===================
 
 BREAKING CHANGES!:
@@ -15,7 +39,7 @@ BREAKING CHANGES!:
   * tag: use `vX.Y.Z[-rcN]` as git tag convention now
 
 
-6.6.2 <May 18 2022>
+6.6.2 (May 18 2022)
 ===================
 
 New Features:
@@ -28,7 +52,7 @@ Others:
   * docs: add telescope document (See commit [`705a2ce1`](https://github.com/Avimitin/nvim/commit/705a2ce1))
 
 
-6.6.1 <May 18 2022>
+6.6.1 (May 18 2022)
 ===================
 
 Changes:
@@ -36,7 +60,7 @@ Changes:
   * custom: move default settings to custom region (See commit [`31dcb0dd`](https://github.com/Avimitin/nvim/commit/31dcb0dd))
 
 
-6.6.0 <May 18 2022>
+6.6.0 (May 18 2022)
 ===================
 
 BREAKING CHANGES!:
@@ -60,7 +84,7 @@ Others:
   * readme: simplify the project description, add more pictures (See commit [`7885dcf8`](https://github.com/Avimitin/nvim/commit/7885dcf8))
 
 
-6.5.2 <May 14 2022>
+6.5.2 (May 14 2022)
 ===================
 
 Fix:
@@ -73,7 +97,7 @@ Changes:
   * markdown: change preview plugin upstream (See commit [`95edb3ba`](https://github.com/Avimitin/nvim/commit/95edb3ba))
 
 
-6.5.1 <May 13 2022>
+6.5.1 (May 13 2022)
 ===================
 
 New Features:
@@ -86,7 +110,7 @@ Changes:
   * rust: replace upstream (See commit [`0b120f3a`](https://github.com/Avimitin/nvim/commit/0b120f3a))
 
 
-6.5.0 <May 5 2022>
+6.5.0 (May 5 2022)
 ==================
 
 BREAKING CHANGES!:
@@ -119,7 +143,7 @@ Others:
   * book: add customize document (See commit [`8160db87`](https://github.com/Avimitin/nvim/commit/8160db87))
 
 
-6.4.1 <May 5 2022>
+6.4.1 (May 5 2022)
 ==================
 
 Fix:
@@ -131,7 +155,7 @@ Changes:
   * telescope: change find file theme to ivy (See commit [`69e09104`](https://github.com/Avimitin/nvim/commit/69e09104))
 
 
-6.4.0 <May 4 2022>
+6.4.0 (May 4 2022)
 ==================
 
 BREAKING CHANGES!:
@@ -152,7 +176,7 @@ Others:
   * books: update key mapping document (See commit [`6f1b92f8`](https://github.com/Avimitin/nvim/commit/6f1b92f8))
 
 
-6.3.0 <May 4 2022>
+6.3.0 (May 4 2022)
 ==================
 
 New Features:
@@ -168,7 +192,7 @@ Others:
   * readme: add which-key document (See commit [`98a68ad4`](https://github.com/Avimitin/nvim/commit/98a68ad4))
 
 
-6.2.2 <May 3 2022>
+6.2.2 (May 3 2022)
 ==================
 
 Changes:
@@ -176,7 +200,7 @@ Changes:
   * vsnip: replace date provider with built-in strftime (See commit [`69d39368`](https://github.com/Avimitin/nvim/commit/69d39368))
 
 
-6.2.1 <May 3 2022>
+6.2.1 (May 3 2022)
 ==================
 
 New Features:
@@ -188,7 +212,7 @@ Others:
   * book: replace <kbd> css with Apple magic keyboard style (See commit [`c3ace766`](https://github.com/Avimitin/nvim/commit/c3ace766))
 
 
-6.2.0 <May 2 2022>
+6.2.0 (May 2 2022)
 ====================================================================
 
 Changes:
@@ -196,7 +220,7 @@ Changes:
   * rust: replace upstream (See commit [`e695763b`](https://github.com/Avimitin/nvim/commit/e695763b))
 
 
-6.1.0 <May 2 2022>
+6.1.0 (May 2 2022)
 ====================================================================
 
 Changes:
@@ -209,7 +233,7 @@ Others:
   * readme: add API stablize hint (See commit [`1054482d`](https://github.com/Avimitin/nvim/commit/1054482d))
 
 
-6.0.0 <May 1 2022>
+6.0.0 (May 1 2022)
 ====================================================================
 
 BREAKING CHANGES!:
@@ -227,7 +251,7 @@ Others:
   * book: fix color section (See commit [`fa24c72a`](https://github.com/Avimitin/nvim/commit/fa24c72a))
 
 
-5.2.2 <Apr 30 2022>
+5.2.2 (Apr 30 2022)
 ====================================================================
 
 New Features:
@@ -239,7 +263,7 @@ Others:
   * readme: add more descriptions (See commit [`ad791488`](https://github.com/Avimitin/nvim/commit/ad791488))
 
 
-5.2.1 <Apr 29 2022>
+5.2.1 (Apr 29 2022)
 ====================================================================
 
 New Features:
@@ -260,7 +284,7 @@ Others:
   * readme: add table mode demo (See commit [`661c57aa`](https://github.com/Avimitin/nvim/commit/661c57aa))
 
 
-5.2.0 <Apr 25 2022>
+5.2.0 (Apr 25 2022)
 ====================================================================
 BREAKING CHANGES:
 -----------------
@@ -272,7 +296,7 @@ changes:
   * commands: emebed flog commands into `Glog` and `GlogS`
 
 
-5.1.0 <Apr 25 2022>
+5.1.0 (Apr 25 2022)
 ====================================================================
 New Features:
 -------------
@@ -283,7 +307,7 @@ BREAKING CHANGES:
   * treesitter: remove the ``move`` keymappings
 
 
-5.0.2 <Apr 25 2022>
+5.0.2 (Apr 25 2022)
 ====================================================================
 Fix:
 ----
@@ -292,7 +316,7 @@ plugins:
   * nvim-cmp: fix keymaps
 
 
-5.0.1 <Apr 20 2022>
+5.0.1 (Apr 20 2022)
 ====================================================================
 New Features:
 -------------
@@ -304,7 +328,7 @@ Others:
   * readme: add incompatible notice (See commit [`8db142cb`](https://github.com/Avimitin/nvim/commit/8db142cb))
 
 
-5.0.0 <Apr 20 2022>
+5.0.0 (Apr 20 2022)
 ====================================================================
 BREAKING CHANGES!:
 ------------------
@@ -325,7 +349,7 @@ Changes:
   * ci: update test script (See commit [`2eb73b0e`](https://github.com/Avimitin/nvim/commit/2eb73b0e))
 
 
-4.0.2 <Apr 15 2022>
+4.0.2 (Apr 15 2022)
 ====================================================================
 Fix:
 ----
@@ -338,7 +362,7 @@ Others:
   * Fix linting error
 
 
-4.0.1 <Apr 13 2022>
+4.0.1 (Apr 13 2022)
 ====================================================================
 
 New Features:
@@ -373,7 +397,7 @@ Others:
   * plugins: add component document (See commit [`fcefe899`](https://github.com/Avimitin/nvim/commit/fcefe899))
 
 
-4.0.0 <Mar 12 2022>
+4.0.0 (Mar 12 2022)
 ====================================================================
 In this version, I rewrite the whole configuration structure.
 This is how it looks like now::
@@ -483,7 +507,7 @@ Changes:
   * nvim-cmp: increase the lspconfig priority (See commit [`69b358c0`](https://github.com/Avimitin/nvim/commit/69b358c0))
 
 
-4.0.0-rc5 <Mar 09 2022>
+4.0.0-rc5 (Mar 09 2022)
 ====================================================================
 
 New Features:
@@ -517,7 +541,7 @@ Others:
   * genlog: rewrite the log generate script for new commit convention (See commit [`b095dad9`](https://github.com/Avimitin/nvim/commit/b095dad9))
 
 
-4.0.0-rc4 <Mar 05 2022>
+4.0.0-rc4 (Mar 05 2022)
 ====================================================================
 
 BREAKING CHANGES!:
@@ -558,7 +582,7 @@ Others:
   * book: finish the git workflow pages (See commit [`bd72ab27`](https://github.com/Avimitin/nvim/commit/bd72ab27))
 
 
-4.0.0-rc3 <Mar 05 2022>
+4.0.0-rc3 (Mar 05 2022)
 ====================================================================
 
 BREAKING CHANGES!
@@ -584,7 +608,7 @@ Others:
   * genlog: fix feature list reference (See commit [`2d1a0c69`](https://github.com/Avimitin/nvim/commit/2d1a0c69))
 
 
-4.0.0-rc2 <Mar 02 2022>
+4.0.0-rc2 (Mar 02 2022)
 ====================================================================
 
 Fix:
@@ -604,7 +628,7 @@ Others:
     (See fixtures/genlog.pl and benmark.pl)
 
 
-4.0.0-rc1 <Feb 26 2022>
+4.0.0-rc1 (Feb 26 2022)
 ====================================================================
 In this version, I rewrite the whole configuration structure and simplify
 some plugins.
@@ -654,7 +678,7 @@ Breaking Changes:
   * reft!/plugin: remove orgmode (See commit [`fc94ef62`](https://github.com/Avimitin/nvim/commit/fc94ef62))
 
 
-3.17.0 <Feb 07 2022>
+3.17.0 (Feb 07 2022)
 ====================================================================
 
 BREAKING CHANGES:
@@ -677,7 +701,7 @@ changes:
 * dispatch: add key trigger (See commit [`e4c10789`](https://github.com/Avimitin/nvim/commit/e4c10789))
 
 
-3.16.0 <Jan 26 2022>
+3.16.0 (Jan 26 2022)
 ====================================================================
 
 BREAKING CHANGES:
@@ -693,7 +717,7 @@ plugins:
   * markdown: update the vim-markdown config (See commit [`3e57ba13`](https://github.com/Avimitin/nvim/commit/3e57ba13))
 
 
-3.15.0 <Jan 24 2022>
+3.15.0 (Jan 24 2022)
 ====================================================================
 
 This version rewrite the plugins structure. Now all plugins are classified and put into the
@@ -718,7 +742,7 @@ Changes:
 -----------------------------------------------------------------------------------------
 
 
-3.14.7 <Jan 21 2022>
+3.14.7 (Jan 21 2022)
 ==================================================================
 
 The installation guide is now moved into the book:
@@ -932,12 +956,9 @@ Chore
 =====
 * colors: use kanagawa as default theme (See commit [`f2c2890`](https://github.com/Avimitin/nvim/commit/f2c2890))
 
-
-------------------------------------------------------------------------------------------
-
-
 3.9.10~3.9.11
 =============
+
 This update contains commit convention update.
 Please read: https://commit-convention.sh1mar.in/ for details.
 
