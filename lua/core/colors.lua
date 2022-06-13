@@ -42,12 +42,12 @@ M.kanagawa_setup = function()
   local default = require("kanagawa.colors").setup()
   require("kanagawa").setup({
     undercurl = true, -- enable undercurls
-    commentStyle = "italic",
-    functionStyle = "bold",
-    keywordStyle = "italic",
-    statementStyle = "bold",
-    typeStyle = "bold",
-    variablebuiltinStyle = "italic",
+    commentStyle = { italic = true },
+    functionStyle = { bold = true },
+    keywordStyle = { italic = true },
+    statementStyle = { bold = true },
+    typeStyle = { bold = true },
+    variablebuiltinStyle = { italic = true },
     specialReturn = true, -- special highlight for the return keyword
     specialException = true, -- special highlight for exception handling keywords
     transparent = false, -- do not set background color
@@ -57,39 +57,39 @@ M.kanagawa_setup = function()
       -- use gradient yellow for heading
       htmlH1 = {
         fg = default.waveRed,
-        style = "bold",
+        bold = true,
       },
       htmlH2 = {
         fg = default.surimiOrange,
-        style = "bold",
+        bold = true,
       },
       htmlH3 = {
         fg = default.autumnYellow,
-        style = "bold",
+        bold = true,
       },
       htmlH4 = {
         fg = default.carpYellow,
-        style = "bold",
+        bold = true,
       },
       htmlH5 = {
         fg = default.boatYellow2,
-        style = "bold",
+        bold = true,
       },
       htmlH6 = {
         fg = default.boatYellow1,
-        style = "italic",
+        italic = true,
       },
       mkdHeading = {
         fg = default.sumiInk4,
       },
       mkdListItem = {
         fg = default.surimiOrange,
-        style = "bold",
+        bold = true,
       },
       Todo = {
         fg = default.fujiWhite,
         bg = default.samuraiRed,
-        style = "bold",
+        bold = true,
       },
       Pmenu = {
         bg = default.sumiInk1,
