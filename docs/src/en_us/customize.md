@@ -1,14 +1,13 @@
 # Customize
 
-There are some frequently change value that you don't want to be traked by git.
-Like colorscheme or some other settings.
-This can all be defined in a optional Lua module.
+You might not want git to track some frequently changed values.
+Like color scheme or some other settings.
+Those settings can all define in an optional `Lua` module.
 
 ## Details
 
 Create a file named `custom.lua` under the `~/.config/nvim/lua` directory.
-This file is already added into `.gitignore` file, so any changes to it will
-not be tracked.
+The `.gitignore` file contains the `custom.lua` file already.
 
 Create a new configuration table and return it at the end.
 
@@ -39,7 +38,9 @@ local M = {
       "rust",
       "toml",
     }
-  }
+  },
+
+  enable_vale = false
 }
 
 return M -- <- Don't forget to return this table, or the config will not acceive what you configured

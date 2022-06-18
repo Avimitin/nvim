@@ -30,6 +30,7 @@
       - [splitjoin](./en_us/plugins/splitjoin.md)
       - [sort.nvim](./en_us/plugins/sort.md)
       - [telescope.nvim](./en_us/plugins/telescope.md)
+      - [vale](./en_us/plugins/vale.md)
 - [Others]()
     - [Development](./en_us/development.md)
 
