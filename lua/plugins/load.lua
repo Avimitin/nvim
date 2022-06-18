@@ -573,11 +573,11 @@ local coding_enhance = {
       if vim.g.enable_vale then
         require("null-ls").setup({
           sources = {
-              -- Install vale on: https://github.com/errata-ai/vale/releases
-              -- Arch Linux: paru/yay -S vale
-              require("null-ls").builtins.diagnostics.vale,
+            -- Install vale on: https://github.com/errata-ai/vale/releases
+            -- Arch Linux: paru/yay -S vale
+            require("null-ls").builtins.diagnostics.vale,
           },
-          on_attach = attachment.set_lsp_key
+          on_attach = attachment.set_lsp_key,
         })
       end
     end,
