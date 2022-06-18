@@ -47,10 +47,7 @@ local keys = {
     c = { "Comment with block comment" },
   },
   ["<leader>"] = {
-    t = "Open telescope",
     l = "Open lazygit",
-    s = "Search symbol in current buffer",
-    w = "Search symbol in current workspace",
     r = {
       name = "Rust keymap (Available in Rust buffer only)",
       r = { "Open runnable" },
