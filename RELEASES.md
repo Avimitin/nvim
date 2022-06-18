@@ -1,3 +1,20 @@
+v6.9.1 (Jun 18 2022)
+====================
+
+Plugins:
+--------
+
+* Add null-ls.nvim and vale supports
+* Add completion icon for crates.nvim
+* Add trouble.nvim to show diagnostic
+* Add shortline style for trouble.nvim
+* Rewrite lspconfig and lsp-installer load sequences
+* Remove redundant which-key descriptions
+
+Options:
+--------
+* Add `rust` into lspconfig filetype list
+
 v6.9.0 (Jun 13 2022)
 ===================
 
