@@ -47,7 +47,7 @@ local source_menu = {
   nvim_lua = "[ NvimLua]",
   latex_symbols = "[ Latex]",
   dictionary = "[韛Dict]",
-  crate = "[ Cargo]",
+  crates = "[ Cargo]",
 }
 
 cmp.setup({
