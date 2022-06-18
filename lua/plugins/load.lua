@@ -592,18 +592,23 @@ local coding_enhance = {
   -- automatically download and manage lsp server
   {
     "williamboman/nvim-lsp-installer",
-    ft = vim.g.enable_lspconfig_ft,
-    config = function()
-      require("lspconfig")
-    end,
+    -- setup by lspconfig in lspconfig_cfg.lua file
+    module = "nvim-lsp-installer",
   },
 
   -- manage the lsp server
   {
     "neovim/nvim-lspconfig",
+    -- it can be load by itself when filetype condition is satisified
+    ft = vim.g.enable_lspconfig_ft,
     config = function()
+      -- load itself and lsp installer
       require("plugins").load_cfg("lspconfig_cfg")
+
+      -- load trouble.nvim after lspconfig setup
+      require("trouble").setup({})
     end,
+    -- it can be load by other plugins
     module = "lspconfig",
   },
 
