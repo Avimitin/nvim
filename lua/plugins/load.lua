@@ -564,14 +564,35 @@ local colorscheme = {
 
 local coding_enhance = {
   {
+    "jose-elias-alvarez/null-ls.nvim",
+    -- enable it when we are writing formal artical
+    filetype = { "markdown", "tex", "asciidoc" },
+    config = function()
+      require("lspconfig")
+      local attachment = require("plugins.config.lspconfig_cfg")
+      if vim.g.enable_vale then
+        require("null-ls").setup({
+          sources = {
+              -- Install vale on: https://github.com/errata-ai/vale/releases
+              -- Arch Linux: paru/yay -S vale
+              require("null-ls").builtins.diagnostics.vale,
+          },
+          on_attach = attachment.set_lsp_key
+        })
+      end
+    end,
+  },
+
+  -- show workspace error,warning,hint... message in a pop up panel
+  {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     module = "trouble",
-    config = function ()
+    config = function()
       local d = require("mappings.utils").new_desc
       local nmap = require("mappings.utils").nmap
       nmap("<leader>d", "<cmd>TroubleToggle<cr>", d("toggle workspace diagnostic panel"))
-    end
+    end,
   },
 
   -- deserialize code to generate text object for highlight and other enhancement

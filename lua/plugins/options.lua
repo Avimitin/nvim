@@ -8,6 +8,13 @@ if not vim.fn.has("nvim-0.6") then
   g.did_load_filetypes = 1
 end
 
+-- for vale
+g.enable_vale = 0 -- set it to 1 after you setup vale
+
+if present and custom.enable_vale then
+  g.enable_vale = 1
+end
+
 -- for vsnip
 g.vsnip_snippet_dir = vim.fn.expand("~/.config/nvim/vsnip")
 
