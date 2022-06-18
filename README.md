@@ -15,16 +15,16 @@
 <details>
     <summary markdown="span">Neovim v0.8.0 Incompatible Alert</summary>
 
-- Markdown Preview failed to open due to `NVIM_LISTEN_ADDRESS` [removal](https://github.com/iamcco/markdown-preview.nvim/issues/452).
+- Markdown Preview can not open due to `NVIM_LISTEN_ADDRESS` [removal](https://github.com/iamcco/markdown-preview.nvim/issues/452).
 Fix available in my [fork](https://github.com/Avimitin/markdown-preview.nvim).
 
 </details>
 
 <details>
-    <summary markdown="span">Neovim v0.7.0 Incompatible Alert</summary>
+    <summary markdown="span">NeoVIM v0.7.0 Incompatible Alert</summary>
 
-Neovim v0.7.0 has released. The configuration itself is working fine.
-But there are also other changes that might incompatible with your computer.
+Neovim v0.7.0 has released. Although the configuration itself is working fine,
+there are other changes that might incompatible with your computer.
 
 - libvterm 0.1 is now required, as neovim has bug with 0.2 version. This might
 make your terminal can't handle keymap correctly.
@@ -68,7 +68,7 @@ And every plugin is handled well to be activate only when they are needed.
 Nothing should slowdown the editor.
 * ***Handy*** and ***Smoothy***: There will always be a panel to remind you
 when you forget your key settings. There will always be a short keystroke to help
-you get to the place you want to jump to. There will always......
+you get to the place you want to jump to. There will always…
 * ***Powerful*** coding experience: With the power from nvim-lspconfig, we can
 have "IDE Level" coding experience in the terminal.
 * ***Fancy looking***: Talk is cheap, see the [gallery](#Gallery).
@@ -122,6 +122,10 @@ Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
 | Markdown                                           |
 |----------------------------------------------------|
 | ![image](./docs/images/neovim-md.png)              |
+
+| code-like linting to prose [docs](./docs/src/en_us/plugins/vale.md) |
+|------------|
+| ![images](./docs/images/vale.png) |
 
 ---
 
@@ -177,6 +181,10 @@ Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
 | Find file                                           | Project grep                                        | Symbol search                                   |
 |-----------------------------------------------------|-----------------------------------------------------|-------------------------------------------------|
 | ![find-file](./docs/images/telescope-find-file.png) | ![live-grep](./docs/images/telescope-live-grep.png) | ![symbols](./docs/images/telescope-symbols.png) |
+
+| Diagnostic Panel |
+|-----------------|
+| ![image](./docs/images/trouble.png)  |
 
 ## License
 
