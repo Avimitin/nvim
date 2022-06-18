@@ -51,6 +51,7 @@ g.enable_lspconfig_ft = {
   "json",
   "lua",
   "python",
+  "rust",
   "sh",
   "toml",
 }
