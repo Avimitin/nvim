@@ -563,6 +563,17 @@ local colorscheme = {
 }
 
 local coding_enhance = {
+  {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    module = "trouble",
+    config = function ()
+      local d = require("mappings.utils").new_desc
+      local nmap = require("mappings.utils").nmap
+      nmap("<leader>d", "<cmd>TroubleToggle<cr>", d("toggle workspace diagnostic panel"))
+    end
+  },
+
   -- deserialize code to generate text object for highlight and other enhancement
   {
     "nvim-treesitter/nvim-treesitter",
