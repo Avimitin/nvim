@@ -460,7 +460,14 @@ local editor_enhance = {
     config = function()
       require("plugins").load_cfg("neoscroll_cfg")
     end,
-    keys = { { "n", "<C-e>" }, { "n", "<C-y>" }, { "n", "<C-f>" }, { "n", "<C-b>" } },
+    keys = {
+      { "n", "<C-e>" },
+      { "n", "<C-y>" },
+      { "n", "<C-f>" },
+      { "n", "<C-b>" },
+      { "n", "<C-j>" },
+      { "n", "<C-k>" },
+    },
   },
 
   -- search and replace with a panel
@@ -570,7 +577,7 @@ local coding_enhance = {
     config = function()
       require("lspconfig")
       local attachment = require("plugins.config.lspconfig_cfg")
-      if vim.g.enable_vale then
+      if vim.g.enable_vale == 1 then
         require("null-ls").setup({
           sources = {
             -- Install vale on: https://github.com/errata-ai/vale/releases
