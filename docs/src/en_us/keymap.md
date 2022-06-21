@@ -92,6 +92,17 @@ Basic movement
 | <kbd>: q</kbd>   | Quit neovim, window, tabs                                |                     |
 | <kbd>Alt ;</kbd> | Leave the insert mode (Same as ESC)                      | Only in insert mode |
 
+## Scrolling
+
+| Keymap            | Function                                   |
+|-------------------|--------------------------------------------|
+| <kbd>Ctrl j</kbd> | Scroll down                                |
+| <kbd>Ctrl k</kbd> | Scroll up                                  |
+| <kbd>Ctrl f</kbd> | Like "PgDown" key, scroll down half a page |
+| <kbd>Ctrl b</kbd> | Like "PgUp" key, scroll up half a page     |
+| <kbd>Ctrl y</kbd> | Scroll up, but cursor will not move        |
+| <kbd>Ctrl e</kbd> | Scroll down, but curson will not move        |
+
 ## Others
 
 | Keymap            | Function        |
