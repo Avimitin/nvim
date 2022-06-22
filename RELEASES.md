@@ -1,3 +1,21 @@
+v6.9.2 (Jun 22 2022)
+====================
+
+Plugins:
+--------
+* crates.nvim: fix completion menu source name
+* vsnip: rewrite the Rust closure snippet
+
+Key Mapping:
+------------
+* Add `<Ctrl-j>` and `<Ctrl-k>` for scrolling.
+
+Options:
+--------
+* `conceallevel` is now set for `markdown` filetype only.
+The double quote for `JSON` and `Dockerfile` will not be concealed now.
+
+
 v6.9.1 (Jun 18 2022)
 ====================
 
