@@ -92,7 +92,7 @@ M.kanagawa_setup = function()
         bold = true,
       },
       Pmenu = {
-        bg = default.sumiInk1,
+        bg = default.sumiInk2,
       },
       HighLightLineMatches = {
         bg = default.winterYellow,
