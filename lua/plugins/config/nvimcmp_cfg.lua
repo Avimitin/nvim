@@ -40,10 +40,10 @@ local kind_icons = {
 }
 
 local source_menu = {
-  buffer = "[﬘ Buf]",
+  buffer = "[ Buf]",
   nvim_lsp = "[ LSP]",
   luasnip = "[ LSnip]",
-  snippet = "[ VSnip]",
+  vsnip = "[ Snippet]",
   nvim_lua = "[ NvimLua]",
   latex_symbols = "[ Latex]",
   dictionary = "[韛Dict]",
@@ -57,14 +57,19 @@ cmp.setup({
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
   formatting = {
+    fields = { "kind", "abbr", "menu" },
     format = function(entry, item)
       -- return special icon for cmdline completion
       if entry.source.name == "cmdline" then
-        item.kind = string.format("%s %s", kind_icons["VimCmdLine"], "Vim")
+        item.kind = string.format(" %s ", kind_icons["VimCmdLine"])
         return item
       end
-      item.kind = string.format("%s %s", kind_icons[item.kind], item.kind)
+      item.kind = string.format(" %s ", kind_icons[item.kind])
       item.menu = (source_menu)[entry.source.name]
       return item
     end,
