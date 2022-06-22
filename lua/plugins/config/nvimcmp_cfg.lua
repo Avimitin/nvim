@@ -36,7 +36,6 @@ local kind_icons = {
   Event = "",
   Operator = "",
   TypeParameter = "",
-  VimCmdLine = "",
 }
 
 local source_menu = {
@@ -66,10 +65,10 @@ cmp.setup({
     format = function(entry, item)
       -- return special icon for cmdline completion
       if entry.source.name == "cmdline" then
-        item.kind = string.format(" %s ", kind_icons["VimCmdLine"])
+        item.kind = ""
         return item
       end
-      item.kind = string.format(" %s ", kind_icons[item.kind])
+      item.kind = kind_icons[item.kind]
       item.menu = (source_menu)[entry.source.name]
       return item
     end,
