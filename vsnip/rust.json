@@ -5,19 +5,23 @@
     "description": "Close the dead code warning"
   },
   "closure": {
-    "prefix": "closure",
+    "prefix": "||{",
     "body": [
-      "|${1:Params}|${2| ,-> |} {",
+      "|${1:arg}|${2| ,-> |} {",
       "    ${0}",
       "}"
     ]
   },
   "closure as variable": {
-    "prefix": "closure_var",
+    "prefix": "let||",
     "body": [
-      "let ${1:Var} = |${2:Params}|${3| ,-> |} {",
+      "let ${1} = |${2:arg}|${3| ,-> |} {",
       "    ${0}",
       "};"
     ]
+  },
+  "inline closure": {
+    "prefix": "||",
+    "body": "|${1: args}| ${0}"
   }
 }
