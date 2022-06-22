@@ -120,10 +120,6 @@ M.theme = "kanagawa"
 
 ![nightfox-image](https://user-images.githubusercontent.com/2746374/158456286-9e3ee657-60e6-49d8-b85e-dcab285b31c3.png) 
 
-* dawnfox
-
-![dawnfox-image](https://user-images.githubusercontent.com/2746374/158456278-c5d656de-c445-44b8-9813-9fc91ffbce4c.png)
-
 * GitHub
 
 ![GitHub-image](https://camo.githubusercontent.com/4bb7ad6c319b5ce63bed16cb25753e603fee510d59a1fad0245bc3d0bda8445d/68747470733a2f2f696d6775722e636f6d2f4f5077424449342e706e67)
