@@ -1,3 +1,17 @@
+v6.10.0 (Jun 22 2022)
+====================
+
+BREAKING
+--------
+* nvim-cmp: simplify the completion menu style
+* colors: remove nightfox
+
+plugins:
+--------
+* packer: Compile on save is more robust now
+* kanagawa: use lighter Pmenu highlight. Completion menu looks more distinguishable now.
+
+
 v6.9.2 (Jun 22 2022)
 ====================
 
