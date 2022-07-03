@@ -198,7 +198,7 @@ local editor_enhance = {
 
   -- fancy status line
   {
-    "Avimitin/galaxyline.nvim",
+    "glepnir/galaxyline.nvim",
     branch = "main",
     after = "nvim-web-devicons",
     config = function()
