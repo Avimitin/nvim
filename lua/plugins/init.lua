@@ -51,6 +51,7 @@ end
 
 local function bootstrap()
   install_packer()
+  vim.cmd("packadd packer.nvim")
   plugins.load()
   -- notify user to quit neovim when bootstrap process done
   vim.cmd(
