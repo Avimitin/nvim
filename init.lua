@@ -32,5 +32,5 @@ end
 
 -- since we have packer compiled, we don't need to load this immediately
 vim.defer_fn(function()
-  require("plugins").load()
+  require("plugins").init()
 end, 0)
