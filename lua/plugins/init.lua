@@ -10,11 +10,8 @@ end
 
 -- install_packer will use git to install packer to the install_path
 local function install_packer()
-  -- detecting plugin manager
-  local fn = vim.fn
-
   utils.infoL("Installing packer to " .. install_path)
-  fn.system({
+  vim.fn.system({
     "git",
     "clone",
     "--depth",
