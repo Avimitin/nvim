@@ -25,11 +25,7 @@ end
 
 -- add_packer will add packer into the optional plugin directory
 local function add_packer()
-  local packer_call, error_msg = pcall(vim.cmd, [[packadd packer.nvim]])
-  if not packer_call then
-    utils.errorL(error_msg, "load plugin")
-    return
-  end
+  vim.cmd("packadd packer.nvim")
 end
 
 -- init_packer will setup the packer style
