@@ -3,6 +3,10 @@ local uv = vim.loop
 
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 
+local plugins = {
+  repos = {}
+}
+
 -- has_packer return the packer install status
 local function has_packer()
   return uv.fs_stat(install_path) ~= nil
@@ -21,13 +25,10 @@ local function install_packer()
   })
 end
 
--- add_packer will add packer into the optional plugin directory
-local function add_packer()
-  vim.cmd("packadd packer.nvim")
-end
-
 -- init_packer will setup the packer style
 local function init_packer()
+  vim.cmd("packadd packer.nvim")
+
   require("packer").init({
     display = {
       open_fn = function()
@@ -48,52 +49,21 @@ local function init_packer()
   })
 end
 
--- setup_plugins will get list of plugins definition and use them
-local function setup_plugins()
-  require("packer").startup(function(use)
-    -- Packer can manage itself
-    use({
-      "wbthomason/packer.nvim",
-      event = "VimEnter",
-    })
-
-    for _, plugin in ipairs(require("plugins.load")) do
-      use(plugin)
-    end
-  end)
+local function bootstrap()
+  install_packer()
+  plugins.load()
+  -- notify user to quit neovim when bootstrap process done
+  vim.cmd(
+    "au User PackerComplete echom 'Plugins are installed successfully, please use :qa to exit and restart the neovim'"
+  )
+  require("packer").sync()
 end
 
--- ======================================================
--- public functions
--- ======================================================
-local plugins = {
-  repos = {}
-}
-
--- load will try to detect the packer installation status.
--- It will automatically install packer to the install_path.
--- Then it will called the setup script to setup all the plugins.
-plugins.init = function()
-  if not has_packer() then
-    install_packer()
-    add_packer()
-    setup_plugins()
-    vim.cmd(
-      "au User PackerComplete echom 'Plugins are installed successfully, please use :qa to restart the neovim'"
-    )
-    require("packer").sync()
-    return
-  end
-
-  add_packer()
-  init_packer()
-  setup_plugins()
-end
-
+-- load plugins
 plugins.load = function()
   local awake = function(mod)
     local prefix = "plugins.modules."
-    require(prefix..mod)
+    require(prefix .. mod)
   end
 
   local modules = {
@@ -121,6 +91,18 @@ plugins.load = function()
   end)
 end
 
+-- init plugins
+plugins.init = function()
+  if not has_packer() then
+    bootstrap()
+    return
+  end
+
+  init_packer()
+  plugins.load()
+end
+
+-- register plugins
 plugins.register = function(plug)
   vim.list_extend(plugins.repos, plug)
 end
