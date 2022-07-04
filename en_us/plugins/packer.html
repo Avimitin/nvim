@@ -175,7 +175,7 @@ inside the <code>require('packer').startup</code> function:</p>
 <p>You just need to delete the declaration line, then run <code>:PackerClean</code>.</p>
 <h2 id="useful-fields"><a class="header" href="#useful-fields">Useful fields</a></h2>
 <p>This is the key to make your neovim faster.</p>
-<table><thead><tr><th>fields</th><th>value</th><th>usage</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>fields</th><th>value</th><th>usage</th></tr></thead><tbody>
 <tr><td>disable</td><td>boolean</td><td>Mark a plugin as inactive</td></tr>
 <tr><td>as</td><td>string</td><td>Specifies an alias under which to install the plugin</td></tr>
 <tr><td>installer</td><td>function</td><td>Specifies custom installer. See &quot;custom installers&quot; below.</td></tr>
@@ -192,8 +192,9 @@ inside the <code>require('packer').startup</code> function:</p>
 <tr><td>rocks</td><td>string or list</td><td>Specifies Luarocks dependencies for the plugin</td></tr>
 <tr><td>config</td><td>string or function</td><td>Specifies code to run after this plugin is loaded.</td></tr>
 </tbody></table>
+</div>
 <h2 id="lazyload-settings"><a class="header" href="#lazyload-settings">Lazyload settings</a></h2>
-<table><thead><tr><th>fields</th><th>value</th><th>usage</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>fields</th><th>value</th><th>usage</th></tr></thead><tbody>
 <tr><td>setup</td><td>string or function</td><td>pecifies code to run before this plugin is loaded.</td></tr>
 <tr><td>cmd</td><td>string or list</td><td>Specifies commands which load this plgin. Can be an autocmd pattern.</td></tr>
 <tr><td>ft</td><td>string or list</td><td>Specifies filetypes which load this plugin.</td></tr>
@@ -204,6 +205,7 @@ inside the <code>require('packer').startup</code> function:</p>
 <tr><td>module</td><td>string or list</td><td>Specifies Lua module names for require. When requiring a string which starts with one of these module names, the plugin will be loaded.</td></tr>
 <tr><td>module_pattern</td><td>string/list</td><td>Specifies Lua pattern of Lua module names for require. When requiring a string which matches one of these patterns, the plugin will be loaded.</td></tr>
 </tbody></table>
+</div>
 <h2 id="faq"><a class="header" href="#faq">FAQ</a></h2>
 <h3 id="how-to-set-up-options-before-plugin-load"><a class="header" href="#how-to-set-up-options-before-plugin-load">How to set up options <strong>before</strong> plugin load?</a></h3>
 <p>Use the setup field. Example config:</p>

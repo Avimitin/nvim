@@ -178,18 +178,20 @@ return M -- &lt;- Don't forget to return this table, or the config will not acce
 </code></pre>
 <h2 id="fields"><a class="header" href="#fields">Fields</a></h2>
 <p>Current supported options:</p>
-<table><thead><tr><th>option</th><th>meaning</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>option</th><th>meaning</th></tr></thead><tbody>
 <tr><td><code>theme</code></td><td>colorscheme, read <a href="./colors.html">colors</a> for tips and tricks</td></tr>
 <tr><td><code>has_fcitx5</code></td><td>enable this if you want to switch fcitx5 automatically when you leave insert mode</td></tr>
 <tr><td><a href="#lspconfig"><code>lspconfig</code></a></td><td>lspconfig specific settings</td></tr>
 <tr><td><a href="#Treesitter"><code>treesitter</code></a></td><td>treesitter specific settings</td></tr>
 </tbody></table>
+</div>
 <h3 id="lspconfig"><a class="header" href="#lspconfig">lspconfig</a></h3>
 <p>See what lsp servers you can use: <a href="https://github.com/williamboman/nvim-lsp-installer#available-lsps">Available Lsps</a></p>
-<table><thead><tr><th>option</th><th>meaning</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>option</th><th>meaning</th></tr></thead><tbody>
 <tr><td><code>servers</code></td><td>A list of server name that will be setup connection to the neovim. Key mappings, capabilities... will be attached to those buffer</td></tr>
 <tr><td><code>ft</code></td><td>A list of filetype that lspconfig plugin will be enable.</td></tr>
 </tbody></table>
+</div>
 <ul>
 <li>Default enable filetype</li>
 </ul>
@@ -207,10 +209,10 @@ toml
 </code></pre>
 <h3 id="treesitter"><a class="header" href="#treesitter">Treesitter</a></h3>
 <p>See a list of supported language: <a href="https://github.com/nvim-treesitter/nvim-treesitter#supported-languages">Supported Languages</a></p>
-<table><thead><tr><th>option</th><th>meaning</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>option</th><th>meaning</th></tr></thead><tbody>
 <tr><td><code>language</code></td><td>A list of file type that will be supported by treesitter. The related parser will be compiled and installed by nvim-treesitter plugins</td></tr>
 </tbody></table>
-
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
