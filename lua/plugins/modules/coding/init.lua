@@ -8,7 +8,7 @@ local plugs = {
   {
     "jose-elias-alvarez/null-ls.nvim",
     -- enable it when we are writing formal artical
-    filetype = { "markdown", "tex", "asciidoc" },
+    ft = { "markdown", "tex", "asciidoc" },
     config = config.null_ls_config,
   },
 
