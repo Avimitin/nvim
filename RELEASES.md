@@ -1,3 +1,12 @@
+v6.10.1 (Jul 4 2022)
+====================
+
+plugins:
+-------
+lspsaga: replace old lspsaga with glepnir original lspsaga
+galaxyline: replace old galaxyline with glepnir original galaxyline
+
+
 v6.10.0 (Jun 22 2022)
 ====================
 
