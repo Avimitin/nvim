@@ -88,17 +88,17 @@ end
 
 config.null_ls_config = function()
   require("lspconfig")
-  local attachment = require("plugins.config.lspconfig_cfg")
-  if vim.g.enable_vale == 1 then
-    require("null-ls").setup({
-      sources = {
-        -- Install vale on: https://github.com/errata-ai/vale/releases
-        -- Arch Linux: paru/yay -S vale
-        require("null-ls").builtins.diagnostics.vale,
-      },
-      on_attach = attachment.set_lsp_key,
-    })
-  end
+  -- local attachment = require("plugins.config.lspconfig_cfg")
+  -- if vim.g.enable_vale == 1 then
+  --   require("null-ls").setup({
+  --     sources = {
+  --       -- Install vale on: https://github.com/errata-ai/vale/releases
+  --       -- Arch Linux: paru/yay -S vale
+  --       require("null-ls").builtins.diagnostics.vale,
+  --     },
+  --     on_attach = attachment.set_lsp_key,
+  --   })
+  -- end
 end
 
 config.trouble_nvim_config = function()
@@ -142,10 +142,6 @@ config.treesitter_config = function()
       },
     },
   })
-
-  -- extends those text objects for wildfire, and now we can simply press <ENTER> to select
-  -- inside function/class/blck/function call/parameters
-  vim.g.wildfire_objects = vim.list_extend(vim.g.wildfire_objects, { "if", "ic", "ib", "il", "ip" })
 end
 
 config.treesitter_ft = function()

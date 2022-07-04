@@ -1,4 +1,8 @@
 local register = require("plugins").register
+local config = require("plugins.modules.enhance.config")
+
+config.pre()
+
 local repos = {
   -- prompt up panel to give a key mapping hint
   {
@@ -51,26 +55,20 @@ local repos = {
     "glepnir/galaxyline.nvim",
     branch = "main",
     after = "nvim-web-devicons",
-    config = function()
-      require("plugins.config.galaxyline_cfg")
-    end,
+    config = config.galaxyline_config,
   },
 
   -- buffer manager
   {
     "akinsho/nvim-bufferline.lua",
-    config = function()
-      require("plugins.config.bufferline_cfg")
-    end,
+    config = config.bufferline_cfg,
     event = "BufRead",
   },
 
   -- tree style file manager
   {
     "kyazdani42/nvim-tree.lua",
-    config = function()
-      require("plugins.config.nvimtree_cfg")
-    end,
+    config = config.nvim_tree_config,
     cmd = {
       "NvimTreeRefresh",
       "NvimTreeToggle",
@@ -79,9 +77,7 @@ local repos = {
 
   {
     "akinsho/toggleterm.nvim",
-    config = function()
-      require("plugins.config.toggleterm_cfg")
-    end,
+    config = config.toggleterm_config,
     cmd = "ToggleTerm",
   },
 
@@ -133,9 +129,6 @@ local repos = {
     cmd = {
       "Dashboard",
     },
-    config = function()
-      require("plugins.config.dashboard_cfg")
-    end,
   },
 
   -- cd into the root directory
@@ -154,9 +147,7 @@ local repos = {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
     },
-    config = function()
-      require("plugins.config.telescope_cfg")
-    end,
+    config = config.telescope_config,
     module = "telescope",
   },
 
@@ -243,9 +234,7 @@ local repos = {
   -- automatically pairs the bracket
   {
     "windwp/nvim-autopairs",
-    config = function()
-      require("plugins.config.autopairs_cfg")
-    end,
+    config = config.autopairs_config,
     after = "nvim-cmp",
   },
 
@@ -256,13 +245,7 @@ local repos = {
     requires = {
       "obaland/vfiler-column-devicons",
     },
-    config = function()
-      require("vfiler/config").setup({
-        options = {
-          columns = "indent,devicons,name,mode,size,time",
-        },
-      })
-    end,
+    config = config.vfiler_config,
   },
 
   -- split single line and join multiple lines, useful for closing bracket
@@ -277,9 +260,7 @@ local repos = {
   -- generate line for guiding indent
   {
     "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      require("plugins.config.indent_cfg")
-    end,
+    config = config.indent_config,
     event = "BufRead",
   },
 
@@ -289,9 +270,7 @@ local repos = {
     requires = {
       "nvim-lua/plenary.nvim",
     },
-    config = function()
-      require("plugins.config.rest_nvim_cfg")
-    end,
+    config = config.rest_nvim_config,
     ft = "http",
   },
 
@@ -307,9 +286,7 @@ local repos = {
   -- scroll smoothly
   {
     "karb94/neoscroll.nvim",
-    config = function()
-      require("plugins.config.neoscroll_cfg")
-    end,
+    config = config.neoscroll_config,
     keys = {
       { "n", "<C-e>" },
       { "n", "<C-y>" },
@@ -355,7 +332,6 @@ local repos = {
     end,
   },
 }
-
 
 local colorscheme = {
   -- dark green color scheme

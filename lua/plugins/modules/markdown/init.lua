@@ -1,9 +1,7 @@
 local use = require("plugins.init").register
 local config = require("plugins.modules.markdown.config")
 
-if config.pre ~= nil then
-  config.pre()
-end
+config.pre()
 
 local plugs = {
   -- markdown toc

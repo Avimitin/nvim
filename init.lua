@@ -22,7 +22,6 @@ for _, module_name in ipairs({
   "mappings",
   "core.commands",
   "core.autocmd",
-  "plugins.options",
 }) do
   local ok, err = pcall(require, module_name)
   if not ok then
