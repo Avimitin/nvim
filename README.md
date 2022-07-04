@@ -79,7 +79,16 @@ You can press the fork button to clone my project (Don't forget
 to smash the star button! `:)`), then pull your repo to the local:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/nvim.git ~/.config/nvim
+# Use the latest stable version
+# !@@ This script will overwrite your current configuration @@!
+# !@@ READ THE SCRIPT BEFORE YOU RUN IT @@!
+tmp_dir=$(mktemp -d); \
+    curl -sSL https://github.com/Avimitin/nvim/archive/refs/tags/latest.tar.gz | \
+    tar xz -C $tmp_dir; \
+    mkdir -p $HOME/.config/nvim && mv -f $tmp_dir/nvim-latest $HOME/.config/nvim
+
+# OR you can use the latest modification
+git clone --depth=1 https://github.com/YOUR_USERNAME/nvim.git ~/.config/nvim
 ```
 
 Finally, input `nvim` to open the editor, and all plugins will be downloaded automatically.
