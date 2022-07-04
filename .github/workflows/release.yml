@@ -1,0 +1,23 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '^v[0-9]+\.[0-9]+\.[0-9]+'
+
+jobs:
+  release-tag:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Get Release Notes
+      run: |
+        git log --color=always -p -1 RELEASES.md | \
+          perl -wlne 'print $1 if /^\e\[32m\+\e\[m\e\[32m(.*)\e\[m$/' > \
+          ${{ github.ref_name }}-changelog.md
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+          body_path: ${{ github.ref_name }}-changelog.md
