@@ -403,5 +403,35 @@ local colorscheme = {
   },
 }
 
+local autoload = {
+  -- speed up neovim!
+  {
+    "nathom/filetype.nvim",
+    config = function()
+      require("filetype").setup({
+        -- overrides the filetype or function for filetype
+        -- See https://github.com/nathom/filetype.nvim#customization
+        overrides = {},
+      })
+    end,
+  },
+
+  -- adjust the shiftwidth and expandtab settins
+  {
+    "tpope/vim-sleuth",
+  },
+
+  -- Fix the CursorHold performance bug
+  {
+    "antoinemadec/FixCursorHold.nvim",
+  },
+
+  -- cache everything!
+  {
+    "lewis6991/impatient.nvim",
+  },
+}
+
 register(repos)
 register(colorscheme)
+register(autoload)
