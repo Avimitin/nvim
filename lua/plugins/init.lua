@@ -1,10 +1,11 @@
 local utils = require("core.utils")
+local uv = vim.loop
 
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 
 -- has_packer return the packer install status
 local function has_packer()
-  return vim.fn.empty(vim.fn.glob(install_path)) == 0
+  return uv.fs_stat(install_path) ~= nil
 end
 
 -- install_packer will use git to install packer to the install_path
