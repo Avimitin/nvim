@@ -4,7 +4,7 @@ local uv = vim.loop
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 
 local plugins = {
-  repos = {}
+  repos = {},
 }
 
 -- has_packer return the packer install status
@@ -71,7 +71,7 @@ plugins.load = function()
     "completion",
     "markdown",
     "enhance",
-    "git"
+    "git",
   }
 
   for _, mod in ipairs(modules) do

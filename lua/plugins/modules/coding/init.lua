@@ -17,7 +17,7 @@ local plugs = {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     config = config.trouble_nvim_config,
-    after = "nvim-lspconfig"
+    after = "nvim-lspconfig",
   },
 
   -- deserialize code to generate text object for highlight and other enhancement
