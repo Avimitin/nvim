@@ -72,12 +72,14 @@ end
 -- ======================================================
 -- public functions
 -- ======================================================
-local M = {}
+local plugins = {
+  repos = {}
+}
 
 -- load will try to detect the packer installation status.
 -- It will automatically install packer to the install_path.
 -- Then it will called the setup script to setup all the plugins.
-M.load = function()
+plugins.init = function()
   if not has_packer() then
     install_packer()
     add_packer()
@@ -94,10 +96,40 @@ M.load = function()
   setup_plugins()
 end
 
-M.load_cfg = function(file)
-  local prefix = "plugins.config."
-  require(prefix .. file)
+plugins.load = function()
+  local awake = function(mod)
+    local prefix = "plugins.modules."
+    require(prefix..mod)
+  end
+
+  local modules = {
+    "coding",
+    "completion",
+    "markdown",
+    "enhance",
+    "git"
+  }
+
+  for _, mod in ipairs(modules) do
+    awake(mod)
+  end
+
+  require("packer").startup(function(use)
+    -- Packer can manage itself
+    use({
+      "wbthomason/packer.nvim",
+      event = "VimEnter",
+    })
+
+    for _, repo in ipairs(plugins.repos) do
+      use(repo)
+    end
+  end)
 end
 
-return M
+plugins.register = function(plug)
+  vim.list_extend(plugins.repos, plug)
+end
+
+return plugins
 -- vim: foldmethod=marker
