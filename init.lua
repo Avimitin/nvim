@@ -20,7 +20,6 @@ pcall(require, "impatient")
 for _, module_name in ipairs({
   "core.options",
   "mappings",
-  "core.commands",
   "core.autocmd",
 }) do
   local ok, err = pcall(require, module_name)

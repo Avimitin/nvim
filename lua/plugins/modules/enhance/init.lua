@@ -411,3 +411,6 @@ local autoload = {
 register(repos)
 register(colorscheme)
 register(autoload)
+
+-- setup commands
+require("plugins.modules.enhance.commands")
