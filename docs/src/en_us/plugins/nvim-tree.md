@@ -8,3 +8,7 @@ Nvim-tree.lua is a plugin that show files in tree view.
 
 * Use <kbd>;t</kbd> to toggle the tree view.
 * Press `?` inside the nvim-tree to get list of keymap.
+
+## Configuration
+
+nvim-tree configuration is located in `lua/plugins/modules/enhance/config/nvim-tree.lua`

@@ -7,15 +7,15 @@ manage more than tab page.
 
 ## Configuration file
 
-lua/config/bufferline_config.lua
+lua/plugins/modules/enhance/config/init.lua
 
 ## keymap
 
-* Use <kbd>.</kbd> to go to next page.
-* Use <kbd>,</kbd> to go to previous page.
+* Use <kbd>Alt n</kbd> to go to next page.
+* Use <kbd>Alt p</kbd> to go to previous page.
 * Use <kbd>Ctrl-c</kbd> to open picker mode and close the buffer.
-* Use <kbd>Alt-n</kbd> to move the current page forward.
-* Use <kbd>Alt-p</kbd> to move the current page backward.
+* Use <kbd>Alt-Shift-n</kbd> to move the current page forward.
+* Use <kbd>Alt-Shift-p</kbd> to move the current page backward.
 * Use <kbd>;p</kbd> to pick buffer.
 
 ![image](https://user-images.githubusercontent.com/22454918/111993296-5bbf5180-8b0e-11eb-9ad9-fcf9619436fd.gif)

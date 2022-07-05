@@ -6,8 +6,8 @@ This means that this plugin will be loaded after you enter the insert mode.
 
 ## file location
 
-The nvim-cmp plugin itself is defined in the lua/partial/cmp.lua file.
-And its config is placed in the lua/config/completion.lua file.
+All the nvim-cmp related plugins and itself are placed inside
+`lua/plugins/modules/completion/` directory.
 
 ## Configuration
 
@@ -33,6 +33,10 @@ Below are the available sources:
 - cmp-vsnip: a snippet completion. It is already has some basic snippets.
 You can define yours in the vsnip/ directory.
 - cmp-cmdline: press `/` or `:` key will trigger nvim-cmp to complete neovim buffer and command.
+- cmp-dictionary: add dictionary completion for `markdown`, `asciidocs`, `text` filetype.
+    * Install `aspell` and run this command to generate your dictionary:
+    `aspell -d en_US dump master | aspell -l en expand > american_english.dic`.
+    See [docs](https://github.com/uga-rosa/cmp-dictionary/blob/main/doc/cmp-dictionary.txt#L217) for more.
 
 ## Reference
 

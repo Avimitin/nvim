@@ -10,7 +10,7 @@ You can also trigger it by command `:Rooter`.
 
 ## Configuration
 
-The rooter config is set in the lua/partial/enhance.lua file.
+The rooter config is set in the lua/plugins/modules/enhance/config/init.lua file.
 
 ```lua
 -- set this to 0, the rooter will automatically cd into root dir

@@ -9,7 +9,7 @@ Require tree-sitter.
 ## Config
 
 ```text
-./lua/partial/coding.lua
+lua/plugins/modules/enhance/config/init.lua
 ```
 
 ## Usage

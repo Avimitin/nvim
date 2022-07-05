@@ -22,7 +22,7 @@ text.
 
 I have configured the plugin to use [Surf](https://surf.suckless.org/) as the
 preview browser. If you prefer Chrome or Firefox, you can change the setting
-in lua/config/mkdp.lua file.
+in lua/plugins/modules/markdown/config.lua file.
 
 ```lua
 -- replace surf with 'firefox' or 'chrome'
