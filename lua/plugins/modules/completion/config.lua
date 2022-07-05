@@ -132,7 +132,7 @@ M.nvim_cmp_config = function()
     },
   })
 
-  cmp.setup.filetype({ "markdown", "asciidoc", "text" }, {
+  cmp.setup.filetype({ "markdown", "asciidoc", "text", "gitcommit" }, {
     sources = {
       { name = "dictionary", keyword_length = 2 },
       { name = "path" },
