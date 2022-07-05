@@ -1,10 +1,6 @@
 local present, custom = pcall(require, "custom")
 local config = {}
 
-local function load(name)
-  return require("plugins.modules.enhance.config." .. name)
-end
-
 -- pre-process
 config.pre = function()
   config.dashboard_cfg()
@@ -61,7 +57,17 @@ end
 --
 -- re-export the inner configuration
 --
+local function load(name)
+  return require("plugins.modules.enhance.config." .. name)
+end
+
 config.autopairs_config = load("autopairs")
+config.whichkey_config = load("which-key")
+config.galaxyline_config = load("galaxyline")
+config.indent_config = load("indent")
+config.nvim_tree_config = load("nvim-tree")
+config.telescope_config = load("telescope")
+
 
 config.vfiler_config = function()
   require("vfiler/config").setup({
@@ -114,12 +120,9 @@ config.dashboard_cfg = function()
   vim.cmd([[
 autocmd FileType dashboard set showtabline=0 laststatus=0
 autocmd WinLeave <buffer> set showtabline=2 laststatus=2
-]])
+]] )
 end
 
-config.galaxyline_config = load("galaxyline")
-config.indent_config = load("indent")
-config.nvim_tree_config = load("nvim-tree")
 config.neoscroll_config = function()
   require("neoscroll").setup({
     -- All these keys will be mapped to their corresponding default scrolling animation
@@ -193,8 +196,6 @@ config.rest_nvim_config = function()
   bufmap(0, "n", "<Leader>rp", ":lua require('rest-nvim').run(true)<CR>", opts)
   bufmap(0, "n", "<Leader>rl", ":lua require('rest-nvim').last()<CR>", opts)
 end
-
-config.telescope_config = load("telescope")
 
 config.toggleterm_config = function()
   require("toggleterm").setup({
