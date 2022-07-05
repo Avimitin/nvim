@@ -9,7 +9,6 @@ alias("ClipRec", function()
   require("telescope").load_extension("neoclip")
 end)
 
-
 --
 -- Stylua
 --
@@ -21,7 +20,6 @@ alias("LuaFormat", [[Dispatch! stylua %]])
 alias("SpectreOpen", function()
   require("spectre").open()
 end)
-
 
 --
 -- BufferLine
