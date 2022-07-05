@@ -1,9 +1,9 @@
-local use = require("plugins.init").register
+local register = require("plugins").register
 local config = require("plugins.modules.markdown.config")
 
 config.pre()
 
-local plugs = {
+local repos = {
   -- markdown toc
   {
     "mzlogin/vim-markdown-toc",
@@ -38,4 +38,4 @@ local plugs = {
   },
 }
 
-use(plugs)
+register(repos)
