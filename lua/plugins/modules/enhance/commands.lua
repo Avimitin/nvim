@@ -1,4 +1,4 @@
-local alias = vim.api.nvim_create_user_command
+local alias = require("core.utils").alias
 
 --
 -- neoclip

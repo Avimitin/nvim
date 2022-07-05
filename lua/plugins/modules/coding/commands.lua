@@ -1,4 +1,4 @@
-local alias = vim.api.nvim_create_user_command
+local alias = require("core.utils").alias
 
 --
 -- debug ui
@@ -43,4 +43,3 @@ end)
 alias("CrateReload", function()
   require("crates").reload()
 end)
-
