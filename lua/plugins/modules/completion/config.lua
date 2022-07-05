@@ -56,6 +56,11 @@ M.nvim_cmp_config = function()
     crates = "[ Cargo]",
   }
 
+  if cmp == nil or cmp.setup == nil then
+    require("core.utils").infoL("fail to load nvim-cmp", "nvim-cmp")
+    return
+  end
+
   cmp.setup({
     snippet = {
       expand = function(args)
@@ -121,10 +126,16 @@ M.nvim_cmp_config = function()
       { name = "vsnip" },
       { name = "buffer" },
       { name = "path" },
-      { name = "dictionary", keyword_length = 2 },
     },
     experimental = {
       ghost_text = true,
+    },
+  })
+
+  cmp.setup.filetype({ "markdown", "asciidoc", "text" }, {
+    sources = {
+      { name = "dictionary", keyword_length = 2 },
+      { name = "path" },
     },
   })
 
