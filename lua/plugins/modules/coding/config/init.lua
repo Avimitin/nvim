@@ -163,7 +163,7 @@ config.treesitter_ft = function()
 end
 
 config.lspconfig_config = function()
-  require("plugins.modules.coding.lspconfig")
+  require("plugins.modules.coding.config.lspconfig")
 end
 
 config.lspconfig_ft = function()
@@ -241,7 +241,7 @@ config.lspsaga_config = function()
 end
 
 config.rust_tools_config = function()
-  require("plugins.modules.coding.rust_tools")
+  require("plugins.modules.coding.config.rust_tools")
 end
 
 config.crates_nvim_config = function()
