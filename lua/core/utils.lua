@@ -22,4 +22,13 @@ M.fek = function(key, mode)
   vim.fn.feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode)
 end
 
+-- Create a new user command that can omit option
+-- @params cmd: user command
+-- @params exec: the final invoked command or lua function
+-- @params opt: can be nil, or a table with commands defined options
+M.alias = function(cmd, exec, opt)
+  local o = opt or {}
+  vim.api.nvim_create_user_command(cmd, exec, o)
+end
+
 return M
