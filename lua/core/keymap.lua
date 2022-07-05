@@ -70,4 +70,4 @@ nmap("<C-S-left>", ":vertical resize+5<CR>", d("Extend the right boundary of the
 map("i", "<C-c>", "<ESC>zzi", d("Place the current line to the middle of the screen"))
 
 -- kill buffer with ;q , quit window with :q.
-nmap(";q", require("plugins.bufdel").delete_buffer)
+nmap(";q", require("plugins.modules.libs.bufdel").delete_buffer)
