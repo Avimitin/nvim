@@ -102,8 +102,8 @@ config.null_ls_config = function()
 end
 
 config.trouble_nvim_config = function()
-  local d = require("mappings.utils").new_desc
-  local nmap = require("mappings.utils").nmap
+  local d = require("core.utils").new_desc
+  local nmap = require("core.utils").nmap
   nmap("<leader>d", "<cmd>TroubleToggle<cr>", d("toggle workspace diagnostic panel"))
 end
 
