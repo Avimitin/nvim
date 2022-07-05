@@ -29,7 +29,7 @@ return function()
     filters = {
       dotfiles = true,
       custom = {
-        ".git",
+        "^\\.git$",
         "node_modules",
         ".cache",
       },
