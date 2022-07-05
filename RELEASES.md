@@ -1,3 +1,49 @@
+v7.0.0-rc1 (Jul 5 2022)
+====================
+v7.0.0-rc1 introduced the new plugin structure design. In the new design,
+plugins definition, key mappings, configuration are split by their functionality
+and placed inside the `lua/plugins/modules` directory.
+
+BREAKING CHANGES!:
+------------------
+  * plugins: redesign plugin structure (See commit [`26f365d2`](https://github.com/Avimitin/nvim/commit/26f365d2))
+  * multi-cursor: simplify the multi cursor keymap (See commit [`834cc902`](https://github.com/Avimitin/nvim/commit/834cc902))
+  * keymap: map bufferline switch to `<M-{n,p}>` (See commit [`b730e06c`](https://github.com/Avimitin/nvim/commit/b730e06c))
+  * core: rename core module to editor (See commit [`c6b5860b`](https://github.com/Avimitin/nvim/commit/c6b5860b))
+  * which-key: move which-key into enhance module (See commit [`5ad09ad2`](https://github.com/Avimitin/nvim/commit/5ad09ad2))
+  * keymap: move editor keymap into core (See commit [`1b2c24e7`](https://github.com/Avimitin/nvim/commit/1b2c24e7))
+  * init: move library logic into core (See commit [`dc07b2da`](https://github.com/Avimitin/nvim/commit/dc07b2da))
+  * plugins: move libs into plugins/modules/lib (See commit [`12ce72db`](https://github.com/Avimitin/nvim/commit/12ce72db))
+  * mapping: split keymap to modules (See commit [`fb417070`](https://github.com/Avimitin/nvim/commit/fb417070))
+  * mapping: integrate mappings.utils with core.utils (See commit [`df41c21e`](https://github.com/Avimitin/nvim/commit/df41c21e))
+  * plugins: move all the config under modules (See commit [`9a7241b8`](https://github.com/Avimitin/nvim/commit/9a7241b8))
+  * packer: clean up code (See commit [`5797699c`](https://github.com/Avimitin/nvim/commit/5797699c))
+  * commands: wrap api-create-command into utils.alias function (See commit [`521be3cd`](https://github.com/Avimitin/nvim/commit/521be3cd))
+  * plugins: remove load.lua (See commit [`24f0c4c0`](https://github.com/Avimitin/nvim/commit/24f0c4c0))
+  * cmp: enable dictionary source for text ft only (See commit [`90713b6e`](https://github.com/Avimitin/nvim/commit/90713b6e))
+
+Fix:
+----
+  * nvim-tree: fix custom match (See commit [`9fa517c6`](https://github.com/Avimitin/nvim/commit/9fa517c6))
+  * ts: fix treesitter filetype not found issue (See commit [`6246353e`](https://github.com/Avimitin/nvim/commit/6246353e))
+  * packer: fix packer.nvim not load issue (See commit [`d7026cad`](https://github.com/Avimitin/nvim/commit/d7026cad))
+  * init: fix plugins initialize function name (See commit [`9478d4d1`](https://github.com/Avimitin/nvim/commit/9478d4d1))
+  * null-ls: fix wrong filetype keyword (See commit [`8e1edb93`](https://github.com/Avimitin/nvim/commit/8e1edb93))
+
+Changes:
+--------
+  * options: decrease timeoutlen for responsive panel (See commit [`a743b220`](https://github.com/Avimitin/nvim/commit/a743b220))
+  * keymap: move git related keymap to git module (See commit [`6f45d78a`](https://github.com/Avimitin/nvim/commit/6f45d78a))
+  * commands: split commands into modules (See commit [`4d3cb014`](https://github.com/Avimitin/nvim/commit/4d3cb014))
+  * packer: use event loop to detect packer file (See commit [`5275f32b`](https://github.com/Avimitin/nvim/commit/5275f32b))
+  * packer: let load process panic on packadd fail (See commit [`701a03e1`](https://github.com/Avimitin/nvim/commit/701a03e1))
+
+Others:
+-------
+  * docs: update documents (See commit [`c19faed8`](https://github.com/Avimitin/nvim/commit/c19faed8))
+  * readme: add another installation way (See commit [`2d3ce315`](https://github.com/Avimitin/nvim/commit/2d3ce315))
+
+
 v6.10.1 (Jul 4 2022)
 ====================
 
