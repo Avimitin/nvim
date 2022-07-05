@@ -10,7 +10,7 @@ And this plugin will automatically select text inside this surrounding signs.
 
 ## Configuration
 
-The configuration is defined in lua/plugins.lua by `prehook()` function.
+The configuration is defined in lua/plugins/modules/enhance/config/init.lua by `pre()` function.
 You can modify the `vim.g.wildfire_objects` variable.
 
 You can add the bracket you want inside it.

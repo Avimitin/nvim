@@ -1,7 +1,7 @@
 # Plugins
 
-Plugins definition are all separated into the `lua/partial` directory.
-They will be imported by the `lua/plugins.lua` file.
+Plugins definition are all separated into the `lua/plugins/module` directory.
+They will be imported by the `lua/plugins/init.lua` file.
 
 ## TOC
 
