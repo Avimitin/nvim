@@ -63,7 +63,7 @@ git checkout 4.0.2
 
 ## Features
 
-* ***Fast*** and ***Lazy***: It takes [25ms](./fixtures/benchmark.txt) in average to open the neovim editor.
+* ***Fast*** and ***Lazy***: It takes [40ms](./fixtures/benchmark.txt) in average to open the neovim editor.
 And every plugin is handled well to be activate only when they are needed.
 Nothing should slowdown the editor.
 * ***Handy*** and ***Smoothy***: There will always be a panel to remind you
