@@ -96,4 +96,3 @@ nmap("<M-p>", [[<CMD>BufferLineMovePrev<CR>]])
 -- dispatch
 --
 nmap(";d", ":Dispatch ", { noremap = true, silent = false })
-

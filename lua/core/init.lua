@@ -10,7 +10,7 @@ nvim.setup = function()
   for _, module_name in ipairs({
     "core.options",
     "core.autocmd",
-    "core.keymap"
+    "core.keymap",
   }) do
     local ok, err = pcall(require, module_name)
     if not ok then

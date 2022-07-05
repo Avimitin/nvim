@@ -68,7 +68,6 @@ config.indent_config = load("indent")
 config.nvim_tree_config = load("nvim-tree")
 config.telescope_config = load("telescope")
 
-
 config.vfiler_config = function()
   require("vfiler/config").setup({
     options = {
@@ -120,7 +119,7 @@ config.dashboard_cfg = function()
   vim.cmd([[
 autocmd FileType dashboard set showtabline=0 laststatus=0
 autocmd WinLeave <buffer> set showtabline=2 laststatus=2
-]] )
+]])
 end
 
 config.neoscroll_config = function()

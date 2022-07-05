@@ -1,5 +1,4 @@
 return function()
-
   local ok, wk = pcall(require, "which-key")
   if not ok then
     require("core.utils").errorL("which key fail to load: " .. wk, "which-key")
@@ -88,7 +87,7 @@ return function()
       q = { "Set loclist" },
       f = { "Format current buffer" },
       S = { "Split current line to multiple line" },
-      J = { "Join multiple line into one line" }
+      J = { "Join multiple line into one line" },
     },
   }
 
@@ -112,5 +111,4 @@ return function()
   }
 
   wk.register(text_objects, { mode = "o", prefix = "" })
-
 end
