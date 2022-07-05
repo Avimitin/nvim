@@ -1,5 +1,5 @@
 local config = require("plugins.modules.coding.config")
-local use = require("plugins").register
+local register = require("plugins").register
 
 -- preconfigure
 config.pre()
@@ -138,4 +138,7 @@ local plugs = {
   },
 }
 
-use(plugs)
+register(plugs)
+
+-- setup commands
+require("plugins.modules.coding.commands")

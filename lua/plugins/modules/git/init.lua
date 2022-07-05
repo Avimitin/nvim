@@ -147,4 +147,8 @@ local repos = {
   },
 }
 
+-- register plugins repository
 register(repos)
+
+-- initialize commands
+require("plugins.modules.git.commands")
