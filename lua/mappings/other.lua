@@ -73,12 +73,6 @@ nmap(";s", function()
   }):find()
 end)
 
--- fugitive
-nmap(";g", [[<CMD>Git<CR>]])
-
--- lazygit
-nmap("<LEADER>l", [[<CMD>LazyGit<CR>]])
-
 -- bufferline tab stuff
 nmap("<C-c>", ":BufferLinePickClose<CR>") -- close tab
 
@@ -93,12 +87,6 @@ nmap("<M-p>", [[<CMD>BufferLineMovePrev<CR>]])
 
 -- dispatch
 nmap(";d", ":Dispatch ", { noremap = true, silent = false })
-
--- fugitive
--- keep the same prefix as the git sign
--- See git-sign keymap in lua/plugins/config/gitsign_cfg.lua
-nmap("gic", ":Git commit -sS<CR>")
-nmap("giP", ":Dispatch! git push ", { silent = false })
 
 -- kill buffer with ;q , quit window with :q . This make sense.
 nmap(";q", require("plugins.bufdel").delete_buffer)

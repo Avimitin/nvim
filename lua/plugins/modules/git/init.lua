@@ -1,3 +1,9 @@
+-- initialize commands
+require("plugins.modules.git.commands")
+
+-- initialize key mappings
+require("plugins.modules.git.keymap")
+
 local register = require("plugins").register
 local config = require("plugins.modules.git.config")
 
@@ -59,6 +65,3 @@ local repos = {
 
 -- register plugins repository
 register(repos)
-
--- initialize commands
-require("plugins.modules.git.commands")
