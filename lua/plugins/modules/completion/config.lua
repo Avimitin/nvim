@@ -57,7 +57,7 @@ M.nvim_cmp_config = function()
   }
 
   if cmp == nil or cmp.setup == nil then
-    require("core.utils").infoL("fail to load nvim-cmp", "nvim-cmp")
+    require("editor.utils").infoL("fail to load nvim-cmp", "nvim-cmp")
     return
   end
 

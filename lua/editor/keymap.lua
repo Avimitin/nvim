@@ -1,4 +1,4 @@
-local utils = require("core.utils")
+local utils = require("editor.utils")
 local map = utils.map
 local nmap = utils.nmap
 local xmap = utils.xmap

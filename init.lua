@@ -11,4 +11,4 @@ Source: https://github.com/Avimitin/nvim
 License: MIT License
 --]]
 
-require("core").setup()
+require("editor").setup()

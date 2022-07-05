@@ -25,7 +25,7 @@ config.pre = function()
 
   -- visual multi mappings
   -- clean the keymap `u` and initialize the new keymap set
-  require("core.utils").map("", "u", "<nop>")
+  require("editor.utils").map("", "u", "<nop>")
   vim.g.VM_default_mappings = 0
 
   -- u is map to <C-z>, let us reuse it here

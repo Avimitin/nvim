@@ -1,7 +1,7 @@
 return function()
   local ok, wk = pcall(require, "which-key")
   if not ok then
-    require("core.utils").errorL("which key fail to load: " .. wk, "which-key")
+    require("editor.utils").errorL("which key fail to load: " .. wk, "which-key")
     return
   end
 
