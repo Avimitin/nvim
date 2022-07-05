@@ -26,14 +26,14 @@ config.pre = function()
   -- visual multi mappings
   -- clean the keymap `u` and initialize the new keymap set
   require("editor.utils").map("", "u", "<nop>")
-  vim.g.VM_default_mappings = 0
 
   -- u is map to <C-z>, let us reuse it here
   vim.g.VM_maps = {
-    ["Find Under"] = "un",
-    ["Find Subword Under"] = "un",
-    ["Select Cursor Down"] = "uj",
-    ["Select Cursor Up"] = "uk",
+    ["Find Under"] = "\\n",
+    ["Find Subword Under"] = "\\n",
+    ["Select Cursor Down"] = "<C-down>",
+    ["Select Cursor Up"] = "<C-up>",
+    ["Select All"] = "uA",
     ["Undo"] = "<C-z>",
     ["Redo"] = "<C-r>",
     ["Start Regex Search"] = "ux",
