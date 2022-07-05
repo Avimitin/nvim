@@ -5,7 +5,7 @@ if not ok then
 end
 
 local function parse_config(path)
-  local json = require("plugins.json")
+  local json = require("plugins.modules.libs.json")
   local loaded, file = pcall(io.open, path, "rb")
   if not loaded or not file then
     -- We shouldn't notify when file is not exist, let it be silent
