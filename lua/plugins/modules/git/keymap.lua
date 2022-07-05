@@ -1,4 +1,4 @@
-local nmap = require("core.utils").nmap
+local nmap = require("editor.utils").nmap
 
 -- fugitive
 -- keep the same prefix as the git sign

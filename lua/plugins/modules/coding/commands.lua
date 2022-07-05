@@ -1,4 +1,4 @@
-local alias = require("core.utils").alias
+local alias = require("editor.utils").alias
 
 --
 -- debug ui

@@ -58,7 +58,7 @@ local repos = {
   {
     "rbong/vim-flog",
     -- please don't use this plugin directly, I embed it with vim-fugitive
-    -- See lua/core/commands.lua
+    -- See lua/editor.commands.lua
     opt = true,
   },
 }

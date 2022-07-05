@@ -2,15 +2,15 @@ local nvim = {}
 
 nvim.setup = function()
   -- load basic configuration
-  local utils = require("core.utils")
+  local utils = require("editor.utils")
 
   -- Try to call the cache plugin
   pcall(require, "impatient")
 
   for _, module_name in ipairs({
-    "core.options",
-    "core.autocmd",
-    "core.keymap",
+    "editor.options",
+    "editor.autocmd",
+    "editor.keymap",
   }) do
     local ok, err = pcall(require, module_name)
     if not ok then

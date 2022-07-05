@@ -1,5 +1,5 @@
-local map = require("core.utils").map
-local nmap = require("core.utils").nmap
+local map = require("editor.utils").map
+local nmap = require("editor.utils").nmap
 
 --
 -- EasyAlign

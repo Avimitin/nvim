@@ -1,4 +1,4 @@
-local alias = require("core.utils").alias
+local alias = require("editor.utils").alias
 
 alias("Glog", function()
   -- It will check if the vim-fugitive is loaded, so don't worry

@@ -165,7 +165,7 @@ local repos = {
     "tpope/vim-surround",
     event = "BufRead",
     config = function()
-      local map = require("core.utils").map
+      local map = require("editor.utils").map
       -- release the S key to the lightspeed
       map("x", "S", "<Plug>Lightspeed_S", {
         noremap = false,
@@ -326,10 +326,10 @@ local colorscheme = {
   {
     "Avimitin/neovim-deus",
     cond = function()
-      return require("core.colors").theme == "deus"
+      return require("editor.colors").theme == "deus"
     end,
     config = function()
-      require("core.colors").deus_setup()
+      require("editor.colors").deus_setup()
     end,
   },
 
@@ -337,10 +337,10 @@ local colorscheme = {
   {
     "rebelot/kanagawa.nvim",
     cond = function()
-      return require("core.colors").theme == "kanagawa"
+      return require("editor.colors").theme == "kanagawa"
     end,
     config = function()
-      require("core.colors").kanagawa_setup()
+      require("editor.colors").kanagawa_setup()
     end,
   },
 
@@ -348,7 +348,7 @@ local colorscheme = {
   {
     "projekt0n/github-nvim-theme",
     cond = function()
-      local select = require("core.colors").theme
+      local select = require("editor.colors").theme
       for _, avail in ipairs({
         "github_dark",
         "github_dimmed",
@@ -362,7 +362,7 @@ local colorscheme = {
       return false
     end,
     config = function()
-      require("core.colors").github_setup()
+      require("editor.colors").github_setup()
     end,
   },
 }
