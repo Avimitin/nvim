@@ -8,20 +8,7 @@ local repos = {
   -- prompt up panel to give a key mapping hint
   {
     "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup({
-        triggers = "auto",
-        triggers_blacklist = {
-          -- list of mode / prefixes that should never be hooked by WhichKey
-          -- this is mostly relevant for key maps that start with a native binding
-          -- most people should not need to change this
-          n = { "/", ":", "<", ">" },
-          i = { "j", "k" },
-          v = { "j", "k" },
-        },
-      })
-      require("mappings.whichkey")
-    end,
+    config = config.whichkey_config,
     -- load this plugin after Neovim UI is already rendered
     event = "VimEnter",
   },
