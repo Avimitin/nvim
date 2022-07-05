@@ -1,23 +1,30 @@
-local map = require("mappings.utils").map
-local nmap = require("mappings.utils").nmap
+local map = require("core.utils").map
+local nmap = require("core.utils").nmap
 
+--
 -- EasyAlign
+--
 map("v", "<leader>e", ":EasyAlign<CR>")
 
+--
 -- nvim-tree
+--
 nmap(";t", ":NvimTreeToggle<CR>")
 
+--
 -- fterm
+--
 nmap("<C-\\>", [[:ToggleTerm direction=float<CR>]])
 nmap("<M-`>", [[:ToggleTerm direction=horizontal<CR>]])
 map("t", "<C-\\>", [[<C-\><C-n>:ToggleTerm<CR>]])
 map("t", "<C-n>", [[<C-\><C-n>]])
--- This for horizontal terminal
+-- terminal windows movement
 map("t", ";k", [[<C-\><C-n><C-w>k]])
--- This for vertical terminal
 map("t", ";h", [[<C-\><C-n><C-w>h]])
 
+--
 -- telescope
+--
 nmap(";f", function()
   require("telescope.builtin").find_files(require("telescope.themes").get_ivy())
 end)
@@ -73,20 +80,20 @@ nmap(";s", function()
   }):find()
 end)
 
--- bufferline tab stuff
+--
+-- bufferline
+--
 nmap("<C-c>", ":BufferLinePickClose<CR>") -- close tab
-
 -- move between tabs
 nmap(".", [[<Cmd>BufferLineCycleNext<CR>]])
 nmap(",", [[<Cmd>BufferLineCyclePrev<CR>]])
 nmap(";p", [[<CMD>:BufferLinePick<CR>]])
-
 -- move tabs
 nmap("<M-n>", [[<CMD>BufferLineMoveNext<CR>]])
 nmap("<M-p>", [[<CMD>BufferLineMovePrev<CR>]])
 
+--
 -- dispatch
+--
 nmap(";d", ":Dispatch ", { noremap = true, silent = false })
 
--- kill buffer with ;q , quit window with :q . This make sense.
-nmap(";q", require("plugins.bufdel").delete_buffer)

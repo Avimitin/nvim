@@ -1,13 +1,10 @@
-local utils = require("mappings.utils")
+local utils = require("core.utils")
 local map = utils.map
 local nmap = utils.nmap
 local xmap = utils.xmap
 local d = utils.new_desc
 
 vim.g.mapleader = " "
-
--- load plugin's keymapping
-require("mappings.other")
 
 -- quicker motion
 nmap("J", "5j", d("Jump 5 lines down"))
@@ -71,3 +68,6 @@ nmap("<C-S-left>", ":vertical resize+5<CR>", d("Extend the right boundary of the
 
 -- center editing line
 map("i", "<C-c>", "<ESC>zzi", d("Place the current line to the middle of the screen"))
+
+-- kill buffer with ;q , quit window with :q.
+nmap(";q", require("plugins.bufdel").delete_buffer)
