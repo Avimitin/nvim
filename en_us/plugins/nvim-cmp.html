@@ -140,8 +140,8 @@
 It will only be loaded when <code>InsertEnter</code> event is triggered.
 This means that this plugin will be loaded after you enter the insert mode.</p>
 <h2 id="file-location"><a class="header" href="#file-location">file location</a></h2>
-<p>The nvim-cmp plugin itself is defined in the lua/partial/cmp.lua file.
-And its config is placed in the lua/config/completion.lua file.</p>
+<p>All the nvim-cmp related plugins and itself are placed inside
+<code>lua/plugins/modules/completion/</code> directory.</p>
 <h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
 <p>The nvim-cmp is configured to use lspkind to show nerdfont icons.</p>
 <p>I also enabled the ghost text feature so you can always get inline hint.
@@ -160,6 +160,13 @@ ghost_text variable:</p>
 <li>cmp-vsnip: a snippet completion. It is already has some basic snippets.
 You can define yours in the vsnip/ directory.</li>
 <li>cmp-cmdline: press <code>/</code> or <code>:</code> key will trigger nvim-cmp to complete neovim buffer and command.</li>
+<li>cmp-dictionary: add dictionary completion for <code>markdown</code>, <code>asciidocs</code>, <code>text</code> filetype.
+<ul>
+<li>Install <code>aspell</code> and run this command to generate your dictionary:
+<code>aspell -d en_US dump master | aspell -l en expand &gt; american_english.dic</code>.
+See <a href="https://github.com/uga-rosa/cmp-dictionary/blob/main/doc/cmp-dictionary.txt#L217">docs</a> for more.</li>
+</ul>
+</li>
 </ul>
 <h2 id="reference"><a class="header" href="#reference">Reference</a></h2>
 <ul>

@@ -141,34 +141,53 @@ And PR is welcomed.</p>
 <p>中文版的更新可能有延迟，请以英文版为主。</p>
 <h1 id="structure"><a class="header" href="#structure">Structure</a></h1>
 <p>The configuration structure:</p>
-<pre><code class="language-text">.
-├── lua
-│  ├── core            ==&gt; neovim settings
-│  │  ├── autocmd.lua  ==&gt; auto commands definition
-│  │  ├── colors.lua   ==&gt; colorscheme settings
-│  │  ├── commands.lua ==&gt; user commands
-│  │  ├── options.lua  ==&gt; neovim options
-│  │  └── utils.lua    ==&gt; other utility script, not important
-│  ├── mappings        ==&gt; neovim key mappings
-│  │  ├── init.lua     ==&gt; neovim builtin mappings
-│  │  ├── other.lua    ==&gt; plugin mappings
-│  │  └── utils.lua    ==&gt; other utility script, not important
-│  └── plugins         ==&gt; plugins definition
-│     ├── config       ==&gt; configuration for single plugin
-│     ├── bufdel.lua   ==&gt; buffer delete script
-│     ├── init.lua     ==&gt; plugin manager settings
-│     ├── load.lua     ==&gt; plugins definition
-│     └── options.lua  ==&gt; options for plugins
-├── vsnip              ==&gt; snippets
-│  ├── markdown.json
-│  ├── org.json
-│  ├── rust.json
-│  └── toml.json
-├── ginit.vim          ==&gt; gui settings for nvim-qt
-├── init.lua           ==&gt; main entry
-└── README.md
-
+<pre><code class="language-text">lua/
+├── custom.lua
+├── editor
+│   ├── autocmd.lua
+│   ├── colors.lua
+│   ├── init.lua
+│   ├── keymap.lua
+│   ├── options.lua
+│   └── utils.lua
+└── plugins
+    ├── init.lua
+    └── modules
+        ├── coding
+        │   ├── commands.lua
+        │   ├── config
+        │   │   ├── init.lua
+        │   │   └── ...
+        │   └── init.lua
+        ├── completion
+        │   ├── config.lua
+        │   └── init.lua
+        ├── enhance
+        │   ├── commands.lua
+        │   ├── config/
+        │   │   ├── autopairs.lua
+        │   │   └── ...
+        │   ├── init.lua
+        │   └── keymap.lua
+        ├── git
+        │   ├── commands.lua
+        │   ├── config.lua
+        │   ├── init.lua
+        │   └── keymap.lua
+        ├── libs
+        │   ├── bufdel.lua
+        │   └── json.lua
+        └── markdown
+            ├── config.lua
+            └── init.lua
 </code></pre>
+<p>Neovim configuration are place in <code>lua/editor</code> folders.
+Plugins definition and configuration are separated by their funcitonality and were placed
+inside the plugins directory.</p>
+<p>Each modules contains a <code>init.lua</code> file to tell neovim what plugin should be download.
+And there may be a <code>commands.lua</code> file or <code>keymaps.lua</code> file to define user command and
+define user keys mappings.
+There are also a <code>config.lua</code> file or <code>config/</code> directory to configure the plugins.</p>
 
                     </main>
 

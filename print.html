@@ -142,34 +142,53 @@ And PR is welcomed.</p>
 <p>中文版的更新可能有延迟，请以英文版为主。</p>
 <h1 id="structure"><a class="header" href="#structure">Structure</a></h1>
 <p>The configuration structure:</p>
-<pre><code class="language-text">.
-├── lua
-│  ├── core            ==&gt; neovim settings
-│  │  ├── autocmd.lua  ==&gt; auto commands definition
-│  │  ├── colors.lua   ==&gt; colorscheme settings
-│  │  ├── commands.lua ==&gt; user commands
-│  │  ├── options.lua  ==&gt; neovim options
-│  │  └── utils.lua    ==&gt; other utility script, not important
-│  ├── mappings        ==&gt; neovim key mappings
-│  │  ├── init.lua     ==&gt; neovim builtin mappings
-│  │  ├── other.lua    ==&gt; plugin mappings
-│  │  └── utils.lua    ==&gt; other utility script, not important
-│  └── plugins         ==&gt; plugins definition
-│     ├── config       ==&gt; configuration for single plugin
-│     ├── bufdel.lua   ==&gt; buffer delete script
-│     ├── init.lua     ==&gt; plugin manager settings
-│     ├── load.lua     ==&gt; plugins definition
-│     └── options.lua  ==&gt; options for plugins
-├── vsnip              ==&gt; snippets
-│  ├── markdown.json
-│  ├── org.json
-│  ├── rust.json
-│  └── toml.json
-├── ginit.vim          ==&gt; gui settings for nvim-qt
-├── init.lua           ==&gt; main entry
-└── README.md
-
+<pre><code class="language-text">lua/
+├── custom.lua
+├── editor
+│   ├── autocmd.lua
+│   ├── colors.lua
+│   ├── init.lua
+│   ├── keymap.lua
+│   ├── options.lua
+│   └── utils.lua
+└── plugins
+    ├── init.lua
+    └── modules
+        ├── coding
+        │   ├── commands.lua
+        │   ├── config
+        │   │   ├── init.lua
+        │   │   └── ...
+        │   └── init.lua
+        ├── completion
+        │   ├── config.lua
+        │   └── init.lua
+        ├── enhance
+        │   ├── commands.lua
+        │   ├── config/
+        │   │   ├── autopairs.lua
+        │   │   └── ...
+        │   ├── init.lua
+        │   └── keymap.lua
+        ├── git
+        │   ├── commands.lua
+        │   ├── config.lua
+        │   ├── init.lua
+        │   └── keymap.lua
+        ├── libs
+        │   ├── bufdel.lua
+        │   └── json.lua
+        └── markdown
+            ├── config.lua
+            └── init.lua
 </code></pre>
+<p>Neovim configuration are place in <code>lua/editor</code> folders.
+Plugins definition and configuration are separated by their funcitonality and were placed
+inside the plugins directory.</p>
+<p>Each modules contains a <code>init.lua</code> file to tell neovim what plugin should be download.
+And there may be a <code>commands.lua</code> file or <code>keymaps.lua</code> file to define user command and
+define user keys mappings.
+There are also a <code>config.lua</code> file or <code>config/</code> directory to configure the plugins.</p>
 <div style="break-before: page; page-break-before: always;"></div><!-- vim-markdown-toc GFM -->
 <ul>
 <li><a href="en_us/installation.html#prerequisites">Prerequisites</a>
@@ -796,8 +815,8 @@ file.</p>
 <tr><td><kbd>gf</kbd></td><td>Run formatter (Require your lsp support, like rust-analyzer/gopls...)</td></tr>
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="plugins"><a class="header" href="#plugins">Plugins</a></h1>
-<p>Plugins definition are all separated into the <code>lua/partial</code> directory.
-They will be imported by the <code>lua/plugins.lua</code> file.</p>
+<p>Plugins definition are all separated into the <code>lua/plugins/module</code> directory.
+They will be imported by the <code>lua/plugins/init.lua</code> file.</p>
 <h2 id="toc"><a class="header" href="#toc">TOC</a></h2>
 <ul>
 <li><a href="en_us/./plugins/packer.html">Packer</a>: plugin manager</li>
@@ -953,19 +972,21 @@ filetype not the after field.</p>
 <li>Use <kbd>;t</kbd> to toggle the tree view.</li>
 <li>Press <code>?</code> inside the nvim-tree to get list of keymap.</li>
 </ul>
+<h2 id="configuration-1"><a class="header" href="#configuration-1">Configuration</a></h2>
+<p>nvim-tree configuration is located in <code>lua/plugins/modules/enhance/config/nvim-tree.lua</code></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nvim-bufferlinelua"><a class="header" href="#nvim-bufferlinelua">nvim-bufferline.lua</a></h1>
 <p>nvim-bufferline.lua is a buffer manager. It looks like tab page, but it can
 manage more than tab page.</p>
 <p><img src="https://user-images.githubusercontent.com/22454918/111993085-1d299700-8b0e-11eb-96eb-c1c289e36b08.png" alt="image" /></p>
 <h2 id="configuration-file"><a class="header" href="#configuration-file">Configuration file</a></h2>
-<p>lua/config/bufferline_config.lua</p>
+<p>lua/plugins/modules/enhance/config/init.lua</p>
 <h2 id="keymap-2"><a class="header" href="#keymap-2">keymap</a></h2>
 <ul>
-<li>Use <kbd>.</kbd> to go to next page.</li>
-<li>Use <kbd>,</kbd> to go to previous page.</li>
+<li>Use <kbd>Alt n</kbd> to go to next page.</li>
+<li>Use <kbd>Alt p</kbd> to go to previous page.</li>
 <li>Use <kbd>Ctrl-c</kbd> to open picker mode and close the buffer.</li>
-<li>Use <kbd>Alt-n</kbd> to move the current page forward.</li>
-<li>Use <kbd>Alt-p</kbd> to move the current page backward.</li>
+<li>Use <kbd>Alt-Shift-n</kbd> to move the current page forward.</li>
+<li>Use <kbd>Alt-Shift-p</kbd> to move the current page backward.</li>
 <li>Use <kbd>;p</kbd> to pick buffer.</li>
 </ul>
 <p><img src="https://user-images.githubusercontent.com/22454918/111993296-5bbf5180-8b0e-11eb-9ad9-fcf9619436fd.gif" alt="image" /></p>
@@ -1014,8 +1035,8 @@ is waiting for your next action.</p>
 <p>Press <kbd>Enter</kbd> in
 <code>&quot;&quot;</code>, <code>()</code>, <code>{}</code>, <code>[]</code>, <code>''</code>, <code>``</code>, <code>&lt;tag&gt;&lt;/tag&gt;</code>.
 And this plugin will automatically select text inside this surrounding signs.</p>
-<h2 id="configuration-1"><a class="header" href="#configuration-1">Configuration</a></h2>
-<p>The configuration is defined in lua/plugins.lua by <code>prehook()</code> function.
+<h2 id="configuration-2"><a class="header" href="#configuration-2">Configuration</a></h2>
+<p>The configuration is defined in lua/plugins/modules/enhance/config/init.lua by <code>pre()</code> function.
 You can modify the <code>vim.g.wildfire_objects</code> variable.</p>
 <p>You can add the bracket you want inside it.
 For example, assuming that you want to select text inside the <code>$$</code> on fly,
@@ -1026,8 +1047,8 @@ The root pattern is like <code>.git</code>, <code>go.mod</code>, <code>Cargo.tom
 <h2 id="usage-1"><a class="header" href="#usage-1">Usage</a></h2>
 <p>Rooter will run once when you open the editor at the first time.
 You can also trigger it by command <code>:Rooter</code>.</p>
-<h2 id="configuration-2"><a class="header" href="#configuration-2">Configuration</a></h2>
-<p>The rooter config is set in the lua/partial/enhance.lua file.</p>
+<h2 id="configuration-3"><a class="header" href="#configuration-3">Configuration</a></h2>
+<p>The rooter config is set in the lua/plugins/modules/enhance/config/init.lua file.</p>
 <pre><code class="language-lua">-- set this to 0, the rooter will automatically cd into root dir
 vim.g.rooter_manual_only = 1
 
@@ -1058,7 +1079,7 @@ text.</p>
 <p><img src="https://user-images.githubusercontent.com/5492542/47603494-28e90000-da1f-11e8-9079-30646e551e7a.gif" alt="preview-gif" /></p>
 <p>I have configured the plugin to use <a href="https://surf.suckless.org/">Surf</a> as the
 preview browser. If you prefer Chrome or Firefox, you can change the setting
-in lua/config/mkdp.lua file.</p>
+in lua/plugins/modules/markdown/config.lua file.</p>
 <pre><code class="language-lua">-- replace surf with 'firefox' or 'chrome'
 vim.g.mkdp_browser = 'surf'
 </code></pre>
@@ -1081,9 +1102,9 @@ See its readme for what it can do.</p>
 It will only be loaded when <code>InsertEnter</code> event is triggered.
 This means that this plugin will be loaded after you enter the insert mode.</p>
 <h2 id="file-location"><a class="header" href="#file-location">file location</a></h2>
-<p>The nvim-cmp plugin itself is defined in the lua/partial/cmp.lua file.
-And its config is placed in the lua/config/completion.lua file.</p>
-<h2 id="configuration-3"><a class="header" href="#configuration-3">Configuration</a></h2>
+<p>All the nvim-cmp related plugins and itself are placed inside
+<code>lua/plugins/modules/completion/</code> directory.</p>
+<h2 id="configuration-4"><a class="header" href="#configuration-4">Configuration</a></h2>
 <p>The nvim-cmp is configured to use lspkind to show nerdfont icons.</p>
 <p>I also enabled the ghost text feature so you can always get inline hint.
 For those who don't like this feature, you can close this by updating the
@@ -1101,6 +1122,13 @@ ghost_text variable:</p>
 <li>cmp-vsnip: a snippet completion. It is already has some basic snippets.
 You can define yours in the vsnip/ directory.</li>
 <li>cmp-cmdline: press <code>/</code> or <code>:</code> key will trigger nvim-cmp to complete neovim buffer and command.</li>
+<li>cmp-dictionary: add dictionary completion for <code>markdown</code>, <code>asciidocs</code>, <code>text</code> filetype.
+<ul>
+<li>Install <code>aspell</code> and run this command to generate your dictionary:
+<code>aspell -d en_US dump master | aspell -l en expand &gt; american_english.dic</code>.
+See <a href="https://github.com/uga-rosa/cmp-dictionary/blob/main/doc/cmp-dictionary.txt#L217">docs</a> for more.</li>
+</ul>
+</li>
 </ul>
 <h2 id="reference"><a class="header" href="#reference">Reference</a></h2>
 <ul>
@@ -1196,12 +1224,13 @@ command to easily build and debug your code.</p>
 <h2 id="usage-3"><a class="header" href="#usage-3">Usage</a></h2>
 <p>There are some useful utilities provided by vim-go, please read its tutorial:
 <a href="https://github.com/fatih/vim-go/wiki/Tutorial#hello-world">https://github.com/fatih/vim-go/wiki/Tutorial#hello-world</a></p>
+<p>The vim-go plugins are defined in <code>lua/plugins/modules/coding/config/init.lua</code> files.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="splitjoin"><a class="header" href="#splitjoin">splitjoin</a></h1>
 <p><img src="https://camo.githubusercontent.com/842b1cd04688d9623d341c1bdbbaa87e1a3dd32cca97eb48a64af6b3be107ccb/687474703a2f2f692e616e6472657772616465762e636f6d2f32666363396630313338313665633734346335346535373437366166616333322e676966" alt="image" /></p>
 <h2 id="require"><a class="header" href="#require">Require</a></h2>
 <p>Require tree-sitter.</p>
 <h2 id="config"><a class="header" href="#config">Config</a></h2>
-<pre><code class="language-text">./lua/partial/coding.lua
+<pre><code class="language-text">lua/plugins/modules/enhance/config/init.lua
 </code></pre>
 <h2 id="usage-4"><a class="header" href="#usage-4">Usage</a></h2>
 <p>Press <code>gS</code> to split multiple line.</p>
