@@ -36,7 +36,7 @@ opt.scrolloff = 5
 
 -- 500 is more appropriate for which-keys. You can quickly input keys without prompting up
 -- the which-keys panel, or wait 500ms if you forget keymappings.
-opt.timeoutlen = 500
+opt.timeoutlen = 100
 -- Time in milliseconds to wait for a key code sequence to complete
 opt.ttimeoutlen = 0
 -- use timeout for showing which-keys
