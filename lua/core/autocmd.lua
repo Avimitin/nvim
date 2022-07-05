@@ -6,7 +6,7 @@ au({ "InsertLeave" }, { pattern = { "*" }, command = "set rnu" })
 
 -- auto compile when editing the load.lua file
 au({ "BufWritePost" }, {
-  pattern = "load.lua",
+  pattern = "config.lua",
   callback = function()
     local current_cwd = vim.fn.expand("%:p")
     -- if the load.lua file is not inside our configuration directory
