@@ -86,7 +86,9 @@ end)
 nmap("<C-c>", ":BufferLinePickClose<CR>") -- close tab
 -- move between tabs
 nmap("<M-n>", [[<Cmd>BufferLineCycleNext<CR>]])
+nmap("<M-right>", [[<Cmd>BufferLineCycleNext<CR>]])
 nmap("<M-p>", [[<Cmd>BufferLineCyclePrev<CR>]])
+nmap("<M-left>", [[<Cmd>BufferLineCyclePrev<CR>]])
 nmap(";p", [[<CMD>:BufferLinePick<CR>]])
 -- move tabs
 nmap("<M-S-n>", [[<CMD>BufferLineMoveNext<CR>]])
