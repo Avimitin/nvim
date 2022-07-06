@@ -35,14 +35,14 @@ local repos = {
   -- list of nerdfont icons
   {
     "kyazdani42/nvim-web-devicons",
-    event = "BufRead",
+    module = "nvim-web-devicons",
   },
 
   -- fancy status line
   {
     "glepnir/galaxyline.nvim",
     branch = "main",
-    after = "nvim-web-devicons",
+    event = "VimEnter",
     config = config.galaxyline_config,
   },
 
