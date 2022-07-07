@@ -143,3 +143,7 @@ if vim.g.neovide then
   vim.g.neovide_transparency = 0.75
   vim.opt.guifont = [[monospace:h11]]
 end
+
+-- use filetype.lua instead of the original laggy filetype.vim
+vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 0
