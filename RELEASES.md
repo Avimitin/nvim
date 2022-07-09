@@ -1,3 +1,22 @@
+v7.0.0-rc2 (Jul 09 2022)
+========================
+
+New Features:
+-------------
+key mappings: add `<Alt>+left/right` as a fallback buffer switch key mappings.
+
+Fix:
+----
+rust/lspconfig: fix lspconfig import path
+
+Changes:
+--------
+galaxyline: load galaxyline after VimEnter event
+filetype: use builtin filetype.nvim and remove filetype.nvim plugin
+lspconfig: lspconfig buffer key mapping definition is now moved to coding/keymap.lua file.
+development: abandon the commit prefix convention
+
+
 v7.0.0-rc1 (Jul 5 2022)
 ====================
 v7.0.0-rc1 introduced the new plugin structure design. In the new design,
