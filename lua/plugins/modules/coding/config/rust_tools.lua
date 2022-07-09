@@ -83,7 +83,7 @@ local opts = {
     settings = {
       ["rust-analyzer"] = default,
     },
-    on_attach = require("plugins.modules.coding.config.lspconfig").set_lsp_key,
+    on_attach = require("plugins.modules.coding.keymap").lsp_keymap,
   }, -- rust-analyer options
 }
 
