@@ -51,33 +51,35 @@ nmap(";s", function()
     },
   }
 
-  pickers.new(opts, {
-    prompt_title = "Search",
-    finder = finders.new_table({
-      results = { "live grep", "buffer symbols", "workspace symbols" },
-    }),
-    sorter = conf.generic_sorter(opts),
-    attach_mappings = function(prompt_bufnr, _)
-      actions.select_default:replace(function()
-        actions.close(prompt_bufnr)
-        local selection = action_state.get_selected_entry()
+  pickers
+    .new(opts, {
+      prompt_title = "Search",
+      finder = finders.new_table({
+        results = { "live grep", "buffer symbols", "workspace symbols" },
+      }),
+      sorter = conf.generic_sorter(opts),
+      attach_mappings = function(prompt_bufnr, _)
+        actions.select_default:replace(function()
+          actions.close(prompt_bufnr)
+          local selection = action_state.get_selected_entry()
 
-        local response = {
-          ["live grep"] = "live_grep",
-          ["buffer symbols"] = "lsp_document_symbols",
-          ["workspace symbols"] = "lsp_workspace_symbols",
-        }
+          local response = {
+            ["live grep"] = "live_grep",
+            ["buffer symbols"] = "lsp_document_symbols",
+            ["workspace symbols"] = "lsp_workspace_symbols",
+          }
 
-        local func = response[selection[1]]
-        if func == nil then
-          return
-        end
+          local func = response[selection[1]]
+          if func == nil then
+            return
+          end
 
-        builtin[func](require("telescope.themes").get_ivy())
-      end)
-      return true
-    end,
-  }):find()
+          builtin[func](require("telescope.themes").get_ivy())
+        end)
+        return true
+      end,
+    })
+    :find()
 end)
 
 --
