@@ -59,5 +59,5 @@ local lsp_keymap = function(client, bufnr)
 end
 
 return {
-  lsp_keymap = lsp_keymap
+  lsp_keymap = lsp_keymap,
 }
