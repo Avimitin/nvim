@@ -4,16 +4,7 @@
 
 ### Title
 
-Use format: `<type>[.|!] <module>: <summary>`.
-
-* _**Available type**_
-
-- **N**: for new feature
-- **F**: for bug fixes
-- **M**: for miscellaneous changes
-- **R**: for refactor
-- **D**: for document
-- Use the bang "!" to indicate that this commit contains breaking changes.
+Use format: `<module>[/<sub-module>]: <summary>`.
 
 Title should be wrap in 50 Latin characters.
 The first word of the title *should* be lower case and *must* be a verb.
@@ -56,12 +47,12 @@ So now the none-imperative commit are not working:
 ### Example
 
 ```text
-N. plugins: add new plugin
-F. lazygit: fix the submodule issue
-R! colors: replace the NormalFloat color         <- This one contains breaking change
- ^
-D. readme: update the installation guide
-M. ci: rename the ci filename
+plugins: add new plugin xxx
+lazygit: fix the submodule issue
+colors: replace the NormalFloat color         <- This one contains breaking change
+
+readme: update the installation guide
+ci: rename the ci filename
 ```
 
 The module name is optional. If you write the module name, please use `/` to separate
@@ -159,8 +150,7 @@ perl ./fixtures/benchmark.pl
 
 It will write result into the `./fixtures/benchmark.txt` file.
 
-## Changelog Generate
+## RELEASE.md
 
-```bash
-perl ./fixtures/clog_generate.pl
-```
+If any of the commits contains API compatibility changes, we must write them into
+RELEASE.md file for the next version release.
