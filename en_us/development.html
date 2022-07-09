@@ -138,18 +138,7 @@
                         <h1 id="development-specifications"><a class="header" href="#development-specifications">Development specifications</a></h1>
 <h2 id="commit-convention"><a class="header" href="#commit-convention">Commit convention</a></h2>
 <h3 id="title"><a class="header" href="#title">Title</a></h3>
-<p>Use format: <code>&lt;type&gt;[.|!] &lt;module&gt;: &lt;summary&gt;</code>.</p>
-<ul>
-<li><em><strong>Available type</strong></em></li>
-</ul>
-<ul>
-<li><strong>N</strong>: for new feature</li>
-<li><strong>F</strong>: for bug fixes</li>
-<li><strong>M</strong>: for miscellaneous changes</li>
-<li><strong>R</strong>: for refactor</li>
-<li><strong>D</strong>: for document</li>
-<li>Use the bang &quot;!&quot; to indicate that this commit contains breaking changes.</li>
-</ul>
+<p>Use format: <code>&lt;module&gt;[/&lt;sub-module&gt;]: &lt;summary&gt;</code>.</p>
 <p>Title should be wrap in 50 Latin characters.
 The first word of the title <em>should</em> be lower case and <em>must</em> be a verb.
 Don't end with a period and don't attach any tense on it. You <em>must</em> write
@@ -182,12 +171,12 @@ sweet new API methods         ==&gt; there is no verb
 <li>This patch will modify the project to sweet new API methods</li>
 </ul>
 <h3 id="example"><a class="header" href="#example">Example</a></h3>
-<pre><code class="language-text">N. plugins: add new plugin
-F. lazygit: fix the submodule issue
-R! colors: replace the NormalFloat color         &lt;- This one contains breaking change
- ^
-D. readme: update the installation guide
-M. ci: rename the ci filename
+<pre><code class="language-text">plugins: add new plugin xxx
+lazygit: fix the submodule issue
+colors: replace the NormalFloat color         &lt;- This one contains breaking change
+
+readme: update the installation guide
+ci: rename the ci filename
 </code></pre>
 <p>The module name is optional. If you write the module name, please use <code>/</code> to separate
 the type and module.</p>
@@ -281,9 +270,9 @@ of the rooter like: &quot;Signed-off-by: Yourname &lt;name@example.com&gt;&quot;
 <pre><code class="language-bash">perl ./fixtures/benchmark.pl
 </code></pre>
 <p>It will write result into the <code>./fixtures/benchmark.txt</code> file.</p>
-<h2 id="changelog-generate"><a class="header" href="#changelog-generate">Changelog Generate</a></h2>
-<pre><code class="language-bash">perl ./fixtures/clog_generate.pl
-</code></pre>
+<h2 id="releasemd"><a class="header" href="#releasemd">RELEASE.md</a></h2>
+<p>If any of the commits contains API compatibility changes, we must write them into
+RELEASE.md file for the next version release.</p>
 
                     </main>
 
