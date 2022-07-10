@@ -7,6 +7,35 @@ local plugins = {
   repos = {},
 }
 
+-- load plugins from modules
+plugins.load = function()
+   local modules = {
+    "coding",
+    "completion",
+    "markdown",
+    "enhance",
+    "git",
+    "colorscheme",
+  }
+
+  for _, mod in ipairs(modules) do
+    require("plugins."..mod)
+  end
+
+  require("packer").startup(function(use)
+    -- Packer can manage itself
+    use({
+      "wbthomason/packer.nvim",
+      event = "VimEnter",
+    })
+
+    for _, repo in ipairs(plugins.repos) do
+      use(repo)
+    end
+  end)
+end
+
+
 -- has_packer return the packer install status
 local function has_packer()
   return uv.fs_stat(install_path) ~= nil
@@ -58,34 +87,6 @@ local function bootstrap()
     "au User PackerComplete echom 'Plugins are installed successfully, please use :qa to exit and restart the neovim'"
   )
   require("packer").sync()
-end
-
--- load plugins
-plugins.load = function()
-   local modules = {
-    "coding",
-    "completion",
-    "markdown",
-    "enhance",
-    "git",
-    "colorscheme",
-  }
-
-  for _, mod in ipairs(modules) do
-    require("plugins."..mod)
-  end
-
-  require("packer").startup(function(use)
-    -- Packer can manage itself
-    use({
-      "wbthomason/packer.nvim",
-      event = "VimEnter",
-    })
-
-    for _, repo in ipairs(plugins.repos) do
-      use(repo)
-    end
-  end)
 end
 
 -- init plugins
