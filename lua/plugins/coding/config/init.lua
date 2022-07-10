@@ -202,7 +202,7 @@ config.lspsaga_config = function()
     -- show diagnostic source
     show_diagnostic_source = true,
     -- add bracket or something with diagnostic source, just have 2 elements
-    diagnostic_source_bracket = {},
+    diagnostic_source_bracket = { "戀", ":" },
     -- use emoji lightbulb in default
     code_action_icon = " ",
     -- if true can press number to execute the codeaction in codeaction window
@@ -233,10 +233,15 @@ config.lspsaga_config = function()
     },
     rename_action_quit = "<C-c>",
     definition_preview_icon = "  ",
-    -- show symbols in winbar must nightly
-    symbol_in_winbar = false,
-    winbar_separator = ">",
-    winbar_show_file = true,
+    -- show symbols in winbar must be neovim 0.8.0,
+    -- close it until neovim 0.8.0 become stable
+    symbol_in_winbar = {
+      in_custom = false,
+      enable = false,
+      separator = ' ',
+      show_file = true,
+      click_support = false,
+    },
   })
 end
 
