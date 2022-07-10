@@ -1,7 +1,4 @@
 -- theme
-vim.opt.termguicolors = true
-vim.opt.background = "dark"
-
 local M = {
   -- "kanagawa" by default
   -- Available theme value:
