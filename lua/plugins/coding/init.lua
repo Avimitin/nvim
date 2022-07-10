@@ -1,4 +1,4 @@
-local config = require("plugins.modules.coding.config")
+local config = require("plugins.coding.config")
 local register = require("plugins").register
 
 -- preconfigure
@@ -141,4 +141,4 @@ local plugs = {
 register(plugs)
 
 -- setup commands
-require("plugins.modules.coding.commands")
+require("plugins.coding.commands")

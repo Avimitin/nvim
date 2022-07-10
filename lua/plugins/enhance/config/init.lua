@@ -58,7 +58,7 @@ end
 -- re-export the inner configuration
 --
 local function load(name)
-  return require("plugins.modules.enhance.config." .. name)
+  return require("plugins.enhance.config." .. name)
 end
 
 config.autopairs_config = load("autopairs")

@@ -1,5 +1,5 @@
 local register = require("plugins").register
-local config = require("plugins.modules.markdown.config")
+local config = require("plugins.markdown.config")
 
 config.pre()
 

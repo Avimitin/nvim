@@ -1,11 +1,11 @@
 -- initialize commands
-require("plugins.modules.git.commands")
+require("plugins.git.commands")
 
 -- initialize key mappings
-require("plugins.modules.git.keymap")
+require("plugins.git.keymap")
 
 local register = require("plugins").register
-local config = require("plugins.modules.git.config")
+local config = require("plugins.git.config")
 
 config.pre()
 

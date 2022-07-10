@@ -1,6 +1,6 @@
-require("plugins.modules.enhance.keymap")
+require("plugins.enhance.keymap")
 local register = require("plugins").register
-local config = require("plugins.modules.enhance.config")
+local config = require("plugins.enhance.config")
 
 config.pre()
 
@@ -321,52 +321,6 @@ local repos = {
   },
 }
 
-local colorscheme = {
-  -- dark green color scheme
-  {
-    "Avimitin/neovim-deus",
-    cond = function()
-      return require("editor.colors").theme == "deus"
-    end,
-    config = function()
-      require("editor.colors").deus_setup()
-    end,
-  },
-
-  -- dark purple color scheme
-  {
-    "rebelot/kanagawa.nvim",
-    cond = function()
-      return require("editor.colors").theme == "kanagawa"
-    end,
-    config = function()
-      require("editor.colors").kanagawa_setup()
-    end,
-  },
-
-  -- GitHub light and dark colorscheme
-  {
-    "projekt0n/github-nvim-theme",
-    cond = function()
-      local select = require("editor.colors").theme
-      for _, avail in ipairs({
-        "github_dark",
-        "github_dimmed",
-        "github_light",
-        "github_light_default",
-      }) do
-        if select == avail then
-          return true
-        end
-      end
-      return false
-    end,
-    config = function()
-      require("editor.colors").github_setup()
-    end,
-  },
-}
-
 local autoload = {
   -- adjust the shiftwidth and expandtab settins
   {
@@ -385,8 +339,7 @@ local autoload = {
 }
 
 register(repos)
-register(colorscheme)
 register(autoload)
 
 -- setup commands
-require("plugins.modules.enhance.commands")
+require("plugins.enhance.commands")

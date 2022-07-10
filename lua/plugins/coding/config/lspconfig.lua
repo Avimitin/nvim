@@ -93,7 +93,7 @@ end
 
 for _, v in ipairs(servers) do
   local opts = {
-    on_attach = require("plugins.modules.coding.keymap").lsp_keymap,
+    on_attach = require("plugins.coding.keymap").lsp_keymap,
     capabilities = setup_capabilities(),
     root_dir = vim.loop.cwd,
   }
