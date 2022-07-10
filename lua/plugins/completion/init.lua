@@ -1,5 +1,5 @@
 local use = require("plugins").register
-local config = require("plugins.modules.completion.config")
+local config = require("plugins.completion.config")
 
 local completion = {
   -- lot's of pre-set snippets

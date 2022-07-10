@@ -62,21 +62,17 @@ end
 
 -- load plugins
 plugins.load = function()
-  local awake = function(mod)
-    local prefix = "plugins.modules."
-    require(prefix .. mod)
-  end
-
-  local modules = {
+   local modules = {
     "coding",
     "completion",
     "markdown",
     "enhance",
     "git",
+    "colorscheme",
   }
 
   for _, mod in ipairs(modules) do
-    awake(mod)
+    require("plugins."..mod)
   end
 
   require("packer").startup(function(use)

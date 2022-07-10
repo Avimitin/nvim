@@ -111,7 +111,7 @@ config.treesitter_config = function()
   require("nvim-treesitter.configs").setup({
     -- packer compile is compiled without runtime context, so here we must give it
     -- the full path to the treesitter ft function for evaluating the filetype
-    ensure_installed = require("plugins.modules.coding.config").treesitter_ft(),
+    ensure_installed = require("plugins.coding.config").treesitter_ft(),
     highlight = {
       enable = true,
     },
@@ -163,7 +163,7 @@ config.treesitter_ft = function()
 end
 
 config.lspconfig_config = function()
-  require("plugins.modules.coding.config.lspconfig")
+  require("plugins.coding.config.lspconfig")
 end
 
 config.lspconfig_ft = function()
@@ -241,7 +241,7 @@ config.lspsaga_config = function()
 end
 
 config.rust_tools_config = function()
-  require("plugins.modules.coding.config.rust_tools")
+  require("plugins.coding.config.rust_tools")
 end
 
 config.crates_nvim_config = function()
