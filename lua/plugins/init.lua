@@ -95,6 +95,8 @@ plugins.init = function()
     return
   end
 
+  require("impatient")
+
   init_packer()
   plugins.load()
 end

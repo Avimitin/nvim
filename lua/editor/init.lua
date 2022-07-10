@@ -4,9 +4,6 @@ nvim.setup = function()
   -- load basic configuration
   local utils = require("editor.utils")
 
-  -- Try to call the cache plugin
-  pcall(require, "impatient")
-
   for _, module_name in ipairs({
     "editor.options",
     "editor.autocmd",
