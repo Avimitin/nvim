@@ -149,5 +149,7 @@ if vim.g.neovide then
 end
 
 -- use filetype.lua instead of the original laggy filetype.vim
-vim.g.do_filetype_lua = 1
-vim.g.did_load_filetypes = 0
+if not vim.fn.has("nvim-0.8") then
+  vim.g.do_filetype_lua = 1
+  vim.g.did_load_filetypes = 0
+end
