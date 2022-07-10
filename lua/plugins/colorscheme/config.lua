@@ -5,7 +5,7 @@ vim.opt.background = "dark"
 local M = {
   -- "kanagawa" by default
   -- Available theme value:
-  --  "kanagawa", "deus", "night","dawn","day","nord","dusk"+"fox"
+  --  "kanagawa", "deus", "github_{light,dark}"
   theme = "kanagawa",
 }
 
