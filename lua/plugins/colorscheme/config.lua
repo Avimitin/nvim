@@ -1,11 +1,3 @@
--- theme
-local M = {
-  -- "kanagawa" by default
-  -- Available theme value:
-  --  "kanagawa", "deus", "github_{light,dark}"
-  theme = "kanagawa",
-}
-
 -- Try to update the theme value if the lua/custom.lua file exist.
 -- User should return their custom value in the below form:
 --
@@ -16,26 +8,33 @@ local M = {
 --
 -- return M
 -- ```
+--
+--
+-- Available theme value:
+--  "kanagawa", "deus", "github_{light,dark}"
+local colorscheme_settings = {
+  theme = "kanagawa",
+}
 
+-- if the custom files is created
 local ok, custom = pcall(require, "custom")
--- if file exist, return table exist and return table has `theme` field
 if ok and custom and custom.theme then
-  M.theme = custom.theme
+  colorscheme_settings.theme = custom.theme
 end
 
 -- This functions finally apply the colorscheme
 local function apply()
-  vim.cmd("colorscheme " .. M.theme)
+  vim.cmd("colorscheme " .. colorscheme_settings.theme)
 end
 
 -- configure the deus theme
-M.deus_setup = function()
+colorscheme_settings.deus_setup = function()
   vim.g.deus_background = "hard"
   apply()
 end
 
 -- configure the kanagawa theme
-M.kanagawa_setup = function()
+colorscheme_settings.kanagawa_setup = function()
   local default = require("kanagawa.colors").setup()
   require("kanagawa").setup({
     undercurl = true, -- enable undercurls
@@ -99,10 +98,13 @@ M.kanagawa_setup = function()
   apply()
 end
 
--- configure the nightfox theme
-M.github_setup = function()
+--
+-- GitHub colorscheme settings
+--
+-- this plugin will setup colorscheme for us, no need to call colorscheme ourselves
+colorscheme_settings.github_setup = function()
   -- trim the prefix text
-  local theme = M.theme:gsub("github_", "")
+  local theme = colorscheme_settings.theme:gsub("github_", "")
   require("github-theme").setup({
     theme_style = theme,
     function_style = "bold",
@@ -120,9 +122,7 @@ M.github_setup = function()
       }
     end,
   })
-  -- this plugin will setup colorscheme for us
-  -- apply()
 end
 
 -- return the configuration for load condition
-return M
+return colorscheme_settings
