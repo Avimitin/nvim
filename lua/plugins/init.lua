@@ -9,7 +9,7 @@ local plugins = {
 
 -- load plugins from modules
 plugins.load = function()
-   local modules = {
+  local modules = {
     "coding",
     "completion",
     "markdown",
@@ -19,7 +19,7 @@ plugins.load = function()
   }
 
   for _, mod in ipairs(modules) do
-    require("plugins."..mod)
+    require("plugins." .. mod)
   end
 
   require("packer").startup(function(use)
@@ -34,7 +34,6 @@ plugins.load = function()
     end
   end)
 end
-
 
 -- has_packer return the packer install status
 local function has_packer()
