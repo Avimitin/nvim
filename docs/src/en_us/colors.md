@@ -5,7 +5,7 @@ This section describe how I manage the colorscheme.
 ## Config path
 
 ```text
-lua/core/colors.lua
+lua/plugins/colorscheme/config.lua
 ```
 
 ## Change the theme
