@@ -19,7 +19,7 @@ jobs:
     - name: Install Tools
       env:
         SELENE_VERSION: '0.17.0'
-        STYLUA_VERSION: 'v0.13.1'
+        STYLUA_VERSION: 'v0.14.0'
       run: |
         wget -c "https://github.com/Kampfkarren/selene/releases/download/$SELENE_VERSION/selene-$SELENE_VERSION-linux.zip" -O ./selene.zip
         unzip ./selene.zip
