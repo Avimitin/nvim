@@ -238,7 +238,7 @@ config.lspsaga_config = function()
     symbol_in_winbar = {
       in_custom = false,
       enable = false,
-      separator = ' ',
+      separator = " ",
       show_file = true,
       click_support = false,
     },
