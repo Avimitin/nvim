@@ -1,3 +1,22 @@
+v7.0.0-rc3 (Jul 13 2022)
+========================
+
+CHANGES:
+--------
+* plugins: redesign the plugin structure
+    - Remove module directory and expose module to upper level
+    - Move colorscheme plugin and colorscheme settings to single folder
+    - Move all plugins repository into single `repo.lua` file.
+    - Move lua cache plugin into plugins init script
+* key mappings: `<alt>+n/p` is now removed. Use `<Tab>` and `<Shift-Tab>` instead.
+
+FIX:
+----
+* filetype: filetype.lua is enabled by default in nvim-0.8.0, assign those variable
+only when neovim version is lower than 0.8.0.
+* lspsaga: lspsaga is now using table instead of boolean for winbar.
+
+
 v7.0.0-rc2 (Jul 09 2022)
 ========================
 
