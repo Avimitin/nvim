@@ -4,23 +4,6 @@ local au = vim.api.nvim_create_autocmd
 au({ "InsertEnter" }, { pattern = { "*" }, command = "set nornu" })
 au({ "InsertLeave" }, { pattern = { "*" }, command = "set rnu" })
 
--- auto compile when editing the load.lua file
-au({ "BufWritePost" }, {
-  pattern = "config.lua",
-  callback = function()
-    local current_cwd = vim.fn.expand("%:p")
-    -- if the load.lua file is not inside our configuration directory
-    -- abort the operation
-    if not current_cwd:match(vim.fn.stdpath("config")) then
-      return
-    end
-
-    require("packer").clean()
-    require("packer").compile()
-    vim.notify("Packer compile done!", "info", { title = "packer" })
-  end,
-})
-
 -- start insert when enter the terminal
 au({ "TermOpen" }, { pattern = "term://*", command = "startinsert" })
 
