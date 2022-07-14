@@ -106,5 +106,34 @@ plugins.register = function(plug)
   vim.list_extend(plugins.repos, plug)
 end
 
+local au = vim.api.nvim_create_autocmd
+-- auto compile when editing the load.lua file
+au({ "BufWritePost" }, {
+  pattern = { "config.lua", "init.lua" },
+  callback = function()
+    local full_path = vim.fn.expand("%:p")
+    -- if the load.lua file is not inside our configuration directory
+    -- abort the operation
+    if not full_path:match(vim.fn.stdpath("config")) then
+      return
+    end
+
+    local current_file = vim.fn.expand("%:t")
+
+    if current_file == "init.lua" then
+      local parent_dir = vim.fn.expand("%:p:h:t")
+      if not (parent_dir == "config") then
+        return
+      end
+    end
+
+    vim.cmd("source " .. full_path)
+
+    require("packer").clean()
+    require("packer").compile()
+    vim.notify("Packer compile done!", "info", { title = "packer" })
+  end,
+})
+
 return plugins
 -- vim: foldmethod=marker
