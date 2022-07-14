@@ -136,6 +136,7 @@ M.nvim_cmp_config = function()
     sources = {
       { name = "dictionary", keyword_length = 2 },
       { name = "path" },
+      { name = "vsnip" },
     },
   })
 
