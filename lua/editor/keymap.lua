@@ -73,4 +73,4 @@ map("i", "<C-c>", "<ESC>zzi", d("Place the current line to the middle of the scr
 nmap(";q", require("plugins.libs.bufdel").delete_buffer)
 
 -- % is so hard to reach...
-map("", ",", "%", { noremap = false, silent = false })
+map({ "n", "x", "o" }, ",", "%", { noremap = false, silent = false })
