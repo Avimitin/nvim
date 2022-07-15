@@ -14,13 +14,15 @@ nmap(";t", ":NvimTreeToggle<CR>")
 --
 -- fterm
 --
-nmap("<C-\\>", [[:ToggleTerm direction=float<CR>]])
-nmap("<M-`>", [[:ToggleTerm direction=horizontal<CR>]])
+-- float terminal
+nmap("<C-\\>", [[:ToggleTerm direction=float<CR>:startinsert<CR>]])
 map("t", "<C-\\>", [[<C-\><C-n>:ToggleTerm<CR>]])
+-- horizontal terminal
+nmap("<M-`>", [[:ToggleTerm direction=horizontal<CR>:startinsert<CR>]])
+map("t", "<M-`>", [[<C-\><C-n>:ToggleTerm<CR>]])
 map("t", "<C-n>", [[<C-\><C-n>]])
 -- terminal windows movement
-map("t", ";k", [[<C-\><C-n><C-w>k]])
-map("t", ";h", [[<C-\><C-n><C-w>h]])
+map("t", "<C-k>", [[<C-\><C-n><C-w>k]])
 
 --
 -- telescope
