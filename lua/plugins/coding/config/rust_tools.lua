@@ -78,7 +78,7 @@ local function parse_custom_ra_config()
   local has_file, ra_json_content = pcall(ra_json_file.read, ra_json_file)
   if not has_file then
     -- silently return if no custom setting was found
-    return
+    return nil
   end
 
   local parse_ok, setting = pcall(json_api.decode, ra_json_content)
