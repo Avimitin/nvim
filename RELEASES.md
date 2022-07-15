@@ -1,3 +1,32 @@
+v7.0.0-rc4 (Jul 15 2022)
+========================
+This release candidate finish all the v7.0.0 design and fixes most of the
+current known bugs. Next release might be the stable release.
+
+CHANGES:
+--------
+* plugins
+  - nvim-cmp: enable vsnip for markdown filetype
+  - flog: replace flog with agit.vim
+  - rust: rewrite the `.rust-analyzer.json` file detection with async lib
+  - rooter: replace the vim-rooter with nvim-rooter for its public API
+  - toggleterm: fix auto insert when re-enter terminal
+  - null-ls: fix lspconfig key mappings import path
+
+* keymaps
+  - map `,` to `%` for pair jumping
+
+* autocmd:
+  - remove TermEnter event
+  - rewrite fcitx5 auto toggle with async lib
+
+DOCS:
+-----
+* Add multiple cursor usage guidance
+* Add file management usage guidance
+* Fill the necessary comment for code
+
+
 v7.0.0-rc3 (Jul 13 2022)
 ========================
 
