@@ -4,9 +4,6 @@ local au = vim.api.nvim_create_autocmd
 au({ "InsertEnter" }, { pattern = { "*" }, command = "set nornu" })
 au({ "InsertLeave" }, { pattern = { "*" }, command = "set rnu" })
 
--- start insert when enter the terminal
-au({ "TermOpen" }, { pattern = "term://*", command = "startinsert" })
-
 -- highlight yanked text
 au("TextYankPost", {
   callback = function()
