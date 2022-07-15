@@ -45,12 +45,13 @@ local repos = {
     },
   },
 
-  -- Flog is a lightweight and powerful git branch viewer that integrates with fugitive.
+  -- agit is a powerful git repository viewer
   {
-    "rbong/vim-flog",
-    -- please don't use this plugin directly, I embed it with vim-fugitive
-    -- See lua/editor.commands.lua
-    opt = true,
+    "cohama/agit.vim",
+    config = config.agit_config,
+    cmd = {
+      "Agit",
+    },
   },
 }
 
