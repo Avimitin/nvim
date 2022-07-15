@@ -11,5 +11,5 @@ require("plugins").register(repo)
 -- setup commands
 require("plugins.enhance.commands")
 
--- setup auto commands
-require("plugins.enhance.autocmd")
+-- post hook
+require("plugins.enhance.config").post()
