@@ -117,7 +117,8 @@ local repos = {
 
   -- Try to find project root and cd into it
   {
-    "notjedi/nvim-rooter.lua",
+    "Avimitin/nvim-rooter.lua-fix-manual",
+    branch = "fix-manual",
     module = "nvim-rooter",
   },
 
