@@ -1,9 +1,11 @@
 local nvim = {}
 
+-- The entry point of the whole configuration
 nvim.setup = function()
   -- load basic configuration
   local utils = require("editor.utils")
 
+  -- load configuration from lua/editor/<module>
   for _, module_name in ipairs({
     "editor.options",
     "editor.autocmd",
