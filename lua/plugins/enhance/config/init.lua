@@ -45,6 +45,10 @@ config.pre = function()
   }
 end
 
+config.post = function()
+  require("plugins.enhance.config.rooter")
+end
+
 config.vale_config = function()
   -- for vale
   vim.g.enable_vale = 0 -- set it to 1 after you setup vale
