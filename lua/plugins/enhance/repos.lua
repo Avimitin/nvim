@@ -115,13 +115,10 @@ local repos = {
     },
   },
 
-  -- cd into the root directory
+  -- Try to find project root and cd into it
   {
-    "airblade/vim-rooter",
-    event = "BufReadPost",
-    config = function()
-      vim.cmd("Rooter")
-    end,
+    "notjedi/nvim-rooter.lua",
+    module = "nvim-rooter",
   },
 
   -- telescope: extensible fuzzy file finder
