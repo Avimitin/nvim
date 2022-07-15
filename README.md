@@ -79,13 +79,8 @@ You can press the fork button to clone my project (Don't forget
 to smash the star button! `:)`), then pull your repo to the local:
 
 ```bash
-# Use the latest stable version
-# !@@ This script will overwrite your current configuration @@!
-# !@@ READ THE SCRIPT BEFORE YOU RUN IT @@!
-tmp_dir=$(mktemp -d); \
-    curl -sSL https://github.com/Avimitin/nvim/archive/refs/tags/latest.tar.gz | \
-    tar xz -C $tmp_dir; \
-    mkdir -p $HOME/.config/nvim && mv -f $tmp_dir/nvim-latest $HOME/.config/nvim
+# Use the latest stable version (Please read the script before you use it)
+curl "https://github.com/Avimitin/nvim/blob/master/scripts/install.bash" | bash
 
 # OR you can use the latest modification
 git clone --depth=1 https://github.com/YOUR_USERNAME/nvim.git ~/.config/nvim
