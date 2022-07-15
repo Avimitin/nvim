@@ -99,7 +99,7 @@ end
 --
 config.null_ls_config = function()
   require("lspconfig")
-  local attachment = require("plugins.config.lspconfig_cfg")
+  local attachment = require("plugins.coding.keymap")
   if vim.g.enable_vale == 1 then
     require("null-ls").setup({
       sources = {
@@ -107,7 +107,7 @@ config.null_ls_config = function()
         -- Arch Linux: paru/yay -S vale
         require("null-ls").builtins.diagnostics.vale,
       },
-      on_attach = attachment.set_lsp_key,
+      on_attach = attachment.lsp_keymap,
     })
   end
 end
