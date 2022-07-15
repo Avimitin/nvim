@@ -2,10 +2,15 @@ local present, custom = pcall(require, "custom")
 
 local config = {}
 
+--
+-- Config that should be set before plugin loaded
 config.pre = function()
   config.vim_go_config()
 end
 
+--
+-- vim-go configuration (Should be set before plugin load)
+--
 config.vim_go_config = function()
   vim.g.go_echo_go_info = 0
   vim.g.go_doc_popup_window = 1
@@ -36,6 +41,9 @@ config.vim_go_config = function()
   vim.g.go_doc_keywordprg_enabled = 0
 end
 
+--
+-- SymbolsOutline configuration
+--
 config.symbols_outline_config = function()
   vim.g.symbols_outline = {
     highlight_hovered_item = true,
@@ -56,29 +64,29 @@ config.symbols_outline_config = function()
     lsp_blacklist = {},
     symbol_blacklist = {},
     symbols = {
-      File = { icon = "", hl = "TSURI" },
+      File = { icon = "", hl = "TSURI" },
       Module = { icon = "", hl = "TSNamespace" },
       Namespace = { icon = "", hl = "TSNamespace" },
       Package = { icon = "", hl = "TSNamespace" },
-      Class = { icon = "𝓒", hl = "TSType" },
-      Method = { icon = "ƒ", hl = "TSMethod" },
+      Class = { icon = "ﴯ", hl = "TSType" },
+      Method = { icon = "", hl = "TSMethod" },
       Property = { icon = "", hl = "TSMethod" },
-      Field = { icon = "", hl = "TSField" },
+      Field = { icon = "", hl = "TSField" },
       Constructor = { icon = "", hl = "TSConstructor" },
-      Enum = { icon = "ℰ", hl = "TSType" },
-      Interface = { icon = "ﰮ", hl = "TSType" },
-      Function = { icon = "", hl = "TSFunction" },
+      Enum = { icon = "", hl = "TSType" },
+      Interface = { icon = "", hl = "TSType" },
+      Function = { icon = "", hl = "TSFunction" },
       Variable = { icon = "", hl = "TSConstant" },
       Constant = { icon = "", hl = "TSConstant" },
-      String = { icon = "𝓐", hl = "TSString" },
-      Number = { icon = "#", hl = "TSNumber" },
-      Boolean = { icon = "⊨", hl = "TSBoolean" },
+      String = { icon = "ﮜ", hl = "TSString" },
+      Number = { icon = "", hl = "TSNumber" },
+      Boolean = { icon = "ﮒ", hl = "TSBoolean" },
       Array = { icon = "", hl = "TSConstant" },
       Object = { icon = "⦿", hl = "TSType" },
-      Key = { icon = "🔐", hl = "TSType" },
-      Null = { icon = "NULL", hl = "TSType" },
+      Key = { icon = "", hl = "TSType" },
+      Null = { icon = "ﳠ", hl = "TSType" },
       EnumMember = { icon = "", hl = "TSField" },
-      Struct = { icon = "𝓢", hl = "TSType" },
+      Struct = { icon = "ﴯ", hl = "TSType" },
       Event = { icon = "🗲", hl = "TSType" },
       Operator = { icon = "+", hl = "TSOperator" },
       TypeParameter = { icon = "𝙏", hl = "TSParameter" },
@@ -86,27 +94,36 @@ config.symbols_outline_config = function()
   }
 end
 
+--
+-- null-ls
+--
 config.null_ls_config = function()
   require("lspconfig")
-  -- local attachment = require("plugins.config.lspconfig_cfg")
-  -- if vim.g.enable_vale == 1 then
-  --   require("null-ls").setup({
-  --     sources = {
-  --       -- Install vale on: https://github.com/errata-ai/vale/releases
-  --       -- Arch Linux: paru/yay -S vale
-  --       require("null-ls").builtins.diagnostics.vale,
-  --     },
-  --     on_attach = attachment.set_lsp_key,
-  --   })
-  -- end
+  local attachment = require("plugins.config.lspconfig_cfg")
+  if vim.g.enable_vale == 1 then
+    require("null-ls").setup({
+      sources = {
+        -- Install vale on: https://github.com/errata-ai/vale/releases
+        -- Arch Linux: paru/yay -S vale
+        require("null-ls").builtins.diagnostics.vale,
+      },
+      on_attach = attachment.set_lsp_key,
+    })
+  end
 end
 
+--
+-- trouble.nvim
+--
 config.trouble_nvim_config = function()
   local d = require("editor.utils").new_desc
   local nmap = require("editor.utils").nmap
   nmap("<leader>d", "<cmd>TroubleToggle<cr>", d("toggle workspace diagnostic panel"))
 end
 
+--
+-- treesitter
+--
 config.treesitter_config = function()
   require("nvim-treesitter.configs").setup({
     -- packer compile is compiled without runtime context, so here we must give it
@@ -162,6 +179,9 @@ config.treesitter_ft = function()
   return ft
 end
 
+--
+-- lspconfig
+--
 config.lspconfig_config = function()
   require("plugins.coding.config.lspconfig")
 end
@@ -189,6 +209,9 @@ config.lspconfig_ft = function()
   return ft
 end
 
+--
+-- lspsaga
+--
 config.lspsaga_config = function()
   local saga = require("lspsaga")
 
@@ -245,10 +268,16 @@ config.lspsaga_config = function()
   })
 end
 
+--
+-- rust-tools.nvim
+--
 config.rust_tools_config = function()
   require("plugins.coding.config.rust_tools")
 end
 
+--
+-- crates.nvim
+--
 config.crates_nvim_config = function()
   require("crates").setup({
     popup = {
@@ -260,6 +289,9 @@ config.crates_nvim_config = function()
   require("cmp").setup.buffer({ sources = { { name = "crates" } } })
 end
 
+--
+-- dap
+--
 config.dap_config = function()
   local dap = require("dap")
 
