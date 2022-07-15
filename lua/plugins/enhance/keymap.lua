@@ -102,3 +102,8 @@ nmap("<M-S-left>", [[<CMD>BufferLineMovePrev<CR>]])
 -- dispatch
 --
 nmap(";d", ":Dispatch ", { noremap = true, silent = false })
+
+--
+-- vim-matchup
+--
+map({ "n", "x", "o" }, ",", "<Plug>(matchup-%)")
