@@ -100,4 +100,16 @@ config.gitsigns_config = function()
   })
 end
 
+-- default agit highlight is hard to read, let us link it to diff* highlight group
+config.agit_config = function()
+  local link = function(orig, to)
+    vim.api.nvim_set_hl(0, orig, { link = to })
+  end
+
+  link("agitDiffAdd", "DiffAdd")
+  link("agitDiffAddMerge", "DiffChange")
+  link("agitDiffRemove", "DiffDelete")
+  link("agitDiffRemoveMerge", "DiffChange")
+end
+
 return config
