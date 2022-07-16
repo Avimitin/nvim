@@ -20,6 +20,11 @@ You can also use <kbd>uA</kbd> to select all the same words at once.
 Use <kbd>ux</kbd> to enable regex search. Input the regex match and press enter to confirm.
 Then use <kbd>n</kbd> to select forward, use <kbd>N</kbd> to select backward.
 
+## Add visual select region to multiple cursor
+
+You can use `v` to enter visual select, then press <kbd>ua</kbd> to add the visual select
+region.
+
 ## How to unselect a matches
 
 You can use <kbd>]</kbd> to select forward, and <kbd>[</kbd> to select backward. Then use
