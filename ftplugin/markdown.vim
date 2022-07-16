@@ -72,22 +72,8 @@ endfunction
 " script while this function is running. We must not replace it.
 if !exists('*s:EditUrlUnderCursor')
     function s:EditUrlUnderCursor()
-        let l:editmethod = ''
+        let l:editmethod = 'edit'
         " determine how to open the linked file (split, tab, etc)
-        if exists('g:vim_markdown_edit_url_in')
-          if g:vim_markdown_edit_url_in ==# 'tab'
-            let l:editmethod = 'tabnew'
-          elseif g:vim_markdown_edit_url_in ==# 'vsplit'
-            let l:editmethod = 'vsp'
-          elseif g:vim_markdown_edit_url_in ==# 'hsplit'
-            let l:editmethod = 'sp'
-          else
-            let l:editmethod = 'edit'
-          endif
-        else
-          " default to current buffer
-          let l:editmethod = 'edit'
-        endif
         let l:url = s:Markdown_GetUrlForPosition(line('.'), col('.'))
         if l:url !=# ''
             let l:anchor = ''
@@ -104,10 +90,10 @@ if !exists('*s:EditUrlUnderCursor')
             echom l:url
             if l:url !=# ''
                 let l:ext = ''
-                if get(g:, 'vim_markdown_no_extensions_in_markdown', 0)
+                if get(g:, 'vim_markdown_no_extensions_file_link', 0)
                     " use another file extension if preferred
-                    if exists('g:vim_markdown_auto_extension_ext')
-                        let l:ext = '.'.g:vim_markdown_auto_extension_ext
+                    if exists('g:vim_markdown_custom_ext')
+                        let l:ext = '.'.g:vim_markdown_custom_ext
                     else
                         let l:ext = '.md'
                     endif
