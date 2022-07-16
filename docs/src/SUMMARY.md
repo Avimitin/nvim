@@ -15,7 +15,7 @@
     - [How to interact with LSP server](./en_us/workflows/lspconfig.md)
     - [How to use multi-cursor](./en_us/workflows/multi-cursor.md)
     - [How to interact with projects files](./en_us/workflows/file-manipulation.md)
-- languages
+- [languages]()
     - [c/cpp](./en_us/plugins/cpp.md)
     - [rust](./en_us/plugins/rust.md)
     - [golang](./en_us/plugins/golang.md)
