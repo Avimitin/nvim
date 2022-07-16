@@ -79,11 +79,15 @@ You can press the fork button to clone my project (Don't forget
 to smash the star button! `:)`), then pull your repo to the local:
 
 ```bash
-# Use the latest stable version (Please read the script before you use it)
-curl "https://github.com/Avimitin/nvim/blob/master/scripts/install.bash" | bash
-
-# OR you can use the latest modification
+# You can fork and use git to download source code
 git clone --depth=1 https://github.com/YOUR_USERNAME/nvim.git ~/.config/nvim
+
+# Or You can just download the latest stable version (Auto Retagged)
+curl "https://github.com/Avimitin/nvim/blob/master/scripts/install.bash" -o install.bash
+# Please read the script before you use it
+cat install.bash
+# Execute it
+bash install.bash
 ```
 
 Finally, input `nvim` to open the editor, and all plugins will be downloaded automatically.
