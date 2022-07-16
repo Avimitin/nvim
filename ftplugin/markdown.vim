@@ -1,5 +1,13 @@
 set conceallevel=2
 
+"
+" Utils for open relative file path in neovim
+" Credit: vim-markdown https://github.com/preservim/vim-markdown
+"
+"    Default keymap: ge
+"
+" TODO: Rewrite this in Lua
+
 function! s:FindCornerOfSyntax(lnum, col, step)
     let l:col = a:col
     let l:syn = synIDattr(synID(a:lnum, l:col, 1), 'name')
