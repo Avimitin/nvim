@@ -2,11 +2,13 @@
 
 The plugin rust-tools.nvim has already set up LSP, format, and debug utilities.
 
-See https://github.com/simrat39/rust-tools.nvim/ for what it can do.
+See <https://github.com/simrat39/rust-tools.nvim/> for what it can do.
+
+> This plugin will setup lspconfig itself, please don't write lspconfig manually.
 
 ## Inlay hint
 
-The rust-tools.nvim setting is located in lua/config/rust.lua.
+The rust-tools.nvim setting is located in lua/plugins/coding/config/rust-tools.lua.
 And inlay hint is set up automatically after you open rust file.
 
 But it will not prompt up by default due to some unknown bug.
@@ -25,7 +27,7 @@ program.
 
 ## Debug
 
-You need to install lldb-vscode. Then run `:RustDebuggables`, it will open the
+You need to install `lldb-vscode`. Then run `:RustDebuggables`, it will open the
 debug panel automatically.
 
 ## Rust Analyzer Settings
