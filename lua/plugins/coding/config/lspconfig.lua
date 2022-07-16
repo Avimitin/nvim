@@ -7,38 +7,31 @@ if not present1 then
   return
 end
 
--- [[ =================================================================================
---  LSP Settings
--- =================================================================================]]
 -- Gets a new ClientCapabilities object describing the LSP client
 -- capabilities.
-local function setup_capabilities()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem = {
-    documentationFormat = {
-      "markdown",
-      "plaintext",
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem = {
+  documentationFormat = {
+    "markdown",
+    "plaintext",
+  },
+  snippetSupport = true,
+  preselectSupport = true,
+  insertReplaceSupport = true,
+  labelDetailsSupport = true,
+  deprecatedSupport = true,
+  commitCharactersSupport = true,
+  tagSupport = {
+    valueSet = { 1 },
+  },
+  resolveSupport = {
+    properties = {
+      "documentation",
+      "detail",
+      "additionalTextEdits",
     },
-    snippetSupport = true,
-    preselectSupport = true,
-    insertReplaceSupport = true,
-    labelDetailsSupport = true,
-    deprecatedSupport = true,
-    commitCharactersSupport = true,
-    tagSupport = {
-      valueSet = { 1 },
-    },
-    resolveSupport = {
-      properties = {
-        "documentation",
-        "detail",
-        "additionalTextEdits",
-      },
-    },
-  }
-
-  return capabilities
-end
+  },
+}
 
 local function neovim_lua_setting()
   return {
@@ -69,8 +62,7 @@ end
 
 require("nvim-lsp-installer").setup({
   -- only ensure Lua language server is installed
-  ensure_installed = { "sumneko_lua" },
-  automatic_installation = false,
+  automatic_installation = true,
   ui = {
     icons = {
       server_installed = "✓",
@@ -80,32 +72,59 @@ require("nvim-lsp-installer").setup({
   },
 })
 
--- Preconfigured language server, still need to use command to installed
--- `:LspInstall`
--- rust-analyzer is set up by plugin "rust-tools.nvim", *DONT* configured it manually here
-local servers = {
-  "sumneko_lua",
+-- Preconfigured language server that will be automatically installed.
+--
+-- WARNING: rust-analyzer is set up by plugin "rust-tools.nvim", *DONT*
+-- configured it manually here.
+--
+-- User might define same server for multiple filetype, so here we use Set data structure
+-- for unique value.
+--
+-- always enable sumneko_lua for Lua developing
+local server_set = {
+  sumneko_lua = 0,
 }
 
-if have_custom and custom.langs and #custom.langs > 0 then
-  for _, lang in ipairs(custom.langs) do
-    if type(lang) == "table" and #lang > 1 then
-      table.insert(servers, lang[2])
+-- IF
+--   * we have a custom.lua file
+--   * custom.lua file return a table which contains `langs` field
+--   * the `langs` field has a Lua table value
+--   * and the size of the `langs` field is not zero
+-- THEN
+--   we install and configure those language server
+if have_custom and custom.langs and type(custom.langs) == "table" and #custom.langs > 0 then
+  -- Insert a value into table if it is not presented in that table
+  -- @field server: string
+  function server_set:push(server)
+    if self[server] == nil then
+      self[server] = 0
     end
   end
+
+  for _, lang in ipairs(custom.langs) do
+    -- { "language filetype", "language server" }
+    if type(lang) == "table" and #lang > 1 then
+      -- lua 5.1 doesn't have continue keyword, so we have to write nested if block
+      server_set:push(lang[2])
+    end
+  end
+
+  server_set.push = nil
 end
 
-for _, v in ipairs(servers) do
+-- initialize lsp servers
+for lspserver, _ in pairs(server_set) do
   local opts = {
     on_attach = require("plugins.coding.keymap").lsp_keymap,
-    capabilities = setup_capabilities(),
+    capabilities = capabilities,
     root_dir = vim.loop.cwd,
   }
-  if v == "sumneko_lua" then
+
+  if lspserver == "sumneko_lua" then
     opts.settings = neovim_lua_setting()
   end
 
-  lspconfig[v].setup(opts)
+  lspconfig[lspserver].setup(opts)
   vim.cmd([[ do User LspAttachBuffers ]])
 end
 
