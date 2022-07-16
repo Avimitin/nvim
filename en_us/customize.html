@@ -144,75 +144,63 @@ Those settings can all define in an optional <code>Lua</code> module.</p>
 The <code>.gitignore</code> file contains the <code>custom.lua</code> file already.</p>
 <p>Create a new configuration table and return it at the end.</p>
 <pre><code class="language-lua">-- example
-local M = {
+local my_config = {
   theme = &quot;kanagawa&quot;,
-  has_fcitx5 = true,
 
-  lspconfig = {
-    servers = {
-      &quot;sumneko_lua&quot;,
-      &quot;gopls&quot;,
-      &quot;eslint&quot;,
+  auto_darkmode = {
+    enable = true,
+    day_theme = &quot;github_light&quot;,
+    night_theme = &quot;kanagawa&quot;,
+    time = {
+      begin = &quot;18:30&quot;,
+      ending = &quot;7:00&quot;,
     },
-    ft = {
-      &quot;lua&quot;,
-      &quot;go&quot;,
-      &quot;rust&quot;
-    }
   },
 
-  treesitter = {
-    language = {
-      &quot;bash&quot;,
-      &quot;c&quot;,
-      &quot;nix&quot;,
-      &quot;rust&quot;,
-      &quot;toml&quot;,
-    }
+  auto_toggle_fcitx5 = true,
+
+  langs = {
+    &quot;bash&quot;,
+    &quot;fish&quot;,
+    &quot;html&quot;,
+    &quot;json&quot;,
+    &quot;nix&quot;,
+    &quot;rust&quot;,
+    { &quot;vim&quot; },
+    { &quot;c&quot;, &quot;clangd&quot; },
+    { &quot;cpp&quot;, &quot;clangd&quot; },
+    { &quot;go&quot;, &quot;gopls&quot; },
+    { &quot;javascript&quot;, &quot;eslint&quot; },
+    { &quot;lua&quot;, &quot;sumneko_lua&quot; },
+    { &quot;python&quot;, &quot;pyright&quot; },
   },
 
-  enable_vale = false
+  -- enable vale? Should install vale before setting this to true
+  enable_vale = false,
 }
 
-return M -- &lt;- Don't forget to return this table, or the config will not acceive what you configured
+return my_config -- &lt;- Don't forget to return this table, or the config will not acceive what you configured
 </code></pre>
 <h2 id="fields"><a class="header" href="#fields">Fields</a></h2>
 <p>Current supported options:</p>
 <div class="table-wrapper"><table><thead><tr><th>option</th><th>meaning</th></tr></thead><tbody>
 <tr><td><code>theme</code></td><td>colorscheme, read <a href="./colors.html">colors</a> for tips and tricks</td></tr>
-<tr><td><code>has_fcitx5</code></td><td>enable this if you want to switch fcitx5 automatically when you leave insert mode</td></tr>
-<tr><td><a href="#lspconfig"><code>lspconfig</code></a></td><td>lspconfig specific settings</td></tr>
-<tr><td><a href="#Treesitter"><code>treesitter</code></a></td><td>treesitter specific settings</td></tr>
+<tr><td><code>auto_toggle_fcitx5</code></td><td>enable this if you want to switch fcitx5 automatically when you leave insert mode</td></tr>
+<tr><td><code>langs</code></td><td>An array of language layers for nvim-treesitter and lspconfig</td></tr>
+<tr><td><code>enable_vale</code></td><td>enable vale for markdown and asciidocs</td></tr>
 </tbody></table>
 </div>
-<h3 id="lspconfig"><a class="header" href="#lspconfig">lspconfig</a></h3>
-<p>See what lsp servers you can use: <a href="https://github.com/williamboman/nvim-lsp-installer#available-lsps">Available Lsps</a></p>
-<div class="table-wrapper"><table><thead><tr><th>option</th><th>meaning</th></tr></thead><tbody>
-<tr><td><code>servers</code></td><td>A list of server name that will be setup connection to the neovim. Key mappings, capabilities... will be attached to those buffer</td></tr>
-<tr><td><code>ft</code></td><td>A list of filetype that lspconfig plugin will be enable.</td></tr>
-</tbody></table>
-</div>
+<h3 id="langs"><a class="header" href="#langs">langs</a></h3>
+<p>This fields contains an array of language layer definitions. Single string or an array with item
+tells the editor to load nvim-treesitter only for this languages.
+An array with two items tells the editor to load both of the nvim-treesitter and lspconfig plugins.
+And the second items for the multi-items array should be lsp server that you want to automatically
+installed and enabled.</p>
 <ul>
-<li>Default enable filetype</li>
+<li><a href="https://github.com/williamboman/nvim-lsp-installer#available-lsps">Available Lsp Servers</a></li>
+<li><a href="https://github.com/nvim-treesitter/nvim-treesitter#supported-languages">Supported Languages for treesitter</a></li>
 </ul>
-<pre><code class="language-text">bash
-c
-cpp
-go
-html
-javascript
-json
-lua
-python
-sh
-toml
-</code></pre>
-<h3 id="treesitter"><a class="header" href="#treesitter">Treesitter</a></h3>
-<p>See a list of supported language: <a href="https://github.com/nvim-treesitter/nvim-treesitter#supported-languages">Supported Languages</a></p>
-<div class="table-wrapper"><table><thead><tr><th>option</th><th>meaning</th></tr></thead><tbody>
-<tr><td><code>language</code></td><td>A list of file type that will be supported by treesitter. The related parser will be compiled and installed by nvim-treesitter plugins</td></tr>
-</tbody></table>
-</div>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
