@@ -40,9 +40,7 @@ end
 local function get_url_from_position(ln, col)
   local syntax = fn.synIDattr(fn.synID(ln, col, 1), "name")
 
-  if syntax == "mkdInlineUrl" or syntax == "markdownUrl" or syntax == "mkdLinkDefTarget" then
-    -- do nothing
-  elseif syntax == "markdownLink" then
+  if syntax == "markdownLink" then
     local next = find_next_syntax(ln, col, "markdownUrl")
     ln, col = next[1], next[2]
     syntax = "markdownUrl"
@@ -59,7 +57,7 @@ local function get_url_from_position(ln, col)
     else
       return ""
     end
-  else
+  elseif syntax ~= "mkdInlineUrl" and syntax ~= "markdownUrl" and syntax ~= "mkdLinkDefTarget" then
     return ""
   end
 
