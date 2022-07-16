@@ -1,6 +1,21 @@
 local lsp_keymap = function(client, bufnr)
-  local function bmap(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
+  local function bmap(mode, lhs, rhs)
+    mode = mode or "n"
+    local opts = {
+      noremap = true,
+      silent = true,
+    }
+
+    if type(rhs) == "function" then
+      opts.callback = rhs
+      rhs = ""
+    end
+
+    vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
+  end
+
+  local function bnmap(...)
+    bmap("n", ...)
   end
 
   local function buf_set_option(...)
@@ -11,49 +26,45 @@ local lsp_keymap = function(client, bufnr)
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
   -- Mappings.
-  local opts = {
-    noremap = true,
-    silent = true,
-  }
-  bmap("n", "gd", "<Cmd>Lspsaga lsp_finder<CR>", opts)
-  bmap("n", "gp", "<Cmd>Lspsaga preview_definition<CR>", opts)
-  bmap("n", "gh", "<Cmd>Lspsaga hover_doc<CR>", opts)
-  bmap("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<cr>", opts)
-  bmap("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>", opts)
-  bmap("n", "gs", "<cmd>Lspsaga signature_help<CR>", opts)
-  bmap("n", "go", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-  bmap("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-  bmap("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-  bmap("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
-  bmap("n", "ga", "<cmd>Lspsaga code_action<CR>", opts)
+  bnmap("gd", "<Cmd>Lspsaga lsp_finder<CR>")
+  bnmap("gp", "<Cmd>Lspsaga preview_definition<CR>")
+  bnmap("gh", "<Cmd>Lspsaga hover_doc<CR>")
+  bnmap("<C-u>", function() require('lspsaga.action').smart_scroll_with_saga(-1) end)
+  bnmap("<C-d>", function() require('lspsaga.action').smart_scroll_with_saga(1) end)
+  bnmap("gs", "<cmd>Lspsaga signature_help<CR>")
+  bnmap("go", "<cmd>Lspsaga show_line_diagnostics<CR>")
+  bnmap("gj", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+  bnmap("gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+  bnmap("gr", "<cmd>Lspsaga rename<CR>")
+  bnmap("ga", "<cmd>Lspsaga code_action<CR>")
 
   -- most of the lsp server don't implement textDocument/Declaration, so gD is useless for now.
-  bmap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  bmap("n", "gm", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  bmap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-  bmap("n", "gq", "<cmd>TroubleToggle<CR>", opts)
+  bnmap("gD", function() vim.lsp.buf.declaration() end)
+  bnmap("gm", function() vim.lsp.buf.implementation() end)
+  bnmap("gt", function() vim.lsp.buf.type_definition() end)
+  bnmap("gq", "<cmd>TroubleToggle<CR>")
 
   -- add rust specific keymappings
   if client.name == "rust_analyzer" then
-    bmap("n", "<leader>rr", "<cmd>RustRunnables<CR>", opts)
-    bmap("n", "<leader>ra", "<cmd>RustHoverAction<CR>", opts)
+    bnmap("<leader>rr", "<cmd>RustRunnables<CR>")
+    bnmap("<leader>ra", "<cmd>RustHoverAction<CR>")
   end
 
   -- Set some keybinds conditional on server capabilities
   -- 0.8.0
   if vim.fn.has("nvim-0.8.0") then
     if client.server_capabilities.documentFormattingProvider then
-      bmap("n", "gf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
+      bnmap("gf", function() vim.lsp.buf.format({ async = true }) end)
     elseif client.server_capabilities.documentRangeFormattingProvider then
-      bmap("x", "gf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+      bmap("x", "gf", function() vim.lsp.buf.range_formatting() end)
     end
 
     -- 0.6.0 - 0.7.0
   else
     if client.resolved_capabilities.document_formatting then
-      bmap("n", "gf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+      bnmap("gf", function() vim.lsp.buf.formatting() end)
     elseif client.resolved_capabilities.document_range_formatting then
-      bmap("x", "gf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+      bmap("x", "gf", function() vim.lsp.buf.range_formatting() end)
     end
   end
 end
