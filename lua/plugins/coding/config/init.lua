@@ -239,8 +239,6 @@ config.lspsaga_config = function()
       sign_priority = 40,
       virtual_text = false,
     },
-    -- separator in finder
-    finder_separator = " ﰲ ",
     -- preview lines of lsp_finder and definition preview
     max_preview_lines = 10,
     finder_action_keys = {
