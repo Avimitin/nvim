@@ -47,6 +47,9 @@ local my_config = {
 
   -- enable vale? Should install vale before setting this to true
   enable_vale = false,
+
+  -- enable lastline?
+  enable_lastline = true,
 }
 
 -- update theme base on current time

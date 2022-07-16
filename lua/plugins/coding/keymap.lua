@@ -29,8 +29,12 @@ local lsp_keymap = function(client, bufnr)
   bnmap("gd", "<Cmd>Lspsaga lsp_finder<CR>")
   bnmap("gp", "<Cmd>Lspsaga preview_definition<CR>")
   bnmap("gh", "<Cmd>Lspsaga hover_doc<CR>")
-  bnmap("<C-u>", function() require('lspsaga.action').smart_scroll_with_saga(-1) end)
-  bnmap("<C-d>", function() require('lspsaga.action').smart_scroll_with_saga(1) end)
+  bnmap("<C-u>", function()
+    require("lspsaga.action").smart_scroll_with_saga(-1)
+  end)
+  bnmap("<C-d>", function()
+    require("lspsaga.action").smart_scroll_with_saga(1)
+  end)
   bnmap("gs", "<cmd>Lspsaga signature_help<CR>")
   bnmap("go", "<cmd>Lspsaga show_line_diagnostics<CR>")
   bnmap("gj", "<cmd>Lspsaga diagnostic_jump_next<CR>")
@@ -39,9 +43,15 @@ local lsp_keymap = function(client, bufnr)
   bnmap("ga", "<cmd>Lspsaga code_action<CR>")
 
   -- most of the lsp server don't implement textDocument/Declaration, so gD is useless for now.
-  bnmap("gD", function() vim.lsp.buf.declaration() end)
-  bnmap("gm", function() vim.lsp.buf.implementation() end)
-  bnmap("gt", function() vim.lsp.buf.type_definition() end)
+  bnmap("gD", function()
+    vim.lsp.buf.declaration()
+  end)
+  bnmap("gm", function()
+    vim.lsp.buf.implementation()
+  end)
+  bnmap("gt", function()
+    vim.lsp.buf.type_definition()
+  end)
   bnmap("gq", "<cmd>TroubleToggle<CR>")
 
   -- add rust specific keymappings
@@ -54,17 +64,25 @@ local lsp_keymap = function(client, bufnr)
   -- 0.8.0
   if vim.fn.has("nvim-0.8.0") then
     if client.server_capabilities.documentFormattingProvider then
-      bnmap("gf", function() vim.lsp.buf.format({ async = true }) end)
+      bnmap("gf", function()
+        vim.lsp.buf.format({ async = true })
+      end)
     elseif client.server_capabilities.documentRangeFormattingProvider then
-      bmap("x", "gf", function() vim.lsp.buf.range_formatting() end)
+      bmap("x", "gf", function()
+        vim.lsp.buf.range_formatting()
+      end)
     end
 
     -- 0.6.0 - 0.7.0
   else
     if client.resolved_capabilities.document_formatting then
-      bnmap("gf", function() vim.lsp.buf.formatting() end)
+      bnmap("gf", function()
+        vim.lsp.buf.formatting()
+      end)
     elseif client.resolved_capabilities.document_range_formatting then
-      bmap("x", "gf", function() vim.lsp.buf.range_formatting() end)
+      bmap("x", "gf", function()
+        vim.lsp.buf.range_formatting()
+      end)
     end
   end
 end
