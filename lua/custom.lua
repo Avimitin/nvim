@@ -24,6 +24,9 @@ local my_config = {
   -- Array with two item which sencond item is lsp server means both
   -- lspconfig and nvim-treesitter should be load on this filetype,
   -- and lspconfig will automatically install the server.
+  --
+  -- WARNING: Please do not set rust-analyzer here. The rust-tools.nvim plugin
+  -- is already handle the lsp server.
   langs = {
     "bash",
     "comment",
