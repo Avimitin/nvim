@@ -11,6 +11,21 @@ au("TextYankPost", {
   end,
 })
 
+au("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.api.nvim_set_keymap("n", "ge", "", {
+      noremap = true,
+      silent = false,
+      callback = function()
+        -- TODO: pass user configuration into it
+        require("plugins.libs.markdown-openfile").edit_url()
+      end,
+      desc = "Edit the file under cursor",
+    })
+  end,
+})
+
 local has_custom_config, custom = pcall(require, "custom")
 
 --
