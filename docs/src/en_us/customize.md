@@ -13,79 +13,62 @@ Create a new configuration table and return it at the end.
 
 ```lua
 -- example
-local M = {
+local my_config = {
   theme = "kanagawa",
-  has_fcitx5 = true,
 
-  lspconfig = {
-    servers = {
-      "sumneko_lua",
-      "gopls",
-      "eslint",
+  auto_darkmode = {
+    enable = true,
+    day_theme = "github_light",
+    night_theme = "kanagawa",
+    time = {
+      begin = "18:30",
+      ending = "7:00",
     },
-    ft = {
-      "lua",
-      "go",
-      "rust"
-    }
   },
 
-  treesitter = {
-    language = {
-      "bash",
-      "c",
-      "nix",
-      "rust",
-      "toml",
-    }
+  auto_toggle_fcitx5 = true,
+
+  langs = {
+    "bash",
+    "fish",
+    "html",
+    "json",
+    "nix",
+    "rust",
+    { "vim" },
+    { "c", "clangd" },
+    { "cpp", "clangd" },
+    { "go", "gopls" },
+    { "javascript", "eslint" },
+    { "lua", "sumneko_lua" },
+    { "python", "pyright" },
   },
 
-  enable_vale = false
+  -- enable vale? Should install vale before setting this to true
+  enable_vale = false,
 }
 
-return M -- <- Don't forget to return this table, or the config will not acceive what you configured
+return my_config -- <- Don't forget to return this table, or the config will not acceive what you configured
 ```
 
 ## Fields
 
 Current supported options:
 
-| option                      | meaning                                                                           |
-|-----------------------------|-----------------------------------------------------------------------------------|
-| `theme`                     | colorscheme, read [colors](./colors.md) for tips and tricks                       |
-| `has_fcitx5`                | enable this if you want to switch fcitx5 automatically when you leave insert mode |
-| [`lspconfig`](#lspconfig)   | lspconfig specific settings                                                       |
-| [`treesitter`](#Treesitter) | treesitter specific settings                                                      |
+| option               | meaning                                                                           |
+|----------------------|-----------------------------------------------------------------------------------|
+| `theme`              | colorscheme, read [colors](./colors.md) for tips and tricks                       |
+| `auto_toggle_fcitx5` | enable this if you want to switch fcitx5 automatically when you leave insert mode |
+| `langs`              | An array of language layers for nvim-treesitter and lspconfig                     |
+| `enable_vale` | enable vale for markdown and asciidocs |
 
-### lspconfig
+### langs
 
-See what lsp servers you can use: [Available Lsps](https://github.com/williamboman/nvim-lsp-installer#available-lsps)
+This fields contains an array of language layer definitions. Single string or an array with item
+tells the editor to load nvim-treesitter only for this languages.
+An array with two items tells the editor to load both of the nvim-treesitter and lspconfig plugins.
+And the second items for the multi-items array should be lsp server that you want to automatically
+installed and enabled.
 
-| option    | meaning                                                                                                                           |
-|-----------|-----------------------------------------------------------------------------------------------------------------------------------|
-| `servers` | A list of server name that will be setup connection to the neovim. Key mappings, capabilities... will be attached to those buffer |
-| `ft`      | A list of filetype that lspconfig plugin will be enable.                                                                          |
-
-- Default enable filetype
-
-```text
-bash
-c
-cpp
-go
-html
-javascript
-json
-lua
-python
-sh
-toml
-```
-
-### Treesitter
-
-See a list of supported language: [Supported Languages](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages)
-
-| option     | meaning                                                                                                                                |
-|------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `language` | A list of file type that will be supported by treesitter. The related parser will be compiled and installed by nvim-treesitter plugins |
+* [Available Lsp Servers](https://github.com/williamboman/nvim-lsp-installer#available-lsps)
+* [Supported Languages for treesitter](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages)
