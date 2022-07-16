@@ -33,7 +33,7 @@ au("TextYankPost", {
 -- You can disable this feature in `~/.config/lua/custom.lua` file
 --
 local ok, custom = pcall(require, "custom")
-if not ok or not custom.has_fcitx5 then
+if not ok or not custom.auto_toggle_fcitx5 then
   return
 end
 

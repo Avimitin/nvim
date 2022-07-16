@@ -172,8 +172,15 @@ config.treesitter_ft = function()
   }
 
   -- append some customize treesitter filetype
-  if present and custom.treesitter and custom.treesitter.language then
-    vim.list_extend(ft, custom.treesitter.language)
+  if present and custom.langs then
+    for _, v in ipairs(custom.langs) do
+      if type(v) == "string" then
+        table.insert(ft, v)
+      elseif type(v) == "table" and #v > 0 then
+        -- remember! lua array index start with 1
+        table.insert(ft, v[1])
+      end
+    end
   end
 
   return ft
@@ -202,8 +209,12 @@ config.lspconfig_ft = function()
     "toml",
   }
 
-  if present and custom.lspconfig and custom.lspconfig.ft then
-    vim.list_extend(ft, custom.lspconfig.ft)
+  if present and custom.langs then
+    for _, lang in ipairs(custom.langs) do
+      if type(lang) == "table" and #lang > 1 then
+        table.insert(ft, lang[1])
+      end
+    end
   end
 
   return ft

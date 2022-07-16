@@ -87,8 +87,12 @@ local servers = {
   "sumneko_lua",
 }
 
-if have_custom and custom.lspconfig and custom.lspconfig.servers then
-  servers = vim.list_extend(servers, custom.lspconfig.servers)
+if have_custom and custom.langs and #custom.langs > 0 then
+  for _, lang in ipairs(custom.langs) do
+    if type(lang) == "table" and #lang > 1 then
+      table.insert(servers, lang[2])
+    end
+  end
 end
 
 for _, v in ipairs(servers) do
