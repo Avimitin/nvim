@@ -14,7 +14,6 @@ local repos = {
   {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
-    config = config.trouble_nvim_config,
     after = "nvim-lspconfig",
   },
 

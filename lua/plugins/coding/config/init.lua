@@ -113,15 +113,6 @@ config.null_ls_config = function()
 end
 
 --
--- trouble.nvim
---
-config.trouble_nvim_config = function()
-  local d = require("editor.utils").new_desc
-  local nmap = require("editor.utils").nmap
-  nmap("<leader>d", "<cmd>TroubleToggle<cr>", d("toggle workspace diagnostic panel"))
-end
-
---
 -- treesitter
 --
 config.treesitter_config = function()

@@ -31,7 +31,7 @@ local lsp_keymap = function(client, bufnr)
   bmap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   bmap("n", "gm", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   bmap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-  bmap("n", "gq", "<cmd>lua vim.diagnostic.set_loclist()<CR>", opts)
+  bmap("n", "gq", "<cmd>TroubleToggle<CR>", opts)
 
   -- add rust specific keymappings
   if client.name == "rust_analyzer" then
