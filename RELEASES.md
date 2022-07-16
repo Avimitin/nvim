@@ -1,3 +1,39 @@
+v7.0.0-rc5 (Jul 16 2022)
+========================
+
+BREAKING CHANGES:
+-----------------
+* remove vimrc cuz we are neovim config
+* remove vim-markdown cuz it is laggy
+
+FEATURES:
+---------
+* rewrite vim-markdown edit file feature in Lua
+  - Use `ge` to open file under cursor in markdown
+* rewrite vim-lastplace in Lua
+  - Auto resume cursor to last edit line
+* Layer style language specification in custom.lua
+
+CHANGES:
+--------
+* lspsaga: remove out-dated configuration
+* trouble: map key `gq` to trouble.nvim
+
+DOCS:
+-----
+* add js document
+* update rust document
+* simplify the lspconfig guide (Finally QWQ)
+* add more multi-cursor usage
+* update install steps to avoid read pipe to shell
+* docs: add warning about the rust lsp
+* docs: update document for custom.lua file
+
+FIX:
+----
+* fix nvim-rooter fail to load at bootstrap step issue
+
+
 v7.0.0-rc4 (Jul 15 2022)
 ========================
 This release candidate finish all the v7.0.0 design and fixes most of the
