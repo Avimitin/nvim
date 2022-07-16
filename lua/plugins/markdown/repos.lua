@@ -18,14 +18,6 @@ return {
     },
   },
 
-  -- markdown editing enhancement
-  {
-    "plasticboy/vim-markdown",
-    ft = {
-      "markdown",
-    },
-  },
-
   -- table editing enhancement
   {
     "dhruvasagar/vim-table-mode",
