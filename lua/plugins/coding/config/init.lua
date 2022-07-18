@@ -241,6 +241,11 @@ config.lspsaga_config = function()
     },
     -- preview lines of lsp_finder and definition preview
     max_preview_lines = 10,
+    finder_icons = {
+      def = '  ',
+      ref = '  ',
+      link = '  ',
+    },
     finder_action_keys = {
       open = "<CR>",
       vsplit = "s",
