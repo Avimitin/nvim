@@ -99,17 +99,6 @@ nvim
 You can read the full installation instruction here:
 [**==> Installation Guide**](https://avimitin.github.io/nvim/en_us/installation.html)
 
-<details>
-    <summary markdown="span">Vimrc</summary>
-
-***Minimal vimrc***: If you want a minimal vimrc, try this
-
-```bash
-curl -SL "https://raw.githubusercontent.com/Avimitin/nvim/master/.vimrc" -o ~/.vimrc
-```
-
-</details>
-
 ## Document (WIP)
 
 Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
