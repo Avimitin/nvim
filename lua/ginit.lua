@@ -1,4 +1,4 @@
-vim.opt.mouse = a
+vim.opt.mouse = "a"
 vim.opt.guifont = [[FiraCode\ Nerd\ Font\ Mono:h18]]
 vim.opt.title = true
 
