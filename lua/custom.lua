@@ -47,6 +47,11 @@ local my_config = {
 
   -- enable lastline?
   enable_lastline = true,
+
+  -- configuration for null-ls lsp injection
+  null_ls = {
+    enable_stylua_fmt = true,
+  },
 }
 
 -- update theme base on current time

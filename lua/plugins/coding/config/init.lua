@@ -98,11 +98,22 @@ end
 -- null-ls
 --
 config.null_ls_config = function()
-  require("lspconfig")
   local attachment = require("plugins.coding.keymap")
-  require("null-ls").setup({
-    sources = {
-    },
+  local null_ls = require("null-ls")
+
+  local sources = {}
+  local null_ls_settings = require("custom").null_ls
+
+  if not null_ls then
+    return
+  end
+
+  if null_ls_settings.enable_stylua_fmt then
+    table.insert(sources, null_ls.builtins.formatting.stylua)
+  end
+
+  null_ls.setup({
+    sources = sources,
     on_attach = attachment.lsp_keymap,
   })
 end

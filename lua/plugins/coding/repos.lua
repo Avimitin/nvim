@@ -5,8 +5,8 @@ config.pre()
 local repos = {
   {
     "jose-elias-alvarez/null-ls.nvim",
-    disable = true,
     config = config.null_ls_config,
+    after = "nvim-lspconfig",
   },
 
   -- show workspace error,warning,hint... message in a pop up panel
