@@ -1,3 +1,25 @@
+v7.1.0 (Jul 19 2022)
+========================
+
+BREAKING CHANGE:
+----------------
+* remove built-in vale support. Commit [11733f3](https://github.com/Avimitin/nvim/commit/11733f33a24bb440fde890b5f01c1b3fce7f18b7) explain the reason.
+
+FEATURES:
+---------
+* Stylua will be the first choice to format the Lua code.
+* The benchmark finally become better (~28ms)
+  - Use libuv to do async file IO (-10ms)
+  - Lazy-load the stausline component (-10ms)
+
+CHANGES:
+--------
+* nvim-notify will load after UI rendered
+* multi-cursor can be load with key `u` too
+* which-key will only be load for limited-keys
+* lspsaga: update finder icons
+
+
 v7.0.0-rc5 (Jul 16 2022)
 ========================
 
