@@ -6,7 +6,14 @@ local repos = {
     "folke/which-key.nvim",
     config = config.whichkey_config,
     -- load this plugin after Neovim UI is already rendered
-    event = "VimEnter",
+    keys = {
+      "g",
+      "v",
+      "c",
+      "d",
+      "z",
+      ";",
+    },
   },
 
   -- manage undo history
