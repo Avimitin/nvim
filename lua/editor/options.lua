@@ -38,9 +38,9 @@ opt.listchars = "tab:> ,trail:·"
 -- Minimal number of screen lines to keep above and below the cursor.
 opt.scrolloff = 5
 
--- 500 is more appropriate for which-keys. You can quickly input keys without prompting up
--- the which-keys panel, or wait 500ms if you forget keymappings.
-opt.timeoutlen = 100
+-- 200 is more appropriate for which-keys. You can quickly input keys without prompting up
+-- the which-keys panel, or wait 200ms if you forget keymappings.
+opt.timeoutlen = 200
 -- Time in milliseconds to wait for a key code sequence to complete
 opt.ttimeoutlen = 0
 -- use timeout for showing which-keys
