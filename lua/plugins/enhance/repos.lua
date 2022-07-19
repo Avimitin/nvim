@@ -45,7 +45,7 @@ local repos = {
   {
     "glepnir/galaxyline.nvim",
     branch = "main",
-    event = "VimEnter",
+    event = "UIEnter",
     config = config.galaxyline_config,
   },
 
@@ -311,7 +311,7 @@ local repos = {
   -- add notify window
   {
     "rcarriga/nvim-notify",
-    module = "vim",
+    event = "UIEnter",
     config = function()
       vim.notify = require("notify")
     end,
