@@ -45,9 +45,6 @@ local my_config = {
     { "python", "pyright" },
   },
 
-  -- enable vale? Should install vale before setting this to true
-  enable_vale = false,
-
   -- enable lastline?
   enable_lastline = true,
 }

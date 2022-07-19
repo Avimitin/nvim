@@ -5,8 +5,7 @@ config.pre()
 local repos = {
   {
     "jose-elias-alvarez/null-ls.nvim",
-    -- enable it when we are writing formal artical
-    ft = { "markdown", "tex", "asciidoc" },
+    disable = true,
     config = config.null_ls_config,
   },
 
