@@ -106,16 +106,17 @@ opt.hidden = true
 
 -- Changed home directory here
 local backup_dir = vim.fn.stdpath("cache") .. "/backup"
-local backup_stat = pcall(os.execute, "mkdir -p " .. backup_dir)
-if backup_stat then
+-- "p" means mkdir -p
+local resp = vim.fn.mkdir(backup_dir, "p")
+if resp == 1 then
   opt.backupdir = backup_dir
   opt.directory = backup_dir
 end
 
 local undo_dir = vim.fn.stdpath("cache") .. "/undo"
-local undo_stat = pcall(os.execute, "mkdir -p " .. undo_dir)
+resp = vim.fn.mkdir(undo_dir, "p")
 local has_persist = vim.fn.has("persistent_undo")
-if undo_stat and has_persist == 1 then
+if resp == 1 and has_persist == 1 then
   opt.undofile = true
   opt.undodir = undo_dir
 end
