@@ -42,7 +42,7 @@ opt.scrolloff = 5
 -- the which-keys panel, or wait 200ms if you forget keymappings.
 opt.timeoutlen = 200
 -- Time in milliseconds to wait for a key code sequence to complete
-opt.ttimeoutlen = 0
+opt.ttimeoutlen = 200
 -- use timeout for showing which-keys
 opt.timeout = true
 
