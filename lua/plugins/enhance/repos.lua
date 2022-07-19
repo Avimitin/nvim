@@ -94,6 +94,7 @@ local repos = {
   {
     "mg979/vim-visual-multi",
     event = "InsertEnter",
+    keys = "u",
     branch = "master",
   },
 
