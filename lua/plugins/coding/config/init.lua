@@ -190,32 +190,39 @@ config.lspconfig_config = function()
   require("plugins.coding.config.lspconfig")
 end
 
-config.lspconfig_ft = function()
-  local ft = {
-    "bash",
-    "c",
-    "cpp",
-    "go",
-    "html",
-    "javascript",
-    "json",
-    "lua",
-    "python",
-    "rust",
-    "sh",
-    "toml",
-  }
+config.lspconfig_ft = {
+  "bash",
+  "c",
+  "cpp",
+  "go",
+  "html",
+  "javascript",
+  "json",
+  "lua",
+  "python",
+  "rust",
+  "sh",
+  "toml",
+}
+
+-- do a unique insertion into lspconfig
+function update_lspconfig_ft()
+  local set = {}
+  for _, v in ipairs(config.lspconfig_ft) do
+    set[v] = 0
+  end
 
   if present and custom.langs then
     for _, lang in ipairs(custom.langs) do
-      if type(lang) == "table" and #lang > 1 then
-        table.insert(ft, lang[1])
+      if type(lang) == "table" and #lang > 1 and set[lang[1]] ~= nil then
+        table.insert(config.lspconfig_ft, lang[1])
       end
     end
   end
-
-  return ft
 end
+
+-- do once, to reduce complexity
+update_lspconfig_ft()
 
 --
 -- lspsaga
