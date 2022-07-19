@@ -100,16 +100,11 @@ end
 config.null_ls_config = function()
   require("lspconfig")
   local attachment = require("plugins.coding.keymap")
-  if vim.g.enable_vale == 1 then
-    require("null-ls").setup({
-      sources = {
-        -- Install vale on: https://github.com/errata-ai/vale/releases
-        -- Arch Linux: paru/yay -S vale
-        require("null-ls").builtins.diagnostics.vale,
-      },
-      on_attach = attachment.lsp_keymap,
-    })
-  end
+  require("null-ls").setup({
+    sources = {
+    },
+    on_attach = attachment.lsp_keymap,
+  })
 end
 
 --

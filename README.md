@@ -120,9 +120,9 @@ Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
 |----------------------------------------------------|
 | ![image](./docs/images/neovim-md.png)              |
 
-| code-like linting to prose [docs](./docs/src/en_us/plugins/vale.md) |
-|------------|
-| ![images](./docs/images/vale.png) |
+| Diagnostic Panel |
+|-----------------|
+| ![image](./docs/images/trouble.png)  |
 
 ---
 
@@ -178,10 +178,6 @@ Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
 | Find file                                           | Project grep                                        | Symbol search                                   |
 |-----------------------------------------------------|-----------------------------------------------------|-------------------------------------------------|
 | ![find-file](./docs/images/telescope-find-file.png) | ![live-grep](./docs/images/telescope-live-grep.png) | ![symbols](./docs/images/telescope-symbols.png) |
-
-| Diagnostic Panel |
-|-----------------|
-| ![image](./docs/images/trouble.png)  |
 
 ## License
 
