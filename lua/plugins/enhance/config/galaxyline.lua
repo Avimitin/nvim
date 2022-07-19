@@ -54,7 +54,7 @@ return function()
     colors = vim.tbl_deep_extend("force", {}, colors, custom)
   end
 
-  local lsp_ft = require("plugins.coding.config").lspconfig_ft()
+  local lsp_ft = require("plugins.coding.config").lspconfig_ft
   local function should_activate_lsp()
     local ft = vim.bo.filetype
     for _, val in ipairs(lsp_ft) do
