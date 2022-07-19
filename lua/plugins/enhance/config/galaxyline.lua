@@ -7,7 +7,6 @@ return function()
 
   local gl = require("galaxyline")
   local gls = gl.section
-  local diagnostic = require("galaxyline.provider_diagnostic")
 
   -- VistaPlugin = extension.vista_nearest
 
@@ -53,6 +52,17 @@ return function()
 
     -- merge custom color to default
     colors = vim.tbl_deep_extend("force", {}, colors, custom)
+  end
+
+  local lsp_ft = require("plugins.coding.config").lspconfig_ft()
+  local function should_activate_lsp()
+    local ft = vim.bo.filetype
+    for _, val in ipairs(lsp_ft) do
+      if ft == val then
+        return true
+      end
+    end
+    return false
   end
 
   local function has_file_type()
@@ -246,45 +256,46 @@ return function()
     },
   })
 
-  local DiagnosticError = diagnostic.get_diagnostic_error
-  local DiagnosticWarn = diagnostic.get_diagnostic_warn
-  local DiagnosticHint = diagnostic.get_diagnostic_hint
-  local DiagnosticInfo = diagnostic.get_diagnostic_info
+  local function setup_diagnostic()
+    insert_left({
+      DiagnosticError = {
+        provider = "DiagnosticError",
+        icon = "  ",
+        highlight = { colors.red, colors.bg },
+      },
+    })
 
-  insert_left({
-    DiagnosticError = {
-      provider = DiagnosticError,
-      icon = "  ",
-      highlight = { colors.red, colors.bg },
-    },
-  })
+    insert_left({
+      DiagnosticWarn = {
+        provider = "DiagnosticWarn",
+        condition = checkwidth,
+        icon = "  ",
+        highlight = { colors.yellow, colors.bg },
+      },
+    })
 
-  insert_left({
-    DiagnosticWarn = {
-      provider = DiagnosticWarn,
-      condition = checkwidth,
-      icon = "  ",
-      highlight = { colors.yellow, colors.bg },
-    },
-  })
+    insert_left({
+      DiagnosticInfo = {
+        provider = "DiagnosticInfo",
+        condition = checkwidth,
+        highlight = { colors.green, colors.bg },
+        icon = "  ",
+      },
+    })
 
-  insert_left({
-    DiagnosticInfo = {
-      provider = DiagnosticInfo,
-      condition = checkwidth,
-      highlight = { colors.green, colors.bg },
-      icon = "  ",
-    },
-  })
+    insert_left({
+      DiagnosticHint = {
+        provider = "DiagnosticHint",
+        condition = checkwidth,
+        highlight = { colors.white, colors.bg },
+        icon = "  ",
+      },
+    })
+  end
 
-  insert_left({
-    DiagnosticHint = {
-      provider = DiagnosticHint,
-      condition = checkwidth,
-      highlight = { colors.white, colors.bg },
-      icon = "  ",
-    },
-  })
+  if should_activate_lsp() then
+    setup_diagnostic()
+  end
 
   insert_left({
     TriangleSeparate = {
@@ -360,18 +371,20 @@ return function()
     },
   })
 
-  insert_right({
-    GetLspClient = {
-      provider = "GetLspClient",
-      separator = " LSP: ",
-      separator_highlight = { colors.blue, colors.black },
-      condition = function()
-        local clients = vim.lsp.get_active_clients()
-        return checkwidth() and next(clients) ~= nil
-      end,
-      highlight = { colors.fg, colors.black },
-    },
-  })
+  if should_activate_lsp() then
+    insert_right({
+      GetLspClient = {
+        provider = "GetLspClient",
+        separator = " LSP: ",
+        separator_highlight = { colors.blue, colors.black },
+        condition = function()
+          local clients = vim.lsp.get_active_clients()
+          return checkwidth() and next(clients) ~= nil
+        end,
+        highlight = { colors.fg, colors.black },
+      },
+    })
+  end
 
   insert_right({
     PerCent = {
