@@ -181,7 +181,8 @@ Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
 
 ## License
 
-MIT License
+This configuration since commit `912416ae9c4b55501b23a91d774b567ba8697dd1` are
+licenced under the Apache 2.0 license.
 
 ## Credit
 
