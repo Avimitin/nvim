@@ -184,6 +184,9 @@ Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
 This configuration since commit `912416ae9c4b55501b23a91d774b567ba8697dd1` are
 licenced under the Apache 2.0 license.
 
+另附：禁止在 CSDN，bilibili 等国内平台使用该配置文件进行任何活动。
+你只保有自己修改部分的权利。
+
 ## Credit
 
 The v1.0-vimscript version is originally inspired by
