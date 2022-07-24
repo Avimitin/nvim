@@ -150,6 +150,12 @@ Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
 
 ---
 
+| Inline diagnostic analytics |
+|-----------------------------|
+| ![lsp-line](https://user-images.githubusercontent.com/30021675/180652907-8cb08aa4-88ac-4f37-b7e7-b3938fc3fbd6.png) |
+
+---
+
 | Signature Help                       | Code Actions                                    | Diagnostic                                      |
 |--------------------------------------|-------------------------------------------------|-------------------------------------------------|
 | ![lsp-popup](./docs/images/help.png) | ![lsp-codeaction](./docs/images/codeaction.png) | ![lsp-diagnostic](./docs/images/diagnostic.png) |
