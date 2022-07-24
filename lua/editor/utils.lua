@@ -45,6 +45,10 @@ local function map(mode, lhs, rhs, opts)
   if opts then
     options = vim.tbl_extend("force", options, opts)
   end
+  if type(rhs) == "function" then
+    options.callback = rhs
+    rhs = ""
+  end
   local stat, error = pcall(vim.keymap.set, mode, lhs, rhs, options)
   if not stat then
     vim.notify(error, vim.log.levels.ERROR, {
