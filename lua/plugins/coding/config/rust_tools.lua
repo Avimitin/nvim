@@ -4,12 +4,16 @@ if not ok then
   return
 end
 
--- The default setting for rust-analyzer.
+-- My default global setting for rust-analyzer.
 -- You can create a `.rust-analyzer.json` file next to your `Cargo.toml` file to
 -- add custom settings per project.
 local rust_analyzer_settings = {
   cargo = {
     autoreload = true,
+  },
+  -- I would prefer to use cargo clippy to whip me more
+  checkOnSave = {
+    command = "clippy",
   },
 }
 
