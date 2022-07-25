@@ -33,27 +33,66 @@ capabilities.textDocument.completion.completionItem = {
   },
 }
 
-local function neovim_lua_setting()
-  return {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = "LuaJIT",
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { "vim" },
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
+-- Add neovim built-in Lua library into lsp runtime path.
+local neovim_lua_runtime_settings = {
+  Lua = {
+    runtime = {
+      -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+      version = "LuaJIT",
     },
-  }
+    diagnostics = {
+      -- Get the language server to recognize the `vim` global
+      globals = { "vim" },
+    },
+    workspace = {
+      -- Make the server aware of Neovim runtime files
+      library = vim.api.nvim_get_runtime_file("", true),
+    },
+    -- Do not send telemetry data containing a randomized but unique identifier
+    telemetry = {
+      enable = false,
+    },
+  },
+}
+
+-- Setup border for the floating window
+local handlers = {
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "single",
+  }),
+
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = "single",
+  }),
+}
+
+-- Setup diagnostic icons and signs
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = "﮿",
+    spacing = 4,
+    source = "always",
+  },
+  signs = true,
+  underline = true,
+  -- update diagnostic in insert mode will be annoying when the output is too verbose
+  update_in_insert = false,
+})
+
+local signs = {
+  Error = " ",
+  Warn = " ",
+  Hint = " ",
+  Info = " ",
+}
+
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, {
+    text = icon,
+    texthl = hl,
+    numhl = "",
+  })
 end
 
 -- [[ =================================================================================
@@ -72,7 +111,7 @@ require("nvim-lsp-installer").setup({
   },
 })
 
--- Preconfigured language server that will be automatically installed.
+-- Preconfigured language server that will be **automatically** installed.
 --
 -- WARNING: rust-analyzer is set up by plugin "rust-tools.nvim", *DONT*
 -- configured it manually here.
@@ -112,59 +151,20 @@ if have_custom and custom.langs and type(custom.langs) == "table" and #custom.la
   server_set.push = nil
 end
 
--- initialize lsp servers
+-- Attach the above settings to all the lspservers. And tell the nvim-lsp-installer to
+-- install those servers when necessary.
 for lspserver, _ in pairs(server_set) do
   local opts = {
     on_attach = require("plugins.coding.keymap").lsp_keymap,
     capabilities = capabilities,
     root_dir = vim.loop.cwd,
+    handlers = handlers,
   }
 
   if lspserver == "sumneko_lua" then
-    opts.settings = neovim_lua_setting()
+    opts.settings = neovim_lua_runtime_settings
   end
 
   lspconfig[lspserver].setup(opts)
   vim.cmd([[ do User LspAttachBuffers ]])
 end
-
--- [[ =================================================================================
--- CHORES
--- =================================================================================]]
-
-local signs = {
-  Error = " ",
-  Warn = " ",
-  Hint = " ",
-  Info = " ",
-}
-
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, {
-    text = icon,
-    texthl = hl,
-    numhl = "",
-  })
-end
-
-local lsp_publish_diagnostics_options = {
-  virtual_text = {
-    prefix = "﮿",
-    spacing = 4,
-  },
-  signs = true,
-  underline = true,
-  update_in_insert = false, -- update diagnostics insert mode
-}
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-  vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, lsp_publish_diagnostics_options)
-
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "single",
-})
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "single",
-})
