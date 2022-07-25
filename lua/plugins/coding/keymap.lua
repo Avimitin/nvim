@@ -85,6 +85,17 @@ local lsp_keymap = function(client, bufnr)
       end)
     end
   end
+
+  bnmap("gl", function()
+    local current = vim.diagnostic.config().virtual_text
+    if current ~= false then
+      vim.g.diagnostic_virtual_text_config = current
+      vim.diagnostic.config({ virtual_text = false })
+    else
+      vim.diagnostic.config({ virtual_text = vim.g.diagnostic_virtual_text_config })
+    end
+    require("lsp_lines").toggle()
+  end)
 end
 
 return {

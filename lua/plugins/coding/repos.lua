@@ -137,13 +137,8 @@ local repos = {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function()
       require("lsp_lines").setup()
-      require("editor.utils").nmap("gl", function()
-        require("lsp_lines").toggle()
-      end)
     end,
-    keys = {
-      { "n", "gl" },
-    },
+    module = "lsp_lines",
   },
 }
 
