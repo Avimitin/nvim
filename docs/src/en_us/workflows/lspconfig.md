@@ -31,6 +31,7 @@ to buffer when launching LSP server. Those key mappings are set in
 | <kbd>gt</kbd>     | Jump to type definition                                  |
 | <kbd>gq</kbd>     | Open a panel that contains all the diagnostic in project |
 | <kbd>gf</kbd>     | Format code in the buffer                                |
+| <kbd>gl</kbd>     | Switch diagnostic hint between line mode and inline mode |
 
 ## How to install new lsp server
 
