@@ -20,6 +20,9 @@ You can also use <kbd>uA</kbd> to select all the same words at once.
 Use <kbd>ux</kbd> to enable regex search. Input the regex match and press enter to confirm.
 Then use <kbd>n</kbd> to select forward, use <kbd>N</kbd> to select backward.
 
+The key <kbd>ux</kbd> is also usable in visual mode. You can use <kbd>V</kbd> to select a region
+and then press <kbd>ux</kbd> to regex select region. Just like the Kakoune editor style.
+
 ## Add visual select region to multiple cursor
 
 You can use `v` to enter visual select, then press <kbd>ua</kbd> to add the visual select
