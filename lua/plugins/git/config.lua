@@ -1,25 +1,5 @@
 local config = {}
 
-config.pre = function()
-  config.lazygit_config()
-end
-
-config.lazygit_config = function()
-  vim.g.lazygit_floating_window_winblend = 0
-  vim.g.lazygit_floating_window_scaling_factor = 1
-  vim.g.lazygit_floating_window_corner_chars = {
-    "╭",
-    "╮",
-    "╰",
-    "╯",
-  }
-  vim.g.lazygit_floating_window_use_plenary = 0
-  vim.g.lazygit_use_neovim_remote = 1
-  if vim.g.lazygit_use_neovim_remote == 1 and vim.fn.executable("nvr") then
-    vim.env.GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
-  end
-end
-
 config.gitsigns_config = function()
   require("gitsigns").setup({
     signs = {
@@ -98,18 +78,6 @@ config.gitsigns_config = function()
     word_diff = false,
     diff_opts = { internal = true },
   })
-end
-
--- default agit highlight is hard to read, let us link it to diff* highlight group
-config.agit_config = function()
-  local link = function(orig, to)
-    vim.api.nvim_set_hl(0, orig, { link = to })
-  end
-
-  link("agitDiffAdd", "DiffAdd")
-  link("agitDiffAddMerge", "DiffChange")
-  link("agitDiffRemove", "DiffDelete")
-  link("agitDiffRemoveMerge", "DiffChange")
 end
 
 return config
