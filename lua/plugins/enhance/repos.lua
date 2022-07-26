@@ -318,6 +318,14 @@ local repos = {
     end,
   },
 
+  -- repeat motion by key .
+  {
+    "tpope/vim-repeat",
+    keys = {
+      { "n", "." },
+    },
+  },
+
   --
   --
   -- Auto Load
