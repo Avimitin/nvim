@@ -1,3 +1,20 @@
+v7.2.0 (Jul 26 2022)
+====================
+
+BREAKING CHANGES
+----------------
+- License is now change to Apache 2.0
+- Agit.vim is removed because its functionality is redundant with vim-fugitive
+- lazygit.nvim is removed because it is buggy
+- Cargo clippy is now the default linter for rust project.
+
+FEATURES:
+---------
+- Add lsp-line.nvim
+- Add auto command to diff staged file when git commit is opened
+- Add vim-repeat to produce repeat motion
+
+
 v7.1.0 (Jul 19 2022)
 ========================
 
