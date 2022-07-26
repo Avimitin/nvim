@@ -44,15 +44,6 @@ local repos = {
       "DiffviewFileHistory",
     },
   },
-
-  -- agit is a powerful git repository viewer
-  {
-    "cohama/agit.vim",
-    config = config.agit_config,
-    cmd = {
-      "Agit",
-    },
-  },
 }
 
 return repos
