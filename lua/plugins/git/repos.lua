@@ -13,12 +13,6 @@ local repos = {
     },
   },
 
-  -- Call the lazygit inside neovim, relies on lazygit executable
-  {
-    "kdheepak/lazygit.nvim",
-    cmd = "LazyGit",
-  },
-
   -- Show git information in neovim
   {
     "lewis6991/gitsigns.nvim",
