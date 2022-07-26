@@ -105,7 +105,7 @@ Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
 
 | Inline diagnostic analytics |
 |-----------------------------|
-| ![lsp-line](https://user-images.githubusercontent.com/30021675/180652907-8cb08aa4-88ac-4f37-b7e7-b3938fc3fbd6.png) |
+| ![lsp-line](./docs/images/inline.png) |
 
 | Signature Help                       |
 |--------------------------------------|
