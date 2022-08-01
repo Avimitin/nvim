@@ -62,7 +62,7 @@ local lsp_keymap = function(client, bufnr)
 
   -- Set some keybinds conditional on server capabilities
   -- 0.8.0
-  if vim.fn.has("nvim-0.8.0") then
+  if vim.fn.has("nvim-0.8.0") == 1 then
     if client.server_capabilities.documentFormattingProvider then
       bnmap("gf", function()
         vim.lsp.buf.format({ async = true })
