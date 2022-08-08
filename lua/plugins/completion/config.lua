@@ -89,7 +89,7 @@ M.nvim_cmp_config = function()
         "i",
         "c",
       }),
-      ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {
+      ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {
         "i",
         "c",
       }),
