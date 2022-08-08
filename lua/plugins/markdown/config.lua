@@ -8,9 +8,10 @@ local M = {
       and #custom.markdown.preview_browser > 0
     then
       vim.g.mkdp_browser = custom.markdown.preview_browser
+    else
+      vim.g.mkdp_browser = "firefox"
     end
 
-    vim.g.mkdp_browser = "firefox"
     vim.g.mkdp_open_to_the_world = 1
     vim.g.mkdp_port = "57843"
 
