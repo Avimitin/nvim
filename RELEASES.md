@@ -1,3 +1,14 @@
+v7.2.1 (Aug 8 2022)
+===================
+
+CHANGES:
+--------
+- Remove git track of custom.lua file
+- Add custom.example.lua file
+- Add configuration rename step in install script
+- Group auto commands option together
+
+
 v7.2.0 (Jul 26 2022)
 ====================
 
