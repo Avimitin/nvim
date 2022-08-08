@@ -57,17 +57,6 @@ as the search program. It is an faster grep RIIR alternative.
 
 See its [readme](https://github.com/BurntSushi/ripgrep) for more.
 
-* *Surf* (OPTIONAL)
-
-I am using [Surf](https://surf.suckless.org/) as my markdown preview
-browser. Firefox is too heavy for the preview job. If you have interest
-on it, please follow the instruction from the official pages. If not,
-you can easily modify the settings:
-
-```bash
-sed -i 's/surf/firefox/g' lua/plugins/config/markdown_preview_cfg.lua
-```
-
 > * How to build surf
 >
 > ```bash
@@ -99,6 +88,9 @@ So you can use my configuration as a base to build yours.
 ```bash
 # NO WINDOWS SUPPORT NOW
 git clone https://github.com/YOUR_USER_NAME/nvim ~/.config/nvim
+
+# Enable configuration for the configuration
+mv ~/.config/nvim/lua/custom.example.lua ~/.config/nvim/lua/custom.lua
 ```
 
 Open your neovim by command `nvim` and wait for all plugins installed.
