@@ -1,7 +1,16 @@
 local M = {
   pre = function()
-    -- markdown preview
-    vim.g.mkdp_browser = "surf"
+    local present, custom = pcall(require, "custom")
+    if
+      present
+      and custom.markdown
+      and custom.markdown.preview_browser
+      and #custom.markdown.preview_browser > 0
+    then
+      vim.g.mkdp_browser = custom.markdown.preview_browser
+    end
+
+    vim.g.mkdp_browser = "firefox"
     vim.g.mkdp_open_to_the_world = 1
     vim.g.mkdp_port = "57843"
 
