@@ -140,7 +140,7 @@ end
 --
 -- You can disable this feature in `~/.config/lua/custom.lua` file
 --
-if not has_custom_config or not custom.auto_toggle_fcitx5 then
+if not has_custom_config or not custom.autocmd_enable or not custom.autocmd_enable.fcitx5 then
   return
 end
 
