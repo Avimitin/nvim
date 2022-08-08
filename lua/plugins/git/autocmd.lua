@@ -1,3 +1,5 @@
+local present, custom = pcall(require, "custom")
+
 local M = {}
 
 local function setup_auto_diff()
@@ -22,7 +24,9 @@ local function setup_auto_diff()
 end
 
 M.setup = function()
-  setup_auto_diff()
+  if present and custom.autocmd_enable and custom.autocmd_enable.diff_on_commit then
+    setup_auto_diff()
+  end
 end
 
 return M
