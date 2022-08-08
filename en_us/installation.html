@@ -185,15 +185,6 @@ impressive icon support.</p>
 <p>The telescope, nvim-cmp, and anyjump plugin are configured to use ripgrep
 as the search program. It is an faster grep RIIR alternative.</p>
 <p>See its <a href="https://github.com/BurntSushi/ripgrep">readme</a> for more.</p>
-<ul>
-<li><em>Surf</em> (OPTIONAL)</li>
-</ul>
-<p>I am using <a href="https://surf.suckless.org/">Surf</a> as my markdown preview
-browser. Firefox is too heavy for the preview job. If you have interest
-on it, please follow the instruction from the official pages. If not,
-you can easily modify the settings:</p>
-<pre><code class="language-bash">sed -i 's/surf/firefox/g' lua/plugins/config/markdown_preview_cfg.lua
-</code></pre>
 <blockquote>
 <ul>
 <li>How to build surf</li>
@@ -219,6 +210,9 @@ So you can use my configuration as a base to build yours.</p>
 <h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
 <pre><code class="language-bash"># NO WINDOWS SUPPORT NOW
 git clone https://github.com/YOUR_USER_NAME/nvim ~/.config/nvim
+
+# Enable configuration for the configuration
+mv ~/.config/nvim/lua/custom.example.lua ~/.config/nvim/lua/custom.lua
 </code></pre>
 <p>Open your neovim by command <code>nvim</code> and wait for all plugins installed.
 The plugins will be installed automatically. Please quit and reopen the

@@ -239,15 +239,6 @@ impressive icon support.</p>
 <p>The telescope, nvim-cmp, and anyjump plugin are configured to use ripgrep
 as the search program. It is an faster grep RIIR alternative.</p>
 <p>See its <a href="https://github.com/BurntSushi/ripgrep">readme</a> for more.</p>
-<ul>
-<li><em>Surf</em> (OPTIONAL)</li>
-</ul>
-<p>I am using <a href="https://surf.suckless.org/">Surf</a> as my markdown preview
-browser. Firefox is too heavy for the preview job. If you have interest
-on it, please follow the instruction from the official pages. If not,
-you can easily modify the settings:</p>
-<pre><code class="language-bash">sed -i 's/surf/firefox/g' lua/plugins/config/markdown_preview_cfg.lua
-</code></pre>
 <blockquote>
 <ul>
 <li>How to build surf</li>
@@ -273,6 +264,9 @@ So you can use my configuration as a base to build yours.</p>
 <h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
 <pre><code class="language-bash"># NO WINDOWS SUPPORT NOW
 git clone https://github.com/YOUR_USER_NAME/nvim ~/.config/nvim
+
+# Enable configuration for the configuration
+mv ~/.config/nvim/lua/custom.example.lua ~/.config/nvim/lua/custom.lua
 </code></pre>
 <p>Open your neovim by command <code>nvim</code> and wait for all plugins installed.
 The plugins will be installed automatically. Please quit and reopen the
@@ -565,38 +559,41 @@ The <code>.gitignore</code> file contains the <code>custom.lua</code> file alrea
 <p>Create a new configuration table and return it at the end.</p>
 <pre><code class="language-lua">-- example
 local my_config = {
+  -- the global theme settings
   theme = &quot;kanagawa&quot;,
-
-  auto_darkmode = {
-    enable = true,
-    day_theme = &quot;github_light&quot;,
-    night_theme = &quot;kanagawa&quot;,
-    time = {
-      begin = &quot;18:30&quot;,
-      ending = &quot;7:00&quot;,
-    },
-  },
-
-  auto_toggle_fcitx5 = true,
 
   langs = {
     &quot;bash&quot;,
+    &quot;comment&quot;,
     &quot;fish&quot;,
     &quot;html&quot;,
     &quot;json&quot;,
     &quot;nix&quot;,
     &quot;rust&quot;,
+    &quot;toml&quot;,
     { &quot;vim&quot; },
-    { &quot;c&quot;, &quot;clangd&quot; },
-    { &quot;cpp&quot;, &quot;clangd&quot; },
     { &quot;go&quot;, &quot;gopls&quot; },
-    { &quot;javascript&quot;, &quot;eslint&quot; },
     { &quot;lua&quot;, &quot;sumneko_lua&quot; },
-    { &quot;python&quot;, &quot;pyright&quot; },
+    { &quot;c&quot;, &quot;clangd&quot; }, -- require npm
+    { &quot;cpp&quot;, &quot;clangd&quot; }, -- require npm
+    { &quot;javascript&quot;, &quot;eslint&quot; }, -- require npm
+    { &quot;python&quot;, &quot;pyright&quot; }, -- require npm
   },
 
-  -- enable vale? Should install vale before setting this to true
-  enable_vale = false,
+  null_ls = {
+    enable_stylua_fmt = false, -- require stylua executable
+  },
+
+  autocmd_enable = {
+    fcitx5 = false, -- require fcitx5-remote
+    lastline = false,
+    diff_on_commit = false, -- might mess up your window
+  },
+
+  markdown = {
+    -- must be executable
+    preview_browser = &quot;chrome&quot;,
+  },
 }
 
 return my_config -- &lt;- Don't forget to return this table, or the config will not acceive what you configured
@@ -605,9 +602,9 @@ return my_config -- &lt;- Don't forget to return this table, or the config will 
 <p>Current supported options:</p>
 <div class="table-wrapper"><table><thead><tr><th>option</th><th>meaning</th></tr></thead><tbody>
 <tr><td><code>theme</code></td><td>colorscheme, read <a href="en_us/./colors.html">colors</a> for tips and tricks</td></tr>
-<tr><td><code>auto_toggle_fcitx5</code></td><td>enable this if you want to switch fcitx5 automatically when you leave insert mode</td></tr>
+<tr><td><code>autocmd_enable</code></td><td>List of auto commands that you want to toggle on or off</td></tr>
 <tr><td><code>langs</code></td><td>An array of language layers for nvim-treesitter and lspconfig</td></tr>
-<tr><td><code>enable_vale</code></td><td>enable vale for markdown and asciidocs</td></tr>
+<tr><td><code>markdown</code></td><td>Markdown options</td></tr>
 </tbody></table>
 </div>
 <h3 id="langs"><a class="header" href="#langs">langs</a></h3>
@@ -620,7 +617,13 @@ installed and enabled.</p>
 <li><a href="https://github.com/williamboman/nvim-lsp-installer#available-lsps">Available Lsp Servers</a></li>
 <li><a href="https://github.com/nvim-treesitter/nvim-treesitter#supported-languages">Supported Languages for treesitter</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-interact-with-git"><a class="header" href="#how-to-interact-with-git">How to interact with git</a></h1>
+<h3 id="autocmd_enable"><a class="header" href="#autocmd_enable"><code>autocmd_enable</code></a></h3>
+<div class="table-wrapper"><table><thead><tr><th>cmd</th><th>function</th></tr></thead><tbody>
+<tr><td><code>fcitx5</code></td><td>Enable fcitx5 auto toggle when switching insert and normal mode</td></tr>
+<tr><td><code>lastline</code></td><td>Enable auto command that jump to last edit line when you open neovim</td></tr>
+<tr><td><code>diff_on_commit</code></td><td>Enable auto command that open diff window when you commiting</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-interact-with-git"><a class="header" href="#how-to-interact-with-git">How to interact with git</a></h1>
 <p>There are some plugins that helps you interact with git.</p>
 <ul>
 <li>vim-fugitive</li>

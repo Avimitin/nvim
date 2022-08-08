@@ -145,38 +145,41 @@ The <code>.gitignore</code> file contains the <code>custom.lua</code> file alrea
 <p>Create a new configuration table and return it at the end.</p>
 <pre><code class="language-lua">-- example
 local my_config = {
+  -- the global theme settings
   theme = &quot;kanagawa&quot;,
-
-  auto_darkmode = {
-    enable = true,
-    day_theme = &quot;github_light&quot;,
-    night_theme = &quot;kanagawa&quot;,
-    time = {
-      begin = &quot;18:30&quot;,
-      ending = &quot;7:00&quot;,
-    },
-  },
-
-  auto_toggle_fcitx5 = true,
 
   langs = {
     &quot;bash&quot;,
+    &quot;comment&quot;,
     &quot;fish&quot;,
     &quot;html&quot;,
     &quot;json&quot;,
     &quot;nix&quot;,
     &quot;rust&quot;,
+    &quot;toml&quot;,
     { &quot;vim&quot; },
-    { &quot;c&quot;, &quot;clangd&quot; },
-    { &quot;cpp&quot;, &quot;clangd&quot; },
     { &quot;go&quot;, &quot;gopls&quot; },
-    { &quot;javascript&quot;, &quot;eslint&quot; },
     { &quot;lua&quot;, &quot;sumneko_lua&quot; },
-    { &quot;python&quot;, &quot;pyright&quot; },
+    { &quot;c&quot;, &quot;clangd&quot; }, -- require npm
+    { &quot;cpp&quot;, &quot;clangd&quot; }, -- require npm
+    { &quot;javascript&quot;, &quot;eslint&quot; }, -- require npm
+    { &quot;python&quot;, &quot;pyright&quot; }, -- require npm
   },
 
-  -- enable vale? Should install vale before setting this to true
-  enable_vale = false,
+  null_ls = {
+    enable_stylua_fmt = false, -- require stylua executable
+  },
+
+  autocmd_enable = {
+    fcitx5 = false, -- require fcitx5-remote
+    lastline = false,
+    diff_on_commit = false, -- might mess up your window
+  },
+
+  markdown = {
+    -- must be executable
+    preview_browser = &quot;chrome&quot;,
+  },
 }
 
 return my_config -- &lt;- Don't forget to return this table, or the config will not acceive what you configured
@@ -185,9 +188,9 @@ return my_config -- &lt;- Don't forget to return this table, or the config will 
 <p>Current supported options:</p>
 <div class="table-wrapper"><table><thead><tr><th>option</th><th>meaning</th></tr></thead><tbody>
 <tr><td><code>theme</code></td><td>colorscheme, read <a href="./colors.html">colors</a> for tips and tricks</td></tr>
-<tr><td><code>auto_toggle_fcitx5</code></td><td>enable this if you want to switch fcitx5 automatically when you leave insert mode</td></tr>
+<tr><td><code>autocmd_enable</code></td><td>List of auto commands that you want to toggle on or off</td></tr>
 <tr><td><code>langs</code></td><td>An array of language layers for nvim-treesitter and lspconfig</td></tr>
-<tr><td><code>enable_vale</code></td><td>enable vale for markdown and asciidocs</td></tr>
+<tr><td><code>markdown</code></td><td>Markdown options</td></tr>
 </tbody></table>
 </div>
 <h3 id="langs"><a class="header" href="#langs">langs</a></h3>
@@ -200,7 +203,13 @@ installed and enabled.</p>
 <li><a href="https://github.com/williamboman/nvim-lsp-installer#available-lsps">Available Lsp Servers</a></li>
 <li><a href="https://github.com/nvim-treesitter/nvim-treesitter#supported-languages">Supported Languages for treesitter</a></li>
 </ul>
-
+<h3 id="autocmd_enable"><a class="header" href="#autocmd_enable"><code>autocmd_enable</code></a></h3>
+<div class="table-wrapper"><table><thead><tr><th>cmd</th><th>function</th></tr></thead><tbody>
+<tr><td><code>fcitx5</code></td><td>Enable fcitx5 auto toggle when switching insert and normal mode</td></tr>
+<tr><td><code>lastline</code></td><td>Enable auto command that jump to last edit line when you open neovim</td></tr>
+<tr><td><code>diff_on_commit</code></td><td>Enable auto command that open diff window when you commiting</td></tr>
+</tbody></table>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
