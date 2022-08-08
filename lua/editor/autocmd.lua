@@ -115,7 +115,7 @@ local function setup_auto_jump_last_edit_line()
   })
 end
 
-if has_custom_config and custom.enable_lastline then
+if has_custom_config and custom.autocmd_enable and custom.autocmd_enable.lastline then
   setup_auto_jump_last_edit_line()
 end
 
