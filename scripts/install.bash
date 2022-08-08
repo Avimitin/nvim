@@ -52,4 +52,7 @@ mkdir -p $target_dir
 # move the downloaded file to the .config/nvim directory
 mv -f $temp_download_dir/nvim-latest $target_dir
 
+# copy and rename config file
+cp $target_dir/lua/custom.example.lua $target_dir/lua/custom.lua
+
 echo "Process done!"
