@@ -1,3 +1,10 @@
+v7.2.2 (Aug 8 2022)
+===================
+
+FIX:
+----
+- fix incorrect condition when reading browser option
+
 v7.2.1 (Aug 8 2022)
 ===================
 
