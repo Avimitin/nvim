@@ -171,13 +171,24 @@ config.treesitter_ft = function()
     "vim",
   }
 
+  local alias = {
+    ["typescriptreact"] = "typescript",
+    ["javascriptreact"] = "javascript",
+  }
+
   -- append some customize treesitter filetype
   if present and custom.langs then
     for _, v in ipairs(custom.langs) do
       if type(v) == "string" then
+        if alias[v] then
+          v = alias[v]
+        end
         table.insert(ft, v)
       elseif type(v) == "table" and #v > 0 then
         -- remember! lua array index start with 1
+        if alias[v[1]] then
+          v[1] = alias[v[1]]
+        end
         table.insert(ft, v[1])
       end
     end
@@ -217,7 +228,7 @@ function update_lspconfig_ft()
 
   if present and custom.langs then
     for _, lang in ipairs(custom.langs) do
-      if type(lang) == "table" and #lang > 1 and set[lang[1]] ~= nil then
+      if type(lang) == "table" and #lang > 1 and set[lang[1]] == nil then
         table.insert(config.lspconfig_ft, lang[1])
       end
     end
