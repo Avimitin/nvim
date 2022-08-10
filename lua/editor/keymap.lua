@@ -72,4 +72,4 @@ nmap("x", [["_x]])
 
 -- Delete word backward and do not yank
 nmap("dw", [[vb"_d]])
-map({"n", "x"}, "d", [["_d]])
+map({ "n", "x" }, "d", [["_d]])
