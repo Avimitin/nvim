@@ -61,9 +61,6 @@ nmap("<C-S-down>", ":res -5<CR>", d("Extend the lower boundary of the current wi
 nmap("<C-S-right>", ":vertical resize-5<CR>", d("Extend the right boundary of the current window"))
 nmap("<C-S-left>", ":vertical resize+5<CR>", d("Extend the right boundary of the current window"))
 
--- center editing line
-map("i", "<C-c>", "<ESC>zzi", d("Place the current line to the middle of the screen"))
-
 -- kill buffer with ;q , quit window with :q.
 nmap(";q", require("plugins.libs.bufdel").delete_buffer)
 
