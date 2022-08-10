@@ -1,3 +1,15 @@
+v7.3.1 (Aug 10 2022)
+====================
+
+FIX:
+----
+* Fix treesitter not recognize `typescriptreact` filetype issue
+
+FEATURE:
+--------
+* Add plugin to help auto close and rename HTML tag
+
+
 v7.3.0 (Aug 10 2022)
 ====================
 
