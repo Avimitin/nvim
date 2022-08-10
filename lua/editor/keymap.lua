@@ -44,11 +44,6 @@ nmap("<C-T>n", ":tabnew<CR>", d("Create a new tab"))
 -- save quickly
 nmap(";w", ":w<CR>", d("Save buffer"))
 
--- do thing like ctrl c and ctrl v
-xmap("<C-y>", [["+y]], d("Copy to system clipboard"))
-nmap("<C-p>", [["+p]], d("Paste from system clipboard"))
-map("i", "<C-p>", [[<ESC>"+pa]], d("Paste from system clipboard"))
-
 -- shut down the search high light
 nmap("<ESC>", ":nohlsearch<CR>", d("Close search highlight"))
 -- no more finger expansion

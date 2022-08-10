@@ -104,6 +104,9 @@ opt.formatoptions = "qj"
 
 opt.hidden = true
 
+-- default using system clipboard
+opt.clipboard = "unnamedplus"
+
 -- Changed home directory here
 local backup_dir = vim.fn.stdpath("cache") .. "/backup"
 -- "p" means mkdir -p
