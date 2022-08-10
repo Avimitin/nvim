@@ -70,5 +70,6 @@ map({ "n", "x", "o" }, ",", "%", { noremap = false, silent = false })
 -- Do not yank when pressing x
 nmap("x", [["_x]])
 
--- Delete word backward
+-- Delete word backward and do not yank
 nmap("dw", [[vb"_d]])
+map({"n", "x"}, "d", [["_d]])
