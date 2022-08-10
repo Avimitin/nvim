@@ -29,13 +29,6 @@ local repos = {
     after = "nvim-treesitter",
   },
 
-  -- automatically download and manage lsp server
-  {
-    "williamboman/nvim-lsp-installer",
-    -- setup by lspconfig in lspconfig_cfg.lua file
-    module = "nvim-lsp-installer",
-  },
-
   -- manage the lsp server
   {
     "neovim/nvim-lspconfig",

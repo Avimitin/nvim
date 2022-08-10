@@ -95,22 +95,6 @@ for type, icon in pairs(signs) do
   })
 end
 
--- [[ =================================================================================
---  LSP SETUP MAIN LOGIC
--- =================================================================================]]
-
-require("nvim-lsp-installer").setup({
-  -- only ensure Lua language server is installed
-  automatic_installation = true,
-  ui = {
-    icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗",
-    },
-  },
-})
-
 -- Preconfigured language server that will be **automatically** installed.
 --
 -- WARNING: rust-analyzer is set up by plugin "rust-tools.nvim", *DONT*
