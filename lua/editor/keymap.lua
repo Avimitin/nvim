@@ -74,3 +74,9 @@ nmap(";q", require("plugins.libs.bufdel").delete_buffer)
 
 -- % is so hard to reach...
 map({ "n", "x", "o" }, ",", "%", { noremap = false, silent = false })
+
+-- Do not yank when pressing x
+nmap("x", [["_x]])
+
+-- Delete word backward
+nmap("dw", [[vb"_d]])
