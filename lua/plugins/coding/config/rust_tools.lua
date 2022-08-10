@@ -20,12 +20,11 @@ local rust_analyzer_settings = {
 -- rust-tools.nvim settings
 local opts = {
   tools = {
-    autoSetHints = true,
-    hover_with_actions = true,
     executor = require("rust-tools/executors").termopen,
 
     -- These apply to the default RustSetInlayHints command
     inlay_hints = {
+      auto = true,
       show_parameter_hints = true,
       show_variable_name = true,
       parameter_hints_prefix = "<- ",
@@ -37,16 +36,6 @@ local opts = {
     },
 
     hover_actions = {
-      border = {
-        { "╭", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "╮", "FloatBorder" },
-        { "│", "FloatBorder" },
-        { "╯", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "╰", "FloatBorder" },
-        { "│", "FloatBorder" },
-      },
       auto_focus = true,
     },
   },
