@@ -225,16 +225,6 @@ local repos = {
     after = "nvim-cmp",
   },
 
-  -- file manager without any dependency
-  {
-    "obaland/vfiler.vim",
-    cmd = "VFiler",
-    requires = {
-      "obaland/vfiler-column-devicons",
-    },
-    config = config.vfiler_config,
-  },
-
   -- split single line and join multiple lines, useful for closing bracket
   {
     "AndrewRadev/splitjoin.vim",
