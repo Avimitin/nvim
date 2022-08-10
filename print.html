@@ -772,12 +772,12 @@ local custom = {
 
 return custom
 </code></pre>
-<p>You can use command <code>:LspInstall &lt;Language&gt;</code> to install new lspserver.
-This command is provided by <a href="https://github.com/williamboman/nvim-lsp-installer">nvim-lsp-installer</a>.
-And you can use the <code>:LspInstallInfo</code> to use a panel to manage the servers.</p>
+<p>Install the server by your system package manager, and add the executable name
+into the custom.lua file.</p>
 <blockquote>
 <ul>
-<li>Rust server is also automatically installed and set up by rust-tools.nvim.
+<li>Rust server is automatically installed and set up by rust-tools.nvim.
+Don't add the rust-analyzer executable here.
 For detail please read <a href="en_us/workflows/../plugins/rust.html">Rust.md(WIP)</a></li>
 <li>Lua server is installed and pre-configured by default, you don't need to configured it too.</li>
 </ul>
