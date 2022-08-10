@@ -99,10 +99,6 @@ Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
 |----------------------------------------------------|
 | ![cmp-cmdline](./docs/images/nvim-cmp-cmdline.png) |
 
-| Easy install language server                                                                                       |
-|--------------------------------------------------------------------------------------------------------------------|
-| ![lspserver](https://user-images.githubusercontent.com/6705160/150685720-782e33ba-172c-44b6-8558-fb4e98495294.png) |
-
 | Inline diagnostic analytics |
 |-----------------------------|
 | ![lsp-line](./docs/images/inline.png) |
