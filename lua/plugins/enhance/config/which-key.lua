@@ -11,7 +11,7 @@ return function()
       -- list of mode / prefixes that should never be hooked by WhichKey
       -- this is mostly relevant for key maps that start with a native binding
       -- most people should not need to change this
-      n = { "/", ":", "<", ">" },
+      n = { "/", ":", "<", ">", "x"},
       i = { "j", "k" },
       v = { "j", "k" },
     },
@@ -60,7 +60,6 @@ return function()
       c = { "Comment with block comment" },
     },
     ["<leader>"] = {
-      l = "Open lazygit",
       r = {
         name = "Rust keymap (Available in Rust buffer only)",
         r = { "Open runnable" },
