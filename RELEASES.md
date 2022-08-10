@@ -1,3 +1,22 @@
+v7.3.0 (Aug 10 2022)
+====================
+
+FIX:
+----
+* Use same doc scrolling key mapping for lspsaga and nvim-cmp
+
+CHANGES:
+--------
+* Neovim will now default using system clipboard as main register
+* Exclude the 'd' and 'x' key mapping for using clipboard
+* Update rust-tools configuration
+
+BREAKING CHANGES:
+-----------------
+* Remove lsp installer (Explained in commit 564b780)
+* Remove vfiler.nvim and using nvim-tree as file manager (Press `<SPACE>t`)
+
+
 v7.2.2 (Aug 8 2022)
 ===================
 
