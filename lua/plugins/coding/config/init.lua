@@ -176,21 +176,25 @@ config.treesitter_ft = function()
     ["javascriptreact"] = "javascript",
   }
 
+  if not present or not custom.langs then
+    return ft
+  end
+
   -- append some customize treesitter filetype
-  if present and custom.langs then
-    for _, v in ipairs(custom.langs) do
-      if type(v) == "string" then
-        if alias[v] then
-          v = alias[v]
-        end
-        table.insert(ft, v)
-      elseif type(v) == "table" and #v > 0 then
-        -- remember! lua array index start with 1
-        if alias[v[1]] then
-          v[1] = alias[v[1]]
-        end
-        table.insert(ft, v[1])
+  for _, v in ipairs(custom.langs) do
+    local la = nil
+    if type(v) == "string" then
+      la = v
+    elseif type(v) == "table" and #v > 0 then
+      la = v[1]
+    end
+
+    if la ~= nil then
+      if alias[la] then
+        la = alias[la]
       end
+
+      table.insert(ft, la)
     end
   end
 
