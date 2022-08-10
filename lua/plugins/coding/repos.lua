@@ -29,6 +29,11 @@ local repos = {
     after = "nvim-treesitter",
   },
 
+  {
+    "windwp/nvim-ts-autotag",
+    after = "nvim-treesitter",
+  },
+
   -- manage the lsp server
   {
     "neovim/nvim-lspconfig",
