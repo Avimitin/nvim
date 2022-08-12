@@ -241,16 +241,6 @@ local repos = {
     event = "BufRead",
   },
 
-  -- a curl wrapper in neovim
-  {
-    "NTBBloodbath/rest.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim",
-    },
-    config = config.rest_nvim_config,
-    ft = "http",
-  },
-
   -- sort the number or text
   {
     "sQVe/sort.nvim",
