@@ -36,3 +36,13 @@ alias("HiCurLine", [[call matchadd('HighlightLineMatches', '\%'.line('.').'l')]]
 
 -- Close all highlight
 alias("HiCurLineOff", [[call clearmatches()]])
+
+-- Invoke sudo and tee to write content when you forget opening the neovim as root
+--
+-- You will need to configure the ssh-askpass executable in /etc/sudo.conf
+--
+--   * KDE use ksshaskpass
+--   * Gnome use seahorse
+--   * Other user can search corresponding program by keyword "ssh-askpass"
+--
+alias("SudoW", [[execute 'w !sudo tee % > /dev/null' <bar> edit!]])
