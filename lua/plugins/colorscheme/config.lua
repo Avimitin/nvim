@@ -51,34 +51,49 @@ colorscheme_settings.kanagawa_setup = function()
     colors = {},
     overrides = {
       -- use gradient yellow for heading
-      htmlH1 = {
+      markdownH1 = {
         fg = default.waveRed,
         bold = true,
       },
-      htmlH2 = {
+      markdownH2 = {
         fg = default.surimiOrange,
         bold = true,
       },
-      htmlH3 = {
+      markdownH3 = {
         fg = default.autumnYellow,
         bold = true,
       },
-      htmlH4 = {
+      markdownH4 = {
         fg = default.carpYellow,
         bold = true,
       },
-      htmlH5 = {
+      markdownH5 = {
         fg = default.boatYellow2,
         bold = true,
       },
-      htmlH6 = {
+      markdownH6 = {
         fg = default.boatYellow1,
         italic = true,
       },
-      mkdHeading = {
+      markdownH1Delimiter = {
         fg = default.sumiInk4,
       },
-      mkdListItem = {
+      markdownH2Delimiter = {
+        fg = default.sumiInk4,
+      },
+      markdownH3Delimiter = {
+        fg = default.sumiInk4,
+      },
+      markdownH4Delimiter = {
+        fg = default.sumiInk4,
+      },
+      markdownH5Delimiter = {
+        fg = default.sumiInk4,
+      },
+      markdownH6Delimiter = {
+        fg = default.sumiInk4,
+      },
+      markdownListMarker = {
         fg = default.surimiOrange,
         bold = true,
       },
