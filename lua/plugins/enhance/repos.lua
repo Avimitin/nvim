@@ -99,23 +99,6 @@ local repos = {
     branch = "master",
   },
 
-  -- Linux coreutil in vim
-  {
-    "tpope/vim-eunuch",
-    cmd = {
-      -- Sudo needs you to configured the /etc/sudo.conf file to set the
-      -- correct askpass executable.
-      "SudoWrite",
-      "SudoEdit",
-      "Delete",
-      "Unlink",
-      "Move",
-      "Rename",
-      "Chmod",
-      "Mkdir",
-    },
-  },
-
   -- a dashboard that useless but beautiful
   {
     "glepnir/dashboard-nvim",
