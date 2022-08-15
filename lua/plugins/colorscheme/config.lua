@@ -13,14 +13,8 @@
 -- Available theme value:
 --  "kanagawa", "deus", "github_{light,dark}"
 local colorscheme_settings = {
-  theme = "kanagawa",
+  theme = require("editor").config.theme,
 }
-
--- if the custom files is created
-local ok, custom = pcall(require, "custom")
-if ok and custom and custom.theme then
-  colorscheme_settings.theme = custom.theme
-end
 
 -- This functions finally apply the colorscheme
 local function apply()

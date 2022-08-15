@@ -26,7 +26,7 @@ au("FileType", {
   end,
 })
 
-local has_custom_config, custom = pcall(require, "custom")
+local autocmd_cfg = require("editor").config.autocmd_enable
 
 --
 --
@@ -115,7 +115,7 @@ local function setup_auto_jump_last_edit_line()
   })
 end
 
-if has_custom_config and custom.autocmd_enable and custom.autocmd_enable.lastline then
+if autocmd_cfg.lastline then
   setup_auto_jump_last_edit_line()
 end
 
@@ -140,7 +140,7 @@ end
 --
 -- You can disable this feature in `~/.config/lua/custom.lua` file
 --
-if not has_custom_config or not custom.autocmd_enable or not custom.autocmd_enable.fcitx5 then
+if autocmd_cfg.fcitx5 then
   return
 end
 

@@ -1,5 +1,3 @@
-local present, custom = pcall(require, "custom")
-
 local M = {}
 
 local function setup_auto_diff()
@@ -24,7 +22,7 @@ local function setup_auto_diff()
 end
 
 M.setup = function()
-  if present and custom.autocmd_enable and custom.autocmd_enable.diff_on_commit then
+  if require("editor").config.autocmd_enable.diff_on_commit then
     setup_auto_diff()
   end
 end

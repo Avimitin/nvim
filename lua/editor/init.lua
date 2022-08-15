@@ -1,7 +1,129 @@
 local nvim = {}
 
+nvim.config = {
+  theme = "kanagawa",
+
+  -- Use `set` data structure to filter redundant
+  treesitter_ft = {
+    -- enable lua and vim by default only
+    lua = 1,
+    vim = 1,
+  },
+
+  lspconfig = {
+    ["lua"] = {
+      name = "sumneko_lua",
+      settings = {
+        Lua = {
+          runtime = {
+            version = "LuaJIT",
+          },
+          diagnostics = {
+            globals = { "vim" },
+          },
+          workspace = {
+            library = vim.api.nvim_get_runtime_file("", true),
+          },
+          telemetry = {
+            enable = false,
+          },
+        },
+      },
+    },
+  },
+
+  null_ls = {
+    enable_stylua_fmt = false,
+  },
+
+  autocmd_enable = {
+    fcitx5 = false,
+    lastline = false,
+    diff_on_commit = false,
+  },
+
+  markdown = {
+    -- must be executable
+    preview_browser = "firefox",
+  },
+}
+
+local function expand_single_ft_table(ft, lsp_server, lsp_settings)
+  -- treesitter don't know what is {type,java}scriptreact
+  local ft_alias = {
+    ["typescriptreact"] = "typescript",
+    ["javascriptreact"] = "javascript",
+  }
+
+  if ft_alias[ft] then
+    ft = ft_alias[ft]
+  end
+
+  if nvim.config.treesitter_ft[ft] == nil then
+    nvim.config.treesitter_ft[ft] = 1
+  end
+
+  if lsp_server == nil then
+    return
+  end
+
+  if nvim.config.lspconfig[ft] ~= nil then
+    return
+  end
+
+  nvim.config.lspconfig[ft] = {
+    name = lsp_server,
+    -- this value can be nil, just like it doesn't exist
+    settings = lsp_settings,
+  }
+end
+
+local function expand_multi_ft_table(langs, lsp, cfg)
+  for _, ft in ipairs(langs) do
+    expand_single_ft_table(ft, lsp, cfg)
+  end
+end
+
+local function expand_lang(languages)
+  for _, v in ipairs(languages) do
+    -- "filetype" string only
+    if type(v) == "string" and nvim.config.treesitter_ft[v] == nil then
+      nvim.config.treesitter_ft[v] = 1
+    end
+
+    -- { "filetype", ... } table
+    if type(v) == "table" and type(v[1]) == "string" then
+      expand_single_ft_table(v[1], v[2], v[3])
+    end
+
+    -- { {"ft1", "ft2", "ft3"}, ... } table
+    if type(v) == "table" and type(v[1]) == "table" then
+      expand_multi_ft_table(v[1], v[2], v[3])
+    end
+  end
+end
+
+local function expand_config()
+  local present, custom = pcall(require, "custom")
+  -- avoid some idiot return nil to the config
+  if not present or not custom then
+    return
+  end
+
+  -- merge lspconfig and treesitter config by hand
+  if custom.langs then
+    expand_lang(custom.langs)
+  end
+  custom.langs = nil
+
+  nvim.config = vim.tbl_deep_extend("force", nvim.config, custom)
+end
+
 -- The entry point of the whole configuration
 nvim.setup = function()
+  -- expand the custom.lua file
+  expand_config()
+
   -- load basic configuration
   local utils = require("editor.utils")
 

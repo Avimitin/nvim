@@ -1,5 +1,3 @@
-local present, custom = pcall(require, "custom")
-
 local config = {}
 
 --
@@ -125,7 +123,7 @@ config.treesitter_config = function()
   require("nvim-treesitter.configs").setup({
     -- packer compile is compiled without runtime context, so here we must give it
     -- the full path to the treesitter ft function for evaluating the filetype
-    ensure_installed = require("plugins.coding.config").treesitter_ft(),
+    ensure_installed = require("plugins.coding.config").treesitter_ft,
     highlight = {
       enable = true,
     },
@@ -163,43 +161,17 @@ config.treesitter_config = function()
   })
 end
 
-config.treesitter_ft = function()
-  -- enable treesitter for what filetype?
-  local ft = {
-    "json",
-    "lua",
-    "vim",
-  }
+local function treesitter_ft()
+  local fts = {}
 
-  local alias = {
-    ["typescriptreact"] = "typescript",
-    ["javascriptreact"] = "javascript",
-  }
-
-  if not present or not custom.langs then
-    return ft
+  for ft, _ in pairs(require("editor").config.treesitter_ft) do
+    table.insert(fts, ft)
   end
 
-  -- append some customize treesitter filetype
-  for _, v in ipairs(custom.langs) do
-    local la = nil
-    if type(v) == "string" then
-      la = v
-    elseif type(v) == "table" and #v > 0 then
-      la = v[1]
-    end
-
-    if la ~= nil then
-      if alias[la] then
-        la = alias[la]
-      end
-
-      table.insert(ft, la)
-    end
-  end
-
-  return ft
+  return fts
 end
+
+config.treesitter_ft = treesitter_ft()
 
 --
 -- lspconfig
@@ -208,39 +180,17 @@ config.lspconfig_config = function()
   require("plugins.coding.config.lspconfig")
 end
 
-config.lspconfig_ft = {
-  "bash",
-  "c",
-  "cpp",
-  "go",
-  "html",
-  "javascript",
-  "json",
-  "lua",
-  "python",
-  "rust",
-  "sh",
-  "toml",
-}
-
--- do a unique insertion into lspconfig
-function update_lspconfig_ft()
-  local set = {}
-  for _, v in ipairs(config.lspconfig_ft) do
-    set[v] = 0
+-- Generate lspconfig load filetype from langs table
+local function lspconfig_ft()
+  local filetype = {}
+  for ft, _ in pairs(require("editor").config.lspconfig) do
+    table.insert(filetype, ft)
   end
 
-  if present and custom.langs then
-    for _, lang in ipairs(custom.langs) do
-      if type(lang) == "table" and #lang > 1 and set[lang[1]] == nil then
-        table.insert(config.lspconfig_ft, lang[1])
-      end
-    end
-  end
+  return filetype
 end
 
--- do once, to reduce complexity
-update_lspconfig_ft()
+config.lspconfig_ft = lspconfig_ft()
 
 --
 -- lspsaga
