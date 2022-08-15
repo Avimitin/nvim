@@ -1,13 +1,15 @@
 local nvim = {}
 
+-- default config for the editor
 nvim.config = {
   theme = "kanagawa",
 
   -- Use `set` data structure to filter redundant
   treesitter_ft = {
-    -- enable lua and vim by default only
+    -- enable lua, vim, rust by default only
     lua = 1,
     vim = 1,
+    rust = 1,
   },
 
   lspconfig = {
@@ -48,6 +50,7 @@ nvim.config = {
   },
 }
 
+-- Expand the "{ "filetype", ... }" style table
 local function expand_single_ft_table(ft, lsp_server, lsp_settings)
   -- treesitter don't know what is {type,java}scriptreact
   local ft_alias = {
@@ -78,12 +81,14 @@ local function expand_single_ft_table(ft, lsp_server, lsp_settings)
   }
 end
 
+-- Expand the "{{ft, ft, ft}, ...}" style table
 local function expand_multi_ft_table(langs, lsp, cfg)
   for _, ft in ipairs(langs) do
     expand_single_ft_table(ft, lsp, cfg)
   end
 end
 
+-- Expand the custom.langs field
 local function expand_lang(languages)
   for _, v in ipairs(languages) do
     -- "filetype" string only
