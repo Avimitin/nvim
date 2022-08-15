@@ -1,4 +1,3 @@
-local present, custom = pcall(require, "custom")
 local config = {}
 
 -- pre-process
@@ -47,15 +46,6 @@ end
 
 config.post = function()
   require("plugins.enhance.config.rooter")
-end
-
-config.vale_config = function()
-  -- for vale
-  vim.g.enable_vale = 0 -- set it to 1 after you setup vale
-
-  if present and custom.enable_vale then
-    vim.g.enable_vale = 1
-  end
 end
 
 --
