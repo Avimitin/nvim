@@ -31,7 +31,9 @@ This configuration is compatible with neovim 0.7+, the latest stable version.
 
 ```bash
 # You can fork and use git to download source code
-git clone --depth=1 https://github.com/YOUR_USERNAME/nvim.git ~/.config/nvim
+git clone --depth=1 https://github.com/Avimitin/nvim.git ~/.config/nvim
+# Then switch to the latest stable version
+git checkout latest
 
 # Or You can just download the latest stable version (Auto Retagged)
 curl "https://github.com/Avimitin/nvim/blob/master/scripts/install.bash" -o install.bash
