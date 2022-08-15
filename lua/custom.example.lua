@@ -4,16 +4,15 @@ local my_config = {
   -- the global theme settings
   theme = "kanagawa",
 
-  -- Single string or a array with one item represent filetype that
-  -- nvim-treesitter should load.
-  --
-  -- Array with two item which sencond item is lsp server means both
-  -- lspconfig and nvim-treesitter should be load on this filetype,
-  -- and lspconfig will automatically install the server.
-  --
-  -- WARNING: Please do not set rust-analyzer here. The rust-tools.nvim plugin
-  -- is already handle the lsp server.
+  -- Treesitter and Lspconfig settings
+  -- HINT: Don't configure Lua and Rust here, they are pre-configured.
   langs = {
+    --
+    -- Single string means that you only need the treesitter plugin on the filetype
+    --
+
+    -- Enable treesitter only
+    -- Supported language: https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
     "bash",
     "comment",
     "fish",
@@ -22,13 +21,38 @@ local my_config = {
     "nix",
     "rust",
     "toml",
-    { "vim" },
+    "vim",
+
+    --
+    -- Array with multiple items means you want treesitter and lspconfig on the filetype
+    --
+    -- Lsp server configuration:
+    --   https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+
+    -- Enable treesitter for *.go, and use gopls as lsp server
     { "go", "gopls" },
-    { "lua", "sumneko_lua" },
-    { "c", "clangd" }, -- require npm
-    { "cpp", "clangd" }, -- require npm
-    { "javascript", "eslint" }, -- require npm
-    { "python", "pyright" }, -- require npm
+
+    -- Enable treesitter for *.c, *.cpp, and use clangd for them
+    { { "c", "cpp" }, "clangd" },
+
+    -- use eslint for .js, .ts, .tsx, .jsx with treesitter enable
+    { { "javascript", "typescript", "javascriptreact", "typescriptreact" }, "eslint" },
+
+    -- Enable treesitter for *.py, use pyright as lsp server, and pass some
+    -- custom settings to the lsp server.
+    {
+      "python",
+      "pyright",
+      { -- <- do not miss the brace, we need to pass a Key-Value data structure to the server
+        python = {
+          analysis = {
+            autoSearchPaths = true,
+            diagnosticMode = "workspace",
+            useLibraryCodeForTypes = true,
+          },
+        },
+      }, -- <- same as above
+    },
   },
 
   -- configuration for null-ls lsp injection
@@ -38,7 +62,7 @@ local my_config = {
 
   autocmd_enable = {
     fcitx5 = false, -- require fcitx5-remote
-    lastline = false,
+    lastline = true,
     diff_on_commit = false, -- might mess up your window
   },
 

@@ -6,7 +6,7 @@ Those settings can all define in an optional `Lua` module.
 
 ## Details
 
-Create a file named `custom.lua` under the `~/.config/nvim/lua` directory.
+Rename the `lua/custom.example.lua` file to `lua/custom.lua`, then make your modification.
 The `.gitignore` file contains the `custom.lua` file already.
 
 Create a new configuration table and return it at the end.
@@ -14,34 +14,38 @@ Create a new configuration table and return it at the end.
 ```lua
 -- example
 local my_config = {
-  -- the global theme settings
   theme = "kanagawa",
 
   langs = {
-    "bash",
-    "comment",
     "fish",
     "html",
     "json",
-    "nix",
-    "rust",
     "toml",
-    { "vim" },
     { "go", "gopls" },
-    { "lua", "sumneko_lua" },
-    { "c", "clangd" }, -- require npm
-    { "cpp", "clangd" }, -- require npm
-    { "javascript", "eslint" }, -- require npm
-    { "python", "pyright" }, -- require npm
+    { { "javascript", "typescript", "javascriptreact", "typescriptreact" }, "eslint" },
+    {
+      "python",
+      "pyright",
+      {
+        python = {
+          analysis = {
+            autoSearchPaths = true,
+            diagnosticMode = "workspace",
+            useLibraryCodeForTypes = true,
+          },
+        },
+      },
+    },
   },
 
+  -- configuration for null-ls lsp injection
   null_ls = {
     enable_stylua_fmt = false, -- require stylua executable
   },
 
   autocmd_enable = {
     fcitx5 = false, -- require fcitx5-remote
-    lastline = false,
+    lastline = true,
     diff_on_commit = false, -- might mess up your window
   },
 
@@ -67,14 +71,18 @@ Current supported options:
 
 ### langs
 
-This fields contains an array of language layer definitions. Single string or an array with item
+This fields contains an array of language layer definitions.
+
+* Single string or an array with item
 tells the editor to load nvim-treesitter only for this languages.
-An array with two items tells the editor to load both of the nvim-treesitter and lspconfig plugins.
-And the second items for the multi-items array should be lsp server that you want to automatically
-installed and enabled.
+* An array with two items tells the editor to load both of the nvim-treesitter and lspconfig plugins.
+And the second items for the multi-items array should be lsp server that you want to enabled.
+* If the array contains three items, the third item will be considered as server configuration and
+will be transfer to the lsp server.
 
 * [Available Lsp Servers](https://github.com/williamboman/nvim-lsp-installer#available-lsps)
 * [Supported Languages for treesitter](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages)
+* [Lsp Server Configuration](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
 
 ### `autocmd_enable`
 
