@@ -140,39 +140,43 @@
 Like color scheme or some other settings.
 Those settings can all define in an optional <code>Lua</code> module.</p>
 <h2 id="details"><a class="header" href="#details">Details</a></h2>
-<p>Create a file named <code>custom.lua</code> under the <code>~/.config/nvim/lua</code> directory.
+<p>Rename the <code>lua/custom.example.lua</code> file to <code>lua/custom.lua</code>, then make your modification.
 The <code>.gitignore</code> file contains the <code>custom.lua</code> file already.</p>
 <p>Create a new configuration table and return it at the end.</p>
 <pre><code class="language-lua">-- example
 local my_config = {
-  -- the global theme settings
   theme = &quot;kanagawa&quot;,
 
   langs = {
-    &quot;bash&quot;,
-    &quot;comment&quot;,
     &quot;fish&quot;,
     &quot;html&quot;,
     &quot;json&quot;,
-    &quot;nix&quot;,
-    &quot;rust&quot;,
     &quot;toml&quot;,
-    { &quot;vim&quot; },
     { &quot;go&quot;, &quot;gopls&quot; },
-    { &quot;lua&quot;, &quot;sumneko_lua&quot; },
-    { &quot;c&quot;, &quot;clangd&quot; }, -- require npm
-    { &quot;cpp&quot;, &quot;clangd&quot; }, -- require npm
-    { &quot;javascript&quot;, &quot;eslint&quot; }, -- require npm
-    { &quot;python&quot;, &quot;pyright&quot; }, -- require npm
+    { { &quot;javascript&quot;, &quot;typescript&quot;, &quot;javascriptreact&quot;, &quot;typescriptreact&quot; }, &quot;eslint&quot; },
+    {
+      &quot;python&quot;,
+      &quot;pyright&quot;,
+      {
+        python = {
+          analysis = {
+            autoSearchPaths = true,
+            diagnosticMode = &quot;workspace&quot;,
+            useLibraryCodeForTypes = true,
+          },
+        },
+      },
+    },
   },
 
+  -- configuration for null-ls lsp injection
   null_ls = {
     enable_stylua_fmt = false, -- require stylua executable
   },
 
   autocmd_enable = {
     fcitx5 = false, -- require fcitx5-remote
-    lastline = false,
+    lastline = true,
     diff_on_commit = false, -- might mess up your window
   },
 
@@ -194,14 +198,29 @@ return my_config -- &lt;- Don't forget to return this table, or the config will 
 </tbody></table>
 </div>
 <h3 id="langs"><a class="header" href="#langs">langs</a></h3>
-<p>This fields contains an array of language layer definitions. Single string or an array with item
-tells the editor to load nvim-treesitter only for this languages.
-An array with two items tells the editor to load both of the nvim-treesitter and lspconfig plugins.
-And the second items for the multi-items array should be lsp server that you want to automatically
-installed and enabled.</p>
+<p>This fields contains an array of language layer definitions.</p>
 <ul>
-<li><a href="https://github.com/williamboman/nvim-lsp-installer#available-lsps">Available Lsp Servers</a></li>
-<li><a href="https://github.com/nvim-treesitter/nvim-treesitter#supported-languages">Supported Languages for treesitter</a></li>
+<li>
+<p>Single string or an array with item
+tells the editor to load nvim-treesitter only for this languages.</p>
+</li>
+<li>
+<p>An array with two items tells the editor to load both of the nvim-treesitter and lspconfig plugins.
+And the second items for the multi-items array should be lsp server that you want to enabled.</p>
+</li>
+<li>
+<p>If the array contains three items, the third item will be considered as server configuration and
+will be transfer to the lsp server.</p>
+</li>
+<li>
+<p><a href="https://github.com/williamboman/nvim-lsp-installer#available-lsps">Available Lsp Servers</a></p>
+</li>
+<li>
+<p><a href="https://github.com/nvim-treesitter/nvim-treesitter#supported-languages">Supported Languages for treesitter</a></p>
+</li>
+<li>
+<p><a href="https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md">Lsp Server Configuration</a></p>
+</li>
 </ul>
 <h3 id="autocmd_enable"><a class="header" href="#autocmd_enable"><code>autocmd_enable</code></a></h3>
 <div class="table-wrapper"><table><thead><tr><th>cmd</th><th>function</th></tr></thead><tbody>
