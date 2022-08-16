@@ -375,7 +375,7 @@ return function()
     insert_right({
       GetLspClient = {
         provider = "GetLspClient",
-        separator = " LSP: ",
+        separator = "  ",
         separator_highlight = { colors.blue, colors.black },
         condition = function()
           local clients = vim.lsp.get_active_clients()
@@ -398,8 +398,8 @@ return function()
 
   insert_right({
     FileFormat = {
-      provider = "FileFormat",
-      separator = " ",
+      provider = "FileEncode",
+      separator = "",
       condition = checkwidth,
       separator_highlight = { colors.blue, colors.black },
       highlight = { colors.fg, colors.black },
