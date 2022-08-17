@@ -58,7 +58,8 @@ return function()
   local function should_activate_lsp()
     local ft = vim.bo.filetype
     for _, val in ipairs(lsp_ft) do
-      if ft == val then
+      -- "rust" filetype is special
+      if ft == val or ft == "rust" then
         return true
       end
     end
