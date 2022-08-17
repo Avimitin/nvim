@@ -198,6 +198,8 @@ config.lspconfig_ft = lspconfig_ft()
 config.lspsaga_config = function()
   local enable_winbar = vim.fn.has("nvim-0.8.0") == 1
   local saga = require("lspsaga")
+  local themes = require("lspsaga.lspkind")
+  themes[12][2] = " "
 
   -- use custom config
   saga.init_lsp_saga({
