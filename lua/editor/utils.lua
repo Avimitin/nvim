@@ -88,4 +88,10 @@ M.xmap = xmap
 M.fmap = fmap
 M.new_desc = new_desc
 
+-- Return true if the variable is presenting in the vim global variable
+-- @param var: vim variable
+M.vhas = function(var)
+  return vim.fn.has(var) == 1
+end
+
 return M
