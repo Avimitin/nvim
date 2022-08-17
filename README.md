@@ -28,6 +28,8 @@ You can press the fork button to clone my project (Don't forget
 to smash the star button! `:)`), then pull your repo to the local:
 
 This configuration is compatible with neovim 0.7+, the latest stable version.
+And consider using the latest stable release. I will push some experimental changes to
+the master branch, and they may be reverted.
 
 ```bash
 # You can fork and use git to download source code
