@@ -117,28 +117,11 @@ help you test the code, attach "Tested-by: Sam \<Sam@example.com\>".
 If you are using GPG to sign your commit, you can attach your name at the end
 of the rooter like: "Signed-off-by: Yourname \<name@example.com\>".
 
-## Semantic version
+## Versioning
 
-This document add additional details for how to increase semantic version.
-
-### API Compatibility
-
-- Plugins
-  - Major: Remove/Replace any plugin
-  - Minor: Add new plugin
-  - Minor: Modify plugin setting
-- Keymaps
-  - Major: Remove any keymap
-  - Minor: Add/Replace keymap
-- Options
-  - Minor: Update options
-- Colorscheme
-  - Major: Remove any colorscheme
-  - Minor: Update colorscheme setting
-  - Minor: Replace default colorscheme
-- utils.lua
-  - Major: Remove any functionality
-  - Minor: Add/Replace/Modify function
+This configuration is not gonna follow semver, instead, it use calendar versioning and
+release new version in each friday.
+Version will be released in `YY.MM.W` format. The `W` represent the nth week of this month.
 
 ## Benchmark
 
