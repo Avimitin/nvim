@@ -4,6 +4,11 @@ local config = {}
 -- Config that should be set before plugin loaded
 config.pre = function()
   config.vim_go_config()
+
+  -- close vim matchup's notice because we have lspsaga's winbar
+  if require("editor.utils").vhas("nvim-0.8.0") then
+    vim.g.matchup_matchparen_offscreen = {}
+  end
 end
 
 --
@@ -196,7 +201,7 @@ config.lspconfig_ft = lspconfig_ft()
 -- lspsaga
 --
 config.lspsaga_config = function()
-  local enable_winbar = vim.fn.has("nvim-0.8.0") == 1
+  local enable_winbar = require("editor.utils").vhas("nvim-0.8.0")
   local saga = require("lspsaga")
   local themes = require("lspsaga.lspkind")
   themes[12][2] = " "
