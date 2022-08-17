@@ -229,42 +229,10 @@ mention a bug, attach &quot;Reported-by: Tom &lt;Tom@example.com&gt;&quot;. If s
 help you test the code, attach &quot;Tested-by: Sam &lt;Sam@example.com&gt;&quot;.</p>
 <p>If you are using GPG to sign your commit, you can attach your name at the end
 of the rooter like: &quot;Signed-off-by: Yourname &lt;name@example.com&gt;&quot;.</p>
-<h2 id="semantic-version"><a class="header" href="#semantic-version">Semantic version</a></h2>
-<p>This document add additional details for how to increase semantic version.</p>
-<h3 id="api-compatibility"><a class="header" href="#api-compatibility">API Compatibility</a></h3>
-<ul>
-<li>Plugins
-<ul>
-<li>Major: Remove/Replace any plugin</li>
-<li>Minor: Add new plugin</li>
-<li>Minor: Modify plugin setting</li>
-</ul>
-</li>
-<li>Keymaps
-<ul>
-<li>Major: Remove any keymap</li>
-<li>Minor: Add/Replace keymap</li>
-</ul>
-</li>
-<li>Options
-<ul>
-<li>Minor: Update options</li>
-</ul>
-</li>
-<li>Colorscheme
-<ul>
-<li>Major: Remove any colorscheme</li>
-<li>Minor: Update colorscheme setting</li>
-<li>Minor: Replace default colorscheme</li>
-</ul>
-</li>
-<li>utils.lua
-<ul>
-<li>Major: Remove any functionality</li>
-<li>Minor: Add/Replace/Modify function</li>
-</ul>
-</li>
-</ul>
+<h2 id="versioning"><a class="header" href="#versioning">Versioning</a></h2>
+<p>This configuration is not gonna follow semver, instead, it use calendar versioning and
+release new version in each friday.
+Version will be released in <code>YY.MM.W</code> format. The <code>W</code> represent the nth week of this month.</p>
 <h2 id="benchmark"><a class="header" href="#benchmark">Benchmark</a></h2>
 <p>I've write a Perl script to handle the benchmark.</p>
 <pre><code class="language-bash">perl ./fixtures/benchmark.pl
