@@ -1,3 +1,32 @@
+cv2022.08.21
+============
+
+BREAKING CHANGES:
+-----------------
+* As this configuration will be changed constantly, and there will be
+a great deals of breaking changes from plugins, so from now on the configuration
+will use calendar versioning.
+* rest.nvim is removed in commit 3577818.
+* vim-eunch is removed in commit a30e46e.
+
+FIX:
+----
+* fix nvim-tree.lua ignore file regex match
+
+FEATURES:
+---------
+* Add command `SudoW` to help writing content when we forget open neovim as root.
+* Map `<backspace>` to delete without copying.
+* Enable VSCode like winbar when using neovim 0.8.0+
+
+CHANGES:
+--------
+* Update Markdown highlight
+* (Internal) use new positive approach to expand the custom.lua configuration
+* Change the status line FileFormat component to FileEncode component.
+* Enlarge the sign column.
+
+
 v7.3.1 (Aug 10 2022)
 ====================
 

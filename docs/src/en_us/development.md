@@ -120,8 +120,8 @@ of the rooter like: "Signed-off-by: Yourname \<name@example.com\>".
 ## Versioning
 
 This configuration is not gonna follow semver, instead, it use calendar versioning and
-release new version in each friday.
-Version will be released in `YY.MM.W` format. The `W` represent the nth week of this month.
+release new version in each weekend.
+Version will be released in `cvYYYY.0M.0D` format.
 
 ## Benchmark
 
