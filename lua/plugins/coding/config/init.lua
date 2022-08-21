@@ -187,7 +187,11 @@ end
 
 -- Generate lspconfig load filetype from langs table
 local function lspconfig_ft()
-  local filetype = {}
+  -- Rust is configured by rust-tools.nvim plugin
+  local filetype = {
+    "rust",
+  }
+
   for ft, _ in pairs(require("editor").config.lspconfig) do
     table.insert(filetype, ft)
   end
