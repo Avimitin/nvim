@@ -22,7 +22,7 @@ return function()
     orange = "#FF8800",
     purple = "#C678DD",
     magenta = "#C858E9",
-    blue = "#73BA9F",
+    blue = "#81A1C1",
     red = "#D54E53",
   }
 
@@ -392,7 +392,7 @@ return function()
       separator = " ",
       separator_highlight = { colors.blue, colors.black },
       condition = checkwidth,
-      highlight = { colors.cyan, colors.black },
+      highlight = { colors.fg, colors.black },
     },
   })
 
