@@ -35,33 +35,54 @@ config.gitsigns_config = function()
       },
     },
     on_attach = function(bufnr)
-      local function map(mode, lhs, rhs, opts)
-        opts = vim.tbl_extend("force", { noremap = true, silent = true }, opts or {})
-        vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
+      local gs = package.loaded.gitsigns
+
+      local function map(mode, l, r, opts)
+        opts = opts or {}
+        opts.buffer = bufnr
+        vim.keymap.set(mode, l, r, opts)
       end
 
       -- Navigation
-      map("n", "gij", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
-      map("n", "gik", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
+      map("n", "gij", function()
+        if vim.wo.diff then
+          return "]c"
+        end
+        vim.schedule(function()
+          gs.next_hunk()
+        end)
+        return "<Ignore>"
+      end, { expr = true })
+
+      map("n", "gik", function()
+        if vim.wo.diff then
+          return "[c"
+        end
+        vim.schedule(function()
+          gs.prev_hunk()
+        end)
+        return "<Ignore>"
+      end, { expr = true })
 
       -- Actions
-      map("n", "gis", ":Gitsigns stage_hunk<CR>")
-      map("v", "gis", ":Gitsigns stage_hunk<CR>")
-      map("n", "gir", ":Gitsigns reset_hunk<CR>")
-      map("v", "gir", ":Gitsigns reset_hunk<CR>")
-      map("n", "giS", "<cmd>Gitsigns stage_buffer<CR>")
-      map("n", "giu", "<cmd>Gitsigns undo_stage_hunk<CR>")
-      map("n", "giR", "<cmd>Gitsigns reset_buffer<CR>")
-      map("n", "gip", "<cmd>Gitsigns preview_hunk<CR>")
-      map("n", "giB", '<cmd>lua require"gitsigns".blame_line{full=true}<CR>')
-      map("n", "gib", "<cmd>Gitsigns toggle_current_line_blame<CR>")
-      map("n", "gid", "<cmd>Gitsigns diffthis<CR>")
-      map("n", "giD", '<cmd>lua require"gitsigns".diffthis("~")<CR>')
-      map("n", "gih", "<cmd>Gitsigns toggle_deleted<CR>")
+      map({ "n", "v" }, "gis", ":Gitsigns stage_hunk<CR>")
+      map({ "n", "v" }, "gir", ":Gitsigns reset_hunk<CR>")
+      map("n", "giS", gs.stage_buffer)
+      map("n", "giu", gs.undo_stage_hunk)
+      map("n", "giR", gs.reset_buffer)
+      map("n", "gip", gs.preview_hunk)
+      map("n", "gib", function()
+        gs.blame_line({ full = true })
+      end)
+      map("n", "gib", gs.toggle_current_line_blame)
+      map("n", "gid", gs.diffthis)
+      map("n", "giD", function()
+        gs.diffthis("~")
+      end)
+      map("n", "<leader>td", gs.toggle_deleted)
 
       -- Text object
-      map("o", "ih", ":<C-U>Gitsigns select_hunk<CR>")
-      map("x", "ih", ":<C-U>Gitsigns select_hunk<CR>")
+      map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
     end,
     numhl = true,
     linehl = false,
