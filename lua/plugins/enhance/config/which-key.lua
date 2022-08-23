@@ -107,6 +107,7 @@ return function()
     ["ao"] = "condition (AROUND)",
     ["io"] = "condition (INNER)",
     ["as"] = "statement (AROUND)",
+    ["ih"] = "git hunk",
   }
 
   wk.register(text_objects, { mode = "o", prefix = "" })
