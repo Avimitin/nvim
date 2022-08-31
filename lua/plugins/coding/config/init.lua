@@ -216,6 +216,10 @@ config.lspsaga_config = function()
     move_in_saga = { prev = "k", next = "j" },
     diagnostic_header = { " ", " ", " ", " " },
     diagnostic_source_bracket = { "戀", ":" },
+    scroll_in_preview = {
+      scroll_down = "<C-d>",
+      scroll_up = "<C-u>",
+    },
     code_action_icon = " ",
     -- same as nvim-lightbulb but async
     code_action_lightbulb = {

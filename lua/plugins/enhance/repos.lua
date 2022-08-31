@@ -46,7 +46,7 @@ local repos = {
     "glepnir/galaxyline.nvim",
     branch = "main",
     event = "UIEnter",
-    config = function ()
+    config = function()
       require("plugins.enhance.config").galaxyline_config()
     end,
   },
