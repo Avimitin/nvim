@@ -92,12 +92,6 @@ local repos = {
     cmd = "SymbolsOutline",
   },
 
-  -- go coding enhancement
-  {
-    "fatih/vim-go",
-    ft = { "go" },
-  },
-
   -- use `gcc` `gbc` to comment
   {
     "numToStr/Comment.nvim",
