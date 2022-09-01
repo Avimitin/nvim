@@ -205,7 +205,6 @@ config.lspconfig_ft = lspconfig_ft()
 -- lspsaga
 --
 config.lspsaga_config = function()
-  local enable_winbar = require("editor.utils").vhas("nvim-0.8.0")
   local saga = require("lspsaga")
   local themes = require("lspsaga.lspkind")
   themes[12][2] = " "
@@ -245,7 +244,7 @@ config.lspsaga_config = function()
     -- close it until neovim 0.8.0 become stable
     symbol_in_winbar = {
       in_custom = false,
-      enable = enable_winbar,
+      enable = false,
       separator = "  ",
       show_file = false,
       click_support = false,
