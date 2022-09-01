@@ -140,7 +140,7 @@ end
 --
 -- You can disable this feature in `~/.config/lua/custom.lua` file
 --
-if autocmd_cfg.fcitx5 then
+if not autocmd_cfg.fcitx5 then
   return
 end
 
