@@ -222,8 +222,8 @@ config.lspsaga_config = function()
     code_action_icon = " ",
     -- same as nvim-lightbulb but async
     code_action_lightbulb = {
-      sign_priority = 40,
-      virtual_text = false,
+      sign = false,
+      virtual_text = true,
     },
     finder_icons = {
       def = "  ",

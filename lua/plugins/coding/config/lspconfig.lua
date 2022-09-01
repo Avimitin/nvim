@@ -63,12 +63,13 @@ local signs = {
   Info = " ",
 }
 
-for type, icon in pairs(signs) do
+for type, _ in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, {
-    text = icon,
+    text = "",
     texthl = hl,
-    numhl = "",
+    numhl = hl,
+    linehl = hl,
   })
 end
 

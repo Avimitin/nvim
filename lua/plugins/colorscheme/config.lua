@@ -108,8 +108,8 @@ colorscheme_settings.kanagawa_setup = function()
         bg = default.winterYellow,
       },
       WinSeparator = {
-        fg = default.sumiInk4
-      }
+        fg = default.sumiInk4,
+      },
     },
   })
   apply()
