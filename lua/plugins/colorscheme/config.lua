@@ -41,9 +41,14 @@ colorscheme_settings.kanagawa_setup = function()
     specialReturn = true, -- special highlight for the return keyword
     specialException = true, -- special highlight for exception handling keywords
     transparent = false, -- do not set background color
-    dimInactive = true,
+    dimInactive = false,
     colors = {},
+    globalStatus = true,
     overrides = {
+      normal = {
+        bg = "#010409",
+        fg = default.fujiWhite,
+      },
       -- use gradient yellow for heading
       markdownH1 = {
         fg = default.waveRed,
@@ -102,6 +107,9 @@ colorscheme_settings.kanagawa_setup = function()
       HighLightLineMatches = {
         bg = default.winterYellow,
       },
+      WinSeparator = {
+        fg = default.sumiInk4
+      }
     },
   })
   apply()
