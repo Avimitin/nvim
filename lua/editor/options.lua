@@ -91,7 +91,7 @@ opt.colorcolumn = "100"
 opt.lazyredraw = true
 
 -- always draw signcolumn, with 1 fixed space to show 2 icon at the same time
-opt.signcolumn = "yes:2"
+opt.signcolumn = "yes:1"
 
 -- enable all the mouse functionality
 opt.mouse = "a"
