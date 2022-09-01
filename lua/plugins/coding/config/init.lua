@@ -247,7 +247,7 @@ config.lspsaga_config = function()
       in_custom = false,
       enable = enable_winbar,
       separator = "  ",
-      show_file = false,
+      show_file = true,
       click_support = false,
     },
   })
