@@ -46,7 +46,6 @@ M.nvim_cmp_config = function()
   }
 
   local source_menu = {
-    buffer = "[ Buf]",
     nvim_lsp = "[ LSP]",
     luasnip = "[ LSnip]",
     vsnip = "[ Snippet]",
@@ -124,7 +123,6 @@ M.nvim_cmp_config = function()
     sources = {
       { name = "nvim_lsp", priority = 99 },
       { name = "vsnip" },
-      { name = "buffer" },
       { name = "path" },
     },
     experimental = {
