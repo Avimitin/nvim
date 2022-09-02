@@ -81,9 +81,6 @@ opt.visualbell = true
 opt.updatetime = 100
 opt.virtualedit = "block"
 
--- highlight a column at the 100 chars
-opt.colorcolumn = "100"
-
 -- screen will not redraw when exec marcro, register
 opt.lazyredraw = true
 
