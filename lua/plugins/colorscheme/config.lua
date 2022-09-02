@@ -110,6 +110,18 @@ colorscheme_settings.kanagawa_setup = function()
       WinSeparator = {
         fg = default.sumiInk4,
       },
+      DiagnosticSignError = {
+        bg = "#320404",
+      },
+      DiagnosticSignHint = {
+        bg = "#01252E",
+      },
+      DiagnosticSignWarn = {
+        bg = "#2F2402",
+      },
+      DiagnosticSignInfo = {
+        bg = "#262729",
+      },
     },
   })
   apply()
