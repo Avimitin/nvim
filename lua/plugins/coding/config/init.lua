@@ -216,6 +216,9 @@ config.lspsaga_config = function()
       click_support = false,
     },
   })
+
+  -- set lightbulb as comment like
+  vim.api.nvim_set_hl(0, "LspSagaLightBulb", { link = "Comment" })
 end
 
 --
