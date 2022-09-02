@@ -97,9 +97,9 @@ return function()
       },
     },
     view = {
-      width = 25,
+      width = 30,
       -- height = 30,
-      side = "left",
+      side = "right",
       mappings = {
         custom_only = false,
         list = {
