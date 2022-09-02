@@ -111,10 +111,10 @@ colorscheme_settings.kanagawa_setup = function()
         fg = default.sumiInk4,
       },
       DiagnosticSignError = {
-        bg = "#320404",
+        bg = "#2A1C23",
       },
       DiagnosticSignHint = {
-        bg = "#021A2F",
+        bg = "#1C1E2A",
       },
       DiagnosticSignWarn = {
         bg = "#1A140D",
