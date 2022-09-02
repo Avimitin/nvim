@@ -14,9 +14,6 @@ opt.fileencoding = "utf-8"
 opt.number = true
 opt.rnu = true
 
--- highlight the current line
-opt.cursorline = true
-
 -- TAB SETTING
 -- Use 2 spaces forcely. But don't worry, vim-sleuth will handle the indent
 -- gracefully. See <https://github.com/tpope/vim-sleuth> for more.
