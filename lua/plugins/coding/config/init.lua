@@ -70,7 +70,10 @@ config.null_ls_config = function()
   local null_ls = require("null-ls")
 
   local sources = {}
-  local null_ls_settings = require("custom").null_ls
+  local presented, null_ls_settings = pcall(require, "custom")
+  if not presented then
+    return
+  end
 
   if not null_ls then
     return
