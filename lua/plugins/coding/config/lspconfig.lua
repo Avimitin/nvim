@@ -46,9 +46,17 @@ local handlers = {
 -- Setup diagnostic icons and signs
 vim.diagnostic.config({
   virtual_text = {
-    prefix = "﮿",
+    prefix = "",
     spacing = 4,
-    source = "always",
+    format = function(diagnostic)
+      local icons = {
+        ERROR = " ",
+        WARN = " ",
+        HINT = " ",
+        INFO = " ",
+      }
+      return string.format("%s %s", icons[vim.diagnostic.severity[diagnostic.severity]], diagnostic.message)
+    end
   },
   signs = true,
   underline = true,
