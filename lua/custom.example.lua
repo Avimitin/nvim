@@ -38,17 +38,25 @@ local my_config = {
     -- use eslint for .js, .ts, .tsx, .jsx with treesitter enable
     { { "javascript", "typescript", "javascriptreact", "typescriptreact" }, "eslint" },
 
-    -- Enable treesitter for *.py, use pyright as lsp server, and pass some
-    -- custom settings to the lsp server.
+    -- Enable treesitter for *.lua, use sumneko_lua as lsp server, and add neovim runtime library path
+    -- into server search path. You can delete the settings if you are not developing
+    -- neovim configuration or plugins.
     {
-      "python",
-      "pyright",
+      "lua",
+      "sumneko_lua",
       { -- <- do not miss the brace, we need to pass a Key-Value data structure to the server
-        python = {
-          analysis = {
-            autoSearchPaths = true,
-            diagnosticMode = "workspace",
-            useLibraryCodeForTypes = true,
+        Lua = {
+          runtime = {
+            version = "LuaJIT",
+          },
+          diagnostics = {
+            globals = { "vim" },
+          },
+          workspace = {
+            library = vim.api.nvim_get_runtime_file("", true),
+          },
+          telemetry = {
+            enable = false,
           },
         },
       }, -- <- same as above
