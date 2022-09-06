@@ -4,6 +4,10 @@ local my_config = {
   -- the global theme settings
   theme = "kanagawa",
 
+  -- Use darker background? Can be a boolean value *OR* a strings with hex-color.
+  use_darker_background = true,
+  -- use_darker_background = "#0d1117"
+
   -- Treesitter and Lspconfig settings
   -- HINT: Don't configure Lua and Rust here, they are pre-configured.
   langs = {
