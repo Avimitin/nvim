@@ -55,8 +55,12 @@ vim.diagnostic.config({
         HINT = " ",
         INFO = " ",
       }
-      return string.format("%s %s", icons[vim.diagnostic.severity[diagnostic.severity]], diagnostic.message)
-    end
+      return string.format(
+        "%s %s",
+        icons[vim.diagnostic.severity[diagnostic.severity]],
+        diagnostic.message
+      )
+    end,
   },
   signs = true,
   underline = true,
