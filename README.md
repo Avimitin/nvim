@@ -3,12 +3,7 @@
 
 ![badge](https://github.com/avimitin/nvim/actions/workflows/test.yml/badge.svg)
 ![badge](https://github.com/avimitin/nvim/actions/workflows/lint.yml/badge.svg)
-![badge](https://img.shields.io/badge/Language-Lua-blue?logo=lua&logoColor=blue)
-![badge](https://img.shields.io/github/contributors/Avimitin/nvim?color=dark-green)
-![badge](https://img.shields.io/github/issues/Avimitin/nvim)
 ![badge](https://img.shields.io/github/license/Avimitin/nvim)
-![badge](https://img.shields.io/github/forks/Avimitin/nvim?style=social)
-![badge](https://img.shields.io/github/stars/Avimitin/nvim?style=social)
 
 ## Features
 
