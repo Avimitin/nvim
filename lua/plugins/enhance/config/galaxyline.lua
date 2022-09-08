@@ -12,9 +12,9 @@ return function()
 
   local current_scheme = vim.g.colors_name
   local colors = {
-    bg = "#2F3445",
+    bg = "#1F1F28",
     fg = "#8FBCBB",
-    black = "#1F253A",
+    black = "#22222C",
     yellow = "#E5C07B",
     cyan = "#70C0BA",
     dimblue = "#83A598",
