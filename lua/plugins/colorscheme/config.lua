@@ -111,7 +111,7 @@ colorscheme_settings.kanagawa_setup = function()
     local background = nil
 
     if type(custom.use_darker_background) == "boolean" and custom.use_darker_background then
-      background = "#0D1117"
+      background = "#14141D"
     end
 
     if type(custom.use_darker_background) == "string" then
