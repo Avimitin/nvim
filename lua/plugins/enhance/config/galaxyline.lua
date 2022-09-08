@@ -470,7 +470,11 @@ return function()
       ShortLineLeftBufferType = {
         highlight = { colors.cyan, colors.bg },
         provider = function()
-          local name = BufferTypeMap[vim.bo.filetype] or " Editor"
+          -- return filename for normal file
+          local get_file_name = function()
+            return string.format("%s %s", "", vim.fn.pathshorten(vim.fn.expand("%")))
+          end
+          local name = BufferTypeMap[vim.bo.filetype] or get_file_name()
           return string.format("  %s", name)
         end,
         separator = " ",
