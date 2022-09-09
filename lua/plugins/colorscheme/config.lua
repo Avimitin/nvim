@@ -99,7 +99,7 @@ colorscheme_settings.kanagawa_setup = function()
       bg = "#1C1E2A",
     },
     DiagnosticSignWarn = {
-      bg = "#1A140D",
+      bg = "#1C140D",
     },
     DiagnosticSignInfo = {
       bg = "#262729",
@@ -165,6 +165,18 @@ colorscheme_settings.github_setup = function()
       return {
         HighLightLineMatches = {
           bg = "#FFDE83",
+        },
+        DiagnosticError = {
+          bg = "#2A1C23",
+        },
+        DiagnosticHint = {
+          bg = "#1C1E2A",
+        },
+        DiagnosticWarn = {
+          bg = "#1C140D",
+        },
+        DiagnosticInfo = {
+          bg = "#262729",
         },
       }
     end,
