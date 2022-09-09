@@ -4,7 +4,7 @@ local nmap = utils.nmap
 local xmap = utils.xmap
 local d = utils.new_desc
 
-vim.g.mapleader = " "
+vim.g.mapleader = ";"
 
 -- quicker motion
 nmap("J", "5j", d("Jump 5 lines down"))

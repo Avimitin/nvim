@@ -5,7 +5,4 @@ local nmap = require("editor.utils").nmap
 -- See git-sign keymap in lua/plugins/config/gitsign_cfg.lua
 nmap("gic", ":Git commit -sS<CR>")
 nmap("giP", ":Dispatch! git push ", { silent = false })
-nmap(";g", [[<CMD>Git<CR>]])
-
--- lazygit
-nmap("<LEADER>l", [[<CMD>LazyGit<CR>]])
+nmap("<leader>g", [[<CMD>Git<CR>]])
