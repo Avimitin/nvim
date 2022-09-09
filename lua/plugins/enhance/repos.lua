@@ -126,16 +126,6 @@ local repos = {
     module = "telescope",
   },
 
-  -- record and manage your paste history
-  {
-    "AckslD/nvim-neoclip.lua",
-    event = "TextYankPost",
-    config = function()
-      require("neoclip").setup()
-      require("telescope").load_extension("neoclip")
-    end,
-  },
-
   -- Press enter to select text object
   {
     "gcmt/wildfire.vim",
