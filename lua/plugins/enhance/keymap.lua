@@ -4,12 +4,12 @@ local nmap = require("editor.utils").nmap
 --
 -- EasyAlign
 --
-map("v", "<leader>e", ":EasyAlign<CR>")
+map("v", "<space>e", ":EasyAlign<CR>")
 
 --
 -- nvim-tree
 --
-nmap(";t", ":NvimTreeToggle<CR>")
+nmap("<leader>t", ":NvimTreeToggle<CR>")
 nmap("<space>t", function()
   local view = require("nvim-tree.view")
   if view.is_visible() then
@@ -35,11 +35,11 @@ map("t", "<C-k>", [[<C-\><C-n><C-w>k]])
 --
 -- telescope
 --
-nmap(";f", function()
+nmap("<leader>f", function()
   require("telescope.builtin").find_files(require("telescope.themes").get_ivy())
 end)
 
-nmap(";s", function()
+nmap("<leader>s", function()
   local pickers = require("telescope.pickers")
   local finders = require("telescope.finders")
   local conf = require("telescope.config").values
@@ -103,7 +103,7 @@ nmap("<M-right>", [[<Cmd>BufferLineCycleNext<CR>]])
 nmap("<M-left>", [[<Cmd>BufferLineCyclePrev<CR>]])
 nmap("<S-Tab>", [[<Cmd>BufferLineCyclePrev<CR>]])
 
-nmap(";p", [[<CMD>:BufferLinePick<CR>]])
+nmap("<leader>p", [[<CMD>:BufferLinePick<CR>]])
 -- move tabs
 nmap("<M-S-right>", [[<CMD>BufferLineMoveNext<CR>]])
 nmap("<M-S-left>", [[<CMD>BufferLineMovePrev<CR>]])
@@ -111,7 +111,7 @@ nmap("<M-S-left>", [[<CMD>BufferLineMovePrev<CR>]])
 --
 -- dispatch
 --
-nmap(";d", ":Dispatch ", { noremap = true, silent = false })
+nmap("<leader>d", ":Dispatch ", { noremap = true, silent = false })
 
 --
 -- vim-matchup
