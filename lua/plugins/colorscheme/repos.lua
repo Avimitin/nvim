@@ -29,6 +29,7 @@ local colorscheme = {
       local select = require("plugins.colorscheme.config").theme
       for _, avail in ipairs({
         "github_dark",
+        "github_dark_default",
         "github_dimmed",
         "github_light",
         "github_light_default",
