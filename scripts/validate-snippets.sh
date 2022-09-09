@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 snippets=$(find ./vsnip -type f -name '*.json')
 
