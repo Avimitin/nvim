@@ -1,4 +1,4 @@
-name: Test
+name: Neovim Stable Test
 
 on:
   push:
@@ -14,12 +14,11 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: alpine:edge
+      image: archlinux:latest
 
     steps:
     - name: Install Deps
-      shell: sh
-      run: apk add git neovim ripgrep alpine-sdk jq --update
+      run: pacman -Syu --needed --noconfirm git neovim ripgrep jq
     - name: Clone Configuration
       run: git clone https://github.com/Avimitin/nvim $HOME/.config/nvim --depth=1
     - name: Test packer complie
@@ -28,4 +27,4 @@ jobs:
         nvim --headless -c "au User PackerComplete quitall" > $LOG_FILE 2>&1
         if rg -qS "err" $LOG_FILE; then cat $LOG_FILE; false; fi
     - name: Test snippets files
-      run: ./scripts/validate-snippets.sh
+      run: cd $HOME/.config/nvim && ./scripts/validate-snippets.sh
