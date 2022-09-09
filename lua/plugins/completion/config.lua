@@ -45,16 +45,6 @@ M.nvim_cmp_config = function()
     TypeParameter = "",
   }
 
-  local source_menu = {
-    nvim_lsp = "[ LSP]",
-    luasnip = "[ LSnip]",
-    vsnip = "[ Snippet]",
-    nvim_lua = "[ NvimLua]",
-    latex_symbols = "[ Latex]",
-    dictionary = "[韛Dict]",
-    crates = "[ Cargo]",
-  }
-
   if cmp == nil or cmp.setup == nil then
     require("editor.utils").infoL("fail to load nvim-cmp", "nvim-cmp")
     return
@@ -71,15 +61,14 @@ M.nvim_cmp_config = function()
       documentation = cmp.config.window.bordered(),
     },
     formatting = {
-      fields = { "kind", "abbr", "menu" },
+      fields = { "abbr", "kind" },
       format = function(entry, item)
         -- return special icon for cmdline completion
         if entry.source.name == "cmdline" then
           item.kind = ""
           return item
         end
-        item.kind = kind_icons[item.kind]
-        item.menu = (source_menu)[entry.source.name]
+        item.kind = string.format("%s %s", kind_icons[item.kind], item.kind)
         return item
       end,
     },
