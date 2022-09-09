@@ -1,4 +1,4 @@
-name: Config Test
+name: Test
 
 on:
   push:
@@ -17,9 +17,9 @@ jobs:
       image: alpine:edge
 
     steps:
-    - name: Install Neovim
+    - name: Install Deps
       shell: sh
-      run: apk add git neovim ripgrep alpine-sdk --update
+      run: apk add git neovim ripgrep alpine-sdk jq --update
     - name: Clone Configuration
       run: git clone https://github.com/Avimitin/nvim $HOME/.config/nvim
     - name: Test packer complie
@@ -27,3 +27,5 @@ jobs:
         LOG_FILE=$(mktemp)
         nvim --headless -c "au User PackerComplete quitall" > $LOG_FILE 2>&1
         if rg -qS "err" $LOG_FILE; then cat $LOG_FILE; false; fi
+    - name: Test snippets files
+      run: cd $HOME/.config/nvim && ./scripts/validate-snippets.sh
