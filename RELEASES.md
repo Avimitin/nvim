@@ -1,3 +1,38 @@
+cv2022.09.11
+============
+
+BREAKING CHANGES:
+-----------------
+* Plugin neoclip.lua was removed. (Commit 4c5d8d5)
+* Plugin vim-go was removed. (Commit 327e413)
+
+FEATURES:
+---------
+* Add key `-/=` to increase/decrease number/date/version...etc
+
+CHANGES:
+--------
+* Clean up and update the main UI
+  - Status line background now turn into dark black.
+  - Remove all the icon in signcolumn. Now signcolumn will display git status only.
+  - Code action icon is now moved to virtual text, just like VSCode.
+  - LSP Error/Hint/Warning/Info will now display as background color.
+  - LSP Error/Hint/Warning/Info icon is now moved into diagnostic panel.
+  - Always enable filename in winbar to stablize the window.
+  - Use darker background for kanagawa theme and github_dark theme.
+  - Use filename for shortline.
+  - Remove source from completion menu.
+  - Add completion kind into completion menu.
+* Remove buffer sources from completion menu
+* Move Neovim Lua settings into custom.lua file.
+* Split auto commands into different module.
+
+FIX:
+----
+* Fix git blame key mapping.
+* Fix incorrect condition detect for fcitx5 auto commands.
+* Add the missing `github_dark_default` theme.
+
 cv2022.08.21
 ============
 
