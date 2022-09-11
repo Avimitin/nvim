@@ -99,7 +99,7 @@ colorscheme_settings.kanagawa_setup = function()
       bg = "#1C1E2A",
     },
     DiagnosticSignWarn = {
-      bg = "#1C140D",
+      bg = "#2F261A",
     },
     DiagnosticSignInfo = {
       bg = "#262729",
