@@ -183,7 +183,6 @@ config.lspsaga_config = function()
     -- when cursor in saga window you config these to move
     move_in_saga = { prev = "k", next = "j" },
     diagnostic_header = { " ", " ", " ", " " },
-    diagnostic_source_bracket = { "戀", ":" },
     scroll_in_preview = {
       scroll_down = "<C-d>",
       scroll_up = "<C-u>",
@@ -208,7 +207,6 @@ config.lspsaga_config = function()
       scroll_down = "<C-f>",
       scroll_up = "<C-b>", -- quit can be a table
     },
-    definition_preview_icon = "  ",
     -- show symbols in winbar must be neovim 0.8.0,
     -- close it until neovim 0.8.0 become stable
     symbol_in_winbar = {
