@@ -61,14 +61,16 @@ M.nvim_cmp_config = function()
       documentation = cmp.config.window.bordered(),
     },
     formatting = {
-      fields = { "abbr", "kind" },
+      fields = { "kind", "abbr", "menu" },
       format = function(entry, item)
         -- return special icon for cmdline completion
         if entry.source.name == "cmdline" then
           item.kind = ""
+          item.menu = "Vim"
           return item
         end
-        item.kind = string.format("%s %s", kind_icons[item.kind], item.kind)
+        item.menu = item.kind
+        item.kind = kind_icons[item.kind]
         return item
       end,
     },
