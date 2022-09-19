@@ -1,3 +1,14 @@
+cv2022.09.19
+============
+
+CHANGES:
+--------
+* UI
+  - Use lower contrast yellow as warning background
+  - Reset nvim-tree to left
+  - Move icons at the front of the completion menu
+* Update lspsaga configuration
+
 cv2022.09.11
 ============
 
