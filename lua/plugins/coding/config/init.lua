@@ -187,7 +187,7 @@ config.lspsaga_config = function()
       scroll_down = "<C-d>",
       scroll_up = "<C-u>",
     },
-    code_action_icon = " ",
+    code_action_icon = "ﯦ ",
     -- same as nvim-lightbulb but async
     code_action_lightbulb = {
       sign = false,
@@ -219,7 +219,7 @@ config.lspsaga_config = function()
   })
 
   -- set lightbulb as comment like
-  vim.api.nvim_set_hl(0, "LspSagaLightBulb", { link = "Comment" })
+  vim.api.nvim_set_hl(0, "LspSagaLightBulb", { fg = "#E8C266" })
 end
 
 --
