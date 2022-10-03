@@ -83,6 +83,14 @@ config.null_ls_config = function()
     table.insert(sources, null_ls.builtins.formatting.stylua)
   end
 
+  if null_ls_settings.enable_eslint then
+    table.insert(sources, null_ls.builtins.code_actions.eslint)
+  end
+
+  if null_ls_settings.enable_prettier then
+    table.insert(sources, null_ls.builtins.formatting.prettier)
+  end
+
   null_ls.setup({
     sources = sources,
     on_attach = attachment.lsp_keymap,
