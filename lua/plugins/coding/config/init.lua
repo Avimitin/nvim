@@ -108,11 +108,19 @@ config.treesitter_config = function()
   local ensure_installed = {}
 
   local idx = 0
+
+  -- a f*cking disgusting hack for the messy treesitter naming convention
   for _, val in ipairs(ft) do
     if val ~= "javascriptreact" and val ~= "typescriptreact" then
       ensure_installed[idx] = val
       idx = idx + 1
     end
+
+    if val == "typescriptreact" then
+      ensure_installed[idx] = "tsx"
+      idx = idx + 1
+    end
+
   end
 
   require("nvim-treesitter.configs").setup({
