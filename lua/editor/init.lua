@@ -32,16 +32,6 @@ nvim.config = {
 
 -- Expand the "{ "filetype", ... }" style table
 local function expand_single_ft_table(ft, lsp_server, lsp_settings)
-  -- treesitter don't know what is {type,java}scriptreact
-  local ft_alias = {
-    ["typescriptreact"] = "typescript",
-    ["javascriptreact"] = "javascript",
-  }
-
-  if ft_alias[ft] then
-    ft = ft_alias[ft]
-  end
-
   if nvim.config.treesitter_ft[ft] == nil then
     nvim.config.treesitter_ft[ft] = 1
   end
