@@ -93,10 +93,24 @@ end
 -- treesitter
 --
 config.treesitter_config = function()
+  local ft = require("plugins.coding.config").treesitter_ft
+
+  -- treesitter don't know what is {type,java}scriptreact,
+  -- let's filter it out
+  local ensure_installed = {}
+
+  local idx = 0
+  for _, val in ipairs(ft) do
+    if val ~= "javascriptreact" and val ~= "typescriptreact" then
+      ensure_installed[idx] = val
+      idx = idx + 1
+    end
+  end
+
   require("nvim-treesitter.configs").setup({
     -- packer compile is compiled without runtime context, so here we must give it
     -- the full path to the treesitter ft function for evaluating the filetype
-    ensure_installed = require("plugins.coding.config").treesitter_ft,
+    ensure_installed = ensure_installed,
     highlight = {
       enable = true,
     },
