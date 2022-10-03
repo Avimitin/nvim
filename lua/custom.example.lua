@@ -32,6 +32,8 @@ local my_config = {
     --
     -- Lsp server configuration:
     --   https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    --
+    -- Belows are example config, you can remove them if you don't need them
 
     -- Enable treesitter for *.go, and use gopls as lsp server
     { "go", "gopls" },
@@ -40,7 +42,8 @@ local my_config = {
     { { "c", "cpp" }, "clangd" },
 
     -- use eslint for .js, .ts, .tsx, .jsx with treesitter enable
-    { { "javascript", "typescript", "javascriptreact", "typescriptreact" }, "eslint" },
+    -- Install it via your system package manager or `npm install -g tsserver`
+    { { "javascript", "typescript", "javascriptreact", "typescriptreact" }, "tsserver" },
 
     -- Enable treesitter for *.lua, use sumneko_lua as lsp server, and add neovim runtime library path
     -- into server search path. You can delete the settings if you are not developing
@@ -70,6 +73,8 @@ local my_config = {
   -- configuration for null-ls lsp injection
   null_ls = {
     enable_stylua_fmt = false, -- require stylua executable
+    enable_eslint = false, -- require eslint, useful to combine use with tsserver
+    enable_prettier = false, -- require prettier, useful when you want format in js/ts{x}
   },
 
   autocmd_enable = {
