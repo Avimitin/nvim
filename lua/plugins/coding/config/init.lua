@@ -120,7 +120,6 @@ config.treesitter_config = function()
       ensure_installed[idx] = "tsx"
       idx = idx + 1
     end
-
   end
 
   require("nvim-treesitter.configs").setup({
@@ -165,6 +164,9 @@ config.treesitter_config = function()
       },
     },
   })
+
+  vim.api.nvim_command("set foldmethod=expr")
+  vim.api.nvim_command("set foldexpr=nvim_treesitter#foldexpr()")
 end
 
 local function treesitter_ft()
