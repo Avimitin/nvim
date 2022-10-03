@@ -130,6 +130,9 @@ config.treesitter_config = function()
     highlight = {
       enable = true,
     },
+    indent = {
+      enable = true,
+    },
     matchup = {
       enable = true,
     },
