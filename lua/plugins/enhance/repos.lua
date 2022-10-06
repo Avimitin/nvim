@@ -104,9 +104,11 @@ local repos = {
   -- a dashboard that useless but beautiful
   {
     "glepnir/dashboard-nvim",
-    cmd = {
-      "Dashboard",
-    },
+    event = "VimEnter",
+    config = function()
+      local config = require("plugins.enhance.config")
+      config.dashboard_cfg()
+    end,
   },
 
   -- Try to find project root and cd into it
