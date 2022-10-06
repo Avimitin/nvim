@@ -2,8 +2,6 @@ local config = {}
 
 -- pre-process
 config.pre = function()
-  config.dashboard_cfg()
-
   if not vim.fn.has("nvim-0.6") then
     -- for filetype.nvim
     -- If using a Neovim version earlier than 0.6.0
@@ -94,9 +92,8 @@ config.bufferline_cfg = function()
 end
 
 config.dashboard_cfg = function()
-  vim.g.dashboard_disable_statusline = 1
-  vim.g.dashboard_default_executive = "telescope"
-  vim.g.dashboard_custom_header = {
+  local db = require("dashboard")
+  db.custom_header = {
     [[      ___                                    ___     ]],
     [[     /__/\          ___        ___          /__/\    ]],
     [[     \  \:\        /__/\      /  /\        |  |::\   ]],
@@ -109,11 +106,39 @@ config.dashboard_cfg = function()
     [[    \  \:\       \__\::::/      \__\/      \  \:\    ]],
     [[     \__\/           ~~~~                   \__\/    ]],
   }
-
-  vim.cmd([[
-autocmd FileType dashboard set showtabline=0 laststatus=0
-autocmd WinLeave <buffer> set showtabline=2 laststatus=2
-]])
+  require("telescope")
+  db.custom_center = {
+    {
+      icon = "  ",
+      desc = "Create new file                         ",
+      action = "DashboardNewFile",
+      shortcut = "SPC f d",
+    },
+    {
+      icon = "  ",
+      desc = "Recently opened files                   ",
+      action = "Telescope oldfiles",
+      shortcut = "SPC f h",
+    },
+    {
+      icon = "  ",
+      desc = "Find  File                              ",
+      action = "Telescope find_files find_command=rg,--hidden,--files",
+      shortcut = "SPC f f",
+    },
+    {
+      icon = "  ",
+      desc = "File Browser                            ",
+      action = "NvimTreeToggle",
+      shortcut = "SPC f b",
+    },
+    {
+      icon = "  ",
+      desc = "Find  word                              ",
+      action = "Telescope live_grep",
+      shortcut = "SPC f w",
+    },
+  }
 end
 
 config.neoscroll_config = function()
