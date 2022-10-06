@@ -75,21 +75,15 @@ local repos = {
     cmd = "ToggleTerm",
   },
 
-  -- generate color from hex/rgb code
+  -- Preview and pick color inside neovim
   {
-    "norcalli/nvim-colorizer.lua",
+    "uga-rosa/ccc.nvim",
     config = function()
-      require("colorizer").setup({
-        "*", -- Highlight all files, but customize some others.
-        css = {
-          rgb_fn = true,
-        }, -- Enable parsing rgb(...) functions in css.
-      })
+      require("ccc").setup()
     end,
     cmd = {
-      "ColorizerToggle",
-      -- this help generate color for no filetype file
-      "ColorizerAttachToBuffer",
+      "CccPick",
+      "CccHighlighterEnable",
     },
   },
 
