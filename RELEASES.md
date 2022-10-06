@@ -1,3 +1,20 @@
+cv2022.10.06
+============
+
+FIX:
+----
+* Fix the dashboard configuration and enable it by automatically
+* Fix lspconfig and treesitter don't loaded for jsx/tsx filetype issue
+* Fix conflict key mapping
+
+CHANGES:
+--------
+* Use tsserver for js/jsx/ts/tsx by default, and inject eslint into lspconfig
+* Enable treesitter indent functionality
+* Enable treesitter fold functionality
+* Inject prettier as default formatter into lspconfig
+
+
 cv2022.09.19
 ============
 
