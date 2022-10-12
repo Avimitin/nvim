@@ -58,6 +58,12 @@ return function()
         case_mode = "smart_case", -- or "ignore_case" or "respect_case"
         -- the default case_mode is "smart_case"
       },
+      file_browser = {
+        theme = "ivy",
+        hijack_netrw = true,
+      },
     },
   })
+
+  require("telescope").load_extension("file_browser")
 end
