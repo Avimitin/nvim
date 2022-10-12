@@ -104,6 +104,34 @@ colorscheme_settings.kanagawa_setup = function()
     DiagnosticSignInfo = {
       bg = "#262729",
     },
+    TelescopeNormal = {
+      bg = "#2a2a37",
+    },
+    TelescopePromptNormal = {
+      bg = "#363646",
+    },
+    TelescopePromptBorder = {
+      fg = "#363646",
+      bg = "#363646",
+    },
+    TelescopeBorder = {
+      fg = "#2a2a37",
+      bg = "#2a2a37",
+    },
+    TelescopePreviewTitle = {
+      fg = "#2a2a37",
+      bg = "#2a2a37",
+    },
+    TelescopePreviewBorder = {
+      fg = "#2a2a37",
+      bg = "#2a2a37",
+    },
+    TelescopePromptTitle = {
+      bg = "#2a2a37",
+    },
+    TelescopeResultsTitle = {
+      bg = "#2a2a37",
+    },
   }
 
   local present, custom = pcall(require, "custom")
