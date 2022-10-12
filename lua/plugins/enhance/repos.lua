@@ -122,6 +122,11 @@ local repos = {
     module = "telescope",
   },
 
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    module = "telescope._extensions.file_browser",
+  },
+
   -- Press enter to select text object
   {
     "gcmt/wildfire.vim",
