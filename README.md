@@ -139,11 +139,6 @@ Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
 <details>
     <summary markdown="span">File Manage</summary>
 
-
-| File Manager                        |
-|-------------------------------------|
-| ![VFiler](./docs/images/vfiler.png) |
-
 | nvim-tree                                 |
 |-------------------------------------------|
 | ![nvim-tree](./docs/images/nvim-tree.png) |
@@ -160,10 +155,6 @@ Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
 | Fugitive                                       |
 |------------------------------------------------|
 | ![fugitive](./docs/images/neovim-fugitive.png) |
-
-| Lazygit                                      |
-|----------------------------------------------|
-| ![lazygit](./docs/images/neovim-lazygit.png) |
 
 </details>
 
