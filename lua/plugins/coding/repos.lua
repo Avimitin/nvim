@@ -146,7 +146,7 @@ local repos = {
           delay = 100,
         },
         hide = {
-          virtual_text = false,
+          virtual_text = true,
           signs = true,
           underline = true,
         },
