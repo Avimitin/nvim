@@ -238,16 +238,16 @@ return function()
         icon = "  ",
       },
     })
-  end
 
-  insert_left({
-    LeftEnd = {
-      provider = function()
-        return ""
-      end,
-      highlight = { colors.black },
-    },
-  })
+    insert_left({
+      LeftEnd = {
+        provider = function()
+          return ""
+        end,
+        highlight = { colors.black },
+      },
+    })
+  end
 
   insert_left({
     MiddleSpace = {
