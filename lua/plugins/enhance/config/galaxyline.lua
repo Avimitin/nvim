@@ -12,16 +12,16 @@ return function()
 
   local current_scheme = vim.g.colors_name
   local colors = {
-    bg = "#1F1F28",
-    fg = "#8FBCBB",
-    black = "#22222C",
+    bg = "#0d0d0d",
+    fg = "#717184",
+    black = "#191919",
     yellow = "#E5C07B",
     cyan = "#70C0BA",
     dimblue = "#83A598",
     green = "#98C379",
     orange = "#FF8800",
     purple = "#C678DD",
-    magenta = "#C858E9",
+    magenta = "#D27E99",
     blue = "#81A1C1",
     red = "#D54E53",
   }
@@ -65,12 +65,12 @@ return function()
     return false
   end
 
-  local function has_file_type()
-    local f_type = vim.bo.filetype
-    if not f_type or f_type == "" then
-      return false
+  local checkwidth = function()
+    local squeeze_width = vim.fn.winwidth(0) / 2
+    if squeeze_width > 50 then
+      return true
     end
-    return true
+    return false
   end
 
   local buffer_not_empty = function()
@@ -85,15 +85,14 @@ return function()
     table.insert(gls.left, element)
   end
 
-  -- insert_blank_line_at_left insert blank line with
-  -- line_bg color.
-  local function insert_blank_line_at_left()
+  -- insert blank space at left
+  local function blank_left()
     insert_left({
       Space = {
         provider = function()
           return " "
         end,
-        highlight = { colors.bg, colors.bg },
+        highlight = { colors.black, colors.black },
       },
     })
   end
@@ -107,47 +106,41 @@ return function()
   ----------------- start insert ----------------------
   -----------------------------------------------------
   -- { mode panel start
-  insert_blank_line_at_left()
-
   insert_left({
     ViMode = {
-      icon = function()
-        local icons = {
-          n = " ",
-          i = " ",
-          c = "ﲵ ",
-          V = " ",
-          [""] = " ",
-          v = " ",
-          C = "ﲵ ",
-          R = "﯒ ",
-          t = " ",
-        }
-        return icons[vim.fn.mode()]
+      provider = function()
+        return " "
       end,
+      highlight = { colors.black, colors.black },
+    },
+  })
+
+  insert_left({
+    ViModeIcon = {
       provider = function()
         -- auto change color according the vim mode
         local alias = {
-          n = "N",
-          i = "I",
-          c = "C",
-          V = "VL",
-          [""] = "V",
-          v = "V",
-          C = "C",
-          ["r?"] = ":CONFIRM",
-          rm = "--MORE",
-          R = "R",
-          Rv = "R&V",
-          s = "S",
-          S = "S",
+          n = "",
+          i = "",
+          c = "",
+          V = "",
+          [""] = "",
+          v = "",
+          C = "",
+          ["r?"] = "?",
+          rm = "M",
+          R = "",
+          Rv = "",
+          s = "",
+          S = "",
           ["r"] = "HIT-ENTER",
-          [""] = "SELECT",
+          [""] = "",
           t = "T",
-          ["!"] = "SH",
+          ["!"] = "",
         }
 
-        local mode_color = {
+        local mode = vim.fn.mode()
+        local vim_mode_color = {
           n = colors.yellow,
           i = colors.green,
           v = colors.blue,
@@ -170,98 +163,52 @@ return function()
           t = colors.red,
         }
 
-        local vim_mode = vim.fn.mode()
-        vim.api.nvim_command("hi GalaxyViMode guifg=" .. mode_color[vim_mode])
-        return alias[vim_mode]
+        vim.api.nvim_set_hl(0, "GalaxyViMode", { fg = vim_mode_color[mode], bg = colors.bg })
+        return alias[mode]
       end,
-      highlight = { colors.bg, colors.bg },
+      highlight = "GalaxyViMode",
     },
   })
-
-  insert_blank_line_at_left()
 
   insert_left({
     EndingSepara = {
       provider = function()
         return " "
       end,
-      highlight = { colors.bg },
+      highlight = { colors.bg, colors.black },
     },
   })
 
-  -- mode panel end}
+  if should_activate_lsp() then
+    insert_left({
+      FileIcon = {
+        provider = "FileIcon",
+        condition = buffer_not_empty,
+        highlight = {
+          require("galaxyline.provider_fileinfo").get_file_icon_color,
+          colors.black,
+        },
+      },
+    })
 
-  -- {information panel start
-  insert_left({
-    StartSeparate = {
-      provider = function()
-        return " "
-      end,
-      highlight = { colors.bg },
-    },
-  })
+    insert_left({
+      GetLspClient = {
+        provider = "GetLspClient",
+        condition = function()
+          local clients = vim.lsp.get_active_clients()
+          return checkwidth() and next(clients) ~= nil
+        end,
+        highlight = { require("galaxyline.provider_fileinfo").get_file_icon_color, colors.black },
+      },
+    })
 
-  insert_left({
-    GitIcon = {
-      provider = function()
-        return "  "
-      end,
-      condition = require("galaxyline.provider_vcs").check_git_workspace,
-      highlight = { colors.orange, colors.bg },
-    },
-  })
+    blank_left()
 
-  insert_left({
-    GitBranch = {
-      provider = "GitBranch",
-      condition = require("galaxyline.provider_vcs").check_git_workspace,
-      highlight = { colors.fg, colors.bg },
-    },
-  })
-
-  insert_blank_line_at_left()
-
-  local checkwidth = function()
-    local squeeze_width = vim.fn.winwidth(0) / 2
-    if squeeze_width > 50 then
-      return true
-    end
-    return false
-  end
-
-  insert_left({
-    DiffAdd = {
-      provider = "DiffAdd",
-      condition = checkwidth,
-      icon = "  ",
-      highlight = { colors.green, colors.bg },
-    },
-  })
-
-  insert_left({
-    DiffModified = {
-      provider = "DiffModified",
-      condition = checkwidth,
-      icon = "  ",
-      highlight = { colors.orange, colors.bg },
-    },
-  })
-
-  insert_left({
-    DiffRemove = {
-      provider = "DiffRemove",
-      condition = checkwidth,
-      icon = "  ",
-      highlight = { colors.red, colors.bg },
-    },
-  })
-
-  local function setup_diagnostic()
     insert_left({
       DiagnosticError = {
         provider = "DiagnosticError",
         icon = "  ",
-        highlight = { colors.red, colors.bg },
+        highlight = { colors.red, colors.black },
       },
     })
 
@@ -270,7 +217,7 @@ return function()
         provider = "DiagnosticWarn",
         condition = checkwidth,
         icon = "  ",
-        highlight = { colors.yellow, colors.bg },
+        highlight = { colors.yellow, colors.black },
       },
     })
 
@@ -278,7 +225,7 @@ return function()
       DiagnosticInfo = {
         provider = "DiagnosticInfo",
         condition = checkwidth,
-        highlight = { colors.green, colors.bg },
+        highlight = { colors.green, colors.black },
         icon = "  ",
       },
     })
@@ -287,121 +234,53 @@ return function()
       DiagnosticHint = {
         provider = "DiagnosticHint",
         condition = checkwidth,
-        highlight = { colors.white, colors.bg },
+        highlight = { colors.white, colors.black },
         icon = "  ",
       },
     })
   end
 
-  if should_activate_lsp() then
-    setup_diagnostic()
-  end
-
   insert_left({
-    TriangleSeparate = {
+    LeftEnd = {
       provider = function()
         return ""
-      end,
-      highlight = { colors.bg, colors.black },
-    },
-  })
-
-  insert_left({
-    BlackSpace = {
-      provider = function()
-        return " "
-      end,
-      highlight = { colors.black, colors.black },
-    },
-  })
-
-  insert_left({
-    FileIcon = {
-      provider = "FileIcon",
-      condition = buffer_not_empty,
-      highlight = {
-        require("galaxyline.provider_fileinfo").get_file_icon_color,
-        colors.black,
-      },
-    },
-  })
-
-  insert_left({
-    BufferType = {
-      provider = "FileName",
-      condition = has_file_type,
-      highlight = { colors.fg, colors.black },
-    },
-  })
-
-  insert_left({
-    DarkSepara = {
-      provider = function()
-        return ""
       end,
       highlight = { colors.black },
     },
   })
-  -- left information panel end}
 
-  insert_right({
-    Start = {
+  insert_left({
+    MiddleSpace = {
       provider = function()
-        return " "
+        return " "
       end,
-      highlight = { colors.bg },
+      highlight = "Normal",
     },
   })
 
   insert_right({
-    LineInfo = {
-      provider = "LineColumn",
-      separator = "  ",
-      separator_highlight = { colors.green, colors.bg },
-      highlight = { colors.fg, colors.bg },
-    },
-  })
-
-  insert_right({
-    RightEndingSepara = {
+    RightStart = {
       provider = function()
-        return ""
+        return " "
       end,
-      highlight = { colors.bg, colors.black },
+      highlight = { colors.black },
     },
   })
 
-  if should_activate_lsp() then
-    insert_right({
-      GetLspClient = {
-        provider = "GetLspClient",
-        separator = "  ",
-        separator_highlight = { colors.blue, colors.black },
-        condition = function()
-          local clients = vim.lsp.get_active_clients()
-          return checkwidth() and next(clients) ~= nil
-        end,
-        highlight = { colors.fg, colors.black },
-      },
-    })
-  end
-
   insert_right({
-    PerCent = {
-      provider = "LinePercent",
-      separator = " ",
-      separator_highlight = { colors.blue, colors.black },
-      condition = checkwidth,
+    GitIcon = {
+      provider = function()
+        return "  "
+      end,
+      condition = require("galaxyline.provider_vcs").check_git_workspace,
       highlight = { colors.fg, colors.black },
     },
   })
 
   insert_right({
-    FileFormat = {
-      provider = "FileEncode",
-      separator = "",
-      condition = checkwidth,
-      separator_highlight = { colors.blue, colors.black },
+    GitBranch = {
+      provider = "GitBranch",
+      condition = require("galaxyline.provider_vcs").check_git_workspace,
       highlight = { colors.fg, colors.black },
     },
   })
@@ -412,6 +291,76 @@ return function()
         return " "
       end,
       highlight = { colors.black, colors.black },
+    },
+  })
+
+  insert_right({
+    DiffAdd = {
+      provider = "DiffAdd",
+      condition = checkwidth,
+      icon = "  ",
+      highlight = { colors.green, colors.black },
+    },
+  })
+
+  insert_right({
+    DiffModified = {
+      provider = "DiffModified",
+      condition = checkwidth,
+      icon = "  ",
+      highlight = { colors.yellow, colors.black },
+    },
+  })
+
+  insert_right({
+    DiffRemove = {
+      provider = "DiffRemove",
+      condition = checkwidth,
+      icon = "  ",
+      highlight = { colors.red, colors.black },
+    },
+  })
+
+  insert_right({
+    RightEndingSepara = {
+      provider = function()
+        return ""
+      end,
+      highlight = { colors.bg, colors.black },
+    },
+  })
+
+  insert_right({
+    LineInfo = {
+      provider = "LineColumn",
+      separator = "  ",
+      separator_highlight = { colors.fg, colors.bg },
+      highlight = { colors.fg, colors.bg },
+    },
+  })
+
+  insert_right({
+    PerCent = {
+      provider = "LinePercent",
+      condition = checkwidth,
+      highlight = { colors.fg, colors.bg },
+    },
+  })
+
+  insert_right({
+    FileFormat = {
+      provider = "FileEncode",
+      condition = checkwidth,
+      highlight = { colors.fg, colors.bg },
+    },
+  })
+
+  insert_right({
+    RightSpace = {
+      provider = function()
+        return " "
+      end,
+      highlight = { colors.bg, colors.black },
     },
   })
 
