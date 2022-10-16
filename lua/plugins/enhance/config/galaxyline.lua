@@ -13,7 +13,7 @@ return function()
   local current_scheme = vim.g.colors_name
   local colors = {
     bg = "#0d0d0d",
-    fg = "#717184",
+    fg = "#a9a9b7",
     black = "#191919",
     yellow = "#E5C07B",
     cyan = "#70C0BA",
@@ -175,7 +175,13 @@ return function()
       provider = function()
         return " "
       end,
-      highlight = { colors.bg, colors.black },
+      highlight = function()
+        if should_activate_lsp() then
+          return { colors.bg, colors.black }
+        else
+          return { colors.bg, "none" }
+        end
+      end,
     },
   })
 
@@ -261,7 +267,7 @@ return function()
   insert_right({
     RightStart = {
       provider = function()
-        return " "
+        return " "
       end,
       highlight = { colors.black },
     },
@@ -356,11 +362,11 @@ return function()
   })
 
   insert_right({
-    RightSpace = {
+    RightEnding = {
       provider = function()
         return " "
       end,
-      highlight = { colors.bg, colors.black },
+      highlight = { colors.bg, colors.bg },
     },
   })
 
