@@ -60,14 +60,6 @@ config.indent_config = load("indent")
 config.nvim_tree_config = load("nvim-tree")
 config.telescope_config = load("telescope")
 
-config.vfiler_config = function()
-  require("vfiler/config").setup({
-    options = {
-      columns = "indent,devicons,name,mode,size,time",
-    },
-  })
-end
-
 config.bufferline_cfg = function()
   require("bufferline").setup({
     options = {
