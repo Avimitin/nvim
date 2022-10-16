@@ -122,7 +122,7 @@ return function()
         local alias = {
           n = "",
           i = "",
-          c = "",
+          c = "",
           V = "",
           [""] = "",
           v = "",
