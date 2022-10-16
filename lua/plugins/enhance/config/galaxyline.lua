@@ -204,7 +204,7 @@ return function()
           local clients = vim.lsp.get_active_clients()
           return checkwidth() and next(clients) ~= nil
         end,
-        highlight = { require("galaxyline.provider_fileinfo").get_file_icon_color, colors.black },
+        highlight = { colors.fg, colors.black },
       },
     })
 
@@ -248,7 +248,7 @@ return function()
     insert_left({
       LeftEnd = {
         provider = function()
-          return ""
+          return ""
         end,
         highlight = { colors.black },
       },
