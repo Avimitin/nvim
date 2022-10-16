@@ -1,3 +1,18 @@
+cv2022.10.16
+============
+
+FEATURES:
+---------
+* Replace color preview plugin to ccc.nvim
+* Add plugin to dim the unused variable
+
+CHANGES:
+--------
+* Hide the telescope search bar border
+* Redesign the status line
+* Close lazyredraw option
+
+
 cv2022.10.06
 ============
 
