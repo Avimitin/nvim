@@ -346,10 +346,28 @@ return function()
   })
 
   insert_right({
+    RightSpacing = {
+      provider = function()
+        return "   "
+      end,
+      highlight = { colors.bg, colors.bg },
+    },
+  })
+
+  insert_right({
     PerCent = {
       provider = "LinePercent",
       condition = checkwidth,
       highlight = { colors.fg, colors.bg },
+    },
+  })
+
+  insert_right({
+    RightSpacing = {
+      provider = function()
+        return "   "
+      end,
+      highlight = { colors.bg, colors.bg },
     },
   })
 
