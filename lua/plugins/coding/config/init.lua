@@ -13,24 +13,7 @@ end
 -- SymbolsOutline configuration
 --
 config.symbols_outline_config = function()
-  vim.g.symbols_outline = {
-    highlight_hovered_item = true,
-    show_guides = true,
-    auto_preview = true,
-    position = "right",
-    show_numbers = false,
-    show_relative_numbers = false,
-    show_symbol_details = true,
-    keymaps = {
-      close = "<Esc>",
-      goto_location = "<Cr>",
-      focus_location = "o",
-      hover_symbol = "<C-space>",
-      rename_symbol = "r",
-      code_actions = "a",
-    },
-    lsp_blacklist = {},
-    symbol_blacklist = {},
+  local opts = {
     symbols = {
       File = { icon = "", hl = "TSURI" },
       Module = { icon = "", hl = "TSNamespace" },
@@ -50,16 +33,17 @@ config.symbols_outline_config = function()
       Number = { icon = "", hl = "TSNumber" },
       Boolean = { icon = "ﮒ", hl = "TSBoolean" },
       Array = { icon = "", hl = "TSConstant" },
-      Object = { icon = "⦿", hl = "TSType" },
+      Object = { icon = "ﴯ", hl = "TSType" },
       Key = { icon = "", hl = "TSType" },
       Null = { icon = "ﳠ", hl = "TSType" },
       EnumMember = { icon = "", hl = "TSField" },
       Struct = { icon = "ﴯ", hl = "TSType" },
-      Event = { icon = "🗲", hl = "TSType" },
+      Event = { icon = "ﴯ", hl = "TSType" },
       Operator = { icon = "+", hl = "TSOperator" },
       TypeParameter = { icon = "𝙏", hl = "TSParameter" },
     },
   }
+  require("symbols-outline").setup(opts)
 end
 
 --
