@@ -102,33 +102,28 @@ config.dashboard_cfg = function()
   db.custom_center = {
     {
       icon = "  ",
-      desc = "Create new file                         ",
+      desc = "Create new file       ",
       action = "DashboardNewFile",
-      shortcut = "SPC f d",
+    },
+    {
+      icon = "﴾  ",
+      desc = "Update Plugin         ",
+      action = "PackerCompile",
     },
     {
       icon = "  ",
-      desc = "Recently opened files                   ",
+      desc = "Recently opened files ",
       action = "Telescope oldfiles",
-      shortcut = "SPC f h",
     },
     {
       icon = "  ",
-      desc = "Find  File                              ",
+      desc = "Find  File            ",
       action = "Telescope find_files find_command=rg,--hidden,--files",
-      shortcut = "SPC f f",
-    },
-    {
-      icon = "  ",
-      desc = "File Browser                            ",
-      action = "NvimTreeToggle",
-      shortcut = "SPC f b",
     },
     {
       icon = "  ",
-      desc = "Find  word                              ",
+      desc = "Find  word            ",
       action = "Telescope live_grep",
-      shortcut = "SPC f w",
     },
   }
 end
