@@ -25,3 +25,6 @@ au("FileType", {
     })
   end,
 })
+
+au({"TermOpen", "TermEnter"}, { pattern = { "*" }, command = "startinsert" })
+au({"WinEnter"}, { pattern = { "term://*toggleterm#*" }, command = "startinsert" })

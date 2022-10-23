@@ -23,10 +23,10 @@ end)
 -- fterm
 --
 -- float terminal
-nmap("<C-\\>", [[:ToggleTerm direction=float<CR>:startinsert<CR>]])
+nmap("<C-\\>", [[:ToggleTerm direction=float<CR>]])
 map("t", "<C-\\>", [[<C-\><C-n>:ToggleTerm<CR>]])
 -- horizontal terminal
-nmap("_", [[:ToggleTerm direction=horizontal<CR>:startinsert<CR>]])
+nmap("_", [[:ToggleTerm direction=horizontal<CR>]])
 map("t", "<C-n>", [[<C-\><C-n>]])
 -- terminal windows movement
 map("t", "<C-k>", [[<C-\><C-n><C-w>k]])
