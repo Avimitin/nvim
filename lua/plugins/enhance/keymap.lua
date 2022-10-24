@@ -30,6 +30,8 @@ nmap("_", [[:ToggleTerm direction=horizontal<CR>]])
 map("t", "<Esc>", [[<C-\><C-n>]])
 -- terminal windows movement
 map("t", "<C-k>", [[<C-\><C-n><C-w>k]])
+map("t", "<C-l>", [[<C-\><C-n><C-w>l]])
+map("t", "<C-h>", [[<C-\><C-n><C-w>h]])
 
 --
 -- telescope
