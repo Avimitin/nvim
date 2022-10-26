@@ -70,6 +70,11 @@ local repos = {
     after = "nvim-cmp",
     config = config.cmp_dictionary_config,
   },
+
+  {
+    "hrsh7th/cmp-nvim-lsp-document-symbol",
+    after = "nvim-cmp",
+  },
 }
 
 return repos
