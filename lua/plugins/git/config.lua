@@ -11,7 +11,7 @@ config.gitsigns_config = function()
       },
       change = {
         hl = "GitSignsChange",
-        text = "░",
+        text = "▎",
         numhl = "GitSignsChangeNr",
         linehl = "GitSignsChangeLn",
       },
@@ -28,8 +28,8 @@ config.gitsigns_config = function()
         linehl = "GitSignsDeleteLn",
       },
       changedelete = {
-        hl = "GitSignsChange",
-        text = "▒",
+        hl = "GitSignsDelete",
+        text = "▎",
         numhl = "GitSignsChangeNr",
         linehl = "GitSignsChangeLn",
       },
