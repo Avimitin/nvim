@@ -27,7 +27,7 @@ nmap("<C-\\>", [[:ToggleTerm direction=float<CR>]])
 map("t", "<C-\\>", [[<C-\><C-n>:ToggleTerm<CR>]])
 -- horizontal terminal
 nmap("_", [[:ToggleTerm direction=horizontal<CR>]])
-map("t", "<Esc>", [[<C-\><C-n>]])
+map("t", "<A-;>", [[<C-\><C-n>]])
 -- terminal windows movement
 map("t", "<C-k>", [[<C-\><C-n><C-w>k]])
 map("t", "<C-l>", [[<C-\><C-n><C-w>l]])
