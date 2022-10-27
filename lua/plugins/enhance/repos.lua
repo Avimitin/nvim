@@ -73,6 +73,7 @@ local repos = {
     "akinsho/toggleterm.nvim",
     config = config.toggleterm_config,
     cmd = "ToggleTerm",
+    module = "toggleterm",
   },
 
   -- Preview and pick color inside neovim
