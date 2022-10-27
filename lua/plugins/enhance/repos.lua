@@ -266,7 +266,31 @@ local repos = {
     "rcarriga/nvim-notify",
     event = "UIEnter",
     config = function()
-      vim.notify = require("notify")
+      vim.notify = function(msg, level, opts)
+        local function split_length(text, length)
+          local lines = {}
+          local next_line
+          while true do
+            if #text == 0 then
+              return lines
+            end
+            next_line, text = text:sub(1, length), text:sub(length)
+            lines[#lines + 1] = next_line
+          end
+        end
+
+        if type(msg) == "string" then
+          msg = vim.split(msg, "\n")
+        end
+        local truncated = {}
+        for _, line in ipairs(msg) do
+          local new_lines = split_length(line, 72)
+          for _, l in ipairs(new_lines) do
+            truncated[#truncated + 1] = l
+          end
+        end
+        return require("notify")(truncated, level, opts)
+      end
     end,
   },
 
