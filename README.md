@@ -33,7 +33,7 @@ git clone --depth=1 https://github.com/Avimitin/nvim.git ~/.config/nvim
 git checkout latest
 
 # Or You can just download the latest stable version (Auto Retagged)
-curl "https://github.com/Avimitin/nvim/blob/master/scripts/install.bash" -o install.bash
+curl "https://raw.githubusercontent.com/Avimitin/nvim/master/scripts/install.bash" -o install.bash
 # Please read the script before you use it
 cat install.bash
 # Execute it
