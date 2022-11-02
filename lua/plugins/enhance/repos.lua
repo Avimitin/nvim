@@ -280,6 +280,9 @@ local repos = {
         end
 
         if type(msg) == "string" then
+          if msg:len() < 72 then
+            return require("notify")(msg, level, opts)
+          end
           msg = vim.split(msg, "\n")
         end
         local truncated = {}
