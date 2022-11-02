@@ -87,9 +87,6 @@ local my_config = {
     -- must be executable
     preview_browser = "chrome",
   },
-
-  -- Use lazygit to get thing done
-  enable_lazygit = false,
 }
 
 return my_config
