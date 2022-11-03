@@ -34,6 +34,13 @@ local repos = {
     },
   },
 
+  {
+    "hrsh7th/cmp-nvim-lsp-signature-help",
+    after = {
+      "nvim-cmp",
+    },
+  },
+
   -- completion source for word in current buffer
   {
     "hrsh7th/cmp-buffer",
