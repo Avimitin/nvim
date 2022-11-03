@@ -81,7 +81,7 @@ opt.updatetime = 100
 opt.virtualedit = "block"
 
 -- screen will not redraw when exec marcro, register
-opt.lazyredraw = false
+opt.lazyredraw = true
 
 -- always draw signcolumn, with 1 fixed space to show 2 icon at the same time
 opt.signcolumn = "yes:1"
