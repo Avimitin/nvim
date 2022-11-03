@@ -355,6 +355,35 @@ local repos = {
     event = "BufWinEnter",
   },
 
+  {
+    "kevinhwang91/nvim-hlslens",
+    config = function()
+      local nmap = require("editor.utils").nmap
+      nmap(
+        "n",
+        [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]]
+      )
+      nmap(
+        "N",
+        [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]]
+      )
+      nmap("*", [[*<Cmd>lua require('hlslens').start()<CR>]])
+      nmap("#", [[#<Cmd>lua require('hlslens').start()<CR>]])
+      nmap("g*", [[g*<Cmd>lua require('hlslens').start()<CR>]])
+      nmap("g#", [[g#<Cmd>lua require('hlslens').start()<CR>]])
+
+      require("scrollbar.handlers.search").setup()
+    end,
+    keys = {
+      { "n", "n" },
+      { "n", "N" },
+      { "n", "*" },
+      { "n", "#" },
+      { "n", "g*" },
+      { "n", "g#" },
+    },
+  },
+
   --
   --
   -- Auto Load
