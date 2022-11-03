@@ -68,6 +68,8 @@ M.nvim_cmp_config = function()
           item.kind = ""
           item.menu = "Vim"
           return item
+        elseif entry.source.name == "nvim_lsp_signature_help" then
+          item.kind = "Property"
         end
         item.menu = item.kind
         item.kind = kind_icons[item.kind]
@@ -113,6 +115,7 @@ M.nvim_cmp_config = function()
     },
     sources = {
       { name = "nvim_lsp", priority = 99 },
+      { name = "nvim_lsp_signature_help" },
       { name = "vsnip" },
       { name = "path" },
     },
