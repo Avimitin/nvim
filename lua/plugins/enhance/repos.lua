@@ -337,6 +337,24 @@ local repos = {
     end,
   },
 
+  {
+    "petertriho/nvim-scrollbar",
+    config = function()
+      require("scrollbar").setup({
+        excluded_buftypes = {
+          "terminal",
+        },
+        excluded_filetypes = {
+          "prompt",
+          "TelescopePrompt",
+          "noice",
+          "Git",
+        },
+      })
+    end,
+    event = "BufWinEnter",
+  },
+
   --
   --
   -- Auto Load
