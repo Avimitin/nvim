@@ -1,3 +1,26 @@
+cv2022.11.04
+============
+
+ADDED:
+------
+* Completion
+  - Add signature completion to indicate the parameters
+  - Add command line lsp symbol search completion
+* Enhancement
+  - Add hlslens to indicate the search context
+  - Add scrollbar to indicate the LSP status
+* Document
+  - Add README.md for each sub-directory
+
+CHANGED:
+--------
+* option: set lazyredraw to true, to have responsive pop up menu
+* terminal: replace normal mode keymap to `<A-;>`
+* terminal: add ability to spawn multiple terminal
+* git: use same icon for git add/change
+* notify: truncate message when the string length is larger than 72
+
+
 cv2022.10.16
 ============
 
