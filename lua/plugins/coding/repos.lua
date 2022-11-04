@@ -135,9 +135,8 @@ local repos = {
   },
 
   {
-    "Avimitin/neodim",
+    "zbirenbaum/neodim",
     event = "LspAttach",
-    branch = "treesitter-fix",
     config = function()
       require("neodim").setup({
         alpha = 0.7,
