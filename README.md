@@ -51,7 +51,8 @@ You can read the full installation instruction here:
 
 ## Document
 
-Please read [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
+You can take a glance at [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
+And each sub-directory in `lua/` also contains a README.md to indicate how they work.
 
 ## Gallery
 
