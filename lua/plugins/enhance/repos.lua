@@ -1,7 +1,13 @@
 local config = require("plugins.enhance.config")
 
 local repos = {
+
   -- prompt up panel to give a key mapping hint
+  -- 1
+  {
+    'mrjones2014/legendary.nvim',
+  },
+  -- 2
   {
     "folke/which-key.nvim",
     config = config.whichkey_config,

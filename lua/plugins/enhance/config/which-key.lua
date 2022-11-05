@@ -1,8 +1,19 @@
 return function()
   local ok, wk = pcall(require, "which-key")
+  local lg_ok, lg = pcall(require, 'legendary')
   if not ok then
     require("editor.utils").errorL("which key fail to load: " .. wk, "which-key")
     return
+  end
+
+  -- setup legendary first.
+  if lg_ok then
+    lg.setup({
+      auto_register_which_key = true,
+      commands = {
+        { ":DoTreeFindFile", description = "NvimTreeFindFile" },
+      }
+    })
   end
 
   wk.setup({
