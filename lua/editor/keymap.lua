@@ -66,15 +66,3 @@ nmap(";q", require("plugins.libs.bufdel").delete_buffer)
 
 -- % is so hard to reach...
 map({ "n", "x", "o" }, ",", "%", { noremap = false, silent = false })
-
--- Do not yank when pressing x
-nmap("x", [["_x]])
-
--- Delete word backward and do not yank
-nmap("dw", [[vb"_d]])
-
--- Backspace to delete without yank
-map("n", "<BS>", [["_X]], { noremap = false })
-map("v", "<BS>", [["_d]], { noremap = false })
-
-map({ "n", "x" }, "d", [["_d]])
