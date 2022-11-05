@@ -4,13 +4,6 @@ local au = vim.api.nvim_create_autocmd
 au({ "InsertEnter" }, { pattern = { "*" }, command = "set nornu" })
 au({ "InsertLeave" }, { pattern = { "*" }, command = "set rnu" })
 
--- highlight yanked text
-au("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank({ higroup = "HighLightLineMatches", timeout = 200 })
-  end,
-})
-
 au("FileType", {
   pattern = "markdown",
   callback = function()
@@ -28,3 +21,37 @@ au("FileType", {
 
 au({ "TermOpen", "TermEnter" }, { pattern = { "*" }, command = "startinsert" })
 au({ "WinEnter" }, { pattern = { "term://*toggleterm#*" }, command = "startinsert" })
+
+-- Copy data to system clipboard only when we are pressing 'y'. 'd', 'x' will be filtered out.
+--
+-- Credit: https://github.com/ibhagwan/smartyank.nvim
+local smart_yank_gid = vim.api.nvim_create_augroup("SmartYank", { clear = true })
+au("TextYankPost", {
+  group = smart_yank_gid,
+  desc = "Copy and highlight yanked text to system clipboard",
+  callback = function()
+    -- first highlight it
+    vim.highlight.on_yank({ higroup = "HighLightLineMatches", timeout = 200 })
+
+    -- if user doesn't have clipboard
+    if not vim.fn.has("clipboard") == 1 then
+      return
+    end
+
+    -- if user are not intended to copy something, abort the action
+    if vim.v.operator ~= "y" then
+      return
+    end
+
+    local copy = function(str)
+      pcall(vim.fn.setreg, "+", str)
+    end
+
+    local present, yank_data = pcall(vim.fn.getreg, "0")
+    if not present or #yank_data < 1 then
+      return
+    end
+
+    copy(yank_data)
+  end,
+})
