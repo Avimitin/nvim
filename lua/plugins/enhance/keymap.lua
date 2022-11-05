@@ -73,6 +73,10 @@ nmap("<leader>s", function()
         actions.select_default:replace(function()
           actions.close(prompt_bufnr)
           local selection = action_state.get_selected_entry()
+          if not selection then
+            vim.notify("Illegal Selection!", vim.log.levels.ERROR)
+            return false
+          end
 
           local response = {
             ["live grep"] = "live_grep",
@@ -82,7 +86,7 @@ nmap("<leader>s", function()
 
           local func = response[selection[1]]
           if func == nil then
-            return
+            return false
           end
 
           builtin[func](require("telescope.themes").get_ivy())
