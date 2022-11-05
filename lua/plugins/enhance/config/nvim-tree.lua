@@ -103,7 +103,10 @@ return function()
       mappings = {
         custom_only = false,
         list = {
+          -- https://github.dev/nvim-tree/nvim-tree.lua/blob/master/lua/nvim-tree/actions/init.lua#L196
           { key = "?", action = "toggle_help" },
+          { key = "S", action = "system_open" },
+          { key = "s", action = "search_node", desc = "prompt the user to enter a path and then expands the tree to match the path", }
         },
       },
     },
