@@ -44,6 +44,18 @@ local colorscheme = {
       require("plugins.colorscheme.config").github_setup()
     end,
   },
+
+  --
+  -- gruvbox
+  {
+    "ellisonleao/gruvbox.nvim",
+    cond = function()
+      return require("plugins.colorscheme.config").theme == "gruvbox"
+    end,
+    config = function()
+      require("plugins.colorscheme.config").gruvbox_setup()
+    end,
+  }
 }
 
 return colorscheme

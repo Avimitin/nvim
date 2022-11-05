@@ -46,3 +46,8 @@ alias("HiCurLineOff", [[call clearmatches()]])
 --   * Other user can search corresponding program by keyword "ssh-askpass"
 --
 alias("SudoW", [[execute 'w !sudo tee % > /dev/null' <bar> edit!]])
+
+-- Neo-tree
+--
+-- reveal file in explore
+alias("DoTreeFindFile", [[NvimTreeFindFile]])

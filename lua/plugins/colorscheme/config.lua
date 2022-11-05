@@ -211,5 +211,14 @@ colorscheme_settings.github_setup = function()
   })
 end
 
+--
+-- gruvbox setup
+colorscheme_settings.gruvbox_setup = function()
+  require("gruvbox").setup({
+    dim_inactive = true,
+  })
+  apply()
+end
+
 -- return the configuration for load condition
 return colorscheme_settings

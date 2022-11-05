@@ -15,7 +15,8 @@ return function()
         "--column",
         "--smart-case",
       },
-      prompt_prefix = "  ",
+      -- @change
+      prompt_prefix = "  ",
       selection_caret = "  ",
       entry_prefix = "  ",
       initial_mode = "insert",
