@@ -150,3 +150,8 @@ nmap("=", _cmd_sequence("increment", "normal"))
 nmap("-", _cmd_sequence("decrement", "normal"))
 map("v", "=", _cmd_sequence("increment", "visual"))
 map("v", "-", _cmd_sequence("decrement", "visual"))
+
+
+nmap("<space>l", function()
+  require('legendary').find()
+end)

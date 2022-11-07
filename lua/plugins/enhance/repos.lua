@@ -19,6 +19,7 @@ local repos = {
       "d",
       "z",
       ";",
+      "<space>"
     },
   },
 

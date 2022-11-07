@@ -12,7 +12,16 @@ return function()
       auto_register_which_key = true,
       commands = {
         { ":DoTreeFindFile", description = "NvimTreeFindFile" },
-      }
+      },
+      select_prompt = function(kind)
+        local buf_name = vim.api.nvim_buf_get_name(0)
+        if kind == 'legendary.items' then
+          return buf_name
+        end
+        local otherwise_def_name = string.gsub(' ' .. kind:gsub('%.', ' '), '%W%l', string.upper):sub(2)
+        -- TODO: format with buf_name and the def otherwise_def_name.
+        return otherwise_def_name
+      end
     })
   end
 
@@ -99,6 +108,7 @@ return function()
     },
     ["<space>"] = {
       e = { "Toggle Easy Align" },
+      l = { "Toggle legendary" },
     },
   }
 
