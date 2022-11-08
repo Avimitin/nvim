@@ -79,8 +79,8 @@ local my_config = {
 
   autocmd_enable = {
     fcitx5 = false, -- require fcitx5-remote
-    lastline = true,
-    diff_on_commit = false, -- might mess up your window
+    lastline = true, -- always jump to last edit line of the current opened file
+    diff_on_commit = false, -- show diff in vertical splited window when committing
   },
 
   markdown = {

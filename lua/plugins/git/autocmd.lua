@@ -24,7 +24,7 @@ local function setup_auto_diff()
           local id = win_id
           vim.api.nvim_buf_delete(buf_id, { force = true })
           vim.api.nvim_win_close(id, true)
-        end
+        end,
       })
       vim.api.nvim_set_current_win(win_id)
     end,
