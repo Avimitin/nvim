@@ -13,7 +13,7 @@ xmap("J", "5j", d("Jump 5 lines down"))
 nmap("K", "5k", d("Jump 5 lines up"))
 xmap("K", "5k", d("Jump 5 lines up"))
 
-map("i", "<C-h>", "<Home>")
+map("i", "<C-a>", "<Home>")
 map("i", "<C-e>", "<End>")
 map("i", "<C-b>", "<ESC>bi")
 map("i", "<C-f>", "<ESC>wa")
@@ -68,4 +68,4 @@ nmap(";q", require("plugins.libs.bufdel").delete_buffer)
 map({ "n", "x", "o" }, ",", "%", { noremap = false, silent = false })
 
 -- paste from system clipboard
-nmap("<C-p>", [["+p]])
+map({ "n", "i" }, "<C-p>", [["+p]], { noremap = false, silent = false })
