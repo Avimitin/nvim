@@ -62,7 +62,7 @@ local my_config = {
   },
 
   markdown = {
-    -- must be executable
+    -- must be executable name that can be found by $PATH or a full path to executable
     preview_browser = "chrome",
   },
 }
