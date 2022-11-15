@@ -13,10 +13,13 @@ xmap("J", "5j", d("Jump 5 lines down"))
 nmap("K", "5k", d("Jump 5 lines up"))
 xmap("K", "5k", d("Jump 5 lines up"))
 
+-- Emacs key mapping in insert mode
 map("i", "<C-a>", "<Home>")
 map("i", "<C-e>", "<End>")
 map("i", "<C-b>", "<ESC>bi")
 map("i", "<C-f>", "<ESC>wa")
+map("i", "<C-n>", "<ESC>ja")
+map("i", "<C-p>", "<ESC>ka")
 
 nmap("L", "g_", d("Jump to the end of the character"))
 nmap("H", "^", d("Jump to the beginning of the character"))
@@ -71,4 +74,4 @@ nmap(";x", ":x<CR>")
 map({ "n", "x", "o" }, ",", "%", { noremap = false, silent = false })
 
 -- paste from system clipboard
-map({ "n", "i" }, "<C-p>", [["+p]], { noremap = false, silent = false })
+nmap("<C-p>", [["+p]])
