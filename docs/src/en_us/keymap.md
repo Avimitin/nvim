@@ -104,3 +104,7 @@ Basic movement
 | Keymap            | Function        |
 |-------------------|-----------------|
 | <kbd>Ctrl-z</kbd> | Reverse changes |
+
+## Next Step
+
+[concept](./concept.md)
