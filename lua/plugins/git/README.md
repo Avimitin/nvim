@@ -1,6 +1,8 @@
 # How to interact with git
 
 There are some plugins that helps you interact with git.
+Most of the git key mappings are prefixed by `gi`, you can
+use just press and wait for the key panel prompt to get a hint.
 
 - vim-fugitive
 
@@ -22,9 +24,9 @@ You can update gitsigns configuration in `lua/plugins/config/gitsigns_cfg.lua` f
 
 ## Workflow 1: The git status panel
 
-The fugitive plugin provides a command `:G` to open a magit like panel.
+The fugitive plugin provides a command `;g` to open a magit like panel.
 
-![fugitive-status-img](https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/fugitive.png)
+![fugitive-status-img](../../../docs/images/neovim-fugitive.png)
 
 You can stage file with key `s`, commit file with key `cc`, view inline
 diff with key `=`, jump between file with key `)(`. There are also rebase
@@ -72,4 +74,3 @@ the icon on the left.
 | <kbd>gic</kbd> | Open commit panel        |
 | <kbd>giP</kbd> | Git push                 |
 | <kbd>;g</kbd>  | Open git status          |
-| <kbd>;l</kbd>  | Open lazygit             |
