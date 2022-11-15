@@ -11,6 +11,8 @@
   > Automatically insert/update HTML fragment.
 * [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
   > Integrate the LSP program with neovim built-in LSP functionality.
+  >
+  > [Details document](./lspconfig.md)
 * [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
   > Pretty all the LSP stuff. Like winbar, rename panel, code action panel......
 * [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
