@@ -66,3 +66,6 @@ nmap(";q", require("plugins.libs.bufdel").delete_buffer)
 
 -- % is so hard to reach...
 map({ "n", "x", "o" }, ",", "%", { noremap = false, silent = false })
+
+-- paste from system clipboard
+nmap("<C-p>", [["+p]])
