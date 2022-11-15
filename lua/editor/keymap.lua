@@ -64,6 +64,9 @@ nmap("<M-left>", ":vertical resize+5<CR>", d("Extend the right boundary of the c
 -- kill buffer with ;q , quit window with :q.
 nmap(";q", require("plugins.libs.bufdel").delete_buffer)
 
+-- Write and quit. Alias for :wq<CR>
+nmap(";x", ":x<CR>")
+
 -- % is so hard to reach...
 map({ "n", "x", "o" }, ",", "%", { noremap = false, silent = false })
 
