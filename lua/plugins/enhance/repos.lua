@@ -384,6 +384,14 @@ local repos = {
     },
   },
 
+  {
+    "folke/todo-comments.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    event = "BufRead",
+    config = function()
+      require("todo-comments").setup({ signs = false })
+    end,
+  },
   --
   --
   -- Auto Load

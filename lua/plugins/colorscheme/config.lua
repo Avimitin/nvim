@@ -78,11 +78,6 @@ colorscheme_settings.kanagawa_setup = function()
       fg = default.surimiOrange,
       bold = true,
     },
-    Todo = {
-      fg = default.fujiWhite,
-      bg = default.samuraiRed,
-      bold = true,
-    },
     Pmenu = {
       bg = default.sumiInk2,
     },
