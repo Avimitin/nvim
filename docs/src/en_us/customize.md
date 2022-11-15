@@ -92,3 +92,121 @@ will be transfer to the lsp server.
 | `lastline`       | Enable auto command that jump to last edit line when you open neovim |
 | `diff_on_commit` | Enable auto command that open diff window when you commiting         |
 
+# Per language configuration snippets
+
+## c/cpp
+
+* Config
+
+C/CPP can be configured to use clangd as default LSP server.
+
+```lua
+{ { "c", "cpp" }, "clangd" },
+```
+
+* project setup
+
+The clangd respect your cmake settings.
+You will need to provide the compile_commands.json file for clangd to identify
+your project correctly.
+
+```console
+$ cmake -H. -BDebug -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=YES
+$ ln -s Debug/compile_commands.json .
+```
+
+* Makefile
+
+If you are writing C and using the Makefile, you can use the `:Dispatch` or `:Make`
+command to easily build and debug your code.
+
+* Resources
+
+> * Clangd official site: <https://clangd.llvm.org/>
+> * CMake official site: <https://cmake.org/>
+
+
+## JavaScript/TypeScript
+
+Add the below script into `lua/custom.lua` file.
+
+```lua
+langs = {
+  "html",
+  "css",
+  "json",
+  { { "javascript", "typescript", "javascriptreact", "typescriptreact" }, "tsserver" },
+},
+```
+
+Inject eslint into tsserver by enable the null-ls option:
+
+```lua
+null_ls = {
+  enable_eslint = true, -- require eslint, useful to combine use with tsserver
+  enable_prettier = true, -- require prettier, useful when you want format in js/ts{x}
+},
+```
+
+### Trouble Shooting
+
+* Neovim notify that their is no executable in `$PATH`
+
+Please make sure that you have configured node.js/deno PATH correctly.
+If you are using node version manager like `nvm` or other stuff, please
+make sure you have enabled correct version before you start the neovim.
+
+## rust
+
+The plugin rust-tools.nvim has already set up LSP, format, and debug utilities.
+
+See <https://github.com/simrat39/rust-tools.nvim/> for what it can do.
+
+> This plugin will setup lspconfig itself, please don't write lspconfig manually.
+
+* Inlay hint
+
+The rust-tools.nvim setting is located in lua/plugins/coding/config/rust-tools.lua.
+And inlay hint is set up automatically after you open rust file.
+
+But it will not prompt up by default due to some unknown bug.
+It will only show up after you save the buffer.
+So you need to manually run command `:w` when you first open the rust code.
+
+* Code action
+
+You can use the keymap <kbd>LEADER ra</kbd> or keymap `gx` set by LSP to view and select
+the action for Rust code. Also you can press <kbd>LEADER rr</kbd> to run test or function.
+
+* Code format
+
+You can use `gf` to run the LSP built in format API. It will called the rustfmt
+program.
+
+* Debug
+
+You need to install `lldb-vscode`. Then run `:RustDebuggables`, it will open the
+debug panel automatically.
+
+* Rust Analyzer Settings
+
+You might want to make some specific rust-analyzer settings for your project.
+You can create a file with name `.rust-analyzer.json` in the same directory
+with the `Cargo.toml` file. Then put all the configuration you want into it.
+
+Configuration reference: <https://rust-analyzer.github.io/manual.html#configuration>
+
+For example, if you want to enable all feature when editing the code:
+
+```bash
+# cd to the root directory of your project
+echo '{
+  "cargo": {
+    "allFeatures": true
+  }
+}' > .rust-analyzer.json
+```
+
+* Gallery
+
+Please read [demo](https://github.com/simrat39/rust-tools.nvim/#demos).
