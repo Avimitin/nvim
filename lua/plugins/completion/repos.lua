@@ -5,6 +5,7 @@ local repos = {
   {
     "rafamadriz/friendly-snippets",
     event = "InsertEnter",
+    module = "cmp",
     keys = {
       { "n", ":" },
       { "n", "/" },
