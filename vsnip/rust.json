@@ -23,5 +23,9 @@
   "inline closure": {
     "prefix": "||",
     "body": "|${1: args}| ${0}"
+  },
+  "Anyhow Result": {
+    "prefix": "anyhow",
+    "body": "anyhow::Result<()>"
   }
 }
