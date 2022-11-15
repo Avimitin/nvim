@@ -25,6 +25,17 @@ local repos = {
   },
 
   {
+    "RRethy/vim-illuminate",
+    after = "nvim-treesitter",
+    config = function ()
+      require('illuminate').configure({
+        -- set highest priority for treesitter, and disable regex search
+        providers = { 'treesitter', 'lsp' }
+      })
+    end
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter-textobjects",
     after = "nvim-treesitter",
   },
