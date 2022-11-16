@@ -98,11 +98,19 @@ local repos = {
   -- a dashboard that useless but beautiful
   {
     "glepnir/dashboard-nvim",
-    event = "VimEnter",
-    config = function()
-      local config = require("plugins.enhance.config")
-      config.dashboard_cfg()
-    end,
+    opt = true,
+    setup = function()
+      vim.api.nvim_create_autocmd('Vimenter', {
+        group = vim.api.nvim_create_augroup("dashboard_cond_load", { clear = true }),
+        nested = true,
+        callback = function()
+          if vim.fn.argc() == 0 and vim.fn.line2byte('$') == -1 then
+            require("packer").loader("dashboard-nvim")
+            require("plugins.enhance.config").dashboard_cfg()
+          end
+        end,
+      })
+    end
   },
 
   -- Try to find project root and cd into it
