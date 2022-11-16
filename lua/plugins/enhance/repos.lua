@@ -100,17 +100,17 @@ local repos = {
     "glepnir/dashboard-nvim",
     opt = true,
     setup = function()
-      vim.api.nvim_create_autocmd('Vimenter', {
+      vim.api.nvim_create_autocmd("Vimenter", {
         group = vim.api.nvim_create_augroup("dashboard_cond_load", { clear = true }),
         nested = true,
         callback = function()
-          if vim.fn.argc() == 0 and vim.fn.line2byte('$') == -1 then
+          if vim.fn.argc() == 0 and vim.fn.line2byte("$") == -1 then
             require("packer").loader("dashboard-nvim")
             require("plugins.enhance.config").dashboard_cfg()
           end
         end,
       })
-    end
+    end,
   },
 
   -- Try to find project root and cd into it
@@ -354,8 +354,8 @@ local repos = {
           Warn = { text = { "" } },
           Hint = { text = { "" } },
           Info = { text = { "" } },
-          GitAdd = { text = "▕", },
-          GitChange = { text = "▕" }
+          GitAdd = { text = "▕" },
+          GitChange = { text = "▕" },
         },
         excluded_buftypes = {
           "terminal",
@@ -368,7 +368,7 @@ local repos = {
         },
         handlers = {
           cursor = false,
-        }
+        },
       })
     end,
     module = "scrollbar",
