@@ -341,6 +341,14 @@ local repos = {
     "petertriho/nvim-scrollbar",
     config = function()
       require("scrollbar").setup({
+        marks = {
+          Error = { text = { "" } },
+          Warn = { text = { "" } },
+          Hint = { text = { "" } },
+          Info = { text = { "" } },
+          GitAdd = { text = "▕", },
+          GitChange = { text = "▕" }
+        },
         excluded_buftypes = {
           "terminal",
         },
@@ -350,9 +358,13 @@ local repos = {
           "noice",
           "Git",
         },
+        handlers = {
+          cursor = false,
+        }
       })
     end,
-    event = "BufWinEnter",
+    module = "scrollbar",
+    event = "VimEnter",
   },
 
   {
