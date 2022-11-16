@@ -124,7 +124,7 @@ EOF
 
 # run empty buffer test
 print "Running empty buffer test...";
-my %buffer  = run_test(10);
+my %buffer  = run_test(10, "/tmp/empty");
 print "Done\n";
 
 # run markdown file test
