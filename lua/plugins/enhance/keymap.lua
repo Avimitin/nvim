@@ -10,14 +10,6 @@ map("v", "<space>e", ":EasyAlign<CR>")
 -- nvim-tree
 --
 nmap("<leader>t", ":NvimTreeToggle<CR>")
-nmap("<space>t", function()
-  local view = require("nvim-tree.view")
-  if view.is_visible() then
-    view.close()
-  else
-    require("nvim-tree").open_replacing_current_buffer()
-  end
-end)
 
 --
 -- fterm
