@@ -126,3 +126,44 @@ if not vim.fn.has("nvim-0.8") then
   vim.g.do_filetype_lua = 1
   vim.g.did_load_filetypes = 0
 end
+
+-- built-in plugins that really useless
+local built_in_plugins = {
+  "gzip",
+  "zip",
+  "zipPlugin",
+  "tar",
+  "tarPlugin",
+  "getscript",
+  "getscriptPlugin",
+  "vimball",
+  "vimballPlugin",
+  "2html_plugin",
+  "matchit",
+  "matchparen",
+  "logiPat",
+  "rrhelper",
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers"
+}
+
+for _, plugin in ipairs(built_in_plugins) do
+  local var = "loaded_"..plugin
+  vim.g[var] = 1
+end
+
+-- built-in neovim RPC provider that I never used
+local built_in_providers = {
+  "perl",
+  "node",
+  "ruby",
+  "python",
+  "python3"
+}
+
+for _, provider in ipairs(built_in_providers) do
+  local var = "loaded_"..provider.."_provider"
+  vim.g[var] = 0
+end
