@@ -195,8 +195,8 @@ local repos = {
   {
     "andymass/vim-matchup",
     keys = {
-      { "n", "," }
-    }
+      { "n", "," },
+    },
   },
 
   -- automatically pairs the bracket
