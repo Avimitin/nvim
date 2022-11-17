@@ -28,16 +28,13 @@ local repos = {
             end
           end
 
-          local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-          if lines ~= { "" } then
-            vim.loop.spawn("git", {
-              args = {
-                "ls-files",
-                "--error-unmatch",
-                vim.fn.expand("%"),
-              },
-            }, onexit)
-          end
+          vim.loop.spawn("git", {
+            args = {
+              "ls-files",
+              "--error-unmatch",
+              vim.fn.expand("%"),
+            },
+          }, onexit)
         end,
       })
     end,
