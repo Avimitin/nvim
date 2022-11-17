@@ -114,27 +114,6 @@ if resp == 1 and has_persist == 1 then
   opt.undodir = undo_dir
 end
 
--- nvui specific settings
-if vim.g.nvui then
-  vim.opt.guifont = [[Cascadia Code:h12,FiraCode\ Nerd\ Font\ Mono:h12]]
-  vim.cmd([[NvuiCmdFontFamily FiraCode Nerd Font Mono]])
-  vim.cmd([[NvuiCmdFontSize 12]])
-  vim.cmd([[NvuiAnimationsEnabled 1]])
-  vim.cmd([[NvuiCmdCenterXPos 0.5]])
-  vim.cmd([[NvuiCmdCenterYPos 0.2]])
-  vim.cmd([[NvuiCmdBorderWidth 3]])
-  vim.cmd([[NvuiCmdBorderColor #6E6C6A]])
-  vim.cmd([[NvuiCmdBigFontScaleFactor 1.3]])
-  vim.cmd([[NvuiCmdPadding 13]])
-  vim.cmd([[NvuiPopupMenuBorderWidth 4]])
-  vim.cmd([[NvuiPopupMenuBorderColor #6E6C6A]])
-  -- nvui g3486971 feature
-  vim.cmd([[autocmd InsertEnter * NvuiIMEEnable]])
-  vim.cmd([[autocmd InsertLeave * NvuiIMEDisable]])
-  -- nvui g87f61c0 feature
-  vim.cmd([[hi Normal guisp=#6899B8]])
-end
-
 if vim.g.neovide then
   -- neovide specific settings
   vim.g.neovide_cursor_vfx_mode = "sonicboom"
