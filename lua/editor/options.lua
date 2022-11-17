@@ -146,11 +146,11 @@ local built_in_plugins = {
   "netrw",
   "netrwPlugin",
   "netrwSettings",
-  "netrwFileHandlers"
+  "netrwFileHandlers",
 }
 
 for _, plugin in ipairs(built_in_plugins) do
-  local var = "loaded_"..plugin
+  local var = "loaded_" .. plugin
   vim.g[var] = 1
 end
 
@@ -160,10 +160,10 @@ local built_in_providers = {
   "node",
   "ruby",
   "python",
-  "python3"
+  "python3",
 }
 
 for _, provider in ipairs(built_in_providers) do
-  local var = "loaded_"..provider.."_provider"
+  local var = "loaded_" .. provider .. "_provider"
   vim.g[var] = 0
 end

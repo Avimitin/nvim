@@ -15,8 +15,9 @@ local repos = {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     keys = {
-      "n", "gq"
-    }
+      "n",
+      "gq",
+    },
   },
 
   -- deserialize code to generate text object for highlight and other enhancement
