@@ -14,7 +14,9 @@ local repos = {
   {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
-    after = "nvim-lspconfig",
+    keys = {
+      "n", "gq"
+    }
   },
 
   -- deserialize code to generate text object for highlight and other enhancement
@@ -59,7 +61,7 @@ local repos = {
   -- enhance the lsp UI
   {
     "glepnir/lspsaga.nvim",
-    after = "nvim-lspconfig",
+    event = "LspAttach",
     config = config.lspsaga_config,
     cmd = { "Lspsaga" },
   },

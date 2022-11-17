@@ -194,7 +194,9 @@ local repos = {
   -- Enhanced the `%` keymap
   {
     "andymass/vim-matchup",
-    after = "nvim-treesitter",
+    keys = {
+      { "n", "," }
+    }
   },
 
   -- automatically pairs the bracket
