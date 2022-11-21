@@ -97,6 +97,10 @@ opt.formatoptions = "qj"
 
 opt.hidden = true
 
+-- command line line-height property, set it to 0 to gain
+-- more compat UI
+opt.ch = 0
+
 -- Changed home directory here
 local backup_dir = vim.fn.stdpath("cache") .. "/backup"
 -- "p" means mkdir -p
