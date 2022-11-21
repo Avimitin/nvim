@@ -1,3 +1,26 @@
+cv2022.11.21
+============
+
+ADDED:
+------
+* scrollbar: add lsp signature in scrollbar
+* scrollbar: add git status in scrollbar
+* plugin: add TODO comment highlighter
+* plugin: add same token highlighter
+* clipboard: yank text to system clipboard only when user clicked `y`
+* keyboard: add `;x` to perform `:wq`
+
+CHANGED:
+--------
+* Statusline: update shortline style
+* options: disable useless provider(python, ruby, perl) and plugins
+* options: remove nvui settings
+* plugins: optimize dashboard and gitsigns load time
+* scrollbar: add lsp signature in scrollbar
+* crates: fix nvim-cmp not loading issue
+* docs: split docuement into each sub directory
+* gitcommit: fix the buggy diff split panel
+
 cv2022.11.04
 ============
 
