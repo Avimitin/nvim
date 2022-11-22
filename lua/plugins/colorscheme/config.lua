@@ -30,6 +30,7 @@ end
 -- configure the kanagawa theme
 colorscheme_settings.kanagawa_setup = function()
   local default = require("kanagawa.colors").setup()
+  local telescope_bg = "#14141d"
   local overrides = {
     -- use gradient yellow for heading
     markdownH1 = {
@@ -100,32 +101,33 @@ colorscheme_settings.kanagawa_setup = function()
       bg = "#262729",
     },
     TelescopeNormal = {
-      bg = "#2a2a37",
+      bg = telescope_bg,
     },
     TelescopePromptNormal = {
-      bg = "#363646",
+      bg = "#24242f",
     },
     TelescopePromptBorder = {
-      fg = "#363646",
-      bg = "#363646",
+      fg = "#24242f",
+      bg = "#24242f",
     },
     TelescopeBorder = {
-      fg = "#2a2a37",
-      bg = "#2a2a37",
+      fg = telescope_bg,
+      bg = telescope_bg,
     },
     TelescopePreviewTitle = {
-      fg = "#2a2a37",
-      bg = "#2a2a37",
+      fg = telescope_bg,
+      bg = telescope_bg,
     },
     TelescopePreviewBorder = {
-      fg = "#2a2a37",
-      bg = "#2a2a37",
+      fg = telescope_bg,
+      bg = telescope_bg,
     },
     TelescopePromptTitle = {
-      bg = "#2a2a37",
+      fg = "#2a2a37",
+      bg = default.springViolet2,
     },
     TelescopeResultsTitle = {
-      bg = "#2a2a37",
+      bg = telescope_bg,
     },
   }
 
