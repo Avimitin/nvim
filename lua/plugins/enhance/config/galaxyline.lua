@@ -441,7 +441,7 @@ return function()
   require("galaxyline").section.short_line_left = {
     {
       ShortLineLeftBufferType = {
-        highlight = { colors.cyan, colors.bg },
+        highlight = { colors.black, colors.cyan },
         provider = function()
           -- return filename for normal file
           local get_file_name = function()
@@ -451,17 +451,17 @@ return function()
           return string.format("  %s", name)
         end,
         separator = " ",
-        separator_highlight = { colors.bg, colors.black },
+        separator_highlight = { colors.cyan, colors.bg },
       },
     },
     {
       ShortLineLeftWindowNumber = {
-        highlight = { colors.cyan, colors.black },
+        highlight = { colors.cyan, colors.bg },
         provider = function()
           return " " .. vim.api.nvim_win_get_number(vim.api.nvim_get_current_win())
         end,
         separator = "",
-        separator_highlight = { colors.black, "Normal" },
+        separator_highlight = { colors.black, colors.bg },
       },
     },
   }

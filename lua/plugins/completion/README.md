@@ -1,3 +1,32 @@
+# nvim-cmp
+
+The nvim-cmp is a completion plugin.
+It will only be loaded when `InsertEnter` event is triggered.
+This means that this plugin will be loaded after you enter the insert mode.
+
+## file location
+
+All the nvim-cmp related plugins and itself are placed inside
+`lua/plugins/completion/` directory.
+
+## Configuration
+
+The nvim-cmp is configured to use nerdfont to show icons.
+
+I also enabled the ghost text feature so you can always get inline hint.
+For those who don't like this feature, you can close this by updating the
+ghost_text variable:
+
+```lua
+experimental = {
+  ghost_text = false
+}
+```
+
+## Sources
+
+Below are the available sources:
+
 * [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
   > Community contributed coding snippets
 * [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
@@ -20,3 +49,8 @@
   > Complete vocabulary
 * [hrsh7th/cmp-nvim-lsp-document-symbol](https://github.com/hrsh7th/cmp-nvim-lsp-document-symbol)
   > Complete when searching symbols
+
+## Reference
+
+- `:h nvim-cmp`
+- `:h vsnip`

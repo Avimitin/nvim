@@ -10,7 +10,7 @@ lua/plugins/colorscheme/config.lua
 
 ## Change the theme
 
-1. **Change default value**
+1. **Change default value** (NOT RECOMMEND)
 
 This configuration has "kanagawa" as the default colorscheme value.
 If you want to change the default value, you can modify the `M.theme` variable.
@@ -21,7 +21,7 @@ local M = {
 }
 ```
 
-2. **Change local value**
+2. **Change local value** (RECOMMEND)
 
 There is also another mechanism to modify this value.
 You can create a file named `custom.lua` under the `lua` directory.
@@ -36,6 +36,8 @@ local M = {
 
 return M
 ```
+
+## Extra
 
 The `custom.lua` file is ignored by git, so you can change the colorscheme whatever you like.
 

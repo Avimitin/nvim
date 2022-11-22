@@ -13,10 +13,13 @@ xmap("J", "5j", d("Jump 5 lines down"))
 nmap("K", "5k", d("Jump 5 lines up"))
 xmap("K", "5k", d("Jump 5 lines up"))
 
-map("i", "<C-h>", "<Home>")
+-- Emacs key mapping in insert mode
+map("i", "<C-a>", "<Home>")
 map("i", "<C-e>", "<End>")
 map("i", "<C-b>", "<ESC>bi")
 map("i", "<C-f>", "<ESC>wa")
+map("i", "<C-n>", "<ESC>ja")
+map("i", "<C-p>", "<ESC>ka")
 
 nmap("L", "g_", d("Jump to the end of the character"))
 nmap("H", "^", d("Jump to the beginning of the character"))
@@ -56,25 +59,19 @@ nmap(";l", "<C-w>l", d("Jump to the left window"))
 nmap(";h", "<C-w>h", d("Jump to the righ window"))
 
 -- resize the window
-nmap("<C-S-up>", ":res +5<CR>", d("Extend the upper boundary of the current window"))
-nmap("<C-S-down>", ":res -5<CR>", d("Extend the lower boundary of the current window"))
-nmap("<C-S-right>", ":vertical resize-5<CR>", d("Extend the right boundary of the current window"))
-nmap("<C-S-left>", ":vertical resize+5<CR>", d("Extend the right boundary of the current window"))
+nmap("<M-down>", ":res +5<CR>", d("Extend the upper boundary of the current window"))
+nmap("<M-up>", ":res -5<CR>", d("Extend the lower boundary of the current window"))
+nmap("<M-right>", ":vertical resize-5<CR>", d("Extend the right boundary of the current window"))
+nmap("<M-left>", ":vertical resize+5<CR>", d("Extend the right boundary of the current window"))
 
 -- kill buffer with ;q , quit window with :q.
 nmap(";q", require("plugins.libs.bufdel").delete_buffer)
 
+-- Write and quit. Alias for :wq<CR>
+nmap(";x", ":x<CR>")
+
 -- % is so hard to reach...
 map({ "n", "x", "o" }, ",", "%", { noremap = false, silent = false })
 
--- Do not yank when pressing x
-nmap("x", [["_x]])
-
--- Delete word backward and do not yank
-nmap("dw", [[vb"_d]])
-
--- Backspace to delete without yank
-map("n", "<BS>", [["_X]], { noremap = false })
-map("v", "<BS>", [["_d]], { noremap = false })
-
-map({ "n", "x" }, "d", [["_d]])
+-- paste from system clipboard
+nmap("<C-p>", [["+p]])

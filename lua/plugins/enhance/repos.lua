@@ -105,10 +105,18 @@ local repos = {
   -- a dashboard that useless but beautiful
   {
     "glepnir/dashboard-nvim",
-    event = "VimEnter",
-    config = function()
-      local config = require("plugins.enhance.config")
-      config.dashboard_cfg()
+    opt = true,
+    setup = function()
+      vim.api.nvim_create_autocmd("Vimenter", {
+        group = vim.api.nvim_create_augroup("dashboard_cond_load", { clear = true }),
+        nested = true,
+        callback = function()
+          if vim.fn.argc() == 0 and vim.fn.line2byte("$") == -1 then
+            require("packer").loader("dashboard-nvim")
+            require("plugins.enhance.config").dashboard_cfg()
+          end
+        end,
+      })
     end,
   },
 
@@ -193,7 +201,9 @@ local repos = {
   -- Enhanced the `%` keymap
   {
     "andymass/vim-matchup",
-    after = "nvim-treesitter",
+    keys = {
+      { "n", "," },
+    },
   },
 
   -- automatically pairs the bracket
@@ -348,6 +358,14 @@ local repos = {
     "petertriho/nvim-scrollbar",
     config = function()
       require("scrollbar").setup({
+        marks = {
+          Error = { text = { "" } },
+          Warn = { text = { "" } },
+          Hint = { text = { "" } },
+          Info = { text = { "" } },
+          GitAdd = { text = "▕" },
+          GitChange = { text = "▕" },
+        },
         excluded_buftypes = {
           "terminal",
         },
@@ -357,9 +375,13 @@ local repos = {
           "noice",
           "Git",
         },
+        handlers = {
+          cursor = false,
+        },
       })
     end,
-    event = "BufWinEnter",
+    module = "scrollbar",
+    event = "VimEnter",
   },
 
   {
@@ -391,6 +413,14 @@ local repos = {
     },
   },
 
+  {
+    "folke/todo-comments.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    event = "BufRead",
+    config = function()
+      require("todo-comments").setup({ signs = false })
+    end,
+  },
   --
   --
   -- Auto Load

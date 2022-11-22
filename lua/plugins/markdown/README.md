@@ -22,32 +22,16 @@ text.
 
 I have configured the plugin to use [Surf](https://surf.suckless.org/) as the
 preview browser. If you prefer Chrome or Firefox, you can change the setting
-in lua/plugins/modules/markdown/config.lua file.
+in lua/custom.lua file.
 
 ```lua
--- replace surf with 'firefox' or 'chrome'
-vim.g.mkdp_browser = 'surf'
-```
-
-### About surf
-
-Surf is a lightweight browser from suckless project. If you have interest on it,
-you can build it yourself.
-
-For Arch Linux user:
-
-```bash
-git clone https://git.suckless.org/surf
-cd surf
-sudo make install
+markdown = {
+  -- must be the executable name
+  preview_browser = "chrome",
+},
 ```
 
 ## TOC
 
 You can generate GitHub style table of content by command `:GenTocGFM`.
 It also support GitLab style: `:GenTocGitLab`.
-
-## Others
-
-I have also import the <https://github.com/preservim/vim-markdown>.
-See its readme for what it can do.

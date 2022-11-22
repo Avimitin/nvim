@@ -1,5 +1,3 @@
-local config = require("plugins.git.config")
-
 local repos = {
   -- A git tool like magit in Emacs
   {
@@ -16,11 +14,30 @@ local repos = {
   -- Show git information in neovim
   {
     "lewis6991/gitsigns.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim",
-    },
-    event = "BufRead",
-    config = config.gitsigns_config,
+    opt = true,
+    setup = function()
+      vim.api.nvim_create_autocmd({ "BufAdd", "VimEnter" }, {
+        callback = function()
+          local function onexit(code, _)
+            if code == 0 then
+              vim.schedule(function()
+                require("packer").loader("gitsigns.nvim")
+                require("plugins.git.config").gitsigns_config()
+                require("scrollbar.handlers.gitsigns").setup()
+              end)
+            end
+          end
+
+          vim.loop.spawn("git", {
+            args = {
+              "ls-files",
+              "--error-unmatch",
+              vim.fn.expand("%"),
+            },
+          }, onexit)
+        end,
+      })
+    end,
   },
 
   -- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.

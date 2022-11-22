@@ -13,6 +13,8 @@ To separate the normal key mappings and code key mappings, key mappings are atta
 to buffer when launching LSP server. Those key mappings are set in
 `lua/plugins/coding/keymap.lua` file by function `M.lsp_attach`.
 
+All the lsp key mappings are prefix by `g`
+
 | keys              | map                                                      |
 |-------------------|----------------------------------------------------------|
 | <kbd>gd</kbd>     | Open finder for symbol under cursor                      |

@@ -11,12 +11,14 @@
   > Automatically insert/update HTML fragment.
 * [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
   > Integrate the LSP program with neovim built-in LSP functionality.
+  >
+  > [Details document](./lspconfig.md)
 * [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
   > Pretty all the LSP stuff. Like winbar, rename panel, code action panel......
 * [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
   > Enhance the Rust coding experience
 * [saecki/crates.nvim](https://github.com/saecki/crates.nvim)
-  > Add completion for Cargo.toml.
+  > Add completion, code actions for Cargo.toml.
 * [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap)
   > Code debugger
 * [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)

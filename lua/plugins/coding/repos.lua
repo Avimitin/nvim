@@ -7,13 +7,17 @@ local repos = {
     "jose-elias-alvarez/null-ls.nvim",
     config = config.null_ls_config,
     after = "nvim-lspconfig",
+    module = "null-ls",
   },
 
   -- show workspace error,warning,hint... message in a pop up panel
   {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
-    after = "nvim-lspconfig",
+    keys = {
+      "n",
+      "gq",
+    },
   },
 
   -- deserialize code to generate text object for highlight and other enhancement
@@ -22,6 +26,17 @@ local repos = {
     run = ":TSUpdate",
     config = config.treesitter_config,
     ft = config.treesitter_ft,
+  },
+
+  {
+    "RRethy/vim-illuminate",
+    after = "nvim-treesitter",
+    config = function()
+      require("illuminate").configure({
+        -- set highest priority for treesitter, and disable regex search
+        providers = { "treesitter", "lsp" },
+      })
+    end,
   },
 
   {
@@ -47,8 +62,9 @@ local repos = {
   -- enhance the lsp UI
   {
     "glepnir/lspsaga.nvim",
-    after = "nvim-lspconfig",
+    event = "LspAttach",
     config = config.lspsaga_config,
+    cmd = { "Lspsaga" },
   },
 
   -- Pre-set for rust lsp
@@ -70,6 +86,15 @@ local repos = {
       },
     },
     config = config.crates_nvim_config,
+    setup = function()
+      vim.api.nvim_create_autocmd("BufRead", {
+        group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
+        pattern = "Cargo.toml",
+        callback = function()
+          require("cmp").setup.buffer({ sources = { { name = "crates" } } })
+        end,
+      })
+    end,
   },
 
   -- debugger plugin

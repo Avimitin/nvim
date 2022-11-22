@@ -57,16 +57,6 @@ as the search program. It is an faster grep RIIR alternative.
 
 See its [readme](https://github.com/BurntSushi/ripgrep) for more.
 
-> * How to build surf
->
-> ```bash
-> # Arch linux contains most of the library
-> # Other distro need to check out documents yourself
-> git clone https://git.suckless.org/surf
-> cd surf
-> sudo make clean install
-> ```
-
 # Fork before pull
 
 I recommend you use my configuration as a base and build your
@@ -163,3 +153,7 @@ docker run -w /root -it --rm alpine:edge sh -uelic '
       nvim /root/.config/nvim/README.md
   '
 ```
+
+# Next Step
+
+See [key mappings](./keymap.md)

@@ -10,14 +10,6 @@ map("v", "<space>e", ":EasyAlign<CR>")
 -- nvim-tree
 --
 nmap("<leader>t", ":NvimTreeToggle<CR>")
-nmap("<space>t", function()
-  local view = require("nvim-tree.view")
-  if view.is_visible() then
-    view.close()
-  else
-    require("nvim-tree").open_replacing_current_buffer()
-  end
-end)
 
 --
 -- fterm
@@ -103,9 +95,6 @@ end)
 nmap("<C-c>", ":BufferLinePickClose<CR>") -- close tab
 -- move between tabs
 nmap("<Tab>", "<CMD>BufferLineCycleNext<CR>")
-nmap("<M-right>", [[<Cmd>BufferLineCycleNext<CR>]])
-
-nmap("<M-left>", [[<Cmd>BufferLineCyclePrev<CR>]])
 nmap("<S-Tab>", [[<Cmd>BufferLineCyclePrev<CR>]])
 
 nmap("<leader>p", [[<CMD>:BufferLinePick<CR>]])
