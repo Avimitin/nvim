@@ -211,6 +211,7 @@ end
 colorscheme_settings.gruvbox_setup = function()
   require("gruvbox").setup({
     dim_inactive = true,
+    transparent_mode = true
   })
   apply()
 end
