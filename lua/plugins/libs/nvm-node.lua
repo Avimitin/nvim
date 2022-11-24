@@ -1,12 +1,19 @@
 local packer_util = require("packer.util")
+print(packer_util)
 
 local nvm_alias_for_nvim = "nvim-node"
 local stdpath = vim.fn.stdpath
 
 local M = {}
 
+M.debug = function ()
+	local path = { stdpath("config"), "plugin", "nvm_node_path_generated.lua" }
+	print(path)
+end
+
 M.get_nvm_node_path = function ()
-	local path = packer_util.join_paths(stdpath, "config", "plugin", "nvm_node_path_generated.lua")
+	vim.notify(stdpath("config"))
+	local path = packer_util.join_paths(stdpath("config"), "plugin", "nvm_node_path_generated.lua")
 	local ok, md = pcall(require, path)
 	if ok then
 		return ok, md.node_bin_path
@@ -15,7 +22,7 @@ M.get_nvm_node_path = function ()
 end
 
 M.compile_nvm_node_path = function ()
-	local output_path = packer_util.join_paths(stdpath, "config", "plugin", "nvm_node_path_generated.lua")
+	local output_path = packer_util.join_paths(stdpath("config"), "plugin", "nvm_node_path_generated.lua")
 	local nvm_dir = os.getenv("NVM_DIR")
 	if not nvm_dir then
 		-- emit warning?
@@ -30,7 +37,7 @@ M.compile_nvm_node_path = function ()
 		return
 	end
 
-	local node_bin_path = packer_util.join_paths(nvm_dir, "versions/node/", node_version, "/bin/node")
+	local node_bin_path = packer_util.join_paths(nvm_dir, "versions", "node", node_version, "bin", "node")
 	local output_file = io.open(output_path, 'w')
 	if not output_file then
 		return
