@@ -1,24 +1,16 @@
 local packer_util = require("packer.util")
-print(packer_util)
 
 local nvm_alias_for_nvim = "nvim-node"
 local stdpath = vim.fn.stdpath
 
 local M = {}
 
-M.debug = function ()
-	local path = { stdpath("config"), "plugin", "nvm_node_path_generated.lua" }
-	print(path)
-end
-
 M.get_nvm_node_path = function ()
-	vim.notify(stdpath("config"))
-	local path = packer_util.join_paths(stdpath("config"), "plugin", "nvm_node_path_generated.lua")
-	local ok, md = pcall(require, path)
+	local ok, md = pcall(require, "plugin.nvm_node_path_generated")
 	if ok then
-		return ok, md.node_bin_path
+		return md.node_bin_path
 	end
-	return ok, ""
+	return nil
 end
 
 M.compile_nvm_node_path = function ()
@@ -29,9 +21,11 @@ M.compile_nvm_node_path = function ()
 		return
 	end
 
-	io.input(packer_util.join_paths(nvm_dir, "alias", nvm_alias_for_nvim))
-	local node_version = io.read()
-	io.close()
+	local node_version = nil
+	if pcall(function () io.input(packer_util.join_paths(nvm_dir, "alias", nvm_alias_for_nvim)) end) then
+		node_version = io.read()
+		io.close()
+	end
 
 	if not node_version then
 		return
@@ -44,7 +38,7 @@ M.compile_nvm_node_path = function ()
 	end
 	output_file:write(string.format([[
 		local M = {}
-		M.node_bin_path = %s 
+		M.node_bin_path = %q
 		return M
 	]], node_bin_path))
 	output_file:close()
