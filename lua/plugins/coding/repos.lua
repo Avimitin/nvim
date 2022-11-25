@@ -15,9 +15,18 @@ local repos = {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     keys = {
-      "n",
-      "gq",
+      {
+        "n",
+        "gq",
+      }
     },
+    config = function()
+      vim.api.nvim_set_keymap("n", "gq", "<cmd>TroubleToggle<CR>", {
+        silent = true,
+        noremap = true,
+        expr = false
+      })
+    end
   },
 
   -- deserialize code to generate text object for highlight and other enhancement
