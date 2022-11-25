@@ -46,7 +46,6 @@ local lsp_keymap = function(client, bufnr)
   bnmap("gt", function()
     vim.lsp.buf.type_definition()
   end)
-  bnmap("gq", "<cmd>TroubleToggle<CR>")
 
   -- add rust specific keymappings
   if client.name == "rust_analyzer" then
