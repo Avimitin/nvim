@@ -18,15 +18,15 @@ local repos = {
       {
         "n",
         "gq",
-      }
+      },
     },
     config = function()
       vim.api.nvim_set_keymap("n", "gq", "<cmd>TroubleToggle<CR>", {
         silent = true,
         noremap = true,
-        expr = false
+        expr = false,
       })
-    end
+    end,
   },
 
   -- deserialize code to generate text object for highlight and other enhancement
