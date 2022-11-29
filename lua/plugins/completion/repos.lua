@@ -1,22 +1,16 @@
 local config = require("plugins.completion.config")
 
 local repos = {
-  -- lot's of pre-set snippets
+  -- the completion core
   {
-    "rafamadriz/friendly-snippets",
+    "hrsh7th/nvim-cmp",
+    config = config.nvim_cmp_config,
     event = "InsertEnter",
     module = "cmp",
     keys = {
       { "n", ":" },
       { "n", "/" },
     },
-  },
-
-  -- the completion core
-  {
-    "hrsh7th/nvim-cmp",
-    after = "friendly-snippets",
-    config = config.nvim_cmp_config,
   },
 
   -- completion source for system path
