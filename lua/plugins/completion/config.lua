@@ -85,7 +85,7 @@ M.nvim_cmp_config = function()
         "i",
         "c",
       }),
-      ["<C-e>"] = cmp.mapping({
+      ["<C-c>"] = cmp.mapping({
         i = cmp.mapping.abort(),
         c = cmp.mapping.close(),
       }),
@@ -101,7 +101,7 @@ M.nvim_cmp_config = function()
         elseif has_words_before() then
           cmp.complete()
         else
-          fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+          fallback()
         end
       end, { "i", "s" }),
 
