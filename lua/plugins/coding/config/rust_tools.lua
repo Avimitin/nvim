@@ -43,7 +43,21 @@ local opts = {
     settings = {
       ["rust-analyzer"] = rust_analyzer_settings,
     },
-    on_attach = require("plugins.coding.keymap").lsp_keymap,
+    on_attach = function(client, bufnr)
+      require("plugins.coding.keymap").lsp_keymap(client, bufnr)
+      local bnmap = function(lhs, rhs)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", lhs, rhs, { noremap = true, silent = true })
+      end
+      bnmap("<leader>rr", "<cmd>RustRunnables<CR>")
+      bnmap("<leader>ra", "<cmd>RustHoverAction<CR>")
+      vim.api.nvim_create_autocmd({"BufWritePost"}, {
+        buffer = bufnr,
+        desc = "Format Rust code on save",
+        callback = function ()
+          vim.lsp.buf.format({ async = true })
+        end
+      })
+    end,
   }, -- rust-analyer options
 }
 
