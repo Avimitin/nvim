@@ -47,12 +47,6 @@ local lsp_keymap = function(client, bufnr)
     vim.lsp.buf.type_definition()
   end)
 
-  -- add rust specific keymappings
-  if client.name == "rust_analyzer" then
-    bnmap("<leader>rr", "<cmd>RustRunnables<CR>")
-    bnmap("<leader>ra", "<cmd>RustHoverAction<CR>")
-  end
-
   -- Set some keybinds conditional on server capabilities
   -- 0.8.0
   if vim.fn.has("nvim-0.8.0") == 1 then
