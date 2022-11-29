@@ -50,12 +50,12 @@ local opts = {
       end
       bnmap("<leader>rr", "<cmd>RustRunnables<CR>")
       bnmap("<leader>ra", "<cmd>RustHoverAction<CR>")
-      vim.api.nvim_create_autocmd({"BufWritePost"}, {
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         buffer = bufnr,
         desc = "Format Rust code on save",
-        callback = function ()
+        callback = function()
           vim.lsp.buf.format({ async = true })
-        end
+        end,
       })
     end,
   }, -- rust-analyer options
