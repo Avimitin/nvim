@@ -49,6 +49,16 @@ local repos = {
     after = "nvim-treesitter",
   },
 
+  {
+    "m-demare/hlargs.nvim",
+    after = "nvim-treesitter",
+    config = function()
+      require("hlargs").setup({
+        highlight = { link = "Identifier" },
+      })
+    end,
+  },
+
   -- manage the lsp server
   {
     "neovim/nvim-lspconfig",
