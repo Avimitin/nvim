@@ -4,13 +4,13 @@ local lsp_keymap = function(_, bufnr)
   local hint = [[
                                 Code Actions
 
-  _a_: ﯧ Code Action     |  _f_:  Run format          | _l_:  Toggle Line diagnostic
-  _d_:  Search Symbol   |  _p_:  Preview Definition  | _h_:  Open Document
-  _s_:  Signature Help  |  _t_:  Show Diagnostic     | _r_:  Rename Symbol
+  _a_: ﯧ Code Action     |  _f_:  Run format         | _l_:  Toggle Line diagnostic
 
               _j_:  Goto next error | _k_:  Goto previous error
 
-  _D_:  Goto definition |  _M_:  Goto implementation | _T_:  Goto Type Define
+  _d_:  Search Symbol   | _r_:  Rename Symbol       | _h_:  Open Document
+  _s_:  Signature Help  | _t_:  Show Diagnostic     | _p_:  Preview Definition
+  _D_:  Goto definition | _M_:  Goto implementation | _T_:  Goto Type Define
 
                                  _q_: Quit
 ]]
