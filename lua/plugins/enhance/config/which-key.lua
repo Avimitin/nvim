@@ -11,7 +11,7 @@ return function()
       -- list of mode / prefixes that should never be hooked by WhichKey
       -- this is mostly relevant for key maps that start with a native binding
       -- most people should not need to change this
-      n = { "/", ":", "<", ">", "x" },
+      n = { "/", ":", "<", ">", "x", "<C-w>", ";a" },
       i = { "j", "k" },
       v = { "j", "k" },
     },
@@ -65,19 +65,6 @@ return function()
       n = "New tab",
     },
     g = {
-      a = { "Trigger LSP code action" },
-      d = { "Preview definition" },
-      h = { "View document" },
-      s = { "Open signature help" },
-      o = { "Show diagnostic for current line" },
-      j = { "Jump to next diagnostic" },
-      k = { "Jump to previous diagnostic" },
-      r = { "Rename current symbol" },
-      D = { "Jump to symbol definition" },
-      m = { "Jump to symbol implementation" },
-      t = { "Jump to type definition" },
-      q = { "Set loclist" },
-      f = { "Format current buffer" },
       S = { "Split current line to multiple line" },
       J = { "Join multiple line into one line" },
     },

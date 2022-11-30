@@ -143,7 +143,10 @@ map("v", "-", _cmd_sequence("decrement", "visual"))
 --
 -- Windows Setup
 --
-local Hydra = require("hydra")
+local ok, Hydra = pcall(require, "hydra")
+if not ok then
+  return
+end
 local cmd = require("hydra.keymap-util").cmd
 local window_hint = [[
                    WINDOWS OPERATION
