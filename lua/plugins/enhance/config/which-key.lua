@@ -50,11 +50,6 @@ return function()
       s = "Open live grep panel",
       t = "Open tree file manager",
       w = "Save buffer to file",
-      r = {
-        name = "Rust keymap (Available in Rust buffer only)",
-        r = { "Open runnable" },
-        a = { "Trigger actions" },
-      },
     },
     gc = {
       name = "+Comments (Line)",

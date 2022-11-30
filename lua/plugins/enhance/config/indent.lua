@@ -30,6 +30,7 @@ return function()
       "undotree",
       "flutterToolsOutline",
       "lsp-installer",
+      "hydra",
       "",
     },
     buftype_exclude = { "terminal" },

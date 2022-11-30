@@ -17,6 +17,92 @@ local rust_analyzer_settings = {
   },
 }
 
+local on_lsp_attach = function(client, bufnr)
+  -- setup lsp key mappings
+  require("plugins.coding.keymap").lsp_keymap(client, bufnr)
+
+  -- create auto command to format on save
+  vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+    buffer = bufnr,
+    desc = "Format Rust code on save",
+    callback = function()
+      vim.lsp.buf.format({ async = true })
+    end,
+  })
+
+  -- Setup key mapping
+  local Hydra = require("hydra")
+
+  local hint = [[
+  _r_: Runnables         _c_: Open Cargo.toml    
+  _a_: Hover Actions     _p_: Goto parent module 
+  _M_: Expand Macro      _J_: Join multiple line 
+
+                _q_: Exit
+]]
+
+  Hydra({
+    name = "Rust Tools",
+    hint = hint,
+    config = {
+      buffer = bufnr,
+      invoke_on_body = true,
+      color = "red",
+      hint = {
+        position = "middle",
+        border = "rounded",
+      },
+    },
+    mode = "n",
+    body = "<leader>r",
+    heads = {
+      {
+        "r",
+        function()
+          require("rust-tools").runnables.runnables()
+        end,
+        { exit = true, desc = "Rust Runnables" },
+      },
+      {
+        "a",
+        function()
+          require("rust-tools").hover_actions.hover_actions()
+        end,
+        { exit = true, desc = "Rust Hover Actions" },
+      },
+      {
+        "c",
+        function()
+          require("rust-tools").open_cargo_toml.open_cargo_toml()
+        end,
+        { exit = true, desc = "Open Cargo.toml" },
+      },
+      {
+        "p",
+        function()
+          require("rust-tools").parent_module.parent_module()
+        end,
+        { exit = true, desc = "Go to parent module" },
+      },
+      {
+        "J",
+        function()
+          require("rust-tools").join_lines.join_lines()
+        end,
+        { exit = true, desc = "Join multiple line" },
+      },
+      {
+        "M",
+        function()
+          require("rust-tools").expand_macro.expand_macro()
+        end,
+        { exit = true, desc = "Expand macro" },
+      },
+      { "q", nil, { exit = true, nowait = true, desc = "exit" } },
+    },
+  })
+end
+
 -- rust-tools.nvim settings
 local opts = {
   tools = {
@@ -43,21 +129,7 @@ local opts = {
     settings = {
       ["rust-analyzer"] = rust_analyzer_settings,
     },
-    on_attach = function(client, bufnr)
-      require("plugins.coding.keymap").lsp_keymap(client, bufnr)
-      local bnmap = function(lhs, rhs)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", lhs, rhs, { noremap = true, silent = true })
-      end
-      bnmap("<leader>rr", "<cmd>RustRunnables<CR>")
-      bnmap("<leader>ra", "<cmd>RustHoverAction<CR>")
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        buffer = bufnr,
-        desc = "Format Rust code on save",
-        callback = function()
-          vim.lsp.buf.format({ async = true })
-        end,
-      })
-    end,
+    on_attach = on_lsp_attach,
   }, -- rust-analyer options
 }
 
