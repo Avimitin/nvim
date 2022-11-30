@@ -414,6 +414,11 @@ local repos = {
       require("todo-comments").setup({ signs = false })
     end,
   },
+
+  {
+    "anuvyklack/hydra.nvim",
+    module = "hydra",
+  },
   --
   --
   -- Auto Load
