@@ -52,18 +52,6 @@ nmap("<ESC>", ":nohlsearch<CR>", d("Close search highlight"))
 -- no more finger expansion
 map("i", "<A-;>", "<ESC>", d("Exit the insert mode"))
 
--- move around the window
-nmap(";k", "<C-w>k", d("Jump to window above"))
-nmap(";j", "<C-w>j", d("Jump to window below"))
-nmap(";l", "<C-w>l", d("Jump to the left window"))
-nmap(";h", "<C-w>h", d("Jump to the righ window"))
-
--- resize the window
-nmap("<M-down>", ":res +5<CR>", d("Extend the upper boundary of the current window"))
-nmap("<M-up>", ":res -5<CR>", d("Extend the lower boundary of the current window"))
-nmap("<M-right>", ":vertical resize-5<CR>", d("Extend the right boundary of the current window"))
-nmap("<M-left>", ":vertical resize+5<CR>", d("Extend the right boundary of the current window"))
-
 -- kill buffer with ;q , quit window with :q.
 nmap(";q", require("plugins.libs.bufdel").delete_buffer)
 
