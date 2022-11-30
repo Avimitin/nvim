@@ -87,6 +87,11 @@ And each sub-directory in `lua/` also contains a README.md to indicate how they 
 <details>
     <summary markdown="span">Coding Utils</summary>
 
+| Friendly Key Mapping Hint |
+|---------------------------|
+| ![image](./docs/images/hydra-lspconfig.png) |
+| ![image](./docs/images/hydra-rust.png) |
+
 | Diagnostic Panel |
 |-----------------|
 | ![image](./docs/images/trouble.png)  |
