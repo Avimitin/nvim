@@ -2,6 +2,8 @@ local lsp_keymap = function(_, bufnr)
   local Hydra = require("hydra")
   local cmd = require("hydra.keymap-util").cmd
   local hint = [[
+                                Code Actions
+
   _a_: ﯧ Code Action     |  _f_:  Run format          | _l_:  Toggle Line diagnostic
   _d_:  Search Symbol   |  _p_:  Preview Definition  | _h_:  Open Document
   _s_:  Signature Help  |  _t_:  Show Diagnostic     | _r_:  Rename Symbol
