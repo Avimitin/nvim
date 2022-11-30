@@ -14,18 +14,9 @@ local repos = {
   {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
-    keys = {
-      {
-        "n",
-        "gq",
-      },
-    },
+    cmd = "TroubleToggle",
     config = function()
-      vim.api.nvim_set_keymap("n", "gq", "<cmd>TroubleToggle<CR>", {
-        silent = true,
-        noremap = true,
-        expr = false,
-      })
+      require("trouble").setup({})
     end,
   },
 
