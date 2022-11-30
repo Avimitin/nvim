@@ -34,11 +34,13 @@ local on_lsp_attach = function(client, bufnr)
   local Hydra = require("hydra")
 
   local hint = [[
-  _r_: Runnables         _c_: Open Cargo.toml    
-  _a_: Hover Actions     _p_: Goto parent module 
-  _M_: Expand Macro      _J_: Join multiple line 
+                   Rust Tools
 
-                _q_: Exit
+  _r_:  Runnables         _c_:  Open Cargo.toml    
+  _a_: ﯧ Hover Actions     _p_: פּ Goto parent module 
+  _M_: ﬕ Expand Macro      _J_:  Join multiple line 
+
+                   _q_: Exit
 ]]
 
   Hydra({
@@ -49,7 +51,7 @@ local on_lsp_attach = function(client, bufnr)
       invoke_on_body = true,
       color = "red",
       hint = {
-        position = "middle",
+        position = "bottom",
         border = "rounded",
       },
     },
