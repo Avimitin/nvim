@@ -156,6 +156,11 @@ local repos = {
         text = {
           spinner = "dots",
         },
+        sources = {
+          ["null-ls"] = {
+            ignore = true,
+          },
+        },
       })
     end,
   },
