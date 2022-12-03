@@ -54,12 +54,14 @@ config.null_ls_config = function()
   local null_ls = require("null-ls")
 
   local sources = {}
-  local presented, null_ls_settings = pcall(require, "custom")
+  local presented, custom_config = pcall(require, "custom")
   if not presented then
     return
   end
 
-  if not null_ls then
+  local null_ls_settings = custom_config.null_ls
+
+  if not null_ls or not null_ls_settings then
     return
   end
 
@@ -69,6 +71,8 @@ config.null_ls_config = function()
 
   if null_ls_settings.enable_eslint then
     table.insert(sources, null_ls.builtins.code_actions.eslint)
+    -- see https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md
+    table.insert(sources, null_ls.builtins.diagnostics.eslint)
   end
 
   if null_ls_settings.enable_prettier then
