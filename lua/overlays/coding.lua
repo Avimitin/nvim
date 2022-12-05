@@ -122,7 +122,8 @@ local repos = {
   {
     "mfussenegger/nvim-dap",
     module = "dap",
-    config = rc.dap,
+    config = rc.dap.config,
+    setup = rc.dap.setup,
   },
 
   -- UI for nvim-dap
