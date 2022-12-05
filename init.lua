@@ -54,7 +54,7 @@ require("editor").setup({
 
     opts = {
       -- Use stylua as formatter for Lua, require stylua executable
-      stylua_fmt = false,
+      stylua = false,
       -- Inject eslint code action and diagnostic into tsserver, require eslint executable
       eslint = false,
       -- Use prettier to format javascript
