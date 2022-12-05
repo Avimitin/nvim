@@ -1,21 +1,6 @@
 local config = require("plugins.enhance.config")
 
 local repos = {
-  -- prompt up panel to give a key mapping hint
-  {
-    "folke/which-key.nvim",
-    config = config.whichkey_config,
-    -- load this plugin after Neovim UI is already rendered
-    keys = {
-      "g",
-      "v",
-      "c",
-      "d",
-      "z",
-      ";",
-    },
-  },
-
   -- manage undo history
   {
     "simnalamburt/vim-mundo",

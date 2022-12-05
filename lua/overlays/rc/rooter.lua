@@ -11,16 +11,14 @@ local opts = {
   manual = false,
 }
 
-local uv = vim.loop
-
-local old_cwd = uv.cwd()
+local old_cwd = vim.loop.cwd()
 
 rooter.setup(opts)
--- trigger it once
+-- trigger it only once
 rooter.rooter()
 
-local new_cwd = uv.cwd()
+local new_cwd = vim.loop.cwd()
 
 if new_cwd ~= old_cwd then
-  vim.notify("Dir Change: " .. new_cwd)
+  vim.notify("Dir changed: " .. new_cwd)
 end
