@@ -1,8 +1,44 @@
-local utils = require("editor.utils")
-local map = utils.map
-local nmap = utils.nmap
-local xmap = utils.xmap
-local d = utils.new_desc
+-- map create a new mapping
+---@param mode string|table specify vim mode
+---@param lhs string specify the new keymap
+---@param rhs string|function specify the keymap or commands
+---@param opts table|nil setting options. Default: { noremap = true, silent = true, expr = false }
+local function map(mode, lhs, rhs, opts)
+  local options = {
+    noremap = true,
+    silent = true,
+    expr = false,
+  }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  if type(rhs) == "function" then
+    options.callback = rhs
+    rhs = ""
+  end
+  local stat, error = pcall(vim.keymap.set, mode, lhs, rhs, options)
+  if not stat then
+    vim.notify(error, vim.log.levels.ERROR, {
+      title = "keymap",
+    })
+  end
+end
+
+local function nmap(...)
+  map("n", ...)
+end
+
+local function xmap(...)
+  map("x", ...)
+end
+
+local function imap(...)
+  map("i", ...)
+end
+
+local d = function(s)
+  return { desc = s }
+end
 
 vim.g.mapleader = ";"
 
@@ -14,12 +50,12 @@ nmap("K", "5k", d("Jump 5 lines up"))
 xmap("K", "5k", d("Jump 5 lines up"))
 
 -- Emacs key mapping in insert mode
-map("i", "<C-a>", "<Home>")
-map("i", "<C-e>", "<End>")
-map("i", "<C-b>", "<ESC>bi")
-map("i", "<C-f>", "<ESC>wa")
-map("i", "<C-n>", "<ESC>ja")
-map("i", "<C-p>", "<ESC>ka")
+imap("<C-a>", "<Home>")
+imap("<C-e>", "<End>")
+imap("<C-b>", "<ESC>bi")
+imap("<C-f>", "<ESC>wa")
+imap("<C-n>", "<ESC>ja")
+imap("<C-p>", "<ESC>ka")
 
 nmap("L", "g_", d("Jump to the end of the character"))
 nmap("H", "^", d("Jump to the beginning of the character"))
@@ -63,3 +99,10 @@ map({ "n", "x", "o" }, ",", "%", { noremap = false, silent = false })
 
 -- paste from system clipboard
 nmap("<C-p>", [["+p]])
+
+return {
+  map = map,
+  nmap = nmap,
+  imap = imap,
+  xmap = xmap,
+}

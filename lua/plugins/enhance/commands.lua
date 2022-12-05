@@ -1,20 +1,6 @@
 local alias = require("editor.utils").alias
 
 --
--- neoclip
---
-alias("ClipView", [[Telescope neoclip]])
-alias("ClipRec", function()
-  require("neoclip").start()
-  require("telescope").load_extension("neoclip")
-end)
-
---
--- Stylua
---
-alias("LuaFormat", [[Dispatch! stylua %]])
-
---
 -- nvim-spectre
 --
 alias("SpectreOpen", function()
