@@ -10,12 +10,8 @@ local plugins = {
 -- load plugins from modules
 plugins.load = function()
   local modules = {
-    "coding",
     "completion",
-    "markdown",
-    "enhance",
     "git",
-    "colorscheme",
   }
 
   for _, mod in ipairs(modules) do
