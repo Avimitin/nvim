@@ -18,9 +18,9 @@ local function setup(opts)
   end
 
   -- since we have packer compiled, we don't need to load this immediately
-  vim.defer_fn(function()
-    require("plugins").init()
-  end, 0)
+  vim.schedule(function()
+    require("overlays")
+  end)
 end
 
 return {
