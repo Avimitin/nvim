@@ -1,11 +1,10 @@
-local config = require("plugins.coding.config")
--- preconfigure
-config.pre()
+local nvcfg = vim.g.nvcfg
+local rc = require("overlays.rc")
 
 local repos = {
   {
     "jose-elias-alvarez/null-ls.nvim",
-    config = config.null_ls_config,
+    config = rc.null_ls,
     after = "nvim-lspconfig",
     module = "null-ls",
   },
@@ -24,8 +23,8 @@ local repos = {
   {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    config = config.treesitter_config,
-    ft = config.treesitter_ft,
+    config = rc.treesitter,
+    ft = nvcfg.treesitter_fts,
   },
 
   {
@@ -63,8 +62,8 @@ local repos = {
   {
     "neovim/nvim-lspconfig",
     -- it can be load by itself when filetype condition is satisified
-    ft = config.lspconfig_ft,
-    config = config.lspconfig_config,
+    ft = nvcfg.lspconfig_ft,
+    config = rc.lspconfig,
     -- it can be load by other plugins
     module = "lspconfig",
   },
@@ -73,7 +72,7 @@ local repos = {
   {
     "glepnir/lspsaga.nvim",
     event = "LspAttach",
-    config = config.lspsaga_config,
+    config = rc.lspsaga,
     cmd = { "Lspsaga" },
   },
 
@@ -81,7 +80,7 @@ local repos = {
   {
     "simrat39/rust-tools.nvim",
     ft = "rust",
-    config = config.rust_tools_config,
+    config = rc.rust,
   },
 
   -- enhance the Cargo dependencies management
@@ -95,7 +94,19 @@ local repos = {
         "nvim-lua/plenary.nvim",
       },
     },
-    config = config.crates_nvim_config,
+    config = function()
+      require("null-ls")
+      require("crates").setup({
+        popup = {
+          autofocus = true,
+          border = "single",
+        },
+        null_ls = {
+          enabled = true,
+          name = "crates.nvim",
+        },
+      })
+    end,
     setup = function()
       vim.api.nvim_create_autocmd("BufRead", {
         group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
@@ -111,7 +122,7 @@ local repos = {
   {
     "mfussenegger/nvim-dap",
     module = "dap",
-    config = config.dap_config,
+    config = rc.dap,
   },
 
   -- UI for nvim-dap
@@ -123,7 +134,7 @@ local repos = {
   -- generate quick jump list in side panel
   {
     "simrat39/symbols-outline.nvim",
-    config = config.symbols_outline_config,
+    config = rc.symbols_outline,
     cmd = "SymbolsOutline",
   },
 
