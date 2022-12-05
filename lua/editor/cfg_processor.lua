@@ -21,16 +21,12 @@
 ---@field lspconfig_fts string[] List of filetypes for nvim-lspconfig to activate
 ---@field treesitter_fts string[] List of filetypes for nvim-treesitter to activate
 
-local function extend_tb(...)
-  vim.tbl_deep_extend("force", ...)
-end
-
 ---@param tbl table
 ---@return any[]
 local function get_tbl_key(tbl)
   local arr = {}
   for k, _ in pairs(tbl) do
-    arr:insert(k)
+    table.insert(arr, k)
   end
 
   return arr
@@ -92,31 +88,9 @@ local function expand_lang(languages)
   }
 end
 
----@param props table
----@return string[] | nil
-local function insert_null_ls_source(props)
-  local sources = {}
-
-  for k, v in pairs(props.opts) do
-    if type(k) == "string" and type(v) == "boolean" then
-      table.insert(sources, k)
-    end
-  end
-
-  if #sources == 0 then
-    return nil
-  end
-
-  return sources
-end
-
 ---@param props CoreCfgCoding
 local function process_coding_props(props)
-  local null_ls_sources = nil
-  -- assert the input type, and insert only when type is expected
-  if props.opts and type(props.opts) == "table" then
-    null_ls_sources = insert_null_ls_source(props.opts)
-  end
+  local null_ls_sources = get_tbl_key(props.opts)
 
   local expanded = nil
   if props.langs then
@@ -149,7 +123,9 @@ return function(orig)
     autocmds = {},
   }
 
-  local extended = extend_tb(final.ui, orig.ui)
+  local extend = vim.tbl_deep_extend
+
+  local extended = extend("force", final.ui, orig.ui)
   if extended ~= nil then
     final.ui = extended
   end
@@ -168,11 +144,11 @@ return function(orig)
   end
 
   if orig.markdown then
-    final.markdown = extend_tb(final.markdown, orig.markdown)
+    final.markdown = extend("force", final.markdown, orig.markdown)
   end
 
   if orig.autocmds then
-    final.autocmds = extend_tb(final.autocmds, orig.autocmds)
+    final.autocmds = extend("force", final.autocmds, orig.autocmds)
   end
 
   -- Make it as a global access variable
