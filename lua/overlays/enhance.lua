@@ -78,8 +78,7 @@ return {
   -- editing with multiple cursor
   {
     "mg979/vim-visual-multi",
-    event = "InsertEnter",
-    keys = "u",
+    keys = { { "n", "u" } },
     branch = "master",
     setup = rc.multi_cursor.setup,
   },
@@ -364,7 +363,7 @@ return {
   {
     "kevinhwang91/nvim-hlslens",
     config = function()
-      local nmap = require("editor.utils").nmap
+      local nmap = require("libs.keymaps").nmap
       nmap(
         "n",
         [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]]
