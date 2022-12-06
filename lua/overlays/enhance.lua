@@ -143,6 +143,7 @@ return {
   -- a swiss knife for aligning text
   {
     "junegunn/vim-easy-align",
+    rc = "easyalign",
     cmd = "EasyAlign",
   },
 
@@ -179,6 +180,7 @@ return {
     keys = {
       { "n", "," },
     },
+    rc = "matchup",
   },
 
   -- automatically pairs the bracket
@@ -299,84 +301,19 @@ return {
   {
     "monaqa/dial.nvim",
     module = "dial",
-    config = function()
-      local augend = require("dial.augend")
-      require("dial.config").augends:register_group({
-        -- default augends used when no group name is specified
-        default = {
-          augend.integer.alias.decimal, -- nonnegative decimal number (0, 1, 2, 3, ...)
-          augend.integer.alias.hex, -- nonnegative hex number  (0x01, 0x1a1f, etc.)
-          augend.date.alias["%Y/%m/%d"], -- date (2022/02/19, etc.)
-          augend.date.alias["%Y-%m-%d"],
-          augend.date.alias["%m/%d"],
-          augend.date.alias["%H:%M"],
-          augend.constant.alias.bool, -- boolean value (true <-> false)
-          -- switch between and/or &&/||
-          augend.constant.new({
-            elements = { "and", "or" },
-            word = true,
-            cyclic = true,
-          }),
-          augend.constant.new({
-            elements = { "&&", "||" },
-            word = false,
-            cyclic = true,
-          }),
-          augend.semver.alias.semver,
-        },
-      })
-    end,
+    rc = "dial",
   },
 
   {
     "petertriho/nvim-scrollbar",
-    config = function()
-      require("scrollbar").setup({
-        marks = {
-          Error = { text = { "" } },
-          Warn = { text = { "" } },
-          Hint = { text = { "" } },
-          Info = { text = { "" } },
-          GitAdd = { text = "▕" },
-          GitChange = { text = "▕" },
-        },
-        excluded_buftypes = {
-          "terminal",
-        },
-        excluded_filetypes = {
-          "prompt",
-          "TelescopePrompt",
-          "noice",
-          "Git",
-        },
-        handlers = {
-          cursor = false,
-        },
-      })
-    end,
     module = "scrollbar",
     event = "VimEnter",
+    rc = "scrollbar",
   },
 
   {
     "kevinhwang91/nvim-hlslens",
-    config = function()
-      local nmap = require("libs.keymaps").nmap
-      nmap(
-        "n",
-        [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]]
-      )
-      nmap(
-        "N",
-        [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]]
-      )
-      nmap("*", [[*<Cmd>lua require('hlslens').start()<CR>]])
-      nmap("#", [[#<Cmd>lua require('hlslens').start()<CR>]])
-      nmap("g*", [[g*<Cmd>lua require('hlslens').start()<CR>]])
-      nmap("g#", [[g#<Cmd>lua require('hlslens').start()<CR>]])
-
-      require("scrollbar.handlers.search").setup()
-    end,
+    rc = "hlslens",
     keys = {
       { "n", "n" },
       { "n", "N" },
@@ -397,6 +334,7 @@ return {
 
   {
     "anuvyklack/hydra.nvim",
+    rc = "hydra",
     module = "hydra",
   },
   --

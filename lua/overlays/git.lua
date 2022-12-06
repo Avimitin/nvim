@@ -1,5 +1,3 @@
-local gitsign = require("overlays.rc.gitsigns")
-
 local repos = {
   -- A git tool like magit in Emacs
   {
@@ -11,14 +9,14 @@ local repos = {
       "Gdiffsplit",
       "GBrowse",
     },
+    rc = "fugitive",
   },
 
   -- Show git information in neovim
   {
     "lewis6991/gitsigns.nvim",
     opt = true,
-    config = gitsign.config,
-    setup = gitsign.setup,
+    rc = "gitsigns",
   },
 
   -- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
