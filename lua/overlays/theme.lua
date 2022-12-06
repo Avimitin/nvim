@@ -1,37 +1,39 @@
-local colorc = require("overlays.rc").theme
+vim.g.deus_background = "hard"
 
 local colorscheme = {
   -- dark green color scheme
   {
     "Avimitin/neovim-deus",
     cond = function()
-      return vim.g.nvcfg.theme == "deus"
+      return vim.g.nvcfg.ui.theme == "deus"
     end,
-    config = colorc.deus,
+    config = function()
+      vim.cmd("colorscheme deus")
+    end,
   },
 
   -- dark purple color scheme
   {
     "rebelot/kanagawa.nvim",
     cond = function()
-      return vim.g.nvcfg.theme == "kanagawa"
+      return vim.g.nvcfg.ui.theme == "kanagawa"
     end,
-    config = colorc.kanagawa,
+    rc = "kanagawa",
   },
 
   -- GitHub light and dark colorscheme
   {
     "projekt0n/github-nvim-theme",
     cond = function()
-      return vim.tbl_contains(vim.g.nvcfg.theme, {
+      return vim.tbl_contains({
         "github_dark",
         "github_dark_default",
         "github_dimmed",
         "github_light",
         "github_light_default",
-      })
+      }, vim.g.nvcfg.ui.theme)
     end,
-    config = colorc.github,
+    rc = "github_theme",
   },
 }
 
