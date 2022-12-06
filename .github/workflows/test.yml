@@ -14,11 +14,11 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: archlinux:latest
+      image: alpine:edge
 
     steps:
     - name: Install Deps
-      run: pacman -Syu --needed --noconfirm git neovim ripgrep jq
+      run: apk add git neovim ripgrep alpine-sdk jq --update
     - name: Clone Configuration
       run: git clone https://github.com/Avimitin/nvim $HOME/.config/nvim --depth=1
     - name: Test packer complie
@@ -26,5 +26,8 @@ jobs:
         LOG_FILE=$(mktemp)
         nvim --headless -c "au User PackerComplete quitall" > $LOG_FILE 2>&1
         if rg -qS "err" $LOG_FILE; then cat $LOG_FILE; false; fi
+
+        CACHE_DIR=$(nvim --headless -c "echo stdpath('cache')|quit") 2>&1 | xargs
+        if rg -qS "err" $CACHE_DIR/packer.nvim.log; then cat $CACHE_DIR/packer.nvim; false; fi
     - name: Test snippets files
       run: cd $HOME/.config/nvim && ./scripts/validate-snippets.sh
