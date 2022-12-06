@@ -579,7 +579,9 @@ In my configuration, you will see the `rc` field is laying around the repos meta
 but packer doesn't provide the key. So what it is?
 
 It is a custom handler I inject into packer. It will read the value and load the corresponding
-module under the `overlays/rc` directory.
+module under the `overlays/rc` directory, and load the setup function defined in `lua/overlays/rc/_setups.lua`.
+It's safe to add this field because the handler will validate the value. So you don't need to
+worry that you have only one stuff to configure.
 
 For example, assuming I have a file with path `~/.config/nvim/lua/overlays/rc/example.lua`,
 then after I add `rc = "example"` into repo metadata, it will automatically load it:
@@ -594,7 +596,15 @@ then after I add `rc = "example"` into repo metadata, it will automatically load
 {
   "xxx/repo",
   config = function()
-    require("overlays.rc.example")
+    if module_exist(...) then
+      require("overlays.rc.example")
+    end
+  end,
+  setup = function()
+    local setup = require("overlays.rc._setups")
+    if setup["example"] ~= nil then
+      setup["example"]()
+    end
   end
 }
 ```
@@ -791,12 +801,15 @@ Example script:
 require('editor').setup({
   ui = {
     theme = "kanagawa" -- <- Leave this unchange
-    day_theme = "github_light" -- <- any of the light colorscheme
-    night_theme = "deus" -- <- any of the dark colorscheme
     -- Here setup night mode duration with format "Hour:Min"
-    darkmode_schedule = {
-      begin = "19:00",
-      end   = "7:00",
+    darkmode = {
+      enable = true,
+      day = "github_light" -- <- any of the light colorscheme
+      night = "deus" -- <- any of the dark colorscheme
+      night_time = {
+        begin = "19:00",
+        end   = "7:00",
+      }
     }
   }
 })
