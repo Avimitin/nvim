@@ -7,7 +7,7 @@
 
 ## Features
 
-* ***Fast*** and ***Lazy***: It takes [28ms](./fixtures/benchmark.txt) in average to open the neovim editor.
+* ***Fast*** and ***Lazy***: It takes [28ms](./scripts/benchmark.txt) in average to open the neovim editor.
 And every plugin is handled well to be activate only when they are needed.
 Nothing should slowdown the editor.
 * ***Handy*** and ***Smoothy***: There will always be a panel to remind you
@@ -51,8 +51,7 @@ You can read the full installation instruction here:
 
 ## Document
 
-You can take a glance at [**NVIM GUIDANCE**](https://avimitin.github.io/nvim).
-And each sub-directory in `lua/` also contains a README.md to indicate how they work.
+See [Editor](./lua/editor/README.md) and [overlays](./lua/overlays/README.md).
 
 ## Gallery
 
@@ -203,16 +202,3 @@ Take a look at their contribution, which is really fantastic.
 Please read [development specifications](./docs/src/en_us/development.md).
 
 <br/>
-
----
-
-<br/>
-<br/>
-<br/>
-<br/>
-
-<sup>有不少朋友问我翻斗花园是什么花园呢？其实就是大耳朵图图的家啦！</sup>
-<sup><s>
-我的 neovim 配置是翻斗花园第一配置，不服来打，我家住在翻斗大街翻斗花园2号楼1001室。
-我爸胡英俊，我妈张小丽，我叫胡图图，你来你看我干不干你就完事儿了。
-</s></sup>

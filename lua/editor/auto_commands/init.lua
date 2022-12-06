@@ -1,4 +1,4 @@
-local autocmd_cfg = require("editor").config.autocmd_enable
+local autocmd_cfg = vim.g.nvcfg.autocmds
 
 local cwd = "editor.auto_commands."
 local function load(module)
@@ -13,4 +13,8 @@ end
 
 if autocmd_cfg.fcitx5 then
   load("fcitx")
+end
+
+if autocmd_cfg.diff_on_commit then
+  load("diff_popup")
 end
