@@ -1,5 +1,4 @@
 local nvcfg = vim.g.nvcfg
-local rc = require("overlays.rc")
 
 local repos = {
   {
@@ -94,36 +93,14 @@ local repos = {
         "nvim-lua/plenary.nvim",
       },
     },
-    config = function()
-      require("null-ls")
-      require("crates").setup({
-        popup = {
-          autofocus = true,
-          border = "single",
-        },
-        null_ls = {
-          enabled = true,
-          name = "crates.nvim",
-        },
-      })
-    end,
-    setup = function()
-      vim.api.nvim_create_autocmd("BufRead", {
-        group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
-        pattern = "Cargo.toml",
-        callback = function()
-          require("cmp").setup.buffer({ sources = { { name = "crates" } } })
-        end,
-      })
-    end,
+    rc = "crates",
   },
 
   -- debugger plugin
   {
     "mfussenegger/nvim-dap",
     module = "dap",
-    config = rc.dap.config,
-    setup = rc.dap.setup,
+    rc = "dap",
   },
 
   -- UI for nvim-dap

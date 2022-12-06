@@ -1,5 +1,3 @@
-local rc = require("overlays.rc")
-
 return {
   {
     "nvim-lua/plenary.nvim",
@@ -80,21 +78,21 @@ return {
     "mg979/vim-visual-multi",
     keys = { { "n", "u" } },
     branch = "master",
-    setup = rc.multi_cursor.setup,
+    rc = "multi_cursor",
   },
 
   -- a dashboard that useless but beautiful
   {
     "glepnir/dashboard-nvim",
     opt = true,
-    setup = rc.dashboard.setup,
+    rc = "dashboard",
   },
 
   -- Try to find project root and cd into it
   {
     "notjedi/nvim-rooter.lua",
     module = "nvim-rooter",
-    setup = rc.rooter.setup,
+    rc = "rooter",
   },
 
   -- telescope: extensible fuzzy file finder
@@ -113,7 +111,7 @@ return {
         "<Enter>",
       },
     },
-    setup = rc.wildfire.setup,
+    rc = "wildfire",
   },
 
   -- surrounding select text with given signs

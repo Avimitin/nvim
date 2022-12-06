@@ -1,35 +1,10 @@
---! This file is a configuration re-export file.
---! Please don't contains any blocking operation here.
---!
---! If field is only a function, then it will be considered as the config function.
---! If the plugin have some setup that should be execute before it loaded, return a
---! table like `{ config = function() ... end, setup = function() ... end }` and put
---! those setup step into the function for setup field.
+--! This file must contains non-blocking setup functions
 
-local rc = {}
-
-vim.g.matchup_matchparen_offscreen = {}
-
---
--- Config contains both config and setup
---
-
-rc.dap = {
-  config = function()
-    require("overlays.rc.dap")
-  end,
-  setup = function()
+local setups_sets = {
+  ["dap"] = function()
     require("overlays.rc.dapcmds")
   end,
-}
-
-rc.crates = {
-  config = function() end,
-  setup = function() end,
-}
-
-rc.multi_cursor = {
-  setup = function()
+  ["multi_cursor"] = function()
     -- visual multi mappings
     -- clean the keymap `u` and initialize the new keymap set
     require("libs.keymaps").map("", "u", "<nop>")
@@ -51,16 +26,10 @@ rc.multi_cursor = {
       ["Visual Cursors"] = "uc",
     }
   end,
-}
-
-rc.wildfire = {
-  setup = function()
+  ["wildfire"] = function()
     vim.g.wildfire_objects = { "i'", 'i"', "i)", "i]", "i}", "ip", "it", "i`" }
   end,
-}
-
-rc.dashboard = {
-  setup = function()
+  ["dashboard"] = function()
     vim.api.nvim_create_autocmd("Vimenter", {
       group = vim.api.nvim_create_augroup("dashboard_cond_load", { clear = true }),
       nested = true,
@@ -72,14 +41,23 @@ rc.dashboard = {
       end,
     })
   end,
-}
-
-rc.rooter = {
-  setup = function()
+  ["rooter"] = function()
     vim.schedule(function()
-      require("overlays.rc.rooter")
+      require("overlays.rc.find_root")
     end)
+  end,
+  ["matchup"] = function()
+    vim.g.matchup_matchparen_offscreen = {}
+  end,
+  ["crates"] = function()
+    vim.api.nvim_create_autocmd("BufRead", {
+      group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
+      pattern = "Cargo.toml",
+      callback = function()
+        require("cmp").setup.buffer({ sources = { { name = "crates" } } })
+      end,
+    })
   end,
 }
 
-return rc
+return setups_sets
