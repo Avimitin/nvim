@@ -14,3 +14,7 @@ end
 if autocmd_cfg.fcitx5 then
   load("fcitx")
 end
+
+if autocmd_cfg.diff_on_commit then
+  load("diff_popup")
+end
