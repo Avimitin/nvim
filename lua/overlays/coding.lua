@@ -4,7 +4,7 @@ local rc = require("overlays.rc")
 local repos = {
   {
     "jose-elias-alvarez/null-ls.nvim",
-    config = rc.null_ls,
+    rc = "null_ls",
     after = "nvim-lspconfig",
     module = "null-ls",
   },
@@ -23,7 +23,7 @@ local repos = {
   {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    config = rc.treesitter,
+    rc = "treesitter",
     ft = nvcfg.treesitter_fts,
   },
 
@@ -63,7 +63,7 @@ local repos = {
     "neovim/nvim-lspconfig",
     -- it can be load by itself when filetype condition is satisified
     ft = nvcfg.lspconfig_ft,
-    config = rc.lspconfig,
+    rc = "lspconfig",
     -- it can be load by other plugins
     module = "lspconfig",
   },
@@ -72,7 +72,7 @@ local repos = {
   {
     "glepnir/lspsaga.nvim",
     event = "LspAttach",
-    config = rc.lspsaga,
+    rc = "lspsaga",
     cmd = { "Lspsaga" },
   },
 
@@ -80,7 +80,7 @@ local repos = {
   {
     "simrat39/rust-tools.nvim",
     ft = "rust",
-    config = rc.rust,
+    rc = "rust",
   },
 
   -- enhance the Cargo dependencies management
@@ -135,7 +135,7 @@ local repos = {
   -- generate quick jump list in side panel
   {
     "simrat39/symbols-outline.nvim",
-    config = rc.symbols_outline,
+    rc = "symbols_outline",
     cmd = "SymbolsOutline",
   },
 

@@ -1,10 +1,8 @@
-local rc = require("overlays.rc")
-
 local repos = {
   -- the completion core
   {
     "hrsh7th/nvim-cmp",
-    config = rc.cmp,
+    rc = "cmp",
     event = "InsertEnter",
     module = "cmp",
     keys = {
@@ -60,7 +58,7 @@ local repos = {
     },
     setup = function()
       vim.g.vsnip_snippet_dir = vim.fn.expand("~/.config/nvim/vsnip")
-    end
+    end,
   },
 
   {

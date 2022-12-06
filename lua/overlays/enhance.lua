@@ -36,20 +36,20 @@ return {
     "glepnir/galaxyline.nvim",
     branch = "main",
     event = "UIEnter",
-    config = rc.galaxyline,
+    rc = "galaxyline",
   },
 
   -- buffer manager
   {
     "akinsho/nvim-bufferline.lua",
-    config = rc.bufferline,
+    rc = "bufferline",
     event = "BufRead",
   },
 
   -- tree style file manager
   {
     "kyazdani42/nvim-tree.lua",
-    config = rc.nvim_tree,
+    rc = "nvim_tree",
     module = "nvim-tree",
     cmd = {
       "NvimTreeRefresh",
@@ -59,7 +59,7 @@ return {
 
   {
     "akinsho/toggleterm.nvim",
-    config = rc.toggleterm,
+    rc = "toggleterm",
     cmd = "ToggleTerm",
   },
 
@@ -101,7 +101,7 @@ return {
   -- telescope: extensible fuzzy file finder
   {
     "nvim-telescope/telescope.nvim",
-    config = rc.telescope,
+    rc = "telescope",
     module = "telescope",
   },
 
@@ -187,7 +187,7 @@ return {
   -- automatically pairs the bracket
   {
     "windwp/nvim-autopairs",
-    config = rc.autopairs,
+    rc = "autopairs",
     after = "nvim-cmp",
   },
 
@@ -203,7 +203,7 @@ return {
   -- generate line for guiding indent
   {
     "lukas-reineke/indent-blankline.nvim",
-    config = rc.indent,
+    rc = "indent",
     event = "BufRead",
   },
 
@@ -219,7 +219,7 @@ return {
   -- scroll smoothly
   {
     "karb94/neoscroll.nvim",
-    config = rc.neoscroll,
+    rc = "neoscroll",
     keys = {
       { "n", "<C-e>" },
       { "n", "<C-y>" },
