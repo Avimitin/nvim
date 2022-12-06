@@ -11,32 +11,6 @@ local rc = {}
 vim.g.matchup_matchparen_offscreen = {}
 
 --
--- Simple re-export
---
-
-local re_export = {
-  "cmp",
-  "null_ls",
-  "treesitter",
-  "lspconfig",
-  "lspsaga",
-  "rust",
-  "symbols_outline",
-  "bufferline",
-  "galaxyline",
-  "nvim_tree",
-  "toggleterm",
-  "telescope",
-  "autopairs",
-}
-
-for _, mod in ipairs(re_export) do
-  rc[mod] = function()
-    require(string.format("overlays.rc.%s", mod))
-  end
-end
-
---
 -- Config contains both config and setup
 --
 
@@ -105,19 +79,6 @@ rc.rooter = {
     vim.schedule(function()
       require("overlays.rc.rooter")
     end)
-  end,
-}
-
-rc.theme = {
-  kanagawa = function()
-    require("overlays.rc.kanagawa")
-  end,
-  deus = function()
-    vim.g.deus_background = "hard"
-    vim.cmd("colorscheme deus")
-  end,
-  github = function()
-    require("overlays.rc.github_theme")
   end,
 }
 
