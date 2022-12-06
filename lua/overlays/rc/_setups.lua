@@ -179,11 +179,6 @@ local setups_sets = {
     map("v", "=", _cmd_sequence("increment", "visual"))
     map("v", "-", _cmd_sequence("decrement", "visual"))
   end,
-  ["fugitive"] = function()
-    local nmap = require("libs.keymaps").nmap
-    nmap("gic", ":Git commit -sS<CR>")
-    nmap("<leader>g", [[<CMD>vertical Git<CR>]])
-  end,
   ["nvim_tree"] = function()
     require("libs.keymaps").nmap("<leader>t", ":NvimTreeToggle<CR>")
   end,
