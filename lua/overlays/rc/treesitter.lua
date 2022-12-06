@@ -2,18 +2,19 @@
 -- let's filter it out
 local ensure_installed = {}
 
-local idx = 0
-
 -- a f*cking disgusting hack for the messy treesitter naming convention
-for _, val in ipairs(vim.g.nvcfg.treesitter_ft) do
+for _, val in ipairs(vim.g.nvcfg.treesitter_fts) do
+  local idx = #ensure_installed + 1
   if val ~= "javascriptreact" and val ~= "typescriptreact" then
     ensure_installed[idx] = val
-    idx = idx + 1
   end
 
   if val == "typescriptreact" then
     ensure_installed[idx] = "tsx"
-    idx = idx + 1
+  end
+
+  if val == "zsh" then
+    ensure_installed[idx] = "bash"
   end
 end
 
