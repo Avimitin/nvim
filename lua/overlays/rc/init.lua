@@ -32,12 +32,12 @@ rc.multi_cursor = {
   setup = function()
     -- visual multi mappings
     -- clean the keymap `u` and initialize the new keymap set
-    require("editor.keymap").map("", "u", "<nop>")
+    require("libs.keymaps").map("", "u", "<nop>")
 
     -- u is map to <C-z>, let us reuse it here
     vim.g.VM_maps = {
-      ["Find Under"] = "\\n",
-      ["Find Subword Under"] = "\\n",
+      ["Find Under"] = "un",
+      ["Find Subword Under"] = "un",
       ["Select Cursor Down"] = "<C-down>",
       ["Select Cursor Up"] = "<C-up>",
       ["Select All"] = "uA",
