@@ -85,14 +85,6 @@ local repos = {
   -- enhance the Cargo dependencies management
   {
     "saecki/crates.nvim",
-    event = {
-      "BufRead Cargo.toml",
-    },
-    requires = {
-      {
-        "nvim-lua/plenary.nvim",
-      },
-    },
     rc = "crates",
   },
 
