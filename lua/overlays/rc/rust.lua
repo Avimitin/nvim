@@ -144,7 +144,7 @@ local opts = {
 local path_api = require("plenary.path")
 
 -- json API is contained in our configuration
-local json_api = require("plugins.libs.json")
+local json_api = require("libs.json")
 
 -- nvim-rooter plugin can help us find project root directory.
 local rooter_api = require("nvim-rooter")
