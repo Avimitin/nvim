@@ -1,6 +1,30 @@
-local config = {}
+local GitSigns = {}
 
-config.gitsigns_config = function()
+GitSigns.setup = function()
+  vim.api.nvim_create_autocmd({ "BufAdd", "VimEnter" }, {
+    callback = function()
+      local function onexit(code, _)
+        if code == 0 then
+          vim.schedule(function()
+            require("packer").loader("gitsigns.nvim")
+            require("overlays.rc.gitsigns").config()
+            require("scrollbar.handlers.gitsigns").setup()
+          end)
+        end
+      end
+
+      vim.loop.spawn("git", {
+        args = {
+          "ls-files",
+          "--error-unmatch",
+          vim.fn.expand("%"),
+        },
+      }, onexit)
+    end,
+  })
+end
+
+GitSigns.config = function()
   require("gitsigns").setup({
     signs = {
       add = {
@@ -100,4 +124,4 @@ config.gitsigns_config = function()
   })
 end
 
-return config
+return GitSigns
