@@ -10,6 +10,13 @@
 ---@class CoreCfgUI
 ---@field theme string The colorscheme name
 ---@field darker boolean Use darker background
+---@field darkmode DarkMode
+
+---@class DarkMode
+---@field enable boolean
+---@field day string The colorscheme name for day time
+---@field night string The colorscheme name for night time
+---@field night_time { begin: string, ending: string } Schedule the night time
 
 ---@class CoreCfgCoding
 ---@field langs table The treesitter and LSP config customization
@@ -103,6 +110,51 @@ local function process_coding_props(props)
   }
 end
 
+-- This function will parse our string time to a table to a unix timestamp
+local function parse_time(str)
+  if str then
+    local hour, min = str:match("(%d+):(%d+)")
+    return os.time({
+      hour = hour,
+      min = min,
+      day = 1,
+      month = 1,
+      year = 1970,
+    })
+  end
+end
+
+---@param props DarkMode
+local function choose_darkmode_theme(props)
+  -- if user setup the darkmode related fields
+  if
+    not props.day
+    or not props.night
+    or not props.night_time
+    or not props.night_time.begin
+    or not props.night_time.ending
+    or not props.enable
+  then
+    return nil
+  end
+  local begin = parse_time(props.night_time.begin)
+  local ending = parse_time(props.night_time.ending)
+  local now = parse_time(os.date("%H:%M"))
+
+  -- we might want the 7:00 in next day
+  if ending < begin then
+    -- add 24 hour
+    ending = ending + 72000
+  end
+
+  -- if the night has come
+  if (now >= begin) and (now <= ending) then
+    return props.night
+  else
+    return props.day
+  end
+end
+
 ---@param orig CoreCfg|nil The original user config
 return function(orig)
   if orig == nil then
@@ -151,6 +203,9 @@ return function(orig)
     final.autocmds = extend("force", final.autocmds, orig.autocmds)
   end
 
+  if orig.ui.darkmode then
+    final.ui.theme = choose_darkmode_theme(orig.ui.darkmode) or orig.ui.theme
+  end
   -- Make it as a global access variable
   vim.g.nvcfg = final
 end

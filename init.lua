@@ -15,6 +15,16 @@ require("editor").setup({
   ui = {
     theme = "kanagawa",
     darker_bg = true,
+    -- optional
+    darkmode = {
+      enable = false,
+      day = "github_light",
+      night = "kanagawa",
+      night_time = {
+        begin = "19:00",
+        ending = "7:00",
+      },
+    },
   },
 
   coding = {
