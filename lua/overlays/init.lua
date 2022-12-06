@@ -33,6 +33,7 @@ local function load_plugins()
     "theme",
     "enhance",
     "completion",
+    "git",
   }
 
   for _, ova in ipairs(overlays) do
@@ -53,5 +54,43 @@ local function load_plugins()
   end)
 end
 
--- TODO: bootstrap
-load_plugins()
+-- install_packer will use git to install packer to the install_path
+local function install_packer(path)
+  vim.notify("Installing packer to " .. path)
+  vim.fn.system({
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    path,
+  })
+end
+
+local function bootstrap(path)
+  install_packer(path)
+  load_plugins()
+  -- notify user to quit neovim when bootstrap process done
+  vim.cmd("au User PackerComplete echom 'Plugins installed, please restart neovim'")
+  require("packer").sync()
+end
+
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
+
+-- Async packer loader
+vim.loop.fs_stat(
+  install_path,
+  vim.schedule_wrap(function(err, _)
+    if err ~= nil then
+      if err:find("no such file") then
+        bootstrap(install_path)
+      else
+        vim.notify(("Fail to find packer: %s"):format(err), vim.log.levels.ERROR)
+      end
+
+      return
+    end
+
+    load_plugins()
+  end)
+)
