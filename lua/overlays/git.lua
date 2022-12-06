@@ -9,7 +9,6 @@ local repos = {
       "Gdiffsplit",
       "GBrowse",
     },
-    rc = "fugitive",
   },
 
   -- Show git information in neovim
