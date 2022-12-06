@@ -62,7 +62,7 @@ local repos = {
   {
     "neovim/nvim-lspconfig",
     -- it can be load by itself when filetype condition is satisified
-    ft = nvcfg.lspconfig_ft,
+    ft = nvcfg.lspconfig_fts,
     rc = "lspconfig",
     -- it can be load by other plugins
     module = "lspconfig",

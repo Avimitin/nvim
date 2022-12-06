@@ -85,12 +85,11 @@ for type, _ in pairs(signs) do
   })
 end
 
-local config = require("editor").config.lspconfig
 -- Attach the above settings to all the lspservers. And tell the nvim-lsp-installer to
 -- install those servers when necessary.
-for _, server in pairs(config) do
+for _, server in pairs(vim.g.nvcfg.lspconfig) do
   local opts = {
-    on_attach = require("plugins.coding.keymap").lsp_keymap,
+    on_attach = require("overlays.rc.lspconfig_keymap").lsp_keymap,
     capabilities = capabilities,
     root_dir = vim.loop.cwd,
     handlers = handlers,
