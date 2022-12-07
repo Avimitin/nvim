@@ -10,13 +10,16 @@ local function setup_hydra(bufnr)
   local crates = require("crates")
 
   local hint = [[
-                                      Crates.nvim
+                                 Crates.nvim
 
-         _u_: upgrade crates                          _U_: upgrade all crates
-      _v_: Show versions        _f_: Show features        _d_: Show dependencies
-   _O_: open homepage   _R_: open repository   _D_: open docs.rs   _C_: open crates.io
+       actions                  ^^^^Show Popups                 ^Open Webpage
+    --------------          ^^^^--------------------        ^---------------------
+  _u_: upgrade crates           _v_: Show versions            _O_: open homepage
+  _U_: upgrade all crates       _f_: Show features            _R_: open repository  
+                              ^^_d_: Show dependencies        _D_: open docs.rs
+                                                          ^^^^_C_: open crates.io
 
-   _q_: exit
+   _<ESC>_/_q_: exit
   ]]
 
   Hydra({
