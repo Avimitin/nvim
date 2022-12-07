@@ -20,6 +20,7 @@ Hydra({
   config = {
     color = "pink",
     invoke_on_body = "true",
+    timeout = 800,
     hint = {
       border = "rounded",
       position = "bottom",
