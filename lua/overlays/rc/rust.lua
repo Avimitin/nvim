@@ -19,7 +19,7 @@ local rust_analyzer_settings = {
 
 local on_lsp_attach = function(client, bufnr)
   -- setup lsp key mappings
-  require("plugins.coding.keymap").lsp_keymap(client, bufnr)
+  require("overlays.rc.lspconfig_keymap").lsp_keymap(client, bufnr)
 
   -- create auto command to format on save
   vim.api.nvim_create_autocmd({ "BufWritePost" }, {
