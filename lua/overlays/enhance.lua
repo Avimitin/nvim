@@ -128,7 +128,7 @@ return {
       { "x", "gS" },
     },
     config = function()
-      local map = require("editor.keymap").map
+      local map = require("libs.keymaps").map
       -- release the S key to the lightspeed
       map("x", "S", "<Plug>Lightspeed_S", {
         noremap = false,
