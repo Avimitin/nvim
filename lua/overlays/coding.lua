@@ -175,6 +175,19 @@ local repos = {
       })
     end,
   },
+
+  -- dependency for package-info.nvim
+  {
+    "MunifTanjim/nui.nvim",
+    module = "nui",
+  },
+
+  -- Manage package.json dependencies
+  {
+    "vuki656/package-info.nvim",
+    rc = "js_deps",
+    opt = true,
+  },
 }
 
 return repos
