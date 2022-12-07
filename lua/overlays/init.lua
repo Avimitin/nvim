@@ -2,16 +2,6 @@ local function load_plugins()
   vim.cmd("packadd packer.nvim")
   local packer = require("packer")
 
-  -- Yet another disgustin hack for packer
-  -- Issue: https://github.com/wbthomason/packer.nvim/issues/751
-  local get_max_jobs = function()
-    if #vim.api.nvim_list_uis() == 0 then
-      return nil
-    else
-      return 30
-    end
-  end
-
   packer.init({
     display = {
       open_fn = function()
@@ -28,7 +18,7 @@ local function load_plugins()
     profile = {
       enable = false,
     },
-    max_jobs = get_max_jobs(),
+    max_jobs = 40,
   })
 
   packer.set_handler("rc", function(_, plugin, rc_val)

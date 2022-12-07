@@ -16,13 +16,17 @@ jobs:
       image: archlinux:latest
     steps:
     - name: Install Deps
-      run: pacman -Syu --needed --noconfirm git neovim ripgrep jq
+      run: pacman -Syu --needed --noconfirm git neovim jq
     - name: Checkout
       run: git clone https://github.com/Avimitin/nvim $HOME/.config/nvim --depth=1
+    - name: Patch
+      run: sed -i 's/max_jobs = 40/max_jobs = nil/' $HOME/.config/nvim/lua/overlays/init.lua
     - name: Test
       run: |
         INSTALL_LOG_FILE=$(mktemp)
         nvim --headless -c "au User PackerComplete quitall" &> $INSTALL_LOG_FILE
-        if rg -qS "err" $INSTALL_LOG_FILE; then cat $INSTALL_LOG_FILE && false; fi
-    - name: Test snippets files
+        if grep -qi "err" $INSTALL_LOG_FILE; then cat $INSTALL_LOG_FILE && false; fi
+    - name: Bench
+      run: cd $HOME/.config/nvim && ./scripts/benchmark.pl
+    - name: Test Snippets
       run: cd $HOME/.config/nvim && ./scripts/validate-snippets.sh

@@ -14,19 +14,18 @@ jobs:
     runs-on: macos-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
-    - name: Install Deps
-      run: |
-        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        brew install jq ripgrep
+      run: git clone https://github.com/Avimitin/nvim $HOME/.config/nvim
     - name: Install Neovim
       run: |
         curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
         tar xzf nvim-macos.tar.gz
-    - name: Test
+    # This exist because of https://github.com/wbthomason/packer.nvim/issues/751
+    - name: Patch
+      run: sed -i '' 's/max_jobs = 40/max_jobs = nil/' $HOME/.config/nvim/lua/overlays/init.lua
+    - name: Install plugins
       run: |
         INSTALL_LOG_FILE=$(mktemp)
         ./nvim-macos/bin/nvim --headless -c "au User PackerComplete quitall" &> $INSTALL_LOG_FILE
-        if rg -qS "err" $INSTALL_LOG_FILE; then cat $INSTALL_LOG_FILE && false; fi
-    - name: Test snippets files
-      run: cd $HOME/.config/nvim && ./scripts/validate-snippets.sh
+        if grep -qi "err" $INSTALL_LOG_FILE; then cat $INSTALL_LOG_FILE && false; fi
+    - name: Bench
+      run: cd $HOME/.config/nvim && ./scripts/benchmark.pl
