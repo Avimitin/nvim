@@ -16,7 +16,10 @@ return {
   {
     "iamcco/markdown-preview.nvim",
     run = function()
-      vim.fn["mkdp#util#install"]()
+      local ui = vim.api.nvim_list_uis()
+      if ui and #ui > 0 then
+        vim.fn["mkdp#util#install"]()
+      end
     end,
     ft = {
       "markdown",
