@@ -127,7 +127,7 @@ to buffer when launching LSP server. Those key mappings are set in
 
 All the lsp key mappings can be trigger by `;a`:
 
-![image](../../docs/images/hydra-lspconfig.png)
+![image](../docs/images/hydra-lspconfig.png)
 
 * Addtional keymappings
 
@@ -261,7 +261,7 @@ So you need to manually run command `:w` when you first open the rust code.
 
 Press `;r` to get list of action.
 
-![image](../../docs/images/hydra-rust.png)
+![image](../docs/images/hydra-rust.png)
 
 * Debug
 
@@ -414,7 +414,7 @@ There are multiple plugin that can help you find and edit a file.
 Nvim-tree.lua is a plugin that show files in tree view.
 The configuration is located in `lua/plugins/modules/enhance/config/nvim-tree.lua`
 
-![image](../../docs/images/nvim-tree.png)
+![image](../docs/images/nvim-tree.png)
 
 #### Keymap
 
@@ -426,7 +426,7 @@ The configuration is located in `lua/plugins/modules/enhance/config/nvim-tree.lu
 
 Telescope support fuzzy find file like what fzf did.
 
-![fuzzy find](../..//docs/images/telescope-find-file.png)
+![fuzzy find](..//docs/images/telescope-find-file.png)
 
 #### Keymap
 
@@ -640,7 +640,7 @@ Use `;g` to open the git panel.
 
 ## Workflow 1: The git panel
 
-![fugitive-status-img](../../../docs/images/neovim-fugitive.png)
+![fugitive-status-img](../docs/images/neovim-fugitive.png)
 
 You can stage file with key `s`, commit file with key `cc`, view inline
 diff with key `=`, jump between file with key `)(`. There are also rebase
