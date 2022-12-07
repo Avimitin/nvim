@@ -56,6 +56,7 @@ local setups_sets = {
       pattern = "Cargo.toml",
       callback = function(props)
         require("packer").loader("crates.nvim")
+        require("overlays.rc.crates").setup_hydra(props.buffer)
       end,
     })
   end,
