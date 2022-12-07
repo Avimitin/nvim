@@ -33,7 +33,7 @@ local lsp_keymap = function(_, bufnr)
     body = "<leader>a",
     heads = {
       { "d", cmd("Lspsaga lsp_finder"), opts("Symbol Finder") },
-      { "p", cmd("Lspsaga preview_definition"), opts("Preview definition") },
+      { "p", cmd("Lspsaga peek_definition"), opts("Preview definition") },
       { "h", cmd("Lspsaga hover_doc"), opts("Open document") },
       { "s", cmd("Lspsaga signature_help"), opts("Open signature help") },
       { "t", cmd("TroubleToggle"), opts("Show diagnostic") },
