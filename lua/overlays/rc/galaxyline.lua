@@ -51,13 +51,10 @@ elseif current_scheme:match("github_light[%l_]*") then
   colors = vim.tbl_deep_extend("force", {}, colors, custom)
 end
 
+local expect = vim.g.nvcfg.lspconfig_fts
 local function should_activate_lsp()
-  local clients = vim.lsp.get_active_clients()
-  if not clients then
-    return false
-  end
-
-  return next(clients) ~= nil
+  local ft = vim.bo.filetype
+  return vim.tbl_contains(expect, ft)
 end
 
 local checkwidth = function()
