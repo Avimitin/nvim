@@ -51,18 +51,17 @@ elseif current_scheme:match("github_light[%l_]*") then
   colors = vim.tbl_deep_extend("force", {}, colors, custom)
 end
 
-local expect = vim.g.nvcfg.lspconfig_fts
-local function should_activate_lsp()
-  local ft = vim.bo.filetype
-  return vim.tbl_contains(expect, ft)
-end
-
 local checkwidth = function()
   local squeeze_width = vim.fn.winwidth(0) / 2
   if squeeze_width > 50 then
     return true
   end
   return false
+end
+
+local function should_activate_lsp()
+  local clients = vim.lsp.get_active_clients()
+  return checkwidth() and #clients ~= 0
 end
 
 local buffer_not_empty = function()
@@ -75,18 +74,6 @@ end
 -- insert_left insert item at the left panel
 local function insert_left(element)
   table.insert(gls.left, element)
-end
-
--- insert blank space at left
-local function blank_left()
-  insert_left({
-    Space = {
-      provider = function()
-        return " "
-      end,
-      highlight = { colors.black, colors.black },
-    },
-  })
 end
 
 -- insert_right insert given item into galaxyline.right
@@ -177,75 +164,82 @@ insert_left({
   },
 })
 
-if should_activate_lsp() then
-  insert_left({
-    FileIcon = {
-      provider = "FileIcon",
-      condition = buffer_not_empty,
-      highlight = {
-        require("galaxyline.provider_fileinfo").get_file_icon_color,
-        colors.black,
-      },
+insert_left({
+  FileIcon = {
+    provider = "FileIcon",
+    condition = function()
+      return buffer_not_empty() and should_activate_lsp()
+    end,
+    highlight = {
+      require("galaxyline.provider_fileinfo").get_file_icon_color,
+      colors.black,
     },
-  })
+  },
+})
 
-  insert_left({
-    GetLspClient = {
-      provider = "GetLspClient",
-      condition = function()
-        local clients = vim.lsp.get_active_clients()
-        return checkwidth() and next(clients) ~= nil
-      end,
-      highlight = { colors.fg, colors.black },
-    },
-  })
+insert_left({
+  GetLspClient = {
+    provider = "GetLspClient",
+    condition = should_activate_lsp,
+    highlight = { colors.fg, colors.black },
+  },
+})
 
-  blank_left()
+insert_left({
+  LspSpace = {
+    provider = function()
+      return " "
+    end,
+    condition = should_activate_lsp,
+    highlight = { colors.black, colors.black },
+  },
+})
 
-  insert_left({
-    DiagnosticError = {
-      provider = "DiagnosticError",
-      icon = "  ",
-      highlight = { colors.red, colors.black },
-    },
-  })
+insert_left({
+  DiagnosticError = {
+    provider = "DiagnosticError",
+    condition = should_activate_lsp,
+    icon = "  ",
+    highlight = { colors.red, colors.black },
+  },
+})
 
-  insert_left({
-    DiagnosticWarn = {
-      provider = "DiagnosticWarn",
-      condition = checkwidth,
-      icon = "  ",
-      highlight = { colors.yellow, colors.black },
-    },
-  })
+insert_left({
+  DiagnosticWarn = {
+    provider = "DiagnosticWarn",
+    condition = should_activate_lsp,
+    icon = "  ",
+    highlight = { colors.yellow, colors.black },
+  },
+})
 
-  insert_left({
-    DiagnosticInfo = {
-      provider = "DiagnosticInfo",
-      condition = checkwidth,
-      highlight = { colors.green, colors.black },
-      icon = "  ",
-    },
-  })
+insert_left({
+  DiagnosticInfo = {
+    provider = "DiagnosticInfo",
+    condition = should_activate_lsp,
+    highlight = { colors.green, colors.black },
+    icon = "  ",
+  },
+})
 
-  insert_left({
-    DiagnosticHint = {
-      provider = "DiagnosticHint",
-      condition = checkwidth,
-      highlight = { colors.white, colors.black },
-      icon = "  ",
-    },
-  })
+insert_left({
+  DiagnosticHint = {
+    provider = "DiagnosticHint",
+    condition = should_activate_lsp,
+    highlight = { colors.white, colors.black },
+    icon = "  ",
+  },
+})
 
-  insert_left({
-    LeftEnd = {
-      provider = function()
-        return ""
-      end,
-      highlight = { colors.black },
-    },
-  })
-end
+insert_left({
+  LeftEnd = {
+    provider = function()
+      return ""
+    end,
+    condition = should_activate_lsp,
+    highlight = { colors.black, "none" },
+  },
+})
 
 insert_left({
   MiddleSpace = {
