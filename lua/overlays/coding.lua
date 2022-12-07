@@ -86,6 +86,7 @@ local repos = {
   {
     "saecki/crates.nvim",
     rc = "crates",
+    opt = true,
   },
 
   -- debugger plugin

@@ -52,11 +52,10 @@ local setups_sets = {
   end,
   ["crates"] = function()
     vim.api.nvim_create_autocmd("BufRead", {
-      group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
       pattern = "Cargo.toml",
       callback = function(props)
         require("packer").loader("crates.nvim")
-        require("overlays.rc.crates").setup_hydra(props.buffer)
+        require("overlays.rc.crates").setup_hydra(props.buf)
       end,
     })
   end,
