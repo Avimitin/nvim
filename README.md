@@ -83,6 +83,7 @@ See [Docs](./lua/README.md).
 |---------------------------|
 | ![image](./docs/images/hydra-lspconfig.png) |
 | ![image](./docs/images/hydra-rust.png) |
+| ![image](./docs/images/hydra-js.png) |
 
 | Diagnostic Panel |
 |-----------------|
