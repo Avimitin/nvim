@@ -8,6 +8,7 @@ local colorscheme = {
       return vim.g.nvcfg.ui.theme == "deus"
     end,
     config = function()
+      vim.opt.background = "dark"
       vim.cmd("colorscheme deus")
     end,
   },

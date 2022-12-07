@@ -1,8 +1,7 @@
 local opt = vim.opt
 
--- Enables 24-bit RGB color in the TUI, and set background to dark
+-- Enables 24-bit RGB color in the TUI
 opt.termguicolors = true
-opt.background = "dark"
 
 opt.encoding = "utf-8"
 -- When file encoding forcely set to UTF-8, some file with non-Unicode
