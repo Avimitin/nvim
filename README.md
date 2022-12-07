@@ -199,6 +199,14 @@ Take a look at their contribution, which is really fantastic.
 
 ## Development Related
 
-Please read [development specifications](./docs/src/en_us/development.md).
+### Versioning
+
+Version will be released in `cvYYYY.0M.0D` format.
+
+### Benchmark
+
+```bash
+perl ./fixtures/benchmark.pl
+```
 
 <br/>

@@ -6,6 +6,10 @@
     * [Files](#files)
     * [Keymaps](#keymaps)
     * [How to add new lsp server](#how-to-add-new-lsp-server)
+  * [c/cpp](#ccpp)
+  * [JavaScript/TypeScript](#javascripttypescript)
+    * [Trouble Shooting](#trouble-shooting)
+  * [rust](#rust)
 * [Completion](#completion)
   * [Configuration](#configuration)
   * [Sources](#sources-1)
@@ -40,9 +44,8 @@
   * [Move window](#move-window)
   * [Auto resize window](#auto-resize-window)
 * [git.lua](#gitlua)
-  * [Workflow 1: The git status panel](#workflow-1-the-git-status-panel)
+  * [Workflow 1: The git panel](#workflow-1-the-git-panel)
   * [Workflow 2: Save by key mappings](#workflow-2-save-by-key-mappings)
-  * [Other available key mappings](#other-available-key-mappings)
 * [Packer](#packer)
   * [Basic](#basic)
   * [Rc?](#rc)
@@ -63,6 +66,7 @@
   * [Extra](#extra)
   * [Gallery](#gallery)
   * [Add your theme](#add-your-theme)
+* [Write Markdown](#write-markdown)
 
 <!-- vim-markdown-toc -->
 
@@ -153,11 +157,135 @@ local coding = {
 return custom
 ```
 
+> * Single string or an array with item
+> tells the editor to load nvim-treesitter only for this languages.
+> * An array with two items tells the editor to load both of the nvim-treesitter and lspconfig plugins.
+> And the second items for the multi-items array should be lsp server that you want to enabled.
+> * If the array contains three items, the third item will be considered as server configuration and
+> will be transfer to the lsp server.
+
 Install the server by your system package manager, and add the executable name
 into the custom.lua file.
 
-> * Rust server is automatically installed and set up by rust-tools.nvim.
-> Don't add the rust-analyzer executable here.
+Rust server is automatically setup by rust-tools.nvim.
+Don't add any configuration here.
+
+- Resources
+  * [Available Lsp Servers](https://github.com/williamboman/nvim-lsp-installer#available-lsps)
+  * [Supported Languages for treesitter](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages)
+  * [Lsp Server Configuration](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
+
+## c/cpp
+
+* Config
+
+C/CPP can be configured to use clangd as default LSP server.
+
+```lua
+{ { "c", "cpp" }, "clangd" },
+```
+
+* project setup
+
+The clangd respect your cmake settings.
+You will need to provide the compile_commands.json file for clangd to identify
+your project correctly.
+
+```console
+$ cmake -H. -BDebug -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=YES
+$ ln -s Debug/compile_commands.json .
+```
+
+* Makefile
+
+If you are writing C and using the Makefile, you can use the `:Dispatch` or `:Make`
+command to easily build and debug your code.
+
+* Resources
+
+> * Clangd official site: <https://clangd.llvm.org/>
+> * CMake official site: <https://cmake.org/>
+
+
+## JavaScript/TypeScript
+
+It's recommended to use <https://github.com/hrsh7th/vscode-langservers-extracted> instead
+of the offical one.
+
+Add the below script into `init.lua` file.
+
+```lua
+langs = {
+  "html",
+  "css",
+  "json",
+  { { "javascript", "typescript", "javascriptreact", "typescriptreact" }, "tsserver" },
+},
+```
+
+Inject eslint into tsserver by enable the null-ls option:
+
+```lua
+null_ls = {
+  enable_eslint = true, -- require eslint, useful to combine use with tsserver
+  enable_prettier = true, -- require prettier, useful when you want format in js/ts{x}
+},
+```
+
+### Trouble Shooting
+
+* Neovim notify that their is no executable in `$PATH`
+
+Please make sure that you have configured node.js/deno PATH correctly.
+If you are using node version manager like `nvm` or other stuff, please
+make sure you have enabled correct version before you start the neovim.
+
+## rust
+
+The plugin rust-tools.nvim has already set up LSP, format, and debug utilities.
+
+See <https://github.com/simrat39/rust-tools.nvim/> for what it can do.
+
+> This plugin will setup lspconfig itself, please don't write lspconfig manually.
+
+* Inlay hint
+
+The rust-tools.nvim setting is located in lua/plugins/coding/config/rust-tools.lua.
+And inlay hint is set up automatically after you open rust file.
+
+But it will not prompt up by default due to some unknown bug.
+It will only show up after you save the buffer.
+So you need to manually run command `:w` when you first open the rust code.
+
+* Code action
+
+Press `;r` to get list of action.
+
+![image](../../docs/images/hydra-rust.png)
+
+* Debug
+
+You need to install `lldb-vscode`. Then run `:RustDebuggables`, it will open the
+debug panel automatically.
+
+* Rust Analyzer settings per project
+
+You might want to make some specific rust-analyzer settings for your project.
+You can create a file with name `.rust-analyzer.json` in the same directory
+with the `Cargo.toml` file. Then put all the configuration you want into it.
+
+Configuration reference: <https://rust-analyzer.github.io/manual.html#configuration>
+
+For example, if you want to enable all feature when editing the code:
+
+```bash
+# cd to the root directory of your project
+echo '{
+  "cargo": {
+    "allFeatures": true
+  }
+}' > .rust-analyzer.json
+```
 
 # Completion
 
@@ -847,3 +975,17 @@ require("nord").setup({
     -- ...
 })
 ```
+
+# Write Markdown
+
+Use command `nvim /path/to/xxx.md` to open the markdown file.
+And their are some commands can enhance your writing experience:
+
+* `:TableModeToggle`: Trigger the table edit mode.
+
+<video src="https://user-images.githubusercontent.com/30021675/151665473-d8527c7f-fc2a-415a-9878-e39927c49fc8.mp4" controls>
+</video>
+
+* `:MarkdownPreview`: Preview the rendered markdown content in your
+favourite browser. See [customize](./customize.md) for details.
+* `:GenTocGFM`: Generate a GitHub favor TOC.
