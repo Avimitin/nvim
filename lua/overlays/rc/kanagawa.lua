@@ -1,4 +1,6 @@
 local default = require("kanagawa.colors").setup()
+vim.opt.background = "dark"
+
 local telescope_bg = "#14141d"
 local overrides = {
   -- use gradient yellow for heading
@@ -100,24 +102,11 @@ local overrides = {
   },
 }
 
-local present, custom = pcall(require, "custom")
-if present and custom.use_darker_background ~= nil then
-  local background = nil
-
-  if type(custom.use_darker_background) == "boolean" and custom.use_darker_background then
-    background = "#14141D"
-  end
-
-  if type(custom.use_darker_background) == "string" then
-    background = custom.use_darker_background
-  end
-
-  if background ~= nil then
-    overrides.normal = {
-      bg = background,
-      fg = default.fujiWhite,
-    }
-  end
+if vim.g.nvcfg.ui and vim.g.nvcfg.ui.darker then
+  overrides.normal = {
+    bg = "#14141D",
+    fg = default.fujiWhite,
+  }
 end
 
 require("kanagawa").setup({

@@ -1,5 +1,12 @@
 -- trim the prefix text
 local theme = vim.g.nvcfg.ui.theme:gsub("github_", "")
+
+vim.o.background = "dark"
+
+if theme:find("light") then
+  vim.o.background = "light"
+end
+
 require("github-theme").setup({
   theme_style = theme,
   function_style = "bold",
