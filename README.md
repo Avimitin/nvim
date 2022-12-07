@@ -63,9 +63,9 @@ See [Editor](./lua/editor/README.md) and [overlays](./lua/overlays/README.md).
 | --------------------------------------------- |
 | ![LightSpeed](./docs/images/lightspeed.png)   |
 
-| Which key?                                    |
+| Window Manage                                 |
 |-----------------------------------------------|
-| ![which-key.gif](./docs/images/which-key.gif) |
+| ![window-manage](./docs/images/hydra-windows.png) |
 
 </details>
 
