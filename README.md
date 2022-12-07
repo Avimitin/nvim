@@ -10,7 +10,7 @@
 
 * ***Fast*** and ***Lazy***: It takes [28ms](./scripts/benchmark.txt) in average to open the neovim editor.
 And every plugin is handled well to be activate only when they are needed.
-Nothing should slowdown the editor.
+Nothing will slow down the editor.
 * ***Handy*** and ***Smoothy***: There will always be a panel to remind you
 when you forget your key settings. There will always be a short keystroke to help
 you get to the place you want to jump to. There will always…
@@ -32,13 +32,6 @@ the master branch, and they may be reverted.
 git clone --depth=1 https://github.com/Avimitin/nvim.git ~/.config/nvim
 # Then switch to the latest stable version
 git checkout latest
-
-# Or You can just download the latest stable version (Auto Retagged)
-curl "https://raw.githubusercontent.com/Avimitin/nvim/master/scripts/install.bash" -o install.bash
-# Please read the script before you use it
-cat install.bash
-# Execute it
-bash install.bash
 ```
 
 Finally, input `nvim` to open the editor, and all plugins will be downloaded automatically.
@@ -47,12 +40,11 @@ Finally, input `nvim` to open the editor, and all plugins will be downloaded aut
 nvim
 ```
 
-You can read the full installation instruction here:
-[**==> Installation Guide**](https://avimitin.github.io/nvim/en_us/installation.html)
+Edit the configuration in [`init.lua`](./init.lua) file.
 
 ## Document
 
-See [Editor](./lua/editor/README.md) and [overlays](./lua/overlays/README.md).
+See [Docs](./lua/README.md).
 
 ## Gallery
 

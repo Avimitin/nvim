@@ -8,7 +8,7 @@
 
 Author: Avimitin
 Source: https://github.com/Avimitin/nvim
-License: MIT License
+License: Apache-2.0 License
 --]]
 
 require("editor").setup({
