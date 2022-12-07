@@ -27,6 +27,7 @@ Hydra({
       border = "rounded",
       offset = -1,
     },
+    timeout = 700,
   },
   mode = "n",
   body = "<C-w>",
