@@ -1,4 +1,4 @@
-name: Linux Test
+name: MacOS Test
 
 on:
   push:
@@ -7,18 +7,19 @@ on:
     paths:
       - "lua/**"
       - "init.lua"
-      - ".github/workflows/test.yml"
+      - ".github/workflows/test_macos.yml"
 
 jobs:
   container-job:
-    runs-on: ubuntu-latest
-    container:
-      image: archlinux:latest
+    runs-on: macos-latest
     steps:
-    - name: Install Deps
-      run: pacman -Syu --needed --noconfirm git neovim ripgrep jq
     - name: Checkout
-      run: git clone https://github.com/Avimitin/nvim $HOME/.config/nvim --depth=1
+      uses: actions/checkout@v3
+    - name: Install Deps
+      run: |
+        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        brew install --HEAD neovim
+        brew install jq ripgrep
     - name: Test
       run: |
         INSTALL_LOG_FILE=$(mktemp)
