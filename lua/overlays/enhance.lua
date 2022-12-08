@@ -116,7 +116,7 @@ return {
 
   -- surrounding select text with given signs
   {
-    "tpope/vim-surround",
+    "kylechui/nvim-surround",
     keys = {
       { "n", "ys" },
       { "n", "yS" },
@@ -126,16 +126,13 @@ return {
       { "n", "dS" },
       { "x", "gs" },
       { "x", "gS" },
+      { "i", "<C-g>" },
     },
     config = function()
-      local map = require("libs.keymaps").map
-      -- release the S key to the lightspeed
-      map("x", "S", "<Plug>Lightspeed_S", {
-        noremap = false,
-      })
-      -- and remap it to gs
-      map("x", "gs", "<Plug>VSurround", {
-        noremap = false,
+      require("nvim-surround").setup({
+        keymaps = {
+          visual = "gs",
+        },
       })
     end,
   },
