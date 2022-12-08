@@ -214,16 +214,9 @@ return {
 
   -- scroll smoothly
   {
-    "karb94/neoscroll.nvim",
-    rc = "neoscroll",
-    keys = {
-      { "n", "<C-e>" },
-      { "n", "<C-y>" },
-      { "n", "<C-f>" },
-      { "n", "<C-b>" },
-      { "n", "<C-j>" },
-      { "n", "<C-k>" },
-    },
+    "declancm/cinnamon.nvim",
+    rc = "cinnamon",
+    module = "cinnamon",
   },
 
   -- search and replace with a panel
