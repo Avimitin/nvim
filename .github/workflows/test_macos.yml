@@ -6,6 +6,7 @@ on:
     - master
     paths:
       - "lua/**"
+      - "!lua/README.md"
       - "init.lua"
       - ".github/workflows/test_macos.yml"
 
