@@ -271,20 +271,24 @@ debug panel automatically.
 * Rust Analyzer settings per project
 
 You might want to make some specific rust-analyzer settings for your project.
-You can create a file with name `.rust-analyzer.json` in the same directory
+You can create a file with name `.neovim.lua` in the same directory
 with the `Cargo.toml` file. Then put all the configuration you want into it.
 
 Configuration reference: <https://rust-analyzer.github.io/manual.html#configuration>
 
 For example, if you want to enable all feature when editing the code:
 
-```bash
-# cd to the root directory of your project
-echo '{
-  "cargo": {
-    "allFeatures": true
+```lua
+-- .neovim.lua
+return {
+  coding = {
+    rust = {
+      cargo = {
+        allFeatures = true
+      }
+    }
   }
-}' > .rust-analyzer.json
+}
 ```
 
 # Completion

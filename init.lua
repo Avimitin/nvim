@@ -11,6 +11,8 @@ Source: https://github.com/Avimitin/nvim
 License: Apache-2.0 License
 --]]
 
+-- You can modify the value below to change configuration. Or, create a `.neovim.lua` file
+-- in your project root to have different configuration between projects.
 require("editor").setup({
   ui = {
     theme = "kanagawa",
@@ -69,6 +71,16 @@ require("editor").setup({
       eslint = false,
       -- Use prettier to format javascript
       prettier = false,
+    },
+
+    rust = {
+      cargo = {
+        autoreload = true,
+      },
+      -- I would prefer to use cargo clippy to whip me more
+      checkOnSave = {
+        command = "clippy",
+      },
     },
   },
 
