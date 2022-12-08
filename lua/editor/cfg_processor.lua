@@ -21,12 +21,14 @@
 ---@class CoreCfgCoding
 ---@field langs table The treesitter and LSP config customization
 ---@field opts { [string]: boolean } Optional injection for null-ls
+---@field rust table Configuration that will be pass into rust-analyzer
 
 ---@class ExpandedCoreCfg The final representation
 ---@field ui CoreCfgUI
 ---@field lspconfig table Name-value pair configuration that will be pass into nvim-lspconfig
 ---@field lspconfig_fts string[] List of filetypes for nvim-lspconfig to activate
 ---@field treesitter_fts string[] List of filetypes for nvim-treesitter to activate
+---@field rust_config table Configuration that will passed into rust-analyzer
 
 ---@param tbl table
 ---@return any[]
@@ -155,10 +157,40 @@ local function choose_darkmode_theme(props)
   end
 end
 
+-- This function is used for finding the root directory of the current file.
+-- It will first try to find it by LSP client if it is available. Then it will
+-- use the rooter API to find root by patterns. This patterns can be configured
+-- in lua/overlays/rc/rooter.lua file. If none of this mechanism works, then
+-- the current path will be return.
+---@return string The root directory of the current project
+local function find_root_dir()
+  local rooter = require("libs.rooter")
+
+  return rooter.get_root() or vim.fn.getcwd()
+end
+
+local function find_local()
+  local root_dir = find_root_dir()
+  local expect_cfg = root_dir .. "/.neovim.lua"
+  local ok, mod = pcall(dofile, expect_cfg)
+  if not ok then
+    return nil
+  end
+
+  return mod
+end
+
 ---@param orig CoreCfg|nil The original user config
 return function(orig)
   if orig == nil then
     return
+  end
+
+  local extend = vim.tbl_deep_extend
+
+  local custom = find_local()
+  if custom then
+    orig = extend("force", orig, custom)
   end
 
   ---@type ExpandedCoreCfg
@@ -175,8 +207,6 @@ return function(orig)
     autocmds = {},
   }
 
-  local extend = vim.tbl_deep_extend
-
   local extended = extend("force", final.ui, orig.ui)
   if extended ~= nil then
     final.ui = extended
@@ -192,6 +222,10 @@ return function(orig)
       final.lspconfig = result.expand_result.lspconfig
       final.lspconfig_fts = get_tbl_key(final.lspconfig)
       final.treesitter_fts = get_tbl_key(result.expand_result.treesitter)
+    end
+
+    if orig.coding.rust then
+      final.rust_config = orig.coding.rust
     end
   end
 
