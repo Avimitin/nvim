@@ -24,7 +24,6 @@ local setup_hydra = function(bufnr)
       on_enter = function()
         vim.cmd("mkview")
         vim.cmd("silent! %foldopen!")
-        vim.bo.modifiable = false
         gitsigns.toggle_linehl(true)
       end,
       on_exit = function()
