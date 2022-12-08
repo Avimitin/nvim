@@ -16,7 +16,7 @@ jobs:
       image: archlinux:latest
     steps:
     - name: Install Deps
-      run: pacman -Syu --needed --noconfirm git neovim jq
+      run: pacman -Syu --needed --noconfirm git neovim jq lua-language-server
     - name: Checkout
       run: git clone https://github.com/Avimitin/nvim $HOME/.config/nvim --depth=1
     - name: Patch
