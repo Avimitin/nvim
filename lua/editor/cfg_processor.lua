@@ -99,7 +99,12 @@ end
 
 ---@param props CoreCfgCoding
 local function process_coding_props(props)
-  local null_ls_sources = get_tbl_key(props.opts)
+  local null_ls_sources = {}
+  for source, enable in pairs(props.opts) do
+    if enable then
+      table.insert(null_ls_sources, source)
+    end
+  end
 
   local expanded = nil
   if props.langs then
