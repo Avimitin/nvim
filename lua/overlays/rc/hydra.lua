@@ -33,7 +33,7 @@ Hydra({
   body = "<C-w>",
   heads = {
     { "h", "<C-w>h" },
-    { "j", "<C-w>j" },
+    { "j", "<C-w>j", { nowait = true, exit = true } },
     { "k", pcmd("wincmd k", "E11", "close") },
     { "l", "<C-w>l" },
 
