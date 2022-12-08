@@ -451,3 +451,5 @@ require("galaxyline").section.short_line_left = {
     },
   },
 }
+
+require("galaxyline").load_galaxyline()
