@@ -40,11 +40,6 @@ local kind_icons = {
   TypeParameter = "",
 }
 
-if cmp == nil or cmp.setup == nil then
-  require("editor.utils").infoL("fail to load nvim-cmp", "nvim-cmp")
-  return
-end
-
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -116,14 +111,6 @@ cmp.setup({
   },
   experimental = {
     ghost_text = true,
-  },
-})
-
-cmp.setup.filetype({ "markdown", "asciidoc", "text", "gitcommit" }, {
-  sources = {
-    { name = "dictionary", keyword_length = 2 },
-    { name = "path" },
-    { name = "vsnip" },
   },
 })
 
