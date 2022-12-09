@@ -1,3 +1,5 @@
+vim.opt.completeopt = { "menuone", "noselect", "menu" }
+
 local cmp = require("cmp")
 
 local has_words_before = function()

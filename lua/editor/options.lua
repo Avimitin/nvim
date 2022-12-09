@@ -73,7 +73,6 @@ opt.smartcase = true
 
 vim.cmd("set shortmess+=cwm")
 opt.inccommand = "split"
-opt.completeopt = { "menuone", "noselect", "menu" }
 opt.ttyfast = true
 opt.visualbell = true
 opt.updatetime = 100
