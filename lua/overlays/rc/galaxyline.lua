@@ -21,6 +21,7 @@ local colors = {
   magenta = "#D27E99",
   blue = "#81A1C1",
   red = "#D54E53",
+  divider = "#24242e",
 }
 
 if current_scheme == "everforest" then
@@ -29,6 +30,7 @@ if current_scheme == "everforest" then
 elseif current_scheme == "gruvbox" then
   colors.bg = "#261C00"
   colors.black = "#3A2300"
+  colors.divider = "#322e2e"
 elseif current_scheme == "dawnfox" then
   colors.bg = "#898180"
   colors.black = "#625c5c"
@@ -158,7 +160,7 @@ insert_left({
       if should_activate_lsp() then
         return { colors.bg, colors.black }
       else
-        return { colors.bg, "none" }
+        return { colors.bg, colors.divider }
       end
     end,
   },
@@ -237,7 +239,7 @@ insert_left({
       return ""
     end,
     condition = should_activate_lsp,
-    highlight = { colors.black, "none" },
+    highlight = { colors.black, colors.divider },
   },
 })
 
@@ -246,7 +248,7 @@ insert_left({
     provider = function()
       return " "
     end,
-    highlight = "Normal",
+    highlight = { colors.black, colors.divider },
   },
 })
 
@@ -255,7 +257,7 @@ insert_right({
     provider = function()
       return " "
     end,
-    highlight = { colors.black },
+    highlight = { colors.black, colors.divider },
   },
 })
 
