@@ -23,4 +23,8 @@ end
 require("null-ls").setup({
   sources = sources,
   on_attach = attachment.lsp_keymap,
+  -- update the diagnostics only after leaving insert-mode.
+  -- keep in sync with vim.lsp behavior which is configured
+  -- in lspconfig.lua to avoid the diagnostics update conflict.
+  update_in_insert = false,
 })
