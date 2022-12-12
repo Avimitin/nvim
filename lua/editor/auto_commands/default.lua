@@ -80,3 +80,17 @@ au({ "VimEnter" }, {
     end
   end,
 })
+
+au("CmdlineEnter", {
+  pattern = "*",
+  callback = function()
+    vim.opt.ch = 1
+  end,
+})
+
+au("CmdlineLeave", {
+  pattern = "*",
+  callback = function()
+    vim.opt.ch = 0
+  end,
+})
