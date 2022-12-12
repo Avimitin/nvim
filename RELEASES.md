@@ -1,3 +1,52 @@
+cv2022.12.12
+============
+
+REMOVED:
+--------
+* key mappings: replace which-keys.nvim with hydra.nvim
+* docs: remove mdbook
+
+FIX:
+----
+* null-ls: fix null-ls custom settings never load issue
+* filetype: fix `.zsh` can't be recognized issue
+* statusline: fix statusline not shown on first enter issue
+* statusline: fix statusline readability on vertical split issue
+* lspsaga: update deprecated commands
+* completion: fix always pre-select behavior
+* lspconfig: fix eslint and tsserver conflict
+
+CHANGED:
+--------
+* [BREAK] Configuration
+  - plugins: move `plugins/<name>/repos.lua` to `overlays/<name>.lua`
+  - config: move `plugins/<name>/config.lua` to `overlays/rc/<plug>.lua`
+  - custom: move `lua/custom.lua` to `init.lua`
+* UI
+  - telescope: make the search background darker
+  - statusline: set command line height to 0
+* Coding
+  - rust: enable format on save
+* Completion
+  - nvim-cmp: use `<ctrl-c>` to abort completion.
+  - option: move `vim.opt.completopt` into cmp rc file
+* Key mappings
+  - lspconfig: replace `g-` prefix key to `<leader>a`
+  - git: replace `gi-` prefix key to `<leader>g`
+  - multi-cursor: replace `\n` with `un`
+
+ADDED:
+------
+* keys: add `<space>c` to open action menu for `Cargo.toml` and `packages.json`
+* keys: add `<Ctrl-w>` to open windows operation menu
+* keys: add `<leader>r` to open Rust action in Rust buffer
+* plugin: add hlargs plugin to highlight function argument
+* null-ls: add eslint diagnostic into sources
+* config: add per-project neovim configuration
+* ci: add Mac OS
+* keys: add smooth scroll for `J` and `K`
+
+
 cv2022.11.21
 ============
 
