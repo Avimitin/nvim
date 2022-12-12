@@ -41,11 +41,6 @@ local setups_sets = {
       end,
     })
   end,
-  ["rooter"] = function()
-    vim.schedule(function()
-      require("overlays.rc.find_root")
-    end)
-  end,
   ["matchup"] = function()
     vim.g.matchup_matchparen_offscreen = {}
     require("libs.keymaps").map({ "n", "x", "o" }, ",", "<Plug>(matchup-%)")
