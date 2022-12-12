@@ -25,6 +25,7 @@ local setup_hydra = function(bufnr)
         vim.cmd("mkview")
         vim.cmd("silent! %foldopen!")
         gitsigns.toggle_linehl(true)
+        gitsigns.toggle_deleted(true)
       end,
       on_exit = function()
         local cursor_pos = vim.api.nvim_win_get_cursor(0)
