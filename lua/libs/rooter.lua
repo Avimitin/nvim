@@ -119,7 +119,7 @@ local function setup_autocmd()
     group = group_id,
     nested = true,
     callback = function()
-      require("nvim-rooter").rooter()
+      require("libs.rooter").rooter()
     end,
   })
 end

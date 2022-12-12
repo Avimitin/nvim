@@ -88,13 +88,6 @@ return {
     rc = "dashboard",
   },
 
-  -- Try to find project root and cd into it
-  {
-    "notjedi/nvim-rooter.lua",
-    module = "nvim-rooter",
-    rc = "rooter",
-  },
-
   -- telescope: extensible fuzzy file finder
   {
     "nvim-telescope/telescope.nvim",
