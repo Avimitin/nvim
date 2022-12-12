@@ -16,7 +16,7 @@ License: Apache-2.0 License
 require("editor").setup({
   ui = {
     theme = "kanagawa",
-    darker_bg = true,
+    darker = true,
     -- optional
     darkmode = {
       enable = false,
