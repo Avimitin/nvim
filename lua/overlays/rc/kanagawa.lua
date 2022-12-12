@@ -109,7 +109,7 @@ local overrides = {
 
 if vim.g.nvcfg.ui and vim.g.nvcfg.ui.darker then
   overrides.normal = {
-    bg = "#14141D",
+    bg = "#0d1117",
     fg = default.fujiWhite,
   }
 end
