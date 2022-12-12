@@ -3,6 +3,11 @@ vim.opt.background = "dark"
 
 local telescope_bg = "#14141d"
 local overrides = {
+  CmpItemKindProperty = {
+    link = "@property",
+  },
+  CmpItemKindKeyword = { link = "@keyword.return" },
+  CmpItemKindField = { link = "@field" },
   -- use gradient yellow for heading
   markdownH1 = {
     fg = default.waveRed,
