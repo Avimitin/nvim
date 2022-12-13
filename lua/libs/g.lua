@@ -16,6 +16,10 @@ local M = {
 ---@param mod string A unique module name
 ---@return boolean true if the given mod is loaded, false if the given mod is not exist.
 function M.loaded(mod)
+  if vim.g.packer_bootstraping and vim.g.packer_bootstraping == 1 then
+    return true
+  end
+
   if M.__cache[mod] then
     return true
   end
