@@ -326,11 +326,6 @@ return {
     "tpope/vim-sleuth",
   },
 
-  -- Fix the CursorHold performance bug
-  {
-    "antoinemadec/FixCursorHold.nvim",
-  },
-
   -- cache everything!
   {
     "lewis6991/impatient.nvim",
