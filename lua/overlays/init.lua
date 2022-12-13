@@ -80,20 +80,19 @@ end
 
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 
+vim.g.packer_bootstraping = 1
 -- Async packer loader
-vim.loop.fs_stat(
-  install_path,
-  vim.schedule_wrap(function(err, _)
-    if err ~= nil then
-      if err:find("no such file") then
-        bootstrap(install_path)
-      else
-        vim.notify(("Fail to find packer: %s"):format(err), vim.log.levels.ERROR)
-      end
+local stat, err = vim.loop.fs_stat(install_path)
 
-      return
-    end
+if not stat then
+  if err:find("no such file") then
+    bootstrap(install_path)
+  else
+    vim.notify(("Fail to find packer: %s"):format(err), vim.log.levels.ERROR)
+  end
 
-    load_plugins()
-  end)
-)
+  return
+end
+
+vim.g.packer_bootstraping = 0
+load_plugins()

@@ -17,10 +17,7 @@ local function setup(opts)
     end
   end
 
-  -- since we have packer compiled, we don't need to load this immediately
-  vim.schedule(function()
-    require("overlays")
-  end)
+  require("overlays")
 end
 
 return {
