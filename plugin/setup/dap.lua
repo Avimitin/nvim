@@ -1,3 +1,7 @@
+if require("libs.g").dap then
+  return
+end
+
 local alias = function(cmd, exec, opt)
   local o = opt or {}
   vim.api.nvim_create_user_command(cmd, exec, o)

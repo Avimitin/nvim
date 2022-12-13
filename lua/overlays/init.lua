@@ -22,17 +22,10 @@ local function load_plugins()
   })
 
   packer.set_handler("rc", function(_, plugin, rc_val)
-    local setup = require("overlays.rc._setups")
     if not type(rc_val) == "string" then
       return
     end
-    local stat =
-      vim.loop.fs_stat(string.format("%s/lua/overlays/rc/%s.lua", vim.fn.stdpath("config"), rc_val))
-    if stat then
-      plugin.config = string.format([[require("overlays.rc.%s")]], rc_val)
-    end
-    -- explicit return nil to avoid unexpected type
-    plugin.setup = setup[rc_val] or nil
+    plugin.config = string.format([[require("overlays.rc.%s")]], rc_val)
   end)
 
   local all_repos = {}

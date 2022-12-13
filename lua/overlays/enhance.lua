@@ -78,7 +78,6 @@ return {
     "mg979/vim-visual-multi",
     keys = { { "n", "u" } },
     branch = "master",
-    rc = "multi_cursor",
   },
 
   -- a dashboard that useless but beautiful
@@ -104,7 +103,6 @@ return {
         "<Enter>",
       },
     },
-    rc = "wildfire",
   },
 
   -- surrounding select text with given signs
@@ -133,7 +131,6 @@ return {
   -- a swiss knife for aligning text
   {
     "junegunn/vim-easy-align",
-    rc = "easyalign",
     cmd = "EasyAlign",
   },
 
@@ -170,7 +167,6 @@ return {
     keys = {
       { "n", "," },
     },
-    rc = "matchup",
   },
 
   -- automatically pairs the bracket
