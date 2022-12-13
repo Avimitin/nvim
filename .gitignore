@@ -1,6 +1,6 @@
 tmp
 autoload
 plugged
-plugin
+packer_compiled.lua
 
 lua/custom.lua
