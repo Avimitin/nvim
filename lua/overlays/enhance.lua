@@ -172,7 +172,7 @@ return {
   {
     "andymass/vim-matchup",
     keys = {
-      { "n", "," },
+      { "n", "<Plug>(matchup-%)" },
     },
   },
 
