@@ -76,7 +76,14 @@ return {
   -- editing with multiple cursor
   {
     "mg979/vim-visual-multi",
-    keys = { { "n", "u" } },
+    keys = {
+      { "n", "un" },
+      { "n", "ux" },
+      { "n", "<C-down>" },
+      { "n", "<C-up>" },
+      { "x", "ua" },
+      { "x", "uf" },
+    },
     branch = "master",
   },
 
