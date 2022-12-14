@@ -378,25 +378,6 @@ insert_right({
 
 -- ============================= short line ===============================
 
-gl.short_line_list = {
-  "LuaTree",
-  "vista",
-  "dbui",
-  "startify",
-  "term",
-  "nerdtree",
-  "fugitive",
-  "fugitiveblame",
-  "plug",
-  "NvimTree",
-  "DiffviewFiles",
-  "Outline",
-  "neoterm",
-  "fern",
-  "toggleterm",
-  "Trouble",
-}
-
 local BufferTypeMap = {
   ["DiffviewFiles"] = " Diff View",
   ["FTerm"] = "Terminal",
@@ -414,6 +395,7 @@ local BufferTypeMap = {
   ["dapui_watches"] = "ﭓ Dap Watch",
   ["fern"] = " Fern FM",
   ["fugitive"] = " Fugitive",
+  ["floggraph"] = " Git Log",
   ["fugitiveblame"] = " Fugitive Blame",
   ["git"] = " Git",
   ["help"] = " Help",
@@ -425,6 +407,8 @@ local BufferTypeMap = {
   ["toggleterm"] = " ToggleTerm",
   ["Trouble"] = "ﮒ Diagnostic",
 }
+
+gl.short_line_list = vim.tbl_keys(BufferTypeMap)
 
 require("galaxyline").section.short_line_left = {
   {
