@@ -11,6 +11,12 @@ local repos = {
     },
   },
 
+  -- A git log viewer, depends on fugitive
+  {
+    "rbong/vim-flog",
+    opt = true,
+  },
+
   -- Show git information in neovim
   {
     "lewis6991/gitsigns.nvim",
