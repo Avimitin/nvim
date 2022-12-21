@@ -1,4 +1,3 @@
-local attachment = require("overlays.rc.lspconfig_keymap")
 local builtins = require("null-ls").builtins
 
 local sources = {}
@@ -22,7 +21,6 @@ end
 
 require("null-ls").setup({
   sources = sources,
-  on_attach = attachment.lsp_keymap,
   -- update the diagnostics only after leaving insert-mode.
   -- keep in sync with vim.lsp behavior which is configured
   -- in lspconfig.lua to avoid the diagnostics update conflict.
