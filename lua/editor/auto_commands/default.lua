@@ -2,14 +2,14 @@ local au = vim.api.nvim_create_autocmd
 
 -- use relativenumber when editing
 local rnu_group = vim.api.nvim_create_augroup("RNUGroup", { clear = true })
-au({ "InsertEnter", "BufLeave", "FocusLost", "WinLeave" }, {
+au({ "InsertEnter" }, {
   group = rnu_group,
   pattern = { "*" },
   callback = function()
     vim.opt.rnu = false
   end,
 })
-au({ "InsertLeave", "BufEnter", "FocusGained", "WinEnter" }, {
+au({ "InsertLeave" }, {
   group = rnu_group,
   pattern = { "*" },
   callback = function()
