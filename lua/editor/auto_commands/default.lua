@@ -1,8 +1,23 @@
 local au = vim.api.nvim_create_autocmd
 
 -- use relativenumber when editing
-au({ "InsertEnter" }, { pattern = { "*" }, command = "set nornu" })
-au({ "InsertLeave" }, { pattern = { "*" }, command = "set rnu" })
+local rnu_group = vim.api.nvim_create_augroup("RNUGroup", { clear = true })
+au({ "InsertEnter", "BufLeave", "FocusLost", "WinLeave" }, {
+  group = rnu_group,
+  pattern = { "*" },
+  callback = function()
+    vim.opt.rnu = false
+  end,
+})
+au({ "InsertLeave", "BufEnter", "FocusGained", "WinEnter" }, {
+  group = rnu_group,
+  pattern = { "*" },
+  callback = function()
+    if vim.fn.mode() ~= "i" then
+      vim.opt.rnu = true
+    end
+  end,
+})
 
 au("FileType", {
   pattern = "markdown",
