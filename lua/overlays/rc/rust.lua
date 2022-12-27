@@ -9,7 +9,7 @@ local on_lsp_attach = function(client, bufnr)
   require("overlays.rc.lspconfig_keymap").lsp_keymap(client, bufnr)
 
   -- create auto command to format on save
-  vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  vim.api.nvim_create_autocmd({ "BufWrite" }, {
     buffer = bufnr,
     desc = "Format Rust code on save",
     callback = function()
