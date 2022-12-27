@@ -4,15 +4,15 @@ local lsp_keymap = function(client, bufnr)
   local hint = [[
                                 Code Actions
 
-  _a_: ﯧ Code Action      |  _f_:  Run format         | _l_:  Toggle Line diagnostic
+      _a_: ﯧ Code Action      |  _f_:  Run format         | _o_:  Show diagnostic
 
-              _j_:  Goto next error | _k_:  Goto previous error
+                  _j_:  Goto next error | _k_:  Goto previous error
 
-  _d_:  Search Symbol    | _r_:  Rename Symbol       | _h_:  Open Document
-  _s_:  Signature Help   | _t_:  Show Diagnostic     | _p_:  Preview Definition
-  _D_:  Goto declaration | _M_:  Goto implementation | _T_:  Goto Type Define
+  _d_:  Search Symbol    | _r_:  Rename Symbol              | _h_:  Open Document
+  _s_:  Signature Help   | _t_:  Show Workspace Diagnostics | _p_:  Preview Definition  
+  _D_:  Goto declaration | _M_:  Goto implementation        | _T_:  Goto Type Define
 
-  _q_: Quit
+  _q_: Quit                                                 _O_:  Open outline Window
 ]]
   local opts = function(desc)
     return { exit = true, nowait = true, desc = desc }
@@ -28,6 +28,15 @@ local lsp_keymap = function(client, bufnr)
         border = "rounded",
         position = "bottom",
       },
+      on_enter = function()
+        vim.g.diagnostic_virtual_text_config = vim.diagnostic.config().virtual_text
+        vim.diagnostic.config({ virtual_text = false })
+        require("lsp_lines").toggle()
+      end,
+      on_exit = function()
+        require("lsp_lines").toggle()
+        vim.diagnostic.config({ virtual_text = vim.g.diagnostic_virtual_text_config })
+      end,
     },
     mode = { "n", "x" },
     body = "<leader>a",
@@ -41,6 +50,8 @@ local lsp_keymap = function(client, bufnr)
       { "a", cmd("Lspsaga code_action"), opts("Open Action") },
       { "j", cmd("Lspsaga diagnostic_jump_next"), { desc = "Jump to next error" } },
       { "k", cmd("Lspsaga diagnostic_jump_prev"), { desc = "Jump to previous error" } },
+      { "o", cmd("Lspsaga show_cursor_diagnostics"), opts("Show diagnostic in cursor") },
+      { "O", cmd("SymbolsOutline"), opts("Show outline panel") },
       {
         "D",
         function()
@@ -78,20 +89,6 @@ local lsp_keymap = function(client, bufnr)
         "f",
         function()
           vim.lsp.buf.format({ async = true })
-        end,
-        opts("Run code formatter"),
-      },
-      {
-        "l",
-        function()
-          local current = vim.diagnostic.config().virtual_text
-          if current ~= false then
-            vim.g.diagnostic_virtual_text_config = current
-            vim.diagnostic.config({ virtual_text = false })
-          else
-            vim.diagnostic.config({ virtual_text = vim.g.diagnostic_virtual_text_config })
-          end
-          require("lsp_lines").toggle()
         end,
         opts("Run code formatter"),
       },
