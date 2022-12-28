@@ -8,11 +8,11 @@ local lsp_keymap = function(client, bufnr)
 
                   _j_:  Goto next error | _k_:  Goto previous error
 
-  _d_:  Search Symbol    | _r_:  Rename Symbol              | _h_:  Open Document
-  _s_:  Signature Help   | _t_:  Show Workspace Diagnostics | _p_:  Preview Definition  
-  _D_:  Goto declaration | _M_:  Goto implementation        | _T_:  Goto Type Define
+  _d_:  Search Symbol         | _r_:  Rename Symbol       | _h_:  Open Document
+  _t_:  Workspace Diagnostics | _p_:  Preview Definition  | _O_:  Open outline Window   
+  _D_:  Goto declaration      | _M_:  Goto implementation | _T_:  Goto Type Define
 
-  _q_: Quit                                                 _O_:  Open outline Window
+  _q_: Quit
 ]]
   local opts = function(desc)
     return { exit = true, nowait = true, desc = desc }
@@ -44,7 +44,6 @@ local lsp_keymap = function(client, bufnr)
       { "d", cmd("Lspsaga lsp_finder"), opts("Symbol Finder") },
       { "p", cmd("Lspsaga peek_definition"), opts("Preview definition") },
       { "h", cmd("Lspsaga hover_doc"), opts("Open document") },
-      { "s", cmd("Lspsaga signature_help"), opts("Open signature help") },
       { "t", cmd("TroubleToggle"), opts("Show diagnostic") },
       { "r", cmd("Lspsaga rename"), opts("Rename") },
       { "a", cmd("Lspsaga code_action"), opts("Open Action") },
