@@ -39,7 +39,6 @@ require("editor").setup({
       -- Supported language: https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
       "bash",
       "comment",
-      "css",
       "html",
       "json",
       "toml",
@@ -63,17 +62,15 @@ require("editor").setup({
       -- use tsserver for .js, .ts, .tsx, .jsx with treesitter enable
       -- Install it via your system package manager or `npm install -g tsserver`
       { { "javascript", "typescript", "javascriptreact", "typescriptreact" }, "tsserver" },
-
-      { "python", "pyright" },
     },
 
     opts = {
       -- Use stylua as formatter for Lua, require stylua executable
-      stylua = true,
+      stylua = false,
       -- Inject eslint code action and diagnostic into tsserver, require eslint executable
-      eslint = true,
+      eslint = false,
       -- Use prettier to format javascript
-      prettier = true,
+      prettier = false,
     },
 
     rust = {
@@ -92,7 +89,7 @@ require("editor").setup({
   },
 
   autocmds = {
-    fcitx5 = true, -- require fcitx5-remote
+    fcitx5 = false, -- require fcitx5-remote
     lastline = true, -- always jump to last edit line of the current opened file
     diff_on_commit = false, -- show diff in vertical splited window when committing
   },
