@@ -68,6 +68,30 @@ If you enable treesitter, you can gain extra text object based on syntax:
 | io/ao      | inner/outer condition     |
 | as         | outer statement           |
 
+Some example
+
+```lua
+*-------------------------------------------------*
+v                                                 |
+function fn(param1, param2)                       |
+            ^      ^<--*->                        |
+            |      |   |------inner parameter     |
+            *------*                              |
+         outer parameter                          |
+                                                  |
+{outer function call}                             |
+        |                                         |
+   <----*---->                                    |
+   print("hi")     ----*                          |========> outer function
+   if param1 then      |==>inner function         |
+      print(param2)    |                          |
+   end             ____*                          |
+end                                               |
+^                                                 |
+|                                                 |
+*-------------------------------------------------*
+```
+
 Here are some common use key that accept text object as suffix:
 
 | Key | Action  |
