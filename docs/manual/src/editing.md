@@ -102,3 +102,49 @@ Here are some common use key that accept text object as suffix:
 
 For example, `ciw` can remove a whole word and enter insert mode. `daf` can delete a whole function
 with function keyword itself. `vit` will select all the text inside a html tag.
+
+## Quick Selection
+
+Plugin [wildfire.vim](https://github.com/gcmt/wildfire.vim) provide key mappings to easily select
+*inner text object*. You can press key `<enter>` to select inside `()`, `""`, `{}`...etc. You can
+press multiple time to expand the select region:
+
+```text
+                           assuming this is our cursor
+                                    V
+<a href="#">Some fancy {text (inside| a html) block}</a>
+                              <--1x enter-->
+                        <-----2x enter------------>
+            <-------------3x enter----------------->
+```
+
+## Update indent
+
+You can press key `>` and `<` in normal mode to increase and decrease indent.
+You can also select multiple line then press this keys to update indentation.
+
+```text
+        | Text with 8 spaces indent
+[press <]
+    | Text with 4 spaces indent now
+[press >]
+        | Text with 8 spaces indent again
+```
+
+## Save and Revert
+
+Each edit are based on buffer, and you must write it into disk after editing done.
+You can press `;w` to write temporary buffer into the file. `;x` can help you save
+and quit easily.
+
+You can press `<Ctrl-z>` in normal mode to revert last edit. `<Ctrl-r>` can redo your
+last reverted changes.
+
+## Copy and Paste
+
+You can yank text by key `y` and paste them by key `p`.
+I add an auto command to automatically copy text into system clipboard when you press `y`.
+However key `p` will not paste text from clipboard, it will reuse the register.
+To paste from system clipboard into vim, you need to press `<Ctrl-p>` or
+`<Ctrl-Shift-v>`(based on your terminal settings).
+
