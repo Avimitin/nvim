@@ -143,28 +143,17 @@ return {
 
   -- Move cursor by text search
   {
-    "ggandor/lightspeed.nvim",
+    "ggandor/leap.nvim",
     keys = {
       { "n", "s" },
-      { "v", "s" },
       { "n", "S" },
-      { "v", "S" },
+      { "n", "gs" },
       { "n", "f" },
       { "n", "F" },
-      { "n", "t" },
-      { "n", "T" },
-      { "v", "f" },
-      { "v", "F" },
-      { "v", "t" },
-      { "v", "T" },
     },
     config = function()
-      require("lightspeed").setup({
-        substitute_chars = {
-          ["\r"] = "",
-          [" "] = "␣",
-        },
-      })
+      require("leap").add_default_mappings()
+      vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
     end,
   },
 
