@@ -1,0 +1,28 @@
+name: Document build
+
+on:
+  push:
+    paths:
+      - 'docs/manual'
+      - '.github/workflows/document.yml'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v1
+        with:
+           mdbook-version: 'latest'
+
+      - name: Build document
+        run: cd docs && mdbook build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
+        with:
+          branch: gh-pages
+          folder: docs/book
