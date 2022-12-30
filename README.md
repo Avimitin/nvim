@@ -44,7 +44,7 @@ Edit the configuration in [`init.lua`](./init.lua) file.
 
 ## Document
 
-See [Docs](./lua/README.md).
+See [Docs](https://avimitin.github.io/nvim).
 
 ## Gallery
 
