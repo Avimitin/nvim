@@ -81,6 +81,10 @@ require("editor").setup({
       checkOnSave = {
         command = "clippy",
       },
+      inlayHints = {
+        -- Wait for https://github.com/simrat39/rust-tools.nvim/pull/307 merged
+        locationLinks = false,
+      },
     },
   },
 
