@@ -136,7 +136,7 @@ If you enable treesitter, you can gain extra text object based on syntax:
 | ic/ac      | inner/outer class/struct  |
 | ib/ab      | inner/outer code block    |
 | il/al      | inner/outer function call |
-| ip/ap      | inner/outer parameter     |
+| iP/aP      | inner/outer parameter     |
 | io/ao      | inner/outer condition     |
 | as         | outer statement           |
 
