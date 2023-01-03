@@ -1,3 +1,39 @@
+cv2023.01.03
+============
+
+BREAKING:
+---------
+* plugin: replace plugin lightspeed.nvim with leap.nvim [deprecated]
+* plugin: remove nvim-rooter [vendored]
+* plugin: remove FixCursorHold [merged]
+* plugin: move `setup` function into `after/plugin` directories
+
+FIXED:
+------
+* highlight: fix nvim-cmp icon highlight
+* config: fix the darker background field never apply issue
+* multicursor: fix loading mechanism
+* match-up: fix key mapping
+* null-ls: fix injected sources occupying key mapping issue
+* gitsigns: fix key mapping required confirmation issue
+* rust: fix format-on-save messing up file issue
+* lspsaga: remove deprecated command
+* option: increase timeoutlen for better triggering multiple key sequence
+* treesitter: fix `@parameter` occupying `paragraph` text object issue
+* treesitter: fix condition text object toggle key
+* rust: disable `locationLinks` option to fix inlay hint
+
+ADDED:
+------
+* auto commands
+  - add auto command to always display status line
+  - add auto command to automatically exit when nvim-tree is last buffer
+  - add auto command to load nvim-tree for directories argument
+* git
+  - toggle deleted line when enter git mode
+  - add new plugin `flog.vim` to view git log
+* lspconfig: add key mapping to toggle outline
+
 cv2022.12.12
 ============
 
