@@ -71,6 +71,15 @@ If you enable treesitter, you can gain extra text object based on syntax:
 Some example
 
 ```lua
+-- example
+function fn(param1, param2)
+    print("hi")
+    if param1 then
+        print(param2)
+    end
+end
+
+
 *-------------------------------------------------*
 v                                                 |
 function fn(param1, param2)                       |
