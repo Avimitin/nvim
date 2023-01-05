@@ -63,3 +63,6 @@ map({ "n", "x", "o" }, ",", "%", { noremap = false, silent = false })
 
 -- paste from system clipboard
 nmap("<C-p>", [["+p]])
+
+-- It is annoying to get escape code instead of space when I inputting capitalized English in terminal
+map({ "t" }, "<S-Space>", "<Space>")
