@@ -188,6 +188,11 @@ local repos = {
     rc = "js_deps",
     opt = true,
   },
+
+  {
+    "folke/neodev.nvim",
+    module = "neodev",
+  },
 }
 
 return repos

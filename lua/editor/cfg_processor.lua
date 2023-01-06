@@ -22,6 +22,7 @@
 ---@field langs table The treesitter and LSP config customization
 ---@field opts { [string]: boolean } Optional injection for null-ls
 ---@field rust table Configuration that will be pass into rust-analyzer
+---@field nvim_dev_mode boolean Enable plugin for developing neovim
 
 ---@class ExpandedCoreCfg The final representation
 ---@field ui CoreCfgUI
@@ -210,6 +211,7 @@ return function(orig)
     null_ls_sources = {},
     markdown = {},
     autocmds = {},
+    nvim_dev_mode = false,
   }
 
   local extended = extend("force", final.ui, orig.ui)
@@ -232,6 +234,8 @@ return function(orig)
     if orig.coding.rust then
       final.rust_config = orig.coding.rust
     end
+
+    final.nvim_dev_mode = orig.coding.nvim_dev_mode
   end
 
   if orig.markdown then

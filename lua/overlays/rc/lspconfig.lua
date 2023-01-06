@@ -85,9 +85,18 @@ for type, _ in pairs(signs) do
   })
 end
 
+-- add more configuration for sumneko_lua
+local function setup_nvim_dev()
+  require("neodev").setup({})
+end
+
 -- Attach the above settings to all the lspservers. And tell the nvim-lsp-installer to
 -- install those servers when necessary.
 for _, server in pairs(vim.g.nvcfg.lspconfig) do
+  if server.name == "sumneko_lua" and vim.g.nvcfg.nvim_dev_mode then
+    setup_nvim_dev()
+  end
+
   local opts = {
     on_attach = require("overlays.rc.lspconfig_keymap").lsp_keymap,
     capabilities = capabilities,

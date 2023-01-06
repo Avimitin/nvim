@@ -86,6 +86,8 @@ require("editor").setup({
         locationLinks = false,
       },
     },
+
+    nvim_dev_mode = false,
   },
 
   markdown = {
