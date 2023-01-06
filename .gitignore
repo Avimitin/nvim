@@ -4,3 +4,4 @@ plugged
 packer_compiled.lua
 
 lua/custom.lua
+.luarc.json
