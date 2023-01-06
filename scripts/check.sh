@@ -8,5 +8,5 @@ stylua --check lua/ init.lua
 echo "Done"
 
 echo -n "Linting code..."
-selene --config ./scripts/lint/config.toml lua
+selene lua init.lua after
 echo "Done"
