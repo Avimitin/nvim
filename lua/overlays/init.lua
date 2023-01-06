@@ -82,9 +82,9 @@ local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvi
 
 vim.g.packer_bootstraping = 1
 -- Async packer loader
-local stat, err = vim.loop.fs_stat(install_path)
+local _, err = vim.loop.fs_stat(install_path)
 
-if not stat then
+if err then
   if err:find("no such file") then
     bootstrap(install_path)
   else
