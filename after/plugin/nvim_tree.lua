@@ -2,7 +2,13 @@ if require("libs.g")["nvim_tree"] then
   return
 end
 
-require("libs.keymaps").nmap("<leader>t", ":NvimTreeToggle<CR>")
+require("libs.keymaps").nmap("<leader>t", function()
+  if vim.bo.filetype == "NvimTree" then
+    require("nvim-tree").toggle()
+  else
+    require("nvim-tree").focus()
+  end
+end)
 
 vim.api.nvim_create_autocmd("UIEnter", {
   pattern = "*",
