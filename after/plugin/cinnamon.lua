@@ -11,5 +11,5 @@ end
 
 map({ "n", "x" }, "J", scroll("5j", 1, 1))
 map({ "n", "x" }, "K", scroll("5k", 1, 1))
-map({ "n", "x" }, "gg", scroll("gg", 1))
+map({ "n", "x" }, "gg", scroll("gg", 1, 1))
 map({ "n", "x" }, "G", scroll("G", 1, 1))
