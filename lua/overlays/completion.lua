@@ -11,13 +11,6 @@ local repos = {
     },
   },
 
-  {
-    "rafamadriz/friendly-snippets",
-    after = {
-      "nvim-cmp",
-    },
-  },
-
   -- completion source for system path
   {
     "hrsh7th/cmp-path",
