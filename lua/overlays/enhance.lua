@@ -148,12 +148,24 @@ return {
       { "n", "s" },
       { "n", "S" },
       { "n", "gs" },
-      { "n", "f" },
-      { "n", "F" },
     },
     config = function()
       require("leap").add_default_mappings()
       vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
+    end,
+  },
+
+  {
+    "ggandor/flit.nvim",
+    keys = {
+      { "n", "f" },
+      { "n", "F" },
+      { "n", "t" },
+      { "n", "T" },
+    },
+    config = function()
+      require("packer").loader("leap.nvim")
+      require("flit").setup()
     end,
   },
 
