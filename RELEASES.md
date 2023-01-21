@@ -1,3 +1,27 @@
+# Changelog
+
+All notable changes to this project will be documented in this file
+
+## [cv2023.01.21]
+
+### Added
+
+- New command alias `Sed` to trigger the `Spectre` plugin
+- New mapping `Shift-Space` to `Space` in terminal mode
+- `i>` text object for `wildfire`
+- Re-enter nvim-tree window for mapping `<leader>t` when nvim-tree is opened
+- New scroll key mapping
+- New plugin `flit.nvim` to enhance key `f/t`
+
+### Fixed
+
+- Fix line-count doesn't applied to `gg` issue
+- Update lspsage settings to latest version
+
+### Removed
+
+- `friendly-snippets` in commit [`37e6eaecea53692012661d7a88028596d953da5d`]
+
 cv2023.01.03
 ============
 
