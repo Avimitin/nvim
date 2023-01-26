@@ -6,8 +6,6 @@ local lsp_keymap = function(client, bufnr)
 
       _a_: ﯧ Code Action      |  _f_:  Run format         | _o_:  Show diagnostic
 
-                  _j_:  Goto next error | _k_:  Goto previous error
-
   _d_:  Search Symbol         | _r_:  Rename Symbol       | _h_:  Open Document
   _t_:  Workspace Diagnostics | _p_:  Preview Definition  | _O_:  Open outline Window   
   _D_:  Goto declaration      | _M_:  Goto implementation | _T_:  Goto Type Define
@@ -22,11 +20,11 @@ local lsp_keymap = function(client, bufnr)
     hint = hint,
     config = {
       buffer = bufnr,
-      color = "pink",
+      color = "red",
       invoke_on_body = true,
       hint = {
         border = "rounded",
-        position = "bottom",
+        position = "top",
       },
       on_enter = function()
         vim.g.diagnostic_virtual_text_config = vim.diagnostic.config().virtual_text
@@ -47,8 +45,6 @@ local lsp_keymap = function(client, bufnr)
       { "t", cmd("TroubleToggle"), opts("Show diagnostic") },
       { "r", cmd("Lspsaga rename"), opts("Rename") },
       { "a", cmd("Lspsaga code_action"), opts("Open Action") },
-      { "j", cmd("Lspsaga diagnostic_jump_next"), { desc = "Jump to next error" } },
-      { "k", cmd("Lspsaga diagnostic_jump_prev"), { desc = "Jump to previous error" } },
       { "o", cmd("Lspsaga show_cursor_diagnostics"), opts("Show diagnostic in cursor") },
       { "O", cmd("SymbolsOutline"), opts("Show outline panel") },
       {
@@ -99,7 +95,6 @@ local lsp_keymap = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, ...)
   end
 
-  -- Enable completion triggered by <c-x><c-o>
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
   vim.api.nvim_buf_set_keymap(bufnr, "x", "gf", "", {
@@ -108,6 +103,14 @@ local lsp_keymap = function(client, bufnr)
     callback = function()
       vim.lsp.buf.range_formatting()
     end,
+  })
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "[[", "<CMD>Lspsaga diagnostic_jump_prev<CR>", {
+    silent = true,
+    noremap = true,
+  })
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "]]", "<CMD>Lspsaga diagnostic_jump_next<CR>", {
+    silent = true,
+    noremap = true,
   })
 end
 
