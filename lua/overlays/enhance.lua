@@ -179,11 +179,13 @@ return {
     },
   },
 
-  -- automatically pairs the bracket
   {
-    "windwp/nvim-autopairs",
-    rc = "autopairs",
-    after = "nvim-cmp",
+    "hrsh7th/nvim-insx",
+    branch = "main",
+    event = "InsertEnter",
+    config = function()
+      require("insx.preset.standard").setup()
+    end,
   },
 
   -- split single line and join multiple lines, useful for closing bracket
