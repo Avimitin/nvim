@@ -20,6 +20,7 @@ local setup_hydra = function(bufnr)
       invoke_on_body = true,
       hint = {
         border = "rounded",
+        position = "top",
       },
       on_enter = function()
         vim.cmd("mkview")
