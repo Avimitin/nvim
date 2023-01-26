@@ -119,7 +119,7 @@ end
 if vim.g.neovide then
   -- neovide specific settings
   vim.g.neovide_cursor_vfx_mode = "sonicboom"
-  vim.g.neovide_transparency = 0.75
+  vim.g.neovide_transparency = 0.95
   vim.opt.guifont = [[monospace:h11]]
 end
 
@@ -144,6 +144,8 @@ local built_in_plugins = {
   "matchit",
   "matchparen",
   "logiPat",
+  "rust_vim",
+  "rust_vim_plugin_cargo",
   "rrhelper",
   "netrw",
   "netrwPlugin",
