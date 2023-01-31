@@ -131,6 +131,14 @@ return {
         keymaps = {
           visual = "gs",
         },
+        surrounds = {
+          ["O"] = {
+            add = { "Option<", ">" },
+          },
+          ["R"] = {
+            add = { "Result<", ", >" },
+          },
+        },
       })
     end,
   },
