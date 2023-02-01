@@ -132,11 +132,29 @@ return {
           visual = "gs",
         },
         surrounds = {
-          ["O"] = {
-            add = { "Option<", ">" },
-          },
-          ["R"] = {
-            add = { "Result<", ", >" },
+          ["y"] = {
+            add = function()
+              local result = require("nvim-surround.config").get_input("Enter the type name: ")
+              if result then
+                return { { result .. "<" }, { ">" } }
+              end
+            end,
+            find = function()
+              return require("nvim-surround.config").get_selection({
+                pattern = "[^=%s%(%)]+%b<>",
+              })
+            end,
+            delete = "^(.-<)().-(>)()$",
+            change = {
+              target = "^.-([%w_]+)()<.->()()$",
+              replacement = function()
+                local result =
+                  require("nvim-surround.config").get_input("Enter new type replacement: ")
+                if result then
+                  return { { result }, { "" } }
+                end
+              end,
+            },
           },
         },
       })
