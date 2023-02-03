@@ -45,7 +45,7 @@ local lsp_keymap = function(client, bufnr)
       { "t", cmd("TroubleToggle"), opts("Show diagnostic") },
       { "r", cmd("Lspsaga rename"), opts("Rename") },
       { "a", cmd("Lspsaga code_action"), opts("Open Action") },
-      { "o", cmd("Lspsaga show_cursor_diagnostics"), opts("Show diagnostic in cursor") },
+      { "o", cmd("Lspsaga show_line_diagnostics"), opts("Show diagnostic in current line") },
       { "O", cmd("SymbolsOutline"), opts("Show outline panel") },
       {
         "D",
