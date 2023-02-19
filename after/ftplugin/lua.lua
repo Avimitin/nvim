@@ -4,10 +4,8 @@ end
 
 vim.b.did_load_lspconfig = true
 
-local lspconfig = require("lspconfig")
 local config = require("lsp.config")
 local user_config = vim.cfg.lua
-local apply_keymap = require("lsp.keymaps")
 
 local is_nvim_config_dir = (vim.fn.getcwd()):find(vim.fn.stdpath("config"))
 
@@ -39,9 +37,8 @@ if is_nvim_config_dir then
   settings = vim.tbl_deep_extend("force", default, settings)
 end
 
-config.on_attach = apply_keymap
 config.settings = {
   Lua = settings,
 }
 
-lspconfig[user_config.server].setup(config)
+require("lsp").start(user_config.server, config)
