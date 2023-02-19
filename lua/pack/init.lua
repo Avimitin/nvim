@@ -10,7 +10,7 @@ local function collect_plugins()
     --"git",
     "lsp",
     --"markdown",
-    --"tools",
+    "tools",
     "treesitter",
     "ui",
   }
