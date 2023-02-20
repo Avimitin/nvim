@@ -31,4 +31,4 @@ jobs:
       shell: bash
       run: |
         export PATH=$PWD:$PATH
-        ./scripts/check.sh
+        ./asset/scripts/check.sh
