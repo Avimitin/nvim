@@ -26,10 +26,15 @@ return function(_, bufnr)
     { "go", lspsaga("show_line_diagnostics"), desc = "Show diagnostics" },
     { "gO", lspsaga("outline"), desc = "Open code outline" },
     { "gT", lspsaga("peek_type_definition"), desc = "Peek type definition" },
-
     { "[d", lspsaga("diagnostic_jump_prev"), desc = "Jump to previous error" },
     { "]d", lspsaga("diagnostic_jump_next"), desc = "Jump to next error" },
-
     { "gt", "<CMD>TroubleToggle<CR>", desc = "Open quickfix" },
+    {
+      "gl",
+      function()
+        require("lsp_lines").toggle()
+      end,
+      desc = "Show diagnostic inline",
+    },
   })
 end

@@ -118,3 +118,32 @@ register("j-hui/fidget.nvim", {
     })
   end,
 })
+
+-- Dim the inactive variable/function
+register("zbirenbaum/neodim", {
+  event = "LspAttach",
+  config = function()
+    require("neodim").setup({
+      alpha = 0.7,
+      blend_color = "#000000",
+      update_in_insert = {
+        enable = false,
+        delay = 100,
+      },
+      hide = {
+        virtual_text = true,
+        signs = true,
+        underline = true,
+      },
+    })
+  end,
+})
+
+-- Display diagnostic inline
+register("https://git.sr.ht/~whynothugo/lsp_lines.nvim", {
+  lazy = true,
+  config = function()
+    require("lsp_lines").setup()
+    require("lsp_lines").toggle()
+  end,
+})
