@@ -7,7 +7,7 @@ pack("iamcco/markdown-preview.nvim", {
       vim.fn["mkdp#util#install"]()
     end
   end,
-  cmd = "MarkdownPreview",
+  ft = "markdown",
   init = function()
     -- Markdown Preview settings
     vim.g.mkdp_browser = vim.cfg.markdown.previewer
