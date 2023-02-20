@@ -40,8 +40,8 @@ map_utils.xmap({
 map_utils.imap({
   { "<C-a>", "<Home>", desc = "Jump to beginning of the line" },
   { "<C-e>", "<End>", desc = "Jump to end of the line" },
-  { "<A-leader>", "<ESC>", desc = "Exit insert mode" },
-  { "<C-p>", [["+p]], desc = "paste" },
+  { "<M-;>", "<ESC>", desc = "Exit insert mode" },
+  { "<C-p>", [[<ESC>"+pi]], desc = "paste" },
 })
 
 -- It is annoying to get escape code instead of space when I inputting capitalized English in terminal
