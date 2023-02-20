@@ -19,6 +19,36 @@ register("jose-elias-alvarez/null-ls.nvim", {
   lazy = true,
 })
 
+-- Pretty diagnostic quick fix panel
+register("folke/trouble.nvim", {
+  cmd = "TroubleToggle",
+  config = function()
+    require("trouble").setup({})
+  end,
+})
+
+-- Rust specific plugin
+register("simrat39/rust-tools.nvim", {
+  lazy = true,
+})
+
+-- Cargo.toml manager
+register("saecki/crates.nvim", {
+  event = "BufRead Cargo.toml",
+})
+
+register("numToStr/Comment.nvim", {
+  config = function()
+    require("Comment").setup({})
+  end,
+  keys = {
+    "gcc",
+    "gbc",
+    { mode = "x", "gc" },
+    { mode = "x", "gb" },
+  },
+})
+
 local export = {}
 
 function export.start(server, extra)
