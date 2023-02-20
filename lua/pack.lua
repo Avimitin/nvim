@@ -56,7 +56,7 @@ function M.setup()
 end
 
 ---@param repo_path string URL to the plugin repositories
----@param config table Lazy.nvim plugin spec
+---@param config table? Lazy.nvim plugin spec
 function M.register(repo_path, config)
   local package = config or {}
 
@@ -66,7 +66,7 @@ function M.register(repo_path, config)
       return
     end
 
-    package = vim.tbl_deep_extend("force", config, user_config)
+    package = vim.tbl_deep_extend("force", config or {}, user_config)
   end
 
   package[1] = repo_path
