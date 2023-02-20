@@ -1,0 +1,4 @@
+std = "asset/lint/globals"
+
+[rules]
+shadowing = "allow"
