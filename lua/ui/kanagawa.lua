@@ -105,6 +105,13 @@ local overrides = {
   TelescopeResultsTitle = {
     bg = telescope_bg,
   },
+  ["@text.reference"] = {
+    fg = default.springBlue,
+    italic = true,
+  },
+  ["@text.uri"] = {
+    link = "Comment",
+  },
 }
 
 if vim.cfg.ui.darker_background then

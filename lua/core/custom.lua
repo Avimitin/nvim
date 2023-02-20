@@ -132,6 +132,7 @@ local default = {
       "json",
       "lua",
       "markdown",
+      "markdown_inline",
       "rust",
       "toml",
       "tsx",
