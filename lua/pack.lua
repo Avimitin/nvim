@@ -7,7 +7,7 @@ local M = {
 local function collect_plugins()
   local overlays = {
     "completion",
-    --"git",
+    "git",
     "lsp",
     --"markdown",
     "tools",
