@@ -34,7 +34,7 @@ See [Docs](https://avimitin.github.io/nvim).
 
 ## Customize
 
-See [docuement](./lua/core/README.md)
+See [document](./lua/core/README.md)
 
 ## Gallery
 

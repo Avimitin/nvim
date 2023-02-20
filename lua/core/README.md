@@ -89,7 +89,7 @@ local default = {
   --    },
   -- }
   plugins = {},
-  -- Nerd font icon list
+  -- Nerd font icon list, you can change them to Emoji or Pure text if you don't like nerd font
   icons = {
     -- Completion menu, Symbol outlines...
     Text = "",
