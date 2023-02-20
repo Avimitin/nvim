@@ -79,7 +79,19 @@ local default = {
   },
   lsp = {},
   treesitter = {
-    ensure_installed = {},
+    ensure_installed = {
+      "lua",
+      "rust",
+      "bash",
+      "vim",
+      "toml",
+      "json",
+      "html",
+      "comment",
+      "javascript",
+      "typescript",
+      "tsx",
+    },
   },
   -- override lua lsp settings
   lua = {
