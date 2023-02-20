@@ -1,37 +1,25 @@
 <h1 align="center">My Neovim Configuration</h1>
 <img src="./docs/images/screenshot.png" width="45%" align="right"/>
 
-![badge](https://github.com/avimitin/nvim/actions/workflows/test_macos.yml/badge.svg)
-![badge](https://github.com/avimitin/nvim/actions/workflows/test.yml/badge.svg)
 ![badge](https://github.com/avimitin/nvim/actions/workflows/lint.yml/badge.svg)
 ![badge](https://img.shields.io/github/license/Avimitin/nvim)
 
 ## Features
 
-* ***Fast*** and ***Lazy***: It takes [28ms](./scripts/benchmark.txt) in average to open the neovim editor.
-And every plugin is handled well to be activate only when they are needed.
-Nothing will slow down the editor.
 * ***Handy*** and ***Smoothy***: There will always be a panel to remind you
 when you forget your key settings. There will always be a short keystroke to help
 you get to the place you want to jump to. There will always…
 * ***Powerful*** coding experience: With the power from nvim-lspconfig, we can
 have "IDE Level" coding experience in the terminal.
 * ***Fancy looking***: Talk is cheap, see the [gallery](#Gallery).
+* ***Easy Customize***: Always injecting new configuration, wherever you like.
 
 ## Getting Start
 
-You can press the fork button to clone my project (Don't forget
-to smash the star button! `:)`), then pull your repo to the local:
-
-This configuration is compatible with neovim 0.7+, the latest stable version.
-And consider using the latest stable release. I will push some experimental changes to
-the master branch, and they may be reverted.
+This configuration is compatible with neovim 0.8+ version.
 
 ```bash
-# You can fork and use git to download source code
 git clone --depth=1 https://github.com/Avimitin/nvim.git ~/.config/nvim
-# Then switch to the latest stable version
-git checkout latest
 ```
 
 Finally, input `nvim` to open the editor, and all plugins will be downloaded automatically.
@@ -40,11 +28,13 @@ Finally, input `nvim` to open the editor, and all plugins will be downloaded aut
 nvim
 ```
 
-Edit the configuration in [`init.lua`](./init.lua) file.
-
 ## Document
 
 See [Docs](https://avimitin.github.io/nvim).
+
+## Customize
+
+See [docuement](./lua/core/README.md)
 
 ## Gallery
 
@@ -54,10 +44,6 @@ See [Docs](https://avimitin.github.io/nvim).
 | Easy in-file jump                             |
 | --------------------------------------------- |
 | ![LightSpeed](./docs/images/lightspeed.png)   |
-
-| Window Manage                                 |
-|-----------------------------------------------|
-| ![window-manage](./docs/images/hydra-windows.png) |
 
 </details>
 
@@ -78,12 +64,6 @@ See [Docs](https://avimitin.github.io/nvim).
 
 <details>
     <summary markdown="span">Coding Utils</summary>
-
-| Friendly Key Mapping Hint |
-|---------------------------|
-| ![image](./docs/images/hydra-lspconfig.png) |
-| ![image](./docs/images/hydra-rust.png) |
-| ![image](./docs/images/hydra-js.png) |
 
 | Diagnostic Panel |
 |-----------------|
@@ -183,24 +163,14 @@ licenced under the Apache 2.0 license.
 另附：禁止在 CSDN，bilibili 等国内平台使用该配置文件进行任何活动。
 你只保有自己修改部分的权利。
 
-## Credit
-
-The v1.0-vimscript version is originally inspired by
-[theniceboy/nvim](https://github.com/theniceboy/nvim). And lua code since v2.0 is inspired by
-[siduck76/NvChad](https://github.com/siduck76/NvChad).
-
-Take a look at their contribution, which is really fantastic.
-
 ## Development Related
 
 ### Versioning
 
-Version will be released in `cvYYYY.0M.0D` format.
+Version will be released in `cvYYYY.0M.0D` format. I will try to release update each weak.
 
-### Benchmark
+### Changelog
 
-```bash
-perl ./fixtures/benchmark.pl
-```
+See [RELEASES.md](./RELEASES.md)
 
 <br/>
