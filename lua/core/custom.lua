@@ -90,7 +90,7 @@ local default = {
   lua = {
     server = "lua_ls",
     settings = {},
-    stylua = false,
+    stylua = true,
   },
 }
 
