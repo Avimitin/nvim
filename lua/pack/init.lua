@@ -54,7 +54,7 @@ end
 ---@param repo_path string URL to the plugin repositories
 ---@param config table Lazy.nvim plugin spec
 function M.register(repo_path, config)
-  local package = config
+  local package = config or {}
 
   local user_config = vim.cfg.plugins[repo_path]
   if user_config then
