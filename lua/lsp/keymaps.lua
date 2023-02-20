@@ -22,7 +22,7 @@ return function(_, bufnr)
     { "gp", lspsaga("peek_definition"), desc = "Peek definition" },
     { "gh", lspsaga("hover_doc"), desc = "Open document" },
     { "gr", lspsaga("rename"), desc = "Rename symbol" },
-    { "ga", lspsaga("action"), desc = "Open code action" },
+    { "ga", lspsaga("code_action"), desc = "Open code action" },
     { "go", lspsaga("show_line_diagnostics"), desc = "Show diagnostics" },
     { "gO", lspsaga("outline"), desc = "Open code outline" },
     { "gT", lspsaga("peek_type_definition"), desc = "Peek type definition" },
