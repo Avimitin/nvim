@@ -71,3 +71,33 @@ register("rcarriga/nvim-notify", {
     end
   end,
 })
+
+-- Scrollbar UI
+register("petertriho/nvim-scrollbar", {
+  lazy = true,
+  event = "BufReadPost",
+  config = function()
+    require("scrollbar").setup({
+      marks = {
+        Error = { text = { "" } },
+        Warn = { text = { "" } },
+        Hint = { text = { "" } },
+        Info = { text = { "" } },
+        GitAdd = { text = "▕" },
+        GitChange = { text = "▕" },
+      },
+      excluded_buftypes = {
+        "terminal",
+      },
+      excluded_filetypes = {
+        "prompt",
+        "TelescopePrompt",
+        "noice",
+        "Git",
+      },
+      handlers = {
+        cursor = false,
+      },
+    })
+  end,
+})
