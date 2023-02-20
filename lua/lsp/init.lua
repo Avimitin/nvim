@@ -1,9 +1,11 @@
 local register = require("pack").register
 
+-- Interact with LSP server
 register("neovim/nvim-lspconfig", {
   lazy = true,
 })
 
+-- UI for builtin LSP function
 register("glepnir/lspsaga.nvim", {
   event = "LspAttach",
   cmd = "LspSaga",
@@ -12,18 +14,24 @@ register("glepnir/lspsaga.nvim", {
   end,
 })
 
+-- Inject more LSP sources
+register("jose-elias-alvarez/null-ls.nvim", {
+  lazy = true,
+})
+
 local export = {}
 
 function export.start(server, extra)
-  local basic_config = require("lsp.config")
+  local config = require("lsp.config")
   if extra then
-    basic_config.on_attach = extra.on_attach or require("lsp.keymaps")
-    basic_config.settings = extra.settings or {}
+    config.on_attach = extra.on_attach or require("lsp.keymaps")
+    config.settings = extra.settings or {}
   end
 
   local lspconfig = require("lspconfig")
 
-  lspconfig[server].setup(basic_config)
+  vim.pretty_print(config)
+  lspconfig[server].setup(config)
   -- manually setup because FileType event is behind BufReadPost event
   lspconfig[server].manager.try_add_wrapper()
 end

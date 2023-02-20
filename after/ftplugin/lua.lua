@@ -42,3 +42,12 @@ config.settings = {
 }
 
 require("lsp").start(user_config.server, config)
+
+-- End of LSP configuration --
+
+-- Use stylua as default code formatter
+if user_config.stylua then
+  require("null-ls").setup({
+    sources = require("null-ls").builtins.formatting.stylua,
+  })
+end
