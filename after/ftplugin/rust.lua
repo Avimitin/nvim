@@ -1,8 +1,6 @@
-if vim.b.did_load_lspconfig then
+if require("libs.cache")["rust_lsp"] then
   return
 end
-
-vim.b.did_load_lspconfig = true
 
 local ok, error = pcall(require, "rust-tools")
 if not ok then

@@ -1,7 +1,5 @@
-if vim.b.did_load_lspconfig then
+if require("libs.cache")["typescript_lsp"] then
   return
 end
-
-vim.b.did_load_lspconfig = true
 
 require("lsp.javascript").setup()

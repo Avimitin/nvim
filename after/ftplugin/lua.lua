@@ -1,8 +1,6 @@
-if vim.b.did_load_lspconfig then
+if require("libs.cache")["lua_lsp"] then
   return
 end
-
-vim.b.did_load_lspconfig = true
 
 local config = require("lsp.config")
 local user_config = vim.cfg.lua
