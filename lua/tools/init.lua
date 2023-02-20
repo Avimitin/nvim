@@ -302,8 +302,6 @@ register("mg979/vim-visual-multi", {
     "<C-down>",
     "<C-up>",
     "uA",
-    "<C-z>",
-    "<C-r>",
     "ux",
     { mode = "x", "ux" },
     { mode = "x", "uA" },
