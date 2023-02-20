@@ -336,5 +336,5 @@ register("mg979/vim-visual-multi", {
 -- Easy aligning text
 register("junegunn/vim-easy-align", {
   cmd = "EasyAlign",
-  keys = { mode = "x", "<space>e", ":EasyAlign<CR>" },
+  keys = { { "<space>e", ":EasyAlign<CR>", mode = "x" } },
 })
