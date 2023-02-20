@@ -13,6 +13,7 @@ register("kyazdani42/nvim-web-devicons", {
   lazy = true,
 })
 
+-- Status line
 register("glepnir/galaxyline.nvim", {
   event = "UIEnter",
   config = function()
@@ -20,6 +21,7 @@ register("glepnir/galaxyline.nvim", {
   end,
 })
 
+-- tab line
 register("akinsho/nvim-bufferline.lua", {
   event = "BufRead",
   config = function()
@@ -27,6 +29,7 @@ register("akinsho/nvim-bufferline.lua", {
   end,
 })
 
+-- Indent guide line
 register("lukas-reineke/indent-blankline.nvim", {
   event = "BufRead",
   config = function()
@@ -34,6 +37,7 @@ register("lukas-reineke/indent-blankline.nvim", {
   end,
 })
 
+-- Notification UI
 register("rcarriga/nvim-notify", {
   event = "UIEnter",
   config = function()

@@ -30,7 +30,6 @@ function export.start(server, extra)
 
   local lspconfig = require("lspconfig")
 
-  vim.pretty_print(config)
   lspconfig[server].setup(config)
   -- manually setup because FileType event is behind BufReadPost event
   lspconfig[server].manager.try_add_wrapper()
