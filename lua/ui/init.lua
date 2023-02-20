@@ -147,3 +147,12 @@ register("https://git.sr.ht/~whynothugo/lsp_lines.nvim", {
     require("lsp_lines").toggle()
   end,
 })
+
+register("folke/todo-comments.nvim", {
+  event = "LspAttach",
+  config = function()
+    require("todo-comments").setup({
+      signs = false,
+    })
+  end,
+})
