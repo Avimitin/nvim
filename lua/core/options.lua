@@ -119,46 +119,13 @@ end
 --
 
 -- built-in plugins that really useless
-local built_in_plugins = vim.cfg.core.disable_builtin_plugins
-  or {
-    "gzip",
-    "zip",
-    "zipPlugin",
-    "tar",
-    "tarPlugin",
-    "getscript",
-    "getscriptPlugin",
-    "vimball",
-    "vimballPlugin",
-    "2html_plugin",
-    "matchit",
-    "matchparen",
-    "logiPat",
-    "rust_vim",
-    "rust_vim_plugin_cargo",
-    "rrhelper",
-    "netrw",
-    "netrwPlugin",
-    "netrwSettings",
-    "netrwFileHandlers",
-  }
-
-for _, plugin in ipairs(built_in_plugins) do
+for _, plugin in ipairs(vim.cfg.core.disable_builtin_plugins) do
   local var = "loaded_" .. plugin
   vim.g[var] = 1
 end
 
 -- built-in neovim RPC provider that I never used
-local built_in_providers = vim.cfg.core.disable_builtin_providers
-  or {
-    "perl",
-    "node",
-    "ruby",
-    "python",
-    "python3",
-  }
-
-for _, provider in ipairs(built_in_providers) do
+for _, provider in ipairs(vim.cfg.core.disable_builtin_provider) do
   local var = "loaded_" .. provider .. "_provider"
   vim.g[var] = 0
 end
