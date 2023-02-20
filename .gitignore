@@ -1,6 +1,1 @@
-tmp
-autoload
-plugged
-packer_compiled.lua
-
-lua/custom.lua
+.neovim.lua
