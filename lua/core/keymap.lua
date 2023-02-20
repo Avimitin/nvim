@@ -48,6 +48,6 @@ map_utils.imap({
 map_utils.tmap({ "<S-Space>", "<Space>" })
 
 -- Finally, let us handle user custom key mappings
-for mode, mapping in pairs(vim.cfg.keymap) do
-  map_utils.map(mode, mapping)
+for _, mappings in ipairs(vim.cfg.keymaps) do
+  map_utils.map(mappings.mode or "n", mappings)
 end
