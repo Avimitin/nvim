@@ -29,5 +29,7 @@ return function(_, bufnr)
 
     { "[d", lspsaga("diagnostic_jump_prev"), desc = "Jump to previous error" },
     { "]d", lspsaga("diagnostic_jump_next"), desc = "Jump to next error" },
+
+    { "gt", "<CMD>TroubleToggle<CR>", desc = "Open quickfix" },
   })
 end

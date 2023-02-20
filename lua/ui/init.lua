@@ -100,4 +100,21 @@ register("petertriho/nvim-scrollbar", {
       },
     })
   end,
-})
+})(
+  -- Spinner for LSP server setup progress
+  {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup({
+        text = {
+          spinner = "dots",
+        },
+        source = {
+          ["null-ls"] = {
+            ignore = true,
+          },
+        },
+      })
+    end,
+  }
+)
