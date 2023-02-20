@@ -11,7 +11,7 @@ end
 function export.get_root(root_pattern)
   local current = vim.api.nvim_buf_get_name(0)
   local find_parent = function(dir)
-    vim.fn.fnamemodify(dir, ":h")
+    return vim.fn.fnamemodify(dir, ":h")
   end
   local parent_dir = find_parent(current)
 
