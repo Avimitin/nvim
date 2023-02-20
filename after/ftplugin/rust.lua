@@ -1,3 +1,9 @@
+if vim.b.did_load_lspconfig then
+  return
+end
+
+vim.b.did_load_lspconfig = true
+
 local ok, error = pcall(require, "rust-tools")
 if not ok then
   vim.notify(error)
