@@ -3,7 +3,6 @@ local default = {
     theme = "kanagawa",
     darker_background = true,
   },
-
   core = {
     -- Override options
     options = {},
@@ -19,7 +18,6 @@ local default = {
       find_project_root = true,
     },
   },
-
   -- Append key mappings
   keymap = {
     n = {},
@@ -27,10 +25,8 @@ local default = {
     x = {},
     t = {},
   },
-
   -- Control plugin spec
   plugins = {},
-
   -- Nerd font icon list
   icons = {
     -- Completion menu, Symbol outlines...
@@ -67,7 +63,6 @@ local default = {
     HINT = "",
     INFO = "",
   },
-
   -- Override completion configuration
   completion = {
     keymap = {
@@ -79,18 +74,27 @@ local default = {
       select_prev = "<S-Tab>",
     },
   },
-
   lsp = {},
-
   treesitter = {
     ensure_installed = {},
   },
-
   -- override lua lsp settings
   lua = {
     server = "lua_ls",
     settings = {},
     stylua = true,
+  },
+  -- override Rust Lsp settings
+  rust = {
+    settings = {
+      cargo = {
+        autoreload = true,
+      },
+      -- I would prefer to use cargo clippy to whip me more
+      checkOnSave = {
+        command = "clippy",
+      },
+    },
   },
 }
 
