@@ -1,7 +1,7 @@
 local M = {}
 
 function M.info(msg)
-  vim.notify(" => INFO" .. msg, vim.log.levels.INFO)
+  vim.notify(" => INFO: " .. msg, vim.log.levels.INFO)
 end
 
 function M.error(title, msg)
