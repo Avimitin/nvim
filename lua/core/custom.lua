@@ -74,6 +74,9 @@ local default = {
       select_prev = "<S-Tab>",
     },
   },
+  markdown = {
+    previewer = "firefox",
+  },
   lsp = {},
   treesitter = {
     ensure_installed = {},

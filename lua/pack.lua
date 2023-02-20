@@ -9,7 +9,7 @@ local function collect_plugins()
     "completion",
     "git",
     "lsp",
-    --"markdown",
+    "markdown",
     "tools",
     "treesitter",
     "ui",
