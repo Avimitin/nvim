@@ -129,6 +129,26 @@ local default = {
       },
     },
   },
+  javascript = {
+    server = "tsserver",
+    prettier = true,
+    eslint = true,
+  },
+  javascriptreact = {
+    server = "tsserver",
+    prettier = true,
+    eslint = true,
+  },
+  typescript = {
+    server = "tsserver",
+    prettier = true,
+    eslint = true,
+  },
+  typescriptreact = {
+    server = "tsserver",
+    prettier = true,
+    eslint = true,
+  },
 }
 
 --- Path to custom file in neovim root dir, return nil if it is not exist
