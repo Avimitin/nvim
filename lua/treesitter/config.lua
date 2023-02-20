@@ -1,23 +1,7 @@
-local ensure_installed = {
-  "lua",
-  "rust",
-  "bash",
-  "vim",
-  "toml",
-  "json",
-  "html",
-  "comment",
-  "javascript",
-  "typescript",
-  "tsx",
-}
-
-vim.list_extend(ensure_installed, vim.cfg.treesitter.ensure_installed)
-
 require("nvim-treesitter.configs").setup({
   -- packer compile is compiled without runtime context, so here we must give it
   -- the full path to the treesitter ft function for evaluating the filetype
-  ensure_installed = ensure_installed,
+  ensure_installed = vim.cfg.treesitter.ensure_installed,
   highlight = {
     enable = true,
   },
