@@ -43,6 +43,13 @@ local default = {
       highlight_yanked = true,
       copy_yanked_to_clipboard = true,
       find_project_root = true,
+      jump_lastline = {
+        enable = true,
+        ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit", "Dashboard" },
+        ignore_buffer_type = { "quickfix", "nofile", "help" },
+      },
+      -- require fcitx5-remote executable
+      toggle_fcitx5 = false,
     },
   },
   -- *Append* key mappings
