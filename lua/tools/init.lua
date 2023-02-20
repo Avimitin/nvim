@@ -162,8 +162,8 @@ register("kylechui/nvim-surround", {
     "cS",
     "ds",
     "dS",
-    "gs",
-    "gS",
+    { "gs", mode = { "x", "n" } },
+    { "gS", mode = { "x", "n" } },
     { "<C-g>", mode = "i" },
   },
   config = function()
