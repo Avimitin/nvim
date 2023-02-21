@@ -31,7 +31,6 @@ function M.setup()
       "git",
       "clone",
       "--filter=blob:none",
-      "--depth=1",
       "https://github.com/folke/lazy.nvim.git",
       "--branch=stable",
       lazy_nvim_install_path,
