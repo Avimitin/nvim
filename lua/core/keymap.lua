@@ -16,7 +16,7 @@ map_utils.nmap({
   {
     "<leader>q",
     function()
-      print("Unimplemented")
+      require("libs.bufdel").delete_buffer_expr("", false)
     end,
     desc = "Close current buffer",
   },
