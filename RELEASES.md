@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file
 
+## [cv2023.02.21]
+
+### Changed
+
+- Plugins setup/config/key mappings are merged together
+- `require("editor").setup({})` is replace with `.neovim.lua` file injection
+- Add more configurable option in `core/custom.lua`, please read [document](./lua/core/README.md)
+- Replace packer.nvim with lazy.nvim
+
 ## [cv2023.01.21]
 
 ### Added
