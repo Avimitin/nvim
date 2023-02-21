@@ -272,7 +272,8 @@ register("kevinhwang91/nvim-hlslens", {
     { "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]] },
   },
   config = function()
-    require("scollbar.handlers.search").setup()
+    require("hlslens").setup()
+    require("scrollbar.handlers.search").setup()
   end,
 })
 
