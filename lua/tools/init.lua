@@ -277,9 +277,7 @@ register("kevinhwang91/nvim-hlslens", {
 })
 
 -- Auto matically setting tab width by projects
-register("tpope/vim-sleuth", {
-  event = "BufRead",
-})
+register("tpope/vim-sleuth")
 
 -- Cache everything
 register("lewis6991/impatient.nvim")
