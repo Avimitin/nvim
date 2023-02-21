@@ -72,6 +72,14 @@ register("simrat39/rust-tools.nvim", {
 -- Cargo.toml manager
 register("saecki/crates.nvim", {
   event = "BufRead Cargo.toml",
+  config = function()
+    require("crates").setup({
+      popup = {
+        autofocus = true,
+        border = "single",
+      },
+    })
+  end,
 })
 
 register("numToStr/Comment.nvim", {
