@@ -133,7 +133,8 @@ local default = {
     -- require gcc
     ensure_installed = {
       "bash",
-      "comment",
+      "gitcommit",
+      "gitignore",
       "html",
       "javascript",
       "json",
