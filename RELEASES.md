@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file
 
+## Unreleased
+
+- Remove vim-matchup
+
 ## [cv2023.02.21]
 
 ### Changed

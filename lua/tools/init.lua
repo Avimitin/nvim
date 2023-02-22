@@ -227,15 +227,6 @@ register("ggandor/flit.nvim", {
   end,
 })
 
--- Enhanced the `%` keymap
-register("andymass/vim-matchup", {
-  keys = {
-    { mode = "n", "<Plug>(matchup-%)" },
-    { mode = "x", "<Plug>(matchup-%)" },
-    { mode = "o", "<Plug>(matchup-%)" },
-  },
-})
-
 -- sort the number or text
 register("sQVe/sort.nvim", {
   config = function()
