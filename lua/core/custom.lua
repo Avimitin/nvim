@@ -150,12 +150,14 @@ local default = {
   },
   -- override lua lsp settings
   lua = {
+    enable = true,
     server = "lua_ls",
     settings = {},
     stylua = true,
   },
   -- override Rust Lsp settings
   rust = {
+    enable = true,
     settings = {
       cargo = {
         autoreload = true,
@@ -166,21 +168,25 @@ local default = {
     },
   },
   javascript = {
+    enable = true,
     server = "tsserver",
     prettier = true,
     eslint = true,
   },
   javascriptreact = {
+    enable = true,
     server = "tsserver",
     prettier = true,
     eslint = true,
   },
   typescript = {
+    enable = true,
     server = "tsserver",
     prettier = true,
     eslint = true,
   },
   typescriptreact = {
+    enable = true,
     server = "tsserver",
     prettier = true,
     eslint = true,
