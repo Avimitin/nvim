@@ -171,6 +171,6 @@ Version will be released in `cvYYYY.0M.0D` format. I will try to release update 
 
 ### Changelog
 
-See [RELEASES.md](./RELEASES.md)
+See [CHANGELOG.md](./CHANGELOG.md)
 
 <br/>
