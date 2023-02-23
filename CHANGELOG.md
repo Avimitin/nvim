@@ -1,10 +1,25 @@
 # Changelog
 
-All notable changes to this project will be documented in this file
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+### Added
+
+- New individual configuration for `denols`
+- New command `DenoCache`
+- New command `DenoReloadImports`
+- New custom configuration that allow user disable lsp for specific filetype
+- Auto chdir to project root when open editor
+
+
+### Removed
+
 - Remove vim-matchup
+- Remove treesitter plugin `comment` (Lagged)
 
 ## [cv2023.02.21]
 
