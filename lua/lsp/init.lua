@@ -121,6 +121,8 @@ register("numToStr/Comment.nvim", {
 
 local export = {}
 
+---@param server string Server name
+---@param extra table Extra config to override the default
 function export.start(server, extra)
   local config = require("lsp.config")
   if extra then
