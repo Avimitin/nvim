@@ -124,8 +124,12 @@ local export = {}
 function export.start(server, extra)
   local config = require("lsp.config")
   if extra then
+    -- This value might be nil, so we need to assign default values
     config.on_attach = extra.on_attach or require("lsp.keymaps")
     config.settings = extra.settings or {}
+
+    -- And finally try to merge other settings
+    config = vim.tbl_deep_extend("force", config, extra)
   end
 
   local lspconfig = require("lspconfig")
