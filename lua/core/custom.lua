@@ -203,6 +203,7 @@ local function get_root_custom()
 end
 
 --- Path to custom file in project root dir, return nil if it is not exist
+--- It will also change current working directory to the project root.
 ---@return string|nil
 local function get_project_custom()
   local root_dir_pattern = {
@@ -213,10 +214,15 @@ local function get_project_custom()
     ".hg",
     ".svn",
   }
-  local root_dir = require("libs.find_root").get_root(root_dir_pattern)
+
+  local finder = require("libs.find_root")
+  local root_dir = finder.get_root(root_dir_pattern)
   if not root_dir then
     return nil
   end
+
+  vim.api.nvim_set_current_dir(root_dir)
+
   local filepath = root_dir .. "/.neovim.lua"
   if vim.loop.fs_stat(filepath) then
     return filepath
