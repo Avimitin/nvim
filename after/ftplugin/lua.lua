@@ -2,8 +2,12 @@ if require("libs.cache")["lua_lsp"] then
   return
 end
 
-local config = require("lsp.config")
 local user_config = vim.cfg.lua
+if not user_config.enable then
+  return
+end
+
+local config = require("lsp.config")
 
 local is_nvim_config_dir = (vim.fn.getcwd()):find(vim.fn.stdpath("config"))
 
