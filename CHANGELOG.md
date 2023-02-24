@@ -14,12 +14,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New command `DenoReloadImports`
 - New custom configuration that allow user disable lsp for specific filetype
 - Auto chdir to project root when open editor
-
+- Add neovide configuration
+- Add filetype for `.makepkg.conf`
 
 ### Removed
 
 - Remove vim-matchup
 - Remove treesitter plugin `comment` (Lagged)
+- Remove lazyredraw option
 
 ## [cv2023.02.21]
 
