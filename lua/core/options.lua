@@ -63,8 +63,6 @@ local options = {
   visualbell = true,
   updatetime = 100,
   virtualedit = "block",
-  -- screen will not redraw when exec marcro, register
-  lazyredraw = true,
   -- always draw signcolumn, with 1 fixed space to show 2 icon at the same time
   signcolumn = "yes:1",
   -- enable all the mouse functionality
