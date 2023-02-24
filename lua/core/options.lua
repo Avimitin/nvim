@@ -130,3 +130,9 @@ for _, provider in ipairs(vim.cfg.core.disable_builtin_provider) do
   vim.g[var] = 0
 end
 -- END of built-in configuration
+
+if vim.g.neovide then
+  vim.opt.guifont = vim.cfg.neovide.font
+  vim.g.neovide_transparency = 0.8
+  vim.g.neovide_cursor_vfx_mode = vim.cfg.neovide.vfx_mode
+end

@@ -148,6 +148,11 @@ local default = {
       "vim",
     },
   },
+  neovide = {
+    font = { "agave Nerd Font Mono:h11" },
+    transparency = 0.9,
+    vfx_mode = "sonicboom",
+  },
   -- override lua lsp settings
   lua = {
     enable = true,
