@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [cv2023.02.27]
+
 ### Added
 
 - New individual configuration for `denols`
@@ -16,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Auto chdir to project root when open editor
 - Add neovide configuration
 - Add filetype for `.makepkg.conf`
+- New operator-pending mode keymap `ia` to select rhs in assignment
 
 ### Removed
 
