@@ -27,4 +27,4 @@ saga.setup({
   },
 })
 
-vim.api.nvim_set_hl(0, "LspSagaLightBulb", { fg = "#E8C266" })
+vim.api.nvim_set_hl(0, "SagaLightBulb", { fg = "#E8C266" })
