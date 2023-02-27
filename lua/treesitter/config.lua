@@ -22,7 +22,6 @@ require("nvim-treesitter.configs").setup({
       lookahead = true,
 
       keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",
@@ -36,6 +35,7 @@ require("nvim-treesitter.configs").setup({
         ["ao"] = "@conditional.outer",
         ["io"] = "@conditional.inner",
         ["as"] = "@statement.outer",
+        ["ia"] = "@assignment.rhs",
       },
     },
   },
