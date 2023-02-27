@@ -1,15 +1,15 @@
 return {
-  setup = function()
-    require("lsp").start(vim.cfg.javascript.server, {})
+  setup = function(opts)
+    require("lsp").start("tsserver", opts.config or {})
 
     local builtins = require("null-ls").builtins
     local sources = {}
-    if vim.cfg.javascript.eslint then
+    if opts.eslint then
       table.insert(sources, builtins.code_actions.eslint)
       table.insert(sources, builtins.diagnostics.eslint)
     end
 
-    if vim.cfg.javascript.prettier then
+    if opts.prettier then
       table.insert(sources, builtins.formatting.eslint)
     end
 
