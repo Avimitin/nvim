@@ -91,11 +91,10 @@ function Export.setup()
       local api = vim.api
       local current_window = api.nvim_get_current_win()
       local current_buffer = api.nvim_win_get_buf(current_window)
-      local current_file = api.nvim_buf_get_name(current_buffer)
 
       deno.request(
         "deno/cache",
-        { referrer = { uri = "file:" .. current_file }, uris = {} },
+        { referrer = { uri = vim.lsp.util.make_text_document_params(current_buffer) }, uris = {} },
         function()
           vim.notify("Dependencies cached")
         end
