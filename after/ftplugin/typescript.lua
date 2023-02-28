@@ -2,7 +2,7 @@ if require("libs.cache")["typescript_lsp"] then
   return
 end
 
-local opt = vim.cfg.typescriptreact
+local opt = vim.cfg.typescript
 if not opt.enable then
   return
 end
