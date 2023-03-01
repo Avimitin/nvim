@@ -44,6 +44,16 @@ register("saecki/crates.nvim", {
         autofocus = true,
         border = "single",
       },
+      null_ls = {
+        enabled = true,
+        name = "Crates.nvim",
+      },
+    })
+
+    require("cmp").setup.buffer({
+      sources = {
+        { name = "crates" },
+      },
     })
 
     -- Find buffer id for `Cargo.toml` file
@@ -69,6 +79,7 @@ register("saecki/crates.nvim", {
       { "<leader>cf", crates.show_features_popup, desc = "Show current crate features" },
       { "<leader>cR", crates.open_repository, desc = "Open source code in browser" },
       { "<leader>cD", crates.open_documentation, desc = "Open docs.rs in browser" },
+      { "ga", "<CMD>Lspsaga code_action<CR>", desc = "Open actions" },
     })
   end,
 })
