@@ -145,14 +145,6 @@ See [document](./lua/core/README.md)
 |-----------------------------------------|
 | ![kanagawa](./docs/images/kanagawa.png) |
 
-| Deus Theme                           |
-| ------------------------------------ |
-| ![kanagawa](./docs/images/deus.png)  |
-
-| GitHub Light Theme                                                                                                                                                        |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ![gitHub](https://camo.githubusercontent.com/4bb7ad6c319b5ce63bed16cb25753e603fee510d59a1fad0245bc3d0bda8445d/68747470733a2f2f696d6775722e636f6d2f4f5077424449342e706e67)
-
 </details>
 
 ## License
