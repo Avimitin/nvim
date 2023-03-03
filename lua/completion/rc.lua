@@ -20,7 +20,11 @@ cmp.setup({
     end,
   },
   window = {
-    documentation = cmp.config.window.bordered(),
+    documentation = {
+      winhighlight = "Normal:CmpDocumentation,FloatBorder:CmpDocumentation,Search:None",
+      side_padding = 1,
+      scrollbar = true,
+    },
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },

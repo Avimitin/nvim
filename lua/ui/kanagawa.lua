@@ -8,6 +8,9 @@ local overrides = {
   },
   CmpItemKindKeyword = { link = "@keyword.return" },
   CmpItemKindField = { link = "@field" },
+  CmpDocumentation = {
+    link = "Pmenu",
+  },
   -- use gradient yellow for heading
   markdownH1 = {
     fg = default.waveRed,
