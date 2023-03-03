@@ -23,7 +23,7 @@ cmp.setup({
     documentation = {
       winhighlight = "Normal:CmpDocumentation,FloatBorder:CmpDocumentation,Search:None",
       side_padding = 1,
-      scrollbar = true,
+      scrollbar = false,
     },
   },
   formatting = {
