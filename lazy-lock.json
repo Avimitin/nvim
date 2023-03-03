@@ -24,6 +24,7 @@
   "markdown-preview.nvim": { "branch": "master", "commit": "02cc3874738bc0f86e4b91f09b8a0ac88aef8e96" },
   "neodim": { "branch": "master", "commit": "c346344ade2ce709e6bd282f10e43778672b861e" },
   "neogit": { "branch": "master", "commit": "bde758e658c1cdc794293afbde698b5aaa93c5de" },
+  "neorg": { "branch": "main", "commit": "764dec5de14947f2f5d08bd3e0452324538e9a4d" },
   "null-ls.nvim": { "branch": "main", "commit": "689cdd78f70af20a37b5309ebc287ac645ae4f76" },
   "nvim-bufferline.lua": { "branch": "main", "commit": "cbb798dd2db7841550cd2c6c6dde12dfda055928" },
   "nvim-cmp": { "branch": "main", "commit": "7a3b1e76f74934b12fda82158237c6ad8bfd3d40" },

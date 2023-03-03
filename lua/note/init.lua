@@ -19,3 +19,38 @@ pack("iamcco/markdown-preview.nvim", {
 pack("dhruvasagar/vim-table-mode", {
   cmd = "TableModeToggle",
 })
+
+pack("nvim-neorg/neorg", {
+  build = ":Neorg sync-parsers",
+  ft = "norg",
+  cmd = "Neorg",
+  config = function()
+    require("neorg").setup({
+      load = {
+        ["core.defaults"] = {},
+        ["core.norg.concealer"] = {},
+        ["core.norg.completion"] = {
+          config = {
+            engine = "nvim-cmp",
+          },
+        },
+        ["core.norg.dirman"] = {
+          config = {
+            workspaces = {
+              notes = "~/Documents/notes",
+              work = "~/Documents/schedule",
+            },
+          },
+        },
+      },
+    })
+
+    require("cmp").setup.filetype("norg", {
+      sources = {
+        { name = "neorg" },
+        { name = "path" },
+        { name = "buffer" },
+      },
+    })
+  end,
+})
