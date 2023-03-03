@@ -13,7 +13,7 @@
     - `config.lua`: basic settings for lspconfig
     - `keymaps.lua`: coding key mappings
     - `lspsaga.lua`: configuration for lspsaga
-- **markdown**: Markdown related plugins
+- **note**: Note taking related plugins
 - **tools**: Plugins that enhance editing experience
     - `init.lua`: package registry
     - `nvim_tree.lua`: configuration for nvim tree
