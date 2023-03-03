@@ -20,34 +20,19 @@ pack("dhruvasagar/vim-table-mode", {
   cmd = "TableModeToggle",
 })
 
-pack("nvim-neorg/neorg", {
-  build = ":Neorg sync-parsers",
-  ft = "norg",
-  cmd = "Neorg",
+pack("nvim-orgmode/orgmode", {
+  build = ":TSUpdate org",
+  ft = "org",
   config = function()
-    require("neorg").setup({
-      load = {
-        ["core.defaults"] = {},
-        ["core.norg.concealer"] = {},
-        ["core.norg.completion"] = {
-          config = {
-            engine = "nvim-cmp",
-          },
-        },
-        ["core.norg.dirman"] = {
-          config = {
-            workspaces = {
-              notes = "~/Documents/notes",
-              work = "~/Documents/schedule",
-            },
-          },
-        },
-      },
+    require("orgmode").setup_ts_grammar()
+    require("orgmode").setup({
+      org_agenda_files = { "~/Documents/schedule/*" },
+      org_todo_keywords = { "TODO(t)", "TRACKING(p)", "SOMEDAY(s)", "|", "DONE(d)" },
     })
 
-    require("cmp").setup.filetype("norg", {
+    require("cmp").setup.filetype("org", {
       sources = {
-        { name = "neorg" },
+        { name = "orgmode" },
         { name = "path" },
         { name = "buffer" },
       },
