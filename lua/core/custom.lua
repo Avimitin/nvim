@@ -240,15 +240,19 @@ local function new_cfg()
     final_config = vim.tbl_deep_extend("force", final_config, ext)
   end
 
+  local is_valid = function(tbl)
+    return tbl ~= nil and type(tbl) == "table"
+  end
+
   local root_file = get_root_custom()
   local ok, mod = pcall(dofile, root_file)
-  if ok then
+  if ok and is_valid(mod) then
     extend(mod)
   end
 
   local project_file = get_project_custom()
   ok, mod = pcall(dofile, project_file)
-  if ok then
+  if ok and is_valid(mod) then
     extend(mod)
   end
 
