@@ -33,6 +33,11 @@ pack("nvim-orgmode/orgmode", {
       org_agenda_files = { "~/Documents/schedule/*" },
       org_default_notes_file = "~/Documents/schedule/todo.org",
       org_todo_keywords = { "TODO(t)", "TRACKING(p)", "SOMEDAY(s)", "|", "DONE(d)" },
+      mappings = {
+        org = {
+          org_toggle_checkbox = "<leader><space>",
+        },
+      },
     })
 
     require("cmp").setup.filetype("org", {
