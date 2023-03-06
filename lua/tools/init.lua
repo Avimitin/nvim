@@ -207,6 +207,7 @@ register("ggandor/leap.nvim", {
   keys = {
     "s",
     "S",
+    { "[]", require("tools.line_leap").leap_to_line, desc = "Leap to line" },
   },
   config = function()
     require("leap").add_default_mappings()
