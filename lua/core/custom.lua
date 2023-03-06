@@ -38,7 +38,7 @@ local default = {
     },
 
     autocmd = {
-      relative_number = true,
+      relative_number = false,
       terminal_auto_insert = true,
       highlight_yanked = true,
       copy_yanked_to_clipboard = true,

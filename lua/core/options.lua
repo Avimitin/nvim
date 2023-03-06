@@ -11,9 +11,10 @@ local options = {
   -- encoding will lose information during the encoding conversion.
   -- If you have problem with this encoding, set value to empty string "".
   fileencoding = "utf-8",
-  -- enable number and relative line number
+  -- enable number
   number = true,
-  rnu = true,
+  -- disable relative line number(Use `[]` to trigger leap.nvim)
+  rnu = false,
   -- TAB SETTING
   -- Use 2 spaces forcely. But don't worry, vim-sleuth will handle the indent
   -- gracefully. See <https://github.com/tpope/vim-sleuth> for more.
