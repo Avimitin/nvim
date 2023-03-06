@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Setup nvim-cmp for crates.nvim
+- Add plugin nvim-orgmode
+- Add linewise motion trigger by key mapping `[]`
+
+### Changed
+
+- Add ability for javascript/typescript to switch between tsserver deno configuration
+- Disable relative number auto group by default
+- Disable relative number
+
+### Fixed
+
+- Verify custom config to avoid panic
+
 ## [cv2023.02.27]
 
 ### Added
