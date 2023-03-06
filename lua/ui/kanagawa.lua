@@ -1,131 +1,54 @@
-local default = require("kanagawa.colors").setup()
 vim.opt.background = "dark"
 
-local telescope_bg = "#14141d"
-local overrides = {
-  CmpItemKindProperty = {
-    link = "@property",
-  },
-  CmpItemKindKeyword = { link = "@keyword.return" },
-  CmpItemKindField = { link = "@field" },
-  CmpDocumentation = {
-    link = "Pmenu",
-  },
-  -- use gradient yellow for heading
-  markdownH1 = {
-    fg = default.waveRed,
-    bold = true,
-  },
-  markdownH2 = {
-    fg = default.surimiOrange,
-    bold = true,
-  },
-  markdownH3 = {
-    fg = default.autumnYellow,
-    bold = true,
-  },
-  markdownH4 = {
-    fg = default.carpYellow,
-    bold = true,
-  },
-  markdownH5 = {
-    fg = default.boatYellow2,
-    bold = true,
-  },
-  markdownH6 = {
-    fg = default.boatYellow1,
-    italic = true,
-  },
-  markdownH1Delimiter = {
-    fg = default.sumiInk4,
-  },
-  markdownH2Delimiter = {
-    fg = default.sumiInk4,
-  },
-  markdownH3Delimiter = {
-    fg = default.sumiInk4,
-  },
-  markdownH4Delimiter = {
-    fg = default.sumiInk4,
-  },
-  markdownH5Delimiter = {
-    fg = default.sumiInk4,
-  },
-  markdownH6Delimiter = {
-    fg = default.sumiInk4,
-  },
-  markdownListMarker = {
-    fg = default.surimiOrange,
-    bold = true,
-  },
-  Pmenu = {
-    bg = default.sumiInk2,
-  },
-  HighLightLineMatches = {
-    bg = default.winterYellow,
-  },
-  WinSeparator = {
-    fg = default.sumiInk4,
-  },
-  DiagnosticSignError = {
-    bg = "#2A1C23",
-  },
-  DiagnosticSignHint = {
-    bg = "#1C1E2A",
-  },
-  DiagnosticSignWarn = {
-    bg = "#2F261A",
-  },
-  DiagnosticSignInfo = {
-    bg = "#262729",
-  },
-  TelescopeNormal = {
-    bg = telescope_bg,
-  },
-  TelescopePromptNormal = {
-    bg = "#24242f",
-  },
-  TelescopePromptBorder = {
-    fg = "#24242f",
-    bg = "#24242f",
-  },
-  TelescopeBorder = {
-    fg = telescope_bg,
-    bg = telescope_bg,
-  },
-  TelescopePreviewTitle = {
-    fg = telescope_bg,
-    bg = telescope_bg,
-  },
-  TelescopePreviewBorder = {
-    fg = telescope_bg,
-    bg = telescope_bg,
-  },
-  TelescopePromptTitle = {
-    fg = "#2a2a37",
-    bg = default.springViolet2,
-  },
-  TelescopeResultsTitle = {
-    bg = telescope_bg,
-  },
-  ["@text.reference"] = {
-    fg = default.springBlue,
-    italic = true,
-  },
-  ["@text.uri"] = {
-    link = "Comment",
-  },
-}
+local function override(colors)
+  local default = colors.palette
+  local theme = colors.theme
 
-if vim.cfg.ui.darker_background then
-  local bg = "#0d1117"
-  if type(vim.cfg.ui.darker_background) == "string" then
-    bg = vim.cfg.ui.darker_background
+  local background = default.sumiInk1
+  if vim.cfg.ui.darker_background then
+    if type(vim.cfg.ui.darker_background) == "string" then
+      background = vim.cfg.ui.darker_background
+    end
+
+    background = "#0d1117"
   end
-  overrides.normal = {
-    bg = bg,
-    fg = default.fujiWhite,
+
+  local overrides = {
+    CmpDocumentation = { link = "Pmenu" },
+    CmpItemKindField = { link = "@field" },
+    CmpItemKindKeyword = { link = "@keyword.return" },
+    CmpItemKindProperty = { link = "@property" },
+    DiagnosticSignError = { bg = "#2A1C23" },
+    DiagnosticSignHint = { bg = "#1C1E2A" },
+    DiagnosticSignInfo = { bg = "#262729" },
+    DiagnosticSignWarn = { bg = "#2F261A" },
+    GitSignsAdd = { bg = background },
+    GitSignsChange = { bg = background },
+    GitSignsDelete = { bg = background },
+    HighLightLineMatches = { bg = default.winterYellow },
+    Normal = {
+      bg = background,
+      fg = default.fujiWhite,
+    },
+    Pmenu = { bg = default.sumiInk3 },
+    TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+    TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+    TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+    TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+    TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+    TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+    TelescopeTitle = { fg = theme.ui.special, bold = true },
+    WinSeparator = { fg = default.sumiInk4 },
+    ["@text.reference"] = {
+      fg = default.springBlue,
+      italic = true,
+    },
+    ["@text.uri"] = {
+      link = "Comment",
+    },
   }
+
+  return overrides
 end
 
 require("kanagawa").setup({
@@ -136,13 +59,21 @@ require("kanagawa").setup({
   statementStyle = { bold = true },
   typeStyle = { bold = true },
   variablebuiltinStyle = { italic = true },
-  specialReturn = true, -- special highlight for the return keyword
-  specialException = true, -- special highlight for exception handling keywords
-  transparent = false, -- do not set background color
-  dimInactive = false,
-  colors = {},
   globalStatus = true,
-  overrides = overrides,
+  overrides = override,
+  colors = {
+    theme = {
+      all = {
+        ui = {
+          bg_gutter = "none",
+        },
+      },
+    },
+  },
+  background = {
+    dark = "wave",
+    light = "lotus",
+  },
 })
 
 vim.cmd("colorscheme kanagawa")
