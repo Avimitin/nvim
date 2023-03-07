@@ -207,11 +207,12 @@ register("ggandor/leap.nvim", {
   keys = {
     "s",
     "S",
-    { "[]", require("tools.line_leap").leap_to_line, desc = "Leap to line" },
+    { "s", mode = "x" },
+    { "S", mode = "x" },
+    { "gj", require("tools.line_leap").leap_to_line, desc = "Leap to line" },
   },
   config = function()
     require("leap").add_default_mappings()
-    vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
   end,
 })
 
