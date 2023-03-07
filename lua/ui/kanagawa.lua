@@ -26,6 +26,19 @@ local function override(colors)
     GitSignsChange = { bg = background },
     GitSignsDelete = { bg = background },
     HighLightLineMatches = { bg = default.winterYellow },
+    LeapBackdrop = { fg = default.dragonBlue },
+    LeapMatch = { fg = default.fujiWhite, bold = true, nocombine = true },
+    LeapLabelPrimary = {
+      fg = default.sumiInk4,
+      bg = default.roninYellow,
+      bold = true,
+      nocombine = true,
+    },
+    LeapLabelSecondary = {
+      fg = default.springBlue,
+      bold = true,
+      nocombine = true,
+    },
     Normal = {
       bg = background,
       fg = default.fujiWhite,
