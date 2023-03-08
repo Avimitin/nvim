@@ -23,7 +23,6 @@ cmp.setup({
     documentation = {
       winhighlight = "Normal:CmpDocumentation,FloatBorder:CmpDocumentation,Search:None",
       side_padding = 1,
-      scrollbar = false,
     },
   },
   formatting = {
@@ -70,7 +69,6 @@ cmp.setup({
         fallback()
       end
     end, { "i", "s" }),
-
     [override.keymap.select_prev] = cmp.mapping(function()
       if cmp.visible() then
         cmp.select_prev_item()

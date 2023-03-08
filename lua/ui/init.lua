@@ -94,6 +94,8 @@ register("petertriho/nvim-scrollbar", {
         "TelescopePrompt",
         "noice",
         "Git",
+        "cmp_menu",
+        "cmp_docs",
       },
       handlers = {
         cursor = false,
