@@ -106,6 +106,7 @@ cmp.setup({
         local priority = {
           Field = 11,
           Property = 11,
+          Variable = 11,
           Constant = 10,
           Enum = 10,
           EnumMember = 10,
@@ -115,7 +116,6 @@ cmp.setup({
           Operator = 10,
           Reference = 10,
           Struct = 10,
-          Variable = 9,
           File = 8,
           Folder = 8,
           Class = 5,
