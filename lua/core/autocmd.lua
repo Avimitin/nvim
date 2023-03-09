@@ -290,7 +290,7 @@ if option.jump_lastline.enable then
   })
 end
 
-if vim.cfg.autocmd.cursorline then
+if option.cursorline then
   au({ "VimEnter", "WinEnter", "InsertLeave" }, {
     callback = function()
       vim.wo.cursorline = true
