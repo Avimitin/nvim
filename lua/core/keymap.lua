@@ -4,6 +4,8 @@ local cmd = map_utils.wrap_cmd
 vim.g.mapleader = ";"
 
 map_utils.nmap({
+  { "j", "v:count == 0 ? 'gj' : 'j'", desc = "Go display lines downward", expr = true },
+  { "k", "v:count == 0 ? 'gk' : 'k'", desc = "Go display lines upward", expr = true },
   { "J", "5j", desc = "Jump 5 lines down" },
   { "K", "5k", desc = "Jump 5 lines up" },
   { "L", "g_", desc = "Jump to beginning" },
