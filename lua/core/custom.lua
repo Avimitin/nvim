@@ -50,6 +50,7 @@ local default = {
       },
       -- require fcitx5-remote executable
       toggle_fcitx5 = false,
+      cursorline = true,
     },
   },
   -- *Append* key mappings

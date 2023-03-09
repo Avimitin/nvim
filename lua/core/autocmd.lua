@@ -289,3 +289,16 @@ if option.jump_lastline.enable then
     group = group_id,
   })
 end
+
+if vim.cfg.autocmd.cursorline then
+  au({ "VimEnter", "WinEnter", "InsertLeave" }, {
+    callback = function()
+      vim.wo.cursorline = true
+    end,
+  })
+  au({ "WinLeave", "InsertEnter" }, {
+    callback = function()
+      vim.wo.cursorline = false
+    end,
+  })
+end
