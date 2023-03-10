@@ -330,3 +330,19 @@ register("junegunn/vim-easy-align", {
   cmd = "EasyAlign",
   keys = { { "<space>e", ":EasyAlign<CR>", mode = "x" } },
 })
+
+-- Show key stroke
+register("folke/which-key.nvim", {
+  event = "VeryLazy",
+  config = function()
+    local whichkey = require("which-key")
+    whichkey.setup({})
+
+    local ngrp = {
+      mode = "n",
+      ["g"] = { name = "+LSP" },
+      ["<leader>g"] = { name = "+Git" },
+    }
+    whichkey.register(ngrp)
+  end,
+})
