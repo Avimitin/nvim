@@ -346,3 +346,19 @@ register("folke/which-key.nvim", {
     whichkey.register(ngrp)
   end,
 })
+
+-- Split and Join
+register("Wansmer/treesj", {
+  keys = {
+    {
+      "<leader>sj",
+      function()
+        require("treesj").toggle()
+      end,
+      desc = "Split or Join multiple line",
+    },
+  },
+  config = function()
+    require("treesj").setup({})
+  end,
+})
