@@ -1,0 +1,7 @@
+{
+  "cout": {
+    "prefix": "cout",
+    "body": "std::cout << ${1} << std::endl;",
+    "description": "Cout snippet"
+  }
+}
