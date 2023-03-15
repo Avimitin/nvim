@@ -128,19 +128,19 @@ register("nvim-telescope/telescope.nvim", {
   end,
   keys = {
     {
-      "<leader>f",
+      "<leader>ff",
       function()
         require("telescope.builtin").find_files(require("telescope.themes").get_ivy())
       end,
     },
     {
-      "<leader>@",
+      "<leader>fd",
       function()
         require("telescope.builtin").lsp_document_symbols(require("telescope.themes").get_ivy())
       end,
     },
     {
-      "<leader>s",
+      "<leader>fs",
       function()
         require("telescope.builtin").live_grep(require("telescope.themes").get_ivy())
       end,
