@@ -29,7 +29,7 @@ local options = {
   autoindent = true,
   -- A List is an ordered sequence of items.
   list = true,
-  listchars = "tab:> ,trail:·",
+  listchars = { tab = "> ", trail = "·" },
   -- Minimal number of screen lines to keep above and below the cursor.
   scrolloff = 5,
   -- 200 is more appropriate for which-keys. You can quickly input keys without prompting up
@@ -40,7 +40,7 @@ local options = {
   -- use timeout for showing which-keys
   timeout = true,
   -- remember where to recover cursor
-  viewoptions = "cursor,folds,slash,unix",
+  viewoptions = { "cursor", "folds", "slash", "unix" },
   -- lines longer than the width of the window will wrap and displaying continues
   -- on the next line.
   wrap = true,
