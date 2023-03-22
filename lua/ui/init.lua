@@ -11,6 +11,18 @@ register("rebelot/kanagawa.nvim", {
 --- List of nerd-font icons
 register("kyazdani42/nvim-web-devicons", {
   lazy = true,
+  config = function()
+    require("nvim-web-devicons").setup({
+      override = {
+        ml = {
+          icon = "",
+          color = "#e37933",
+          cterm_color = "166",
+          name = "Ml",
+        },
+      },
+    })
+  end,
 })
 
 -- Status line
