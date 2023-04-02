@@ -171,6 +171,11 @@ local default = {
       checkOnSave = {
         command = "clippy",
       },
+      completion = {
+        postfix = {
+          enable = false,
+        },
+      },
     },
   },
   javascript = {
