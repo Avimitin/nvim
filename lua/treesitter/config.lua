@@ -35,7 +35,7 @@ require("nvim-treesitter.configs").setup({
         ["ao"] = "@conditional.outer",
         ["io"] = "@conditional.inner",
         ["as"] = "@statement.outer",
-        ["ia"] = "@assignment.rhs",
+        ["ar"] = "@assignment.rhs",
       },
     },
   },
