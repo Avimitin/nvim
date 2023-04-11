@@ -13,12 +13,23 @@ local on_lsp_attach = function(client, bufnr)
   require("lsp.keymaps")(client, bufnr)
 
   -- create auto command to format on save
-  vim.api.nvim_create_autocmd({ "BufWrite" }, {
+  vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     buffer = bufnr,
     desc = "Format Rust code on save",
     callback = function()
       vim.lsp.buf.format({ async = true })
     end,
+  })
+
+  local rust_tools = require("rust-tools")
+
+  require("libs.keymap").buf_map(bufnr, "n", {
+    { "<leader>rr", rust_tools.runnables.runnables, desc = "Open all runnable task" },
+    {
+      "<leader>re",
+      rust_tools.expand_macro.expand_macro,
+      desc = "Expand macro to actual code recursively",
+    },
   })
 
   -- TODO: Add Rust key mappings
