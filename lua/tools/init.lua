@@ -19,57 +19,60 @@ register("nvim-lua/plenary.nvim", {
   lazy = true,
 })
 
--- Tree-like file browser
-register("kyazdani42/nvim-tree.lua", {
+-- UI Library
+register("MunifTanjim/nui.nvim", {
   lazy = true,
-  keys = {
-    {
-      "<leader>t",
-      function()
-        if vim.bo.filetype == "NvimTree" then
-          require("nvim-tree").toggle()
-        else
-          require("nvim-tree").focus()
-        end
-      end,
-    },
-  },
-  --
-  init = function()
-    -- Auto load nvim-tree when neovim is started with directory
-    vim.api.nvim_create_autocmd("UIEnter", {
-      pattern = "*",
-      callback = function()
-        if vim.fn.argc() == 0 then
-          return
-        end
-        local first_arg = vim.fn.argv(0)
-        if not first_arg or #first_arg == 0 then
-          return
-        end
+})
 
-        vim.loop.fs_stat(
-          first_arg,
-          vim.schedule_wrap(function(err, stat)
-            if err then
-              return
-            end
+register("nvim-neo-tree/neo-tree.nvim", {
+  branch = "v2.x",
+  config = function()
+    vim.g.neo_tree_remove_legacy_commands = 1
 
-            if stat.type ~= "directory" then
-              return
-            end
-
-            require("nvim-tree").open(first_arg)
-          end)
-        )
-      end,
+    require("neo-tree").setup({
+      close_if_last_window = true,
+      sources = {
+        "filesystem",
+        "buffers",
+        "git_status",
+        "document_symbols",
+      },
+      open_files_do_not_replace_types = {
+        "terminal",
+        "trouble",
+        "qf",
+        "diff",
+        "fugitive",
+        "fugitiveblame",
+        "notify",
+      },
+      window = {
+        width = 30,
+        mappings = {
+          ["<Tab>"] = "next_source",
+          ["<S-Tab>"] = "prev_source",
+        },
+      },
+      source_selector = {
+        winbar = true,
+        statusline = false,
+        sources = {
+          { source = "filesystem" },
+          { source = "git_status" },
+          { source = "document_symbols" },
+        },
+      },
     })
   end,
-  --
-  config = function()
-    require("tools.nvim_tree")
-  end,
-}) -- End of nvim-tree
+  -- End of config
+  keys = {
+    { "<leader>t", "<CMD>NeoTreeFocusToggle<CR>" },
+    { "<leader>fl", "<CMD>NeoTreeFloat<CR>" },
+  },
+  cmd = {
+    "Neotree",
+  },
+})
 
 -- Enhanced neovim terminal
 register("akinsho/toggleterm.nvim", {

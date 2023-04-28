@@ -388,6 +388,7 @@ local BufferTypeMap = {
   ["dapui_stacks"] = " Dap Stacks",
   ["dapui_watches"] = "ﭓ Dap Watch",
   ["fern"] = " Fern FM",
+  ["neo-tree"] = " Files",
   ["fugitive"] = " Fugitive",
   ["floggraph"] = " Git Log",
   ["fugitiveblame"] = " Fugitive Blame",
