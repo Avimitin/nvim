@@ -3,3 +3,4 @@ if require("libs.cache")["mlir"] then
 end
 
 vim.bo.comments = vim.bo.comments .. "://"
+vim.bo.commentstring = "// %s"
