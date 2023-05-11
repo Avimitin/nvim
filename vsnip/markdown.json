@@ -27,10 +27,10 @@
     "description": "Add hugo TOML frontmatter"
   },
 
-  "notebook tag": {
-    "prefix": "nbtag",
-    "body": "<!-- tag: ${1} -->\n${0}",
-    "description": "Add a tag span"
+  "Comment": {
+    "prefix": "<!",
+    "body": "<!-- ${1} -->${0}",
+    "description": "Add a comment span"
   },
 
   "collapse": {
