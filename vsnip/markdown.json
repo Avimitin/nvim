@@ -41,5 +41,15 @@
       "</details>"
     ],
     "description": "Create a collapsible content"
+  },
+
+  "Code Block": {
+    "prefix": "``",
+    "body": [
+      "```${1}",
+      "${0}",
+      "```"
+    ],
+    "description": "Add a code block"
   }
 }
