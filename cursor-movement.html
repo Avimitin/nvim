@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Installation - Nvim Config Manual</title>
+        <title>Cursor Movement - Nvim Config Manual</title>
 
 
         <!-- Custom HTML head -->
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">User Guide</li><li class="chapter-item expanded "><a href="installation.html" class="active"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="basic-usage.html"><strong aria-hidden="true">2.</strong> Basic Usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="cursor-movement.html"><strong aria-hidden="true">2.1.</strong> Cursor Movement</a></li><li class="chapter-item expanded "><a href="editing.html"><strong aria-hidden="true">2.2.</strong> Edit text</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Plugins</li><li class="chapter-item expanded "><a href="treesitter.html"><strong aria-hidden="true">3.</strong> treesitter</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">User Guide</li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="basic-usage.html"><strong aria-hidden="true">2.</strong> Basic Usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="cursor-movement.html" class="active"><strong aria-hidden="true">2.1.</strong> Cursor Movement</a></li><li class="chapter-item expanded "><a href="editing.html"><strong aria-hidden="true">2.2.</strong> Edit text</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Plugins</li><li class="chapter-item expanded "><a href="treesitter.html"><strong aria-hidden="true">3.</strong> treesitter</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -144,44 +144,74 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="dependency"><a class="header" href="#dependency">Dependency</a></h1>
-<p>This neovim configuration require you have the below dependencies installed on your machine.</p>
-<ul>
-<li><a href="https://github.com/neovim/neovim/wiki/Installing-Neovim#install-from-package"><code>neovim</code></a> v0.8+</li>
-<li><a href="https://github.com/BurntSushi/ripgrep#installation"><code>ripgrep</code></a></li>
-<li>Any of the patched <a href="https://www.nerdfonts.com/font-downloads">nerd font</a></li>
-</ul>
-<h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
-<p>It is recommended to use <a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control"><code>git</code></a>
-to download and keep this configuration up to date.</p>
-<pre><code class="language-bash">git clone --depth=1 https://github.com/Avimitin/nvim ~/.config/nvim
+                        <h1 id="cursor-movement"><a class="header" href="#cursor-movement">Cursor Movement</a></h1>
+<p>If you are using vim for the first time, you might want to use arrow key to navigate.
+But actually vim cursor movement is based on four key:</p>
+<pre><code class="language-text">   ^
+   k
+&lt;h   l&gt;
+   j
+   v
 </code></pre>
-<h2 id="manage-your-neovim-configuration"><a class="header" href="#manage-your-neovim-configuration">Manage <strong>YOUR</strong> neovim configuration</a></h2>
-<p>You can press the fork button on GitHub page and maintain your configuration.
-If you want to keep your changes and keep track of mine modification, you can
-maintain a upstream branch.</p>
-<pre><code class="language-bash"># rename the original master branch to upstream
-git branch -m master upstream
-# create a new master (or main) branch
-git switch -c master
-</code></pre>
-<h1 id="download-plugin"><a class="header" href="#download-plugin">Download Plugin</a></h1>
-<p>All the plugin will be sync when you first use this configuration.
-So you don't need to do anything but just open the neovim editor by command <code>nvim</code>,
-then it will setup itself automatically.</p>
-<pre><code class="language-bash">nvim
-</code></pre>
-<p>If you met any error since downloading plugin, you can open a issue to report bug.</p>
-<h1 id="health-check"><a class="header" href="#health-check">Health check</a></h1>
-<p>After plugin downloaded, you can run command <code>:checkhealth</code> to check if the configuration
-is properly serving the editor.</p>
+<p>You will need sometime to get used to this navigate mechanism. However once you get used
+to it, you will find it really handy because you don't need to twist your wrist.</p>
+<p>To move faster, you can combine <code>hjkl</code> with key <code>&lt;shift&gt;</code>. <code>&lt;shift&gt;j</code>, the capitalized <code>J</code>,
+can move down your cursor by 5 lines. <code>&lt;shift&gt;k</code>, can move up your cursor by 5 lines. And the
+<code>H</code> key is like <code>&lt;Home&gt;</code> key, it will navigate to the first character of the current line. <code>L</code>
+is the opposite, it will navigate to the last character of the current line.</p>
+<p>Belows are cursor movement cheatsheets in Normal mode.</p>
+<div class="table-wrapper"><table><thead><tr><th>key</th><th>action</th></tr></thead><tbody>
+<tr><td>j</td><td>Move down one line</td></tr>
+<tr><td>k</td><td>Move up one line</td></tr>
+<tr><td>h</td><td>Go one character left</td></tr>
+<tr><td>l</td><td>Go one character right</td></tr>
+<tr><td>J</td><td>Move down 5 lines</td></tr>
+<tr><td>K</td><td>Move up 5 lines</td></tr>
+<tr><td>H</td><td>Go to the first character of the current line</td></tr>
+<tr><td>L</td><td>Go to the last character of the current line</td></tr>
+<tr><td>w</td><td>Jump to next word</td></tr>
+<tr><td>b</td><td>Jump back one word</td></tr>
+<tr><td>W</td><td>Jump to 5 next words</td></tr>
+<tr><td>B</td><td>Jump back 5 words</td></tr>
+<tr><td>e</td><td>Jump to the last character of the current word</td></tr>
+<tr><td>gg</td><td>Jump to the first line of the current file</td></tr>
+<tr><td>G</td><td>Jump to the last line of the current file</td></tr>
+</tbody></table>
+</div>
+<p>Belows are cursor movement in Insert mode:</p>
+<div class="table-wrapper"><table><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody>
+<tr><td><code>&lt;Ctrl-e&gt;</code></td><td>Go to the end of the current line</td></tr>
+<tr><td><code>&lt;Ctrl-a&gt;</code></td><td>Go to the front of the current line</td></tr>
+<tr><td><code>&lt;Ctrl-f&gt;</code></td><td>Forward one word</td></tr>
+<tr><td><code>&lt;Ctrl-b&gt;</code></td><td>Backward one word</td></tr>
+<tr><td><code>&lt;Ctrl-n&gt;</code></td><td>Go down one line</td></tr>
+<tr><td><code>&lt;Ctrl-p&gt;</code></td><td>Go up one line</td></tr>
+</tbody></table>
+</div>
+<h2 id="search-based-cursor-movement"><a class="header" href="#search-based-cursor-movement">Search based cursor movement</a></h2>
+<p>The plugin <a href="https://github.com/ggandor/leap.nvim"><code>leap.nvim</code></a> provide cursor movement based
+on two characters pattern search. You can go to anywhere with two character search. This action is trigger by key <code>s</code>
+(forward search) and <code>S</code> (backward search). Trigger search mode by <code>s/S</code>, then input two character
+you want to jump into. Use <code>gs</code> to start all window search.</p>
+<p><img src="https://github.com/ggandor/leap.nvim/raw/media/showcase.gif?raw=true" alt="leap-showcase" /></p>
+<blockquote>
+<p>Press <code>sab</code> to jump to any words that contains <code>ab</code>, if there are multiple word contains pattern <code>ab</code>,
+then input the green label attach after it to select.</p>
+</blockquote>
+<h2 id="character-match-based-cursor-movement"><a class="header" href="#character-match-based-cursor-movement">Character match based cursor movement</a></h2>
+<p>Sometime you might want to jump between text pair, like from character <code>(</code> to next <code>)</code>. You can use key <code>,</code> to trigger this action.
+Currently it support <code>()</code>, <code>[]</code>, <code>&lt;&gt;</code>, <code>{}</code>. If you are writing code, it even support <code>if/end</code>, <code>function/end</code>, <code>if/else</code>......
+You can see <a href="./treesitter.html">treesitter</a> section to learn how to enable this feature.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="basic-usage.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                            <a rel="next" href="basic-usage.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="editing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -191,8 +221,11 @@ is properly serving the editor.</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="basic-usage.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-                    <a rel="next" href="basic-usage.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="editing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
