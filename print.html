@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Nvim Config Manual</title>
+        <title>Nvim Guide Book</title>
         <meta name="robots" content="noindex" />
 
 
@@ -30,6 +30,7 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom.css">
 
     </head>
     <body>
@@ -84,7 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">User Guide</li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="basic-usage.html"><strong aria-hidden="true">2.</strong> Basic Usage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="cursor-movement.html"><strong aria-hidden="true">2.1.</strong> Cursor Movement</a></li><li class="chapter-item expanded "><a href="editing.html"><strong aria-hidden="true">2.2.</strong> Edit text</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Plugins</li><li class="chapter-item expanded "><a href="treesitter.html"><strong aria-hidden="true">3.</strong> treesitter</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">English</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Basics</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="en_us/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="en_us/keymap.html"><strong aria-hidden="true">1.2.</strong> Keymap</a></li><li class="chapter-item expanded "><a href="en_us/concept.html"><strong aria-hidden="true">1.3.</strong> concept</a></li><li class="chapter-item expanded "><a href="en_us/customize.html"><strong aria-hidden="true">1.4.</strong> Customization</a></li><li class="chapter-item expanded "><a href="en_us/development.html"><strong aria-hidden="true">1.5.</strong> CODE_OF_CONDUCT</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">中文</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 基础设置</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="zh_cn/installation.html"><strong aria-hidden="true">2.1.</strong> 安装</a></li><li class="chapter-item expanded "><a href="zh_cn/colors.html"><strong aria-hidden="true">2.2.</strong> 主题配色</a></li><li class="chapter-item expanded "><a href="zh_cn/keymap_cn.html"><strong aria-hidden="true">2.3.</strong> 键位设置</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 插件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="zh_cn/plugins/nvim-tree_cn.html"><strong aria-hidden="true">3.1.</strong> nvim-tree.lua</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -113,7 +114,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">Nvim Config Manual</h1>
+                    <h1 class="menu-title">Nvim Guide Book</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -145,230 +146,660 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="dependency"><a class="header" href="#dependency">Dependency</a></h1>
-<p>This neovim configuration require you have the below dependencies installed on your machine.</p>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>Here is a simple guidance, please read the detail document
+in the source code.</p>
+<p>中文版的更新可能有延迟，请以英文版为主。</p>
+<div style="break-before: page; page-break-before: always;"></div><!-- vim-markdown-toc GFM -->
 <ul>
-<li><a href="https://github.com/neovim/neovim/wiki/Installing-Neovim#install-from-package"><code>neovim</code></a> v0.8+</li>
-<li><a href="https://github.com/BurntSushi/ripgrep#installation"><code>ripgrep</code></a></li>
-<li>Any of the patched <a href="https://www.nerdfonts.com/font-downloads">nerd font</a></li>
+<li><a href="en_us/installation.html#prerequisites">Prerequisites</a>
+<ul>
+<li><a href="en_us/installation.html#install-stable-version-in-arch-linux">Install stable version in Arch Linux</a></li>
 </ul>
+</li>
+<li><a href="en_us/installation.html#fork-before-pull">Fork before pull</a></li>
+<li><a href="en_us/installation.html#installation">Installation</a></li>
+<li><a href="en_us/installation.html#how-to-get-update">How to get update</a></li>
+<li><a href="en_us/installation.html#clean-up">Clean up</a></li>
+<li><a href="en_us/installation.html#check-health">Check health</a></li>
+<li><a href="en_us/installation.html#docker">Docker</a></li>
+</ul>
+<!-- vim-markdown-toc -->
+<h1 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h1>
+<ul>
+<li><strong>Neovim</strong> (MUST)</li>
+</ul>
+<p>This configuration is compatible with neovim version v0.7.0-v0.8.0 only.</p>
+<p>You can follow
+<a href="https://github.com/neovim/neovim/wiki/Installing-Neovim">neovim installation</a>
+for the installation guidance.</p>
+<h2 id="install-stable-version-in-arch-linux"><a class="header" href="#install-stable-version-in-arch-linux">Install stable version in Arch Linux</a></h2>
+<p>If you are Arch Linux user, and you found that there are some bug in the latest version
+, you can download PKGBUILD file with your aur helper, and then add a prepare script to
+build stable version:</p>
+<pre><code class="language-bash"># Assuming that you are using paru
+paru -G neovim-git
+</code></pre>
+<p>Then edit the PKGBUILD file and this lines before the <code>build()</code> function:</p>
+<pre><code class="language-diff">+prepare() {
++  cd &quot;${pkgname}&quot;
++  git checkout stable
++}
++
+</code></pre>
+<p>Finally, run the <code>makepkg -si</code> to install the neovim.</p>
+<ul>
+<li><strong>Nerdfont</strong> (MUST)</li>
+</ul>
+<p>Most of my setting are based on nerd font. It’s highly recommended to
+install <a href="https://www.nerdfonts.com/font-downloads">nerdfont</a> for
+impressive icon support.</p>
+<ul>
+<li><strong>ripgrep</strong> (MUST)</li>
+</ul>
+<p>The telescope, nvim-cmp, and anyjump plugin are configured to use ripgrep
+as the search program. It is an faster grep RIIR alternative.</p>
+<p>See its <a href="https://github.com/BurntSushi/ripgrep">readme</a> for more.</p>
+<h1 id="fork-before-pull"><a class="header" href="#fork-before-pull">Fork before pull</a></h1>
+<p>I recommend you use my configuration as a base and build your
+configuration.</p>
+<p>This neovim config is biased and was not created for generic use.
+The reason I build this configuration is that I don't want to use the same neovim
+as the community. And it is really tired to always make compatibility for an
+editor configuration. It will gradually expand the size of the configuration,
+amount of the bug, and uninteresting of the maintenance.</p>
+<p>And I know that someone like me want to build their own configurationt too,
+but it is hard to start from empty.
+So you can use my configuration as a base to build yours.</p>
 <h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
-<p>It is recommended to use <a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control"><code>git</code></a>
-to download and keep this configuration up to date.</p>
-<pre><code class="language-bash">git clone --depth=1 https://github.com/Avimitin/nvim ~/.config/nvim
+<pre><code class="language-bash"># NO WINDOWS SUPPORT NOW
+git clone https://github.com/YOUR_USER_NAME/nvim ~/.config/nvim
+
+# Enable configuration for the configuration
+mv ~/.config/nvim/lua/custom.example.lua ~/.config/nvim/lua/custom.lua
 </code></pre>
-<h2 id="manage-your-neovim-configuration"><a class="header" href="#manage-your-neovim-configuration">Manage <strong>YOUR</strong> neovim configuration</a></h2>
-<p>You can press the fork button on GitHub page and maintain your configuration.
-If you want to keep your changes and keep track of mine modification, you can
-maintain a upstream branch.</p>
-<pre><code class="language-bash"># rename the original master branch to upstream
+<p>Open your neovim by command <code>nvim</code> and wait for all plugins installed.
+The plugins will be installed automatically. Please quit and reopen the
+neovim to load all the plugins.</p>
+<p>If the neovim don’t install plugins automatically, use the command
+<code>:PackerSync</code> to install those plugins manually. And please open a issue
+to notify me about the error.</p>
+<p><strong>NOTE:</strong> Markdown preview plugin is installed in another thread, please
+wait for it until it response message of installation success.
+Otherwise, you will find that you can’t activate it.</p>
+<h1 id="how-to-get-update"><a class="header" href="#how-to-get-update">How to get update</a></h1>
+<p>You can rename the default branch to <code>upstream</code> and switch to a new <code>master</code> branch:</p>
+<pre><code class="language-bash"># rename master to upstream. Not necessary to be upstream, you can pick whatever you like as branch name.
 git branch -m master upstream
-# create a new master (or main) branch
-git switch -c master
+
+# create new branch with name &quot;master&quot;. Not necessary to be master too.
+git branch master
 </code></pre>
-<h1 id="download-plugin"><a class="header" href="#download-plugin">Download Plugin</a></h1>
-<p>All the plugin will be sync when you first use this configuration.
-So you don't need to do anything but just open the neovim editor by command <code>nvim</code>,
-then it will setup itself automatically.</p>
-<pre><code class="language-bash">nvim
+<p>Working with two different branches, you can always pull or pick new bugfix or feature
+from my configuration without messing up your configuration.</p>
+<p>I will always write changes into CHANGELOG and release a new version after changes are made.
+Please read the changelog each time you pull new changes. And if you are not satisfied
+with the changes, you can <code>git checkout</code> the old version. You are also welcome to open an issue
+to discuss with me. This config is considered as <strong>MY</strong> personal configuration,
+and I can't guarantee I will stabilize it as the community do.</p>
+<h1 id="clean-up"><a class="header" href="#clean-up">Clean up</a></h1>
+<p>You need to clean the below directory to do a fresh install.</p>
+<pre><code class="language-bash"># plugins directory
+rm -rf ~/.local/share/nvim
+
+# neovim cache file
+rm -r ~/.cache/nvim
+
+# neovim plugins load sequence
+rm -r ~/.config/nvim/plugin
 </code></pre>
-<p>If you met any error since downloading plugin, you can open a issue to report bug.</p>
-<h1 id="health-check"><a class="header" href="#health-check">Health check</a></h1>
-<p>After plugin downloaded, you can run command <code>:checkhealth</code> to check if the configuration
-is properly serving the editor.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="basic-usage"><a class="header" href="#basic-usage">Basic Usage</a></h1>
-<p>This section will introduce some basic vim usage.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="cursor-movement"><a class="header" href="#cursor-movement">Cursor Movement</a></h1>
-<p>If you are using vim for the first time, you might want to use arrow key to navigate.
-But actually vim cursor movement is based on four key:</p>
-<pre><code class="language-text">   ^
+<h1 id="check-health"><a class="header" href="#check-health">Check health</a></h1>
+<p>Open your neovim and input following command to check if the dependence
+is all installed or not.</p>
+<pre><code class="language-text">:checkhealth
+</code></pre>
+<h1 id="docker"><a class="header" href="#docker">Docker</a></h1>
+<p>Just wanna have a try but do not want to mess up your local environment?
+I have docker script for you!</p>
+<pre><code class="language-bash">docker run -w /root -it --rm alpine:edge sh -uelic '
+      apk add git neovim ripgrep alpine-sdk --update
+      git clone 'https://github.com/Avimitin/nvim' ~/.config/nvim
+      nvim -c &quot;autocmd User PackerComplete quitall&quot;
+      nvim /root/.config/nvim/README.md
+  '
+</code></pre>
+<h1 id="next-step"><a class="header" href="#next-step">Next Step</a></h1>
+<p>See <a href="en_us/./keymap.html">key mappings</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="keymap"><a class="header" href="#keymap">Keymap</a></h1>
+<h2 id="leader-key"><a class="header" href="#leader-key">Leader key</a></h2>
+<p>leader key is set to <kbd>;</kbd>.</p>
+<h2 id="navigation"><a class="header" href="#navigation">Navigation</a></h2>
+<pre><code class="language-text">Basic movement
+
+   ^
    k
 &lt;h   l&gt;
    j
-   v
+   V
 </code></pre>
-<p>You will need sometime to get used to this navigate mechanism. However once you get used
-to it, you will find it really handy because you don't need to twist your wrist.</p>
-<p>To move faster, you can combine <code>hjkl</code> with key <code>&lt;shift&gt;</code>. <code>&lt;shift&gt;j</code>, the capitalized <code>J</code>,
-can move down your cursor by 5 lines. <code>&lt;shift&gt;k</code>, can move up your cursor by 5 lines. And the
-<code>H</code> key is like <code>&lt;Home&gt;</code> key, it will navigate to the first character of the current line. <code>L</code>
-is the opposite, it will navigate to the last character of the current line.</p>
-<p>Belows are cursor movement cheatsheets in Normal mode.</p>
-<div class="table-wrapper"><table><thead><tr><th>key</th><th>action</th></tr></thead><tbody>
-<tr><td>j</td><td>Move down one line</td></tr>
-<tr><td>k</td><td>Move up one line</td></tr>
-<tr><td>h</td><td>Go one character left</td></tr>
-<tr><td>l</td><td>Go one character right</td></tr>
-<tr><td>J</td><td>Move down 5 lines</td></tr>
-<tr><td>K</td><td>Move up 5 lines</td></tr>
-<tr><td>H</td><td>Go to the first character of the current line</td></tr>
-<tr><td>L</td><td>Go to the last character of the current line</td></tr>
-<tr><td>w</td><td>Jump to next word</td></tr>
-<tr><td>b</td><td>Jump back one word</td></tr>
-<tr><td>W</td><td>Jump to 5 next words</td></tr>
-<tr><td>B</td><td>Jump back 5 words</td></tr>
-<tr><td>e</td><td>Jump to the last character of the current word</td></tr>
-<tr><td>gg</td><td>Jump to the first line of the current file</td></tr>
-<tr><td>G</td><td>Jump to the last line of the current file</td></tr>
+<div class="table-wrapper"><table><thead><tr><th>Keymap</th><th>Function</th></tr></thead><tbody>
+<tr><td><kbd>h/j/k/l</kbd></td><td>Move around</td></tr>
+<tr><td><kbd>H</kbd></td><td>Go to the first character of the line</td></tr>
+<tr><td><kbd>L</kbd></td><td>Go to the last character of the line</td></tr>
+<tr><td><kbd>J</kbd></td><td>Go down 5 lines</td></tr>
+<tr><td><kbd>K</kbd></td><td>Go up 5 lines</td></tr>
+<tr><td><kbd>W</kbd></td><td>Go 5 words forward</td></tr>
+<tr><td><kbd>B</kbd></td><td>Go 5 words backward</td></tr>
 </tbody></table>
 </div>
-<p>Belows are cursor movement in Insert mode:</p>
-<div class="table-wrapper"><table><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody>
-<tr><td><code>&lt;Ctrl-e&gt;</code></td><td>Go to the end of the current line</td></tr>
-<tr><td><code>&lt;Ctrl-a&gt;</code></td><td>Go to the front of the current line</td></tr>
-<tr><td><code>&lt;Ctrl-f&gt;</code></td><td>Forward one word</td></tr>
-<tr><td><code>&lt;Ctrl-b&gt;</code></td><td>Backward one word</td></tr>
-<tr><td><code>&lt;Ctrl-n&gt;</code></td><td>Go down one line</td></tr>
-<tr><td><code>&lt;Ctrl-p&gt;</code></td><td>Go up one line</td></tr>
+<h2 id="cursor-move-in-insert-mode"><a class="header" href="#cursor-move-in-insert-mode">Cursor move in insert mode</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Keymap</th><th>Function</th></tr></thead><tbody>
+<tr><td><kbd>Ctrl a</kbd></td><td>Act like <kbd>Home</kbd></td></tr>
+<tr><td><kbd>Ctrl e</kbd></td><td>Act like <kbd>End</kbd></td></tr>
+<tr><td><kbd>Ctrl f</kbd></td><td>Act like <kbd>w</kbd> in normal mode</td></tr>
+<tr><td><kbd>Ctrl b</kbd></td><td>Act like <kbd>b</kbd> in normal mode</td></tr>
 </tbody></table>
 </div>
-<h2 id="search-based-cursor-movement"><a class="header" href="#search-based-cursor-movement">Search based cursor movement</a></h2>
-<p>The plugin <a href="https://github.com/ggandor/leap.nvim"><code>leap.nvim</code></a> provide cursor movement based
-on two characters pattern search. You can go to anywhere with two character search. This action is trigger by key <code>s</code>
-(forward search) and <code>S</code> (backward search). Trigger search mode by <code>s/S</code>, then input two character
-you want to jump into. Use <code>gs</code> to start all window search.</p>
-<p><img src="https://github.com/ggandor/leap.nvim/raw/media/showcase.gif?raw=true" alt="leap-showcase" /></p>
-<blockquote>
-<p>Press <code>sab</code> to jump to any words that contains <code>ab</code>, if there are multiple word contains pattern <code>ab</code>,
-then input the green label attach after it to select.</p>
-</blockquote>
-<h2 id="character-match-based-cursor-movement"><a class="header" href="#character-match-based-cursor-movement">Character match based cursor movement</a></h2>
-<p>Sometime you might want to jump between text pair, like from character <code>(</code> to next <code>)</code>. You can use key <code>,</code> to trigger this action.
-Currently it support <code>()</code>, <code>[]</code>, <code>&lt;&gt;</code>, <code>{}</code>. If you are writing code, it even support <code>if/end</code>, <code>function/end</code>, <code>if/else</code>......
-You can see <a href="./treesitter.html">treesitter</a> section to learn how to enable this feature.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="editing"><a class="header" href="#editing">Editing</a></h1>
-<p>Belows are some common use key to edit text.</p>
-<div class="table-wrapper"><table><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody>
-<tr><td>i</td><td>Insert text</td></tr>
-<tr><td>a</td><td>Append text</td></tr>
-<tr><td>I (Capitalized i)</td><td>Go to the front of the current line and start insert</td></tr>
-<tr><td>A</td><td>Go to the end of the current line and start append</td></tr>
-<tr><td>o</td><td>Create a new line below the current line and start insert</td></tr>
-<tr><td>O</td><td>Create a new line above the current line and start insert</td></tr>
-<tr><td>r</td><td>Enter replace mode and replace the current character to the next key you press</td></tr>
-<tr><td>R</td><td>Enter replace mode and replace the current character to the next key you press. It won't stop until you press <code>&lt;ESC&gt;</code></td></tr>
-<tr><td>x</td><td>Delete the character under cursor</td></tr>
-<tr><td>dd</td><td>Delete the current line</td></tr>
-<tr><td>D</td><td>Delete character fron current character to the end of the line</td></tr>
+<h2 id="windows-navigation"><a class="header" href="#windows-navigation">Windows Navigation</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Keymap</th><th>Function</th></tr></thead><tbody>
+<tr><td><kbd>;k</kbd></td><td>Go to the window above</td></tr>
+<tr><td><kbd>;j</kbd></td><td>Go to the window below</td></tr>
+<tr><td><kbd>;h</kbd></td><td>Go to the right window</td></tr>
+<tr><td><kbd>;l</kbd></td><td>Go to the left window</td></tr>
 </tbody></table>
 </div>
-<h2 id="text-object"><a class="header" href="#text-object">Text Object</a></h2>
-<p>In vim, there are a concept called &quot;text object&quot;. It create a operable object by text property. Like <code>word</code> we mention above, a <code>word</code> is
-a object that represent a sequnces of letters, digits and underscores, separated with white space.</p>
-<p>There are another concept about text object selection called <code>inner</code> and <code>outer</code>. Like a <code>&quot;double quoted&quot;</code> object, if we press
-<code>vi&quot;</code>, it will select the inner text of the double quoted text. If we press <code>va&quot;</code>, it will select the whole double quoted text,
-including double quote itself. This also apply to pairs:</p>
-<pre><code class="language-text">&quot;double quoted&quot;
- &lt;-- inner --&gt;
-&lt;--  outer  --&gt;
-
-'single quoted'
- &lt;-- inner --&gt;
-&lt;--  outer  --&gt;
-
-(text object)
- &lt;- inner -&gt;
-&lt;-  outer  -&gt;
-
-&lt;a href=&quot;#&quot;&gt;text object&lt;/a&gt;
-            &lt;- inner -&gt;
-&lt;---       outer       ---&gt;
-</code></pre>
-<p>Like I mention above, inner object often select by prefix <code>i</code>, outer object often select by prefix <code>a</code>.
-Editing text with text object will be a lot easier:</p>
-<div class="table-wrapper"><table><thead><tr><th>Supported Object</th></tr></thead><tbody>
-<tr><td>Double quote <code>&quot;&quot;</code></td></tr>
-<tr><td>Single quote <code>''</code></td></tr>
-<tr><td>Word (separated by space)</td></tr>
-<tr><td>Sentence (separated by <code>.</code>)</td></tr>
-<tr><td>Paragraph (separated by new line)</td></tr>
-<tr><td><code>()</code>, <code>&lt;&gt;</code>, <code>{}</code>, <code>[]</code></td></tr>
-<tr><td>html tag (trigger by key <code>it</code>/<code>at</code>)</td></tr>
+<h2 id="windows-resize"><a class="header" href="#windows-resize">Windows resize</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Keymap</th><th>Function</th></tr></thead><tbody>
+<tr><td><kbd>Alt Up</kbd></td><td>Resize the top border of window</td></tr>
+<tr><td><kbd>Alt Down</kbd></td><td>Resize the bottom border of the window</td></tr>
+<tr><td><kbd>Alt Left</kbd></td><td>Resize the left border of the window</td></tr>
+<tr><td><kbd>Alt Right</kbd></td><td>Resize the right border of the window</td></tr>
 </tbody></table>
 </div>
-<p>If you enable treesitter, you can gain extra text object based on syntax:</p>
-<div class="table-wrapper"><table><thead><tr><th>Suffix key</th><th>Object</th></tr></thead><tbody>
-<tr><td>if/af</td><td>inner/outer function</td></tr>
-<tr><td>ic/ac</td><td>inner/outer class/struct</td></tr>
-<tr><td>ib/ab</td><td>inner/outer code block</td></tr>
-<tr><td>il/al</td><td>inner/outer function call</td></tr>
-<tr><td>iP/aP</td><td>inner/outer parameter</td></tr>
-<tr><td>io/ao</td><td>inner/outer condition</td></tr>
-<tr><td>as</td><td>outer statement</td></tr>
+<h2 id="search"><a class="header" href="#search">Search</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Keymap</th><th>Function</th></tr></thead><tbody>
+<tr><td><kbd>/</kbd></td><td>Forward search</td></tr>
+<tr><td><kbd>?</kbd></td><td>Backward search</td></tr>
+<tr><td><kbd>*</kbd></td><td>Search word under cursor</td></tr>
+<tr><td><kbd>N</kbd></td><td>Go to the before matches</td></tr>
+<tr><td><kbd>n</kbd></td><td>Go to the following matches</td></tr>
+<tr><td><kbd>ESC</kbd></td><td>Close the search highlight</td></tr>
 </tbody></table>
 </div>
-<p>Some example</p>
-<pre><code class="language-lua">-- example
-function fn(param1, param2)
-    print(&quot;hi&quot;)
-    if param1 then
-        print(param2)
-    end
-end
-
-
-*-------------------------------------------------*
-v                                                 |
-function fn(param1, param2)                       |
-            ^      ^&lt;--*-&gt;                        |
-            |      |   |------inner parameter     |
-            *------*                              |
-         outer parameter                          |
-                                                  |
-{outer function call}                             |
-        |                                         |
-   &lt;----*----&gt;                                    |
-   print(&quot;hi&quot;)     ----*                          |========&gt; outer function
-   if param1 then      |==&gt;inner function         |
-      print(param2)    |                          |
-   end             ____*                          |
-end                                               |
-^                                                 |
-|                                                 |
-*-------------------------------------------------*
-</code></pre>
-<p>Here are some common use key that accept text object as suffix:</p>
-<div class="table-wrapper"><table><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody>
-<tr><td>v</td><td>select</td></tr>
-<tr><td>d</td><td>delete</td></tr>
-<tr><td>c</td><td>change</td></tr>
-</tbody></table>
-</div>
-<p>For example, <code>ciw</code> can remove a whole word and enter insert mode. <code>daf</code> can delete a whole function
-with function keyword itself. <code>vit</code> will select all the text inside a html tag.</p>
-<h2 id="quick-selection"><a class="header" href="#quick-selection">Quick Selection</a></h2>
-<p>Plugin <a href="https://github.com/gcmt/wildfire.vim">wildfire.vim</a> provide key mappings to easily select
-<em>inner text object</em>. You can press key <code>&lt;enter&gt;</code> to select inside <code>()</code>, <code>&quot;&quot;</code>, <code>{}</code>...etc. You can
-press multiple time to expand the select region:</p>
-<pre><code class="language-text">                           assuming this is our cursor
-                                    V
-&lt;a href=&quot;#&quot;&gt;Some fancy {text (inside| a html) block}&lt;/a&gt;
-                              &lt;--1x enter--&gt;
-                        &lt;-----2x enter------------&gt;
-            &lt;-------------3x enter-----------------&gt;
-</code></pre>
-<h2 id="update-indent"><a class="header" href="#update-indent">Update indent</a></h2>
-<p>You can press key <code>&gt;</code> and <code>&lt;</code> in normal mode to increase and decrease indent.
-You can also select multiple line then press this keys to update indentation.</p>
-<pre><code class="language-text">        | Text with 8 spaces indent
-[press &lt;]
-    | Text with 4 spaces indent now
-[press &gt;]
-        | Text with 8 spaces indent again
-</code></pre>
-<h2 id="save-and-revert"><a class="header" href="#save-and-revert">Save and Revert</a></h2>
-<p>Each edit are based on buffer, and you must write it into disk after editing done.
-You can press <code>;w</code> to write temporary buffer into the file. <code>;x</code> can help you save
-and quit easily.</p>
-<p>You can press <code>&lt;Ctrl-z&gt;</code> in normal mode to revert last edit. <code>&lt;Ctrl-r&gt;</code> can redo your
-last reverted changes.</p>
 <h2 id="copy-and-paste"><a class="header" href="#copy-and-paste">Copy and Paste</a></h2>
-<p>You can yank text by key <code>y</code> and paste them by key <code>p</code>.
-I add an auto command to automatically copy text into system clipboard when you press <code>y</code>.
-However key <code>p</code> will not paste text from clipboard, it will reuse the register.
-To paste from system clipboard into vim, you need to press <code>&lt;Ctrl-p&gt;</code> or
-<code>&lt;Ctrl-Shift-v&gt;</code>(based on your terminal settings).</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="treesitter"><a class="header" href="#treesitter">treesitter</a></h1>
+<div class="table-wrapper"><table><thead><tr><th>Keymap</th><th>Function</th><th>notes</th></tr></thead><tbody>
+<tr><td><kbd>y</kbd></td><td>Copy to system clipboard</td><td></td></tr>
+<tr><td><kbd>p</kbd></td><td>Paste from the editor register</td><td></td></tr>
+<tr><td><kbd>Ctrl-p</kbd></td><td>Paste from the clipboard</td><td>In normal and insert mode</td></tr>
+</tbody></table>
+</div>
+<h2 id="text-move"><a class="header" href="#text-move">Text move</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Keymap</th><th>Function</th><th>notes</th></tr></thead><tbody>
+<tr><td><kbd>&lt;</kbd></td><td>Reduce one indent level</td><td>In normal and selection mode</td></tr>
+<tr><td><kbd>&gt;</kbd></td><td>Increse one indent level</td><td>In normal and selection mode</td></tr>
+</tbody></table>
+</div>
+<h2 id="save-and-quit"><a class="header" href="#save-and-quit">Save and Quit</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Keymap</th><th>Function</th><th>Notes</th></tr></thead><tbody>
+<tr><td><kbd>;w</kbd></td><td>Save</td><td></td></tr>
+<tr><td><kbd>;q</kbd></td><td>Quit buffer (Auto quit nvim when last buffer is deleted)</td><td></td></tr>
+<tr><td><kbd>:q</kbd></td><td>Quit neovim, window, tabs</td><td></td></tr>
+<tr><td><kbd>Alt;</kbd></td><td>Leave the insert mode (Same as ESC)</td><td>Only in insert mode</td></tr>
+</tbody></table>
+</div>
+<h2 id="scrolling"><a class="header" href="#scrolling">Scrolling</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Keymap</th><th>Function</th></tr></thead><tbody>
+<tr><td><kbd>Ctrl j</kbd></td><td>Scroll down</td></tr>
+<tr><td><kbd>Ctrl k</kbd></td><td>Scroll up</td></tr>
+<tr><td><kbd>Ctrl f</kbd></td><td>Like &quot;PgDown&quot; key, scroll down half a page</td></tr>
+<tr><td><kbd>Ctrl b</kbd></td><td>Like &quot;PgUp&quot; key, scroll up half a page</td></tr>
+<tr><td><kbd>Ctrl y</kbd></td><td>Scroll up, but cursor will not move</td></tr>
+<tr><td><kbd>Ctrl e</kbd></td><td>Scroll down, but curson will not move</td></tr>
+</tbody></table>
+</div>
+<h2 id="others"><a class="header" href="#others">Others</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Keymap</th><th>Function</th></tr></thead><tbody>
+<tr><td><kbd>Ctrl-z</kbd></td><td>Reverse changes</td></tr>
+</tbody></table>
+</div>
+<h2 id="next-step-1"><a class="header" href="#next-step-1">Next Step</a></h2>
+<p><a href="en_us/./concept.html">concept</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-use-this-config"><a class="header" href="#how-to-use-this-config">How to use this config</a></h1>
+<h2 id="edit-simple-file"><a class="header" href="#edit-simple-file">Edit simple file</a></h2>
+<p>You can just use command <code>nvim /path/to/file</code> to edit the file.</p>
+<h2 id="coding"><a class="header" href="#coding">Coding</a></h2>
+<p>See <a href="en_us/./customize.html">customize</a> to learn how to setup the LSP.
+Then go into your project directory and use command <code>nvim /path/to/source code</code>
+to open and edit the code.</p>
+<h2 id="write-markdown"><a class="header" href="#write-markdown">Write Markdown</a></h2>
+<p>Use command <code>nvim /path/to/xxx.md</code> to open the markdown file.
+And their are some commands can enhance your writing experience:</p>
+<ul>
+<li><code>:TableModeToggle</code>: Trigger the table edit mode.</li>
+</ul>
+<video src="https://user-images.githubusercontent.com/30021675/151665473-d8527c7f-fc2a-415a-9878-e39927c49fc8.mp4" controls>
+</video>
+<ul>
+<li><code>:MarkdownPreview</code>: Preview the rendered markdown content in your
+favourite browser. See <a href="en_us/./customize.html">customize</a> for details.</li>
+<li><code>:GenTocGFM</code>: Generate a GitHub favor TOC.</li>
+</ul>
+<hr />
+<h1 id="extra"><a class="header" href="#extra">Extra</a></h1>
+<p>Each folder under <code>lua/</code> directory has a README.md file to indicate
+what it is and what plugin it has. You can learn more from there.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="customize"><a class="header" href="#customize">Customize</a></h1>
+<p>You might not want git to track some frequently changed values.
+Like color scheme or some other settings.
+Those settings can all define in an optional <code>Lua</code> module.</p>
+<h2 id="details"><a class="header" href="#details">Details</a></h2>
+<p>Rename the <code>lua/custom.example.lua</code> file to <code>lua/custom.lua</code>, then make your modification.
+The <code>.gitignore</code> file contains the <code>custom.lua</code> file already.</p>
+<p>Create a new configuration table and return it at the end.</p>
+<pre><code class="language-lua">-- example
+local my_config = {
+  theme = &quot;kanagawa&quot;,
+
+  langs = {
+    &quot;fish&quot;,
+    &quot;html&quot;,
+    &quot;json&quot;,
+    &quot;toml&quot;,
+    { &quot;go&quot;, &quot;gopls&quot; },
+    { { &quot;javascript&quot;, &quot;typescript&quot;, &quot;javascriptreact&quot;, &quot;typescriptreact&quot; }, &quot;eslint&quot; },
+    {
+      &quot;python&quot;,
+      &quot;pyright&quot;,
+      {
+        python = {
+          analysis = {
+            autoSearchPaths = true,
+            diagnosticMode = &quot;workspace&quot;,
+            useLibraryCodeForTypes = true,
+          },
+        },
+      },
+    },
+  },
+
+  -- configuration for null-ls lsp injection
+  null_ls = {
+    enable_stylua_fmt = false, -- require stylua executable
+  },
+
+  autocmd_enable = {
+    fcitx5 = false, -- require fcitx5-remote
+    lastline = true,
+    diff_on_commit = false, -- might mess up your window
+  },
+
+  markdown = {
+    -- must be executable
+    preview_browser = &quot;chrome&quot;,
+  },
+}
+
+return my_config -- &lt;- Don't forget to return this table, or the config will not acceive what you configured
+</code></pre>
+<h2 id="fields"><a class="header" href="#fields">Fields</a></h2>
+<p>Current supported options:</p>
+<div class="table-wrapper"><table><thead><tr><th>option</th><th>meaning</th></tr></thead><tbody>
+<tr><td><code>theme</code></td><td>colorscheme, read <a href="en_us/./colors.html">colors</a> for tips and tricks</td></tr>
+<tr><td><code>autocmd_enable</code></td><td>List of auto commands that you want to toggle on or off</td></tr>
+<tr><td><code>langs</code></td><td>An array of language layers for nvim-treesitter and lspconfig</td></tr>
+<tr><td><code>markdown</code></td><td>Markdown options</td></tr>
+</tbody></table>
+</div>
+<h3 id="langs"><a class="header" href="#langs">langs</a></h3>
+<p>This fields contains an array of language layer definitions.</p>
+<ul>
+<li>
+<p>Single string or an array with item
+tells the editor to load nvim-treesitter only for this languages.</p>
+</li>
+<li>
+<p>An array with two items tells the editor to load both of the nvim-treesitter and lspconfig plugins.
+And the second items for the multi-items array should be lsp server that you want to enabled.</p>
+</li>
+<li>
+<p>If the array contains three items, the third item will be considered as server configuration and
+will be transfer to the lsp server.</p>
+</li>
+<li>
+<p><a href="https://github.com/williamboman/nvim-lsp-installer#available-lsps">Available Lsp Servers</a></p>
+</li>
+<li>
+<p><a href="https://github.com/nvim-treesitter/nvim-treesitter#supported-languages">Supported Languages for treesitter</a></p>
+</li>
+<li>
+<p><a href="https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md">Lsp Server Configuration</a></p>
+</li>
+</ul>
+<h3 id="autocmd_enable"><a class="header" href="#autocmd_enable"><code>autocmd_enable</code></a></h3>
+<div class="table-wrapper"><table><thead><tr><th>cmd</th><th>function</th></tr></thead><tbody>
+<tr><td><code>fcitx5</code></td><td>Enable fcitx5 auto toggle when switching insert and normal mode</td></tr>
+<tr><td><code>lastline</code></td><td>Enable auto command that jump to last edit line when you open neovim</td></tr>
+<tr><td><code>diff_on_commit</code></td><td>Enable auto command that open diff window when you commiting</td></tr>
+</tbody></table>
+</div>
+<h1 id="per-language-configuration-snippets"><a class="header" href="#per-language-configuration-snippets">Per language configuration snippets</a></h1>
+<h2 id="ccpp"><a class="header" href="#ccpp">c/cpp</a></h2>
+<ul>
+<li>Config</li>
+</ul>
+<p>C/CPP can be configured to use clangd as default LSP server.</p>
+<pre><code class="language-lua">{ { &quot;c&quot;, &quot;cpp&quot; }, &quot;clangd&quot; },
+</code></pre>
+<ul>
+<li>project setup</li>
+</ul>
+<p>The clangd respect your cmake settings.
+You will need to provide the compile_commands.json file for clangd to identify
+your project correctly.</p>
+<pre><code class="language-console">$ cmake -H. -BDebug -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=YES
+$ ln -s Debug/compile_commands.json .
+</code></pre>
+<ul>
+<li>Makefile</li>
+</ul>
+<p>If you are writing C and using the Makefile, you can use the <code>:Dispatch</code> or <code>:Make</code>
+command to easily build and debug your code.</p>
+<ul>
+<li>Resources</li>
+</ul>
+<blockquote>
+<ul>
+<li>Clangd official site: <a href="https://clangd.llvm.org/">https://clangd.llvm.org/</a></li>
+<li>CMake official site: <a href="https://cmake.org/">https://cmake.org/</a></li>
+</ul>
+</blockquote>
+<h2 id="javascripttypescript"><a class="header" href="#javascripttypescript">JavaScript/TypeScript</a></h2>
+<p>Add the below script into <code>lua/custom.lua</code> file.</p>
+<pre><code class="language-lua">langs = {
+  &quot;html&quot;,
+  &quot;css&quot;,
+  &quot;json&quot;,
+  { { &quot;javascript&quot;, &quot;typescript&quot;, &quot;javascriptreact&quot;, &quot;typescriptreact&quot; }, &quot;tsserver&quot; },
+},
+</code></pre>
+<p>Inject eslint into tsserver by enable the null-ls option:</p>
+<pre><code class="language-lua">null_ls = {
+  enable_eslint = true, -- require eslint, useful to combine use with tsserver
+  enable_prettier = true, -- require prettier, useful when you want format in js/ts{x}
+},
+</code></pre>
+<h3 id="trouble-shooting"><a class="header" href="#trouble-shooting">Trouble Shooting</a></h3>
+<ul>
+<li>Neovim notify that their is no executable in <code>$PATH</code></li>
+</ul>
+<p>Please make sure that you have configured node.js/deno PATH correctly.
+If you are using node version manager like <code>nvm</code> or other stuff, please
+make sure you have enabled correct version before you start the neovim.</p>
+<h2 id="rust"><a class="header" href="#rust">rust</a></h2>
+<p>The plugin rust-tools.nvim has already set up LSP, format, and debug utilities.</p>
+<p>See <a href="https://github.com/simrat39/rust-tools.nvim/">https://github.com/simrat39/rust-tools.nvim/</a> for what it can do.</p>
+<blockquote>
+<p>This plugin will setup lspconfig itself, please don't write lspconfig manually.</p>
+</blockquote>
+<ul>
+<li>Inlay hint</li>
+</ul>
+<p>The rust-tools.nvim setting is located in lua/plugins/coding/config/rust-tools.lua.
+And inlay hint is set up automatically after you open rust file.</p>
+<p>But it will not prompt up by default due to some unknown bug.
+It will only show up after you save the buffer.
+So you need to manually run command <code>:w</code> when you first open the rust code.</p>
+<ul>
+<li>Code action</li>
+</ul>
+<p>You can use the keymap <kbd>LEADER ra</kbd> or keymap <code>gx</code> set by LSP to view and select
+the action for Rust code. Also you can press <kbd>LEADER rr</kbd> to run test or function.</p>
+<ul>
+<li>Code format</li>
+</ul>
+<p>You can use <code>gf</code> to run the LSP built in format API. It will called the rustfmt
+program.</p>
+<ul>
+<li>Debug</li>
+</ul>
+<p>You need to install <code>lldb-vscode</code>. Then run <code>:RustDebuggables</code>, it will open the
+debug panel automatically.</p>
+<ul>
+<li>Rust Analyzer Settings</li>
+</ul>
+<p>You might want to make some specific rust-analyzer settings for your project.
+You can create a file with name <code>.rust-analyzer.json</code> in the same directory
+with the <code>Cargo.toml</code> file. Then put all the configuration you want into it.</p>
+<p>Configuration reference: <a href="https://rust-analyzer.github.io/manual.html#configuration">https://rust-analyzer.github.io/manual.html#configuration</a></p>
+<p>For example, if you want to enable all feature when editing the code:</p>
+<pre><code class="language-bash"># cd to the root directory of your project
+echo '{
+  &quot;cargo&quot;: {
+    &quot;allFeatures&quot;: true
+  }
+}' &gt; .rust-analyzer.json
+</code></pre>
+<ul>
+<li>Gallery</li>
+</ul>
+<p>Please read <a href="https://github.com/simrat39/rust-tools.nvim/#demos">demo</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="development-specifications"><a class="header" href="#development-specifications">Development specifications</a></h1>
+<h2 id="versioning"><a class="header" href="#versioning">Versioning</a></h2>
+<p>This configuration is not gonna follow semver, instead, it use calendar versioning and
+release new version in each weekend.
+Version will be released in <code>cvYYYY.0M.0D</code> format.</p>
+<h2 id="benchmark"><a class="header" href="#benchmark">Benchmark</a></h2>
+<p>I've write a Perl script to handle the benchmark.</p>
+<pre><code class="language-bash">perl ./fixtures/benchmark.pl
+</code></pre>
+<p>It will write result into the <code>./fixtures/benchmark.txt</code> file.</p>
+<h2 id="releasemd"><a class="header" href="#releasemd">RELEASE.md</a></h2>
+<p>If any of the commits contains API compatibility changes, we must write them into
+RELEASE.md file for the next version release.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="先决条件"><a class="header" href="#先决条件">先决条件</a></h1>
+<ul>
+<li><strong>Neovim</strong> (必要)</li>
+</ul>
+<p>目前我使用 <code>v0.7.0-dev+920-g7e2ce35e3</code>。 如果你遇到了任何错误，请检查你的版本。</p>
+<p>你可以按照
+<a href="https://github.com/neovim/neovim/wiki/Installing-Neovim">neovim 安装方式</a>
+构建最新版本的 neovim。</p>
+<p>如果你是 ArchLinux 用户，你可以运行: <code>yay -S neovim-git</code></p>
+<ul>
+<li><strong>Nerdfont</strong> (必要)</li>
+</ul>
+<p>我的大部分设置都是基于 nerd font 的。强烈建议你安装 <a href="https://www.nerdfonts.com/font-downloads">nerdfont</a> 来取得很棒的图标支持。</p>
+<ul>
+<li><strong>ripgrep</strong> (必要)</li>
+</ul>
+<p>我使用 ripgrep 作为插件 telescope, nvim-cmp, anyjump 的搜索程序。ripgrep 是一个性能更好的grep 替代。</p>
+<p>在此查看更多有关信息 <a href="https://github.com/BurntSushi/ripgrep">readme</a></p>
+<ul>
+<li><em>Surf</em> (可选)</li>
+</ul>
+<p>我使用 <a href="https://surf.suckless.org/">Surf</a> 作为 Markdown 预览器。用 Firefox 预览 markdown 太重了。如果你有兴趣，可以按照官方说明来更改。没有的话，你也可以使用下列命令简单的替换。</p>
+<pre><code class="language-bash">sed -i 's/surf/firefox/g' ./lua/config/mkdp.lua
+</code></pre>
+<blockquote>
+<ul>
+<li>如何构建surf</li>
+</ul>
+<pre><code class="language-bash"># Arch linux 包含了许多有用的库
+# 其他发行版需要自己去查看文档
+git clone https://git.suckless.org/surf
+cd surf
+sudo make clean install
+</code></pre>
+</blockquote>
+<h1 id="安装"><a class="header" href="#安装">安装</a></h1>
+<pre><code class="language-bash"># 目前没有 Windows 支持
+git clone https://github.com/YOUR_USER_NAME/nvim ~/.config/nvim
+</code></pre>
+<p>使用<code>nvim</code>命令打开你的 neovim，等待所有插件安装完成。当安装完成后，请退出并重新打开以加载所有的插件。</p>
+<p>如果 neovim 没有自动安装插件，请使用命令<code>:PackerSync</code>来手动安装这些插件。并请打开一个 issue 来通知我这个错误。</p>
+<p><strong>NOTE:</strong> Markdown 预览插件已在另一个线程中安装，请等待安装成功的消息。否则插件无法激活。</p>
+<h1 id="清理"><a class="header" href="#清理">清理</a></h1>
+<p>你需要清理下面的目录以进行新的安装。</p>
+<pre><code class="language-bash"># 插件目录
+rm -rf ~/.local/share/nvim
+
+# neovim 缓存目录
+rm -r ~/.cache/nvim
+
+# 重置插件加载顺序
+rm -r ~/.config/nvim/plugin
+</code></pre>
+<h1 id="check-health-1"><a class="header" href="#check-health-1">Check health</a></h1>
+<p>打开你的neovim，并输入以下命令，检查依赖是否已经全部安装。</p>
+<pre><code class="language-text">:checkhealth
+</code></pre>
+<h3 id="docker-1"><a class="header" href="#docker-1">Docker</a></h3>
+<p>只是想尝试一下，但不想把你的本地环境搞得一团糟？我为你准备了docker脚本!</p>
+<pre><code class="language-bash">docker run -w /root -it --rm alpine:edge sh -uelic '
+      apk add git neovim ripgrep alpine-sdk --update
+      git clone 'https://github.com/Avimitin/nvim' ~/.config/nvim
+      nvim -c &quot;autocmd User PackerComplete quitall&quot;
+      nvim /root/.config/nvim/README.md
+  '
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="颜色方案"><a class="header" href="#颜色方案">颜色方案</a></h1>
+<p>本节描述了我是如何管理颜色方案的。</p>
+<h2 id="配置文件"><a class="header" href="#配置文件">配置文件</a></h2>
+<pre><code class="language-text">lua/colors.lua
+</code></pre>
+<h2 id="更改颜色方案"><a class="header" href="#更改颜色方案">更改颜色方案</a></h2>
+<p>你可以在 <code>colors.lua</code> 文件中修改变量 <code>M.theme</code>。
+目前，我们有:</p>
+<ul>
+<li>deus</li>
+</ul>
+<pre><code class="language-lua">M.theme = &quot;deus&quot;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/deus.png" alt="images" /></p>
+<ul>
+<li>kanagawa </li>
+</ul>
+<pre><code class="language-lua">M.theme = &quot;kanagawa&quot;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/kanagawa.png" alt="images" /></p>
+<ul>
+<li>everforest </li>
+</ul>
+<pre><code class="language-lua">M.theme = &quot;everforest&quot;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/everforest.png" alt="images" /> </p>
+<ul>
+<li>ayu </li>
+</ul>
+<pre><code class="language-lua">M.theme = &quot;ayu&quot;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/ayu.png" alt="images" /> </p>
+<ul>
+<li>gruvbox </li>
+</ul>
+<pre><code class="language-lua">M.theme = &quot;gruvbox&quot;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Avimitin/nvim/master/docs/images/gruvbox.png" alt="images" /> </p>
+<h2 id="添加你的主题"><a class="header" href="#添加你的主题">添加你的主题</a></h2>
+<p>如果你想添加你喜欢的主题，请按照下面的指示。</p>
+<ol>
+<li>添加主题插件到 plug.lua。</li>
+</ol>
+<p>假设你想要添加的主题名称叫 &quot;nord&quot;。</p>
+<pre><code class="language-lua">use {
+  'somebody/nord',
+  cond = function()
+    return require(&quot;colors&quot;).theme == &quot;nord&quot;
+  end,
+  config = function()
+    require(&quot;colors&quot;).nord_setup()
+  end
+}
+</code></pre>
+<p>你可以阅读 lua/plugins.lua 文件为例。</p>
+<ol start="2">
+<li>在 color.lua 中添加配置</li>
+</ol>
+<pre><code class="language-lua">-- select the theme
+M.theme = &quot;nord&quot;
+
+M.nord_setup = function()
+  -- leave it blank here if you don't have any config
+  vim.g.background = &quot;dark&quot;
+
+  -- And don't forget this step, it is the final step to load the theme
+  set_color(&quot;nord&quot;)
+end
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="键位设置"><a class="header" href="#键位设置">键位设置</a></h1>
+<h2 id="leader-key-1"><a class="header" href="#leader-key-1">Leader key</a></h2>
+<p>leader key 设置到了空格键上。</p>
+<h2 id="移动"><a class="header" href="#移动">移动</a></h2>
+<pre><code class="language-text">  ^
+  k
+&lt;h l&gt;
+  j
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th>键位</th><th>功能</th></tr></thead><tbody>
+<tr><td><kbd>H</kbd></td><td>跳转到本行第一个字符</td></tr>
+<tr><td><kbd>L</kbd></td><td>跳转到本行最后一个字符</td></tr>
+<tr><td><kbd>J</kbd></td><td>向下移动 5 行</td></tr>
+<tr><td><kbd>K</kbd></td><td>向上移动 5 行</td></tr>
+<tr><td><kbd>W</kbd></td><td>向前跳转 5 个单词</td></tr>
+<tr><td><kbd>B</kbd></td><td>向后跳转 5 个单词</td></tr>
+<tr><td><kbd>Up</kbd></td><td>移动到上面的窗口</td></tr>
+<tr><td><kbd>Down</kbd></td><td>移动到下面的窗口</td></tr>
+<tr><td><kbd>Right</kbd></td><td>移动到右面的窗口</td></tr>
+<tr><td><kbd>Left</kbd></td><td>移动到左面的窗口</td></tr>
+</tbody></table>
+</div>
+<h2 id="搜索"><a class="header" href="#搜索">搜索</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>键位</th><th>功能</th></tr></thead><tbody>
+<tr><td><kbd>-</kbd></td><td>跳到前一个匹配</td></tr>
+<tr><td><kbd>=</kbd></td><td>跳到后一个匹配</td></tr>
+<tr><td><kbd>ESC</kbd></td><td>关闭搜索高亮</td></tr>
+</tbody></table>
+</div>
+<h2 id="标签页"><a class="header" href="#标签页">标签页</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>键位</th><th>功能</th></tr></thead><tbody>
+<tr><td><kbd>Ctrl-t h</kbd></td><td>跳转到前一个标签页</td></tr>
+<tr><td><kbd>Ctrl-t l</kbd></td><td>跳转到下一个标签页</td></tr>
+<tr><td><kbd>Ctrl-t n</kbd></td><td>创建新的标签页</td></tr>
+</tbody></table>
+</div>
+<h2 id="copy-and-paste-1"><a class="header" href="#copy-and-paste-1">Copy and Paste</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>键位</th><th>功能</th><th>notes</th></tr></thead><tbody>
+<tr><td><kbd>y</kbd></td><td>复制到 register</td><td></td></tr>
+<tr><td><kbd>p</kbd></td><td>粘贴到 register</td><td></td></tr>
+<tr><td><kbd>Ctrl-y</kbd></td><td>复制到系统剪切板</td><td>只在普通模式和插入模式有效</td></tr>
+<tr><td><kbd>Ctrl-p</kbd></td><td>从系统剪切板粘贴</td><td>只在选择模式有效</td></tr>
+</tbody></table>
+</div>
+<h2 id="text-move-1"><a class="header" href="#text-move-1">Text move</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>键位</th><th>功能</th><th>notes</th></tr></thead><tbody>
+<tr><td><kbd>&lt;</kbd></td><td>减少一个缩进</td><td>在普通模式和选择模式下有效</td></tr>
+<tr><td><kbd>&gt;</kbd></td><td>增加一个缩进</td><td>在普通模式和选择模式下有效</td></tr>
+</tbody></table>
+</div>
+<h2 id="save-and-quit-1"><a class="header" href="#save-and-quit-1">Save and Quit</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>键位</th><th>功能</th><th>Notes</th></tr></thead><tbody>
+<tr><td><kbd>; w</kbd></td><td>保存</td><td></td></tr>
+<tr><td><kbd>Alt q</kbd></td><td>关掉缓存页</td><td></td></tr>
+<tr><td><kbd>Alt ;</kbd></td><td>离开插入模式</td><td>只在插入模式有效</td></tr>
+</tbody></table>
+</div>
+<h2 id="others-1"><a class="header" href="#others-1">Others</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>键位</th><th>功能</th></tr></thead><tbody>
+<tr><td><kbd>Ctrl-z</kbd></td><td>撤回操作</td></tr>
+<tr><td><kbd>;</kbd></td><td>等同于 &quot;:&quot;</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="nvim-treelua"><a class="header" href="#nvim-treelua">nvim-tree.lua</a></h1>
+<p>nvim-tree 是一个小窗文件管理器，可以以树形态展示文件。</p>
+<h2 id="键位设置-1"><a class="header" href="#键位设置-1">键位设置</a></h2>
+<ul>
+<li>使用 <code>tt</code> 来启用/关闭 nvim-tree</li>
+<li>使用 <code>tr</code> 来刷新 nvim-tree 的文件</li>
+</ul>
 
                     </main>
 
