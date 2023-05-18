@@ -8,7 +8,7 @@ local function collect_plugins()
   local overlays = {
     "completion",
     "git",
-    "lsp",
+    "lang",
     "note",
     "tools",
     "treesitter",

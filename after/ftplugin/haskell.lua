@@ -2,4 +2,4 @@ if require("libs.cache")["haskell"] then
   return
 end
 
-require("lsp").start("hls", {})
+require("lang").run_lsp("hls", {})

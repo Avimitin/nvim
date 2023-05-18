@@ -8,7 +8,7 @@ if not opt.enable then
 end
 
 if opt.server == "tsserver" then
-  require("lsp.tsserver").setup(opt)
+  require("lang.tsserver").setup(opt)
 elseif opt.server == "denols" then
-  require("lsp.deno").setup()
+  require("lang.deno").setup()
 end

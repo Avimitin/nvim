@@ -1,6 +1,6 @@
 return {
   setup = function(opts)
-    require("lsp").start("tsserver", opts.config or {})
+    require("lang").run_lsp("tsserver", opts.config or {})
 
     local builtins = require("null-ls").builtins
     local sources = {}

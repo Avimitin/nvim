@@ -7,7 +7,7 @@ if not user_config.enable then
   return
 end
 
-local config = require("lsp.config")
+local config = require("lang.config")
 
 local is_nvim_config_dir = (vim.fn.getcwd()):find("nvim")
 
@@ -43,7 +43,7 @@ config.settings = {
   Lua = settings,
 }
 
-require("lsp").start(user_config.server, config)
+require("lang").run_lsp(user_config.server, config)
 
 -- End of LSP configuration --
 

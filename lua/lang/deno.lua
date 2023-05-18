@@ -108,7 +108,7 @@ function Export.setup()
 
   extra_config.on_attach = on_attach
 
-  require("lsp").start("denols", extra_config)
+  require("lang").run_lsp("denols", extra_config)
 end
 
 return Export

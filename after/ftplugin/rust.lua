@@ -10,7 +10,7 @@ end
 
 local on_lsp_attach = function(client, bufnr)
   -- setup lsp key mappings
-  require("lsp.keymaps")(client, bufnr)
+  require("lang.keymaps")(client, bufnr)
 
   -- create auto command to format on save
   vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -66,4 +66,4 @@ local opts = {
 }
 
 require("rust-tools").setup(opts)
-require("lspconfig")["rust_analyzer"].manager.try_add_wrapper()
+require("lspconfig")["rust_analyzer"].manager.try_add()
