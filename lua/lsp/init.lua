@@ -120,7 +120,7 @@ function export.start(server, extra)
 
   lspconfig[server].setup(config)
   -- manually setup because FileType event is behind BufReadPost event
-  lspconfig[server].manager.try_add_wrapper()
+  lspconfig[server].manager.try_add()
 end
 
 return export
