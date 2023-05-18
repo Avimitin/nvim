@@ -9,7 +9,7 @@ end
 
 local config = require("lsp.config")
 
-local is_nvim_config_dir = (vim.fn.getcwd()):find(vim.fn.stdpath("config"))
+local is_nvim_config_dir = (vim.fn.getcwd()):find("nvim")
 
 local settings = user_config.settings
 
