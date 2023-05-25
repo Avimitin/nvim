@@ -101,6 +101,10 @@ register("numToStr/Comment.nvim", {
   },
 })
 
+register("scalameta/nvim-metals", {
+  lazy = true,
+})
+
 local export = {}
 
 ---@param server string Server name
