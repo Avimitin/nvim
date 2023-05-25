@@ -52,6 +52,22 @@ local function override(colors)
     TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
     TelescopeTitle = { fg = theme.ui.special, bold = true },
     WinSeparator = { fg = default.sumiInk4 },
+    ["@text.title.1"] = {
+      fg = default.peachRed,
+      bold = true,
+    },
+    ["@text.title.2"] = {
+      fg = default.surimiOrange,
+      bold = true,
+    },
+    ["@text.title.3"] = {
+      fg = default.carpYellow,
+      bold = true,
+    },
+    ["@text.title"] = {
+      fg = default.crystalBlue,
+      bold = true,
+    },
     ["@text.reference"] = {
       fg = default.springBlue,
       italic = true,
