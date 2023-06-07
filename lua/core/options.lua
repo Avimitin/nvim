@@ -77,6 +77,12 @@ local options = {
   -- command line line-height property, set it to 0 to gain
   -- more compat UI
   ch = 0,
+  -- options to truncate hit-enter prompts causesd by file message
+  -- 1. "a": Use all abbreviations, such as truncate "Modified" to "[+]"
+  -- 2. "T": Truncate file message in the middle if it is too long
+  -- 3. "W": Do not show "written" or "[w]" when writing a file
+  -- 4. "F": Do not show file info when editing a file
+  shortmess = "aTWF"
 }
 
 local function ensure_cache(suffix)
@@ -102,8 +108,6 @@ if has_persist == 1 then
   options.undofile = true
   options.undodir = undo_dir
 end
-
-vim.opt.shortmess:append("cwm")
 
 -- first merge project local configuration
 options = vim.tbl_deep_extend("force", options, vim.cfg.core.options)
