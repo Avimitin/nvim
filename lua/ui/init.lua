@@ -53,34 +53,7 @@ register("lukas-reineke/indent-blankline.nvim", {
 register("rcarriga/nvim-notify", {
   event = "UIEnter",
   config = function()
-    vim.notify = function(msg, level, opts)
-      local function split_length(text, length)
-        local lines = {}
-        local next_line
-        while true do
-          if #text == 0 then
-            return lines
-          end
-          next_line, text = text:sub(1, length), text:sub(length)
-          lines[#lines + 1] = next_line
-        end
-      end
-
-      if type(msg) == "string" then
-        if msg:len() < 72 then
-          return require("notify")(msg, level, opts)
-        end
-        msg = vim.split(msg, "\n")
-      end
-      local truncated = {}
-      for _, line in ipairs(msg) do
-        local new_lines = split_length(line, 72)
-        for _, l in ipairs(new_lines) do
-          truncated[#truncated + 1] = l
-        end
-      end
-      return require("notify")(truncated, level, opts)
-    end
+    vim.notify = require("notify")
   end,
 })
 
@@ -185,5 +158,29 @@ register("stevearc/dressing.nvim", {
       require("lazy").load({ plugins = { "dressing.nvim" } })
       return vim.ui.input(...)
     end
+  end,
+})
+
+register("folke/noice.nvim", {
+  event = "VeryLazy",
+  config = function()
+    require("noice").setup({
+      lsp = {
+        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true,
+        },
+      },
+      -- you can enable a preset for easier configuration
+      presets = {
+        bottom_search = true, -- use a classic bottom cmdline for search
+        command_palette = true, -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = false, -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = false, -- add a border to hover docs and signature help
+      },
+    })
   end,
 })

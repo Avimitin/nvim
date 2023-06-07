@@ -26,6 +26,7 @@
   "neo-tree.nvim": { "branch": "v2.x", "commit": "8c89efb93b8383666a6f989762c2f610f5f2c930" },
   "neodim": { "branch": "master", "commit": "89c16fccccfdb5b7e6ad3a6e8286736debc11705" },
   "neogit": { "branch": "master", "commit": "4cebc271b13cb7af6b5a3e8ad76a356660c0c00c" },
+  "noice.nvim": { "branch": "main", "commit": "acf47e2b863eb20f177aa1bd5398041513e731e1" },
   "nui.nvim": { "branch": "main", "commit": "d5a82aae64426a805e19d8ef5a379292f9dc55d3" },
   "null-ls.nvim": { "branch": "main", "commit": "c89333e034a8daba654ebfcf9a4ec9f87765f01e" },
   "nvim-bufferline.lua": { "branch": "main", "commit": "02d795081e6a24ec1fd506c513491543793d0780" },
