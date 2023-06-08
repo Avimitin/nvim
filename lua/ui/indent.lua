@@ -30,6 +30,7 @@ require("indent_blankline").setup({
     "flutterToolsOutline",
     "lsp-installer",
     "hydra_hint",
+    "noice",
     "",
   },
   buftype_exclude = { "terminal" },

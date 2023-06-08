@@ -89,23 +89,6 @@ register("petertriho/nvim-scrollbar", {
   end,
 })
 
--- Spinner for LSP server setup progress
-register("j-hui/fidget.nvim", {
-  event = "User LspProgressUpdate",
-  config = function()
-    require("fidget").setup({
-      text = {
-        spinner = "dots",
-      },
-      source = {
-        ["null-ls"] = {
-          ignore = true,
-        },
-      },
-    })
-  end,
-})
-
 -- Dim the inactive variable/function
 register("zbirenbaum/neodim", {
   event = "LspAttach",
