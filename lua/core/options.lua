@@ -82,7 +82,7 @@ local options = {
   -- 2. "T": Truncate file message in the middle if it is too long
   -- 3. "W": Do not show "written" or "[w]" when writing a file
   -- 4. "F": Do not show file info when editing a file
-  shortmess = "aTWF"
+  shortmess = "aTWF",
 }
 
 local function ensure_cache(suffix)
