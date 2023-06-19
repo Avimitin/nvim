@@ -8,9 +8,9 @@ local function override(colors)
   if vim.cfg.ui.darker_background then
     if type(vim.cfg.ui.darker_background) == "string" then
       background = vim.cfg.ui.darker_background
+    else
+      background = "#0d1117"
     end
-
-    background = "#0d1117"
   end
 
   local overrides = {
