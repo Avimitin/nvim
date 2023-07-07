@@ -1,20 +1,5 @@
 local pack = require("pack").register
 
-pack("TimUntersberger/neogit", {
-  config = function()
-    require("neogit").setup({})
-  end,
-  keys = {
-    {
-      "<leader>gn",
-      function()
-        require("neogit").open()
-      end,
-      desc = "Open neogit",
-    },
-  },
-})
-
 pack("lewis6991/gitsigns.nvim", {
   lazy = true,
   init = function()

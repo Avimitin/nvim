@@ -22,14 +22,6 @@ register("jose-elias-alvarez/null-ls.nvim", {
   lazy = true,
 })
 
--- Pretty diagnostic quick fix panel
-register("folke/trouble.nvim", {
-  cmd = "TroubleToggle",
-  config = function()
-    require("trouble").setup({})
-  end,
-})
-
 -- Rust specific plugin
 register("simrat39/rust-tools.nvim", {
   lazy = true,
