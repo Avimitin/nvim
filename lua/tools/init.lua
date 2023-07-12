@@ -170,7 +170,7 @@ register("ggandor/leap.nvim", {
   },
   config = function()
     require("leap").add_default_mappings()
-    require('leap').opts.safe_labels = {}
+    require("leap").opts.safe_labels = {}
   end,
 })
 
