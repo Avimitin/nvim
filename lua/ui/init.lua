@@ -167,3 +167,7 @@ register("folke/noice.nvim", {
     })
   end,
 })
+
+register("rainbowhxch/beacon.nvim", {
+  event = "VeryLazy",
+})
