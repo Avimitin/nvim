@@ -18,7 +18,7 @@ return function(_, bufnr)
       desc = "Format code",
     },
 
-    { "gd", lspsaga("lsp_finder"), desc = "Find symbol" },
+    { "gd", lspsaga("finder"), desc = "Find symbol" },
     { "gp", lspsaga("peek_definition"), desc = "Peek definition" },
     { "gh", lspsaga("hover_doc"), desc = "Open document" },
     { "gr", lspsaga("rename"), desc = "Rename symbol" },
