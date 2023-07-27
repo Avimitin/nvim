@@ -25,7 +25,7 @@ register("MunifTanjim/nui.nvim", {
 })
 
 register("nvim-neo-tree/neo-tree.nvim", {
-  branch = "v2.x",
+  branch = "v3.x",
   config = function()
     vim.g.neo_tree_remove_legacy_commands = 1
 
@@ -66,8 +66,8 @@ register("nvim-neo-tree/neo-tree.nvim", {
   end,
   -- End of config
   keys = {
-    { "<leader>t", "<CMD>NeoTreeFocusToggle<CR>" },
-    { "<leader>fl", "<CMD>NeoTreeFloat<CR>" },
+    { "<leader>t", "<CMD>Neotree action=focus toggle=true reveal=true position=left<CR>" },
+    { "<leader>fl", "<CMD>Neotree source=filesystem reveal=true position=float<CR>" },
   },
   cmd = {
     "Neotree",
