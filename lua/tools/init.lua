@@ -323,3 +323,22 @@ register("Wansmer/treesj", {
     })
   end,
 })
+
+local function gen_spider_keys()
+  local keys = { "w", "e", "b" }
+  local final = {}
+  for _, k in ipairs(keys) do
+    table.insert(final, {
+      k,
+      function()
+        require("spider").motion(k)
+      end,
+      desc = "Spider motion "..k
+    })
+  end
+  return final
+end
+register("chrisgrieser/nvim-spider", {
+  keys = gen_spider_keys(),
+  lazy = true,
+})
