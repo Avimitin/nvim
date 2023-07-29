@@ -333,7 +333,7 @@ local function gen_spider_keys()
       function()
         require("spider").motion(k)
       end,
-      desc = "Spider motion "..k
+      desc = "Spider motion " .. k,
     })
   end
   return final

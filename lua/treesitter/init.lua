@@ -9,6 +9,7 @@ register("nvim-treesitter/nvim-treesitter", {
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "windwp/nvim-ts-autotag",
+    "hiphish/rainbow-delimiters.nvim",
     {
       "m-demare/hlargs.nvim",
       config = function()
