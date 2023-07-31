@@ -44,6 +44,20 @@ local function override(colors)
       fg = default.fujiWhite,
     },
     Pmenu = { bg = default.sumiInk3 },
+    -- depth 1
+    RainbowDelimiterRed = { fg = default.springViolet2 },
+    -- depth 2
+    RainbowDelimiterYellow = { fg = default.dragonBlue },
+    -- depth 3
+    RainbowDelimiterBlue = { fg = default.surimiOrange },
+    -- depth 4
+    RainbowDelimiterGreen = { fg = default.springGreen },
+    -- depth 5
+    RainbowDelimiterCyan = { fg = default.waveAqua2 },
+    -- depth 6
+    RainbowDelimiterOrange = { fg = default.springViolet1 },
+    -- depth 7
+    RainbowDelimiterViolet = { fg = default.springViolet2 },
     TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
     TelescopePreviewNormal = { bg = theme.ui.bg_dim },
     TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
