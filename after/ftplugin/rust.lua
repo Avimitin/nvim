@@ -13,7 +13,7 @@ local on_lsp_attach = function(client, bufnr)
   require("lang.keymaps")(client, bufnr)
 
   -- create auto command to format on save
-  vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     buffer = bufnr,
     desc = "Format Rust code on save",
     callback = function()
