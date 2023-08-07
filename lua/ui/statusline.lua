@@ -56,7 +56,7 @@ local checkwidth = function()
 end
 
 local function should_activate_lsp()
-  local clients = vim.lsp.get_active_clients()
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
   return checkwidth() and #clients ~= 0
 end
 
