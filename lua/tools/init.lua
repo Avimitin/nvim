@@ -84,7 +84,7 @@ register("nvim-telescope/telescope.nvim", {
     {
       "<leader>ff",
       function()
-        require("telescope.builtin").find_files(require("telescope.themes").get_ivy())
+        require("telescope.builtin").find_files(require("telescope.themes").get_ivy({ hidden = true }))
       end,
       desc = "Find file",
     },
