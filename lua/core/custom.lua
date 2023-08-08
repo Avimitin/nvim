@@ -7,36 +7,6 @@ local default = {
     -- Override options
     options = {},
 
-    disable_builtin_plugins = {
-      "gzip",
-      "zip",
-      "zipPlugin",
-      "tar",
-      "tarPlugin",
-      "getscript",
-      "getscriptPlugin",
-      "vimball",
-      "vimballPlugin",
-      "2html_plugin",
-      "matchit",
-      "matchparen",
-      "logiPat",
-      "rust_vim",
-      "rust_vim_plugin_cargo",
-      "rrhelper",
-      "netrw",
-      "netrwPlugin",
-      "netrwSettings",
-      "netrwFileHandlers",
-    },
-    disable_builtin_provider = {
-      "perl",
-      "node",
-      "ruby",
-      "python",
-      "python3",
-    },
-
     autocmd = {
       relative_number = false,
       terminal_auto_insert = true,
