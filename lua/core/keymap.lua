@@ -11,8 +11,6 @@ map_utils.nmap({
   { "L", "g_", desc = "Jump to beginning" },
   { "H", "^", desc = "Jump to end" },
   { "<C-z>", "u", desc = "Revert changes" },
-  { "<", "<<", desc = "Decrease indent" },
-  { ">", ">>", desc = "Increase indent" },
   { "<leader>w", cmd("w!"), desc = "Save buffer" },
   { "<ESC>", cmd("noh"), desc = "Close search highlight" },
   {
@@ -35,8 +33,9 @@ map_utils.xmap({
   { "K", "5k", desc = "Select 5 lines up" },
   { "L", "g_", desc = "Select to beginning" },
   { "H", "^", desc = "Select to end" },
-  { "<", "<gv", desc = "Increase indent" },
-  { ">", ">gv", desc = "Decrease indent" },
+  { "<C-z>", "<nop>", desc = "Revert changes" },
+  { "<tab>", ">gv", desc = "Increase indent" },
+  { "<s-tab>", "<gv", desc = "Decrease indent" },
 })
 
 map_utils.imap({
@@ -47,6 +46,7 @@ map_utils.imap({
   { "<C-f>", "<Right>", desc = "Go up one line" },
   { "<C-b>", "<Left>", desc = "Go up one line" },
   { "<C-n>", "<Down>", desc = "Go down one line" },
+  { "<C-z>", "<esc>ui", desc = "Revert changes" },
 })
 
 -- It is annoying to get escape code instead of space when I inputting capitalized English in terminal
