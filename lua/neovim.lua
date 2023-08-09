@@ -13,6 +13,13 @@ local function setup(passthru)
   lib.disable_builtin_plugins(passthru.option.disabled.builtin_plugins)
   lib.disable_builtin_providers(passthru.option.disabled.builtin_providers)
   lib.set_vim_opt(passthru.option.vim_options)
+
+  for fn, opt in pairs(passthru.autocmd) do
+    if opt.enable then
+      local autocmds = require("libs.autocmds")
+      autocmds[fn](opt)
+    end
+  end
 end
 
 return {
