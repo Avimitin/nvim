@@ -1,10 +1,9 @@
-local register = require("pack").register
-
-register("nvim-treesitter/nvim-treesitter", {
+return {
+  "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   event = "BufRead",
   config = function()
-    require("treesitter.config")
+    require("plugins.treesitter.config")
   end,
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
@@ -28,4 +27,4 @@ register("nvim-treesitter/nvim-treesitter", {
       end,
     },
   },
-})
+}

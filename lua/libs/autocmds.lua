@@ -68,7 +68,7 @@ function M.cd_project_root(opts)
   au({ "VimEnter" }, {
     pattern = { "*" },
     callback = function()
-      require("libs.find_root").find_root(vim.tbl_extend("force", {
+      require("libs.find_root").goto_root(vim.tbl_extend("force", {
         ".git",
         ".hg",
         ".svn",

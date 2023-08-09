@@ -14,12 +14,16 @@ local function setup(passthru)
   lib.disable_builtin_providers(passthru.option.disabled.builtin_providers)
   lib.set_vim_opt(passthru.option.vim_options)
 
+  -- setup auto commands
   for fn, opt in pairs(passthru.autocmd) do
     if opt.enable then
       local autocmds = require("libs.autocmds")
       autocmds[fn](opt)
     end
   end
+
+  -- load plugins
+  lib.load_plugins(passthru.plugins)
 end
 
 return {

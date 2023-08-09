@@ -1,6 +1,43 @@
 local cmp = require("cmp")
-local override = vim.cfg.completion
-local kind_icons = vim.cfg.icons
+local override = {
+  keymap = {
+    scroll_up = "<C-u>",
+    scroll_down = "<C-d>",
+    abort = "<C-c>",
+    confirm = "<CR>",
+    select_next = "<Tab>",
+    select_prev = "<S-Tab>",
+  },
+}
+local kind_icons = {
+  -- Completion menu, Symbol outlines...
+  Text = "",
+  Method = "",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "ﴯ",
+  Interface = "",
+  Module = "",
+  Property = "ﰠ",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
+  Vim = "",
+}
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))

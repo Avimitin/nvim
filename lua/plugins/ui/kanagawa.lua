@@ -4,14 +4,7 @@ local function override(colors)
   local default = colors.palette
   local theme = colors.theme
 
-  local background = default.sumiInk1
-  if vim.cfg.ui.darker_background then
-    if type(vim.cfg.ui.darker_background) == "string" then
-      background = vim.cfg.ui.darker_background
-    else
-      background = "#0d1117"
-    end
-  end
+  local background = "#010409"
 
   local overrides = {
     CmpDocumentation = { link = "Pmenu" },
