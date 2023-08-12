@@ -12,12 +12,19 @@
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        overlay = import ./overlay.nix;
+        overlay = import ./nix/overlay.nix;
         pkgs = import nixpkgs { inherit system; overlays = [ overlay ]; };
       in
       {
         devShells.default = pkgs.mkShell {
-          buildInputs = [ pkgs.luajitPackages.fennel pkgs.luajitPackages.readline pkgs.fennel-ls pkgs.fnlfmt ];
+          buildInputs = with pkgs; [
+            fennel-ls               # Fennel LSP Server
+            fnlfmt                  # Fennel format
+            luajitPackages.fennel   # Compiler
+            luajitPackages.readline # Fennel REPL enhanced
+            nil                     # Nix LSP Server
+            ruby                    # Build script
+          ];
         };
 
         formatter = pkgs.nixpkgs-fmt;
