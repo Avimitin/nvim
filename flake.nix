@@ -13,11 +13,11 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         overlay = import ./overlay.nix;
-        pkgs = import nixpkgs { inherit system;  overlays = [overlay]; };
+        pkgs = import nixpkgs { inherit system; overlays = [ overlay ]; };
       in
       {
         devShells.default = pkgs.mkShell {
-          buildInputs = [ pkgs.luajitPackages.fennel pkgs.fennel-ls ];
+          buildInputs = [ pkgs.luajitPackages.fennel pkgs.luajitPackages.readline pkgs.fennel-ls pkgs.fnlfmt ];
         };
 
         formatter = pkgs.nixpkgs-fmt;
