@@ -1,33 +1,28 @@
-(local keymapper (require :lib.keymapper))
-
-(lambda setup_with [option]
-  ;; setup key mapping
-  (keymapper.setup_keymap option.keymap)
-  ;; setup vim option & disable built-in
-  (let [lib (require :lib)]
-    (lib.set_vim_opts (require :opt))
-    (lib.disable_builtin {:plugins [:gzip
-                                    :zip
-                                    :zipPlugin
-                                    :tar
-                                    :tarPlugin
-                                    :getscript
-                                    :getscriptPlugin
-                                    :vimball
-                                    :vimballPlugin
-                                    :2html_plugin
-                                    :matchit
-                                    :matchparen
-                                    :logiPat
-                                    :rust_vim
-                                    :rust_vim_plugin_cargo
-                                    :rrhelper
-                                    :netrw
-                                    :netrwPlugin
-                                    :netrwSettings
-                                    :netrwFileHandlers]
-                          :providers [:perl :node :ruby :python :python3]})
-    (values true))
+(lambda set_vim_opts [opts]
+  (each [k v (pairs opts)]
+    (tset vim.opt k v))
   nil)
 
-{: setup_with}
+(lambda disable_builtin [spec]
+  (each [_ plug (ipairs spec.plugins)]
+    (tset vim.g (.. :loaded_ plug) 1))
+  (each [_ prov (ipairs spec.providers)]
+    (tset vim.g (.. :loaded_ prov :_provider) 1)))
+
+(lambda setup []
+  ;; setup key mapping
+  (let [keymapper (require :core.keymapper)]
+    (keymapper.setup_keymap (require :keymap)))
+  ;; setup vim option & disable built-in
+  (let [vimopt (require :opt)]
+    (set_vim_opts vimopt.vimopt)
+    (disable_builtin vimopt.disable_builtins))
+  ;; setup vim auto commands
+  (let [au vim.api.nvim_create_autocmd]
+    (each [_ spec (ipairs (require :autocmd))]
+      au
+      (?. spec :event)
+      (?. spec :option)))
+  nil)
+
+{: setup}

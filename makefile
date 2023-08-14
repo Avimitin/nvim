@@ -1,7 +1,7 @@
 build:
 	@ruby build.rb
 
-fnlfmt:
+fmt:
 	@find . -type f -name '*.fnl' -exec fnlfmt --fix {} \;
 
 test:
