@@ -26,6 +26,38 @@ register("MunifTanjim/nui.nvim", {
 
 register("nvim-neo-tree/neo-tree.nvim", {
   branch = "v3.x",
+  init = function ()
+    vim.api.nvim_create_autocmd("VimEnter", {
+      pattern = "*",
+      callback = function ()
+        if vim.fn.argc() == 0 then
+          vim.cmd("Neotree position=current")
+          return
+        end
+
+        local first_arg = vim.fn.argv(0)
+        if not first_arg or #first_arg == 0 then
+          vim.cmd("Neotree position=current")
+          return
+        end
+
+        vim.loop.fs_stat(
+          first_arg,
+          vim.schedule_wrap(function(err, stat)
+            if err then
+              return
+            end
+
+            if stat.type ~= "directory" then
+              return
+            end
+
+            vim.cmd("Neotree "..first_arg)
+          end)
+        )
+      end
+    })
+  end,
   config = function()
     vim.g.neo_tree_remove_legacy_commands = 1
 
