@@ -26,10 +26,10 @@ register("MunifTanjim/nui.nvim", {
 
 register("nvim-neo-tree/neo-tree.nvim", {
   branch = "v3.x",
-  init = function ()
+  init = function()
     vim.api.nvim_create_autocmd("VimEnter", {
       pattern = "*",
-      callback = function ()
+      callback = function()
         if vim.fn.argc() == 0 then
           vim.cmd("Neotree position=current")
           return
@@ -52,10 +52,10 @@ register("nvim-neo-tree/neo-tree.nvim", {
               return
             end
 
-            vim.cmd("Neotree "..first_arg)
+            vim.cmd("Neotree " .. first_arg)
           end)
         )
-      end
+      end,
     })
   end,
   config = function()

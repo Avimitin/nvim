@@ -10,7 +10,8 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
-      in {
+      in
+      {
         devShells.default = pkgs.mkShell {
           buildInputs = [
             pkgs.neovim
