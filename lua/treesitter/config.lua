@@ -1,7 +1,5 @@
 require("nvim-treesitter.configs").setup({
-  -- packer compile is compiled without runtime context, so here we must give it
-  -- the full path to the treesitter ft function for evaluating the filetype
-  ensure_installed = vim.cfg.treesitter.ensure_installed,
+  auto_install = false;
   highlight = {
     enable = true,
   },
