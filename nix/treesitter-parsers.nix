@@ -1,8 +1,29 @@
-{ fetchFromGitHub, callPackage, writeTextFile }:
+{ fetchFromGitHub, callPackage, writeTextFile, lib }:
 let
-  mkTreesitter = callPackage ./treesitter.nix {};
+  mkTreesitter = callPackage ./treesitter.nix { };
 in
 {
+  # Nix black magic to get OOP-like object method, this will return a list of tree-sitter parser derivation instead of key-value pair.
+  #
+  # Example:
+  #
+  # ```nix
+  # parsers = pkgs.callPackage ./treesitter-parsers.nix {};
+  # drvs = parsers [ "bash" "nix" ]; // => drvs is now a list with only bash and nix treesitter parser derivation.
+  # ```
+  #
+  # @param: langs [ string ] A list to specify what derivations will be return. Empty list means return all.
+  __functor = with builtins;
+    self: langs: lib.pipe self [
+      (lib.filterAttrs (_: lib.isDerivation))
+      (lib.filterAttrs (k: _:
+        if (length langs == 0) then
+          true
+        else
+          any (wanted: k == wanted) langs))
+      lib.attrValues
+    ];
+
   bash = mkTreesitter {
     lang = "bash";
     src = fetchFromGitHub {

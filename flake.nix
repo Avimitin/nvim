@@ -20,15 +20,12 @@
         };
 
         formatter = pkgs.nixpkgs-fmt;
-        packages.treesitter-parsers = let
-          lib = pkgs.lib;
-          parsersAttrSet = pkgs.callPackage ./nix/treesitter-parsers.nix {};
-          allParsers = lib.pipe parsersAttrSet [
-            (lib.filterAttrs (_: lib.isDerivation))
-            lib.attrValues
-          ];
-          toNvimPlug = pkgs.callPackage ./nix/set-rtp.nix {};
-        in
-          toNvimPlug "treesitter-parsers" allParsers;
+        packages.treesitter-parsers =
+          let
+            lib = pkgs.lib;
+            parsersAttrSet = pkgs.callPackage ./nix/treesitter-parsers.nix { };
+            toNvimPlug = pkgs.callPackage ./nix/set-rtp.nix { };
+          in
+          toNvimPlug "treesitter-parsers" (parsersAttrSet [ ]);
       });
 }

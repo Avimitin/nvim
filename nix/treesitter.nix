@@ -1,4 +1,4 @@
-{ lib, stdenv, nodejs, tree-sitter}:
+{ lib, stdenv, nodejs, tree-sitter }:
 
 
 { lang, src, version, needs_generate ? false, srcRoot ? null }:
