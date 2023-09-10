@@ -126,7 +126,7 @@ in
     srcRoot = "tree-sitter-markdown";
   };
   markdown_inline = mkTreesitter {
-    lang = "markdown-inline";
+    lang = "markdown_inline";
     src = fetchFromGitHub {
       owner = "MDeiml";
       repo = "tree-sitter-markdown";
