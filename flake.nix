@@ -22,7 +22,6 @@
         formatter = pkgs.nixpkgs-fmt;
         packages.treesitter-parsers =
           let
-            lib = pkgs.lib;
             parsersAttrSet = pkgs.callPackage ./nix/treesitter-parsers.nix { };
             toNvimPlug = pkgs.callPackage ./nix/set-rtp.nix { };
           in
