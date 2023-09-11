@@ -116,7 +116,8 @@ function export.run_lsp(server, extra)
 
   lspconfig[server].setup(config)
   -- manually setup because FileType event is behind BufReadPost event
-  lspconfig[server].manager.try_add()
+  local bufnr = vim.api.nvim_get_current_buf()
+  lspconfig[server].manager.try_add(bufnr, nil)
 end
 
 return export
