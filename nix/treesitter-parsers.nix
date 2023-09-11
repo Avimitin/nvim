@@ -39,8 +39,8 @@ in
     src = fetchFromGitHub {
       owner = "tree-sitter";
       repo = "tree-sitter-c";
-      rev = "a2b7bac3b313efbaa683d9a276ff63cdc544d960";
-      sha256 = "sha256-39i06oXMQemfq3Y4TTXai6HFXvURVOif1v2i9LP4sAI=";
+      rev = "39bea7d391f57c5f0e061419e1c3066e03eb14b3";
+      sha256 = "sha256-0iE7dRvouBZuVliWCuuM81CBlPndHR+qFEX8UnOSKWg=";
     };
     version = "v0.20.6";
   };
