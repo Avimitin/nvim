@@ -1,7 +1,3 @@
-if require("libs.cache")["scala"] then
-  return
-end
-
 local scala_config = require("metals").bare_config()
 scala_config.settings = {
   showImplicitArguments = true,
