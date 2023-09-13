@@ -11,7 +11,7 @@ map_utils.nmap({
   { "L", "g_", desc = "Jump to beginning" },
   { "H", "^", desc = "Jump to end" },
   { "<C-z>", "u", desc = "Revert changes" },
-  { "<leader>w", cmd("w!"), desc = "Save buffer" },
+  { "<leader>w", cmd("silent w!"), desc = "Save buffer" },
   { "<ESC>", cmd("noh"), desc = "Close search highlight" },
   {
     "<leader>q",
