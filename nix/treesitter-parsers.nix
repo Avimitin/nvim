@@ -4,12 +4,12 @@ let
 
   nvimTreesitterLockFile =
     let
-      rev = "9ab4e9cc8989e3811b14897cd0eb21ae35e5541e";
+      rev = "v0.9.1";
     in
     fetchurl {
       name = "nvim-treesitter-parser-lock-${rev}.json";
       url = "https://raw.githubusercontent.com/nvim-treesitter/nvim-treesitter/${rev}/lockfile.json";
-      hash = "sha256-woiNNmu7MnAnqbaGmZITy9kkawPr9CRYtdQMjeEbAmA=";
+      hash = "sha256-T41dX7aQio+yqGDWBgHhtjLWqRdcFrVCcKgvb8bsYFg=";
     };
   nvimTreesitterLock = lib.importJSON "${nvimTreesitterLockFile}";
 
@@ -29,12 +29,20 @@ let
 
       # markdown_inline is vendored in tree-sitter-markdown repo
       lang = if src_rename ? "${spec.lang}" then src_rename.${spec.lang} else spec.lang;
-    in
-    fetchFromGitHub (rec {
-      repo = "tree-sitter-${lang}";
       rev = nvimTreesitterLock.${lang}.revision;
+      shortrev = lib.pipe rev [
+          lib.stringToCharacters
+          (lib.sublist 0 7)
+          lib.concatStrings
+        ];
+    in
+    fetchFromGitHub ({
+      repo = "tree-sitter-${lang}";
+      inherit rev;
       # Specify source name to trigger rebuild when version changed
-      name = "tree-sitter-${lang}-${rev}-src";
+      name = "tree-sitter-${lang}-${shortrev}-src";
+
+      passthru = { inherit shortrev; };
     }
     // (removeAttrs spec [ "lang" "repo" "rev" ]));
 in
@@ -64,41 +72,41 @@ in
     lang = "bash";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
-      sha256 = "sha256-zkhCk19kd/KiqYTamFxui7KDE9d+P9pLjc1KVTvYPhI=";
+      sha256 = "sha256-ueZjazaqjbxqCM7mO8h9m0fJ6RUCaX4MuJx7StnPqyc=";
 
       inherit lang;
     };
-    version = "0.20.0+rev=bdcd56c";
+    version = "v0.9.1-compatible+rev=${src.passthru.shortrev}";
   };
   c = mkTreesitter rec{
     lang = "c";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
-      sha256 = "sha256-39i06oXMQemfq3Y4TTXai6HFXvURVOif1v2i9LP4sAI=";
+      sha256 = "sha256-5n9ZnslpUWyusWTo+AqJiPGB64NB0rTbc2rtfByPUC8=";
 
       inherit lang;
     };
-    version = "v0.20.6";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
   };
   cpp = mkTreesitter rec{
     lang = "cpp";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
-      sha256 = "sha256-e9Mz84lssaPR80hlogyjXx+jA8gD8YVp4T06qC6gRVI=";
+      sha256 = "sha256-/w77s0qcJcLH6MX3BVuM37UQ1Xm/6t2oJ2KTq+hnIJI=";
 
       inherit lang;
     };
-    version = "0.20.3+rev=a90f170";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
   };
   css = mkTreesitter rec{
     lang = "css";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
-      sha256 = "sha256-f3+pvJtULuJ6SHcmrMYyvreSAeEsq3L2+5V3dhloaj8=";
+      sha256 = "sha256-HBCxnetErHqhSJeEIHFTaSqt8aJgJ4+OOgw8p+NDVDo=";
 
       inherit lang;
     };
-    version = "0.0.0+rev=fec7d37";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
   };
   diff = mkTreesitter rec{
     lang = "diff";
@@ -108,7 +116,7 @@ in
 
       inherit lang;
     };
-    version = "0.0.0+rev=fec7d37";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
   };
   firrtl = mkTreesitter rec{
     lang = "firrtl";
@@ -118,7 +126,7 @@ in
 
       inherit lang;
     };
-    version = "0.0.0+rev=2b5adae";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
   };
   gitcommit = mkTreesitter rec{
     lang = "gitcommit";
@@ -128,27 +136,27 @@ in
 
       inherit lang;
     };
-    version = "0.0.0+rev=6856a5f";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
   };
   llvm = mkTreesitter rec{
     lang = "llvm";
     src = fetchTSFromGitHub {
       owner = "benwilliamgraham";
-      sha256 = "sha256-9OCiD7Hotl7EYoggX0lArwFvK2OZisBUsX7xv8+Ig+o=";
+      sha256 = "sha256-CK7f0qSAsec2cuQElXLFRQ5uiQLGCyEpNIKTIDwbBrU=";
 
       inherit lang;
     };
-    version = "0.0.0+rev=1b96e58";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
   };
   lua = mkTreesitter rec{
     lang = "lua";
     src = fetchTSFromGitHub {
       owner = "MunifTanjim";
-      sha256 = "sha256-5t5w8KqbefInNbA12/jpNzmky/uOUhsLjKdEqpl1GEc=";
+      sha256 = "sha256-GrRHbNVKijYNeICeopVW6OtHquqKhKtDDa7dK5sEMNQ=";
 
       inherit lang;
     };
-    version = "0.0.19+rev=9668709";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
   };
   markdown = mkTreesitter rec{
     lang = "markdown";
@@ -158,7 +166,7 @@ in
 
       inherit lang;
     };
-    version = "0.1.6+rev=aaf7679";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
     srcRoot = "tree-sitter-markdown";
   };
   markdown_inline = mkTreesitter rec{
@@ -169,12 +177,12 @@ in
 
       inherit lang;
     };
-    version = "0.1.6+rev=aaf7679";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
     srcRoot = "tree-sitter-markdown-inline";
   };
   mlir = mkTreesitter rec{
     lang = "mlir";
-    version = "e2053f7c";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
     src = fetchTSFromGitHub {
       owner = "artagnon";
       sha256 = "sha256-u41Qyyu9bNbcAjfTUoq2W2LvfqPpJ62xzaaAg3VbTsA=";
@@ -185,7 +193,7 @@ in
   };
   ocaml = mkTreesitter rec{
     lang = "ocaml";
-    version = "0.20.4";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
       sha256 = "sha256-j3Hv2qOMxeBNOW+WIgIYzG3zMIFWPQpoHe94b2rT+A8=";
@@ -196,7 +204,7 @@ in
   };
   ocaml_interface = mkTreesitter rec{
     lang = "ocaml_interface";
-    version = "0.20.4";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
       sha256 = "sha256-j3Hv2qOMxeBNOW+WIgIYzG3zMIFWPQpoHe94b2rT+A8=";
@@ -207,7 +215,7 @@ in
   };
   regex = mkTreesitter rec{
     lang = "regex";
-    version = "0.0.0+rev=2354482";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
       sha256 = "sha256-X4iQ60LgiVsF0rtinVysX16d6yFjaSmwwndP2L5cuqw=";
@@ -217,7 +225,7 @@ in
   };
   ruby = mkTreesitter rec{
     lang = "ruby";
-    version = "0.0.0+rev=f257f3f5";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
       sha256 = "sha256-0EaU9O67faGwtO1GIxjK4Uv1etd0p1vtfrVB3d6TDF8=";
@@ -227,20 +235,20 @@ in
   };
   rust = mkTreesitter rec{
     lang = "rust";
-    version = "0.0.0+rev=17a6b15";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
-      sha256 = "sha256-seWoMuA87ZWCq3mUXopVeDCcTxX/Bh+B4PFLVa0CBQA=";
+      sha256 = "sha256-CrNY+4nsYQOzzVR7X+yuo4+5s6K3VHtVQyWfledKJ1U=";
 
       inherit lang;
     };
   };
   scala = mkTreesitter rec{
     lang = "scala";
-    version = "0.0.0+rev=70afdd56";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
-      sha256 = "sha256-bi0Lqo/Zs2Uaz1efuKAARpEDg5Hm59oUe7eSXgL1Wow=";
+      sha256 = "sha256-SRj4iF1qS2jEFaIkRfXzAmzG7jKeSzKv5/GdXKbKRjU";
 
       inherit lang;
     };
@@ -253,7 +261,7 @@ in
 
       inherit lang;
     };
-    version = "0.0.0+rev=66e3e9c";
+    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
   };
 
   passthru = {

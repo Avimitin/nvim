@@ -6,5 +6,5 @@ let
     concatStringsSep "," (map toString drvs);
 in
 writeText "set-rtp-for-${name}.lua" ''
-  vim.opt.rtp:append("${runtimePath}")
+  vim.opt.rtp:prepend("${runtimePath}")
 ''
