@@ -36,6 +36,41 @@ See [Docs](https://avimitin.github.io/nvim).
 
 See [document](./lua/core/README.md)
 
+## Treesitter
+
+To make treesitter compatible with the stable neovim, and to make the share library compilation process reproducible and clean,
+this configuration uses nix package manager to manage the treesitter parser plugin.
+The flake output provides package `treesitter-parsers` to modify the neovim runtime path to point to this parser plugin.
+To use it, you can use home-manager to help you put this package into neovim's data directory.
+
+- Example home-manager configuration:
+
+```nix
+# This can help auto load
+xdg.dataFile = {
+    nvim-treesitter-parsers = {
+        source = nvim-flake.packages."x86_64-linux".treesitter-parsers;
+        target = "nvim/siter/plugin/treesitter-parsers.lua";
+    };
+}
+```
+
+You can also filter parsers by their name: here `parsers` is a callable attribute, and invoke it with an array can filter data inside it.
+
+```nix
+xdg.dataFile = {
+    nvim-treesitter-parsers = {
+      source = let
+        parsers = pkgs.callPackage ./nix/treesitter-parsers.nix {};
+        toNvimPlug = pkgs.callPackage ./nix/set-rtp.nix {};
+      in
+        # And now, only "bash" and "lua" plugin will be prepended into neovim runtime path
+        toNvimPlug "treesitter-parsers" (parsers [ "bash" "lua" ]);
+      target = "nvim/site/plugin/treesitter-parsers.lua";
+    };
+}
+```
+
 ## Gallery
 
 <details>
