@@ -1,9 +1,9 @@
 { lib, stdenv, nodejs, tree-sitter }:
 
 
-{ lang, src, version, needs_generate ? false, srcRoot ? null }:
+{ name, src, version, needs_generate ? false, srcRoot ? null }:
 stdenv.mkDerivation {
-  pname = "tree-sitter-${lang}";
+  pname = "tree-sitter-${name}";
   inherit src version;
 
   nativeBuildInputs = lib.optionals needs_generate [ nodejs tree-sitter ];
@@ -35,7 +35,7 @@ stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
     mkdir -p $out/parser
-    mv parser $out/parser/${lang}.so
+    mv parser $out/parser/${name}.so
     runHook postInstall
   '';
 }
