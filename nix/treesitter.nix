@@ -3,7 +3,7 @@
 
 { lang, src, version, needs_generate ? false, srcRoot ? null }:
 stdenv.mkDerivation {
-  pname = "treesitter-${lang}";
+  pname = "tree-sitter-${lang}";
   inherit src version;
 
   nativeBuildInputs = lib.optionals needs_generate [ nodejs tree-sitter ];
@@ -36,9 +36,6 @@ stdenv.mkDerivation {
     runHook preInstall
     mkdir -p $out/parser
     mv parser $out/parser/${lang}.so
-    if [[ -d queries ]]; then
-      cp -r queries $out
-    fi
     runHook postInstall
   '';
 }
