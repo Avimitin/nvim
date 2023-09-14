@@ -2,13 +2,10 @@
 let
   mkTreesitter = callPackage ./treesitter.nix { };
 
-  nvimTreesitterLockFile =
-    let
-      rev = "v0.9.1";
-    in
-    fetchurl {
-      name = "nvim-treesitter-parser-lock-${rev}.json";
-      url = "https://raw.githubusercontent.com/nvim-treesitter/nvim-treesitter/${rev}/lockfile.json";
+  nvimTSRev = "v0.9.1";
+  nvimTreesitterLockFile = fetchurl {
+      name = "nvim-treesitter-parser-lock-${nvimTSRev}.json";
+      url = "https://raw.githubusercontent.com/nvim-treesitter/nvim-treesitter/${nvimTSRev}/lockfile.json";
       hash = "sha256-T41dX7aQio+yqGDWBgHhtjLWqRdcFrVCcKgvb8bsYFg=";
     };
   nvimTreesitterLock = lib.importJSON "${nvimTreesitterLockFile}";
@@ -76,7 +73,7 @@ in
 
       inherit lang;
     };
-    version = "v0.9.1-compatible+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compatible+rev=${src.passthru.shortrev}";
   };
   c = mkTreesitter rec{
     lang = "c";
@@ -86,7 +83,7 @@ in
 
       inherit lang;
     };
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
   };
   cpp = mkTreesitter rec{
     lang = "cpp";
@@ -96,7 +93,7 @@ in
 
       inherit lang;
     };
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
   };
   css = mkTreesitter rec{
     lang = "css";
@@ -106,7 +103,7 @@ in
 
       inherit lang;
     };
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
   };
   diff = mkTreesitter rec{
     lang = "diff";
@@ -116,7 +113,7 @@ in
 
       inherit lang;
     };
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
   };
   firrtl = mkTreesitter rec{
     lang = "firrtl";
@@ -126,7 +123,7 @@ in
 
       inherit lang;
     };
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
   };
   gitcommit = mkTreesitter rec{
     lang = "gitcommit";
@@ -136,7 +133,7 @@ in
 
       inherit lang;
     };
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
   };
   llvm = mkTreesitter rec{
     lang = "llvm";
@@ -146,7 +143,7 @@ in
 
       inherit lang;
     };
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
   };
   lua = mkTreesitter rec{
     lang = "lua";
@@ -156,7 +153,7 @@ in
 
       inherit lang;
     };
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
   };
   markdown = mkTreesitter rec{
     lang = "markdown";
@@ -166,7 +163,7 @@ in
 
       inherit lang;
     };
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
     srcRoot = "tree-sitter-markdown";
   };
   markdown_inline = mkTreesitter rec{
@@ -177,12 +174,12 @@ in
 
       inherit lang;
     };
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
     srcRoot = "tree-sitter-markdown-inline";
   };
   mlir = mkTreesitter rec{
     lang = "mlir";
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
     src = fetchTSFromGitHub {
       owner = "artagnon";
       sha256 = "sha256-u41Qyyu9bNbcAjfTUoq2W2LvfqPpJ62xzaaAg3VbTsA=";
@@ -193,7 +190,7 @@ in
   };
   ocaml = mkTreesitter rec{
     lang = "ocaml";
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
       sha256 = "sha256-j3Hv2qOMxeBNOW+WIgIYzG3zMIFWPQpoHe94b2rT+A8=";
@@ -204,7 +201,7 @@ in
   };
   ocaml_interface = mkTreesitter rec{
     lang = "ocaml_interface";
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
       sha256 = "sha256-j3Hv2qOMxeBNOW+WIgIYzG3zMIFWPQpoHe94b2rT+A8=";
@@ -215,7 +212,7 @@ in
   };
   regex = mkTreesitter rec{
     lang = "regex";
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
       sha256 = "sha256-X4iQ60LgiVsF0rtinVysX16d6yFjaSmwwndP2L5cuqw=";
@@ -225,7 +222,7 @@ in
   };
   ruby = mkTreesitter rec{
     lang = "ruby";
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
       sha256 = "sha256-0EaU9O67faGwtO1GIxjK4Uv1etd0p1vtfrVB3d6TDF8=";
@@ -235,7 +232,7 @@ in
   };
   rust = mkTreesitter rec{
     lang = "rust";
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
       sha256 = "sha256-CrNY+4nsYQOzzVR7X+yuo4+5s6K3VHtVQyWfledKJ1U=";
@@ -245,7 +242,7 @@ in
   };
   scala = mkTreesitter rec{
     lang = "scala";
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
     src = fetchTSFromGitHub {
       owner = "tree-sitter";
       sha256 = "sha256-SRj4iF1qS2jEFaIkRfXzAmzG7jKeSzKv5/GdXKbKRjU";
@@ -261,7 +258,7 @@ in
 
       inherit lang;
     };
-    version = "v0.9.1-compat+rev=${src.passthru.shortrev}";
+    version = "${nvimTSRev}-compat+rev=${src.passthru.shortrev}";
   };
 
   passthru = {
