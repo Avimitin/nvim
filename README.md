@@ -71,6 +71,15 @@ xdg.dataFile = {
 }
 ```
 
+To add more language parser, you can attach more parser at the end of the [nix file](./nix/treesitter-parsers.nix).
+The array expect the argument in this form: `[{ name: xxx; hash: xxx; }, ...]`,
+where:
+
+  - name string: The name of the language
+  - hash string: The input hash, you can leave it blank and wait for nix hash report the correct hash
+  - needs_generate bool: When true, tree-sitter CLI will be used to generate the parser.
+  - srcRoot string: Specify where the parser source located. Some repository will vendor two or more parser source code in one repository.
+
 ## Gallery
 
 <details>

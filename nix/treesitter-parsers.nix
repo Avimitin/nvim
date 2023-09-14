@@ -1,11 +1,15 @@
-{ fetchurl, callPackage, lib, stdenv }:
+{ fetchurl, callPackage, lib }:
 let
   mkTreesitter = callPackage ./treesitter.nix { };
 
   nvimTSRev = "v0.9.1";
   nvimTreesitterParserInfoFile = callPackage ./nvim-treesitter-parsers-info.nix { expect-version = nvimTSRev; };
+  # Get parser information from nvim-treesitter's lockfile.json
   parsers-info = lib.importJSON "${nvimTreesitterParserInfoFile}";
 
+  # Use the information from nvim-treesitter to fetch the source.
+  # This function will inject the source and version information to the pass-in parameter and eliminate the `hash` attribute.
+  # For example: { name = ..; hash = ...; srcRoot = ...; } => { name = ...; srcRoot = ...; src = ...; version = ...; }
   convertInfoToParserSrc = { name, hash, ... } @ input:
     assert lib.assertMsg
       (parsers-info ? "${name}")
@@ -28,6 +32,32 @@ let
     # Remove the hash attr in case some unexpected things happen
     removeAttrs (input // override) [ "hash" ];
 
+  # Convert the name and hash attrsets to derivation sets.
+  #
+  # Expect the argument in this form: [ { name: xxx; hash: xxx; }, { ... } ],
+  #   where:
+  #     - name string: The name of the language
+  #     - hash string: The input hash, you can leave it blank and wait for nix hash report the correct hash
+  #     - needs_generate bool: When true, tree-sitter CLI will be used to generate the parser.
+  #     - srcRoot string: Specify where the parser source located. Some repository will vendor two or more parser source code in one repository.
+  #
+  # The input list will be finally generated into a attrset where key is the language name, and value is the parser derivation.
+  #  [ { name: xxx; hash: xxx; }, { ... } ] => { nameA: <derivationA>; nameB: <derivationB>; }
+  #
+  # The return attrset support filtering by calling itself with a list argument.
+  # For example, if the return attrset have three language parser, "bash", "lua" and "rust":
+  #
+  # ```nix
+  # parsers.bash # => derivation
+  # parsers.lua # => derivation
+  #
+  # let filteredParsers = parsers [ "rust" ] in
+  #   parsers.rust # => derivation
+  #   parsers ? "bash" # => false
+  # ```
+  #
+  # NOTICE: The returning value is a really hacky nix expression. It is a set when you use `.` to get its member,
+  # but it will be a function when you give or not given parameter to it.
   parserGen = with builtins; langSpecList:
     assert lib.assertMsg (typeOf langSpecList == "list" && length langSpecList > 0) "Expect a list";
     assert lib.assertMsg (all (lang: lang ? "name" && lang ? "hash") langSpecList) "Each item in list must have attr name and hash";
