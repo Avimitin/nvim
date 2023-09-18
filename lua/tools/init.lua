@@ -41,6 +41,11 @@ register("nvim-neo-tree/neo-tree.nvim", {
           return
         end
 
+        if first_arg == '-' then
+          -- This is stdin, do nothing
+          return
+        end
+
         vim.loop.fs_stat(
           first_arg,
           vim.schedule_wrap(function(err, stat)
