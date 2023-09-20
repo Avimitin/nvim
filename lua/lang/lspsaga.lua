@@ -9,9 +9,20 @@ saga.setup({
     scroll_down = "<C-d>",
     scroll_up = "<C-u>",
   },
+  definition = {
+    keys = {
+      edit = "<CR>",
+      split = "s",
+      vsplit = "v",
+      close = "<C-c>",
+    }
+  },
   finder = {
-    default = "def+ref+imp",
+    default = "ref+imp",
     silent = true,
+    keys = {
+      toggle_or_open = "<CR>",
+    },
   },
   -- same as nvim-lightbulb but async
   lightbulb = {
