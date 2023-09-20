@@ -24,11 +24,10 @@ return function(_, bufnr)
     { "gr", lspsaga("rename"), desc = "Rename symbol" },
     { "ga", lspsaga("code_action"), desc = "Open code action" },
     { "go", lspsaga("show_line_diagnostics"), desc = "Show diagnostics" },
-    { "gO", lspsaga("outline"), desc = "Open code outline" },
-    { "gT", lspsaga("peek_type_definition"), desc = "Peek type definition" },
+    -- gO: Open Symbols, define in neotree
+    { "gt", lspsaga("peek_type_definition"), desc = "Peek type definition" },
     { "[d", lspsaga("diagnostic_jump_prev"), desc = "Jump to previous error" },
     { "]d", lspsaga("diagnostic_jump_next"), desc = "Jump to next error" },
-    { "gt", "<CMD>TroubleToggle<CR>", desc = "Open quickfix" },
     {
       "gl",
       function()
