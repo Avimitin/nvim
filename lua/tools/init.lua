@@ -35,14 +35,9 @@ register("nvim-neo-tree/neo-tree.nvim", {
           return
         end
 
+        -- User might using stdin
         local first_arg = vim.fn.argv(0)
-        if not first_arg or #first_arg == 0 then
-          vim.cmd("Neotree position=current")
-          return
-        end
-
-        if first_arg == "-" then
-          -- This is stdin, do nothing
+        if not first_arg or #first_arg == 0 or first_arg == "-" then
           return
         end
 
@@ -50,6 +45,7 @@ register("nvim-neo-tree/neo-tree.nvim", {
           first_arg,
           vim.schedule_wrap(function(err, stat)
             if err then
+              vim.notify("Unexpected file handle error from neo-tree: "..err, vim.log.levels.ERROR)
               return
             end
 
