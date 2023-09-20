@@ -45,7 +45,10 @@ register("nvim-neo-tree/neo-tree.nvim", {
           first_arg,
           vim.schedule_wrap(function(err, stat)
             if err then
-              vim.notify("Unexpected file handle error from neo-tree: "..err, vim.log.levels.ERROR)
+              vim.notify(
+                "Unexpected file handle error from neo-tree: " .. err,
+                vim.log.levels.ERROR
+              )
               return
             end
 
@@ -81,13 +84,21 @@ register("nvim-neo-tree/neo-tree.nvim", {
       },
       window = {
         width = 28,
-      }
+      },
     })
   end,
   -- End of config
   keys = {
-    { "<leader>t", "<CMD>Neotree action=focus toggle=true reveal=true position=left<CR>", desc = "Open file tree" },
-    { "gO", "<CMD>Neotree action=focus toggle=true source=document_symbols position=float<CR>", desc = "View document symbols" }
+    {
+      "<leader>t",
+      "<CMD>Neotree action=focus toggle=true reveal=true position=left<CR>",
+      desc = "Open file tree",
+    },
+    {
+      "gO",
+      "<CMD>Neotree action=focus toggle=true source=document_symbols position=float<CR>",
+      desc = "View document symbols",
+    },
   },
   cmd = {
     "Neotree",
@@ -118,7 +129,9 @@ register("nvim-telescope/telescope.nvim", {
     {
       "<leader>fs",
       function()
-        require("telescope.builtin").lsp_dynamic_workspace_symbols(require("telescope.themes").get_ivy())
+        require("telescope.builtin").lsp_dynamic_workspace_symbols(
+          require("telescope.themes").get_ivy()
+        )
       end,
       desc = "Find symbol",
     },
@@ -131,11 +144,17 @@ register("nvim-telescope/telescope.nvim", {
     },
     {
       "<leader>fp",
-      function ()
-        require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({ sort_mru = true, show_all_buffers = false, previewer = false }))
+      function()
+        require("telescope.builtin").buffers(
+          require("telescope.themes").get_dropdown({
+            sort_mru = true,
+            show_all_buffers = false,
+            previewer = false,
+          })
+        )
       end,
       desc = "Select buffer",
-    }
+    },
   },
 })
 

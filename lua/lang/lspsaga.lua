@@ -15,7 +15,7 @@ saga.setup({
       split = "s",
       vsplit = "v",
       close = "<C-c>",
-    }
+    },
   },
   finder = {
     default = "ref+imp",
