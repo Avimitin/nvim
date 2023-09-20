@@ -1,6 +1,6 @@
 require("bufferline").setup({
   options = {
-    offsets = { { filetype = "NvimTree", text = " Explorer", padding = 1 } },
+    offsets = { { filetype = "neo-tree", text = " NeoTree" } },
     buffer_close_icon = "",
     modified_icon = "",
     close_icon = "",
