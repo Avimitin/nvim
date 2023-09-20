@@ -41,7 +41,7 @@ register("nvim-neo-tree/neo-tree.nvim", {
           return
         end
 
-        if first_arg == '-' then
+        if first_arg == "-" then
           -- This is stdin, do nothing
           return
         end
@@ -115,7 +115,12 @@ register("nvim-neo-tree/neo-tree.nvim", {
 register("nvim-telescope/telescope.nvim", {
   lazy = true,
   config = function()
-    require("tools.telescope")
+    require("telescope").setup({
+      defaults = {
+        prompt_prefix = "  ",
+        entry_prefix = "  ",
+      },
+    })
   end,
   keys = {
     {
@@ -128,14 +133,14 @@ register("nvim-telescope/telescope.nvim", {
       desc = "Find file",
     },
     {
-      "<leader>fd",
+      "<leader>fs",
       function()
-        require("telescope.builtin").lsp_document_symbols(require("telescope.themes").get_ivy())
+        require("telescope.builtin").lsp_dynamic_workspace_symbols(require("telescope.themes").get_ivy())
       end,
       desc = "Find symbol",
     },
     {
-      "<leader>fs",
+      "<leader>fg",
       function()
         require("telescope.builtin").live_grep(require("telescope.themes").get_ivy())
       end,
