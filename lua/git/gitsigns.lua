@@ -72,11 +72,8 @@ require("gitsigns").setup({
       gs.blame_line({ full = true })
     end, { desc = "Open git blame panel" })
     map("n", "<leader>gb", gs.toggle_current_line_blame, { desc = "Enter line blame mode" })
-    map("n", "<leader>gd", gs.diffthis, { desc = "Open diff" })
-    map("n", "<leader>gD", function()
-      gs.diffthis("~")
-    end, { desc = "Diff all" })
-    map("n", "<leader>gt", gs.toggle_deleted, { desc = "Toggle deleted line" })
+    map("n", "<leader>gD", gs.diffthis, { desc = "Open diff" })
+    map("n", "<leader>gd", gs.toggle_deleted, { desc = "Toggle deleted line" })
 
     -- Text object
     map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Select hunk" })
