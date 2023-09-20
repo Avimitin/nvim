@@ -8,10 +8,7 @@ local exepath = vim.fn.exepath("metals")
 if not exepath or exepath == "" then
   return
 end
-if vim.env["NIX_STORE"] then
-  scala_config.settings.metalsBinaryPath = exepath
-end
-
+scala_config.settings.metalsBinaryPath = exepath
 scala_config.capabilities = require("lang.config").capabilities
 scala_config.on_attach = function(client, bufnr)
   -- require("metals").setup_dap()
