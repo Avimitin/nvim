@@ -30,14 +30,12 @@ register("nvim-neo-tree/neo-tree.nvim", {
     vim.api.nvim_create_autocmd("VimEnter", {
       pattern = "*",
       callback = function()
+        -- User might using stdin
         if vim.fn.argc() == 0 then
-          vim.cmd("Neotree position=current")
           return
         end
-
-        -- User might using stdin
         local first_arg = vim.fn.argv(0)
-        if not first_arg or #first_arg == 0 or first_arg == "-" then
+        if not first_arg or #first_arg == 0 or (first_arg[1] == "-" or first_arg[1] == "+") then
           return
         end
 
