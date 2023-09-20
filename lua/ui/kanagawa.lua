@@ -58,12 +58,14 @@ local function override(colors)
     RainbowDelimiterOrange = { fg = default.springViolet1 },
     -- depth 7
     RainbowDelimiterViolet = { fg = default.springViolet2 },
+    TelescopePromptNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
+    TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+    TelescopePromptTitle = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
     TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
     TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-    TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-    TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-    TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-    TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+    TelescopeResultsBorder = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
+    TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_dim },
+    TelescopeResultsTitle = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
     TelescopeTitle = { fg = theme.ui.special, bold = true },
     WinSeparator = { fg = default.sumiInk4 },
     ["@text.title.1"] = {

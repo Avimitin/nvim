@@ -105,6 +105,18 @@ register("nvim-neo-tree/neo-tree.nvim", {
   },
 })
 
+local function my_ivy(opt)
+  local my_opt = {
+    borderchars = {
+      prompt = { " " },
+      results = { " " },
+      preview = { " " },
+    },
+  }
+  local exted = vim.tbl_deep_extend("force", my_opt, opt or {})
+  return require("telescope.themes").get_ivy(exted)
+end
+
 -- Fuzzy Picker
 register("nvim-telescope/telescope.nvim", {
   lazy = true,
@@ -131,30 +143,29 @@ register("nvim-telescope/telescope.nvim", {
             return require("telescope.builtin").find_files(opt)
           end
         end
-        my_find_file(require("telescope.themes").get_ivy({ hidden = true }))
+
+        my_find_file(my_ivy({ hidden = true }))
       end,
       desc = "Find file",
     },
     {
       "<leader>fs",
       function()
-        require("telescope.builtin").lsp_dynamic_workspace_symbols(
-          require("telescope.themes").get_ivy()
-        )
+        require("telescope.builtin").lsp_dynamic_workspace_symbols(my_ivy())
       end,
       desc = "Find symbol",
     },
     {
       "<leader>fg",
       function()
-        require("telescope.builtin").live_grep(require("telescope.themes").get_ivy())
+        require("telescope.builtin").live_grep(my_ivy())
       end,
       desc = "Find keyword",
     },
     {
       "<leader>fp",
       function()
-        require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({
+        require("telescope.builtin").buffers(my_ivy({
           sort_mru = true,
           show_all_buffers = false,
           previewer = false,
