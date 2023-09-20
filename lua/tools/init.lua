@@ -80,27 +80,14 @@ register("nvim-neo-tree/neo-tree.nvim", {
         "notify",
       },
       window = {
-        width = 30,
-        mappings = {
-          ["<Tab>"] = "next_source",
-          ["<S-Tab>"] = "prev_source",
-        },
-      },
-      source_selector = {
-        winbar = true,
-        statusline = false,
-        sources = {
-          { source = "filesystem" },
-          { source = "git_status" },
-          { source = "document_symbols" },
-        },
-      },
+        width = 28,
+      }
     })
   end,
   -- End of config
   keys = {
-    { "<leader>t", "<CMD>Neotree action=focus toggle=true reveal=true position=left<CR>" },
-    { "<leader>fl", "<CMD>Neotree source=filesystem reveal=true position=float<CR>" },
+    { "<leader>t", "<CMD>Neotree action=focus toggle=true reveal=true position=left<CR>", desc = "Open file tree" },
+    { "gO", "<CMD>Neotree action=focus toggle=true source=document_symbols position=float<CR>", desc = "View document symbols" }
   },
   cmd = {
     "Neotree",
