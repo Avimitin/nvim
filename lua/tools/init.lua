@@ -120,9 +120,18 @@ register("nvim-telescope/telescope.nvim", {
     {
       "<leader>ff",
       function()
-        require("telescope.builtin").find_files(
-          require("telescope.themes").get_ivy({ hidden = true })
-        )
+        local function my_find_file(opt)
+          if not vim.b._is_inside_git_worktree then
+            vim.fn.system("git rev-parse --is-inside-work-tree")
+            vim.b._is_inside_git_worktree = vim.v.shell_error == 0
+          end
+          if vim.b._is_inside_git_worktree then
+            return require("telescope.builtin").git_files(opt)
+          else
+            return require("telescope.builtin").find_files(opt)
+          end
+        end
+        my_find_file(require("telescope.themes").get_ivy({ hidden = true }))
       end,
       desc = "Find file",
     },
@@ -145,13 +154,11 @@ register("nvim-telescope/telescope.nvim", {
     {
       "<leader>fp",
       function()
-        require("telescope.builtin").buffers(
-          require("telescope.themes").get_dropdown({
-            sort_mru = true,
-            show_all_buffers = false,
-            previewer = false,
-          })
-        )
+        require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({
+          sort_mru = true,
+          show_all_buffers = false,
+          previewer = false,
+        }))
       end,
       desc = "Select buffer",
     },
