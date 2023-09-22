@@ -43,10 +43,6 @@ register("nvim-neo-tree/neo-tree.nvim", {
           first_arg,
           vim.schedule_wrap(function(err, stat)
             if err then
-              vim.notify(
-                "Unexpected file handle error from neo-tree: " .. err,
-                vim.log.levels.ERROR
-              )
               return
             end
 
