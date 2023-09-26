@@ -6,7 +6,7 @@ stdenv.mkDerivation {
     owner = "nvim-treesitter";
     repo = "nvim-treesitter";
     rev = expect-version;
-    hash = "sha256-1Iuvq0hVQ7LyBYOkJ5d07NkwbGcR1K61ZZmAAA7ABGs=";
+    hash = "sha256-IpeC/GSvm3k/wsg4Tm8+wIIwvmk3fTtj+z7qL2a3cog=";
   };
   nativeBuildInputs = [ neovim ];
   buildPhase = ''

@@ -1,3 +1,6 @@
+set -e
+set -o pipefail
+
 NIX_FILE="./nix/treesitter-parsers.nix"
 NIX_EXPR_PREFIX="with import <nixpkgs> {}; with builtins; let parsers = callPackage $NIX_FILE {}; in"
 

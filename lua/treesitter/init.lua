@@ -1,7 +1,6 @@
 local register = require("pack").register
 
 register("nvim-treesitter/nvim-treesitter", {
-  tag = "v0.9.1",
   event = "BufRead",
   config = function()
     require("treesitter.config")

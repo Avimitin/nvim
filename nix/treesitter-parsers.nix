@@ -1,9 +1,8 @@
 { fetchurl, callPackage, lib }:
 let
-  mkTreesitter = callPackage ./treesitter.nix { };
+  treesitterRevision = "f3fb301b267e85e4cbc725561da4a82b1c3089c8";
 
-  nvimTSRev = "v0.9.1";
-  nvimTreesitterParserInfoFile = callPackage ./nvim-treesitter-parsers-info.nix { expect-version = nvimTSRev; };
+  nvimTreesitterParserInfoFile = callPackage ./nvim-treesitter-parsers-info.nix { expect-version = treesitterRevision; };
   # Get parser information from nvim-treesitter's lockfile.json
   parsers-info = lib.importJSON "${nvimTreesitterParserInfoFile}";
 
@@ -13,7 +12,7 @@ let
   convertInfoToParserSrc = { name, hash, ... } @ input:
     assert lib.assertMsg
       (parsers-info ? "${name}")
-      "Language '${name}' is not supported by nvim-treesitter ${nvimTSRev} yet";
+      "Language '${name}' is not supported by nvim-treesitter ${treesitterRevision} yet";
 
     let
       url = parsers-info.${name}.url;
@@ -26,7 +25,7 @@ let
 
           inherit hash;
         };
-        version = "${nvimTSRev}-compat+rev=${shortrev}";
+        version = "${treesitterRevision}-compat+rev=${shortrev}";
       };
     in
     # Remove the hash attr in case some unexpected things happen
@@ -63,6 +62,7 @@ let
     assert lib.assertMsg (all (lang: lang ? "name" && lang ? "hash") langSpecList) "Each item in list must have attr name and hash";
 
     let
+      mkTreesitter = callPackage ./treesitter.nix { };
       parserSet = lib.pipe langSpecList [
         # First, convert those JSON informantion into treesitter source code
         (map convertInfoToParserSrc)
@@ -96,19 +96,19 @@ let
     };
 in
 parserGen [
-  { name = "bash"; hash = "sha256-c8nj3vGbJA+0/ihvY5r3YpHS7wl5nJHH8hGBHCuoTtk="; }
-  { name = "c"; hash = "sha256-EcoCzM1Xj85B98jQpLdo87A214ALYkL9pGAnVHkTshc="; }
-  { name = "cpp"; hash = "sha256-QjrOx1nhkvpOepAv7Pe5hAvG6vbsVYcDAv5RvMY4xZ0="; }
-  { name = "css"; hash = "sha256-I/0deODp7hJHkVIOpzNNbl2fvGIRGTpM+31TOUwrHMU="; }
+  { name = "bash"; hash = "sha256-QQmgtC/1/8ps3tPl9X3z/sVQSlGW5h+DC364LBjLbWQ="; }
+  { name = "c"; hash = "sha256-h2ucwhwxTmv/RB/j5OwUbS6M18dNvmHqpYKrnP2pEMQ="; }
+  { name = "cpp"; hash = "sha256-WGGrXFiSFUsha4Xz48MD8wEGXznGNG5E7CPdOZPCJ/Y="; }
+  { name = "css"; hash = "sha256-AaOsj7Ia89R9f2gRxFq+9Y3pam+4eYbsU6Yd4+N3b6Q="; }
   { name = "diff"; hash = "sha256-0DMJCM0ps+oDyz4IzOPuI92lzDQMaq4trGos16WJQBc="; }
   { name = "firrtl"; hash = "sha256-X//iBrCi4sYgqNubUrnXCRoKBOUMsgS4u9yht7ioucA="; }
   { name = "gitcommit"; hash = "sha256-f7tSOL6/s+FAt3siH+eO63jXzbU79yh78QfHHvmBFbE="; }
-  { name = "llvm"; hash = "sha256-6nZI8pZfY6REpYb1ppweWlX8u1C7EwtJa429eCTNtm8="; }
-  { name = "lua"; hash = "sha256-JmHPy4L/A5BNJPoQraGxc4Xikq8440GoldBrw+m0ayg="; }
+  { name = "llvm"; hash = "sha256-c63jN6pyIssjthp+3f5pYWMwUq+usjhlP2lF/zVNdc8="; }
+  { name = "lua"; hash = "sha256-ZocgN+GD7FOv/a2QuX8EoxwJ3MZCBnT2Y6Kv4jOvYy0="; }
   { name = "regex"; hash = "sha256-Y6A1YqbjItM4V5lQ7IM8EMa+nm6v+p/DHYSEVnF29ac="; }
   { name = "ruby"; hash = "sha256-RaxVKNoIaDj6tMi63ERmeRmq5yHlWL9/u2v6XpMsK/g="; }
-  { name = "rust"; hash = "sha256-CGEGO57nI11LetbOclMYYfVxu8o+VC3MGk7Lhe2Ueyk="; }
-  { name = "scala"; hash = "sha256-3f6wMT4d9a4N9MP8j9+SXJdLJN4oilY01N3LTpRjRO4="; }
+  { name = "rust"; hash = "sha256-g/AJGKg/8KGgcIJZChb9cIP/zvS1JIcUEZRxBL0x2nY="; }
+  { name = "scala"; hash = "sha256-2zmNRTey8cFrK9Kx4PrJnhMXFwX7HZj32GGeplJuiDc="; }
   { name = "nix"; hash = "sha256-rzrxcqcc7V+6pgdZ8Q/3VJd5/Oa58AtKKfoC3MBcirs="; }
   {
     name = "markdown";
