@@ -17,3 +17,17 @@ scala_config.on_attach = function(client, bufnr)
 end
 
 require("metals").initialize_or_attach(scala_config)
+
+-- I don't know why scala treesitter highlight won't update in time, so here is a trivial fix to trigger highlight render each time editing is done.
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "*.scala", "*.sc" },
+  callback = function(ev)
+    vim.treesitter.start(ev.buf, "scala")
+  end,
+})
+vim.api.nvim_create_autocmd("InsertLeave", {
+  pattern = { "*.scala", "*.sc" },
+  callback = function(ev)
+    vim.treesitter.start(ev.buf, "scala")
+  end,
+})
