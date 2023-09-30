@@ -231,7 +231,7 @@ register("ggandor/leap.nvim", {
     "S",
     { "s", mode = "x" },
     { "S", mode = "x" },
-    { "gj", require("tools.line_leap").leap_to_line, desc = "Leap to line" },
+    { "<space>", require("tools.line_leap").leap_to_line, desc = "Leap to line" },
   },
   config = function()
     require("leap").add_default_mappings()
