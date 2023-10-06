@@ -64,6 +64,11 @@ you want to jump into. Use `gs` to start all window search.
 
 ## Character match based cursor movement
 
-Sometime you might want to jump between text pair, like from character `(` to next `)`. You can use key `,` to trigger this action.
+Sometime you might want to jump between text pair, like from character `(` to next `)`. You can use key `%` to trigger this action.
 Currently it support `()`, `[]`, `<>`, `{}`. If you are writing code, it even support `if/end`, `function/end`, `if/else`......
 You can see [treesitter](./treesitter.md) section to learn how to enable this feature.
+
+## Easy line jump
+
+You can press `<space>` in normal mode to trigger line jump. The character display on number line indicate the key you need to
+click to go to the line. Those character with blue blackground needs you to press `<space>` again to trigger.
