@@ -23,4 +23,7 @@ local cmd = require("libs.keymap").wrap_cmd
 require("libs.keymap").nmap({
   { "<Tab>", cmd("BufferLineCycleNext"), desc = "Goto next buffer" },
   { "<S-Tab>", cmd("BufferLineCyclePrev"), desc = "Goto previous buffer" },
+  { "<A-p>", cmd("BufferLinePick"), desc = "Pick a buffer" },
+  { "<<", cmd("BufferLineMovePrev"), desc = "Move current buffer to previous one" },
+  { ">>", cmd("BufferLineMoveNext"), desc = "Move current buffer to previous one" },
 })

@@ -156,17 +156,6 @@ register("nvim-telescope/telescope.nvim", {
       end,
       desc = "Find keyword",
     },
-    {
-      "<leader>fp",
-      function()
-        require("telescope.builtin").buffers(my_ivy({
-          sort_mru = true,
-          show_all_buffers = false,
-          previewer = false,
-        }))
-      end,
-      desc = "Select buffer",
-    },
   },
 })
 
