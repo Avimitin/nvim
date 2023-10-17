@@ -66,4 +66,4 @@ local opts = {
 }
 
 require("rust-tools").setup(opts)
-require("lspconfig")["rust_analyzer"].manager.try_add()
+require("lspconfig")["rust_analyzer"].manager:try_add()
