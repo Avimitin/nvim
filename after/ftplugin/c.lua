@@ -1,4 +1,4 @@
-if require("libs.cache")["clang_lsp_cpp"] then
+if require("libs.cache")["clang_lsp_c"] then
   return
 end
 
