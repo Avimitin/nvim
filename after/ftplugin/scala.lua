@@ -9,6 +9,14 @@ if not exepath or exepath == "" then
   return
 end
 scala_config.settings.metalsBinaryPath = exepath
+
+local exepath = vim.fn.exepath("mill")
+if not exepath or exepath == "" then
+  vim.notify("mill not found", vim.log.levels.ERROR)
+  return
+end
+
+scala_config.settings.millScript = exepath
 scala_config.capabilities = require("lang.config").capabilities
 scala_config.on_attach = function(client, bufnr)
   -- require("metals").setup_dap()
