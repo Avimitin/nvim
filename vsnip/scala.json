@@ -6,6 +6,13 @@
       "define($2, ProbeValue($1))${0}"
     ]
   },
+  "define probe": {
+    "prefix": "defprobe",
+    "body": [
+      "val $2: $3 = IO(Output(Probe(chiselTypeOf($1))))",
+      "define($2, ProbeValue($1))$0"
+    ]
+  },
   "dpiin": {
     "prefix": "dpiBool",
     "body": "val $1 = dpiIn(\"$1\", Input(Bool()))$0"
