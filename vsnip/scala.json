@@ -1,0 +1,21 @@
+{
+  "probe": {
+    "prefix": "probeBool",
+    "body": [
+      "val $2 = IO(Output(Probe(Bool())))",
+      "define($2, ProbeValue($1))${0}"
+    ]
+  },
+  "dpiin": {
+    "prefix": "dpiBool",
+    "body": "val $1 = dpiIn(\"$1\", Input(Bool()))$0"
+  },
+  "zipWithIndex": {
+    "prefix": "zipWithIndex",
+    "body": [
+      "zipWithIndex.$1 {",
+      "  case(data, index) => $0",
+      "}"
+    ]
+  }
+}

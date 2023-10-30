@@ -19,7 +19,7 @@ register("hrsh7th/nvim-cmp", {
     {
       "hrsh7th/vim-vsnip",
       init = function()
-        vim.g.vsnip_snippet_dir = vim.fn.expand("~/.config/nvim/vsnip")
+        vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/vsnip"
       end,
     },
     "hrsh7th/cmp-vsnip",
