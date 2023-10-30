@@ -1,27 +1,31 @@
 {
   "probe": {
-    "prefix": "probeBool",
+    "prefix": "probebool",
     "body": [
-      "val $2 = IO(Output(Probe(Bool())))",
-      "define($2, ProbeValue($1))${0}"
+      "val ${1}Probe = IO(Output(Probe(Bool())))",
+      "define(${1}Probe, ProbeValue($1))${0}"
     ]
   },
   "define probe": {
     "prefix": "defprobe",
     "body": [
-      "val $2: $3 = IO(Output(Probe(chiselTypeOf($1))))",
-      "define($2, ProbeValue($1))$0"
+      "val ${1}Probe: $2 = IO(Output(Probe(chiselTypeOf($1))))",
+      "define(${1}Probe, ProbeValue($1))$0"
     ]
   },
   "dpiin": {
-    "prefix": "dpiBool",
+    "prefix": "dpin",
     "body": "val $1 = dpiIn(\"$1\", Input(Bool()))$0"
+  },
+  "bore": {
+    "prefix": "boread",
+    "body": "read(bore($1))$0"
   },
   "zipWithIndex": {
     "prefix": "zipWithIndex",
     "body": [
-      "zipWithIndex.$1 {",
-      "  case(data, index) => $0",
+      "zipWithIndex.$1 { case(data, index) =>",
+      "  $0",
       "}"
     ]
   }
