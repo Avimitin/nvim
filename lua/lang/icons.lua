@@ -31,7 +31,6 @@ function Export.setup()
     local hl = "DiagnosticSign" .. diag_type
     vim.fn.sign_define(hl, {
       text = "",
-      texthl = hl,
       numhl = hl,
       linehl = hl,
     })

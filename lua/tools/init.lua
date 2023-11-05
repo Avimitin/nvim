@@ -79,6 +79,31 @@ register("nvim-neo-tree/neo-tree.nvim", {
       window = {
         width = 28,
       },
+      default_component_configs = {
+        diagnostics = {
+          symbols = {
+            error = "",
+            warn = "",
+            hint = "",
+            info = "",
+          },
+        },
+        git_status = {
+          symbols = {
+            -- I don't need change type
+            added     = "",
+            deleted   = "",
+            modified  = "",
+            renamed   = "",
+            -- Status type
+            untracked = "",
+            ignored   = "",
+            unstaged  = "",
+            staged    = "",
+            conflict  = "",
+          }
+        }
+      }
     })
   end,
   -- End of config
