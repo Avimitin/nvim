@@ -91,19 +91,19 @@ register("nvim-neo-tree/neo-tree.nvim", {
         git_status = {
           symbols = {
             -- I don't need change type
-            added     = "",
-            deleted   = "",
-            modified  = "",
-            renamed   = "",
+            added = "",
+            deleted = "",
+            modified = "",
+            renamed = "",
             -- Status type
             untracked = "",
-            ignored   = "",
-            unstaged  = "",
-            staged    = "",
-            conflict  = "",
-          }
-        }
-      }
+            ignored = "",
+            unstaged = "",
+            staged = "",
+            conflict = "",
+          },
+        },
+      },
     })
   end,
   -- End of config
