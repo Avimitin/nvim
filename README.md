@@ -137,14 +137,6 @@ where:
 |-------------------------------------------------|
 | ![lsp-diagnostic](./docs/images/diagnostic.png) |
 
-| Debug CPP                               |
-|-----------------------------------------|
-| ![cpp](./docs/images/dap-debug-cpp.png) |
-
-| Debug Rust                                |
-|-------------------------------------------|
-| ![Rust](./docs/images/dap-debug-rust.png) |
-
 | Code navigate                          |
 |----------------------------------------|
 | ![Navigate](./docs/images/def-ref.png) |
