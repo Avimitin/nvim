@@ -97,6 +97,38 @@ register("scalameta/nvim-metals", {
   lazy = true,
 })
 
+register("stevearc/conform.nvim", {
+  ft = { "lua", "javascript", "nix" },
+  config = function()
+    require("conform").setup({
+      formatters_by_ft = {
+        lua = { "stylua" },
+        -- Use a sub-list to run only the first available formatter
+        javascript = { { "prettierd", "prettier" } },
+        nix = { "flake-fmt" },
+      },
+      formatters = {
+        ["flake-fmt"] = {
+          command = "nix",
+          args = { "fmt", "$FILENAME" },
+          stdin = false,
+          condition = function()
+            vim.fn.system({ "nix", "flake", "metadata" })
+            return vim.v.shell_error == 0
+          end,
+        },
+      },
+    })
+
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      pattern = { "*.lua", "*.javascript", "*.nix" },
+      callback = function(args)
+        require("conform").format({ bufnr = args.buf })
+      end,
+    })
+  end,
+})
+
 local export = {}
 
 ---@param server string Server name

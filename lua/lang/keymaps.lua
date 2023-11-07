@@ -13,7 +13,7 @@ return function(_, bufnr)
     {
       "gf",
       function()
-        vim.lsp.buf.format({ async = true })
+        require("conform").format({ bufnr = bufnr })
       end,
       desc = "Format code",
     },

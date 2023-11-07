@@ -26,7 +26,7 @@ if is_nvim_config_dir then
     workspace = {
       library = {
         vim.env.VIMRUNTIME,
-        vim.env.HOME .. "/.local/share/nvim/lazy/emmylua-nvim",
+        vim.fn.stdpath("data") .. "/lazy/emmylua-nvim",
       },
       checkThirdParty = false,
     },
@@ -46,10 +46,3 @@ config.settings = {
 require("lang").run_lsp(user_config.server, config)
 
 -- End of LSP configuration --
-
--- Use stylua as default code formatter
-if user_config.stylua then
-  require("null-ls").setup({
-    sources = require("null-ls").builtins.formatting.stylua,
-  })
-end
