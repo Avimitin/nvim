@@ -336,37 +336,33 @@ register("uga-rosa/ccc.nvim", {
 -- Multiple Cursor
 register("mg979/vim-visual-multi", {
   keys = {
-    "un",
+    "<leader>mn",
     "<C-down>",
     "<C-up>",
-    "uA",
-    "ux",
-    { mode = "x", "ux" },
-    { mode = "x", "uA" },
-    { mode = "x", "ua" },
-    { mode = "x", "uf" },
-    { mode = "x", "uc" },
+    "<leader>mA",
+    "<leader>mx",
+    { mode = "x", "<leader>mx" },
+    { mode = "x", "<leader>mA" },
+    { mode = "x", "<leader>ma" },
+    { mode = "x", "<leader>mf" },
+    { mode = "x", "<leader>mc" },
   },
   init = function()
-    -- remove the original key mappings. It is mapped to <C-z> already
-    vim.keymap.set("n", "u", "<nop>")
-    vim.keymap.set("x", "u", "<nop>")
-
     -- then, update the visual multi key mappings
     vim.g.VM_maps = {
-      ["Find Under"] = "un",
-      ["Find Subword Under"] = "un",
+      ["Find Under"] = "<leader>mn",
+      ["Find Subword Under"] = "<leader>mn",
       ["Select Cursor Down"] = "<C-down>",
       ["Select Cursor Up"] = "<C-up>",
-      ["Select All"] = "uA",
       ["Undo"] = "<C-z>",
       ["Redo"] = "<C-r>",
-      ["Start Regex Search"] = "ux",
-      ["Visual Regex"] = "ux",
-      ["Visual All"] = "uA",
-      ["Visual Add"] = "ua",
-      ["Visual Find"] = "uf",
-      ["Visual Cursors"] = "uc",
+      ["Select All"] = "<leader>mA",
+      ["Start Regex Search"] = "<leader>mx",
+      ["Visual Regex"] = "<leader>mx",
+      ["Visual All"] = "<leader>mA",
+      ["Visual Add"] = "<leader>ma",
+      ["Visual Find"] = "<leader>mf",
+      ["Visual Cursors"] = "<leader>mc",
     }
   end,
 })
