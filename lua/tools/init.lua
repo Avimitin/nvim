@@ -241,15 +241,27 @@ register("kylechui/nvim-surround", {
 -- Quick moving by two character searching
 register("ggandor/leap.nvim", {
   keys = {
-    "s",
-    "S",
-    { "s", mode = "x" },
-    { "S", mode = "x" },
-    { "<space>", require("tools.line_leap").leap_to_line, desc = "Leap to line" },
+    {
+      "J",
+      require("tools.line_leap").leap_to_line,
+      mode = { "n", "x", "o" },
+      desc = "Leap to line",
+    },
+    {
+      "K",
+      require("tools.line_leap").leap_to_line,
+      mode = { "n", "x", "o" },
+      desc = "Leap to line",
+    },
+    { "s", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+    { "S", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+    { "x", "<Plug>(leap-forward-till)", mode = { "x", "o" }, desc = "Leap forward until" },
+    { "X", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "Leap backward until" },
+    { "gw", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from window" },
+    { "gW", "<Plug>(leap-cross-window)", mode = { "n", "x", "o" }, desc = "Leap cross window" },
   },
   config = function()
-    require("leap").add_default_mappings()
-    require("leap").opts.safe_labels = {}
+    vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
   end,
 })
 

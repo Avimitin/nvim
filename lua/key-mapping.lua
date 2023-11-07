@@ -8,8 +8,6 @@ keymapper.mk_keymap({
   normal = {
     { "j", "v:count == 0 ? 'gj' : 'j'", desc = "Go display lines downward", expr = true },
     { "k", "v:count == 0 ? 'gk' : 'k'", desc = "Go display lines upward", expr = true },
-    { "J", "5j", desc = "Jump 5 lines down" },
-    { "K", "5k", desc = "Jump 5 lines up" },
     { "L", "g_", desc = "Jump to beginning" },
     { "H", "^", desc = "Jump to end" },
     { "<C-z>", "u", desc = "Revert changes" },
@@ -26,8 +24,6 @@ keymapper.mk_keymap({
     { "<C-p>", [["+p]], desc = "paste" },
   },
   selection = {
-    { "J", "5j", desc = "Select 5 lines down" },
-    { "K", "5k", desc = "Select 5 lines up" },
     { "L", "g_", desc = "Select to beginning" },
     { "H", "^", desc = "Select to end" },
     { "<C-z>", "<nop>", desc = "Revert changes" },
