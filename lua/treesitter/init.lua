@@ -22,7 +22,7 @@ register("nvim-treesitter/nvim-treesitter", {
       config = function()
         require("illuminate").configure({
           -- no more regex
-          providers = { "treesitter", "lsp" },
+          providers = { "regex" },
         })
       end,
     },
