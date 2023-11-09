@@ -113,8 +113,20 @@ register("stevearc/conform.nvim", {
           args = { "fmt", "$FILENAME" },
           stdin = false,
           condition = function()
-            vim.fn.system({ "nix", "flake", "metadata" })
-            return vim.v.shell_error == 0
+            local output = vim.fn.system({ "nix", "flake", "metadata", "--json" })
+            if vim.v.shell_error ~= 0 then
+              return false
+            end
+
+            local j = vim.json.decode(output)
+            if
+              j["description"]
+              and j["description"] == "A collection of packages for the Nix package manager"
+            then
+              return false
+            end
+
+            return true
           end,
         },
       },
