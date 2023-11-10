@@ -17,14 +17,5 @@ register("nvim-treesitter/nvim-treesitter", {
         })
       end,
     },
-    {
-      "RRethy/vim-illuminate",
-      config = function()
-        require("illuminate").configure({
-          -- no more regex
-          providers = { "regex" },
-        })
-      end,
-    },
   },
 })
