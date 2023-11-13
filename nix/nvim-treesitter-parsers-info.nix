@@ -1,5 +1,5 @@
-{ fetchFromGitHub, stdenv, neovim, expect-version }:
-stdenv.mkDerivation {
+{ fetchFromGitHub, stdenvNoCC, neovim, expect-version }:
+stdenvNoCC.mkDerivation {
   pname = "nvim-treesitter-parser-info";
   version = expect-version;
   src = fetchFromGitHub {
