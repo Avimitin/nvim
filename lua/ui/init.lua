@@ -53,6 +53,10 @@ register("lukas-reineke/indent-blankline.nvim", {
 register("rcarriga/nvim-notify", {
   event = "UIEnter",
   config = function()
+    require("notify").setup({
+      timeout = 2000,
+      top_down = false,
+    })
     vim.notify = require("notify")
   end,
 })
