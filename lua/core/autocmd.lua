@@ -290,15 +290,21 @@ if option.jump_lastline.enable then
   })
 end
 
+local exclude_filetypes = { ["neo-tree"] = true }
 if option.cursorline then
+  local group_id = vim.api.nvim_create_augroup("AutoJumpLastPlace", { clear = true })
   au({ "VimEnter", "WinEnter", "InsertLeave" }, {
+    group = group_id,
     callback = function()
       vim.wo.cursorline = true
     end,
   })
   au({ "WinLeave", "InsertEnter" }, {
+    group = group_id,
     callback = function()
-      vim.wo.cursorline = false
+      if vim.wo.cursorline and not exclude_filetypes[vim.bo.filetype] then
+        vim.wo.cursorline = false
+      end
     end,
   })
 end
