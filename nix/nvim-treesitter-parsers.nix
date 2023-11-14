@@ -7,7 +7,11 @@ let
   tsParsers = map mkTreesitter wantedParsers;
 in
 
-runCommand "generate-treesitter-rtp" { inherit tsParsers; } ''
+runCommand "generate-treesitter-rtp"
+{
+  inherit tsParsers;
+  passthru = { luaScript = "/treesitter-parsers.lua"; };
+} ''
   mkdir -p $out/parser
 
   parserArray=($tsParsers)
