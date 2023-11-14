@@ -25,12 +25,3 @@ pack("iamcco/markdown-preview.nvim", {
 pack("dhruvasagar/vim-table-mode", {
   cmd = "TableModeToggle",
 })
-
-pack("3rd/image.nvim", {
-  ft = "markdown",
-  config = function()
-    require("image").setup({
-      backend = "kitty",
-    })
-  end,
-})
