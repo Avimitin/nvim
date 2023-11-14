@@ -1,14 +1,20 @@
-{ fetchFromGitHub, stdenvNoCC, neovim, expect-version }:
-stdenvNoCC.mkDerivation {
-  pname = "nvim-treesitter-parser-info";
-  version = expect-version;
+{ stdenvNoCC, fetchFromGitHub, neovim }:
+let
+  rev = "f3fb301b267e85e4cbc725561da4a82b1c3089c8";
+in
+stdenvNoCC.mkDerivation
+{
+  pname = "nvim-treesitter-lock-file";
+  version = rev;
+
   src = fetchFromGitHub {
     owner = "nvim-treesitter";
     repo = "nvim-treesitter";
-    rev = expect-version;
+    inherit rev;
     hash = "sha256-IpeC/GSvm3k/wsg4Tm8+wIIwvmk3fTtj+z7qL2a3cog=";
   };
   nativeBuildInputs = [ neovim ];
+
   buildPhase = ''
     cat <<EOF | tee convert.lua
       local lockfile = vim.fn.json_decode(vim.fn.readfile("./lockfile.json"))
@@ -24,7 +30,12 @@ stdenvNoCC.mkDerivation {
     EOF
     nvim --clean --headless -c "set rtp^=$PWD" -c "luafile ./convert.lua" -c "q"
   '';
+
   installPhase = ''
     mv ./parser-info.json $out
   '';
+
+  outputHash = "sha256-HJ63wkeNs8cxnR9zgO1+xHd7G4zSUwL2p3y/ub/QBbM=";
+  outputHashAlgo = "sha256";
+  outputHashMode = "flat";
 }

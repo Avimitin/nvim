@@ -1,7 +1,22 @@
-{ lib, stdenv, nodejs, tree-sitter }:
+{ lib, stdenv, nodejs, tree-sitter, nvim-treesitter-lock-file, fetchFromGitHub, runCommand, fetchurl, neovim }:
 
 
-{ name, src, version, needs_generate ? false, srcRoot ? null }:
+{ name, hash, needs_generate ? false, srcRoot ? null }:
+let
+  # Get parser information from nvim-treesitter's lockfile.json
+  parsers-info = lib.importJSON "${nvim-treesitter-lock-file}";
+
+  url = parsers-info.${name}.url;
+  rev = parsers-info.${name}.revision;
+  shortrev = builtins.substring 0 7 rev;
+  src = fetchurl {
+    name = "tree-sitter-${name}-${shortrev}-src.tar.gz";
+    url = "${url}/archive/${rev}.tar.gz";
+
+    inherit hash;
+  };
+  version = "unstable-${shortrev}";
+in
 stdenv.mkDerivation {
   pname = "tree-sitter-${name}";
   inherit src version;
