@@ -2,13 +2,13 @@ require("gitsigns").setup({
   signs = {
     add = {
       hl = "GitSignsAdd",
-      text = "▎",
+      text = "▐",
       numhl = "GitSignsAddNr",
       linehl = "GitSignsAddLn",
     },
     change = {
       hl = "GitSignsChange",
-      text = "▎",
+      text = "▐",
       numhl = "GitSignsChangeNr",
       linehl = "GitSignsChangeLn",
     },
@@ -26,7 +26,7 @@ require("gitsigns").setup({
     },
     changedelete = {
       hl = "GitSignsDelete",
-      text = "▎",
+      text = "║",
       numhl = "GitSignsChangeNr",
       linehl = "GitSignsChangeLn",
     },
@@ -78,7 +78,7 @@ require("gitsigns").setup({
     -- Text object
     map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Select hunk" })
   end,
-  numhl = true,
+  numhl = false,
   linehl = false,
   watch_gitdir = { interval = 1000, follow_files = true },
   current_line_blame = false,
@@ -87,7 +87,7 @@ require("gitsigns").setup({
     virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
     delay = 1000,
   },
-  sign_priority = 6,
+  sign_priority = 2000,
   update_debounce = 100,
   status_formatter = nil, -- Use default
   word_diff = false,
