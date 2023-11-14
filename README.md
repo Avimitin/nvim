@@ -39,39 +39,73 @@ See [document](./lua/core/README.md)
 ## Treesitter
 
 To make treesitter compatible with the stable neovim, and to make the share library compilation process reproducible and clean,
-this configuration uses nix package manager to manage the treesitter parser plugin.
-The flake output provides package `treesitter-parsers` to modify the neovim runtime path to point to this parser plugin.
+this configuration provides a treesitter parser nix expression to manage the treesitter parser plugin.
+The flake output an overlay providing package `nvim-treesitter-parsers`.
 To use it, you can use home-manager to help you put this package into neovim's data directory.
 
-- Example home-manager configuration:
+- Example flake based home-manager configuration:
 
 ```nix
-# This can help auto load
-xdg.dataFile = {
-    nvim-treesitter-parsers = {
-        source = nvim-flake.packages."x86_64-linux".treesitter-parsers;
-        target = "nvim/siter/plugin/treesitter-parsers.lua";
+# flake.nix
+
+{
+  description = "Flakes to reference treesiter";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nvim = {
+      url = "github:Avimitin/nvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { self, nixpkgs, home-manager, nvim }:
+    let
+      overlays = [ nvim.overlays.default ];
+      pkgsIn = import nixpkgs { system = "x86_64-linux"; inherit overlays;  };
+    in
+    {
+      homeConfigurations = {
+        "laptop" = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [ ./laptop.nix ];
+        };
+      };
     };
 }
 ```
 
-You can also filter parsers by their name: here `parsers` is a callable attribute, and invoke it with an array can filter data inside it.
+And in the example `laptop.nix`, you can create a file in `$XDG_DATA_HOME` to let neovim automatically load those parsers:
 
 ```nix
-xdg.dataFile = {
-    nvim-treesitter-parsers = {
-      source = let
-        parsers = pkgs.callPackage ./nix/treesitter-parsers.nix {};
-        toNvimPlug = pkgs.callPackage ./nix/set-rtp.nix {};
-      in
-        # And now, only "bash" and "lua" plugin will be prepended into neovim runtime path
-        toNvimPlug "treesitter-parsers" (parsers [ "bash" "lua" ]);
-      target = "nvim/site/plugin/treesitter-parsers.lua";
+# overlay.nix
+{ pkgs, ... }:
+{
+    xdg.dataFile.nvim-treesitter-parsers = {
+        # The lua script setup rtp for neovim, so that treesitter knows where to find those parsers.
+        #
+        # Actually you can write the source in the below form, but using the passthru variable can keep in sync with upstream.
+        # source = "${pkgs.nvim-treesitter-parsers}/treesitter-parser.lua";
+        source = "${pkgs.nvim-treesitter-parsers}${pkgs.nvim-treesitter-parsers.passthru.luaScript}";
+        target = "nvim/site/plugin/nvim-treesitter-parsers.lua";
     };
 }
 ```
 
-To add more language parser, you can attach more parser at the end of the [nix file](./nix/treesitter-parsers.nix).
+To add more language parser, you can use the `override` function:
+
+```nix
+nvim-treesitter-parsers.override {
+    wantedParsers = [
+        { name = "bash"; hash = "sha256-QQmgtC/1/8ps3tPl9X3z/sVQSlGW5h+DC364LBjLbWQ="; } 
+    ];
+}
+```
+
 The array expect the argument in this form: `[{ name: xxx; hash: xxx; }, ...]`,
 where:
 
@@ -79,6 +113,8 @@ where:
   - hash string: The input hash, you can leave it blank and wait for nix hash report the correct hash
   - needs_generate bool: When true, tree-sitter CLI will be used to generate the parser.
   - srcRoot string: Specify where the parser source located. Some repository will vendor two or more parser source code in one repository.
+
+See [my overlay](./overlay.nix) for detail examples and the current available parsers.
 
 ## Gallery
 
@@ -163,16 +199,6 @@ where:
 | ![find-file](./docs/images/telescope-find-file.png) |
 
 </details>
-
-<details>
-    <summary markdown="span">Git Helper</summary>
-
-| Fugitive                                       |
-|------------------------------------------------|
-| ![fugitive](./docs/images/neovim-fugitive.png) |
-
-</details>
-
 
 <details>
     <summary markdown="span">Themes</summary>
