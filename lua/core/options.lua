@@ -25,8 +25,6 @@ local options = {
   tabstop = 2,
   shiftwidth = 2,
   softtabstop = 2,
-  -- Copy indent from current line when starting a new line
-  autoindent = true,
   -- A List is an ordered sequence of items.
   list = true,
   listchars = { tab = "> ", trail = "·" },
