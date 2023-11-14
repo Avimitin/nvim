@@ -12,6 +12,12 @@ require("gitsigns").setup({
       numhl = "GitSignsChangeNr",
       linehl = "GitSignsChangeLn",
     },
+    untracked = {
+      hl = "GitSignsUntracked",
+      text = "▎",
+      numhl = "GitSignsUntracked",
+      linehl = "GitSignsUntracked",
+    },
     delete = {
       hl = "GitSignsDelete",
       text = "_",

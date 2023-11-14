@@ -16,9 +16,8 @@ pack("lewis6991/gitsigns.nvim", {
 
         vim.loop.spawn("git", {
           args = {
-            "ls-files",
-            "--error-unmatch",
-            vim.fn.expand("%"),
+            "rev-parse",
+            vim.fn.expand("%:p:h"),
           },
         }, callback)
       end,
