@@ -44,7 +44,6 @@
   "nvim-ts-autotag": { "branch": "main", "commit": "6be1192965df35f94b8ea6d323354f7dc7a557e4" },
   "nvim-web-devicons": { "branch": "master", "commit": "11eb26fc166742db8d1e8a6f5a7de9df37b09aae" },
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
-  "rainbow-delimiters.nvim": { "branch": "master", "commit": "9515abd92ae0e42044d47716537f3997991a037b" },
   "rust-tools.nvim": { "branch": "master", "commit": "0cc8adab23117783a0292a0c8a2fbed1005dc645" },
   "sort.nvim": { "branch": "main", "commit": "c789da6968337d2a61104a929880b5f144e02855" },
   "telescope.nvim": { "branch": "master", "commit": "20bf20500c95208c3ac0ef07245065bf94dcab15" },
