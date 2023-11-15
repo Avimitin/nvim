@@ -46,6 +46,7 @@ final: prev:
         hash = "sha256-ovTvflpzfMvI+NaKtLfMyI/SyxPODqr4mRkfzROIEjc=";
         srcRoot = "interface";
       }
+      { name = "yaml"; hash = "sha256-RrYFKrhqFLsjQG+7XFbcQ2eYy2eyig5/r+MYO8DId4g="; }
     ];
   };
 }
