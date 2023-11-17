@@ -1,5 +1,14 @@
 require("nvim-treesitter.configs").setup({
   auto_install = false,
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = false,
+      node_incremental = false,
+      scope_incremental = false,
+      node_decremental = false,
+    },
+  },
   highlight = {
     enable = true,
   },
@@ -19,22 +28,7 @@ require("nvim-treesitter.configs").setup({
       -- Automatically jump forward to textobj, similar to targets.vim
       lookahead = true,
 
-      keymaps = {
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-        ["ab"] = "@block.outer",
-        ["ib"] = "@block.inner",
-        ["al"] = "@call.outer",
-        ["il"] = "@call.inner",
-        ["aP"] = "@parameter.outer",
-        ["iP"] = "@parameter.inner",
-        ["ao"] = "@conditional.outer",
-        ["io"] = "@conditional.inner",
-        ["as"] = "@statement.outer",
-        ["ar"] = "@assignment.rhs",
-      },
+      keymaps = {},
     },
   },
 })

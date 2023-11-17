@@ -185,8 +185,11 @@ register("nvim-telescope/telescope.nvim", {
 })
 
 -- Quick select for text objects
-register("gcmt/wildfire.vim", {
+register("sustech-data/wildfire.nvim", {
   keys = "<Enter>",
+  config = function()
+    require("wildfire").setup()
+  end,
 })
 
 -- Surround operation
