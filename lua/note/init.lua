@@ -43,6 +43,7 @@ pack("nvim-orgmode/orgmode", {
         BLOCK = ":foreground #FFA066 :weight bold",
       },
     })
+    vim.wo.conceallevel = 2
   end,
 })
 
