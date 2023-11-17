@@ -16,6 +16,7 @@ final: prev:
       { name = "tsx"; hash = "sha256-wgFce0+8TA9gmvcuNg5YNhySuEzt8ZF/nrHPmwFZW14="; srcRoot = "tsx"; }
       { name = "llvm"; hash = "sha256-c63jN6pyIssjthp+3f5pYWMwUq+usjhlP2lF/zVNdc8="; }
       { name = "lua"; hash = "sha256-ZocgN+GD7FOv/a2QuX8EoxwJ3MZCBnT2Y6Kv4jOvYy0="; }
+      { name = "org"; hash = "sha256-N/zlpv4oXVfjk+a/7vM0nAPsCCBMVvWN3oavPbPmKwk="; }
       { name = "regex"; hash = "sha256-Y6A1YqbjItM4V5lQ7IM8EMa+nm6v+p/DHYSEVnF29ac="; }
       { name = "ruby"; hash = "sha256-RaxVKNoIaDj6tMi63ERmeRmq5yHlWL9/u2v6XpMsK/g="; }
       { name = "rust"; hash = "sha256-g/AJGKg/8KGgcIJZChb9cIP/zvS1JIcUEZRxBL0x2nY="; }
