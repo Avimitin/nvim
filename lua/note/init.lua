@@ -61,10 +61,3 @@ pack("akinsho/org-bullets.nvim", {
     require("org-bullets").setup()
   end,
 })
-
-pack("lukas-reineke/headlines.nvim", {
-  ft = { "org", "markdown" },
-  config = function()
-    require("headlines").setup()
-  end,
-})
