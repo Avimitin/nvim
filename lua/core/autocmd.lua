@@ -1,27 +1,6 @@
 local au = vim.api.nvim_create_autocmd
 local option = vim.cfg.core.autocmd
 
-if option.relative_number then
-  -- use relativenumber when editing
-  local rnu_group = vim.api.nvim_create_augroup("RNUGroup", { clear = true })
-  au({ "InsertEnter" }, {
-    group = rnu_group,
-    pattern = { "*" },
-    callback = function()
-      vim.opt.rnu = false
-    end,
-  })
-  au({ "InsertLeave" }, {
-    group = rnu_group,
-    pattern = { "*" },
-    callback = function()
-      if vim.fn.mode() ~= "i" then
-        vim.opt.rnu = true
-      end
-    end,
-  })
-end
-
 if option.auto_insert then
   au({ "TermOpen", "TermEnter" }, { pattern = { "*" }, command = "startinsert" })
   au({ "WinEnter" }, { pattern = { "term://*toggleterm#*" }, command = "startinsert" })
@@ -67,52 +46,20 @@ if option.highlight_yanked or option.copy_yanked_to_clipboard then
   })
 end
 
-if option.find_project_root then
-  au({ "VimEnter" }, {
-    pattern = { "*" },
-    callback = function()
-      -- FIXME: install rooter plugin
-      if true then
-        return
-      end
+au({ "BufEnter" }, {
+  pattern = { "*" },
+  callback = function()
+    local finder = require("libs.find_root")
 
-      local rooter = require("libs.rooter")
-      local opts = {
-        rooter_patterns = { ".git", ".hg", ".svn", "Cargo.toml", "go.mod", "package.json" },
-        exclude_filetypes = { "gitcommit" },
-        manual = false,
-      }
+    local old_cwd = vim.loop.cwd()
+    finder.set_root()
+    local new_cwd = vim.loop.cwd()
 
-      local old_cwd = vim.loop.cwd()
-
-      rooter.setup(opts)
-      rooter.rooter()
-
-      local new_cwd = vim.loop.cwd()
-
-      if new_cwd ~= old_cwd then
-        vim.notify("Dir changed: " .. new_cwd)
-      end
-    end,
-  })
-end
-
-local user_hide_commandline = vim.opt.ch == 0
-if user_hide_commandline then
-  au("CmdlineEnter", {
-    pattern = "*",
-    callback = function()
-      vim.opt.ch = 1
-    end,
-  })
-
-  au("CmdlineLeave", {
-    pattern = "*",
-    callback = function()
-      vim.opt.ch = 0
-    end,
-  })
-end
+    if new_cwd ~= old_cwd then
+      vim.notify("Dir changed to: " .. new_cwd)
+    end
+  end,
+})
 
 if option.toggle_fcitx5 then
   local function async_close_fcitx5()

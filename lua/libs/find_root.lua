@@ -1,40 +1,47 @@
 local export = {}
 
-local function match(dir, pattern)
-  if string.sub(pattern, 1, 1) == "=" then
-    return vim.fn.fnamemodify(dir, ":t") == string.sub(pattern, 2, #pattern)
-  else
+function export.find_root(opts)
+  local current = vim.api.nvim_buf_get_name(0)
+
+  local is_match = function(dir, pattern)
     return vim.fn.globpath(dir, pattern) ~= ""
   end
-end
 
-function export.get_root(root_pattern)
-  local current = vim.api.nvim_buf_get_name(0)
-  local find_parent = function(dir)
-    return vim.fn.fnamemodify(dir, ":h")
-  end
-  local parent_dir = find_parent(current)
+  local last = vim.loop.os_homedir()
+  for dir in vim.fs.parents(current) do
+    if dir == vim.loop.os_homedir() then
+      return last
+    end
 
-  while 1 do
-    for _, pattern in ipairs(root_pattern or { ".git", ".hg", ".svn" }) do
-      if match(parent_dir, pattern) then
-        return parent_dir
+    for _, pat in
+      ipairs(opts.patterns or { ".git", "go.mod", "flake.nix", "Cargo.toml", "build.sc" })
+    do
+      if is_match(dir, pat) then
+        return dir
       end
     end
 
-    current, parent_dir = parent_dir, find_parent(parent_dir)
-    if parent_dir == current then
-      break
-    end
+    last = dir
   end
-  return nil
+
+  return last
 end
 
-function export.find_root(root_pattern)
-  local root = vim.fn.exists("b:root_dir") == 1 and vim.api.nvim_buf_get_var(0, "root_dir") or nil
+function export.set_root(opts)
+  opts = opts or {}
+
+  if not vim.tbl_contains({ "", "acwrite" }, vim.bo.buftype) then
+    return
+  end
+
+  if vim.tbl_contains(opts.exclude_filetype or {}, vim.bo.filetype) then
+    return
+  end
+
+  local root = vim.b.current_buf_root_dir or nil
   if root == nil then
-    root = export.get_root(root_pattern)
-    vim.api.nvim_buf_set_var(0, "root_dir", root)
+    root = export.find_root(opts)
+    vim.b.root = root
   end
 
   if root ~= nil then

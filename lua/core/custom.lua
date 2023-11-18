@@ -213,33 +213,6 @@ local function get_root_custom()
   end
 end
 
---- Path to custom file in project root dir, return nil if it is not exist
---- It will also change current working directory to the project root.
----@return string|nil
-local function get_project_custom()
-  local root_dir_pattern = {
-    "Cargo.toml",
-    ".git",
-    "package.json",
-    "yarn.lock",
-    ".hg",
-    ".svn",
-  }
-
-  local finder = require("libs.find_root")
-  local root_dir = finder.get_root(root_dir_pattern)
-  if not root_dir then
-    return nil
-  end
-
-  vim.api.nvim_set_current_dir(root_dir)
-
-  local filepath = root_dir .. "/.neovim.lua"
-  if vim.loop.fs_stat(filepath) then
-    return filepath
-  end
-end
-
 local function new_cfg()
   local final_config = default
   local extend = function(ext)
@@ -252,12 +225,6 @@ local function new_cfg()
 
   local root_file = get_root_custom()
   local ok, mod = pcall(dofile, root_file)
-  if ok and is_valid(mod) then
-    extend(mod)
-  end
-
-  local project_file = get_project_custom()
-  ok, mod = pcall(dofile, project_file)
   if ok and is_valid(mod) then
     extend(mod)
   end
