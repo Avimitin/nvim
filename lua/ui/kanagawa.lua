@@ -55,7 +55,9 @@ local function override(colors)
     TelescopeTitle = { fg = theme.ui.special, bold = true },
     WinSeparator = { fg = default.sumiInk4 },
     CodeBlock = { bg = default.sumiInk0 },
-    Headline = { bg = default.sumiInk1 },
+    Headline1 = { bg = "#1A1F19" },
+    Headline2 = { bg = "#151F2D" },
+    Headline3 = { bg = default.sumiInk3 },
     ["@text.title.1"] = {
       fg = default.peachRed,
       bold = true,

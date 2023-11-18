@@ -65,6 +65,15 @@ pack("akinsho/org-bullets.nvim", {
 pack("lukas-reineke/headlines.nvim", {
   ft = { "org", "markdown" },
   config = function()
-    require("headlines").setup()
+    require("headlines").setup({
+      markdown = {
+        fat_headlines = false,
+        headline_highlights = { "Headline1", "Headline2", "Headline3" },
+      },
+      org = {
+        fat_headlines = false,
+        headline_highlights = false,
+      },
+    })
   end,
 })
