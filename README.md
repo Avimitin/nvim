@@ -188,7 +188,7 @@ See [my overlay](./overlay.nix) for detail examples and the current available pa
 </details>
 
 <details>
-    <summary markdown="span">File Manage</summary>
+    <summary markdown="span">File Manager</summary>
 
 | nvim-tree                                 |
 |-------------------------------------------|
