@@ -49,7 +49,7 @@ pack("nvim-orgmode/orgmode", {
     require("orgmode").setup({
       org_agenda_files = { "~/todo/**/*" },
       org_default_notes_file = "~/todo/todo.org",
-      org_archive_location = "~/.cache/org-mode/%s_archive",
+      org_archive_location = "archives/%s_archive::",
       org_todo_keywords = { "TODO(t)", "BLOCK(b)", "|", "DONE(d)" },
       org_todo_keyword_faces = {
         TODO = ":background #43242B :weight bold",
