@@ -29,8 +29,20 @@ pack("dhruvasagar/vim-table-mode", {
 pack("nvim-orgmode/orgmode", {
   ft = "org",
   keys = {
-    "<leader>oa",
-    "<leader>oc",
+    {
+      "<leader>oa",
+      function()
+        require("orgmode").action("agenda.prompt")
+      end,
+      desc = "[orgmode] Prompt Agenda",
+    },
+    {
+      "<leader>oc",
+      function()
+        require("orgmode").action("capture.prompt")
+      end,
+      desc = "[orgmode] Prompt capture",
+    },
   },
   config = function()
     require("orgmode").setup_ts_grammar()
