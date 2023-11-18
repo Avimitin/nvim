@@ -40,10 +40,18 @@ pack("nvim-orgmode/orgmode", {
       org_archive_location = "~/.cache/org-mode/%s_archive",
       org_todo_keywords = { "TODO(t)", "BLOCK(b)", "|", "DONE(d)" },
       org_todo_keyword_faces = {
-        BLOCK = ":foreground #FFA066 :weight bold",
+        TODO = ":background #43242B :weight bold",
+        BLOCK = ":background #49443C :foreground #DCA561 :weight bold",
+        DONE = ":background #2B3328 :weight bold",
       },
     })
-    vim.wo.conceallevel = 2
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "org",
+      callback = function()
+        vim.wo.conceallevel = 2
+        vim.wo.concealcursor = "nc"
+      end,
+    })
   end,
 })
 
