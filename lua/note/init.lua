@@ -35,8 +35,8 @@ pack("nvim-orgmode/orgmode", {
   config = function()
     require("orgmode").setup_ts_grammar()
     require("orgmode").setup({
-      org_agenda_files = { "~/todo.org", "~/me/notes/daily-report/org/**/*" },
-      org_default_notes_file = "~/me/notes/refile.org",
+      org_agenda_files = { "~/todo/**/*" },
+      org_default_notes_file = "~/todo/todo.org",
       org_archive_location = "~/.cache/org-mode/%s_archive",
       org_todo_keywords = { "TODO(t)", "BLOCK(b)", "|", "DONE(d)" },
       org_todo_keyword_faces = {
