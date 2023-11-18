@@ -50,7 +50,7 @@ register("nvim-neo-tree/neo-tree.nvim", {
               return
             end
 
-            vim.cmd("Neotree " .. first_arg)
+            require("neo-tree.setup.netrw").hijack()
           end)
         )
       end,
@@ -66,6 +66,9 @@ register("nvim-neo-tree/neo-tree.nvim", {
         "buffers",
         "git_status",
         "document_symbols",
+      },
+      filesystem = {
+        hijack_netrw_behavior = "open_current",
       },
       open_files_do_not_replace_types = {
         "terminal",
