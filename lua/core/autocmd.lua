@@ -33,11 +33,19 @@ if option.highlight_yanked or option.copy_yanked_to_clipboard then
       end
 
       local copy = function(str)
-        pcall(vim.fn.setreg, "+", str)
+        local ok, error = pcall(vim.fn.setreg, "+", str)
+        if not ok then
+          vim.notify("fail to copy to clipboard: " .. error, vim.log.levels.ERROR)
+          return
+        end
       end
 
       local present, yank_data = pcall(vim.fn.getreg, "0")
-      if not present or #yank_data < 1 then
+      if not present then
+        vim.notify("fail to get content from reg 0: " .. yank_data, vim.log.levels.ERROR)
+        return
+      end
+      if #yank_data < 1 then
         return
       end
 

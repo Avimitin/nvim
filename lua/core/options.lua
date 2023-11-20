@@ -138,4 +138,16 @@ if vim.g.neovide then
   vim.g.neovide_cursor_vfx_mode = vim.cfg.neovide.vfx_mode
 end
 
+vim.g.clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require("libs.osc52").copy,
+    ["*"] = require("libs.osc52").copy,
+  },
+  paste = {
+    ["+"] = require("libs.osc52").paste,
+    ["*"] = require("libs.osc52").paste,
+  },
+}
+
 vim.loader.enable()
