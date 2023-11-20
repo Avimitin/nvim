@@ -4,15 +4,6 @@ local function override(colors)
   local default = colors.palette
   local theme = colors.theme
 
-  local background = default.sumiInk1
-  if vim.cfg.ui.darker_background then
-    if type(vim.cfg.ui.darker_background) == "string" then
-      background = vim.cfg.ui.darker_background
-    else
-      background = "#0d1117"
-    end
-  end
-
   local overrides = {
     CmpDocumentation = { link = "Pmenu" },
     CmpItemKindField = { link = "@field" },
@@ -22,27 +13,10 @@ local function override(colors)
     DiagnosticSignHint = { bg = "#1C1E2A" },
     DiagnosticSignInfo = { bg = "#262729" },
     DiagnosticSignWarn = { bg = "#2F261A" },
-    GitSignsAdd = { bg = background },
-    GitSignsChange = { bg = background },
-    GitSignsDelete = { bg = background },
+    GitSignsAdd = { bg = default.sumiInk1 },
+    GitSignsChange = { bg = default.sumiInk1 },
+    GitSignsDelete = { bg = default.sumiInk1 },
     HighLightLineMatches = { bg = default.winterYellow },
-    --[[ LeapBackdrop = { fg = default.dragonBlue },
-    LeapMatch = { fg = default.fujiWhite, bold = true, nocombine = true },
-    LeapLabelPrimary = {
-      fg = default.sumiInk4,
-      bg = default.roninYellow,
-      bold = true,
-      nocombine = true,
-    },
-    LeapLabelSecondary = {
-      fg = default.springBlue,
-      bold = true,
-      nocombine = true,
-    }, ]]
-    Normal = {
-      bg = background,
-      fg = default.fujiWhite,
-    },
     Pmenu = { bg = default.sumiInk3 },
     TelescopePromptNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
     TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
@@ -55,7 +29,7 @@ local function override(colors)
     TelescopeTitle = { fg = theme.ui.special, bold = true },
     WinSeparator = { fg = default.sumiInk4 },
     CodeBlock = { bg = default.sumiInk0 },
-    Headline1 = { bg = "#1A1F19" },
+    Headline1 = { bg = "#21001D" },
     Headline2 = { bg = "#151F2D" },
     Headline3 = { bg = default.sumiInk3 },
     ["@text.title.1"] = {
@@ -109,6 +83,7 @@ require("kanagawa").setup({
     dark = "wave",
     light = "lotus",
   },
+  transparent = true,
 })
 
 vim.cmd("colorscheme kanagawa")

@@ -14,7 +14,7 @@ require("bufferline").setup({
     enforce_regular_tabs = false,
     view = "multiwindow",
     show_buffer_close_icons = true,
-    separator_style = "slant",
+    separator_style = "thin",
     always_show_bufferline = true,
   },
 })
