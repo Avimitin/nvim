@@ -1,7 +1,6 @@
 <h1 align="center">My Neovim Configuration</h1>
 <img src="./docs/images/screenshot.png" width="45%" align="right"/>
 
-![badge](https://github.com/avimitin/nvim/actions/workflows/lint.yml/badge.svg)
 ![badge](https://img.shields.io/github/license/Avimitin/nvim)
 
 ## Features
