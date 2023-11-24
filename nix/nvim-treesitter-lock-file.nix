@@ -34,8 +34,4 @@ stdenvNoCC.mkDerivation
   installPhase = ''
     mv ./parser-info.json $out
   '';
-
-  outputHash = "sha256-HJ63wkeNs8cxnR9zgO1+xHd7G4zSUwL2p3y/ub/QBbM=";
-  outputHashAlgo = "sha256";
-  outputHashMode = "flat";
 }
