@@ -1,6 +1,42 @@
 local cmp = require("cmp")
-local override = vim.cfg.completion
-local kind_icons = vim.cfg.icons
+
+local keymap = {
+  scroll_up = "<C-u>",
+  scroll_down = "<C-d>",
+  abort = "<C-c>",
+  confirm = "<CR>",
+  select_next = "<Tab>",
+  select_prev = "<S-Tab>",
+}
+
+local icons = {
+  Text = "",
+  Method = "",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "ﴯ",
+  Interface = "",
+  Module = "",
+  Property = "ﰠ",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
+  Vim = "",
+}
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -30,35 +66,35 @@ cmp.setup({
     format = function(entry, item)
       -- return special icon for cmdline completion
       if entry.source.name == "cmdline" then
-        item.kind = kind_icons["Vim"]
+        item.kind = icons["Vim"]
         item.menu = "Vim"
         return item
       elseif entry.source.name == "nvim_lsp_signature_help" then
         item.kind = "Property"
       end
       item.menu = item.kind
-      item.kind = kind_icons[item.kind]
+      item.kind = icons[item.kind]
       return item
     end,
   },
   mapping = {
-    [override.keymap.scroll_up] = cmp.mapping(cmp.mapping.scroll_docs(-4), {
+    [keymap.scroll_up] = cmp.mapping(cmp.mapping.scroll_docs(-4), {
       "i",
       "c",
     }),
-    [override.keymap.scroll_down] = cmp.mapping(cmp.mapping.scroll_docs(4), {
+    [keymap.scroll_down] = cmp.mapping(cmp.mapping.scroll_docs(4), {
       "i",
       "c",
     }),
-    [override.keymap.abort] = cmp.mapping({
+    [keymap.abort] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    [override.keymap.confirm] = cmp.mapping.confirm({
+    [keymap.confirm] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = false,
     }),
-    [override.keymap.select_next] = cmp.mapping(function(fallback)
+    [keymap.select_next] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif vim.fn["vsnip#available"]() == 1 then
@@ -69,7 +105,7 @@ cmp.setup({
         fallback()
       end
     end, { "i", "s" }),
-    [override.keymap.select_prev] = cmp.mapping(function()
+    [keymap.select_prev] = cmp.mapping(function()
       if cmp.visible() then
         cmp.select_prev_item()
       elseif vim.fn["vsnip#jumpable"](-1) == 1 then

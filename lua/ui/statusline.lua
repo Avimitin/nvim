@@ -1,7 +1,6 @@
 local gl = require("galaxyline")
 local gls = gl.section
 
-local current_scheme = vim.g.colors_name
 local colors = {
   bg = "#0d0d0d",
   fg = "#b2b2b9",
@@ -17,35 +16,6 @@ local colors = {
   red = "#D54E53",
   divider = "#24242e",
 }
-
-if current_scheme == "everforest" then
-  colors.bg = "#282E2C"
-  colors.black = "#222B28"
-elseif current_scheme == "gruvbox" then
-  colors.bg = "#261C00"
-  colors.black = "#3A2300"
-  colors.divider = "#322e2e"
-elseif current_scheme == "dawnfox" then
-  colors.bg = "#898180"
-  colors.black = "#625c5c"
-elseif current_scheme:match("github_light[%l_]*") then
-  local custom = {
-    fg = "#24292f",
-    bg = "#bbd6ee",
-    black = "#9fc5e8",
-    yellow = "#dbab09",
-    cyan = "#0598bc",
-    green = "#28a745",
-    orange = "#d18616",
-    magenta = "#5a32a3",
-    purple = "#5a32a3",
-    blue = "#0366d6",
-    red = "#d73a49",
-  }
-
-  -- merge custom color to default
-  colors = vim.tbl_deep_extend("force", {}, colors, custom)
-end
 
 local checkwidth = function()
   local squeeze_width = vim.fn.winwidth(0) / 2

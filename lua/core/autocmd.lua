@@ -1,59 +1,51 @@
 local au = vim.api.nvim_create_autocmd
-local option = vim.cfg.core.autocmd
 
-if option.auto_insert then
-  au({ "TermOpen", "TermEnter" }, { pattern = { "*" }, command = "startinsert" })
-  au({ "WinEnter" }, { pattern = { "term://*toggleterm#*" }, command = "startinsert" })
-end
+-- Auto Insert in terminal
+au({ "TermOpen", "TermEnter" }, { pattern = { "*" }, command = "startinsert" })
 
 -- Copy data to system clipboard only when we are pressing 'y'. 'd', 'x' will be filtered out.
 --
 -- Credit: https://github.com/ibhagwan/smartyank.nvim
-if option.highlight_yanked or option.copy_yanked_to_clipboard then
-  local smart_yank_gid = vim.api.nvim_create_augroup("SmartYank", { clear = true })
-  au("TextYankPost", {
-    group = smart_yank_gid,
-    desc = "Copy and highlight yanked text to system clipboard",
-    callback = function()
-      if option.highlight_yanked then
-        vim.highlight.on_yank({ higroup = "HighLightLineMatches", timeout = 200 })
-      end
+local smart_yank_gid = vim.api.nvim_create_augroup("SmartYank", { clear = true })
+au("TextYankPost", {
+  group = smart_yank_gid,
+  desc = "Copy and highlight yanked text to system clipboard",
+  callback = function()
+    vim.highlight.on_yank({ higroup = "HighLightLineMatches", timeout = 200 })
 
-      if not option.copy_yanked_to_clipboard then
+    if not vim.fn.has("clipboard") == 1 then
+      return
+    end
+
+    local copy_key_is_y = vim.v.operator == "y"
+    if not copy_key_is_y then
+      return
+    end
+
+    local copy = function(str)
+      local ok, error = pcall(vim.fn.setreg, "+", str)
+      if not ok then
+        vim.notify("fail to copy to clipboard: " .. error, vim.log.levels.ERROR)
         return
       end
+    end
 
-      if not vim.fn.has("clipboard") == 1 then
-        return
-      end
+    local present, yank_data = pcall(vim.fn.getreg, "0")
+    if not present then
+      vim.notify("fail to get content from reg 0: " .. yank_data, vim.log.levels.ERROR)
+      return
+    end
+    if #yank_data < 1 then
+      return
+    end
 
-      local copy_key_is_y = vim.v.operator == "y"
-      if not copy_key_is_y then
-        return
-      end
+    copy(yank_data)
+  end,
+})
 
-      local copy = function(str)
-        local ok, error = pcall(vim.fn.setreg, "+", str)
-        if not ok then
-          vim.notify("fail to copy to clipboard: " .. error, vim.log.levels.ERROR)
-          return
-        end
-      end
-
-      local present, yank_data = pcall(vim.fn.getreg, "0")
-      if not present then
-        vim.notify("fail to get content from reg 0: " .. yank_data, vim.log.levels.ERROR)
-        return
-      end
-      if #yank_data < 1 then
-        return
-      end
-
-      copy(yank_data)
-    end,
-  })
-end
-
+--
+-- Automatically set PWD to buffer
+--
 au({ "BufEnter" }, {
   pattern = { "*" },
   callback = function()
@@ -63,203 +55,102 @@ au({ "BufEnter" }, {
     finder.set_root()
     local new_cwd = vim.loop.cwd()
 
-    if new_cwd ~= old_cwd then
+    if not vim.b.current_buf_root_dir and new_cwd ~= old_cwd then
       vim.notify("Dir changed to: " .. new_cwd)
     end
   end,
 })
 
-if option.toggle_fcitx5 then
-  local function async_close_fcitx5()
-    local task = require("plenary.job")
-    task
-      :new({
-        command = "fcitx5-remote",
-        args = { "-c" },
-        on_exit = function(_, ret)
-          if ret ~= 0 then
-            vim.notify("fail to close fcitx5")
-            return
-          end
+--
+-- Automatically set cursor to last editing line
+--
+local ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit", "Dashboard" }
+local ignore_buftype = { "quickfix", "nofile", "help" }
 
-          vim.g.fcitx5_should_reactivate = true
-        end,
-      })
-      :start()
+local function can_jump()
+  local contains = vim.tbl_contains
+  local current_buftype = vim.api.nvim_buf_get_option(0, "buftype")
+  -- return when current buftype is ignored
+  if contains(ignore_buftype, current_buftype) then
+    return false
   end
 
-  local function async_toggle_fcitx5()
-    local task = require("plenary.job")
-    task
-      :new({
-        command = "fcitx5-remote",
-        on_exit = function(j, ret)
-          if ret ~= 0 then
-            vim.notify("Fail to execute fcitx5-remote command")
-            return
-          end
-
-          local stdout = j:result()
-          -- Grievance: why Lua array index start with 1?
-          if #stdout > 0 and stdout[1] == "2" then
-            async_close_fcitx5()
-          end
-        end,
-      })
-      :start()
+  -- jump to the beginning of the file and return when current filetype is ignored
+  local current_filetype = vim.api.nvim_buf_get_option(0, "filetype")
+  if contains(ignore_filetype, current_filetype) then
+    vim.cmd("normal! gg")
+    return false
   end
 
-  local function async_open_fcitx5()
-    local task = require("plenary.job")
-    task
-      :new({
-        command = "fcitx5-remote",
-        args = { "-o" },
-        on_exit = function(_, ret)
-          if ret ~= 0 then
-            vim.notify("fail to open fcitx5")
-            return
-          end
-
-          vim.g.fcitx5_should_reactivate = false
-        end,
-      })
-      :start()
+  -- return if the line is already specified by other stuff or command line argument
+  if vim.fn.line(".") > 1 then
+    return false
   end
 
-  au({ "InsertLeave" }, {
-    callback = function()
-      -- plenary is a wrapper for libuv API, it can help us asynchronously execute commands.
-      -- But it is not included in Neovim API, so we have to make sure that it **does** exist.
-      local has_plenary, _ = pcall(require, "plenary")
-
-      if has_plenary then
-        async_toggle_fcitx5()
-        return
-      end
-
-      --
-      -- use neovim API as a fallback solution
-      --
-      -- If the fcitx5 is manually activated in insert mode
-      local is_active = vim.fn.system("fcitx5-remote"):gsub("%s+", "") == "2"
-
-      if is_active then
-        vim.fn.system("fcitx5-remote -c")
-        vim.g.fcitx5_should_reactivate = true
-      end
-    end,
-  })
-
-  au({ "InsertEnter" }, {
-    callback = function()
-      if not vim.g.fcitx5_should_reactivate then
-        return
-      end
-
-      -- use plenary as primary solution
-      local has_plenary, _ = pcall(require, "plenary")
-      if has_plenary then
-        async_open_fcitx5()
-        return
-      end
-
-      -- use neovim API as a fallback solution
-      vim.fn.system("fcitx5-remote -o")
-      vim.g.fcitx5_should_reactivate = false
-    end,
-  })
-end
--- End of fcitx5 --
-
-if option.jump_lastline.enable then
-  local ignore_buftype = option.jump_lastline.ignore_buffer_type
-  local ignore_filetype = option.jump_lastline.ignore_filetype
-
-  local function can_jump()
-    local contains = vim.tbl_contains
-    local current_buftype = vim.api.nvim_buf_get_option(0, "buftype")
-    -- return when current buftype is ignored
-    if contains(ignore_buftype, current_buftype) then
-      return false
-    end
-
-    -- jump to the beginning of the file and return when current filetype is ignored
-    local current_filetype = vim.api.nvim_buf_get_option(0, "filetype")
-    if contains(ignore_filetype, current_filetype) then
-      vim.cmd("normal! gg")
-      return false
-    end
-
-    -- return if the line is already specified by other stuff or command line argument
-    if vim.fn.line(".") > 1 then
-      return false
-    end
-
-    return true
-  end
-
-  local function set_cursor()
-    local last_focus_line = vim.fn.line([['"]])
-    -- total line in current file buffer
-    local total_line_in_buf = vim.fn.line("$")
-    -- first line visible in current window
-    local first_line_visible = vim.fn.line("w0")
-    -- last line visible in current window
-    local last_line_visible = vim.fn.line("w$")
-    local cmd = vim.cmd
-
-    -- if last focus line is the first line
-    if last_focus_line == 0 then
-      return
-    end
-
-    -- if the last focus line is not in current buffer
-    -- or was exist but isn't exist for now
-    if last_focus_line > total_line_in_buf then
-      return
-    end
-
-    if last_line_visible == total_line_in_buf then
-      cmd([[normal! g`"]])
-      -- if the last focus line is in the upper part of the window
-      -- focus it to the center.
-    elseif
-      total_line_in_buf - last_focus_line > ((last_line_visible - first_line_visible) / 2) - 1
-    then
-      cmd([[normal! g`"zz]])
-    else
-      cmd([[normal! G'"<C-e>]])
-    end
-  end
-
-  local group_id = vim.api.nvim_create_augroup("AutoJumpLastPlace", { clear = true })
-  vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
-    callback = function()
-      if not can_jump() then
-        return
-      end
-      set_cursor()
-    end,
-    group = group_id,
-  })
+  return true
 end
 
+local function set_cursor()
+  local last_focus_line = vim.fn.line([['"]])
+  -- total line in current file buffer
+  local total_line_in_buf = vim.fn.line("$")
+  -- first line visible in current window
+  local first_line_visible = vim.fn.line("w0")
+  -- last line visible in current window
+  local last_line_visible = vim.fn.line("w$")
+  local cmd = vim.cmd
+
+  -- if last focus line is the first line
+  if last_focus_line == 0 then
+    return
+  end
+
+  -- if the last focus line is not in current buffer
+  -- or was exist but isn't exist for now
+  if last_focus_line > total_line_in_buf then
+    return
+  end
+
+  if last_line_visible == total_line_in_buf then
+    cmd([[normal! g`"]])
+    -- if the last focus line is in the upper part of the window
+    -- focus it to the center.
+  elseif
+    total_line_in_buf - last_focus_line > ((last_line_visible - first_line_visible) / 2) - 1
+  then
+    cmd([[normal! g`"zz]])
+  else
+    cmd([[normal! G'"<C-e>]])
+  end
+end
+
+local auto_jump_gid = vim.api.nvim_create_augroup("AutoJumpLastPlace", { clear = true })
+vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
+  callback = function()
+    if not can_jump() then
+      return
+    end
+    set_cursor()
+  end,
+  group = auto_jump_gid,
+})
+
+--
+-- Automatically turn off cursorline when in insert mode
+--
 local exclude_filetypes = { ["neo-tree"] = true }
-if option.cursorline then
-  local group_id = vim.api.nvim_create_augroup("AutoJumpLastPlace", { clear = true })
-  au({ "VimEnter", "WinEnter", "InsertLeave" }, {
-    group = group_id,
-    callback = function()
-      vim.wo.cursorline = true
-    end,
-  })
-  au({ "WinLeave", "InsertEnter" }, {
-    group = group_id,
-    callback = function()
-      if vim.wo.cursorline and not exclude_filetypes[vim.bo.filetype] then
-        vim.wo.cursorline = false
-      end
-    end,
-  })
-end
+local cursorline_gid = vim.api.nvim_create_augroup("CursorLineAutoOff", { clear = true })
+au({ "VimEnter", "WinEnter", "InsertLeave" }, {
+  group = cursorline_gid,
+  callback = function()
+    vim.wo.cursorline = true
+  end,
+})
+au({ "WinLeave", "InsertEnter" }, {
+  group = cursorline_gid,
+  callback = function()
+    if vim.wo.cursorline and not exclude_filetypes[vim.bo.filetype] then
+      vim.wo.cursorline = false
+    end
+  end,
+})

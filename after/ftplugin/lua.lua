@@ -2,19 +2,12 @@ if require("libs.cache")["lua_lsp"] then
   return
 end
 
-local user_config = vim.cfg.lua
-if not user_config.enable then
-  return
-end
-
 local config = require("lang.config")
 
 local is_nvim_config_dir = (vim.fn.getcwd()):find("nvim")
 
-local settings = user_config.settings
-
 if is_nvim_config_dir then
-  local default = {
+  local neovim_setting = {
     diagnostics = {
       enable = true,
       globals = { "vim" },
@@ -34,15 +27,9 @@ if is_nvim_config_dir then
       callSnippet = "Replace",
     },
   }
-
-  -- respect user config
-  settings = vim.tbl_deep_extend("force", default, settings)
+  config.settings = {
+    Lua = neovim_setting,
+  }
 end
 
-config.settings = {
-  Lua = settings,
-}
-
-require("lang").run_lsp(user_config.server, config)
-
--- End of LSP configuration --
+require("lang").run_lsp("lua_ls", config)

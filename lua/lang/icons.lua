@@ -1,4 +1,12 @@
-local Export = {}
+local Export = {
+  icons = {
+    -- lsp diagnostic (Notes: case sensitive)
+    ERROR = "",
+    WARN = "",
+    HINT = "",
+    INFO = "",
+  },
+}
 
 function Export.setup()
   -- Setup diagnostic icons and signs
@@ -9,7 +17,7 @@ function Export.setup()
       format = function(diagnostic)
         return string.format(
           "%s  %s",
-          vim.cfg.icons[vim.diagnostic.severity[diagnostic.severity]],
+          Export.icons[vim.diagnostic.severity[diagnostic.severity]],
           diagnostic.message
         )
       end,

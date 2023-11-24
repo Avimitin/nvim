@@ -59,15 +59,6 @@ end
 function M.register(repo_path, config)
   local package = config or {}
 
-  local user_config = vim.cfg.plugins[repo_path]
-  if user_config then
-    if user_config.disable then
-      return
-    end
-
-    package = vim.tbl_deep_extend("force", config or {}, user_config)
-  end
-
   package[1] = repo_path
 
   table.insert(M.repositories, package)

@@ -107,9 +107,6 @@ if has_persist == 1 then
   options.undodir = undo_dir
 end
 
--- first merge project local configuration
-options = vim.tbl_deep_extend("force", options, vim.cfg.core.options)
--- then merge them into vim option
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
@@ -120,23 +117,44 @@ end
 --
 
 -- built-in plugins that really useless
-for _, plugin in ipairs(vim.cfg.core.disable_builtin_plugins) do
+for _, plugin in ipairs({
+  "gzip",
+  "zip",
+  "zipPlugin",
+  "tar",
+  "tarPlugin",
+  "getscript",
+  "getscriptPlugin",
+  "vimball",
+  "vimballPlugin",
+  "2html_plugin",
+  "matchit",
+  "matchparen",
+  "logiPat",
+  "rust_vim",
+  "rust_vim_plugin_cargo",
+  "rrhelper",
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+}) do
   local var = "loaded_" .. plugin
   vim.g[var] = 1
 end
 
 -- built-in neovim RPC provider that I never used
-for _, provider in ipairs(vim.cfg.core.disable_builtin_provider) do
+for _, provider in ipairs({
+  "perl",
+  "node",
+  "ruby",
+  "python",
+  "python3",
+}) do
   local var = "loaded_" .. provider .. "_provider"
   vim.g[var] = 0
 end
 -- END of built-in configuration
-
-if vim.g.neovide then
-  vim.opt.guifont = vim.cfg.neovide.font
-  vim.g.neovide_transparency = 0.8
-  vim.g.neovide_cursor_vfx_mode = vim.cfg.neovide.vfx_mode
-end
 
 vim.g.clipboard = {
   name = "OSC 52",

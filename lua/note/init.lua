@@ -9,11 +9,10 @@ pack("iamcco/markdown-preview.nvim", {
   end,
   ft = "markdown",
   init = function()
-    -- Markdown Preview settings
-    --vim.g.mkdp_browser = vim.cfg.markdown.previewer
+    -- I don't know why markdown-preview doesn't want a vim.g.func = lua func
     vim.cmd([[
       function! g:MkdpBrowserFunc(url)
-        :echo a:url
+        :echomsg a:url
       endfunction
     ]])
     vim.g.mkdp_browserfunc = "g:MkdpBrowserFunc"

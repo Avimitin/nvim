@@ -31,8 +31,6 @@ local on_lsp_attach = function(client, bufnr)
       desc = "Expand macro to actual code recursively",
     },
   })
-
-  -- TODO: Add Rust key mappings
 end
 
 -- rust-tools.nvim settings
@@ -59,7 +57,19 @@ local opts = {
   -- send our rust-analyzer configuration to lspconfig
   server = {
     settings = {
-      ["rust-analyzer"] = vim.cfg.rust.settings,
+      ["rust-analyzer"] = {
+        cargo = {
+          autoreload = true,
+        },
+        checkOnSave = {
+          command = "clippy",
+        },
+        completion = {
+          postfix = {
+            enable = false,
+          },
+        },
+      },
     },
     on_attach = on_lsp_attach,
   }, -- rust-analyer options
