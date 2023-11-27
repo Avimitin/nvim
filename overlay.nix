@@ -19,6 +19,7 @@ final: prev:
       { name = "org"; hash = "sha256-N/zlpv4oXVfjk+a/7vM0nAPsCCBMVvWN3oavPbPmKwk="; }
       { name = "regex"; hash = "sha256-Y6A1YqbjItM4V5lQ7IM8EMa+nm6v+p/DHYSEVnF29ac="; }
       { name = "ruby"; hash = "sha256-RaxVKNoIaDj6tMi63ERmeRmq5yHlWL9/u2v6XpMsK/g="; }
+      { name = "python"; hash = "sha256-NyRHCKchNzJ+hjj83EL5/oCTCgO8bJmzw/RwMJ0cA2o="; }
       { name = "rust"; hash = "sha256-g/AJGKg/8KGgcIJZChb9cIP/zvS1JIcUEZRxBL0x2nY="; }
       { name = "scala"; hash = "sha256-2zmNRTey8cFrK9Kx4PrJnhMXFwX7HZj32GGeplJuiDc="; }
       { name = "nix"; hash = "sha256-rzrxcqcc7V+6pgdZ8Q/3VJd5/Oa58AtKKfoC3MBcirs="; }
