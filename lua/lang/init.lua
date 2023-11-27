@@ -105,27 +105,7 @@ register("stevearc/conform.nvim", {
         lua = { "stylua" },
         -- Use a sub-list to run only the first available formatter
         javascript = { { "prettierd", "prettier" } },
-        nix = { "flake-fmt" },
-      },
-      formatters = {
-        ["flake-fmt"] = {
-          command = "nix",
-          args = { "fmt", "$FILENAME" },
-          stdin = false,
-          condition = function()
-            local output = vim.fn.system("nix flake show --json 2> /dev/null")
-            if vim.v.shell_error ~= 0 then
-              return false
-            end
-
-            local j = vim.json.decode(output)
-            if not j["formatter"] then
-              return false
-            end
-
-            return true
-          end,
-        },
+        nix = { "nixpkgs_fmt" },
       },
     })
 
