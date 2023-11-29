@@ -41,7 +41,7 @@ function export.set_root(opts)
   local root = vim.b.current_buf_root_dir or nil
   if root == nil then
     root = export.find_root(opts)
-    vim.b.root = root
+    vim.b.current_buf_root_dir = root
   end
 
   if root ~= nil then
