@@ -134,23 +134,3 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
   end,
   group = auto_jump_gid,
 })
-
---
--- Automatically turn off cursorline when in insert mode
---
-local exclude_filetypes = { ["neo-tree"] = true }
-local cursorline_gid = vim.api.nvim_create_augroup("CursorLineAutoOff", { clear = true })
-au({ "VimEnter", "WinEnter", "InsertLeave" }, {
-  group = cursorline_gid,
-  callback = function()
-    vim.wo.cursorline = true
-  end,
-})
-au({ "WinLeave", "InsertEnter" }, {
-  group = cursorline_gid,
-  callback = function()
-    if vim.wo.cursorline and not exclude_filetypes[vim.bo.filetype] then
-      vim.wo.cursorline = false
-    end
-  end,
-})
