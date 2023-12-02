@@ -146,31 +146,6 @@ insert_left({
 })
 
 insert_left({
-  LineInfoIcon = {
-    provider = function()
-      return "  "
-    end,
-    highlight = { colors.fg, colors.bg },
-  },
-})
-
-insert_left({
-  LineInfo = {
-    provider = "LineColumn",
-    highlight = { colors.fg, colors.bg },
-  },
-})
-
-insert_left({
-  LeftBigSpaceB = {
-    provider = function()
-      return "| "
-    end,
-    highlight = { colors.divider, colors.bg },
-  },
-})
-
-insert_left({
   FileIcon = {
     provider = "FileIcon",
     condition = function()
