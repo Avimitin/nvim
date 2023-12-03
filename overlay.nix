@@ -11,6 +11,7 @@ final: prev:
       { name = "diff"; hash = "sha256-0DMJCM0ps+oDyz4IzOPuI92lzDQMaq4trGos16WJQBc="; }
       { name = "firrtl"; hash = "sha256-X//iBrCi4sYgqNubUrnXCRoKBOUMsgS4u9yht7ioucA="; }
       { name = "gitcommit"; hash = "sha256-f7tSOL6/s+FAt3siH+eO63jXzbU79yh78QfHHvmBFbE="; }
+      { name = "haskell"; hash = "sha256-9WQy2Y54c89qaY5/KYKhW113gSqo+pv2ZvePFa+oGVI="; }
       { name = "javascript"; hash = "sha256-mQQHsSRwyQuXBLtPBj2kgwdtdlK8qFtEcIqG/2ogiY0="; }
       { name = "typescript"; hash = "sha256-wgFce0+8TA9gmvcuNg5YNhySuEzt8ZF/nrHPmwFZW14="; srcRoot = "typescript"; }
       { name = "tsx"; hash = "sha256-wgFce0+8TA9gmvcuNg5YNhySuEzt8ZF/nrHPmwFZW14="; srcRoot = "tsx"; }
