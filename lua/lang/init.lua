@@ -98,7 +98,7 @@ register("scalameta/nvim-metals", {
 })
 
 register("stevearc/conform.nvim", {
-  ft = { "lua", "javascript", "nix" },
+  ft = { "lua", "javascript", "nix", "haskell" },
   config = function()
     require("conform").setup({
       formatters_by_ft = {
@@ -106,11 +106,12 @@ register("stevearc/conform.nvim", {
         -- Use a sub-list to run only the first available formatter
         javascript = { { "prettierd", "prettier" } },
         nix = { "nixpkgs_fmt" },
+        haskell = { "fourmolu" },
       },
     })
 
     vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = { "*.lua", "*.javascript", "*.nix" },
+      pattern = { "*.lua", "*.javascript", "*.nix", "*.hs", "*.lhs" },
       callback = function(args)
         require("conform").format({ bufnr = args.buf })
       end,
