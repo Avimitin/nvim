@@ -432,3 +432,10 @@ register("chrisgrieser/nvim-spider", {
   keys = gen_spider_keys(),
   lazy = true,
 })
+
+register("google/executor.nvim", {
+  cmd = { "ExecutorRun", "ExecutorToggleDetail" },
+  config = function()
+    require("executor").setup({})
+  end,
+})
