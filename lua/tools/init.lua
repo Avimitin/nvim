@@ -435,6 +435,29 @@ register("chrisgrieser/nvim-spider", {
 
 register("google/executor.nvim", {
   cmd = { "ExecutorRun", "ExecutorToggleDetail" },
+  keys = {
+    {
+      "<leader>er",
+      function()
+        require("executor").commands.run()
+      end,
+      desc = "Executor Run",
+    },
+    {
+      "<leader>ec",
+      function()
+        require("executor").commands.set_command()
+      end,
+      desc = "Set Executor command",
+    },
+    {
+      "<leader>et",
+      function()
+        require("executor").commands.toggle_detail()
+      end,
+      desc = "Toggle logs",
+    },
+  },
   config = function()
     require("executor").setup({})
   end,
