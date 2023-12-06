@@ -1,4 +1,3 @@
-local cmd = require("builder.key-mapper").cmd
 local keymapper = require("builder.key-mapper")
 
 keymapper.mk_keymap({
@@ -10,8 +9,14 @@ keymapper.mk_keymap({
     { "k", "v:count == 0 ? 'gk' : 'k'", desc = "Go display lines upward", expr = true },
     { "L", "g_", desc = "Jump to beginning" },
     { "H", "^", desc = "Jump to end" },
-    { "<leader>w", cmd("silent w!"), desc = "Save buffer" },
-    { "<ESC>", cmd("noh"), desc = "Close search highlight" },
+    {
+      "<leader>w",
+      function()
+        vim.cmd.write({ bang = true })
+      end,
+      desc = "Save buffer",
+    },
+    { "<ESC>", vim.cmd.noh, desc = "Close search highlight" },
     {
       "<leader>q",
       function()
@@ -19,10 +24,14 @@ keymapper.mk_keymap({
       end,
       desc = "Close current buffer",
     },
-    { "<leader>x", cmd("x"), desc = "Save and quit" },
+    { "<leader>x", vim.cmd.x, desc = "Save and quit" },
     { "<C-p>", [["+p]], desc = "paste" },
+    { "<C-d>", "<C-d>zz", desc = "paste" },
+    { "<C-u>", "<C-u>zz", desc = "paste" },
   },
   selection = {
+    { "J", ":m '>+1<CR>gv=gv" },
+    { "K", ":m '<-2<CR>gv=gv" },
     { "L", "g_", desc = "Select to beginning" },
     { "H", "^", desc = "Select to end" },
     { "<C-z>", "<nop>", desc = "anti-touch" },
