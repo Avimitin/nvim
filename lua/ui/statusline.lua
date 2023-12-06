@@ -2,7 +2,7 @@ local gl = require("galaxyline")
 local gls = gl.section
 
 local colors = {
-  bg = "#0d0d0d",
+  bg = "#16161D",
   fg = "#b2b2b9",
   black = "#191919",
   yellow = "#E5C07B",
@@ -259,7 +259,7 @@ gl.short_line_list = vim.tbl_keys(BufferTypeMap)
 require("galaxyline").section.short_line_left = {
   {
     ShortLineLeftBufferType = {
-      highlight = { colors.dimblue, colors.bg },
+      highlight = { colors.blue, colors.divider },
       provider = function()
         -- return filename for normal file
         local get_file_name = function()
@@ -268,13 +268,11 @@ require("galaxyline").section.short_line_left = {
         local name = BufferTypeMap[vim.bo.filetype] or get_file_name()
         return string.format("  %s", name)
       end,
-      separator = " ",
-      separator_highlight = { colors.bg, colors.bg },
     },
   },
   {
     WinSeparator = {
-      highlight = { colors.black, colors.black },
+    highlight = { colors.divider, colors.divider },
       provider = function()
         return " "
       end,
