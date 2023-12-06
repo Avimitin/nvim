@@ -42,6 +42,10 @@ local function insert_left(element)
   table.insert(gls.left, element)
 end
 
+local function insert_right(element)
+  table.insert(gls.right, element)
+end
+
 -----------------------------------------------------
 ----------------- start insert ----------------------
 -----------------------------------------------------
@@ -49,7 +53,7 @@ end
 insert_left({
   LeftSpace = {
     provider = function()
-      return "  "
+      return " "
     end,
     highlight = { colors.bg, colors.bg },
   },
@@ -57,27 +61,27 @@ insert_left({
 
 local vim_mode = {
   alias = {
-    n = " Normal",
-    no = "󰌌 Pending",
-    nov = "󰌌 Pending",
-    noV = "󰌌 Pending",
-    i = " Insert",
-    c = " Command",
-    v = " Visual",
-    V = " Visual",
-    [""] = "󰩬 Region",
-    C = "",
-    ["r?"] = "?",
-    rm = "M",
-    R = " Replace",
-    Rv = " Virtual Replace",
-    s = "",
-    S = "",
+    n = " N",
+    no = "󰌌 P",
+    nov = "󰌌 P",
+    noV = "󰌌 P",
+    i = " I",
+    c = " C",
+    v = " V",
+    V = " V",
+    [""] = "󰩬 V",
+    C = " C",
+    ["r?"] = "? R",
+    rm = "R",
+    R = " R",
+    Rv = " R",
+    s = " S",
+    S = " S",
     ["r"] = "HIT-ENTER",
-    [""] = "",
-    t = " Terminal",
-    ["!"] = " Shell",
-    _LineLeap = "󱕘 LineLeap",
+    [""] = " S",
+    t = " T",
+    ["!"] = " S",
+    _LineLeap = "󱕘 LEAP",
   },
   color = {
     n = colors.yellow,
@@ -137,15 +141,43 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 insert_left({
-  LeftBigSpace = {
+  MiddleSpace2 = {
     provider = function()
-      return "  | "
+      return " "
     end,
-    highlight = { colors.divider, colors.bg },
+    highlight = { colors.bg, colors.bg },
   },
 })
 
 insert_left({
+  LeftBigSpace = {
+    provider = function()
+      return " |"
+    end,
+    highlight = { colors.divider, "none" },
+  },
+})
+
+insert_left({
+  MiddleSpace = {
+    provider = function()
+      return " "
+    end,
+    highlight = "Normal",
+  },
+})
+
+insert_right({
+  LspSpace = {
+    provider = function()
+      return " "
+    end,
+    condition = should_activate_lsp,
+    highlight = { colors.bg, colors.bg },
+  },
+})
+
+insert_right({
   FileIcon = {
     provider = "FileIcon",
     condition = function()
@@ -158,7 +190,7 @@ insert_left({
   },
 })
 
-insert_left({
+insert_right({
   GetLspClient = {
     provider = "GetLspClient",
     condition = should_activate_lsp,
@@ -166,58 +198,20 @@ insert_left({
   },
 })
 
-insert_left({
+insert_right({
   LspSpace = {
-    provider = function()
-      return "  "
-    end,
-    condition = should_activate_lsp,
-    highlight = { colors.bg, colors.bg },
-  },
-})
-
-insert_left({
-  DiagnosticError = {
-    provider = "DiagnosticError",
-    condition = should_activate_lsp,
-    icon = "  ",
-    highlight = { colors.red, colors.bg },
-  },
-})
-
-insert_left({
-  DiagnosticWarn = {
-    provider = "DiagnosticWarn",
-    condition = should_activate_lsp,
-    icon = "  ",
-    highlight = { colors.yellow, colors.bg },
-  },
-})
-
-insert_left({
-  DiagnosticInfo = {
-    provider = "DiagnosticInfo",
-    condition = should_activate_lsp,
-    highlight = { colors.green, colors.bg },
-    icon = "  ",
-  },
-})
-
-insert_left({
-  DiagnosticHint = {
-    provider = "DiagnosticHint",
-    condition = should_activate_lsp,
-    highlight = { colors.white, colors.bg },
-    icon = "  ",
-  },
-})
-
-insert_left({
-  MiddleSpace = {
     provider = function()
       return " "
     end,
+    condition = should_activate_lsp,
     highlight = { colors.bg, colors.bg },
+  },
+})
+
+insert_right({
+  LineColumn = {
+    provider = "LineColumn",
+    highlight = { colors.fg, colors.bg },
   },
 })
 
@@ -272,7 +266,7 @@ require("galaxyline").section.short_line_left = {
   },
   {
     WinSeparator = {
-    highlight = { colors.divider, colors.divider },
+      highlight = { colors.divider, colors.divider },
       provider = function()
         return " "
       end,
