@@ -8,10 +8,8 @@
 * ***Handy*** and ***Smoothy***: There will always be a panel to remind you
 when you forget your key settings. There will always be a short keystroke to help
 you get to the place you want to jump to. There will always…
-* ***Powerful*** coding experience: With the power from nvim-lspconfig, we can
-have "IDE Level" coding experience in the terminal.
-* ***Fancy looking***: Talk is cheap, see the [gallery](#Gallery).
-* ***Easy Customize***: Always injecting new configuration, wherever you like.
+* ***Powerful*** coding experience: nvim-lspconfig powered great LSP experient.
+* ***Fancy looking***: Well designed, denoised, uncluttered UI. Talk is cheap, see the [gallery](#Gallery).
 
 ## Getting Start
 
@@ -27,15 +25,52 @@ Finally, input `nvim` to open the editor, and all plugins will be downloaded aut
 nvim
 ```
 
-## Document
+To use this in your home-manager, you can use the xdg.configFile attribute:
 
-See [Docs](https://avimitin.github.io/nvim).
+```nix
+{ pkgs }:
+{
+    xdg.configFile = {
+        neovim = {
+            target = "nvim";
+            source = pkgs.fetchFromGitHub {
+                repo = "nvim";
+                owner = "Avimitin";
+                rev = "...";
+                hash = "...";
+            }
+        };
+    };
+}
+```
 
-## Customize
+## Project Structure
 
-See [document](./lua/core/README.md)
 
-## Treesitter
+- `lua`: the configuration core
+
+    * `key-mapping.lua`: my modification to the built-in key mappings
+    * `pack.lua`: script to download lazy.nvim plugin manager
+    * `core/`: my modification to the built-in options and auto commands
+    * `completion/`: plugins and configuration for LSP and vim command completion
+    * `git/`: plugin and configuration for using git in Neovim
+    * `lang/`: plugins and configuration for using LSP server and get diagnostic in Neovim
+    * `libs/`: functions that I don't want to write twice
+    * `note/`: markdown and neorg support for neovim
+    * `tools/`: miscellaneous plugins that can enhance editing experience
+    * `treesitter/`: plugins for text object highlight and editing
+    * `ui/`: plugins for decorating the neovim
+
+- `after/ftplugin/<lang>.lua`: configured LSP settings for each different language
+- `ftdetect`: list of script to help neovim identify filetype for some file
+- `indent`: list of script to help neovim properly set indentation
+- `syntax`: additional syntax detection for some file type
+- `vsnip`: my snippets
+
+
+## Treesitter parsers in nix
+
+> Ignore this if you are not a nix user
 
 To make treesitter compatible with the stable neovim, and to make the share library compilation process reproducible and clean,
 this configuration provides a treesitter parser nix expression to manage the treesitter parser plugin.
@@ -215,15 +250,3 @@ licenced under the Apache 2.0 license.
 
 另附：禁止在 CSDN，bilibili 等国内平台使用该配置文件进行任何活动。
 你只保有自己修改部分的权利。
-
-## Development Related
-
-### Versioning
-
-Version will be released in `cvYYYY.0M.0D` format. I will try to release update each weak.
-
-### Changelog
-
-See [CHANGELOG.md](./CHANGELOG.md)
-
-<br/>
