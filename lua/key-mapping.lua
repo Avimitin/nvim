@@ -10,7 +10,6 @@ keymapper.mk_keymap({
     { "k", "v:count == 0 ? 'gk' : 'k'", desc = "Go display lines upward", expr = true },
     { "L", "g_", desc = "Jump to beginning" },
     { "H", "^", desc = "Jump to end" },
-    { "<C-z>", "u", desc = "Revert changes" },
     { "<leader>w", cmd("silent w!"), desc = "Save buffer" },
     { "<ESC>", cmd("noh"), desc = "Close search highlight" },
     {
@@ -26,7 +25,7 @@ keymapper.mk_keymap({
   selection = {
     { "L", "g_", desc = "Select to beginning" },
     { "H", "^", desc = "Select to end" },
-    { "<C-z>", "<nop>", desc = "Revert changes" },
+    { "<C-z>", "<nop>", desc = "anti-touch" },
     { "<tab>", ">gv", desc = "Increase indent" },
     { "<s-tab>", "<gv", desc = "Decrease indent" },
   },
@@ -38,7 +37,7 @@ keymapper.mk_keymap({
     { "<C-f>", "<Right>", desc = "Go up one line" },
     { "<C-b>", "<Left>", desc = "Go up one line" },
     { "<C-n>", "<Down>", desc = "Go down one line" },
-    { "<C-z>", "<esc>ui", desc = "Revert changes" },
+    { "<C-z>", "<nop>", desc = "anti-touch" },
   },
   terminal = {
     { "<S-Space>", "<Space>" },
