@@ -24,3 +24,15 @@ pack("lewis6991/gitsigns.nvim", {
     })
   end,
 })
+
+pack("rbong/vim-flog", {
+  cmd = { "Flog", "Flogsplit", "Floggit" },
+  dependencies = {
+    "tpope/vim-fugitive",
+  },
+  init = function()
+    vim.g.flog_permanent_default_opts = {
+      date = "short",
+    }
+  end,
+})
