@@ -259,6 +259,18 @@ register("ggandor/leap.nvim", {
       mode = { "n", "o" },
       desc = "Leap to line",
     },
+    {
+      "gj",
+      require("tools.line_leap").leap_to_line,
+      mode = { "x" },
+      desc = "Leap to line",
+    },
+    {
+      "gk",
+      require("tools.line_leap").leap_to_line,
+      mode = { "x" },
+      desc = "Leap to line",
+    },
     { "s", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
     { "S", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
     { "x", "<Plug>(leap-forward-till)", mode = { "x", "o" }, desc = "Leap forward until" },
