@@ -25,7 +25,7 @@ function Export.setup()
     signs = true,
     underline = true,
     -- update diagnostic in insert mode will be annoying when the output is too verbose
-    update_in_insert = false,
+    update_in_insert = true,
   })
 
   local types = {
@@ -39,7 +39,6 @@ function Export.setup()
     local hl = "DiagnosticSign" .. diag_type
     vim.fn.sign_define(hl, {
       text = "",
-      numhl = hl,
       linehl = hl,
     })
   end
