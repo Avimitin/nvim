@@ -179,9 +179,13 @@ See [my overlay](./overlay.nix) for detail examples and the current available pa
 <details>
     <summary markdown="span">Coding Utils</summary>
 
-| Diagnostic Panel |
+| LSP Progress |
 |-----------------|
-| ![image](./docs/images/trouble.png)  |
+| ![image](./docs/images/lsp-progress.png)  |
+
+| Symbol Tree |
+|-----------------|
+| ![image](./docs/images/symboltree.png)  |
 
 | Code Completion                       |
 |---------------------------------------|
@@ -189,11 +193,11 @@ See [my overlay](./overlay.nix) for detail examples and the current available pa
 
 | Command Completion                                 |
 |----------------------------------------------------|
-| ![cmp-cmdline](./docs/images/nvim-cmp-cmdline.png) |
+| ![cmp-cmdline](./docs/images/commandline-completion.png) |
 
-| Inline diagnostic analytics |
+| Errorlens Like diagnostic |
 |-----------------------------|
-| ![lsp-line](./docs/images/inline.png) |
+| ![lsp-line](./docs/images/errorlens.png) |
 
 | Signature Help                       |
 |--------------------------------------|
@@ -224,9 +228,9 @@ See [my overlay](./overlay.nix) for detail examples and the current available pa
 <details>
     <summary markdown="span">File Manager</summary>
 
-| nvim-tree                                 |
+| neotree                                 |
 |-------------------------------------------|
-| ![nvim-tree](./docs/images/nvim-tree.png) |
+| ![nvim-tree](./docs/images/neotree.png) |
 
 | Find file                                           |
 |-----------------------------------------------------|
