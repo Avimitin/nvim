@@ -9,7 +9,7 @@ local function override(colors)
     CmpItemKindField = { link = "@field" },
     CmpItemKindKeyword = { link = "@keyword.return" },
     CmpItemKindProperty = { link = "@property" },
-    DiagnosticSignError = { fg = "None", bg = "#2A1C23" },
+    DiagnosticSignError = { fg = "None", bg = "#341c23" },
     DiagnosticSignHint = { fg = "None", bg = "#1C1E2A" },
     DiagnosticSignInfo = { fg = "None", bg = "#262729" },
     DiagnosticSignWarn = { fg = "None", bg = "#2F261A" },
