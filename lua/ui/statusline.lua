@@ -14,7 +14,7 @@ local colors = {
   magenta = "#D27E99",
   blue = "#81A1C1",
   red = "#D54E53",
-  divider = "#24242e",
+  lightgrey = "#5a5a72",
 }
 
 local checkwidth = function()
@@ -188,7 +188,7 @@ insert_right({
 insert_right({
   FileName = {
     provider = "FileName",
-    highlight = { colors.fg, colors.bg },
+    highlight = { colors.lightgrey, colors.bg },
   },
 })
 

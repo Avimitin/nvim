@@ -15,6 +15,7 @@ local function override(colors)
     DiagnosticSignWarn = { fg = "None", bg = "#2F261A" },
     HighLightLineMatches = { bg = default.winterYellow },
     Pmenu = { bg = default.sumiInk3 },
+    --Normal = { bg = "#111117", fg = default.fujiWhite },
     TelescopePromptNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
     TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
     TelescopePromptTitle = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
