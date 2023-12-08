@@ -95,7 +95,7 @@ local vim_mode = {
     ["r?"] = colors.cyan,
     ["!"] = colors.red,
     t = colors.red,
-    _LineLeap = colors.green,
+    _LineLeap = colors.red,
   },
   is_line_leap = false,
 }

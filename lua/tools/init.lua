@@ -278,9 +278,6 @@ register("ggandor/leap.nvim", {
     { "gw", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from window" },
     { "gW", "<Plug>(leap-cross-window)", mode = { "n", "x", "o" }, desc = "Leap cross window" },
   },
-  config = function()
-    vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
-  end,
 })
 
 -- Quick moving by one character searching
