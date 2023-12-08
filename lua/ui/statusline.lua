@@ -50,42 +50,33 @@ end
 ----------------- start insert ----------------------
 -----------------------------------------------------
 -- { mode panel start
-insert_left({
-  LeftSpace = {
-    provider = function()
-      return " "
-    end,
-    highlight = { colors.bg, colors.bg },
-  },
-})
-
 local vim_mode = {
   alias = {
-    n = " N",
-    no = "󰌌 P",
-    nov = "󰌌 P",
-    noV = "󰌌 P",
-    i = " I",
-    c = " C",
-    v = " V",
-    V = " V",
-    [""] = "󰩬 V",
-    C = " C",
-    ["r?"] = "? R",
-    rm = "R",
-    R = " R",
-    Rv = " R",
-    s = " S",
-    S = " S",
+    n = " Normal",
+    no = "󰌌 Pending",
+    nov = "󰌌 Pending",
+    noV = "󰌌 Pending",
+    i = " Insert",
+    c = " Command",
+    v = " Visual",
+    V = " Visual",
+    [""] = "󰩬 Visual Region",
+    C = " Replace",
+    ["r?"] = "? Replace",
+    rm = "Replace",
+    R = " Replace",
+    Rv = " Replace",
+    s = " Select",
+    S = " Select",
     ["r"] = "HIT-ENTER",
-    [""] = " S",
-    t = " T",
-    ["!"] = " S",
+    [""] = " Select",
+    t = " Terminal",
+    ["!"] = " Shell",
     _LineLeap = "󱕘 LEAP",
   },
   color = {
-    n = colors.yellow,
-    i = colors.green,
+    n = colors.green,
+    i = colors.yellow,
     v = colors.blue,
     [""] = colors.blue,
     V = colors.blue,
@@ -118,7 +109,7 @@ insert_left({
         mode = "_LineLeap"
       end
       vim.api.nvim_set_hl(0, "GalaxyViMode", { fg = vim_mode.color[mode], bg = colors.bg })
-      return vim_mode.alias[mode]
+      return "▊ " .. vim_mode.alias[mode]
     end,
     highlight = "GalaxyViMode",
   },
@@ -141,29 +132,11 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 insert_left({
-  MiddleSpace2 = {
-    provider = function()
-      return " "
-    end,
-    highlight = { colors.bg, colors.bg },
-  },
-})
-
-insert_left({
-  LeftBigSpace = {
-    provider = function()
-      return " |"
-    end,
-    highlight = { colors.divider, "none" },
-  },
-})
-
-insert_left({
   MiddleSpace = {
     provider = function()
       return " "
     end,
-    highlight = "Normal",
+    highlight = { colors.bg, colors.bg },
   },
 })
 
@@ -194,7 +167,11 @@ insert_right({
   GetLspClient = {
     provider = "GetLspClient",
     condition = should_activate_lsp,
-    highlight = { colors.fg, colors.bg },
+    highlight = {
+      require("galaxyline.provider_fileinfo").get_file_icon_color,
+      colors.bg,
+      "italic",
+    },
   },
 })
 
@@ -205,6 +182,13 @@ insert_right({
     end,
     condition = should_activate_lsp,
     highlight = { colors.bg, colors.bg },
+  },
+})
+
+insert_right({
+  FileName = {
+    provider = "FileName",
+    highlight = { colors.fg, colors.bg },
   },
 })
 
@@ -253,7 +237,7 @@ gl.short_line_list = vim.tbl_keys(BufferTypeMap)
 require("galaxyline").section.short_line_left = {
   {
     ShortLineLeftBufferType = {
-      highlight = { colors.blue, colors.divider },
+      highlight = { colors.blue, colors.bg },
       provider = function()
         -- return filename for normal file
         local get_file_name = function()
@@ -266,7 +250,7 @@ require("galaxyline").section.short_line_left = {
   },
   {
     WinSeparator = {
-      highlight = { colors.divider, colors.divider },
+      highlight = { colors.bg, colors.bg },
       provider = function()
         return " "
       end,
