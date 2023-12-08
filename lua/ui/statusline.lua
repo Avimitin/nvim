@@ -19,7 +19,7 @@ local colors = {
 
 local checkwidth = function()
   local squeeze_width = vim.fn.winwidth(0) / 2
-  if squeeze_width > 50 then
+  if squeeze_width > 30 then
     return true
   end
   return false
