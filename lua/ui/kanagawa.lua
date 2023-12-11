@@ -1,5 +1,7 @@
 vim.opt.background = "dark"
 
+local enable_transparent = true
+
 local function override(colors)
   local default = colors.palette
   local theme = colors.theme
@@ -15,7 +17,7 @@ local function override(colors)
     DiagnosticSignWarn = { fg = "None", bg = "#2F261A" },
     HighLightLineMatches = { bg = default.winterYellow },
     Pmenu = { bg = default.sumiInk3 },
-    --Normal = { bg = "#111117", fg = default.fujiWhite },
+    Normal = enable_transparent and nil or { bg = "#111117", fg = default.fujiWhite },
     TelescopePromptNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
     TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
     TelescopePromptTitle = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
@@ -26,7 +28,7 @@ local function override(colors)
     TelescopeResultsTitle = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
     TelescopeTitle = { fg = theme.ui.special, bold = true },
     WinSeparator = { fg = default.sumiInk4 },
-    CodeBlock = { bg = default.sumiInk0 },
+    CodeBlock = { bg = default.sumiInk1 },
     Headline1 = { bg = "#21001D" },
     Headline2 = { bg = "#151F2D" },
     Headline3 = { bg = default.sumiInk3 },
@@ -81,7 +83,7 @@ require("kanagawa").setup({
     dark = "wave",
     light = "lotus",
   },
-  transparent = true,
+  transparent = enable_transparent,
 })
 
 vim.cmd("colorscheme kanagawa")
