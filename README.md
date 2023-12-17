@@ -116,27 +116,19 @@ To use it, you can use home-manager to help you put this package into neovim's d
 And in the example `laptop.nix`, you can create a file in `$XDG_DATA_HOME` to let neovim automatically load those parsers:
 
 ```nix
-# overlay.nix
 { pkgs, ... }:
 {
-    xdg.dataFile.nvim-treesitter-parsers = {
-        # The lua script setup rtp for neovim, so that treesitter knows where to find those parsers.
-        #
-        # Actually you can write the source in the below form, but using the passthru variable can keep in sync with upstream.
-        # source = "${pkgs.nvim-treesitter-parsers}/treesitter-parser.lua";
-        source = "${pkgs.nvim-treesitter-parsers}${pkgs.nvim-treesitter-parsers.passthru.luaScript}";
-        target = "nvim/site/plugin/nvim-treesitter-parsers.lua";
-    };
-}
-```
-
-To add more language parser, you can use the `override` function:
-
-```nix
-nvim-treesitter-parsers.override {
-    wantedParsers = [
-        { name = "bash"; hash = "sha256-QQmgtC/1/8ps3tPl9X3z/sVQSlGW5h+DC364LBjLbWQ="; } 
-    ];
+    xdg.dataFile.generate-nvim-treesitter-parsers = let
+        tsLoader = pkgs.generate-nvim-treesitter-parsers [
+          { name = "bash"; hash = "sha256-b1r/T+Y4Kmui/pHsncozP8OO6rMMHJj+Xaa2Qzwo/cI="; }
+          { name = "c"; hash = "sha256-sB8fNfusjC9yTlrizb2mufDzQPvBajTJC+ewF9awBqA="; }
+          { name = "cpp"; hash = "sha256-27QjVy8quWyGhFCv/6GATG1xjGnkB9LTcvlPMuR3NB0="; }
+        ];
+      in
+      {
+        source = "${tsLoader.passthru.loaderScript}";
+        target = "nvim/site/plugin/treesitter-parsers.lua";
+      };
 }
 ```
 
@@ -149,6 +141,35 @@ where:
   - srcRoot string: Specify where the parser source located. Some repository will vendor two or more parser source code in one repository.
 
 See [my overlay](./overlay.nix) for detail examples and the current available parsers.
+
+Also you might found update the parser hash one by one really annoying, so the `generate-nvim-treesitter-parsers` also contains a update script.
+To use it, first you will need to place the script file somewhere:
+
+```nix
+xdg.dataFile =
+let
+  tsLoader = pkgs.generate-nvim-treesitter-parsers [
+    { name = "bash"; hash = "sha256-b1r/T+Y4Kmui/pHsncozP8OO6rMMHJj+Xaa2Qzwo/cI="; }
+    { name = "c"; hash = "sha256-sB8fNfusjC9yTlrizb2mufDzQPvBajTJC+ewF9awBqA="; }
+    { name = "cpp"; hash = "sha256-27QjVy8quWyGhFCv/6GATG1xjGnkB9LTcvlPMuR3NB0="; }
+    { name = "yaml"; hash = "sha256-RrYFKrhqFLsjQG+7XFbcQ2eYy2eyig5/r+MYO8DId4g="; }
+  ];
+in
+{
+  nvim-treesitter-parsers = {
+    source = "${tsLoader}${tsLoader.passthru.luaPath}";
+    target = "nvim/site/plugin/treesitter-parsers.lua";
+  };
+  nvim-treesitter-updater = {
+    source = "${tsLoader.passthru.updateScript}/bin/treesitter-hash-batch-updater";
+    target = "nvim/assets/treesitter-updater.bash"; # or any other path you like
+  };
+};
+```
+
+This script accept single argument, which should point to the hash definition file.
+In our example above, it is the 'laptop.nix' file, so run the bash script `~/.local/share/nvim/assets/treesitter-updater.bash laptop.nix`,
+and wait for it finish its job.
 
 ## Gallery
 
