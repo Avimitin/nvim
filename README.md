@@ -72,48 +72,12 @@ To use this in your home-manager, you can use the xdg.configFile attribute:
 
 > Ignore this if you are not a nix user
 
-To make treesitter compatible with the stable neovim, and to make the share library compilation process reproducible and clean,
-this configuration provides a treesitter parser nix expression to manage the treesitter parser plugin.
-The flake output an overlay providing package `nvim-treesitter-parsers`.
+To make treesitter compatible with the stable neovim and my current configuration, and to make the share library compilation process reproducible and clean,
+this configuration provides a custom treesitter parser nix builder to manage the treesitter parser plugin.
+The flake output an overlay providing a nix function `generate-nvim-treesitter-parsers`.
 To use it, you can use home-manager to help you put this package into neovim's data directory.
 
-- Example flake based home-manager configuration:
-
-```nix
-# flake.nix
-
-{
-  description = "Flakes to reference treesiter";
-
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nvim = {
-      url = "github:Avimitin/nvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  outputs = { self, nixpkgs, home-manager, nvim }:
-    let
-      overlays = [ nvim.overlays.default ];
-      pkgsIn = import nixpkgs { system = "x86_64-linux"; inherit overlays;  };
-    in
-    {
-      homeConfigurations = {
-        "laptop" = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            modules = [ ./laptop.nix ];
-        };
-      };
-    };
-}
-```
-
-And in the example `laptop.nix`, you can create a file in `$XDG_DATA_HOME` to let neovim automatically load those parsers:
+Below is an example named `laptop.nix`, which show an example of how to link the lua script in `$XDG_DATA_HOME` to let neovim automatically load those parsers:
 
 ```nix
 { pkgs, ... }:
@@ -126,7 +90,8 @@ And in the example `laptop.nix`, you can create a file in `$XDG_DATA_HOME` to le
         ];
       in
       {
-        source = "${tsLoader.passthru.loaderScript}";
+        source = "${tsLoader}${tsLoader.passthru.luaPath}";
+        # Target will be substitute into ~/.local/share/nvim/site/plugin/treesitter-parsers.lua, and neovim will automatically load script in this path.
         target = "nvim/site/plugin/treesitter-parsers.lua";
       };
 }
@@ -140,7 +105,7 @@ where:
   - needs_generate bool: When true, tree-sitter CLI will be used to generate the parser.
   - srcRoot string: Specify where the parser source located. Some repository will vendor two or more parser source code in one repository.
 
-See [my overlay](./overlay.nix) for detail examples and the current available parsers.
+See [my home configuration](https://github.com/Avimitin/Avimitin/blob/master/nix/home/share.nix) for detail examples.
 
 Also you might found update the parser hash one by one really annoying, so the `generate-nvim-treesitter-parsers` also contains a update script.
 To use it, first you will need to place the script file somewhere:
