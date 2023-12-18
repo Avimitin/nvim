@@ -450,6 +450,33 @@ register("nyngwang/NeoTerm.lua", {
     { "<C-`>", vim.cmd.NeoTermToggle, mode = "t" },
     { "<A-;>", vim.cmd.NeoTermEnterNormal, mode = "t" },
   },
+  init = function()
+    -- auto-insert on enter term-buf of NeoTerm.
+    local id = vim.api.nvim_create_augroup("NeoTermUserCommands", {})
+    vim.api.nvim_create_autocmd({ "BufEnter", "TermOpen" }, {
+      group = id,
+      pattern = "*",
+      callback = function()
+        if vim.bo.filetype ~= "neo-term" or vim.bo.buftype ~= "terminal" then
+          return
+        end
+        vim.cmd.startinsert()
+        vim.wo.number = false
+      end,
+    })
+    -- cancel-insert on exit term-buf of NeoTerm.
+    vim.api.nvim_create_autocmd({ "BufLeave" }, {
+      group = id,
+      pattern = "*",
+      callback = function()
+        if vim.bo.filetype ~= "neo-term" or vim.bo.buftype ~= "terminal" then
+          return
+        end
+        vim.cmd.stopinsert()
+        vim.wo.number = false
+      end,
+    })
+  end,
   config = function()
     require("neo-term").setup({
       term_mode_hl = "Normal",
