@@ -1,5 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
+  "NeoTerm.lua": { "branch": "main", "commit": "f71a4a9663c52673a677a09894d945983c8da303" },
   "ccc.nvim": { "branch": "main", "commit": "f77b477d9f0b9a28612212b3fc43145f2a5591cc" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-cmdline": { "branch": "main", "commit": "8ee981b4a91f536f52add291594e89fb6645e451" },
@@ -11,7 +12,7 @@
   "crates.nvim": { "branch": "main", "commit": "a8b8f60c33b16c8ef22f8064166daa29a47fca4a" },
   "dressing.nvim": { "branch": "master", "commit": "8b7ae53d7f04f33be3439a441db8071c96092d19" },
   "emmylua-nvim": { "branch": "master", "commit": "ac5fbc9e5f528d59d6f1e9f6732eb8f21002715b" },
-  "executor.nvim": { "branch": "main", "commit": "2af6072829562922e047ed644fc83749c4b10d92" },
+  "flatten.nvim": { "branch": "main", "commit": "c78c5200899d2afd171d9d2bf09e139e3710eeb6" },
   "flit.nvim": { "branch": "main", "commit": "f4e9af572a62c808c8de214da672f2a115a98c35" },
   "galaxyline.nvim": { "branch": "main", "commit": "20f5f750002532a35193f55cd499074fc97d933d" },
   "gitsigns.nvim": { "branch": "main", "commit": "6ef8c54fb526bf3a0bc4efb0b2fe8e6d9a7daed2" },
