@@ -451,7 +451,9 @@ register("nyngwang/NeoTerm.lua", {
     { "<A-;>", vim.cmd.NeoTermEnterNormal, mode = "t" },
   },
   config = function()
-    require("neo-term").setup({})
+    require("neo-term").setup({
+      term_mode_hl = "Normal",
+    })
   end,
 })
 
