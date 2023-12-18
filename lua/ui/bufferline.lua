@@ -20,6 +20,20 @@ require("bufferline").setup({
     separator_style = { "", "" },
     always_show_bufferline = true,
     indicator = { style = "none" },
+    groups = {
+      options = {
+        toggle_hidden_on_enter = false, -- when you re-enter a hidden group this options re-opens that group so the buffer is visible
+      },
+      items = {
+        {
+          name = " Terminals",
+          auto_close = true,
+          matcher = function(buf)
+            return buf.buftype:match("terminal")
+          end,
+        },
+      },
+    },
   },
 })
 
