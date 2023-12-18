@@ -443,32 +443,57 @@ register("chrisgrieser/nvim-spider", {
   lazy = true,
 })
 
-register("google/executor.nvim", {
-  cmd = { "ExecutorRun", "ExecutorToggleDetail" },
+register("nyngwang/NeoTerm.lua", {
+  lazy = true,
   keys = {
-    {
-      "<leader>er",
-      function()
-        require("executor").commands.run()
-      end,
-      desc = "Executor Run",
-    },
-    {
-      "<leader>ec",
-      function()
-        require("executor").commands.set_command()
-      end,
-      desc = "Set Executor command",
-    },
-    {
-      "<leader>et",
-      function()
-        require("executor").commands.toggle_detail()
-      end,
-      desc = "Toggle logs",
-    },
+    { "<C-`>", vim.cmd.NeoTermToggle },
+    { "<C-`>", vim.cmd.NeoTermToggle, mode = "t" },
+    { "<A-;>", vim.cmd.NeoTermEnterNormal, mode = "t" },
   },
   config = function()
-    require("executor").setup({})
+    require("neo-term").setup({})
   end,
+})
+
+register("willothy/flatten.nvim", {
+  config = function()
+    require("flatten").setup({
+      callbacks = {
+        should_block = function(argv)
+          return vim.tbl_contains(argv, "lazygit") or vim.tbl_contains(argv, "-b")
+        end,
+        pre_open = function()
+          vim.cmd.NeoTermToggle()
+        end,
+        post_open = function(bufnr, winnr, ft, is_blocking)
+          if is_blocking then
+            -- Hide the terminal while it's blocking
+            vim.cmd.NeoTermToggle()
+          else
+            vim.api.nvim_set_current_win(winnr)
+          end
+
+          if ft == "gitcommit" or ft == "gitrebase" then
+            vim.api.nvim_create_autocmd("BufWritePost", {
+              buffer = bufnr,
+              once = true,
+              callback = vim.schedule_wrap(function()
+                vim.api.nvim_buf_delete(bufnr, {})
+              end),
+            })
+          end
+        end,
+        block_end = function()
+          -- After blocking ends (for a git commit, etc), reopen the terminal
+          vim.schedule(function()
+            vim.cmd.NeoTermToggle()
+          end)
+        end,
+      },
+    })
+  end,
+  -- This plugin only read `vim.env.NVIM` on start up, there is no overhead.
+  -- But lazy loading it will instead causing multiple issues, so just don't be lazy here.
+  lazy = false,
+  priority = 1001,
 })
