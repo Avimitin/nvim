@@ -1,8 +1,5 @@
 local au = vim.api.nvim_create_autocmd
 
--- Auto Insert in terminal
-au({ "TermOpen", "TermEnter" }, { pattern = { "*" }, command = "startinsert" })
-
 -- Copy data to system clipboard only when we are pressing 'y'. 'd', 'x' will be filtered out.
 --
 -- Credit: https://github.com/ibhagwan/smartyank.nvim
