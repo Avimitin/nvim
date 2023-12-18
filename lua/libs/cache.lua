@@ -6,11 +6,12 @@ local M = {
 ---@param mod string A unique module name
 ---@return boolean true if the given mod is loaded, false if the given mod is not exist.
 function M.loaded(mod)
-  if M.__cache[mod] then
+  local key = string.format("%d%s", vim.api.nvim_get_current_buf(), mod)
+  if M.__cache[key] then
     return true
   end
 
-  M.__cache[mod] = 1
+  M.__cache[key] = 1
 
   return false
 end
