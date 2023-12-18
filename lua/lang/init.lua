@@ -120,6 +120,13 @@ register("stevearc/conform.nvim", {
   end,
 })
 
+register("VidocqH/lsp-lens.nvim", {
+  event = "LspAttach",
+  config = function()
+    require("lsp-lens").setup({})
+  end,
+})
+
 local export = {}
 
 ---@param server string Server name
