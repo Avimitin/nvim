@@ -20,6 +20,14 @@ register("kyazdani42/nvim-web-devicons", {
           name = "Ml",
         },
       },
+      override_by_extension = {
+        ["sc"] = {
+          icon = "",
+          color = "#cc3e44",
+          cterm_color = "167",
+          name = "Scala",
+        },
+      },
     })
   end,
 })
