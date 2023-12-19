@@ -186,8 +186,10 @@ insert_right({
 })
 
 insert_right({
-  FileName = {
-    provider = "FileName",
+  TextIcon = {
+    provider = function()
+      return " 󰈚 "
+    end,
     highlight = { colors.lightgrey, colors.bg },
   },
 })
@@ -195,7 +197,7 @@ insert_right({
 insert_right({
   LineColumn = {
     provider = "LineColumn",
-    highlight = { colors.fg, colors.bg },
+    highlight = { colors.lightgrey, colors.bg },
   },
 })
 
