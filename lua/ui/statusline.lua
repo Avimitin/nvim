@@ -232,6 +232,7 @@ local BufferTypeMap = {
   ["tagbar"] = "Tagbar",
   ["toggleterm"] = " ToggleTerm",
   ["Trouble"] = "ﮒ Diagnostic",
+  ["neo-term"] = " NeoTerm",
 }
 
 gl.short_line_list = vim.tbl_keys(BufferTypeMap)
@@ -239,14 +240,14 @@ gl.short_line_list = vim.tbl_keys(BufferTypeMap)
 require("galaxyline").section.short_line_left = {
   {
     ShortLineLeftBufferType = {
-      highlight = { colors.blue, colors.bg },
+      highlight = { colors.cyan, colors.bg },
       provider = function()
         -- return filename for normal file
         local get_file_name = function()
           return string.format("%s %s", "", vim.fs.basename(vim.fn.expand("%")))
         end
         local name = BufferTypeMap[vim.bo.filetype] or get_file_name()
-        return string.format("  %s", name)
+        return string.format("▊ %s", name)
       end,
     },
   },
