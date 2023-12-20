@@ -62,13 +62,6 @@ end
 
 require("kanagawa").setup({
   undercurl = true, -- enable undercurls
-  commentStyle = { italic = true },
-  functionStyle = { bold = true },
-  keywordStyle = { italic = true },
-  statementStyle = { bold = true },
-  typeStyle = { bold = true },
-  variablebuiltinStyle = { italic = true },
-  globalStatus = true,
   overrides = override,
   colors = {
     theme = {
