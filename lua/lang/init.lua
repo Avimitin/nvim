@@ -120,6 +120,13 @@ register("stevearc/conform.nvim", {
   end,
 })
 
+register("folke/trouble.nvim", {
+  keys = { { "go", vim.cmd.TroubleToggle, desc = "Toggle Trouble Mode Menu" } },
+  config = function()
+    require("trouble").setup({})
+  end,
+})
+
 local export = {}
 
 ---@param server string Server name

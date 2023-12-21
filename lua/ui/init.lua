@@ -120,15 +120,6 @@ register("zbirenbaum/neodim", {
   end,
 })
 
--- Display diagnostic inline
-register("https://git.sr.ht/~whynothugo/lsp_lines.nvim", {
-  lazy = true,
-  config = function()
-    require("lsp_lines").setup()
-    require("lsp_lines").toggle()
-  end,
-})
-
 register("folke/todo-comments.nvim", {
   event = "LspAttach",
   config = function()

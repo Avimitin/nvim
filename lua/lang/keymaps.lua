@@ -23,17 +23,9 @@ return function(_, bufnr)
     { "gh", lspsaga("hover_doc"), desc = "Open document" },
     { "gr", lspsaga("rename"), desc = "Rename symbol" },
     { "ga", lspsaga("code_action"), desc = "Open code action" },
-    { "go", lspsaga("show_line_diagnostics"), desc = "Show diagnostics" },
     -- gO: Open Symbols, define in neotree
     { "gt", lspsaga("peek_type_definition"), desc = "Peek type definition" },
     { "[d", lspsaga("diagnostic_jump_prev"), desc = "Jump to previous error" },
     { "]d", lspsaga("diagnostic_jump_next"), desc = "Jump to next error" },
-    {
-      "gl",
-      function()
-        require("lsp_lines").toggle()
-      end,
-      desc = "Show diagnostic inline",
-    },
   })
 end
