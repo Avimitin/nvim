@@ -52,27 +52,27 @@ end
 -- { mode panel start
 local vim_mode = {
   alias = {
-    n = " Normal",
-    no = "󰌌 Pending",
-    nov = "󰌌 Pending",
-    noV = "󰌌 Pending",
-    i = " Insert",
-    c = " Command",
-    v = " Visual",
-    V = " Visual",
-    [""] = "󰩬 Visual Region",
-    C = " Replace",
-    ["r?"] = "? Replace",
-    rm = "Replace",
-    R = " Replace",
-    Rv = " Replace",
-    s = " Select",
-    S = " Select",
+    n = "",
+    no = "󰌌",
+    nov = "󰌌",
+    noV = "󰌌",
+    i = "",
+    c = "",
+    v = "",
+    V = "",
+    [""] = "󰩬",
+    C = "",
+    ["r?"] = "?",
+    rm = "",
+    R = "",
+    Rv = "",
+    s = "",
+    S = "",
     ["r"] = "HIT-ENTER",
-    [""] = " Select",
-    t = " Terminal",
-    ["!"] = " Shell",
-    _LineLeap = "󱕘 LEAP",
+    [""] = "",
+    t = "",
+    ["!"] = "",
+    _LineLeap = "󱕘",
   },
   color = {
     n = colors.green,
@@ -141,12 +141,31 @@ insert_left({
 })
 
 insert_right({
-  LspSpace = {
-    provider = function()
-      return " "
-    end,
-    condition = should_activate_lsp,
-    highlight = { colors.bg, colors.bg },
+  DiagnosticError = {
+    provider = "DiagnosticError",
+    icon = "  ",
+    highlight = { colors.red, colors.bg },
+  },
+})
+insert_right({
+  DiagnosticWarn = {
+    provider = "DiagnosticWarn",
+    icon = "  ",
+    highlight = { colors.yellow, colors.bg },
+  },
+})
+insert_right({
+  DiagnosticHint = {
+    provider = "DiagnosticHint",
+    icon = "  ",
+    highlight = { colors.dimblue, colors.bg },
+  },
+})
+insert_right({
+  DiagnosticInfo = {
+    provider = "DiagnosticInfo",
+    icon = "  ",
+    highlight = { colors.dimblue, colors.bg },
   },
 })
 
