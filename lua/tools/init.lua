@@ -446,8 +446,8 @@ register("chrisgrieser/nvim-spider", {
 register("nyngwang/NeoTerm.lua", {
   lazy = true,
   keys = {
-    { "<C-`>", vim.cmd.NeoTermToggle },
-    { "<C-`>", vim.cmd.NeoTermToggle, mode = "t" },
+    { "<C-;>", vim.cmd.NeoTermToggle },
+    { "<C-;>", vim.cmd.NeoTermToggle, mode = "t" },
     { "<A-;>", vim.cmd.NeoTermEnterNormal, mode = "t" },
   },
   init = function()
@@ -473,7 +473,7 @@ register("nyngwang/NeoTerm.lua", {
           return
         end
         vim.cmd.stopinsert()
-        vim.wo.number = false
+        vim.wo.number = true
       end,
     })
   end,
