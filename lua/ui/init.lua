@@ -100,26 +100,6 @@ register("petertriho/nvim-scrollbar", {
   end,
 })
 
--- Dim the inactive variable/function
-register("zbirenbaum/neodim", {
-  event = "LspAttach",
-  config = function()
-    require("neodim").setup({
-      alpha = 0.7,
-      blend_color = "#000000",
-      update_in_insert = {
-        enable = false,
-        delay = 100,
-      },
-      hide = {
-        virtual_text = true,
-        signs = true,
-        underline = true,
-      },
-    })
-  end,
-})
-
 register("folke/todo-comments.nvim", {
   event = "LspAttach",
   config = function()
