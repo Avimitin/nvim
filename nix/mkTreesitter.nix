@@ -1,9 +1,9 @@
 { lib, stdenv, nodejs, tree-sitter, fetchNvimTsLockFile, fetchFromGitHub, runCommand, fetchurl, neovim }:
 
-{ name, hash, needs_generate ? false, srcRoot ? null, tsRev ? "49f1b9a7efc794be143f7ddcd60ce18e8164a7f8" }:
+{ name, hash, needs_generate ? false, srcRoot ? null }:
 let
   # Get parser information from nvim-treesitter's lockfile.json
-  parsers-info = lib.importJSON "${fetchNvimTsLockFile tsRev}";
+  parsers-info = lib.importJSON "${fetchNvimTsLockFile}";
 
   url = parsers-info.${name}.url;
   rev = parsers-info.${name}.revision;
@@ -50,6 +50,9 @@ stdenv.mkDerivation {
     runHook preInstall
     mkdir -p $out/parser
     mv parser $out/parser/${name}.so
+
+    mkdir -p $out/dist
+    echo "parser-rev: ${rev}" > "$out/dist/${name}-version.txt"
     runHook postInstall
   '';
 }

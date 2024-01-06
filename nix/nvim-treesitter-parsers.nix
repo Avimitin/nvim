@@ -54,11 +54,13 @@ runCommand "generate-treesitter-rtp"
   };
 } ''
   mkdir -p $out/parser
+  mkdir -p $out/dist
 
   parserArray=($tsParsers)
   for drv in ''${parserArray[@]}; do
     # Copy will be way more faster
     cp "$drv"/parser/*.so $out/parser/
+    cp "$drv"/dist/*-version.txt $out/dist/
   done
 
   cat <<EOF | tee $out/treesitter-parsers.lua
