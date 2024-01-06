@@ -1,7 +1,7 @@
 { stdenvNoCC, fetchFromGitHub, neovim }:
-let
-  rev = "80a16deb5146a3eb4648effccda1ab9f45e43e76";
-in
+
+rev:
+
 stdenvNoCC.mkDerivation
 {
   pname = "nvim-treesitter-lock-file";
