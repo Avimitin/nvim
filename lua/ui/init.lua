@@ -163,7 +163,6 @@ register("folke/noice.nvim", {
           filter = {
             event = "msg_show",
             kind = "",
-            find = "written",
           },
           opts = { skip = true },
         },
