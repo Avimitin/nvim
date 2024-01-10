@@ -42,8 +42,32 @@ local function insert_left(element)
   table.insert(gls.left, element)
 end
 
+local function insert_space_on_left()
+  insert_left({
+      SpaceOnLeft = {
+      provider = function()
+        return " "
+      end,
+      condition = should_activate_lsp,
+      highlight = { colors.bg, colors.bg },
+    },
+  })
+end
+
 local function insert_right(element)
   table.insert(gls.right, element)
+end
+
+local function insert_space_on_right()
+  insert_right({
+      SpaceOnRight = {
+      provider = function()
+        return " "
+      end,
+      condition = should_activate_lsp,
+      highlight = { colors.bg, colors.bg },
+    },
+  })
 end
 
 -----------------------------------------------------
@@ -129,6 +153,26 @@ vim.api.nvim_create_autocmd("User", {
   callback = function()
     vim_mode.is_line_leap = false
   end,
+})
+
+insert_space_on_left()
+
+insert_left({
+  RecordingMsg = {
+    provider = require("noice").api.statusline.mode.get,
+    cond = require("noice").api.statusline.mode.has,
+    highlight = { colors.lightgrey, colors.bg },
+  }
+})
+
+insert_space_on_left()
+
+insert_left({
+  Message = {
+    provider = require("noice").api.statusline.message.get,
+    cond = require("noice").api.statusline.mode.has() and checkwidth(),
+    highlight = { colors.lightgrey, colors.bg },
+  }
 })
 
 insert_left({
@@ -259,7 +303,7 @@ gl.short_line_list = vim.tbl_keys(BufferTypeMap)
 require("galaxyline").section.short_line_left = {
   {
     ShortLineLeftBufferType = {
-      highlight = { colors.cyan, colors.bg },
+      highlight = { colors.lightgrey, colors.bg },
       provider = function()
         -- return filename for normal file
         local get_file_name = function()
