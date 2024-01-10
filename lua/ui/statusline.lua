@@ -44,7 +44,7 @@ end
 
 local function insert_space_on_left()
   insert_left({
-      SpaceOnLeft = {
+    SpaceOnLeft = {
       provider = function()
         return " "
       end,
@@ -60,7 +60,7 @@ end
 
 local function insert_space_on_right()
   insert_right({
-      SpaceOnRight = {
+    SpaceOnRight = {
       provider = function()
         return " "
       end,
@@ -162,17 +162,29 @@ insert_left({
     provider = require("noice").api.statusline.mode.get,
     cond = require("noice").api.statusline.mode.has,
     highlight = { colors.lightgrey, colors.bg },
-  }
+  },
 })
 
 insert_space_on_left()
 
+local msg_context = {
+  content = "",
+  update = os.time(),
+}
 insert_left({
   Message = {
-    provider = require("noice").api.statusline.message.get,
+    provider = function()
+      local msg = require("noice").api.statusline.message.get()
+      if msg == msg_context.content and os.time() - msg_context.update >= 10 then
+        return " "
+      end
+      msg_context.content = msg
+      msg_context.update = os.time()
+      return msg
+    end,
     cond = require("noice").api.statusline.mode.has() and checkwidth(),
     highlight = { colors.lightgrey, colors.bg },
-  }
+  },
 })
 
 insert_left({
