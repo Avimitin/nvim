@@ -169,17 +169,21 @@ insert_space_on_left()
 
 local msg_context = {
   content = "",
-  update = os.time(),
+  last_t = os.time(),
 }
 insert_left({
   Message = {
     provider = function()
       local msg = require("noice").api.statusline.message.get()
-      if msg == msg_context.content and os.time() - msg_context.update >= 10 then
-        return " "
+      if msg == msg_context.content then
+        if os.time() - msg_context.last_t >= 10 then
+          return " "
+        end
+        return msg
       end
+
       msg_context.content = msg
-      msg_context.update = os.time()
+      msg_context.last_t = os.time()
       return msg
     end,
     cond = require("noice").api.statusline.mode.has() and checkwidth(),
@@ -187,14 +191,7 @@ insert_left({
   },
 })
 
-insert_left({
-  MiddleSpace = {
-    provider = function()
-      return " "
-    end,
-    highlight = { colors.bg, colors.bg },
-  },
-})
+insert_space_on_left()
 
 insert_right({
   DiagnosticError = {
@@ -250,15 +247,7 @@ insert_right({
   },
 })
 
-insert_right({
-  LspSpace = {
-    provider = function()
-      return " "
-    end,
-    condition = should_activate_lsp,
-    highlight = { colors.bg, colors.bg },
-  },
-})
+insert_space_on_right()
 
 insert_right({
   TextIcon = {
@@ -308,6 +297,7 @@ local BufferTypeMap = {
   ["toggleterm"] = " ToggleTerm",
   ["Trouble"] = "ﮒ Diagnostic",
   ["neo-term"] = " NeoTerm",
+  ["noice"] = "כֿ noice",
 }
 
 gl.short_line_list = vim.tbl_keys(BufferTypeMap)
