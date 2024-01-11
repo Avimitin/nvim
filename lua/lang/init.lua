@@ -98,13 +98,25 @@ register("scalameta/nvim-metals", {
 })
 
 register("stevearc/conform.nvim", {
-  ft = { "lua", "javascript", "nix", "haskell", "python", "rust" },
+  ft = {
+    "lua",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "json",
+    "nix",
+    "haskell",
+    "python",
+    "rust",
+  },
   config = function()
     require("conform").setup({
       formatters_by_ft = {
         lua = { "stylua" },
         -- Use a sub-list to run only the first available formatter
         javascript = { { "prettierd", "prettier" } },
+        json = { { "prettierd", "prettier" } },
         typescript = { { "prettierd", "prettier" } },
         nix = { "nixpkgs_fmt" },
         haskell = { "fourmolu" },
@@ -112,6 +124,8 @@ register("stevearc/conform.nvim", {
         rust = { "rustfmt" },
       },
     })
+
+    vim.keymap.set("n", "gf", require("conform").format, { desc = "Format code" })
 
     vim.api.nvim_create_autocmd("BufWritePre", {
       pattern = { "*.lua", "*.js", "*.ts", "*.nix", "*.hs", "*.lhs", "*.py", "*.rs" },

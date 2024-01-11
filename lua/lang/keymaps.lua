@@ -10,20 +10,13 @@ return function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
   bnmap({
-    {
-      "gf",
-      function()
-        require("conform").format({ bufnr = bufnr })
-      end,
-      desc = "Format code",
-    },
-
+    -- gf: Format code, define in conform module at lang/init.lua
     { "gd", lspsaga("finder"), desc = "Find symbol" },
     { "gp", lspsaga("peek_definition"), desc = "Peek definition" },
     { "gh", lspsaga("hover_doc"), desc = "Open document" },
     { "gr", lspsaga("rename"), desc = "Rename symbol" },
     { "ga", lspsaga("code_action"), desc = "Open code action" },
-    -- gO: Open Symbols, define in neotree
+    -- gO: Open Symbols, define in neotree module at tools/init.lua
     { "gt", lspsaga("peek_type_definition"), desc = "Peek type definition" },
     { "[d", lspsaga("diagnostic_jump_prev"), desc = "Jump to previous error" },
     { "]d", lspsaga("diagnostic_jump_next"), desc = "Jump to next error" },
