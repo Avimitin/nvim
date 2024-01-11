@@ -79,8 +79,6 @@ register("petertriho/nvim-scrollbar", {
         Warn = { text = { "" } },
         Hint = { text = { "" } },
         Info = { text = { "" } },
-        GitAdd = { text = "▕" },
-        GitChange = { text = "▕" },
       },
       excluded_buftypes = {
         "terminal",
