@@ -151,7 +151,7 @@ function export.run_lsp(server, extra)
   local config = require("lang.config")
   if extra then
     -- This value might be nil, so we need to assign default values
-    config.on_attach = extra.on_attach or require("lang.keymaps")
+    config.on_attach = extra.on_attach or require("lang.keymaps").setup
     config.settings = extra.settings or {}
 
     -- And finally try to merge other settings

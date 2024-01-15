@@ -1,4 +1,6 @@
-return function(_, bufnr)
+local M = {}
+
+M.setup = function(_, bufnr)
   local bnmap = function(mappings)
     require("libs.keymap").buf_map(bufnr, "n", mappings)
   end
@@ -22,3 +24,5 @@ return function(_, bufnr)
     { "]d", lspsaga("diagnostic_jump_next"), desc = "Jump to next error" },
   })
 end
+
+return M
