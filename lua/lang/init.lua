@@ -14,11 +14,6 @@ register("glepnir/lspsaga.nvim", {
   end,
 })
 
--- Inject more LSP sources
-register("jose-elias-alvarez/null-ls.nvim", {
-  lazy = true,
-})
-
 register("mrcjkb/rustaceanvim", {
   version = "^3",
   ft = { "rust" },
