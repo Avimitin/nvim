@@ -3,9 +3,6 @@ local register = require("pack").register
 -- Interact with LSP server
 register("neovim/nvim-lspconfig", {
   lazy = true,
-  config = function()
-    require("lang.icons").setup()
-  end,
 })
 
 -- UI for builtin LSP function
@@ -148,13 +145,15 @@ local export = {}
 ---@param server string Server name
 ---@param extra table Extra config to override the default
 function export.run_lsp(server, extra)
-  local config = require("lang.config")
-  if extra then
-    -- This value might be nil, so we need to assign default values
-    config.on_attach = extra.on_attach or require("lang.keymaps").setup
-    config.settings = extra.settings or {}
+  local config = {
+    -- Told LSP server about the nvim lsp capabilities
+    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+    -- Setup keymap on attach
+    on_attach = require("lang.on_attach").setup_all,
+    settings = {},
+  }
 
-    -- And finally try to merge other settings
+  if extra then
     config = vim.tbl_deep_extend("force", config, extra)
   end
 

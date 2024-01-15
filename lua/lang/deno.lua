@@ -44,10 +44,8 @@ function Export.setup()
     "ts=typescript",
   }
 
-  local apply_keymaps = require("lsp.keymaps")
-
   local on_attach = function(client, bufnr)
-    apply_keymaps(client, bufnr)
+    require("lang.on_attach").setup_all(client, bufnr)
 
     ---@return table|nil
     local function get_deno_client()

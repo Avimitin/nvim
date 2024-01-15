@@ -22,11 +22,6 @@ if not mill_exe or mill_exe == "" then
 end
 
 scala_config.settings.millScript = mill_exe
-scala_config.capabilities = require("lang.config").capabilities
-scala_config.on_attach = function(client, bufnr)
-  -- require("metals").setup_dap()
-  require("lang.keymaps").setup(client, bufnr)
-  require("lang.icons").setup()
-end
-
+scala_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+scala_config.on_attach = require("lang.on_attach").setup_all
 require("metals").initialize_or_attach(scala_config)

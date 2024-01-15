@@ -5,8 +5,7 @@ end
 local bufnr = vim.api.nvim_get_current_buf()
 
 -- setup lsp key mappings
-require("lang.keymaps")(nil, bufnr)
-require("lang.icons").setup()
+require("lang.on_attach").setup_all(nil, bufnr)
 
 -- create auto command to format on save
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
