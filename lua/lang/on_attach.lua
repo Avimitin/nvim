@@ -9,7 +9,7 @@ utils.setup_keymaps = function(_, bufnr)
     return require("libs.keymap").wrap_cmd("Lspsaga " .. action)
   end
 
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 
   bnmap({
     -- gf: Format code, define in conform module at lang/init.lua

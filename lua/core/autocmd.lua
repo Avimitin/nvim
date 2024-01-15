@@ -66,14 +66,14 @@ local ignore_buftype = { "quickfix", "nofile", "help" }
 
 local function can_jump()
   local contains = vim.tbl_contains
-  local current_buftype = vim.api.nvim_buf_get_option(0, "buftype")
+  local current_buftype = vim.api.nvim_get_option_value("buftype", {})
   -- return when current buftype is ignored
   if contains(ignore_buftype, current_buftype) then
     return false
   end
 
   -- jump to the beginning of the file and return when current filetype is ignored
-  local current_filetype = vim.api.nvim_buf_get_option(0, "filetype")
+  local current_filetype = vim.api.nvim_get_option_value("filetype", {})
   if contains(ignore_filetype, current_filetype) then
     vim.cmd("normal! gg")
     return false
