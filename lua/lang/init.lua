@@ -145,13 +145,11 @@ function export.run_lsp(bufnr, server, extra)
     config = vim.tbl_deep_extend("force", config, extra)
   end
 
-  vim.schedule(function()
-    local lspconfig = require("lspconfig")
+  local lspconfig = require("lspconfig")
 
-    lspconfig[server].setup(config)
-    -- manually setup because FileType event is behind BufReadPost event
-    lspconfig[server].manager:try_add_wrapper(bufnr, nil)
-  end)
+  lspconfig[server].setup(config)
+  -- manually setup because FileType event is behind BufReadPost event
+  lspconfig[server].manager:try_add_wrapper(bufnr, nil)
 end
 
 return export
