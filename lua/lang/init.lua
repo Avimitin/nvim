@@ -22,9 +22,9 @@ register("jose-elias-alvarez/null-ls.nvim", {
   lazy = true,
 })
 
--- Rust specific plugin
-register("simrat39/rust-tools.nvim", {
-  lazy = true,
+register("mrcjkb/rustaceanvim", {
+  version = "^3",
+  ft = { "rust" },
 })
 
 -- Cargo.toml manager
