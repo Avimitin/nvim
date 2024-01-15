@@ -10,6 +10,7 @@ when you forget your key settings. There will always be a short keystroke to hel
 you get to the place you want to jump to. There will always…
 * ***Powerful*** coding experience: nvim-lspconfig powered great LSP experient.
 * ***Fancy looking***: Well designed, denoised, uncluttered UI. Talk is cheap, see the [gallery](#Gallery).
+* ***Great Performance***: Lazy loading anywhere, you will never have to worry about accidental opening of a file larger than 10000 loc can freeze your terminal.
 
 ## Getting Start
 
