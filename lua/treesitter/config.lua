@@ -1,3 +1,11 @@
+local disable = function(lang, buf)
+  local max_filesize = 1024 * 1024 -- 1MB
+  local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+  if ok and stats and stats.size > max_filesize then
+    return true
+  end
+end
+
 require("nvim-treesitter.configs").setup({
   auto_install = false,
   incremental_selection = {
@@ -12,12 +20,11 @@ require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = { "org" },
+    disable = disable,
   },
   indent = {
     enable = true,
-  },
-  matchup = {
-    enable = true,
+    disable = disable,
   },
   autotag = {
     enable = true,
@@ -33,6 +40,3 @@ require("nvim-treesitter.configs").setup({
     },
   },
 })
-
-vim.api.nvim_command("set foldmethod=expr")
-vim.api.nvim_command("set foldexpr=nvim_treesitter#foldexpr()")
