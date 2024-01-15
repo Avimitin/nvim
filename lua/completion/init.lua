@@ -10,8 +10,6 @@ register("hrsh7th/nvim-cmp", {
     "hrsh7th/cmp-nvim-lsp-signature-help",
     -- for OS path
     "hrsh7th/cmp-path",
-    -- for words in current buffer
-    "hrsh7th/cmp-buffer",
     -- for vim command line
     "hrsh7th/cmp-cmdline",
 
