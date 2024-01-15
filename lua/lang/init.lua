@@ -127,6 +127,7 @@ register("stevearc/conform.nvim", {
     vim.api.nvim_create_autocmd("BufWritePre", {
       pattern = { "*.lua", "*.js", "*.ts", "*.nix", "*.hs", "*.lhs", "*.py", "*.rs" },
       callback = function(args)
+        -- FIXME: disable auto formatting on large filesize file, like toplevel/all-package.nix
         require("conform").format({ bufnr = args.buf })
       end,
     })

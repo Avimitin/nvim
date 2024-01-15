@@ -49,7 +49,7 @@ utils.setup_icons = function()
     signs = true,
     underline = true,
     -- update diagnostic in insert mode will be annoying when the output is too verbose
-    update_in_insert = true,
+    update_in_insert = false,
   })
 
   local types = {
