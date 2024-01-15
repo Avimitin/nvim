@@ -330,7 +330,6 @@ register("kevinhwang91/nvim-hlslens", {
     { "<ESC>", [[<cmd>noh<CR><cmd>lua require('hlslens').stop()<CR>]] },
   },
   config = function()
-    require("hlslens").setup()
     require("scrollbar.handlers.search").setup()
   end,
 })

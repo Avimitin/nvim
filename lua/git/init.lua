@@ -9,7 +9,6 @@ pack("lewis6991/gitsigns.nvim", {
           if code == 0 then
             vim.schedule(function()
               require("git.gitsigns")
-              require("scrollbar.handlers.gitsigns").setup()
             end)
           end
         end

@@ -79,6 +79,7 @@ register("petertriho/nvim-scrollbar", {
         Warn = { text = { "" } },
         Hint = { text = { "" } },
         Info = { text = { "" } },
+        Search = { text = { "" } },
       },
       excluded_buftypes = {
         "terminal",
