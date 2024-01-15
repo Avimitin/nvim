@@ -175,6 +175,9 @@ insert_left({
   Message = {
     provider = function()
       local msg = require("noice").api.statusline.message.get()
+      if msg and #msg > 30 then
+        msg = msg:sub(0, 27) .. "..."
+      end
       if msg == msg_context.content then
         if os.time() - msg_context.last_t >= 10 then
           return " "
