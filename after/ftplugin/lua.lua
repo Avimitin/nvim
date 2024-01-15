@@ -19,7 +19,7 @@ if is_nvim_config_dir then
     workspace = {
       library = {
         vim.env.VIMRUNTIME,
-        vim.api.nvim_get_runtime_file('', true)
+        vim.api.nvim_get_runtime_file("", true),
       },
       checkThirdParty = false,
     },

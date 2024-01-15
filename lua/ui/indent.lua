@@ -1,3 +1,14 @@
+local cache = {}
+local hooks = require("ibl.hooks")
+hooks.register(hooks.type.ACTIVE, function(bufnr)
+  if cache[bufnr] ~= nil then
+    return cache[bufnr]
+  end
+  local test = vim.api.nvim_buf_line_count(bufnr) < 5000
+  cache[bufnr] = test
+  return test
+end)
+
 require("ibl").setup({
   indent = {
     char = "▏",
