@@ -21,8 +21,9 @@ local function require_buddy_lsp()
   return false
 end
 
+local bufnr = vim.api.nvim_get_current_buf()
 if require_buddy_lsp() then
-  require("lang").run_lsp("buddy_ls", {})
+  require("lang").run_lsp(bufnr, "buddy_ls", {})
 else
-  require("lang").run_lsp("mlir_lsp_server", {})
+  require("lang").run_lsp(bufnr, "mlir_lsp_server", {})
 end

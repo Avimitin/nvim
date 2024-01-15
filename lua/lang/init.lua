@@ -145,7 +145,7 @@ local export = {}
 
 ---@param server string Server name
 ---@param extra table Extra config to override the default
-function export.run_lsp(server, extra)
+function export.run_lsp(bufnr, server, extra)
   local config = {
     -- Told LSP server about the nvim lsp capabilities
     capabilities = require("cmp_nvim_lsp").default_capabilities(),
@@ -158,12 +158,13 @@ function export.run_lsp(server, extra)
     config = vim.tbl_deep_extend("force", config, extra)
   end
 
-  local lspconfig = require("lspconfig")
+  vim.schedule(function()
+    local lspconfig = require("lspconfig")
 
-  lspconfig[server].setup(config)
-  -- manually setup because FileType event is behind BufReadPost event
-  local bufnr = vim.api.nvim_get_current_buf()
-  lspconfig[server].manager:try_add_wrapper(bufnr, nil)
+    lspconfig[server].setup(config)
+    -- manually setup because FileType event is behind BufReadPost event
+    lspconfig[server].manager:try_add_wrapper(bufnr, nil)
+  end)
 end
 
 return export

@@ -2,4 +2,5 @@ if require("libs.cache")["ocaml_lsp"] then
   return
 end
 
-require("lang").run_lsp("ocamllsp", {})
+local bufnr = vim.api.nvim_get_current_buf()
+require("lang").run_lsp(bufnr, "ocamllsp", {})

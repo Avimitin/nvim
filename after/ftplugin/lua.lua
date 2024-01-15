@@ -2,7 +2,7 @@ if require("libs.cache")["lua_lsp"] then
   return
 end
 
-local config = require("lang.config")
+local config = {}
 
 local is_nvim_config_dir = (vim.fn.getcwd()):find("nvim")
 
@@ -19,7 +19,7 @@ if is_nvim_config_dir then
     workspace = {
       library = {
         vim.env.VIMRUNTIME,
-        vim.fn.stdpath("data") .. "/lazy/emmylua-nvim",
+        vim.api.nvim_get_runtime_file('', true)
       },
       checkThirdParty = false,
     },
@@ -32,4 +32,5 @@ if is_nvim_config_dir then
   }
 end
 
-require("lang").run_lsp("lua_ls", config)
+local bufnr = vim.api.nvim_get_current_buf()
+require("lang").run_lsp(bufnr, "lua_ls", config)

@@ -2,4 +2,5 @@ if require("libs.cache")["clang_lsp_cpp"] then
   return
 end
 
-require("lang").run_lsp("clangd", {})
+local bufnr = vim.api.nvim_get_current_buf()
+require("lang").run_lsp(bufnr, "clangd", {})
