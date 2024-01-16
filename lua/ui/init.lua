@@ -185,6 +185,7 @@ register("luukvbaal/statuscol.nvim", {
           click = "v:lua.ScSa",
         },
         { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
+        { text = { " " } },
         {
           sign = {
             namespace = { "gitsign" },
