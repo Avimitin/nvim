@@ -12,7 +12,6 @@ require("nvim-treesitter.configs").setup({
       scope_incremental = false,
       node_decremental = false,
     },
-    disable = disable,
   },
   highlight = {
     enable = true,
