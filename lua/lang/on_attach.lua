@@ -87,12 +87,32 @@ utils.setup_auto_format = function(bufnr)
   })
 end
 
+utils.setup_document_highlight_on_cursor = function(client, bufnr)
+  if client.server_capabilities.documentHighlightProvider then
+    local id = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+    vim.api.nvim_clear_autocmds({ buffer = bufnr, group = "lsp_document_highlight" })
+    vim.api.nvim_create_autocmd("CursorHold", {
+      callback = vim.lsp.buf.document_highlight,
+      buffer = bufnr,
+      group = id,
+      desc = "Document Highlight",
+    })
+    vim.api.nvim_create_autocmd("CursorMoved", {
+      callback = vim.lsp.buf.clear_references,
+      buffer = bufnr,
+      group = id,
+      desc = "Clear All the References",
+    })
+  end
+end
+
 -- LSP's on_attach interface accept two arguments client and bufnr. But we don't use client for now, so it is okay to pass nil here.
 utils.setup_all = function(client, bufnr)
   utils.setup_icons()
   utils.setup_keymaps(client, bufnr)
   utils.setup_inlay_hint(bufnr)
   utils.setup_auto_format(bufnr)
+  utils.setup_document_highlight_on_cursor(client, bufnr)
 end
 
 return utils
