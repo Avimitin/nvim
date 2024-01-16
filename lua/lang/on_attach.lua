@@ -5,23 +5,29 @@ utils.setup_keymaps = function(_, bufnr)
     require("libs.keymap").buf_map(bufnr, "n", mappings)
   end
 
-  local lspsaga = function(action)
-    return require("libs.keymap").wrap_cmd("Lspsaga " .. action)
+  local telescope = function(action, args)
+    return function()
+      local theme = require("telescope.themes").get_dropdown(args or {})
+      local builtins = require("telescope.builtin")
+      builtins[action](theme)
+    end
   end
 
   vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 
   bnmap({
     -- gf: Format code, define in conform module at lang/init.lua
-    { "gd", lspsaga("finder"), desc = "Find symbol" },
-    { "gp", lspsaga("peek_definition"), desc = "Peek definition" },
-    { "gh", lspsaga("hover_doc"), desc = "Open document" },
-    { "gr", lspsaga("rename"), desc = "Rename symbol" },
-    { "ga", lspsaga("code_action"), desc = "Open code action" },
-    -- gO: Open Symbols, define in neotree module at tools/init.lua
-    { "gt", lspsaga("peek_type_definition"), desc = "Peek type definition" },
-    { "[d", lspsaga("diagnostic_jump_prev"), desc = "Jump to previous error" },
-    { "]d", lspsaga("diagnostic_jump_next"), desc = "Jump to next error" },
+    { "gd", telescope("lsp_definitions"), desc = "List definitions" },
+    { "gR", telescope("lsp_references"), desc = "List references" },
+    { "gt", telescope("lsp_type_definitions"), desc = "List type definition" },
+    { "ga", vim.lsp.buf.code_action, desc = "Open code actions" },
+    { "gh", vim.lsp.buf.hover, desc = "Open document" },
+    { "gr", vim.lsp.buf.rename, desc = "Rename symbol" },
+    { "go", vim.diagnostic.open_float, desc = "Open floating list" },
+    { "gO", vim.diagnostic.setqflist, desc = "Open quickfix list" },
+    -- gl: Open Symbols, define in neotree module at tools/init.lua
+    { "[d", vim.diagnostic.goto_prev, desc = "Jump to previous error" },
+    { "]d", vim.diagnostic.goto_next, desc = "Jump to next error" },
   })
 end
 

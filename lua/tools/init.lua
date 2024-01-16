@@ -117,7 +117,7 @@ register("nvim-neo-tree/neo-tree.nvim", {
       desc = "Open file tree",
     },
     {
-      "gO",
+      "gl",
       "<CMD>Neotree action=focus toggle=true source=document_symbols position=float<CR>",
       desc = "View document symbols",
     },

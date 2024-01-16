@@ -5,15 +5,6 @@ register("neovim/nvim-lspconfig", {
   lazy = true,
 })
 
--- UI for builtin LSP function
-register("glepnir/lspsaga.nvim", {
-  event = "LspAttach",
-  cmd = "LspSaga",
-  config = function()
-    require("lang.lspsaga")
-  end,
-})
-
 register("mrcjkb/rustaceanvim", {
   version = "^3",
   ft = { "rust" },
@@ -35,41 +26,6 @@ register("saecki/crates.nvim", {
         { name = "crates" },
       },
     })
-
-    -- Find buffer id for `Cargo.toml` file
-    local existing_buffer = vim.api.nvim_list_bufs()
-    local cargo_toml_buf_id = nil
-    for _, buf_id in ipairs(existing_buffer) do
-      local buf_name = vim.api.nvim_buf_get_name(buf_id)
-      local filename = vim.fn.fnamemodify(buf_name, ":t")
-      if filename == "Cargo.toml" then
-        cargo_toml_buf_id = buf_id
-      end
-    end
-    if cargo_toml_buf_id == nil then
-      return
-    end
-
-    local crates = require("crates")
-
-    -- this key mappings will only apply to the `Cargo.toml` file buffer
-    require("libs.keymap").buf_map(cargo_toml_buf_id, "n", {
-      { "<leader>cu", crates.upgrade_crate, desc = "Upgrade crate under current cursor" },
-      { "<leader>cv", crates.show_versions_popup, desc = "Show current crate versions" },
-      { "<leader>cf", crates.show_features_popup, desc = "Show current crate features" },
-      { "<leader>cR", crates.open_repository, desc = "Open source code in browser" },
-      { "<leader>cD", crates.open_documentation, desc = "Open docs.rs in browser" },
-      { "ga", "<CMD>Lspsaga code_action<CR>", desc = "Open actions" },
-    })
-
-    local whichkey = require("which-key")
-
-    local ngrp = {
-      mode = "n",
-      buffer = cargo_toml_buf_id,
-      ["<leader>c"] = { name = "+Crates" },
-    }
-    whichkey.register(ngrp)
   end,
 })
 
@@ -118,13 +74,6 @@ register("stevearc/conform.nvim", {
     })
 
     vim.keymap.set("n", "gf", require("conform").format, { desc = "Format code" })
-  end,
-})
-
-register("folke/trouble.nvim", {
-  keys = { { "go", vim.cmd.TroubleToggle, desc = "Toggle Trouble Mode Menu" } },
-  config = function()
-    require("trouble").setup({})
   end,
 })
 
