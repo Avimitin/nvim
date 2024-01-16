@@ -75,10 +75,6 @@ register("petertriho/nvim-scrollbar", {
   config = function()
     require("scrollbar").setup({
       marks = {
-        Error = { text = { "" } },
-        Warn = { text = { "" } },
-        Hint = { text = { "" } },
-        Info = { text = { "" } },
         Search = { text = { "" } },
       },
       excluded_buftypes = {
@@ -94,6 +90,7 @@ register("petertriho/nvim-scrollbar", {
       },
       handlers = {
         cursor = false,
+        diagnostic = false,
       },
     })
   end,
@@ -165,6 +162,50 @@ register("folke/noice.nvim", {
           },
           opts = { skip = true },
         },
+      },
+    })
+  end,
+})
+
+register("luukvbaal/statuscol.nvim", {
+  event = "VeryLazy",
+  config = function()
+    local builtin = require("statuscol.builtin")
+    require("statuscol").setup({
+      relculright = true,
+      setopt = true,
+      segments = {
+        {
+          sign = {
+            namespace = { "diagnostic" },
+            maxwidth = 1,
+            colwidth = 1,
+            auto = false,
+          },
+          click = "v:lua.ScSa",
+        },
+        { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
+        {
+          sign = {
+            namespace = { "gitsign" },
+            maxwidth = 1,
+            colwidth = 1,
+            auto = false,
+          },
+          click = "v:lua.ScSa",
+        },
+      },
+      ft_ignore = {
+        "help",
+        "vim",
+        "fugitive",
+        "alpha",
+        "dashboard",
+        "neo-tree",
+        "Trouble",
+        "noice",
+        "lazy",
+        "toggleterm",
       },
     })
   end,

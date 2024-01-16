@@ -14,7 +14,7 @@ require("gitsigns").setup({
     },
     untracked = {
       hl = "GitSignsUntracked",
-      text = "▎",
+      text = "▐",
       numhl = "GitSignsUntracked",
       linehl = "GitSignsUntracked",
     },

@@ -39,7 +39,7 @@ register("nvim-neo-tree/neo-tree.nvim", {
           return
         end
 
-        vim.loop.fs_stat(
+        vim.uv.fs_stat(
           first_arg,
           vim.schedule_wrap(function(err, stat)
             if err then

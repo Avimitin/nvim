@@ -62,8 +62,6 @@ local options = {
   visualbell = true,
   updatetime = 100,
   virtualedit = "block",
-  -- always draw signcolumn, with 1 fixed space to show 2 icon at the same time
-  signcolumn = "yes:1",
   -- enable all the mouse functionality
   mouse = "a",
   -- use indent as the fold method

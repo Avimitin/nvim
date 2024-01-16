@@ -32,25 +32,11 @@ utils.setup_keymaps = function(_, bufnr)
 end
 
 utils.setup_icons = function()
-  local icons = {
-    -- lsp diagnostic (Notes: case sensitive)
-    ERROR = "",
-    WARN = "",
-    HINT = "",
-    INFO = "",
-  }
   -- Setup diagnostic icons and signs
   vim.diagnostic.config({
     virtual_text = {
       prefix = "",
-      spacing = 6,
-      format = function(diagnostic)
-        return string.format(
-          "%s  %s",
-          icons[vim.diagnostic.severity[diagnostic.severity]],
-          diagnostic.message
-        )
-      end,
+      spacing = 1,
     },
     signs = true,
     underline = true,
@@ -59,17 +45,17 @@ utils.setup_icons = function()
   })
 
   local types = {
-    "Error",
-    "Warn",
-    "Hint",
-    "Info",
+    Error = "",
+    Warn = "",
+    Hint = "",
+    Info = "",
   }
 
-  for _, diag_type in ipairs(types) do
+  for diag_type, icon in pairs(types) do
     local hl = "DiagnosticSign" .. diag_type
     vim.fn.sign_define(hl, {
-      text = "",
-      linehl = hl,
+      text = icon,
+      linehl = "DiagnosticLineSign"..diag_type,
     })
   end
 end
