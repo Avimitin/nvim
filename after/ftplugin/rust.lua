@@ -6,12 +6,3 @@ local bufnr = vim.api.nvim_get_current_buf()
 
 -- setup lsp key mappings
 require("lang.on_attach").setup_all(nil, bufnr)
-
--- create auto command to format on save
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  buffer = bufnr,
-  desc = "Format Rust code on save",
-  callback = function()
-    vim.lsp.buf.format({ async = true })
-  end,
-})

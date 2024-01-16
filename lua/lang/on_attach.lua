@@ -55,7 +55,7 @@ utils.setup_icons = function()
     local hl = "DiagnosticSign" .. diag_type
     vim.fn.sign_define(hl, {
       text = icon,
-      linehl = "DiagnosticLineSign"..diag_type,
+      linehl = "DiagnosticLineSign" .. diag_type,
     })
   end
 end
@@ -74,11 +74,25 @@ utils.setup_inlay_hint = function(bufnr)
   end
 end
 
+utils.setup_auto_format = function(bufnr)
+  if vim.api.nvim_buf_line_count(bufnr) >= 5000 then
+    return
+  end
+
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    buffer = bufnr,
+    callback = function(args)
+      require("conform").format({ bufnr = args.buf })
+    end,
+  })
+end
+
 -- LSP's on_attach interface accept two arguments client and bufnr. But we don't use client for now, so it is okay to pass nil here.
 utils.setup_all = function(client, bufnr)
   utils.setup_icons()
   utils.setup_keymaps(client, bufnr)
   utils.setup_inlay_hint(bufnr)
+  utils.setup_auto_format(bufnr)
 end
 
 return utils
