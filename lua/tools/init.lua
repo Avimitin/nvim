@@ -248,35 +248,23 @@ register("kylechui/nvim-surround", {
 register("ggandor/leap.nvim", {
   keys = {
     {
-      "J",
-      require("tools.line_leap").leap_to_line,
-      mode = { "n", "o" },
-      desc = "Leap to line",
-    },
-    {
-      "K",
-      require("tools.line_leap").leap_to_line,
-      mode = { "n", "o" },
-      desc = "Leap to line",
-    },
-    {
       "gj",
       require("tools.line_leap").leap_to_line,
-      mode = { "x" },
+      mode = { "n", "o", "x" },
       desc = "Leap to line",
     },
     {
       "gk",
       require("tools.line_leap").leap_to_line,
-      mode = { "x" },
+      mode = { "n", "o", "x" },
       desc = "Leap to line",
     },
     { "s", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
     { "S", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
     { "x", "<Plug>(leap-forward-till)", mode = { "x", "o" }, desc = "Leap forward until" },
     { "X", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "Leap backward until" },
-    { "gw", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from window" },
-    { "gW", "<Plug>(leap-cross-window)", mode = { "n", "x", "o" }, desc = "Leap cross window" },
+    { "gw", "<Plug>(leap-from-window)", mode = { "n" }, desc = "Leap from window" },
+    { "gW", "<Plug>(leap-cross-window)", mode = { "n" }, desc = "Leap cross window" },
   },
 })
 
@@ -407,7 +395,7 @@ register("folke/which-key.nvim", {
 register("Wansmer/treesj", {
   keys = {
     {
-      "<leader>sj",
+      "J",
       function()
         require("treesj").toggle()
       end,
