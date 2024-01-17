@@ -10,14 +10,14 @@ scala_config.settings = {
 
 local metals_binary = vim.fn.exepath("metals")
 if not metals_binary or metals_binary == "" then
-  vim.notify("metals not found, stop configuring LSP.")
+  vim.notify("metals not found, stop configuring LSP.", vim.log.levels.WARN)
   return
 end
 scala_config.settings.metalsBinaryPath = metals_binary
 
 local mill_exe = vim.fn.exepath("mill")
 if not mill_exe or mill_exe == "" then
-  vim.notify("mill not found, stop configuring metals.")
+  vim.notify("mill not found, stop configuring metals.", vim.log.levels.WARN)
   return
 end
 
