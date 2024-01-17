@@ -2,25 +2,25 @@ require("gitsigns").setup({
   signs = {
     add = {
       hl = "GitSignsAdd",
-      text = "▏",
+      text = "┃",
       numhl = "GitSignsAddNr",
       linehl = "GitSignsAddLn",
     },
     change = {
       hl = "GitSignsChange",
-      text = "▏",
+      text = "┃",
       numhl = "GitSignsChangeNr",
       linehl = "GitSignsChangeLn",
     },
     untracked = {
       hl = "GitSignsUntracked",
-      text = "▏",
+      text = "┃",
       numhl = "GitSignsUntracked",
       linehl = "GitSignsUntracked",
     },
     delete = {
       hl = "GitSignsDelete",
-      text = "▏",
+      text = "┃",
       numhl = "GitSignsDeleteNr",
       linehl = "GitSignsDeleteLn",
     },
@@ -32,7 +32,7 @@ require("gitsigns").setup({
     },
     changedelete = {
       hl = "GitSignsDelete",
-      text = "▏",
+      text = "┃",
       numhl = "GitSignsChangeNr",
       linehl = "GitSignsChangeLn",
     },

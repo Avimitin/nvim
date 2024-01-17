@@ -168,20 +168,19 @@ register("luukvbaal/statuscol.nvim", {
       segments = {
         {
           sign = {
-            namespace = { "diagnostic" },
+            namespace = { "gitsign" },
             maxwidth = 1,
-            colwidth = 2,
+            colwidth = 1,
             auto = false,
           },
           click = "v:lua.ScSa",
         },
         { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
-        { text = { " " } },
         {
           sign = {
-            namespace = { "gitsign" },
+            namespace = { "diagnostic" },
             maxwidth = 1,
-            colwidth = 1,
+            colwidth = 2,
             auto = false,
           },
           click = "v:lua.ScSa",
