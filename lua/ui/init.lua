@@ -96,15 +96,6 @@ register("petertriho/nvim-scrollbar", {
   end,
 })
 
-register("folke/todo-comments.nvim", {
-  event = "LspAttach",
-  config = function()
-    require("todo-comments").setup({
-      signs = false,
-    })
-  end,
-})
-
 -- prettify the input and select ui
 register("stevearc/dressing.nvim", {
   lazy = true,
