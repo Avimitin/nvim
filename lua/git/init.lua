@@ -13,7 +13,7 @@ pack("lewis6991/gitsigns.nvim", {
           end
         end
 
-        vim.loop.spawn("git", {
+        vim.uv.spawn("git", {
           args = {
             "rev-parse",
             vim.fn.expand("%:p:h"),
@@ -21,17 +21,5 @@ pack("lewis6991/gitsigns.nvim", {
         }, callback)
       end,
     })
-  end,
-})
-
-pack("rbong/vim-flog", {
-  cmd = { "Flog", "Flogsplit", "Floggit" },
-  dependencies = {
-    "tpope/vim-fugitive",
-  },
-  init = function()
-    vim.g.flog_permanent_default_opts = {
-      date = "short",
-    }
   end,
 })
