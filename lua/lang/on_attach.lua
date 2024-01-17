@@ -114,6 +114,15 @@ utils.setup_document_highlight_on_cursor = function(client, bufnr)
   end
 end
 
+utils.setup_codelens_refresher = function(bufnr)
+  vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+    buffer = bufnr,
+    callback = function()
+      vim.lsp.codelens.refresh()
+    end,
+  })
+end
+
 -- LSP's on_attach interface accept two arguments client and bufnr. But we don't use client for now, so it is okay to pass nil here.
 utils.setup_all = function(client, bufnr)
   utils.setup_icons()
@@ -121,6 +130,7 @@ utils.setup_all = function(client, bufnr)
   utils.setup_inlay_hint(bufnr)
   utils.setup_auto_format(bufnr)
   utils.setup_document_highlight_on_cursor(client, bufnr)
+  utils.setup_codelens_refresher(bufnr)
 end
 
 return utils
