@@ -280,19 +280,6 @@ register("ggandor/leap.nvim", {
   },
 })
 
--- Quick moving by one character searching
-register("ggandor/flit.nvim", {
-  keys = {
-    "f",
-    "F",
-    "t",
-    "T",
-  },
-  config = function()
-    require("flit").setup()
-  end,
-})
-
 -- sort the number or text
 register("sQVe/sort.nvim", {
   config = function()
