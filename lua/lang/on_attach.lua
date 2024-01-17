@@ -53,10 +53,10 @@ utils.setup_icons = function()
   })
 
   local types = {
-    Error = "",
-    Warn = "",
-    Hint = "",
-    Info = "",
+    Error = "",
+    Warn = "",
+    Hint = "",
+    Info = "",
   }
 
   for diag_type, icon in pairs(types) do
