@@ -393,7 +393,18 @@ register("folke/which-key.nvim", {
   event = "VeryLazy",
   config = function()
     local whichkey = require("which-key")
-    whichkey.setup({})
+    whichkey.setup({
+      plugins = {
+        mark = false,
+        register = false,
+      },
+      window = {
+        winblend = 10,
+      },
+      layout = {
+        align = "center",
+      },
+    })
 
     local ngrp = {
       mode = "n",
