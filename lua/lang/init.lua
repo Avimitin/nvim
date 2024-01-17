@@ -73,7 +73,7 @@ register("stevearc/conform.nvim", {
       },
     })
 
-    vim.keymap.set("n", "gf", require("conform").format, { desc = "Format code" })
+    vim.keymap.set("n", "gf", require("conform").format, { desc = "[LSP] Format code" })
   end,
 })
 

@@ -17,17 +17,25 @@ utils.setup_keymaps = function(_, bufnr)
 
   bnmap({
     -- gf: Format code, define in conform module at lang/init.lua
-    { "gd", telescope("lsp_definitions"), desc = "List definitions" },
-    { "gR", telescope("lsp_references"), desc = "List references" },
-    { "gt", telescope("lsp_type_definitions"), desc = "List type definition" },
-    { "ga", vim.lsp.buf.code_action, desc = "Open code actions" },
-    { "gh", vim.lsp.buf.hover, desc = "Open document" },
-    { "gr", vim.lsp.buf.rename, desc = "Rename symbol" },
-    { "go", vim.diagnostic.open_float, desc = "Open floating list" },
-    { "gO", vim.diagnostic.setqflist, desc = "Open quickfix list" },
+
+    { "gsd", telescope("lsp_definitions"), desc = "[LSP] Search and goto `definitions`" },
+    { "gsr", telescope("lsp_references"), desc = "[LSP] Search and goto `references`" },
+    { "gsi", telescope("lsp_implementations"), desc = "[LSP] Search and goto `implementations`" },
+    { "gst", telescope("lsp_type_definitions"), desc = "[LSP] Search and goto `type definition`" },
+
+    { "ga", vim.lsp.buf.code_action, desc = "[LSP] Open code actions" },
+    { "K", vim.lsp.buf.hover, desc = "[LSP] Open document" },
+    { "gh", vim.lsp.buf.hover, desc = "[LSP] Open document" },
+    { "R", vim.lsp.buf.rename, desc = "[LSP] Rename symbol" },
+    { "gR", vim.lsp.buf.rename, desc = "[LSP] Rename symbol" },
+    { "go", vim.diagnostic.open_float, desc = "[LSP] Open floating list" },
+    { "gO", vim.diagnostic.setqflist, desc = "[LSP] Open quickfix list" },
+    { "gr", vim.lsp.codelens.run, desc = "[LSP] Run codelens at current line" },
+
     -- gl: Open Symbols, define in neotree module at tools/init.lua
-    { "[d", vim.diagnostic.goto_prev, desc = "Jump to previous error" },
-    { "]d", vim.diagnostic.goto_next, desc = "Jump to next error" },
+
+    { "[d", vim.diagnostic.goto_prev, desc = "[LSP] Jump to previous error" },
+    { "]d", vim.diagnostic.goto_next, desc = "[LSP] Jump to next error" },
   })
 end
 

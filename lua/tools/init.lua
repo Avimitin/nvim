@@ -119,7 +119,7 @@ register("nvim-neo-tree/neo-tree.nvim", {
     {
       "gl",
       "<CMD>Neotree action=focus toggle=true source=document_symbols position=float<CR>",
-      desc = "View document symbols",
+      desc = "[LSP] View document symbols",
     },
   },
   cmd = {
@@ -204,8 +204,8 @@ register("kylechui/nvim-surround", {
     "cS",
     "ds",
     "dS",
-    { "gs", mode = { "x", "n" } },
-    { "gS", mode = { "x", "n" } },
+    { "gs", mode = { "x" } },
+    { "gS", mode = { "x" } },
     { "<C-g>", mode = "i" },
   },
   config = function()
@@ -349,7 +349,6 @@ register("folke/which-key.nvim", {
 
     local ngrp = {
       mode = "n",
-      ["g"] = { name = "+LSP" },
       ["<leader>g"] = { name = "+Git" },
       ["<leader>f"] = { name = "+Telescope" },
     }
