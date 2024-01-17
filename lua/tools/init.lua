@@ -496,40 +496,7 @@ register("nyngwang/NeoTerm.lua", {
 
 register("willothy/flatten.nvim", {
   config = function()
-    require("flatten").setup({
-      callbacks = {
-        should_block = function(argv)
-          return vim.tbl_contains(argv, "lazygit") or vim.tbl_contains(argv, "-b")
-        end,
-        pre_open = function()
-          vim.cmd.NeoTermToggle()
-        end,
-        post_open = function(bufnr, winnr, ft, is_blocking)
-          if is_blocking then
-            -- Hide the terminal while it's blocking
-            vim.cmd.NeoTermToggle()
-          else
-            vim.api.nvim_set_current_win(winnr)
-          end
-
-          if ft == "gitcommit" or ft == "gitrebase" then
-            vim.api.nvim_create_autocmd("BufWritePost", {
-              buffer = bufnr,
-              once = true,
-              callback = vim.schedule_wrap(function()
-                vim.api.nvim_buf_delete(bufnr, {})
-              end),
-            })
-          end
-        end,
-        block_end = function()
-          -- After blocking ends (for a git commit, etc), reopen the terminal
-          vim.schedule(function()
-            vim.cmd.NeoTermToggle()
-          end)
-        end,
-      },
-    })
+    require("flatten").setup({})
   end,
   -- This plugin only read `vim.env.NVIM` on start up, there is no overhead.
   -- But lazy loading it will instead causing multiple issues, so just don't be lazy here.
