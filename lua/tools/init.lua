@@ -323,40 +323,6 @@ register("uga-rosa/ccc.nvim", {
   },
 })
 
--- Multiple Cursor
-register("mg979/vim-visual-multi", {
-  keys = {
-    "<leader>mn",
-    "<C-down>",
-    "<C-up>",
-    "<leader>mA",
-    "<leader>mx",
-    { mode = "x", "<leader>mx" },
-    { mode = "x", "<leader>mA" },
-    { mode = "x", "<leader>ma" },
-    { mode = "x", "<leader>mf" },
-    { mode = "x", "<leader>mc" },
-  },
-  init = function()
-    -- then, update the visual multi key mappings
-    vim.g.VM_maps = {
-      ["Find Under"] = "<leader>mn",
-      ["Find Subword Under"] = "<leader>mn",
-      ["Select Cursor Down"] = "<C-down>",
-      ["Select Cursor Up"] = "<C-up>",
-      ["Undo"] = "<C-z>",
-      ["Redo"] = "<C-r>",
-      ["Select All"] = "<leader>mA",
-      ["Start Regex Search"] = "<leader>mx",
-      ["Visual Regex"] = "<leader>mx",
-      ["Visual All"] = "<leader>mA",
-      ["Visual Add"] = "<leader>ma",
-      ["Visual Find"] = "<leader>mf",
-      ["Visual Cursors"] = "<leader>mc",
-    }
-  end,
-})
-
 -- Easy aligning text
 register("junegunn/vim-easy-align", {
   cmd = "EasyAlign",
