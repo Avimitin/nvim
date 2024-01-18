@@ -443,3 +443,7 @@ register("willothy/flatten.nvim", {
   lazy = false,
   priority = 1001,
 })
+
+register("kevinhwang91/nvim-bqf", {
+  ft = "qf",
+})
