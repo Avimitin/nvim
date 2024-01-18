@@ -48,7 +48,6 @@ local function insert_space_on_left()
       provider = function()
         return " "
       end,
-      condition = should_activate_lsp,
       highlight = { colors.bg, colors.bg },
     },
   })
@@ -64,7 +63,6 @@ local function insert_space_on_right()
       provider = function()
         return " "
       end,
-      condition = should_activate_lsp,
       highlight = { colors.bg, colors.bg },
     },
   })
