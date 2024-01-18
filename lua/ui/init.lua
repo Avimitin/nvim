@@ -180,11 +180,13 @@ register("luukvbaal/statuscol.nvim", {
           sign = {
             namespace = { "diagnostic" },
             maxwidth = 1,
-            colwidth = 2,
+            colwidth = 1,
             auto = false,
           },
           click = "v:lua.ScSa",
         },
+        { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+        { text = { " " } },
       },
       ft_ignore = {
         "help",

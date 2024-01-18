@@ -28,6 +28,14 @@ local options = {
   -- A List is an ordered sequence of items.
   list = true,
   listchars = { tab = "> ", trail = "·" },
+  fillchars = {
+    fold = " ",
+    foldopen = " ",
+    foldclose = "",
+    foldsep = " ",
+    diff = "╱",
+    eob = " ",
+  },
   -- Minimal number of screen lines to keep above and below the cursor.
   scrolloff = 5,
   -- 200 is more appropriate for which-keys. You can quickly input keys without prompting up
@@ -65,6 +73,7 @@ local options = {
   -- enable all the mouse functionality
   mouse = "a",
   -- use indent as the fold method
+  foldcolumn = "1",
   foldmethod = "indent",
   foldlevel = 99,
   foldenable = true,
