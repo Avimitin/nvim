@@ -68,7 +68,8 @@ local options = {
   inccommand = "split",
   ttyfast = true,
   visualbell = true,
-  updatetime = 100,
+  -- affect swap file write and cursorhold. Set it to 5secs to reduce performance impact
+  updatetime = 5000,
   virtualedit = "block",
   -- enable all the mouse functionality
   mouse = "a",
