@@ -30,7 +30,7 @@ local options = {
   listchars = { tab = "> ", trail = "·" },
   fillchars = {
     fold = " ",
-    foldopen = " ",
+    foldopen = "",
     foldclose = "",
     foldsep = " ",
     diff = "╱",
