@@ -184,6 +184,13 @@ register("nvim-telescope/telescope.nvim", {
       end,
       desc = "Find keyword",
     },
+    {
+      "<leader>fb",
+      function ()
+        require("telescope.builtin").buffers(require("telescope.themes").get_dropdown())
+      end,
+      desc = "Switch current bufffer"
+    },
   },
 })
 

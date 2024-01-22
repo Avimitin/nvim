@@ -40,14 +40,6 @@ register("glepnir/galaxyline.nvim", {
   end,
 })
 
--- tab line
-register("akinsho/nvim-bufferline.lua", {
-  event = "BufRead",
-  config = function()
-    require("ui.bufferline")
-  end,
-})
-
 -- Indent guide line
 register("lukas-reineke/indent-blankline.nvim", {
   event = "BufRead",
