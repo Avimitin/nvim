@@ -463,3 +463,10 @@ register("ghillb/cybu.nvim", {
     })
   end,
 })
+
+register("pwntester/octo.nvim", {
+  cmd = "Octo",
+  config = function()
+    require("octo").setup({})
+  end,
+})
