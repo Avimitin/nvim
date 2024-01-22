@@ -28,6 +28,11 @@ keymapper.mk_keymap({
     { "<C-p>", [["+p]], desc = "paste" },
     { "<C-d>", "<C-d>zz", desc = "paste" },
     { "<C-u>", "<C-u>zz", desc = "paste" },
+
+    -- tools
+    { "<leader>b", function() require("buffer_manager.ui").toggle_quick_menu() end, desc = "Toggle buffer manager" },
+    { "<Tab>", function() require("buffer_manager.ui").nav_next() end, desc = "Toggle buffer manager" },
+    { "<S-Tab>", function() require("buffer_manager.ui").nav_prev() end, desc = "Toggle buffer manager" },
   },
   selection = {
     { "J", ":m '>+1<CR>gv=gv" },

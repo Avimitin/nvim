@@ -184,13 +184,6 @@ register("nvim-telescope/telescope.nvim", {
       end,
       desc = "Find keyword",
     },
-    {
-      "<leader>fb",
-      function ()
-        require("telescope.builtin").buffers(require("telescope.themes").get_dropdown())
-      end,
-      desc = "Switch current bufffer"
-    },
   },
 })
 
@@ -453,4 +446,11 @@ register("willothy/flatten.nvim", {
 
 register("kevinhwang91/nvim-bqf", {
   ft = "qf",
+})
+
+register("j-morano/buffer_manager.nvim", {
+  lazy = true,
+  config = function ()
+    require("buffer_manager").setup({})
+  end
 })
