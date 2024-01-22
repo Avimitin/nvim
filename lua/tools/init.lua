@@ -448,9 +448,18 @@ register("kevinhwang91/nvim-bqf", {
   ft = "qf",
 })
 
-register("j-morano/buffer_manager.nvim", {
+register("ghillb/cybu.nvim", {
   lazy = true,
-  config = function ()
-    require("buffer_manager").setup({})
-  end
+  config = function()
+    require("cybu").setup({
+      position = {
+        anchor = "bottomleft",
+      },
+      style = {
+        border = "none",
+        padding = 5,
+      },
+      display_time = 500,
+    })
+  end,
 })
