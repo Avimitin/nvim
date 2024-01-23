@@ -477,6 +477,11 @@ register("ghillb/cybu.nvim", {
         padding = 5,
       },
       display_time = 500,
+      exclude = {
+        "neo-tree",
+        "qf",
+        "neo-term"
+      },
     })
   end,
 })
