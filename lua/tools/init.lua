@@ -266,6 +266,17 @@ register("ggandor/leap.nvim", {
     { "gw", "<Plug>(leap-from-window)", mode = { "n" }, desc = "Leap from window" },
     { "gW", "<Plug>(leap-cross-window)", mode = { "n" }, desc = "Leap cross window" },
   },
+  -- when flit.nvim is loaded, it will try to load leap.nvim
+  module = true,
+})
+
+register("ggandor/flit.nvim", {
+  keys = {
+    "f", "F", "t", "T"
+  },
+  config = function()
+    require("flit").setup({})
+  end,
 })
 
 -- sort the number or text
@@ -450,6 +461,7 @@ register("kevinhwang91/nvim-bqf", {
 
 -- Open buffer manager
 register("j-morano/buffer_manager.nvim", {
+  module = true,
   config = function ()
     require("buffer_manager").setup({})
   end
@@ -457,7 +469,7 @@ register("j-morano/buffer_manager.nvim", {
 
 -- Cycle through buffers
 register("ghillb/cybu.nvim", {
-  lazy = true,
+  module = true,
   config = function()
     require("cybu").setup({
       style = {
