@@ -448,13 +448,18 @@ register("kevinhwang91/nvim-bqf", {
   ft = "qf",
 })
 
+-- Open buffer manager
+register("j-morano/buffer_manager.nvim", {
+  config = function ()
+    require("buffer_manager").setup({})
+  end
+})
+
+-- Cycle through buffers
 register("ghillb/cybu.nvim", {
   lazy = true,
   config = function()
     require("cybu").setup({
-      position = {
-        anchor = "bottomleft",
-      },
       style = {
         border = "none",
         padding = 5,
@@ -464,9 +469,11 @@ register("ghillb/cybu.nvim", {
   end,
 })
 
+-- GitHub Manager
 register("pwntester/octo.nvim", {
   cmd = "Octo",
   config = function()
     require("octo").setup({})
   end,
 })
+

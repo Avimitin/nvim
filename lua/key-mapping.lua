@@ -33,7 +33,7 @@ keymapper.mk_keymap({
     {
       "<leader>b",
       function()
-        require("telescope.builtin").buffers(require("telescope.themes").get_dropdown())
+        require("buffer_manager.ui").toggle_quick_menu()
       end,
       desc = "Toggle buffer manager",
     },
