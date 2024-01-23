@@ -8,6 +8,15 @@ register("neovim/nvim-lspconfig", {
 register("mrcjkb/rustaceanvim", {
   version = "^3",
   ft = { "rust" },
+  init = function ()
+    vim.g.rustaceanvim = {
+      server = {
+        on_attach = function (client, bufnr)
+          require("lang.on_attach").setup_all(client, bufnr)
+        end
+      }
+    }
+  end
 })
 
 -- Cargo.toml manager
