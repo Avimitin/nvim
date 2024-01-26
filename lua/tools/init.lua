@@ -461,7 +461,7 @@ register("kevinhwang91/nvim-bqf", {
 
 -- Open buffer manager
 register("j-morano/buffer_manager.nvim", {
-  module = true,
+  lazy = true,
   config = function ()
     require("buffer_manager").setup({})
   end
@@ -469,7 +469,7 @@ register("j-morano/buffer_manager.nvim", {
 
 -- Cycle through buffers
 register("ghillb/cybu.nvim", {
-  module = true,
+  lazy = true,
   config = function()
     require("cybu").setup({
       style = {
