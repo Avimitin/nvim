@@ -407,12 +407,12 @@ register("chrisgrieser/nvim-spider", {
   lazy = true,
 })
 
-register("nyngwang/NeoTerm.lua", {
+register("Avimitin/NeoTerm.lua", {
   lazy = true,
+  branch = "global_buf_support",
   keys = {
-    { "<C-;>", vim.cmd.NeoTermToggle },
-    { "<C-;>", vim.cmd.NeoTermToggle, mode = "t" },
-    { "<A-;>", vim.cmd.NeoTermEnterNormal, mode = "t" },
+    { "<C-t>", vim.cmd.NeoTermToggle, mode = { "n", "t" } },
+    { "<C-n>", vim.cmd.NeoTermEnterNormal, mode = "t" },
   },
   init = function()
     -- auto-insert on enter term-buf of NeoTerm.
@@ -443,6 +443,7 @@ register("nyngwang/NeoTerm.lua", {
   end,
   config = function()
     require("neo-term").setup({
+      enable_global_term = true,
       term_mode_hl = "Normal",
     })
   end,
