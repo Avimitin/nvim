@@ -272,7 +272,10 @@ register("ggandor/leap.nvim", {
 
 register("ggandor/flit.nvim", {
   keys = {
-    "f", "F", "t", "T"
+    "f",
+    "F",
+    "t",
+    "T",
   },
   config = function()
     require("flit").setup({})
@@ -462,9 +465,9 @@ register("kevinhwang91/nvim-bqf", {
 -- Open buffer manager
 register("j-morano/buffer_manager.nvim", {
   lazy = true,
-  config = function ()
+  config = function()
     require("buffer_manager").setup({})
-  end
+  end,
 })
 
 -- Cycle through buffers
@@ -480,7 +483,7 @@ register("ghillb/cybu.nvim", {
       exclude = {
         "neo-tree",
         "qf",
-        "neo-term"
+        "neo-term",
       },
     })
   end,
@@ -493,4 +496,3 @@ register("pwntester/octo.nvim", {
     require("octo").setup({})
   end,
 })
-
