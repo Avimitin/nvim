@@ -412,7 +412,7 @@ register("Avimitin/NeoTerm.lua", {
   branch = "global_buf_support",
   keys = {
     { "<C-t>", vim.cmd.NeoTermToggle, mode = { "n", "t" } },
-    { "<C-n>", vim.cmd.NeoTermEnterNormal, mode = "t" },
+    { "<C-n>", "<C-\\><C-n>", mode = "t" },
   },
   init = function()
     -- auto-insert on enter term-buf of NeoTerm.
