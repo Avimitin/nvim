@@ -8,15 +8,15 @@ register("neovim/nvim-lspconfig", {
 register("mrcjkb/rustaceanvim", {
   version = "^3",
   ft = { "rust" },
-  init = function ()
+  init = function()
     vim.g.rustaceanvim = {
       server = {
-        on_attach = function (client, bufnr)
+        on_attach = function(client, bufnr)
           require("lang.on_attach").setup_all(client, bufnr)
-        end
-      }
+        end,
+      },
     }
-  end
+  end,
 })
 
 -- Cargo.toml manager
@@ -80,9 +80,38 @@ register("stevearc/conform.nvim", {
         python = { "black" },
         rust = { "rustfmt" },
       },
+      format_on_save = function(bufnr)
+        if vim.api.nvim_buf_line_count(bufnr) >= 5000 then
+          return
+        end
+
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+          return
+        end
+
+        return { timeout_ms = 500, lsp_fallback = true }
+      end,
     })
 
     vim.keymap.set("n", "gf", require("conform").format, { desc = "[LSP] Format code" })
+
+    vim.api.nvim_create_user_command("FormatDisable", function(args)
+      if args.bang then
+        -- FormatDisable! will disable formatting just for this buffer
+        vim.b.disable_autoformat = true
+      else
+        vim.g.disable_autoformat = true
+      end
+    end, {
+      desc = "Disable autoformat-on-save",
+      bang = true,
+    })
+    vim.api.nvim_create_user_command("FormatEnable", function()
+      vim.b.disable_autoformat = false
+      vim.g.disable_autoformat = false
+    end, {
+      desc = "Re-enable autoformat-on-save",
+    })
   end,
 })
 

@@ -82,19 +82,6 @@ utils.setup_inlay_hint = function(bufnr)
   end
 end
 
-utils.setup_auto_format = function(bufnr)
-  if vim.api.nvim_buf_line_count(bufnr) >= 5000 then
-    return
-  end
-
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    buffer = bufnr,
-    callback = function(args)
-      require("conform").format({ bufnr = args.buf })
-    end,
-  })
-end
-
 utils.setup_document_highlight_on_cursor = function(client, bufnr)
   if client.server_capabilities.documentHighlightProvider then
     local id = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
@@ -130,7 +117,6 @@ utils.setup_all = function(client, bufnr)
   utils.setup_icons()
   utils.setup_keymaps(client, bufnr)
   utils.setup_inlay_hint(bufnr)
-  utils.setup_auto_format(bufnr)
   utils.setup_document_highlight_on_cursor(client, bufnr)
   utils.setup_codelens_refresher(client, bufnr)
 end
