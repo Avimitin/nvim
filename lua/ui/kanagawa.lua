@@ -1,6 +1,9 @@
 vim.opt.background = "dark"
 
 local enable_transparent = true
+if enable_transparent then
+  vim.g.neovide_transparency = 0.8
+end
 
 local function override(colors)
   local default = colors.palette
