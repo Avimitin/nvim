@@ -3,6 +3,7 @@
 --
 
 local options = {
+  guifont = "iMWritingMono Nerd Font Mono:h11:w0",
   completeopt = { "menuone", "noselect", "menu" },
   -- Enables 24-bit RGB color in the TUI
   termguicolors = true,
@@ -164,16 +165,19 @@ for _, provider in ipairs({
 end
 -- END of built-in configuration
 
-vim.g.clipboard = {
-  name = "OSC 52",
-  copy = {
-    ["+"] = require("libs.osc52").copy,
-    ["*"] = require("libs.osc52").copy,
-  },
-  paste = {
-    ["+"] = require("libs.osc52").paste,
-    ["*"] = require("libs.osc52").paste,
-  },
-}
+if not vim.g.neovide then
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = require("libs.osc52").copy,
+      ["*"] = require("libs.osc52").copy,
+    },
+    paste = {
+      ["+"] = require("libs.osc52").paste,
+      ["*"] = require("libs.osc52").paste,
+    },
+  }
+end
 
+-- If anything went wrong, rm -r ~/.cache/nvim/luac
 vim.loader.enable()
