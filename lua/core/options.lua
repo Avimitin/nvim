@@ -3,7 +3,7 @@
 --
 
 local options = {
-  guifont = "iMWritingMono Nerd Font Mono:h11:w0",
+  guifont = "iMWritingMono Nerd Font Mono:h10:w-1.5",
   completeopt = { "menuone", "noselect", "menu" },
   -- Enables 24-bit RGB color in the TUI
   termguicolors = true,
