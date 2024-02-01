@@ -196,3 +196,18 @@ register("luukvbaal/statuscol.nvim", {
     })
   end,
 })
+
+-- winbar
+register("Bekaboo/dropbar.nvim", {
+  -- lazy loading is done in this plugin
+  lazy = false,
+  keys = {
+    {
+      "<leader>p",
+      function()
+        require("dropbar.api").pick()
+      end,
+      desc = "Open picker on winbar",
+    },
+  },
+})

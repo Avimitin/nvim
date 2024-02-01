@@ -12,6 +12,7 @@
   "crates.nvim": { "branch": "main", "commit": "f2a169840e97a8ed2048abb507d2742c3895c85b" },
   "cybu.nvim": { "branch": "main", "commit": "c0866ef6735a85f85d4cf77ed6d9bc92046b5a99" },
   "dressing.nvim": { "branch": "master", "commit": "0e88293ce3459f4bb310125f3366304af6dc7990" },
+  "dropbar.nvim": { "branch": "master", "commit": "9a8e498374276dd0281736c75b42098ef9fb5622" },
   "emmylua-nvim": { "branch": "master", "commit": "015200711c5c6178a026d96ab042a3788b41310f" },
   "flatten.nvim": { "branch": "main", "commit": "92c59ae6200e6b04aff167577ebb8a9035a6d2b3" },
   "flit.nvim": { "branch": "main", "commit": "39e3399ed2cbc328778258ac0d497ece9ed8fe32" },
