@@ -308,11 +308,7 @@ require("galaxyline").section.short_line_left = {
     ShortLineLeftBufferType = {
       highlight = { colors.lightgrey, colors.bg },
       provider = function()
-        -- return filename for normal file
-        local get_file_name = function()
-          return string.format("%s %s", "", vim.fs.basename(vim.fn.expand("%")))
-        end
-        local name = BufferTypeMap[vim.bo.filetype] or get_file_name()
+        local name = BufferTypeMap[vim.bo.filetype]
         return string.format("▊ %s", name)
       end,
     },

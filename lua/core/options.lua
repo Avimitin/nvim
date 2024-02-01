@@ -90,6 +90,8 @@ local options = {
   -- 3. "W": Do not show "written" or "[w]" when writing a file
   -- 4. "F": Do not show file info when editing a file
   shortmess = "aTWF",
+  -- let status bar (at bottom) be global status bar, don't change with winbar
+  laststatus = 3,
 }
 
 local function ensure_cache(suffix)
