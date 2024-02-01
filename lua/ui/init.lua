@@ -33,7 +33,8 @@ register("kyazdani42/nvim-web-devicons", {
 })
 
 -- Status line
-register("glepnir/galaxyline.nvim", {
+register("Avimitin/galaxyline.nvim", {
+  branch = "global-status-line",
   event = "UIEnter",
   config = function()
     require("ui.statusline")
