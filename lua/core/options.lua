@@ -167,19 +167,5 @@ for _, provider in ipairs({
 end
 -- END of built-in configuration
 
-if not vim.g.neovide then
-  vim.g.clipboard = {
-    name = "OSC 52",
-    copy = {
-      ["+"] = require("libs.osc52").copy,
-      ["*"] = require("libs.osc52").copy,
-    },
-    paste = {
-      ["+"] = require("libs.osc52").paste,
-      ["*"] = require("libs.osc52").paste,
-    },
-  }
-end
-
 -- If anything went wrong, rm -r ~/.cache/nvim/luac
 vim.loader.enable()
