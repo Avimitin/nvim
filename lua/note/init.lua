@@ -25,54 +25,6 @@ pack("dhruvasagar/vim-table-mode", {
   cmd = "TableModeToggle",
 })
 
-pack("nvim-orgmode/orgmode", {
-  ft = "org",
-  keys = {
-    {
-      "<leader>oa",
-      function()
-        require("orgmode").action("agenda.prompt")
-      end,
-      desc = "[orgmode] Prompt Agenda",
-    },
-    {
-      "<leader>oc",
-      function()
-        require("orgmode").action("capture.prompt")
-      end,
-      desc = "[orgmode] Prompt capture",
-    },
-  },
-  config = function()
-    require("orgmode").setup_ts_grammar()
-    require("orgmode").setup({
-      org_agenda_files = { "~/todo/**/*" },
-      org_default_notes_file = "~/todo/todo.org",
-      org_archive_location = "archives/%s_archive::",
-      org_todo_keywords = { "TODO(t)", "BLOCK(b)", "|", "DONE(d)" },
-      org_todo_keyword_faces = {
-        TODO = ":background #43242B :weight bold",
-        BLOCK = ":background #49443C :foreground #DCA561 :weight bold",
-        DONE = ":background #2B3328 :weight bold",
-      },
-    })
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "org",
-      callback = function()
-        vim.wo.conceallevel = 2
-        vim.wo.concealcursor = "nc"
-      end,
-    })
-  end,
-})
-
-pack("akinsho/org-bullets.nvim", {
-  ft = { "org" },
-  config = function()
-    require("org-bullets").setup()
-  end,
-})
-
 pack("lukas-reineke/headlines.nvim", {
   ft = { "org", "markdown" },
   config = function()
