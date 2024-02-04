@@ -38,3 +38,19 @@ pack("lukas-reineke/headlines.nvim", {
     })
   end,
 })
+
+pack("epwalsh/obsidian.nvim", {
+  version = "*", -- recommended, use latest release instead of latest commit
+  lazy = true,
+  ft = "markdown",
+  config = function()
+    require("obsidian").setup({
+      workspaces = {
+        {
+          name = "notes",
+          path = "~/me/notes",
+        },
+      },
+    })
+  end,
+})
