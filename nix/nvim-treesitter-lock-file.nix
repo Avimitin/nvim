@@ -1,18 +1,18 @@
 { stdenvNoCC, fetchFromGitHub, neovim }:
 
 let
-  rev = "504fe1043298c468f56a6ef6dc61f35b2d69495a";
+  rev = with builtins;
+    (fromJSON (readFile ../lazy-lock.json))."nvim-treesitter".commit;
 in
 stdenvNoCC.mkDerivation
 {
-  pname = "nvim-treesitter-lock-file";
-  version = rev;
+  name = "nvim-treesitter-lock-file-${rev}";
 
   src = fetchFromGitHub {
     owner = "nvim-treesitter";
     repo = "nvim-treesitter";
     inherit rev;
-    hash = "sha256-VKcsD9l3uBCSVeeZsZH2qHpNmbUes/O4kaBFpP4AwIo=";
+    hash = "sha256-GjCCbF45dG+I5aIGrStelfvbiWwz8KcYVYA6KpEfzT0=";
   };
   nativeBuildInputs = [ neovim ];
 
