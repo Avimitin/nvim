@@ -1,9 +1,7 @@
 {
   "date": {
     "prefix": "date",
-    "body": [
-      "${VIM:strftime('%Y-%m-%d')}"
-    ],
+    "body": ["${VIM:strftime('%Y-%m-%d')}"],
     "description": "Add current date, useful for frontmatter"
   },
 
@@ -53,5 +51,11 @@
     "prefix": "katex",
     "body": "\\\\\\\\(${1}\\\\\\\\)${0}",
     "description": "Add a Katex inline block"
+  },
+
+  "CheckBox": {
+    "prefix": "ck",
+    "body": "- [ ] ${0}",
+    "description": "Add a new empty checkbox"
   }
 }

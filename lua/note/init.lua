@@ -43,6 +43,7 @@ pack("epwalsh/obsidian.nvim", {
   version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
   ft = "markdown",
+  cmd = { "ObsidianNew", "ObsidianSwitch", "ObsidianToday" },
   config = function()
     require("obsidian").setup({
       workspaces = {
