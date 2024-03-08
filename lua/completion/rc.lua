@@ -49,6 +49,9 @@ local feedkey = function(key, mode)
 end
 
 cmp.setup({
+  view = {
+    entries = { name = "custom", selection_order = "near_cursor" },
+  },
   snippet = {
     expand = function(args)
       -- For `vsnip` user.

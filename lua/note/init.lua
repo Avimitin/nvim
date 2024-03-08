@@ -30,6 +30,7 @@ pack("lukas-reineke/headlines.nvim", {
   config = function()
     require("headlines").setup({
       markdown = {
+        bullets = { "❑", "◉", "◎", "○" },
         headline_highlights = { "Headline1", "Headline2", "Headline3" },
       },
       org = {
