@@ -1,4 +1,4 @@
-if require("libs.cache")["python_lsp"] then
+if require("libs.cache")["markdown"] then
   return
 end
 

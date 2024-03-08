@@ -80,6 +80,7 @@ register("petertriho/nvim-scrollbar", {
         "Git",
         "cmp_menu",
         "cmp_docs",
+        "markdown",
       },
       handlers = {
         cursor = false,
