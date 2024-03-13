@@ -164,7 +164,10 @@ register("luukvbaal/statuscol.nvim", {
       relculright = true,
       setopt = true,
       segments = {
+        { text = { " " } },
         { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+        { text = { " " } },
+        { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
         {
           sign = {
             namespace = { "gitsign" },
@@ -174,7 +177,6 @@ register("luukvbaal/statuscol.nvim", {
           },
           click = "v:lua.ScSa",
         },
-        { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
         { text = { " " } },
         {
           sign = {
