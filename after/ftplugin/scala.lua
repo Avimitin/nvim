@@ -21,6 +21,8 @@ if not mill_exe or mill_exe == "" then
   return
 end
 
+scala_config.root_patterns = { "build.sbt", "build.sc", "build.gradle", "pom.xml", ".git" }
+scala_config.find_root_dir_max_project_nesting = 0
 scala_config.settings.millScript = mill_exe
 scala_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 scala_config.on_attach = require("lang.on_attach").setup_all
