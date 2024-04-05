@@ -21,6 +21,7 @@ if not mill_exe or mill_exe == "" then
   return
 end
 
+scala_config.init_options.statusBarProvider = "off"
 scala_config.root_patterns = { "build.sbt", "build.sc", "build.gradle", "pom.xml", ".git" }
 scala_config.find_root_dir_max_project_nesting = 0
 scala_config.settings.millScript = mill_exe
