@@ -147,6 +147,24 @@ register("nvim-telescope/telescope.nvim", {
       defaults = {
         prompt_prefix = "  ",
         entry_prefix = "  ",
+        defaults = {
+          vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--trim", -- add this value
+          },
+        },
+      },
+      pickers = {
+        find_files = {
+          -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        },
       },
     })
   end,
