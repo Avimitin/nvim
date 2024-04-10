@@ -20,7 +20,7 @@
         formatter = pkgs.nixpkgs-fmt;
         legacyPackages = pkgs;
         packages.test-ts-parser = pkgs.generate-nvim-treesitter-parsers [
-          { name = "bash"; hash = "sha256-LXKyqGeKg3OJHZ5666m8xnMHdqcdybZ3BRXKA3Fyh6o="; }
+          { name = "bash"; hash = "sha256-mKKBL8dQM/RepoTswvQDyHna6AHZBFIybizAsNfsXYc="; }
         ];
       });
 }
