@@ -265,18 +265,6 @@ register("kylechui/nvim-surround", {
 -- Quick moving by two character searching
 register("ggandor/leap.nvim", {
   keys = {
-    {
-      "gj",
-      require("tools.line_leap").leap_to_line,
-      mode = { "n", "o", "x" },
-      desc = "Leap to line",
-    },
-    {
-      "gk",
-      require("tools.line_leap").leap_to_line,
-      mode = { "n", "o", "x" },
-      desc = "Leap to line",
-    },
     { "s", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
     { "S", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
     { "x", "<Plug>(leap-forward-till)", mode = { "x", "o" }, desc = "Leap forward until" },
@@ -498,20 +486,11 @@ register("ghillb/cybu.nvim", {
         border = "none",
         padding = 5,
       },
-      display_time = 500,
       exclude = {
         "neo-tree",
         "qf",
         "neo-term",
       },
     })
-  end,
-})
-
--- GitHub Manager
-register("pwntester/octo.nvim", {
-  cmd = "Octo",
-  config = function()
-    require("octo").setup({})
   end,
 })
