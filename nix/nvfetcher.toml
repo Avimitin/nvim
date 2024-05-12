@@ -1,0 +1,11 @@
+[neovim-nightly]
+# Use the nightly tag of neovim repo
+src.github_tag = "neovim/neovim"
+src.include_regex = "^nightly$"
+# How to fetch source
+fetch.github = "neovim/neovim"
+# Re-evaluate nix src everytime is required because nvchecker
+# will not update src branch when include_regex is unchanged.
+# However our source update machanism is tricky:
+# it relies on neovim/neovim force pushed nightly tag.
+fetch.force = true

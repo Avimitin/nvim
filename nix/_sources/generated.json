@@ -1,0 +1,22 @@
+{
+    "neovim-nightly": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "neovim-nightly",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "neovim",
+            "repo": "neovim",
+            "rev": "nightly",
+            "sha256": "sha256-greAlTDfeACfLMDhvLKFFB56FxGmEA+m3UKSrRkRg1k=",
+            "type": "github"
+        },
+        "version": "nightly"
+    }
+}
