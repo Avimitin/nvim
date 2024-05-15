@@ -1,7 +1,6 @@
 [neovim-nightly]
 # Use the nightly tag of neovim repo
-src.github_tag = "neovim/neovim"
-src.include_regex = "^nightly$"
+src.cmd = "echo nightly"
 # How to fetch source
 fetch.github = "neovim/neovim"
 # Re-evaluate nix src everytime is required because nvchecker
