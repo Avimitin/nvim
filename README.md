@@ -14,7 +14,7 @@ you get to the place you want to jump to. There will always…
 
 ## Getting Start
 
-This configuration is compatible with neovim 0.8+ version.
+This configuration is compatible with neovim 0.10+ version.
 
 ```bash
 git clone --depth=1 https://github.com/Avimitin/nvim.git ~/.config/nvim
@@ -71,71 +71,38 @@ To use this in your home-manager, you can use the xdg.configFile attribute:
 
 ## Treesitter parsers in nix
 
-> Ignore this if you are not a nix user
-
-To make treesitter compatible with the stable neovim and my current configuration, and to make the share library compilation process reproducible and clean,
-this configuration provides a custom treesitter parser nix builder to manage the treesitter parser plugin.
-The flake output an overlay providing a nix function `generate-nvim-treesitter-parsers`.
-To use it, you can use home-manager to help you put this package into neovim's data directory.
-
-Below is an example named `laptop.nix`, which show an example of how to link the lua script in `$XDG_DATA_HOME` to let neovim automatically load those parsers:
+- For normal user: make sure gcc is installed, then run `:TSInstall <language>` to compile and install corresponding treesitter plugin
+- For nix user: you can add this repository as an overlay and use the pre-bundled neovim:
 
 ```nix
-{ pkgs, ... }:
+// flake.nix
 {
-    xdg.dataFile.generate-nvim-treesitter-parsers = let
-        tsLoader = pkgs.generate-nvim-treesitter-parsers [
-          { name = "bash"; hash = "sha256-b1r/T+Y4Kmui/pHsncozP8OO6rMMHJj+Xaa2Qzwo/cI="; }
-          { name = "c"; hash = "sha256-sB8fNfusjC9yTlrizb2mufDzQPvBajTJC+ewF9awBqA="; }
-          { name = "cpp"; hash = "sha256-27QjVy8quWyGhFCv/6GATG1xjGnkB9LTcvlPMuR3NB0="; }
-        ];
-      in
-      {
-        source = "${tsLoader}${tsLoader.passthru.luaPath}";
-        # Target will be substitute into ~/.local/share/nvim/site/plugin/treesitter-parsers.lua, and neovim will automatically load script in this path.
-        target = "nvim/site/plugin/treesitter-parsers.lua";
-      };
+  description = "Simple home-manager neovim configuration";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    my-neovim.url = "github:Avimitin/nvim";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { self, nixpkgs, flake-utils, home-manager, my-neovim }: {
+    homeConfiguration = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs { system = "x86_64-linux" overlays = [ my-neovim.overlays.default ];  };
+      modules = [
+        ({ pkgs }: {
+            home.configuration = [
+              pkgs.neovim-nightly
+            ];
+        })
+      ];
+    };
+  };
 }
 ```
 
-The array expect the argument in this form: `[{ name: xxx; hash: xxx; }, ...]`,
-where:
-
-  - name string: The name of the language
-  - hash string: The input hash, you can leave it blank and wait for nix hash report the correct hash
-  - needs_generate bool: When true, tree-sitter CLI will be used to generate the parser.
-  - srcRoot string: Specify where the parser source located. Some repository will vendor two or more parser source code in one repository.
-
-See [my home configuration](https://github.com/Avimitin/Avimitin/blob/master/nix/home/share.nix) for detail examples.
-
-Also you might found update the parser hash one by one really annoying, so the `generate-nvim-treesitter-parsers` also contains a update script.
-To use it, first you will need to place the script file somewhere:
-
-```nix
-xdg.dataFile =
-let
-  tsLoader = pkgs.generate-nvim-treesitter-parsers [
-    { name = "bash"; hash = "sha256-b1r/T+Y4Kmui/pHsncozP8OO6rMMHJj+Xaa2Qzwo/cI="; }
-    { name = "c"; hash = "sha256-sB8fNfusjC9yTlrizb2mufDzQPvBajTJC+ewF9awBqA="; }
-    { name = "cpp"; hash = "sha256-27QjVy8quWyGhFCv/6GATG1xjGnkB9LTcvlPMuR3NB0="; }
-    { name = "yaml"; hash = "sha256-RrYFKrhqFLsjQG+7XFbcQ2eYy2eyig5/r+MYO8DId4g="; }
-  ];
-in
-{
-  nvim-treesitter-parsers = {
-    source = "${tsLoader}${tsLoader.passthru.luaPath}";
-    target = "nvim/site/plugin/treesitter-parsers.lua";
-  };
-  nvim-treesitter-updater = {
-    source = "${tsLoader.passthru.updateScript}/bin/treesitter-hash-batch-updater";
-    target = "nvim/assets/treesitter-updater.bash"; # or any other path you like
-  };
-};
-```
-
-This script accept single argument, which should point to the hash definition file.
-In our example above, it is the 'laptop.nix' file, so run the bash script `~/.local/share/nvim/assets/treesitter-updater.bash laptop.nix`,
-and wait for it finish its job.
 
 ## Gallery
 
