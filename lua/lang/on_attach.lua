@@ -76,7 +76,7 @@ utils.setup_inlay_hint = function(bufnr)
     vim.api.nvim_create_autocmd("LspAttach", {
       desc = "Enable inlay hint",
       callback = function()
-        vim.lsp.inlay_hint.enable(bufnr, true)
+        vim.lsp.inlay_hint.enable(true, { bnfnr = bufnr })
       end,
     })
   end
