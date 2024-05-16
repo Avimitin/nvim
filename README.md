@@ -208,3 +208,15 @@ licenced under the Apache 2.0 license.
 
 另附：禁止在 CSDN，bilibili 等国内平台使用该配置文件进行任何活动。
 你只保有自己修改部分的权利。
+
+## Additional notes
+
+### About treesitter bumping
+
+- Run `:Lazy sync`
+- Remove hash in ./nix/nvim-treesitter-lock-file.nix
+- Run `nix build '.#neovim-nightly'`
+- Update hash
+- Run `nix run '.#ruby' ./nix/update_ts_parser.rb`
+- Run `nix build '.#neovim-nightly'`
+
