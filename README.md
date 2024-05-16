@@ -31,17 +31,17 @@ To use this in your home-manager, you can use the xdg.configFile attribute:
 ```nix
 { pkgs }:
 {
-    xdg.configFile = {
-        neovim = {
-            target = "nvim";
-            source = pkgs.fetchFromGitHub {
-                repo = "nvim";
-                owner = "Avimitin";
-                rev = "...";
-                hash = "...";
-            }
-        };
+  xdg.configFile = {
+    neovim = {
+      target = "nvim";
+      source = pkgs.fetchFromGitHub {
+        repo = "nvim";
+        owner = "Avimitin";
+        rev = "...";
+        hash = "...";
+      }
     };
+  };
 }
 ```
 
@@ -75,7 +75,7 @@ To use this in your home-manager, you can use the xdg.configFile attribute:
 - For nix user: you can add this repository as an overlay and use the pre-bundled neovim:
 
 ```nix
-// flake.nix
+# flake.nix
 {
   description = "Simple home-manager neovim configuration";
 
@@ -90,12 +90,14 @@ To use this in your home-manager, you can use the xdg.configFile attribute:
 
   outputs = { self, nixpkgs, flake-utils, home-manager, my-neovim }: {
     homeConfiguration = home-manager.lib.homeManagerConfiguration {
+      # import my overlay, it will add a new `neovim-nightly` derivation into your nixpkgs
       pkgs = import nixpkgs { system = "x86_64-linux" overlays = [ my-neovim.overlays.default ];  };
       modules = [
         ({ pkgs }: {
-            home.configuration = [
-              pkgs.neovim-nightly
-            ];
+          # Then add the pre-bundled neovim into your home configuration
+          home.packages = [
+            pkgs.neovim-nightly
+          ];
         })
       ];
     };
