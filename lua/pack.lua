@@ -51,6 +51,11 @@ function M.setup()
     install = {
       colorscheme = { "kanagawa" },
     },
+    performance = {
+      rtp = {
+        reset = false,
+      },
+    },
   })
 end
 

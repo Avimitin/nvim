@@ -10,6 +10,7 @@ final: prev:
     { name = "c"; hash = "sha256-EHFWT6lGAW8B7nm6sktetjJP+bONjnKYfhWUNZal3Ck="; }
     { name = "cpp"; hash = "sha256-MbPFaljqpHbOXkN31CNOHTJmYPAWmPxy6P/FUmix4q8="; }
     { name = "css"; hash = "sha256-J8Mhaw4H945yxGTYDVQSnhHHVQH8f7jmXdwcPdoJGV8="; }
+    { name = "comment"; hash = "sha256-XLsWZ8ClsWmHgiMnSGWlMWAs8dSkIX86/hRcCTD/7/o="; }
     { name = "diff"; hash = "sha256-O0ProK/Nu8QFqdMoSzr3MzL6NSL4iKhin40U1oXml4E="; }
     { name = "firrtl"; hash = "sha256-xrh8XlgcFz+Z1Rh7z1KZWV26RE65hVtIKjw9XPZaXuA="; }
     { name = "gitcommit"; hash = "sha256-j+W3wmSKTEXAB/LyOnBvzNx4CptQ+JplJ3IVQzs86ss="; }
@@ -29,6 +30,7 @@ final: prev:
     { name = "scala"; hash = "sha256-EhVojG0RKh+44cnHUSKGa97Jw5eeIcSndL+zFnTD7Nk="; }
     { name = "nix"; hash = "sha256-pockUWVZUWcfRZ+p0+TkhLlp1YMppBHYJVy/TnEy+pc="; }
     { name = "vimdoc"; hash = "sha256-6sFzc6DwJrzlRVpKIdhYqx4RtAplpvkAlB51ogDOkbE="; }
+    { name = "query"; hash = "sha256-2RMTcm9Myn1Xz8PB3qvUGMvTMY0QUCOFZC6q/OkoXCs="; }
     {
       name = "markdown";
       hash = "sha256-JTfUM+RWZOGUvF3gERiK3JKENAzPRKnNfUrSDPZqDyY=";
@@ -53,10 +55,13 @@ final: prev:
     in
     final.neovim-unwrapped.overrideAttrs {
       inherit (srcInfo.neovim-nightly) version src;
+
+      # Disable default treesitter plugins, they are outdated
+      treesitter-parsers = { };
     };
   neovim-nightly = final.wrapNeovim final.neovim-nightly-bin {
     extraMakeWrapperArgs = ''
-      --add-flags "-c 'set rtp^=${final.treesitter-plugin-nightly}'"
+      --add-flags "--cmd 'set rtp^=${final.treesitter-plugin-nightly}'"
     '';
   };
 }
