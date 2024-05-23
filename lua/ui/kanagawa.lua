@@ -90,5 +90,3 @@ require("kanagawa").setup({
   },
   transparent = enable_transparent,
 })
-
-vim.cmd("colorscheme kanagawa")

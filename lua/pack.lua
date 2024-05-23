@@ -48,15 +48,14 @@ function M.setup()
   collect_plugins()
 
   require("lazy").setup(M.repositories, {
-    install = {
-      colorscheme = { "kanagawa" },
-    },
     performance = {
       rtp = {
         reset = false,
       },
     },
   })
+
+  vim.cmd.colorscheme("everforest")
 end
 
 ---@param repo_path string URL to the plugin repositories

@@ -2,6 +2,7 @@ local register = require("pack").register
 
 -- Deep dark purple colorscheme
 register("rebelot/kanagawa.nvim", {
+  lazy = true,
   config = function()
     require("ui.kanagawa")
   end,
@@ -218,4 +219,11 @@ register("Bekaboo/dropbar.nvim", {
       desc = "Open picker on winbar",
     },
   },
+})
+
+register("sainnhe/everforest", {
+  lazy = true,
+  init = function()
+    vim.g.everforest_background = "hard"
+  end,
 })
