@@ -225,5 +225,43 @@ register("sainnhe/everforest", {
   lazy = true,
   init = function()
     vim.g.everforest_background = "hard"
+    vim.g.everforest_enable_italic = 1
+    vim.g.everforest_diagnostic_text_highlight = 1
+    vim.g.everforest_diagnostic_line_highlight = 1
+    vim.g.everforest_diagnostic_virtual_text = "colored"
+    vim.g.everforest_current_word = "bold"
+
+    -- Enable performance enhancment will disable color redefinition at below.
+    --vim.g.everforest_better_performance = 1
+
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      group = vim.api.nvim_create_augroup("custom_highlights_everforest", {}),
+      pattern = "everforest",
+      callback = function()
+        local config = vim.fn["everforest#get_configuration"]()
+        local palette = vim.fn["everforest#get_palette"](config.background, config.colors_override)
+        local set_hl = vim.fn["everforest#highlight"]
+
+        -- Get palette information by command:
+        --   :lua=vim.fn["everforest#get_palette"]("hard", vim.empty_dict())
+        --   :CccHighlightEnable
+        set_hl("DiagnosticLineSignError", palette.none, palette.bg_red)
+        set_hl("DiagnosticLineSignHint", palette.none, palette.bg4)
+        set_hl("DiagnosticLineSignInfo", palette.none, palette.bg_green)
+        set_hl("DiagnosticLineSignWarn", palette.none, palette.bg_yellow)
+
+        set_hl("Headline1", palette.purple, palette.bg_visual)
+        set_hl("Headline2", palette.orange, palette.bg_yellow)
+        set_hl("Headline3", palette.yellow, palette.statusline2)
+
+        set_hl("NeoTreeNormal", palette.fg, palette.bg0)
+        set_hl("NeoTreeEndOfBuffer", palette.bg0, palette.bg0)
+        set_hl("NeoTreeVertSplit", palette.bg0, palette.bg0)
+
+        -- Fix DropBar color
+        set_hl("WinBar", palette.grey0, palette.bg0)
+        set_hl("WinBarNC", palette.grey0, palette.bg0)
+      end,
+    })
   end,
 })
