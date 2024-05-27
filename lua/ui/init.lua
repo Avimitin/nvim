@@ -252,7 +252,7 @@ register("sainnhe/everforest", {
 
         set_hl("Headline1", palette.purple, palette.bg_visual)
         set_hl("Headline2", palette.orange, palette.bg_yellow)
-        set_hl("Headline3", palette.yellow, palette.statusline2)
+        set_hl("Headline3", palette.blue, palette.bg3)
 
         set_hl("NeoTreeNormal", palette.fg, palette.bg0)
         set_hl("NeoTreeEndOfBuffer", palette.bg0, palette.bg0)
