@@ -472,6 +472,32 @@ register("kevinhwang91/nvim-bqf", {
 -- Open buffer manager
 register("j-morano/buffer_manager.nvim", {
   lazy = true,
+  keys = {
+    -- tools
+    {
+      "<leader>b",
+      function()
+        require("buffer_manager.ui").toggle_quick_menu()
+      end,
+      desc = "Toggle buffer manager",
+    },
+    {
+      "<Tab>",
+      function()
+        vim.cmd.Lazy("load cybu.nvim")
+        require("buffer_manager.ui").nav_next()
+      end,
+      desc = "Next buffer",
+    },
+    {
+      "<S-Tab>",
+      function()
+        vim.cmd.Lazy("load cybu.nvim")
+        require("buffer_manager.ui").nav_prev()
+      end,
+      desc = "Prev buffer",
+    },
+  },
   config = function()
     require("buffer_manager").setup({})
   end,
@@ -486,6 +512,10 @@ register("ghillb/cybu.nvim", {
         border = "none",
         padding = 5,
       },
+      behavior = {
+        show_on_autocmd = "BufEnter",
+      },
+      display_time = 1000,
       exclude = {
         "neo-tree",
         "qf",

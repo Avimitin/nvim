@@ -1,3 +1,5 @@
+-- Here we have built-in re-mapping only, plugins key-mappings goes into different plugin settings.
+
 local keymapper = require("builder.key-mapper")
 
 keymapper.mk_keymap({
@@ -28,29 +30,6 @@ keymapper.mk_keymap({
     { "<C-p>", [["+p]], desc = "paste" },
     { "<C-d>", "<C-d>zz", desc = "paste" },
     { "<C-u>", "<C-u>zz", desc = "paste" },
-
-    -- tools
-    {
-      "<leader>b",
-      function()
-        require("buffer_manager.ui").toggle_quick_menu()
-      end,
-      desc = "Toggle buffer manager",
-    },
-    {
-      "<Tab>",
-      function()
-        require("cybu").cycle("next")
-      end,
-      desc = "Next buffer",
-    },
-    {
-      "<S-Tab>",
-      function()
-        require("cybu").cycle("prev")
-      end,
-      desc = "Prev buffer",
-    },
   },
   selection = {
     { "J", ":m '>+1<CR>gv=gv" },
