@@ -1,6 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "NeoTerm.lua": { "branch": "global_buf_support", "commit": "25c8a0ff3ee9bacbbc51fd1b4e91d6613743aeb5" },
+  "aerial.nvim": { "branch": "master", "commit": "bd5f141a547c082e9c1644026f38590407dad659" },
   "buffer_manager.nvim": { "branch": "main", "commit": "fd36131b2b3e0f03fd6353ae2ffc88cf920b3bbb" },
   "ccc.nvim": { "branch": "main", "commit": "f388f1981d222967c741fe9927edf9ba5fa3bcbe" },
   "cmp-cmdline": { "branch": "main", "commit": "d250c63aa13ead745e3a40f61fdd3470efde3923" },

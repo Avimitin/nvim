@@ -191,6 +191,7 @@ register("luukvbaal/statuscol.nvim", {
         { text = { " " } },
       },
       ft_ignore = {
+        "aerial",
         "help",
         "vim",
         "fugitive",

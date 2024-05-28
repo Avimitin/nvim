@@ -115,6 +115,19 @@ register("stevearc/conform.nvim", {
   end,
 })
 
+register("stevearc/aerial.nvim", {
+  keys = {
+    { "gl", "<cmd>AerialToggle!<CR>", desc = "Toggle code outline" },
+  },
+  config = function()
+    require("aerial").setup({
+      layout = {
+        default_direction = "prefer_left",
+      },
+    })
+  end,
+})
+
 local export = {}
 
 ---@param server string Server name
