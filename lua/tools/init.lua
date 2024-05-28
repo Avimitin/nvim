@@ -417,9 +417,6 @@ register("ghillb/cybu.nvim", {
         padding = 5,
         hide_buffer_id = true,
       },
-      behavior = {
-        show_on_autocmd = "BufEnter",
-      },
       display_time = 1000,
       exclude = {
         "neo-tree",
