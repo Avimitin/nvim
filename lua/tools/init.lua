@@ -24,107 +24,11 @@ register("MunifTanjim/nui.nvim", {
   lazy = true,
 })
 
-register("nvim-neo-tree/neo-tree.nvim", {
-  branch = "v3.x",
-  init = function()
-    vim.api.nvim_create_autocmd("VimEnter", {
-      pattern = "*",
-      callback = function()
-        -- User might using stdin
-        if vim.fn.argc() == 0 then
-          return
-        end
-        local first_arg = vim.fn.argv(0)
-        if not first_arg or #first_arg == 0 or (first_arg[1] == "-" or first_arg[1] == "+") then
-          return
-        end
-
-        vim.uv.fs_stat(
-          first_arg,
-          vim.schedule_wrap(function(err, stat)
-            if err then
-              return
-            end
-
-            if stat.type ~= "directory" then
-              return
-            end
-
-            require("neo-tree.setup.netrw").hijack()
-          end)
-        )
-      end,
-    })
-  end,
+register("stevearc/oil.nvim", {
   config = function()
-    vim.g.neo_tree_remove_legacy_commands = 1
-
-    require("neo-tree").setup({
-      close_if_last_window = true,
-      sources = {
-        "filesystem",
-        "buffers",
-        "git_status",
-        "document_symbols",
-      },
-      filesystem = {
-        hijack_netrw_behavior = "open_current",
-      },
-      open_files_do_not_replace_types = {
-        "terminal",
-        "trouble",
-        "qf",
-        "diff",
-        "fugitive",
-        "fugitiveblame",
-        "notify",
-      },
-      window = {
-        width = 28,
-      },
-      default_component_configs = {
-        diagnostics = {
-          symbols = {
-            error = "",
-            warn = "",
-            hint = "",
-            info = "",
-          },
-        },
-        git_status = {
-          symbols = {
-            -- I don't need change type
-            added = "",
-            deleted = "",
-            modified = "",
-            renamed = "",
-            -- Status type
-            untracked = "",
-            ignored = "",
-            unstaged = "",
-            staged = "",
-            conflict = "",
-          },
-        },
-      },
-    })
+    require("oil").setup()
+    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
   end,
-  -- End of config
-  keys = {
-    {
-      "<leader>t",
-      "<CMD>Neotree action=focus toggle=true reveal=true position=left<CR>",
-      desc = "Open file tree",
-    },
-    {
-      "gl",
-      "<CMD>Neotree action=focus toggle=true source=document_symbols position=float<CR>",
-      desc = "[LSP] View document symbols",
-    },
-  },
-  cmd = {
-    "Neotree",
-  },
 })
 
 local function my_ivy(opt)
@@ -484,7 +388,7 @@ register("j-morano/buffer_manager.nvim", {
     {
       "<Tab>",
       function()
-        vim.cmd.Lazy("load cybu.nvim")
+        require("cybu").autocmd()
         require("buffer_manager.ui").nav_next()
       end,
       desc = "Next buffer",
@@ -492,7 +396,7 @@ register("j-morano/buffer_manager.nvim", {
     {
       "<S-Tab>",
       function()
-        vim.cmd.Lazy("load cybu.nvim")
+        require("cybu").autocmd()
         require("buffer_manager.ui").nav_prev()
       end,
       desc = "Prev buffer",
@@ -511,6 +415,7 @@ register("ghillb/cybu.nvim", {
       style = {
         border = "none",
         padding = 5,
+        hide_buffer_id = true,
       },
       behavior = {
         show_on_autocmd = "BufEnter",
