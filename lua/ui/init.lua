@@ -246,10 +246,12 @@ register("sainnhe/everforest", {
         -- Get palette information by command:
         --   :lua=vim.fn["everforest#get_palette"]("hard", vim.empty_dict())
         --   :CccHighlightEnable
-        set_hl("DiagnosticLineSignError", palette.none, palette.bg_red)
-        set_hl("DiagnosticLineSignHint", palette.none, palette.bg4)
-        set_hl("DiagnosticLineSignInfo", palette.none, palette.bg_green)
-        set_hl("DiagnosticLineSignWarn", palette.none, palette.bg_yellow)
+
+        -- VSCode Error-Len like diagnostic visual line
+        set_hl("DiagnosticLineSignError", palette.none, { "#2e282b", "52" })
+        set_hl("DiagnosticLineSignHint", palette.none, { "#35393c", "239" })
+        set_hl("DiagnosticLineSignInfo", palette.none, { "#252b28", "22" })
+        set_hl("DiagnosticLineSignWarn", palette.none, { "#373631", "136" })
 
         set_hl("Headline1", palette.purple, palette.bg_visual)
         set_hl("Headline2", palette.orange, palette.bg_yellow)
