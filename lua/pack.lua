@@ -54,8 +54,6 @@ function M.setup()
       },
     },
   })
-
-  vim.cmd.colorscheme("everforest")
 end
 
 ---@param repo_path string URL to the plugin repositories
