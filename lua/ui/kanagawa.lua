@@ -1,6 +1,6 @@
 vim.opt.background = "dark"
 
-local enable_transparent = true
+local enable_transparent = false
 if enable_transparent then
   vim.g.neovide_transparency = 0.8
 end
@@ -10,7 +10,7 @@ local function override(colors)
   local theme = colors.theme
 
   local overrides = {
-    Normal = { bg = "#1a1b26", fg = default.fujiWhite },
+    Normal = { bg = "#14151d", fg = default.fujiWhite },
 
     Pmenu = { bg = default.sumiInk3 },
     CmpDocumentation = { link = "Pmenu" },
@@ -20,10 +20,11 @@ local function override(colors)
     LspReferenceRead = { link = "LspReferenceText" },
     LspReferenceText = { fg = "None", bg = "None", bold = true, undercurl = true },
 
-    DiagnosticLineSignError = { fg = "None", bg = "#341c23" },
-    DiagnosticLineSignHint = { fg = "None", bg = "#1C1E2A" },
-    DiagnosticLineSignInfo = { fg = "None", bg = "#262729" },
-    DiagnosticLineSignWarn = { fg = "None", bg = "#2F261A" },
+    -- bg color stolen from everforest
+    DiagnosticLineSignError = { fg = "None", bg = "#4C3743" },
+    DiagnosticLineSignHint = { fg = "None", bg = "#384B55" },
+    DiagnosticLineSignInfo = { fg = "None", bg = "#3C4841" },
+    DiagnosticLineSignWarn = { fg = "None", bg = "#45443C" },
 
     HighLightLineMatches = { bg = default.winterYellow },
 
