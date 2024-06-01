@@ -165,10 +165,15 @@ register("luukvbaal/statuscol.nvim", {
       relculright = true,
       setopt = true,
       segments = {
+        -- one space gap
         { text = { " " } },
+        -- Show the fold icon
         { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+        -- padding
         { text = { " " } },
+        -- Show the number column
         { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
+        -- Show git status
         {
           sign = {
             namespace = { "gitsign" },
@@ -178,7 +183,9 @@ register("luukvbaal/statuscol.nvim", {
           },
           click = "v:lua.ScSa",
         },
+        -- Padding
         { text = { " " } },
+        -- LSP error
         {
           sign = {
             namespace = { "diagnostic" },
@@ -188,6 +195,7 @@ register("luukvbaal/statuscol.nvim", {
           },
           click = "v:lua.ScSa",
         },
+        -- Padding
         { text = { " " } },
       },
       ft_ignore = {
