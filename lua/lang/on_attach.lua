@@ -40,32 +40,33 @@ utils.setup_keymaps = function(_, bufnr)
 end
 
 utils.setup_icons = function()
+  local icons = {
+    " ",
+    " ",
+    " ",
+    " ",
+  }
+
   -- Setup diagnostic icons and signs
   vim.diagnostic.config({
-    virtual_text = {
-      prefix = "",
-      spacing = 1,
+    --[[ virtual_text = {
+      prefix = function(diag)
+        return icons[diag.severity]
+      end,
+      spacing = 2,
+    }, ]]
+    float = {
+      prefix = function(diag)
+        return icons[diag.severity]
+      end,
+      border = "rounded",
     },
-    signs = true,
+    virtual_text = false,
+    signs = false,
     underline = true,
     -- update diagnostic in insert mode will be annoying when the output is too verbose
     update_in_insert = false,
   })
-
-  local types = {
-    Error = "",
-    Warn = "",
-    Hint = "",
-    Info = "",
-  }
-
-  for diag_type, icon in pairs(types) do
-    local hl = "DiagnosticSign" .. diag_type
-    vim.fn.sign_define(hl, {
-      text = icon,
-      linehl = "DiagnosticLineSign" .. diag_type,
-    })
-  end
 end
 
 utils.setup_inlay_hint = function(bufnr)

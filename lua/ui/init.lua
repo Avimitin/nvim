@@ -185,18 +185,6 @@ register("luukvbaal/statuscol.nvim", {
         },
         -- Padding
         { text = { " " } },
-        -- LSP error
-        {
-          sign = {
-            namespace = { "diagnostic" },
-            maxwidth = 1,
-            colwidth = 1,
-            auto = false,
-          },
-          click = "v:lua.ScSa",
-        },
-        -- Padding
-        { text = { " " } },
       },
       ft_ignore = {
         "aerial",

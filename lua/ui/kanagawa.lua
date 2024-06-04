@@ -20,12 +20,6 @@ local function override(colors)
     LspReferenceRead = { link = "LspReferenceText" },
     LspReferenceText = { fg = "None", bg = "None", bold = true, undercurl = true },
 
-    -- bg color stolen from everforest
-    DiagnosticLineSignError = { fg = "None", bg = "#4C3743" },
-    DiagnosticLineSignHint = { fg = "None", bg = "#384B55" },
-    DiagnosticLineSignInfo = { fg = "None", bg = "#3C4841" },
-    DiagnosticLineSignWarn = { fg = "None", bg = "#45443C" },
-
     HighLightLineMatches = { bg = default.winterYellow },
 
     TelescopePromptNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
