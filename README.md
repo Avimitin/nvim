@@ -45,6 +45,31 @@ To use this in your home-manager, you can use the xdg.configFile attribute:
 }
 ```
 
+Diagnostic error/warning/hint are highlighted with undercurl, please use [kitty](https://sw.kovidgoyal.net/kitty/), [wezterm](https://wezfurlong.org/wezterm/index.html)
+or anyother terminal that support undercurl.
+
+If you are using tmux, to have a correct display, you can try my configuration below:
+
+```tmux
+# (MUST) Enable 256 color for tmux
+set -g default-terminal "tmux-256color"
+
+# (Optional, choose any of them)
+# Enable true color and undercurl for wezterm
+set -as terminal-features ",wezterm*:RGB"
+set -as terminal-features ",wezterm*:usstyle"
+# Same as above, but for kitty. (kitty doesn't support Windows so I have to keep two configuration here)
+set -as terminal-features ",kitty*:RGB"
+set -as terminal-features ",kitty*:usstyle"
+# Same as above, but for SSH. This is useful because I am using `alias ssh="TERM=xterm-256color exec ssh"`
+set -as terminal-features ",xterm-256color*:RGB"
+set -as terminal-features ",xterm-256color*:usstyle"
+set -as terminal-overrides ",xterm*:Tc"
+
+# (MUST) This hijack the neovim undercurl char sequence, to avoid tmux escape them.
+set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
+```
+
 ## Project Structure
 
 
