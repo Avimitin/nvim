@@ -73,6 +73,8 @@ set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
 ## Project Structure
 
 
+- `after/ftplugin/<lang>.lua`: LSP configuration goes here! Different LSP are configure by corresponding filetype
+- `vsnip`: Snippets are placed in here.
 - `lua`: the configuration core
 
     * `key-mapping.lua`: my modification to the built-in key mappings
@@ -87,11 +89,9 @@ set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
     * `treesitter/`: plugins for text object highlight and editing
     * `ui/`: plugins for decorating the neovim
 
-- `after/ftplugin/<lang>.lua`: configured LSP settings for each different language
-- `ftdetect`: list of script to help neovim identify filetype for some file
-- `indent`: list of script to help neovim properly set indentation
-- `syntax`: additional syntax detection for some file type
-- `vsnip`: my snippets
+- `ftdetect`: List of script to help neovim identify filetype for some file, not important.
+- `indent`: List of script to help neovim properly set indentation, not important.
+- `syntax`: Additional syntax detection for some file type, not important.
 
 
 ## Treesitter parsers in nix
