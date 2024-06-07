@@ -10,7 +10,7 @@ local function override(colors)
   local theme = colors.theme
 
   local overrides = {
-    Normal = { bg = "#14151d", fg = default.fujiWhite },
+    Normal = { bg = "#101017", fg = default.fujiWhite },
 
     Pmenu = { bg = default.sumiInk3 },
     CmpDocumentation = { link = "Pmenu" },
@@ -18,7 +18,7 @@ local function override(colors)
 
     LspReferenceWrite = { link = "LspReferenceText" },
     LspReferenceRead = { link = "LspReferenceText" },
-    LspReferenceText = { fg = "None", bg = "None", bold = true, undercurl = true },
+    LspReferenceText = { fg = "None", bg = "None", bold = true },
 
     HighLightLineMatches = { bg = default.winterYellow },
 
