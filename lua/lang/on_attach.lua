@@ -41,27 +41,26 @@ end
 
 utils.setup_icons = function()
   local icons = {
-    " ",
-    " ",
-    " ",
-    " ",
+    "",
+    "",
+    "",
+    "",
   }
 
   -- Setup diagnostic icons and signs
   vim.diagnostic.config({
-    --[[ virtual_text = {
+    virtual_text = {
       prefix = function(diag)
         return icons[diag.severity]
       end,
-      spacing = 2,
-    }, ]]
+      spacing = 4,
+    },
     float = {
       prefix = function(diag)
-        return icons[diag.severity]
+        return icons[diag.severity] .. " "
       end,
       border = "rounded",
     },
-    virtual_text = false,
     signs = false,
     underline = true,
     -- update diagnostic in insert mode will be annoying when the output is too verbose
