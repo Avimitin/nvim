@@ -437,10 +437,25 @@ register("google/executor.nvim", {
       end,
       desc = "Toggle background command execution detail",
     },
+    {
+      "<leader>ep",
+      function()
+        require("executor").commands.show_presets()
+      end,
+      desc = "Show preset commands",
+    },
   },
   config = function()
     require("executor").setup({
       use_split = false,
+      preset_commands = {
+        -- google/executor.lua use string.find for directory specific preset commands,
+        -- and I want preset for global command, so here I use "/" as key because "/"
+        -- is always contained in path string ( ofc not for Windows :P ).
+        ["/"] = {
+          { partial = true, cmd = "rsync -aczrvhPL --delete " },
+        },
+      },
     })
   end,
 })
