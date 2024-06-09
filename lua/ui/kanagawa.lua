@@ -20,10 +20,10 @@ local function override(colors)
     LspReferenceRead = { link = "LspReferenceText" },
     LspReferenceText = { fg = "None", bg = "None", bold = true },
 
-    DiagnosticVirtualTextWarn = { fg = "#777777" },
-    DiagnosticVirtualTextInfo = { fg = "#777777" },
-    DiagnosticVirtualTextError = { fg = "#777777" },
-    DiagnosticVirtualTextHint = { fg = "#777777" },
+    DiagnosticVirtualTextWarn = { fg = "#859289" },
+    DiagnosticVirtualTextInfo = { fg = "#859289" },
+    DiagnosticVirtualTextError = { fg = "#859289" },
+    DiagnosticVirtualTextHint = { fg = "#859289" },
 
     LeapBackdrop = { fg = "#777777" },
 
