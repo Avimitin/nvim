@@ -426,3 +426,35 @@ register("ghillb/cybu.nvim", {
     })
   end,
 })
+
+register("google/executor.nvim", {
+  lazy = true,
+  keys = {
+    {
+      "<leader>er",
+      function()
+        require("executor").commands.run()
+      end,
+      desc = "Run command line in background",
+    },
+    {
+      "<leader>es",
+      function()
+        require("executor").commands.set_command()
+      end,
+      desc = "Set executor command",
+    },
+    {
+      "<leader>ev",
+      function()
+        require("executor").commands.toggle_detail()
+      end,
+      desc = "Toggle background command execution detail",
+    },
+  },
+  config = function()
+    require("executor").setup({
+      use_split = false,
+    })
+  end,
+})

@@ -15,7 +15,7 @@
   "dressing.nvim": { "branch": "master", "commit": "5162edb1442a729a885c45455a07e9a89058be2f" },
   "dropbar.nvim": { "branch": "master", "commit": "3dd8edba9f9eeb129db269dd57ef6c0427b7ad9d" },
   "emmylua-nvim": { "branch": "master", "commit": "e82defceb9235f8ea0307be61f833c454c961967" },
-  "everforest": { "branch": "master", "commit": "bb482c354872cccb56f83e843caf3e5d33f89a24" },
+  "executor.nvim": { "branch": "main", "commit": "cb60faf7486cd6edae884a58fb9c2793bc4e75ea" },
   "flatten.nvim": { "branch": "main", "commit": "e420e531d2ab24aebcf7b3c9fca28e6c5c34964d" },
   "flit.nvim": { "branch": "main", "commit": "56490317983218b09698f8c960c3669958b12b32" },
   "galaxyline.nvim": { "branch": "global-status-line", "commit": "daab7a91c0aafd317d4a5dc19a07efdb9bb99195" },
