@@ -20,6 +20,8 @@ local function override(colors)
     LspReferenceRead = { link = "LspReferenceText" },
     LspReferenceText = { fg = "None", bg = "None", bold = true },
 
+    LeapBackdrop = { fg = "#777777" },
+
     HighLightLineMatches = { bg = default.winterYellow },
 
     TelescopePromptNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },

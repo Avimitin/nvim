@@ -176,20 +176,6 @@ register("ggandor/leap.nvim", {
     { "gw", "<Plug>(leap-from-window)", mode = { "n" }, desc = "Leap from window" },
     { "gW", "<Plug>(leap-cross-window)", mode = { "n" }, desc = "Leap cross window" },
   },
-  -- when flit.nvim is loaded, it will try to load leap.nvim
-  module = true,
-})
-
-register("ggandor/flit.nvim", {
-  keys = {
-    "f",
-    "F",
-    "t",
-    "T",
-  },
-  config = function()
-    require("flit").setup({})
-  end,
 })
 
 -- sort the number or text
