@@ -12,7 +12,7 @@ stdenvNoCC.mkDerivation
     owner = "nvim-treesitter";
     repo = "nvim-treesitter";
     inherit rev;
-    hash = "sha256-jkvCkV1JV2WWYmLXq7W/7ffKAtROqjvUdFXYXuhAmdM=";
+    hash = "sha256-z1NkmQa12LIjhY/iievbZLOd25Td2VoXUSpitBGK7vU=";
   };
   nativeBuildInputs = [ neovim ];
 
