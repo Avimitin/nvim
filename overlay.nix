@@ -16,8 +16,8 @@ final: prev:
     { name = "gitcommit"; hash = "sha256-j+W3wmSKTEXAB/LyOnBvzNx4CptQ+JplJ3IVQzs86ss="; }
     { name = "haskell"; hash = "sha256-yMRvKk3SXbvV1hXg8CQFYeni8dcnwRKJLNsPk6QMBCg="; }
     { name = "javascript"; hash = "sha256-LYONLr4/Y0rFzp3/JK4ybHe8JfsODUIk+ijNllCZ6Y8="; }
-    { name = "typescript"; hash = "sha256-C1xW/kCxmwzX9HjKwaM3zn3mWwsOhhfW+97/QarF3Kk="; srcRoot = "typescript"; }
-    { name = "tsx"; hash = "sha256-C1xW/kCxmwzX9HjKwaM3zn3mWwsOhhfW+97/QarF3Kk="; srcRoot = "tsx"; }
+    { name = "typescript"; hash = "sha256-wwvYo5+bQWIxIK9lA+kSyBxedIhc2N+D5bMrqUdnMyM="; srcRoot = "typescript"; }
+    { name = "tsx"; hash = "sha256-wwvYo5+bQWIxIK9lA+kSyBxedIhc2N+D5bMrqUdnMyM="; srcRoot = "tsx"; }
     { name = "typst"; hash = "sha256-amBpZ4xw+OuBMbyftDzCmbrYQTz8iuhcbH7nD4j7BVs="; }
     { name = "llvm"; hash = "sha256-c63jN6pyIssjthp+3f5pYWMwUq+usjhlP2lF/zVNdc8="; }
     { name = "lua"; hash = "sha256-jGCiNmY35QYqWga5xOSvds0Vo9Kw6k/tTPD+pDBA8+c="; }
@@ -43,7 +43,7 @@ final: prev:
     }
     {
       name = "mlir";
-      hash = "sha256-aCFnTj1NR7PtFSAYrEy/AuW8SrgkTm0YVsBdHo8en/s=";
+      hash = "sha256-fV6W4n2/SxGrmJ/7dc3cS6trxmdepGF7az23oSKjifg=";
       needs_generate = true;
     }
     { name = "yaml"; hash = "sha256-LcJOuP3ggn2AiosZbkxOFFASXfRrs3ytwrgX3/IdNrM="; }
