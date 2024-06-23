@@ -106,7 +106,7 @@ utils.setup_codelens_refresher = function(client, bufnr)
     vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
       buffer = bufnr,
       callback = function()
-        vim.lsp.codelens.refresh()
+        vim.lsp.codelens.refresh({ bufnr = bufnr })
       end,
     })
   end
