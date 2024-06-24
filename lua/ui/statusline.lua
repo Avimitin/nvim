@@ -25,17 +25,12 @@ local checkwidth = function()
   return false
 end
 
-local function should_activate_lsp()
-  local clients = vim.lsp.get_active_clients({ bufnr = 0 })
-  return checkwidth() and #clients ~= 0
-end
-
-local buffer_not_empty = function()
+--[[ local buffer_not_empty = function()
   if vim.fn.empty(vim.fn.expand("%:t")) ~= 1 then
     return true
   end
   return false
-end
+end ]]
 
 -- insert_left insert item at the left panel
 local function insert_left(element)
@@ -224,28 +219,60 @@ insert_right({
 })
 
 insert_right({
-  FileIcon = {
-    provider = "FileIcon",
-    condition = function()
-      return buffer_not_empty() and should_activate_lsp()
-    end,
-    highlight = {
-      require("galaxyline.provider_fileinfo").get_file_icon_color,
-      colors.bg,
-    },
-  },
-})
-
-insert_right({
   GetLspClient = {
-    provider = "GetLspClient",
-    condition = should_activate_lsp,
+    provider = function()
+      if vim.o.columns < 120 then
+        return ""
+      end
+
+      local msg = ""
+
+      local buf_ft = vim.o.filetype
+      local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+      if next(clients) == nil then
+        return msg
+      end
+
+      msg = require("galaxyline.provider_fileinfo").get_file_icon()
+      local progress = vim.lsp.status()
+      for _, client in ipairs(clients) do
+        local filetypes = client.config.filetypes
+        -- NOTE: for fuck sake, when can I have continue keyword instead of nesting for loop in Lua
+        if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+          msg = msg .. client.name
+
+          if progress and #progress ~= 0 and progress ~= "" then
+            local spinners = {
+              "◜ ",
+              "◠ ",
+              "◝ ",
+              "◞ ",
+              "◡ ",
+              "◟ ",
+            }
+            local ms = vim.loop.hrtime() / 1000000
+            local frame = math.floor(ms / 120) % #spinners
+            msg = msg .. " " .. string.format("%s", spinners[frame + 1])
+          end
+        end
+      end
+
+      return msg
+    end,
     highlight = {
       require("galaxyline.provider_fileinfo").get_file_icon_color,
       colors.bg,
       "italic",
     },
   },
+})
+
+-- galaxyline have rough handle of component specific events, and it is not active now, so I have to add this workaround to fix it myself
+vim.api.nvim_create_autocmd("LspProgress", {
+  desc = "Reload galaxyline on LspProgress event",
+  callback = function()
+    require("galaxyline").load_galaxyline()
+  end,
 })
 
 insert_space_on_right()

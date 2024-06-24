@@ -36,7 +36,7 @@ register("kyazdani42/nvim-web-devicons", {
 -- Status line
 register("Avimitin/galaxyline.nvim", {
   branch = "global-status-line",
-  event = "UIEnter",
+  event = { "FileType", "WinEnter", "BufEnter" },
   config = function()
     require("ui.statusline")
   end,
@@ -113,6 +113,10 @@ register("folke/noice.nvim", {
   config = function()
     require("noice").setup({
       lsp = {
+        progress = {
+          -- Use my custom statusline display
+          enabled = false,
+        },
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
