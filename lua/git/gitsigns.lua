@@ -1,22 +1,22 @@
 require("gitsigns").setup({
   signs = {
     add = {
-      text = "┃",
+      text = "▐",
     },
     change = {
-      text = "┃",
+      text = "▐",
     },
     untracked = {
-      text = "┃",
+      text = "▐",
     },
     delete = {
-      text = "┃",
+      text = "▐",
     },
     topdelete = {
       text = "󱨉",
     },
     changedelete = {
-      text = "┃",
+      text = "▐",
     },
   },
   on_attach = function(bufnr)

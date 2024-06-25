@@ -26,6 +26,8 @@ Finally, input `nvim` to open the editor, and all plugins will be downloaded aut
 nvim
 ```
 
+---
+
 To use this in your home-manager, you can use the xdg.configFile attribute:
 
 ```nix

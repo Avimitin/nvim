@@ -10,6 +10,8 @@ local function override(colors)
   local theme = colors.theme
 
   local overrides = {
+    CursorLine = { bg = "#1b1b26" },
+
     Normal = { bg = "#101017", fg = default.fujiWhite },
 
     Pmenu = { bg = default.sumiInk3 },
@@ -20,10 +22,10 @@ local function override(colors)
     LspReferenceRead = { link = "LspReferenceText" },
     LspReferenceText = { fg = "None", bg = "None", bold = true },
 
-    DiagnosticVirtualTextWarn = { fg = "#859289" },
-    DiagnosticVirtualTextInfo = { fg = "#859289" },
-    DiagnosticVirtualTextError = { fg = "#859289" },
-    DiagnosticVirtualTextHint = { fg = "#859289" },
+    DiagnosticVirtualTextWarn = { fg = "#897f71" },
+    DiagnosticVirtualTextInfo = { fg = "#6085b8" },
+    DiagnosticVirtualTextError = { fg = "#af6b79" },
+    DiagnosticVirtualTextHint = { fg = "#738a6a" },
 
     LeapBackdrop = { fg = "#777777" },
 

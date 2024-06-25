@@ -14,8 +14,10 @@ local options = {
   fileencoding = "utf-8",
   -- enable number
   number = true,
-  -- disable relative line number(Use `JK` to trigger leap.nvim)
-  rnu = false,
+  -- enable relative number
+  rnu = true,
+  -- enable highlightfor current line
+  cursorline = true,
   -- TAB SETTING
   -- Use 2 spaces forcely. But don't worry, vim-sleuth will handle the indent
   -- gracefully. See <https://github.com/tpope/vim-sleuth> for more.

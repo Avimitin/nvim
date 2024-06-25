@@ -173,10 +173,6 @@ register("luukvbaal/statuscol.nvim", {
         { text = { " " } },
         -- Show the fold icon
         { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
-        -- padding
-        { text = { " " } },
-        -- Show the number column
-        { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
         -- Show git status
         {
           sign = {
@@ -187,6 +183,9 @@ register("luukvbaal/statuscol.nvim", {
           },
           click = "v:lua.ScSa",
         },
+        { text = { " " } },
+        -- Show the number column
+        { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
         -- Padding
         { text = { " " } },
       },
