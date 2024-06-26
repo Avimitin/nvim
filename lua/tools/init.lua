@@ -303,58 +303,6 @@ register("chrisgrieser/nvim-spider", {
   lazy = true,
 })
 
-register("Avimitin/NeoTerm.lua", {
-  lazy = true,
-  branch = "global_buf_support",
-  keys = {
-    { "<C-t>", vim.cmd.NeoTermToggle, mode = { "n", "t" } },
-    { "<C-n>", "<C-\\><C-n>", mode = "t" },
-  },
-  init = function()
-    -- auto-insert on enter term-buf of NeoTerm.
-    local id = vim.api.nvim_create_augroup("NeoTermUserCommands", {})
-    vim.api.nvim_create_autocmd({ "BufEnter", "TermOpen" }, {
-      group = id,
-      pattern = "*",
-      callback = function()
-        if vim.bo.filetype ~= "neo-term" or vim.bo.buftype ~= "terminal" then
-          return
-        end
-        vim.cmd.startinsert()
-        vim.wo.number = false
-      end,
-    })
-    -- cancel-insert on exit term-buf of NeoTerm.
-    vim.api.nvim_create_autocmd({ "BufLeave" }, {
-      group = id,
-      pattern = "*",
-      callback = function()
-        if vim.bo.filetype ~= "neo-term" or vim.bo.buftype ~= "terminal" then
-          return
-        end
-        vim.cmd.stopinsert()
-        vim.wo.number = true
-      end,
-    })
-  end,
-  config = function()
-    require("neo-term").setup({
-      enable_global_term = true,
-      term_mode_hl = "Normal",
-    })
-  end,
-})
-
-register("willothy/flatten.nvim", {
-  config = function()
-    require("flatten").setup({})
-  end,
-  -- This plugin only read `vim.env.NVIM` on start up, there is no overhead.
-  -- But lazy loading it will instead causing multiple issues, so just don't be lazy here.
-  lazy = false,
-  priority = 1001,
-})
-
 register("kevinhwang91/nvim-bqf", {
   ft = "qf",
 })
