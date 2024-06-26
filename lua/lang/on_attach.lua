@@ -32,8 +32,6 @@ utils.setup_keymaps = function(_, bufnr)
     { "gO", vim.diagnostic.setqflist, desc = "[LSP] Open quickfix list" },
     { "gr", vim.lsp.codelens.run, desc = "[LSP] Run codelens at current line" },
 
-    -- gl: Open Symbols, define in neotree module at tools/init.lua
-
     { "[d", vim.diagnostic.goto_prev, desc = "[LSP] Jump to previous error" },
     { "]d", vim.diagnostic.goto_next, desc = "[LSP] Jump to next error" },
   })
