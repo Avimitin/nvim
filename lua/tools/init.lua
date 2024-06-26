@@ -24,6 +24,41 @@ register("MunifTanjim/nui.nvim", {
   lazy = true,
 })
 
+register("nvim-neo-tree/neo-tree.nvim", {
+  lazy = true,
+  event = "VeryLazy",
+  branch = "v3.x",
+  config = function()
+    require("neo-tree").setup({
+      close_if_last_window = true,
+      -- improve speed in LLVM, Linux kernel
+      enable_git_status = false,
+      -- No need for this, use quickfix list (w/ key gO)
+      enable_diagnostics = false,
+      sources = { "filesystem", "document_symbols" },
+    })
+
+    -- statuscol.nvim is also started with "VeryLazy" event. And it will mess up the neo-tree interface
+    -- So here I add a 50ms delay to ensure neo-tree buffer is opened after statuscol set up.
+    vim.defer_fn(function()
+      require("neo-tree.command").execute({
+        source = "filesystem",
+        reveal = true,
+        action = "show",
+      })
+    end, 50)
+  end,
+  keys = {
+    { "<leader>tt", "<CMD>Neotree reveal=true toggle=true<CR>", desc = "Toggle Tree file manager" },
+    {
+      "<leader>td",
+      "<CMD>Neotree source=document_symbols toggle=true<CR>",
+      desc = "Toggle document symbols",
+    },
+  },
+})
+
+-- Use oil for main file management, use neo-tree for treestyle display only.
 register("stevearc/oil.nvim", {
   config = function()
     require("oil").setup()
