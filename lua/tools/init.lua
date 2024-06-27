@@ -36,6 +36,14 @@ register("nvim-neo-tree/neo-tree.nvim", {
       -- No need for this, use quickfix list (w/ key gO)
       enable_diagnostics = false,
       sources = { "filesystem", "document_symbols" },
+      source_selector = {
+        winbar = true,
+        sources = {
+          { source = "filesystem" },
+          { source = "document_symbols" },
+        },
+        content_layout = "center",
+      },
     })
 
     -- statuscol.nvim is also started with "VeryLazy" event. And it will mess up the neo-tree interface
@@ -49,9 +57,9 @@ register("nvim-neo-tree/neo-tree.nvim", {
     end, 50)
   end,
   keys = {
-    { "<leader>tt", "<CMD>Neotree reveal=true toggle=true<CR>", desc = "Toggle Tree file manager" },
+    { "<leader>tf", "<CMD>Neotree reveal=true toggle=true<CR>", desc = "Toggle Tree file manager" },
     {
-      "<leader>td",
+      "<leader>ts",
       "<CMD>Neotree source=document_symbols toggle=true<CR>",
       desc = "Toggle document symbols",
     },
