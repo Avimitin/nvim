@@ -49,6 +49,11 @@ register("nvim-neo-tree/neo-tree.nvim", {
     -- statuscol.nvim is also started with "VeryLazy" event. And it will mess up the neo-tree interface
     -- So here I add a 50ms delay to ensure neo-tree buffer is opened after statuscol set up.
     vim.defer_fn(function()
+      local ft = vim.bo.ft
+      local blacklist = { "oil" }
+      if vim.tbl_contains(blacklist, ft) then
+        return
+      end
       require("neo-tree.command").execute({
         source = "filesystem",
         reveal = true,
