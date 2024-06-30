@@ -13,6 +13,7 @@ local function override(colors)
     CursorLine = { bg = "#1b1b26" },
 
     Normal = { bg = "#101017", fg = default.fujiWhite },
+    NormalFloat = { bg = "#1f1f2c" },
 
     Pmenu = { bg = default.sumiInk3 },
     CmpDocumentation = { link = "Pmenu" },
