@@ -26,7 +26,6 @@ register("MunifTanjim/nui.nvim", {
 
 register("nvim-neo-tree/neo-tree.nvim", {
   lazy = true,
-  event = "VeryLazy",
   branch = "v3.x",
   config = function()
     require("neo-tree").setup({
@@ -45,21 +44,6 @@ register("nvim-neo-tree/neo-tree.nvim", {
         content_layout = "center",
       },
     })
-
-    -- statuscol.nvim is also started with "VeryLazy" event. And it will mess up the neo-tree interface
-    -- So here I add a 50ms delay to ensure neo-tree buffer is opened after statuscol set up.
-    vim.defer_fn(function()
-      local ft = vim.bo.ft
-      local blacklist = { "oil" }
-      if vim.tbl_contains(blacklist, ft) then
-        return
-      end
-      require("neo-tree.command").execute({
-        source = "filesystem",
-        reveal = true,
-        action = "show",
-      })
-    end, 50)
   end,
   keys = {
     { "<leader>tf", "<CMD>Neotree reveal=true toggle=true<CR>", desc = "Toggle Tree file manager" },
