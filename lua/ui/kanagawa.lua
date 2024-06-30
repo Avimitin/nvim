@@ -22,7 +22,7 @@ local function override(colors)
     LspReferenceRead = { link = "LspReferenceText" },
     LspReferenceText = { fg = "None", bg = "None", bold = true },
 
-    DiagnosticVirtualTextWarn = { fg = "#897f71" },
+    DiagnosticVirtualTextWarn = { fg = "#b7a37d" },
     DiagnosticVirtualTextInfo = { fg = "#6085b8" },
     DiagnosticVirtualTextError = { fg = "#af6b79" },
     DiagnosticVirtualTextHint = { fg = "#738a6a" },

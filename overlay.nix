@@ -47,6 +47,7 @@ final: prev:
       needs_generate = true;
     }
     { name = "yaml"; hash = "sha256-LcJOuP3ggn2AiosZbkxOFFASXfRrs3ytwrgX3/IdNrM="; }
+    { name = "zig"; hash = "sha256-qmOPg9G3OjyYlubhyWzUGBqPylrUDX3tnC4Aprq6qZE="; }
   ];
 
   neovim-nightly-bin = final.neovim-unwrapped.overrideAttrs {
