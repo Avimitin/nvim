@@ -337,6 +337,16 @@ register("chrisgrieser/nvim-spider", {
 
 register("kevinhwang91/nvim-bqf", {
   ft = "qf",
+  config = function()
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "qf",
+      callback = function()
+        -- nvim-bqf doesn't have proper way to disable its ugly statusline
+        vim.wo.statusline = ""
+      end,
+    })
+    require("galaxyline").load_galaxyline()
+  end,
 })
 
 -- Open buffer manager
