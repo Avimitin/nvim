@@ -110,6 +110,9 @@ register("stevearc/dressing.nvim", {
 
 register("folke/noice.nvim", {
   event = "VeryLazy",
+  keys = {
+    { "<leader>no", vim.cmd.Noice, desc = "Open Noice notification panel" },
+  },
   config = function()
     require("noice").setup({
       lsp = {
