@@ -325,6 +325,7 @@ local BufferTypeMap = {
   ["Trouble"] = " Diagnostic",
   ["neo-term"] = " NeoTerm",
   ["noice"] = " noice",
+  ["TelescopePrompt"] = " Telescope",
 }
 
 gl.short_line_list = vim.tbl_keys(BufferTypeMap)
