@@ -25,12 +25,12 @@ local options = {
   -- Use the appropriate number of spaces to insert a <Tab>.
   expandtab = true,
   -- Number of spaces that a <Tab> in the file counts for.
-  tabstop = 2,
+  tabstop = 4,
   shiftwidth = 2,
   softtabstop = 2,
   -- A List is an ordered sequence of items.
   list = true,
-  listchars = { tab = "> ", trail = "·" },
+  listchars = { tab = " ", trail = "·" },
   fillchars = {
     fold = " ",
     foldopen = "",
