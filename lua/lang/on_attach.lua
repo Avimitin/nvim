@@ -66,57 +66,61 @@ utils.setup_icons = function()
   })
 end
 
-utils.setup_inlay_hint = function(bufnr)
-  -- Enable inlay hint by default when using neovim > v0.10.0
-  if vim.version().minor >= 10 then
-    -- Must be delayed after lsp attach: when setting up inlay_hint,
-    -- neovim will check if the LSP server implemented inlay_hint protocol, which required a connection.
-    vim.api.nvim_create_autocmd("LspAttach", {
-      desc = "Enable inlay hint",
-      callback = function()
-        vim.lsp.inlay_hint.enable(true, { bnfnr = bufnr })
-      end,
-    })
-  end
-end
+-- LSP's on_attach interface accept two arguments client and bufnr. But we don't use client for now, so it is okay to pass nil here.
+utils.setup_all = function(client, bufnr)
+  utils.setup_icons()
+  utils.setup_keymaps(client, bufnr)
 
-utils.setup_document_highlight_on_cursor = function(client, bufnr)
+  local gid = vim.api.nvim_create_augroup("MyLspAutocmdsSetup" .. bufnr, { clear = true })
+  -- Must be delayed after lsp attach: when setting up inlay_hint,
+  -- neovim will check if the LSP server implemented inlay_hint protocol, which required a connection.
+  vim.api.nvim_create_autocmd("LspAttach", {
+    desc = "Enable inlay hint",
+    group = gid,
+    buffer = bufnr,
+    callback = function()
+      vim.lsp.inlay_hint.enable(true, { buffer = bufnr })
+    end,
+  })
+
   if client.server_capabilities.documentHighlightProvider then
-    local id = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
-    vim.api.nvim_clear_autocmds({ buffer = bufnr, group = "lsp_document_highlight" })
     vim.api.nvim_create_autocmd("CursorHold", {
-      callback = vim.lsp.buf.document_highlight,
+      callback = function()
+        vim.lsp.buf.document_highlight()
+      end,
+      group = gid,
       buffer = bufnr,
-      group = id,
       desc = "Document Highlight",
     })
     vim.api.nvim_create_autocmd("CursorMoved", {
-      callback = vim.lsp.buf.clear_references,
+      callback = function()
+        vim.lsp.buf.clear_references()
+      end,
+      group = gid,
       buffer = bufnr,
-      group = id,
       desc = "Clear All the References",
     })
   end
-end
 
-utils.setup_codelens_refresher = function(client, bufnr)
   if client and client.server_capabilities and client.server_capabilities.codeLensProvider then
     vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+      group = gid,
       buffer = bufnr,
       callback = function()
         vim.lsp.codelens.refresh({ bufnr = bufnr })
       end,
     })
   end
-end
 
--- LSP's on_attach interface accept two arguments client and bufnr. But we don't use client for now, so it is okay to pass nil here.
-utils.setup_all = function(client, bufnr)
-  utils.setup_icons()
-  utils.setup_keymaps(client, bufnr)
-  utils.setup_inlay_hint(bufnr)
-  utils.setup_document_highlight_on_cursor(client, bufnr)
-  utils.setup_codelens_refresher(client, bufnr)
+  -- Clean buffer from client when buffer is deleted
+  vim.api.nvim_create_autocmd("BufDelete", {
+    buffer = bufnr,
+    group = gid,
+    callback = function()
+      vim.lsp.buf_detach_client(bufnr, client.id)
+      vim.api.nvim_clear_autocmds({ group = gid })
+    end,
+  })
 end
 
 return utils
