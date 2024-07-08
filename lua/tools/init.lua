@@ -309,6 +309,8 @@ register("folke/which-key.nvim", {
       mode = "n",
       ["<leader>g"] = { name = "+Git" },
       ["<leader>f"] = { name = "+Telescope" },
+      ["<leader>t"] = { name = "+NeoTree" },
+      ["<leader>n"] = { name = "+Noice" },
     }
     whichkey.register(ngrp)
   end,
