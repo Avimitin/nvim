@@ -26,6 +26,7 @@ register("MunifTanjim/nui.nvim", {
 
 register("nvim-neo-tree/neo-tree.nvim", {
   lazy = true,
+  event = "VeryLazy",
   branch = "v3.x",
   config = function()
     require("neo-tree").setup({
@@ -43,7 +44,22 @@ register("nvim-neo-tree/neo-tree.nvim", {
         },
         content_layout = "center",
       },
+      window = {
+        width = 25,
+      },
     })
+
+    vim.defer_fn(function()
+      if vim.bo.buftype and #vim.bo.buftype > 0 then
+        return
+      end
+      require("neo-tree.command").execute({
+        action = "show",
+        reveal = true,
+        toggle = true,
+        source = "filesystem",
+      })
+    end, 100)
   end,
   keys = {
     { "<leader>tf", "<CMD>Neotree reveal=true toggle=true<CR>", desc = "Toggle Tree file manager" },
