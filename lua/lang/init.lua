@@ -5,20 +5,6 @@ register("neovim/nvim-lspconfig", {
   lazy = true,
 })
 
-register("mrcjkb/rustaceanvim", {
-  version = "^4",
-  ft = { "rust" },
-  init = function()
-    vim.g.rustaceanvim = {
-      server = {
-        on_attach = function(client, bufnr)
-          require("lang.on_attach").setup_all(client, bufnr)
-        end,
-      },
-    }
-  end,
-})
-
 -- Cargo.toml manager
 register("saecki/crates.nvim", {
   event = "BufRead Cargo.toml",

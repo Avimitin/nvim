@@ -2,4 +2,5 @@ if require("libs.cache")["rust_lsp"] then
   return
 end
 
--- leave here as blank for now.
+local bufnr = vim.api.nvim_get_current_buf()
+require("lang").run_lsp(bufnr, "rust_analyzer", {})
