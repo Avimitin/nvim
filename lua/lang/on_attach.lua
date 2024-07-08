@@ -71,17 +71,14 @@ utils.setup_all = function(client, bufnr)
   utils.setup_icons()
   utils.setup_keymaps(client, bufnr)
 
-  local gid = vim.api.nvim_create_augroup("MyLspAutocmdsSetup" .. bufnr, { clear = true })
-  -- Must be delayed after lsp attach: when setting up inlay_hint,
-  -- neovim will check if the LSP server implemented inlay_hint protocol, which required a connection.
-  vim.api.nvim_create_autocmd("LspAttach", {
-    desc = "Enable inlay hint",
-    group = gid,
-    buffer = bufnr,
-    callback = function()
+  if client.server_capabilities.inlayHintProvider then
+    -- Display after attached
+    vim.defer_fn(function()
       vim.lsp.inlay_hint.enable(true, { buffer = bufnr })
-    end,
-  })
+    end, 1000)
+  end
+
+  local gid = vim.api.nvim_create_augroup("MyLspAutocmdsSetup" .. bufnr, { clear = true })
 
   if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_create_autocmd("CursorHold", {
@@ -117,6 +114,7 @@ utils.setup_all = function(client, bufnr)
     buffer = bufnr,
     group = gid,
     callback = function()
+      vim.lsp.inlay_hint.enable(false, { buffer = bufnr })
       vim.lsp.buf_detach_client(bufnr, client.id)
       vim.api.nvim_clear_autocmds({ group = gid })
     end,
