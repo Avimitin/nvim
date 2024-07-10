@@ -51,20 +51,10 @@ final: prev:
   ];
 
   neovim-nightly-bin = final.neovim-unwrapped.overrideAttrs {
-    version = "0.10.0";
-    src = final.fetchFromGitHub {
-      repo = "neovim";
-      owner = "neovim";
-      rev = "v0.10.0";
-      hash = "sha256-FCOipXHkAbkuFw9JjEpOIJ8BkyMkjkI0Dp+SzZ4yZlw=";
-    };
-
     # Disable default treesitter plugins, they are outdated
     treesitter-parsers = { };
   };
   neovim-nightly = final.wrapNeovim final.neovim-nightly-bin {
-    extraMakeWrapperArgs = ''
-      --add-flags "--cmd 'set rtp^=${final.treesitter-plugin-nightly}'"
-    '';
+    extraMakeWrapperArgs = '' '--add-flags' '--cmd "set rtp^=${final.treesitter-plugin-nightly}"' '';
   };
 }
