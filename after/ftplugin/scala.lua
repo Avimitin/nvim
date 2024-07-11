@@ -28,3 +28,23 @@ scala_config.settings.millScript = mill_exe
 scala_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 scala_config.on_attach = require("lang.on_attach").setup_all
 require("metals").initialize_or_attach(scala_config)
+
+-- nvim-metals will send metals/didFocus protocol to all the buffer, which will cause other LSP to exits.
+-- Here I recreate the nvim-metasls-forcus auto commands to force it run on *.scala/*.sc only.
+-- Using LspAttach here to delay the erase execution, because the nvim-metals plugin define the
+-- auto commands after buffer attached.
+vim.api.nvim_create_autocmd("LspAttach", {
+  pattern = { "*.scala", "*.sc" },
+  callback = function()
+    vim.schedule(function()
+      vim.api.nvim_clear_autocmds({ group = "nvim-metals-focus" })
+      vim.api.nvim_create_autocmd("BufEnter", {
+        pattern = { "*.scala", "*.sc" },
+        callback = function()
+          require("metals").did_focus()
+        end,
+        group = vim.api.nvim_create_augroup("nvim-metals-focus", { clear = true }),
+      })
+    end)
+  end,
+})
