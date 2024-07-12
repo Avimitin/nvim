@@ -52,6 +52,7 @@ register("stevearc/conform.nvim", {
     "haskell",
     "python",
     "rust",
+    "scala",
   },
   config = function()
     require("conform").setup({
@@ -79,7 +80,10 @@ register("stevearc/conform.nvim", {
       end,
     })
 
-    vim.keymap.set("n", "gf", require("conform").format, { desc = "[LSP] Format code" })
+    vim.keymap.set("n", "gf", function()
+      -- Use LSP client provided formatter when no formatter specify
+      require("conform").format({ lsp_format = "fallback" })
+    end, { desc = "[LSP] Format code" })
 
     vim.api.nvim_create_user_command("FormatDisable", function(args)
       if args.bang then
