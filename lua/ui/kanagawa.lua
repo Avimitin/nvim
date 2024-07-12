@@ -28,8 +28,6 @@ local function override(colors)
     DiagnosticVirtualTextError = { fg = "#af6b79" },
     DiagnosticVirtualTextHint = { fg = "#738a6a" },
 
-    LeapBackdrop = { fg = "#777777" },
-
     HighLightLineMatches = { bg = default.winterYellow },
 
     TelescopePromptNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
