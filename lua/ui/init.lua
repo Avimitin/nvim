@@ -98,11 +98,19 @@ register("stevearc/dressing.nvim", {
     ---@diagnostic disable-next-line: duplicate-set-field
     vim.ui.select = function(...)
       require("lazy").load({ plugins = { "dressing.nvim" } })
+      require("dressing").setup({
+        input = { border = "solid" },
+        select = { nui = { border = "solid" } },
+      })
       return vim.ui.select(...)
     end
     ---@diagnostic disable-next-line: duplicate-set-field
     vim.ui.input = function(...)
       require("lazy").load({ plugins = { "dressing.nvim" } })
+      require("dressing").setup({
+        input = { border = "solid", prefer_width = 15, min_width = { 10, 0.1 } },
+        select = { nui = { border = "solid" } },
+      })
       return vim.ui.input(...)
     end
   end,

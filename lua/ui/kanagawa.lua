@@ -14,6 +14,7 @@ local function override(colors)
 
     Normal = { bg = "#101017", fg = default.fujiWhite },
     NormalFloat = { bg = "#1f1f2c" },
+    FloatTitle = { fg = "#F3EAD3", bg = "#D699B6", bold = true },
     FloatBorder = { link = "NormalFloat" },
 
     Pmenu = { bg = default.sumiInk3 },
