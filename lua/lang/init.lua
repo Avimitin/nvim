@@ -68,6 +68,7 @@ register("stevearc/conform.nvim", {
         rust = { "rustfmt" },
       },
       format_on_save = function(bufnr)
+        -- Avoid text lock for long time
         if vim.api.nvim_buf_line_count(bufnr) >= 5000 then
           return
         end
@@ -80,7 +81,7 @@ register("stevearc/conform.nvim", {
       end,
     })
 
-    vim.keymap.set("n", "gf", function()
+    vim.keymap.set("n", "<leader>cf", function()
       -- Use LSP client provided formatter when no formatter specify
       require("conform").format({ lsp_format = "fallback" })
     end, { desc = "[LSP] Format code" })

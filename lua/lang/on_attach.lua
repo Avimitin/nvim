@@ -16,24 +16,22 @@ utils.setup_keymaps = function(_, bufnr)
   vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 
   bnmap({
-    -- gf: Format code, define in conform module at lang/init.lua
-
-    { "gsd", telescope("lsp_definitions"), desc = "[LSP] Search and goto `definitions`" },
-    { "gsr", telescope("lsp_references"), desc = "[LSP] Search and goto `references`" },
-    { "gsi", telescope("lsp_implementations"), desc = "[LSP] Search and goto `implementations`" },
-    { "gst", telescope("lsp_type_definitions"), desc = "[LSP] Search and goto `type definition`" },
-
-    { "ga", vim.lsp.buf.code_action, desc = "[LSP] Open code actions" },
     { "K", vim.lsp.buf.hover, desc = "[LSP] Open document" },
-    { "gh", vim.lsp.buf.hover, desc = "[LSP] Open document" },
     { "R", vim.lsp.buf.rename, desc = "[LSP] Rename symbol" },
-    { "gR", vim.lsp.buf.rename, desc = "[LSP] Rename symbol" },
-    { "go", vim.diagnostic.open_float, desc = "[LSP] Open floating list" },
-    { "gO", vim.diagnostic.setqflist, desc = "[LSP] Open quickfix list" },
-    { "gr", vim.lsp.codelens.run, desc = "[LSP] Run codelens at current line" },
 
-    { "[d", vim.diagnostic.goto_prev, desc = "[LSP] Jump to previous error" },
-    { "]d", vim.diagnostic.goto_next, desc = "[LSP] Jump to next error" },
+    { "gD", telescope("lsp_definitions"), desc = "[LSP] Search and goto `definitions`" },
+    { "gR", telescope("lsp_references"), desc = "[LSP] Search and goto `references`" },
+    { "gI", telescope("lsp_implementations"), desc = "[LSP] Search and goto `implementations`" },
+    { "gT", telescope("lsp_type_definitions"), desc = "[LSP] Search and goto `type definition`" },
+
+    -- <leader>cf: code format, define in conform.nvim module at lang/init.lua
+    { "<leader>ca", vim.lsp.buf.code_action, desc = "[LSP] Open code actions" },
+    { "<leader>cr", vim.lsp.codelens.run, desc = "[LSP] Run codelens at current line" },
+    { "<leader>do", vim.diagnostic.open_float, desc = "[LSP] Open floating list" },
+    { "<leader>dq", vim.diagnostic.setqflist, desc = "[LSP] Open quickfix list" },
+
+    { "[[", vim.diagnostic.goto_prev, desc = "[LSP] Jump to previous error" },
+    { "]]", vim.diagnostic.goto_next, desc = "[LSP] Jump to next error" },
   })
 end
 
