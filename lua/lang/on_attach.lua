@@ -55,7 +55,7 @@ utils.setup_icons = function()
       prefix = function(diag)
         return icons[diag.severity] .. " "
       end,
-      border = "rounded",
+      border = "solid",
     },
     signs = false,
     underline = true,
