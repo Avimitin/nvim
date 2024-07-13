@@ -24,53 +24,6 @@ register("MunifTanjim/nui.nvim", {
   lazy = true,
 })
 
-register("nvim-neo-tree/neo-tree.nvim", {
-  lazy = true,
-  event = "VeryLazy",
-  branch = "v3.x",
-  config = function()
-    require("neo-tree").setup({
-      close_if_last_window = true,
-      -- improve speed in LLVM, Linux kernel
-      enable_git_status = false,
-      -- No need for this, use quickfix list (w/ key gO)
-      enable_diagnostics = false,
-      sources = { "filesystem", "document_symbols" },
-      source_selector = {
-        winbar = true,
-        sources = {
-          { source = "filesystem" },
-          { source = "document_symbols" },
-        },
-        content_layout = "center",
-      },
-      window = {
-        width = 25,
-      },
-    })
-
-    vim.defer_fn(function()
-      if vim.bo.buftype and #vim.bo.buftype > 0 then
-        return
-      end
-      require("neo-tree.command").execute({
-        action = "show",
-        reveal = true,
-        toggle = true,
-        source = "filesystem",
-      })
-    end, 100)
-  end,
-  keys = {
-    { "<leader>tf", "<CMD>Neotree reveal=true toggle=true<CR>", desc = "Toggle Tree file manager" },
-    {
-      "<leader>ts",
-      "<CMD>Neotree source=document_symbols toggle=true<CR>",
-      desc = "Toggle document symbols",
-    },
-  },
-})
-
 -- Use oil for main file management, use neo-tree for treestyle display only.
 register("stevearc/oil.nvim", {
   config = function()
@@ -234,17 +187,6 @@ register("sQVe/sort.nvim", {
   cmd = "Sort",
 })
 
--- Better search and replace (With Rust regex)
--- Load it with command `:Sed`
-register("windwp/nvim-spectre", {
-  lazy = true,
-  init = function()
-    vim.api.nvim_create_user_command("Sed", function()
-      require("spectre").open()
-    end, {})
-  end,
-})
-
 -- Highlight search matches
 register("kevinhwang91/nvim-hlslens", {
   keys = {
@@ -309,8 +251,9 @@ register("folke/which-key.nvim", {
       mode = "n",
       ["<leader>g"] = { name = "+Git" },
       ["<leader>f"] = { name = "+Telescope" },
-      ["<leader>t"] = { name = "+NeoTree" },
       ["<leader>n"] = { name = "+Noice" },
+      ["<leader>c"] = { name = "+Code Action" },
+      ["<leader>d"] = { name = "+Code Diagnostic" },
     }
     whichkey.register(ngrp)
   end,
