@@ -27,7 +27,13 @@ register("MunifTanjim/nui.nvim", {
 -- Use oil for main file management, use neo-tree for treestyle display only.
 register("stevearc/oil.nvim", {
   config = function()
-    require("oil").setup()
+    require("oil").setup({
+      float = {
+        border = "solid",
+        max_width = 200,
+        max_height = 50,
+      },
+    })
     vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
   end,
 })
@@ -340,7 +346,10 @@ register("j-morano/buffer_manager.nvim", {
     },
   },
   config = function()
-    require("buffer_manager").setup({})
+    require("buffer_manager").setup({
+      -- Defined in kanagawa.nvim
+      highlight = "Normal:BufferManagerBorder",
+    })
   end,
 })
 
@@ -354,7 +363,7 @@ register("ghillb/cybu.nvim", {
         padding = 5,
         hide_buffer_id = true,
       },
-      display_time = 1000,
+      display_time = 1500,
       exclude = {
         "neo-tree",
         "qf",
