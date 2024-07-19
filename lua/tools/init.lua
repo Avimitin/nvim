@@ -33,6 +33,12 @@ register("stevearc/oil.nvim", {
         max_width = 200,
         max_height = 50,
       },
+      keymaps = {
+        ["q"] = "actions.close",
+      },
+      view_options = {
+        show_hidden = true,
+      },
     })
     vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
   end,
