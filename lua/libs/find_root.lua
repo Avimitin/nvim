@@ -7,9 +7,9 @@ function export.find_root(opts)
     return vim.fn.globpath(dir, pattern) ~= ""
   end
 
-  local last = vim.loop.os_homedir()
+  local last = vim.uv.os_homedir()
   for dir in vim.fs.parents(current) do
-    if dir == vim.loop.os_homedir() then
+    if dir == vim.uv.os_homedir() then
       return last
     end
 
