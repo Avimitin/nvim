@@ -29,10 +29,10 @@ register("numToStr/Comment.nvim", {
     require("Comment").setup({})
   end,
   keys = {
-    "gcc",
-    "gbc",
-    { mode = "x", "gc" },
-    { mode = "x", "gb" },
+    { "gcc", desc = "Toggle line comment" },
+    { "gbc", desc = "Toggle block comment" },
+    { mode = "x", "gc", desc = "Toggle line comment" },
+    { mode = "x", "gb", desc = "Toggle block comment" },
   },
 })
 
