@@ -262,7 +262,6 @@ insert_right({
     highlight = {
       require("galaxyline.provider_fileinfo").get_file_icon_color,
       colors.bg,
-      "italic",
     },
   },
 })
