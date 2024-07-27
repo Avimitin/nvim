@@ -11,7 +11,7 @@ local find_config = function()
   -- prompt when try to read the file, to avoid security issue
   local file = vim.secure.read(cfg_file)
   if not file then
-    return false
+    return nil
   end
 
   local rust_settings = { ["rust-analyzer"] = vim.json.decode(file) }
