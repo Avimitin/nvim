@@ -251,23 +251,10 @@ register("folke/which-key.nvim", {
         mark = false,
         register = false,
       },
-      window = {
-        winblend = 10,
-      },
       layout = {
         align = "center",
       },
     })
-
-    local ngrp = {
-      mode = "n",
-      ["<leader>g"] = { name = "+Git" },
-      ["<leader>f"] = { name = "+Telescope" },
-      ["<leader>n"] = { name = "+Noice" },
-      ["<leader>c"] = { name = "+Code Action" },
-      ["<leader>d"] = { name = "+Code Diagnostic" },
-    }
-    whichkey.register(ngrp)
   end,
 })
 
