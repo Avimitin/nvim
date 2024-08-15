@@ -242,14 +242,9 @@ insert_right({
           msg = msg .. client.name
 
           if progress and #progress ~= 0 and progress ~= "" then
-            local spinners = {
-              "◜ ",
-              "◠ ",
-              "◝ ",
-              "◞ ",
-              "◡ ",
-              "◟ ",
-            }
+            -- This one doesn't look great in IBMPlex Mono font
+            --local spinners = { "◜ ", "◠ ", "◝ ", "◞ ", "◡ ", "◟ " }
+            local spinners = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
             local ms = vim.loop.hrtime() / 1000000
             local frame = math.floor(ms / 120) % #spinners
             msg = msg .. " " .. string.format("%s", spinners[frame + 1])
