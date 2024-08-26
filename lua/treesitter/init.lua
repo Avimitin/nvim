@@ -10,16 +10,5 @@ register("nvim-treesitter/nvim-treesitter", {
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "windwp/nvim-ts-autotag",
-    {
-      "m-demare/hlargs.nvim",
-      config = function()
-        require("hlargs").setup({
-          highlight = { link = "Identifier" },
-          disable = function(_, buf)
-            return vim.api.nvim_buf_line_count(buf) >= 5000
-          end,
-        })
-      end,
-    },
   },
 })
