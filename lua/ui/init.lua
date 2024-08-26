@@ -245,3 +245,20 @@ register("Bekaboo/dropbar.nvim", {
     },
   },
 })
+
+register("karb94/neoscroll.nvim", {
+  keys = {
+    "<c-u>",
+    "<c-d>",
+    "<c-b>",
+    "<c-f>",
+    "<c-y>",
+    "<c-e>",
+    "zt",
+    "zz",
+    "zb",
+  },
+  config = function()
+    require("neoscroll").setup({})
+  end,
+})
