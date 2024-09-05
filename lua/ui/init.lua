@@ -198,6 +198,7 @@ register("luukvbaal/statuscol.nvim", {
         { text = { " " } },
         -- Show the fold icon
         { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+        { text = { " " } },
         -- Show git status
         {
           sign = {
