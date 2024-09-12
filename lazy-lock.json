@@ -14,6 +14,7 @@
   "dropbar.nvim": { "branch": "master", "commit": "6156e07759fd8c7cbf764414f583aa7e47470368" },
   "emmylua-nvim": { "branch": "master", "commit": "e386f22028b396a3f67d23fb9f3908534efb2889" },
   "galaxyline.nvim": { "branch": "global-status-line", "commit": "daab7a91c0aafd317d4a5dc19a07efdb9bb99195" },
+  "github-nvim-theme": { "branch": "main", "commit": "6b461635230ccb5d0037f378fbe05a27c4ccf7cd" },
   "gitsigns.nvim": { "branch": "main", "commit": "80214a857ce512cc64964abddc1d8eb5a3e28396" },
   "headlines.nvim": { "branch": "master", "commit": "618ef1b2502c565c82254ef7d5b04402194d9ce3" },
   "indent-blankline.nvim": { "branch": "master", "commit": "db926997af951da38e5004ec7b9fbdc480b48f5d" },

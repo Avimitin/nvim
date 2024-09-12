@@ -8,6 +8,10 @@ register("rebelot/kanagawa.nvim", {
   end,
 })
 
+register("projekt0n/github-nvim-theme", {
+  lazy = true,
+})
+
 --- List of nerd-font icons
 register("kyazdani42/nvim-web-devicons", {
   lazy = true,
