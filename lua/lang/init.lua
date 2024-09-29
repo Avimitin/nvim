@@ -2,7 +2,9 @@ local register = require("pack").register
 
 -- Interact with LSP server
 register("neovim/nvim-lspconfig", {
-  lazy = true,
+  config = function()
+    require("lang.configs")
+  end,
 })
 
 -- Cargo.toml manager
@@ -37,7 +39,10 @@ register("numToStr/Comment.nvim", {
 })
 
 register("scalameta/nvim-metals", {
-  lazy = true,
+  ft = { "scala" },
+  config = function()
+    require("lang.scala")
+  end,
 })
 
 register("stevearc/conform.nvim", {
@@ -105,29 +110,3 @@ register("stevearc/conform.nvim", {
     })
   end,
 })
-
-local export = {}
-
----@param server string Server name
----@param extra table Extra config to override the default
-function export.run_lsp(bufnr, server, extra)
-  local config = {
-    -- Told LSP server about the nvim lsp capabilities
-    capabilities = require("cmp_nvim_lsp").default_capabilities(),
-    -- Setup keymap on attach
-    on_attach = require("lang.on_attach").setup_all,
-    settings = {},
-  }
-
-  if extra then
-    config = vim.tbl_deep_extend("force", config, extra)
-  end
-
-  local lspconfig = require("lspconfig")
-
-  lspconfig[server].setup(config)
-  -- manually setup because FileType event is behind BufReadPost event
-  lspconfig[server].manager:try_add_wrapper(bufnr, nil)
-end
-
-return export

@@ -75,7 +75,7 @@ set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
 ## Project Structure
 
 
-- `after/ftplugin/<lang>.lua`: LSP configuration goes here! Different LSP are configure by corresponding filetype
+- `after/ftplugin/<lang>.lua`: missing default configuration for filetypes
 - `vsnip`: Snippets are placed in here.
 - `lua`: the configuration core
 
