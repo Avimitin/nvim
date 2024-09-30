@@ -50,7 +50,7 @@ setup("hls", {
 })
 
 -- JavaScript/TypeScript
-setup("tsserver")
+setup("ts_ls")
 
 -- Lua
 local _lua_config = {}
