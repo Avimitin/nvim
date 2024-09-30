@@ -57,3 +57,9 @@ au({ "BufEnter" }, {
     end
   end,
 })
+
+au({ "BufWinEnter" }, {
+  desc = "return cursor to where it was last time closing the file",
+  group = vim.api.nvim_create_augroup("AutoJump", { clear = true }),
+  command = 'silent! normal! g`"zv',
+})
