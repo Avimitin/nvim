@@ -25,8 +25,7 @@ keymapper.mk_keymap({
     },
     { "<leader>x", vim.cmd.x, desc = "Save and quit" },
     { "<C-p>", [["+p]], desc = "paste" },
-    { "<C-d>", "<C-d>zz", desc = "paste" },
-    { "<C-u>", "<C-u>zz", desc = "paste" },
+    { "<C-S-v>", [["+p]], desc = "paste" },
   },
   selection = {
     { "J", ":m '>+1<CR>gv=gv" },
@@ -39,6 +38,7 @@ keymapper.mk_keymap({
   },
   insertion = {
     { "<C-a>", "<ESC>^i", desc = "Jump to beginning of the line" },
+    { "<C-S-v>", [[<ESC>"+pi]], desc = "paste" },
     { "<C-e>", "<End>", desc = "Jump to end of the line" },
     { "<M-;>", "<ESC>", desc = "Exit insert mode" },
     { "<C-p>", "<Up>", desc = "Go up one line" },
