@@ -48,6 +48,7 @@ function M.setup()
   collect_plugins()
 
   require("lazy").setup(M.repositories, {
+    rocks = { enabled = false },
     performance = {
       rtp = {
         reset = false,
