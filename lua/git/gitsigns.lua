@@ -22,49 +22,64 @@ require("gitsigns").setup({
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
-    local function map(mode, l, r, opts)
-      opts = opts or {}
-      opts.buffer = bufnr
-      vim.keymap.set(mode, l, r, opts)
-    end
-
-    -- Navigation
-    map("n", "]g", function()
-      if vim.wo.diff then
-        return "]g"
-      end
-      vim.schedule(function()
-        gs.next_hunk()
-      end)
-      return "<Ignore>"
-    end, { expr = true, desc = "Go to next hunk" })
-
-    map("n", "[g", function()
-      if vim.wo.diff then
-        return "[g"
-      end
-      vim.schedule(function()
-        gs.prev_hunk()
-      end)
-      return "<Ignore>"
-    end, { expr = true, desc = "Go to previous hunk" })
+    require("builder.key-mapper").bufmap(bufnr, "n", {
+      { "<leader>g", group = "Git" },
+      { "<leader>gS", gs.stage_buffer, desc = "Stage buffer" },
+      { "<leader>gu", gs.undo_stage_hunk, desc = "Undo stage hunk" },
+      { "<leader>gR", gs.reset_buffer, desc = "Reset buffer" },
+      { "<leader>gp", gs.preview_hunk, desc = "Preview hunk" },
+      {
+        "<leader>gB",
+        function()
+          gs.blame_line({ full = true })
+        end,
+        desc = "Open git blame panel",
+      },
+      { "<leader>gb", gs.toggle_current_line_blame, desc = "Enter line blame mode" },
+      { "<leader>gD", gs.diffthis, desc = "Open diff" },
+      { "<leader>gd", gs.toggle_deleted, desc = "Toggle deleted line" },
+      {
+        "]g",
+        function()
+          if vim.wo.diff then
+            return "]g"
+          end
+          vim.schedule(function()
+            gs.next_hunk()
+          end)
+          return "<Ignore>"
+        end,
+        expr = true,
+        desc = "Go to next hunk",
+      },
+      {
+        "[g",
+        function()
+          if vim.wo.diff then
+            return "[g"
+          end
+          vim.schedule(function()
+            gs.prev_hunk()
+          end)
+          return "<Ignore>"
+        end,
+        expr = true,
+        desc = "Go to previous hunk",
+      },
+    })
 
     -- Actions
-    map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
-    map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
-    map("n", "<leader>gS", gs.stage_buffer, { desc = "Stage buffer" })
-    map("n", "<leader>gu", gs.undo_stage_hunk, { desc = "Undo stage hunk" })
-    map("n", "<leader>gR", gs.reset_buffer, { desc = "Reset buffer" })
-    map("n", "<leader>gp", gs.preview_hunk, { desc = "Preview hunk" })
-    map("n", "<leader>gB", function()
-      gs.blame_line({ full = true })
-    end, { desc = "Open git blame panel" })
-    map("n", "<leader>gb", gs.toggle_current_line_blame, { desc = "Enter line blame mode" })
-    map("n", "<leader>gD", gs.diffthis, { desc = "Open diff" })
-    map("n", "<leader>gd", gs.toggle_deleted, { desc = "Toggle deleted line" })
+    require("builder.key-mapper").bufmap(bufnr, { "n", "v" }, {
+      { "<leader>gs", ":Gitsigns stage_hunk<CR>", desc = "Stage hunk" },
+      { "<leader>gr", ":Gitsigns reset_hunk<CR>", desc = "Reset hunk" },
+    })
 
     -- Text object
-    map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Select hunk" })
+    require("builder.key-mapper").bufmap(
+      bufnr,
+      { "o", "x" },
+      { "ih", ":<C-U>Gitsigns select_hunk<CR>", desc = "Select hunk" }
+    )
   end,
   numhl = false,
   linehl = false,

@@ -86,10 +86,14 @@ register("stevearc/conform.nvim", {
       end,
     })
 
-    vim.keymap.set("n", "<leader>cf", function()
-      -- Use LSP client provided formatter when no formatter specify
-      require("conform").format({ lsp_format = "fallback" })
-    end, { desc = "[LSP] Format code" })
+    require("builder.key-mapper").map("n", {
+      "<leader>cf",
+      function()
+        -- Use LSP client provided formatter when no formatter specify
+        require("conform").format({ lsp_format = "fallback" })
+      end,
+      desc = "[LSP] Format code",
+    })
 
     vim.api.nvim_create_user_command("FormatDisable", function(args)
       if args.bang then

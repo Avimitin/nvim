@@ -1,4 +1,13 @@
+-- This file act as an API compatible layer.
+-- Here we are using which-key.nvim as plugin, but when one day which-key.nvim
+-- is no more under maintain, we can still keep compatibiltity and replace implementation here.
+
 local export = {}
+local ok, wk = pcall(require, "which-key")
+local use_which_key = true
+if not ok then
+  use_which_key = false
+end
 
 local function unwrap_options(original)
   local default = {
@@ -58,21 +67,45 @@ end
 -- Allow form:
 --   1. { "lhs", "rhs", option = "foo" }
 --   2. { { "lhs", "rhs", opt = "foo" }, { "lhs", "rhs", opt = "bar" } }
-function export.map(mode, mappings)
-  if type(mappings[1]) == "string" then
-    if not check(mappings[1]) then
-      return
-    end
-
-    vim.keymap.set(mode, unwrap_keymaps(mappings))
-    return
+function export.map(modes, mappings)
+  if type(modes) == "string" then
+    modes = { modes }
   end
 
-  for _, kpair in ipairs(mappings) do
-    if not check(kpair) then
-      return
+  if type(modes) ~= "table" then
+    vim.notify("Invalid mode set when mapping keys", vim.log.levels.ERROR)
+    return false
+  end
+
+  for _, mode in ipairs(modes) do
+    if use_which_key then
+      mappings.mode = mode
+
+      wk.add(mappings)
+      goto continue
     end
-    vim.keymap.set(mode, unwrap_keymaps(kpair))
+
+    if not use_which_key and mappings.group then
+      goto continue
+    end
+
+    if type(mappings[1]) == "string" then
+      if not check(mappings[1]) then
+        return false
+      end
+
+      vim.keymap.set(mode, unwrap_keymaps(mappings))
+      goto continue
+    end
+
+    for _, kpair in ipairs(mappings) do
+      if not check(kpair) then
+        return false
+      end
+      vim.keymap.set(mode, unwrap_keymaps(kpair))
+    end
+
+    ::continue::
   end
 end
 
@@ -80,21 +113,19 @@ function export.cmd(cmd)
   return "<CMD>" .. cmd .. "<CR>"
 end
 
-function export.bufmap(bufid, mode, mappings)
+function export.bufmap(bufid, modes, mappings)
   if type(mappings[1]) == "string" then
     mappings["buffer"] = bufid
-    vim.keymap.set(mode, unwrap_keymaps(mappings))
-    return
+    return export.map(modes, mappings)
   end
 
   for _, kpair in ipairs(mappings) do
     kpair["buffer"] = bufid
-    vim.keymap.set(mode, unwrap_keymaps(kpair))
   end
+  return export.map(modes, mappings)
 end
 
 function export.mk_keymap(keymap_set)
-  vim.g.mapleader = keymap_set.mapleader.global
   export.map("n", keymap_set.normal)
   export.map("x", keymap_set.selection)
   export.map("i", keymap_set.insertion)

@@ -3,9 +3,6 @@
 local keymapper = require("builder.key-mapper")
 
 keymapper.mk_keymap({
-  mapleader = {
-    global = ";",
-  },
   normal = {
     { "j", "v:count == 0 ? 'gj' : 'j'", desc = "Go display lines downward", expr = true },
     { "k", "v:count == 0 ? 'gk' : 'k'", desc = "Go display lines upward", expr = true },

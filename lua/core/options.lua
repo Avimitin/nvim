@@ -2,6 +2,8 @@
 -- vim option configuration
 --
 
+vim.g.mapleader = ";"
+
 local options = {
   completeopt = { "menuone", "noselect", "menu" },
   -- Enables 24-bit RGB color in the TUI

@@ -1,10 +1,6 @@
 local utils = {}
 
 utils.setup_keymaps = function(_, bufnr)
-  local bnmap = function(mappings)
-    require("libs.keymap").buf_map(bufnr, "n", mappings)
-  end
-
   local telescope = function(action, args)
     return function()
       local theme = require("telescope.themes").get_dropdown(args or {})
@@ -15,7 +11,7 @@ utils.setup_keymaps = function(_, bufnr)
 
   vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 
-  bnmap({
+  require("builder.key-mapper").bufmap(bufnr, "n", {
     { "K", vim.lsp.buf.hover, desc = "[LSP] Open document" },
     { "R", vim.lsp.buf.rename, desc = "[LSP] Rename symbol" },
 
@@ -24,9 +20,12 @@ utils.setup_keymaps = function(_, bufnr)
     { "gI", telescope("lsp_implementations"), desc = "[LSP] Search and goto `implementations`" },
     { "gT", telescope("lsp_type_definitions"), desc = "[LSP] Search and goto `type definition`" },
 
+    { "<leader>c", group = "Code Action" },
     -- <leader>cf: code format, define in conform.nvim module at lang/init.lua
     { "<leader>ca", vim.lsp.buf.code_action, desc = "[LSP] Open code actions" },
     { "<leader>cr", vim.lsp.codelens.run, desc = "[LSP] Run codelens at current line" },
+
+    { "<leader>d", group = "Code Diagnostic" },
     { "<leader>do", vim.diagnostic.open_float, desc = "[LSP] Open floating list" },
     { "<leader>dq", vim.diagnostic.setqflist, desc = "[LSP] Open quickfix list" },
 

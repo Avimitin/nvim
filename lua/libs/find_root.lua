@@ -13,9 +13,7 @@ function export.find_root(opts)
       return last
     end
 
-    for _, pat in
-      ipairs(opts.patterns or { ".git", "go.mod", "flake.nix", "Cargo.toml", "build.sc" })
-    do
+    for _, pat in ipairs(opts.patterns or { ".git", "flake.nix" }) do
       if is_match(dir, pat) then
         return dir
       end

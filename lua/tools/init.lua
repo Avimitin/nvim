@@ -254,6 +254,7 @@ register("folke/which-key.nvim", {
       layout = {
         align = "center",
       },
+      icons = { mappings = false },
     })
   end,
 })
