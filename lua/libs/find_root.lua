@@ -1,28 +1,8 @@
 local export = {}
 
 function export.find_root(opts)
-  local current = vim.api.nvim_buf_get_name(0)
-
-  local is_match = function(dir, pattern)
-    return vim.fn.globpath(dir, pattern) ~= ""
-  end
-
-  local last = vim.uv.os_homedir()
-  for dir in vim.fs.parents(current) do
-    if dir == vim.uv.os_homedir() then
-      return last
-    end
-
-    for _, pat in ipairs(opts.patterns or { ".git", "flake.nix" }) do
-      if is_match(dir, pat) then
-        return dir
-      end
-    end
-
-    last = dir
-  end
-
-  return last
+  return vim.fs.root(0, opts.patterns or { ".git", "flake.nix" })
+    or vim.fs.parents(vim.api.nvim_buf_get_name(0))
 end
 
 function export.set_root(opts)
