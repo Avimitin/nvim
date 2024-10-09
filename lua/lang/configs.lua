@@ -109,4 +109,9 @@ local _rust_find_config = function()
   local rust_settings = { ["rust-analyzer"] = vim.json.decode(file) }
   return rust_settings
 end
-setup("rust_analyzer", { settings = _rust_find_config() })
+setup("rust_analyzer", {
+  settings = _rust_find_config(),
+  root_dir = function()
+    return require("libs.find_root").find_root({ patterns = { "Cargo.toml" } })
+  end,
+})
