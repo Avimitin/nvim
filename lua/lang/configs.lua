@@ -51,6 +51,8 @@ setup("hls", {
 
 -- JavaScript/TypeScript
 setup("ts_ls")
+-- I don't use deno for now, but keep config here
+-- setup("denols", require("lang.deno"))
 
 -- Lua
 local _lua_config = {}

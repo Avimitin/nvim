@@ -1,4 +1,4 @@
-local extra_config = {
+local Export = {
   settings = {
     deno = {
       enable = true,
@@ -36,77 +36,71 @@ local extra_config = {
   },
 }
 
-local Export = {}
+-- fix highlight on codefences
+vim.g.markdown_fenced_languages = {
+  "ts=typescript",
+}
 
-function Export.setup()
-  -- fix highlight on codefences
-  vim.g.markdown_fenced_languages = {
-    "ts=typescript",
-  }
+local on_attach = function(client, bufnr)
+  require("lang.on_attach").setup_all(client, bufnr)
 
-  local on_attach = function(client, bufnr)
-    require("lang.on_attach").setup_all(client, bufnr)
-
-    ---@return table|nil
-    local function get_deno_client()
-      local clients = vim.lsp.get_active_clients({
-        bufnr = bufnr,
-        name = "denols",
-      })
-
-      local _, deno = next(clients)
-      if deno == nil then
-        vim.notify("No Deno client found")
-        return nil
-      end
-
-      return deno
-    end
-
-    local cmd = function(...)
-      vim.api.nvim_buf_create_user_command(bufnr, ...)
-    end
-
-    cmd("DenoReloadImports", function()
-      local deno = get_deno_client()
-      if deno == nil then
-        return
-      end
-
-      deno.request("deno/reloadImportRegistries", nil, function()
-        vim.notify("Registries reloaded")
-      end)
-    end, {
-      desc = "Reload cached response from import registries",
+  ---@return table|nil
+  local function get_deno_client()
+    local clients = vim.lsp.get_active_clients({
+      bufnr = bufnr,
+      name = "denols",
     })
 
-    cmd("DenoCache", function()
-      local deno = get_deno_client()
-      if deno == nil then
-        return
-      end
+    local _, deno = next(clients)
+    if deno == nil then
+      vim.notify("No Deno client found")
+      return nil
+    end
 
-      local api = vim.api
-      local current_window = api.nvim_get_current_win()
-      local current_buffer = api.nvim_win_get_buf(current_window)
-
-      deno.request(
-        "deno/cache",
-        { referrer = { uri = vim.lsp.util.make_text_document_params(current_buffer) }, uris = {} },
-        function()
-          vim.notify("Dependencies cached")
-        end
-      )
-
-      vim.notify("Cache request sent, downloading dependencies...")
-    end, {
-      desc = "Cache uncached module",
-    })
+    return deno
   end
 
-  extra_config.on_attach = on_attach
+  local cmd = function(...)
+    vim.api.nvim_buf_create_user_command(bufnr, ...)
+  end
 
-  require("lang").run_lsp("denols", extra_config)
+  cmd("DenoReloadImports", function()
+    local deno = get_deno_client()
+    if deno == nil then
+      return
+    end
+
+    deno.request("deno/reloadImportRegistries", nil, function()
+      vim.notify("Registries reloaded")
+    end)
+  end, {
+    desc = "Reload cached response from import registries",
+  })
+
+  cmd("DenoCache", function()
+    local deno = get_deno_client()
+    if deno == nil then
+      return
+    end
+
+    local api = vim.api
+    local current_window = api.nvim_get_current_win()
+    local current_buffer = api.nvim_win_get_buf(current_window)
+
+    deno.request(
+      "deno/cache",
+      { referrer = { uri = vim.lsp.util.make_text_document_params(current_buffer) }, uris = {} },
+      function()
+        vim.notify("Dependencies cached")
+      end
+    )
+
+    vim.notify("Cache request sent, downloading dependencies...")
+  end, {
+    desc = "Cache uncached module",
+  })
 end
+
+Export.on_attach = on_attach
 
 return Export
