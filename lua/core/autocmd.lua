@@ -43,13 +43,13 @@ au("TextYankPost", {
 --
 -- Automatically set PWD to buffer
 --
-au({ "BufEnter" }, {
+au({ "VimEnter" }, {
   pattern = { "*" },
   callback = function()
     local finder = require("libs.find_root")
 
     local old_cwd = vim.loop.cwd()
-    finder.set_root()
+    finder.set_root({ patterns = { "Cargo.toml", ".git", "flake.nix" } })
     local new_cwd = vim.loop.cwd()
 
     if not vim.b.current_buf_root_dir and new_cwd ~= old_cwd then
