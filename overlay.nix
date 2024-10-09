@@ -18,17 +18,17 @@ final: prev:
     { name = "javascript"; hash = "sha256-gvwc7jizdxRKd/isBm4fNhTRtLoW8Doo6DcIj0ANk7I="; }
     { name = "typescript"; hash = "sha256-9HdoVkqQiw+gixiUP7B6MdRPnklti7NkDOtyAyN9yao="; srcRoot = "typescript"; }
     { name = "tsx"; hash = "sha256-9HdoVkqQiw+gixiUP7B6MdRPnklti7NkDOtyAyN9yao="; srcRoot = "tsx"; }
-    { name = "typst"; hash = "sha256-cAG36OV1/qioKApZKZ8l1NsQ7FnXlXhi4Nq3KMpWvlA="; }
-    { name = "llvm"; hash = "sha256-c63jN6pyIssjthp+3f5pYWMwUq+usjhlP2lF/zVNdc8="; }
+    { name = "typst"; hash = "sha256-w9ZOaH3SY151yQs1jDTymqS1jB4RlCxSvUbko3SpHlE="; }
+    { name = "llvm"; hash = "sha256-3/WPq64L+L0ewbrbvihkeuLOCoS7XhiKQnFIwS3i4HY="; }
     { name = "lua"; hash = "sha256-angXXSWWgBaOaYC3jnLyhVoWU2RPPAeb/XNsIygcLzg="; }
     { name = "org"; hash = "sha256-N/zlpv4oXVfjk+a/7vM0nAPsCCBMVvWN3oavPbPmKwk="; }
     { name = "regex"; hash = "sha256-KaXH+rgL0hP4gjCayy7Sw8kSniPOwb6JKRZRXmwbE0I="; }
-    { name = "ruby"; hash = "sha256-jiLrFFnwOQGXFR2pE4H6w5x2uDotBan+d2QfDjQUvWQ="; }
+    { name = "ruby"; hash = "sha256-HPWoQjWKmAxzNO7AVhHrOSaF4p8zsHij7PasFuko86g="; }
     { name = "python"; hash = "sha256-p7/qmxP8jdGPDDYRPmmO0gzzLqYl90GHi7N9oFwS4SM="; }
     { name = "rust"; hash = "sha256-S01KCcPKrrlIuF0qCNZZMeLzbQsvQYo+VgohURpLVBo="; }
     { name = "proto"; hash = "sha256-eDnzT35wGxFzhcvy61d+1VG8ObB999mcakG3NNlrcck="; }
-    { name = "scala"; hash = "sha256-08xQCWiGq9Kb7JtOsA0YdHIF2Ue2cD0AUBEz9mGtBII="; }
-    { name = "nix"; hash = "sha256-wmqnG3/5qWX4Yk3fjfF8EkdXcqjBqly8C85EAxrnXf0="; }
+    { name = "scala"; hash = "sha256-nniAxqeolMHpA5GGN8y84QVrB/zls+GSKRVHtUDT22c="; }
+    { name = "nix"; hash = "sha256-rO+RrtdmgAla7LwqoxqAozFjd6DbBfCwZt8ey/e6pds="; }
     { name = "vimdoc"; hash = "sha256-iYGUNG16O/ggEnuc3UGvoVU71pzYd+hMk1gVqSVRZUY="; }
     { name = "query"; hash = "sha256-LS4ZNUqdF8WJej27Udi57vJJgac8eth51mwHNCUKTTs="; }
     {
@@ -43,7 +43,7 @@ final: prev:
     }
     {
       name = "mlir";
-      hash = "sha256-U6B944pd1rt6itlrF/M9zuXlB73QfTeZmCXMCghuYqQ=";
+      hash = "sha256-XK6kecYEMTUmhY9xFD7UtCwSw8rAnH6OFFYZPBhpKZI=";
       needs_generate = true;
     }
     { name = "yaml"; hash = "sha256-LcJOuP3ggn2AiosZbkxOFFASXfRrs3ytwrgX3/IdNrM="; }
