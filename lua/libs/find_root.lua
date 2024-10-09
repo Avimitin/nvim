@@ -2,7 +2,7 @@ local export = {}
 
 function export.find_root(opts)
   return vim.fs.root(0, opts.patterns or { ".git", "flake.nix" })
-    or vim.fs.parents(vim.api.nvim_buf_get_name(0))
+    or vim.fs.dirname(vim.api.nvim_buf_get_name(0))
 end
 
 function export.set_root(opts)
