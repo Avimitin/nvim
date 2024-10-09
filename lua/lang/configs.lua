@@ -94,31 +94,31 @@ setup("ocamllsp")
 setup("pyright")
 
 -- Rust
-local rust_setup_hook = function(cfg)
-  local find_local_config = function(root_dir)
-    vim.notify("Searching project local settings in " .. root_dir)
-    local cfg_file = vim.fs.joinpath(root_dir, ".rust-analyzer.json")
-
-    -- prompt when try to read the file, to avoid security issue
-    local file = vim.secure.read(cfg_file)
-    if not file then
-      return nil
-    end
-
-    local rust_settings = { ["rust-analyzer"] = vim.json.decode(file) }
-    vim.notify("Using local settings in " .. vim.fs.nomalize(root_dir .. "/.rust-analyzer.json"))
-    return rust_settings
-  end
-
-  if cfg.name == "rust_analyzer" then
-    local settings = find_local_config(cfg.root_dir())
-    cfg.settings = vim.tbl_deep_extend("force", cfg.settings, settings)
-  end
-end
-lspconfig.util.on_setup = lspconfig.util.add_hook_before(lspconfig.util.on_setup, rust_setup_hook)
 setup("rust_analyzer", {
   -- Don't know why built-in not working
   root_dir = function()
     return require("libs.find_root").find_root({ patterns = { "Cargo.toml" } })
+  end,
+  on_init = function(client)
+    local _, folder = next(client.workspace_folders)
+    local current_dir = folder.name
+
+    local cfg_file = vim.fs.joinpath(current_dir, ".rust-analyzer.json")
+
+    -- prompt when try to read the file, to avoid security issue
+    local file = vim.secure.read(cfg_file)
+    if not file then
+      return true
+    end
+
+    local local_settings = { ["rust-analyzer"] = vim.json.decode(file) }
+    client.config.settings = vim.tbl_deep_extend("force", client.config.settings, local_settings)
+    client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+
+    vim.notify(
+      "Using new local settings in " .. vim.fs.normalize(current_dir .. "/.rust-analyzer.json")
+    )
+
+    return true
   end,
 })
