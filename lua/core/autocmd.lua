@@ -61,5 +61,14 @@ au({ "VimEnter" }, {
 au({ "BufWinEnter" }, {
   desc = "return cursor to where it was last time closing the file",
   group = vim.api.nvim_create_augroup("AutoJump", { clear = true }),
-  command = 'silent! normal! g`"zv',
+  callback = function()
+    if not vim.tbl_contains({ "", "acwrite" }, vim.bo.buftype) then
+      return
+    end
+    if vim.tbl_contains({ "gitcommit" }, vim.bo.filetype) then
+      return
+    end
+
+    vim.cmd('silent! normal! g`"zv')
+  end,
 })
