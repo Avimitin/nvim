@@ -45,10 +45,10 @@ utils.setup_icons = function()
   -- Setup diagnostic icons and signs
   vim.diagnostic.config({
     virtual_text = {
-      prefix = function(diag)
-        return icons[diag.severity]
+      prefix = function(_)
+        return ""
       end,
-      spacing = 4,
+      spacing = 8,
     },
     float = {
       prefix = function(diag)
