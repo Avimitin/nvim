@@ -3,7 +3,8 @@
 
 ![badge](https://img.shields.io/github/license/Avimitin/nvim)
 
-## Features
+Features
+--------
 
 * ***Handy*** and ***Smoothy***: There will always be a panel to remind you
 when you forget your key settings. There will always be a short keystroke to help
@@ -12,7 +13,8 @@ you get to the place you want to jump to. There will always…
 * ***Fancy looking***: Well designed, denoised, uncluttered UI. Talk is cheap, see the [gallery](#Gallery).
 * ***Great Performance***: Lazy loading anywhere, you will never have to worry about accidental opening of a file larger than 10000 loc can freeze your terminal.
 
-## Getting Start
+Getting Start
+-------------
 
 This configuration is compatible with neovim 0.10+ version.
 
@@ -72,8 +74,8 @@ set -as terminal-overrides ",xterm*:Tc"
 set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
 ```
 
-## Project Structure
-
+Project Structure
+-----------------
 
 - `after/ftplugin/<lang>.lua`: missing default configuration for filetypes
 - `vsnip`: Snippets are placed in here.
@@ -96,7 +98,8 @@ set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
 - `syntax`: Additional syntax detection for some file type, not important.
 
 
-## Treesitter parsers in nix
+Treesitter parsers in nix
+-------------------------
 
 - For normal user: make sure gcc is installed, then run `:TSInstall <language>` to compile and install corresponding treesitter plugin
 - For nix user: you can add this repository as an overlay and use the pre-bundled neovim:
@@ -133,7 +136,8 @@ set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
 ```
 
 
-## Gallery
+Gallery
+-------
 
 <details>
     <summary markdown="span">Utilities</summary>
@@ -230,7 +234,8 @@ set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
 
 </details>
 
-## License
+License
+-------
 
 This configuration since commit `912416ae9c4b55501b23a91d774b567ba8697dd1` are
 licenced under the Apache 2.0 license.
@@ -238,9 +243,11 @@ licenced under the Apache 2.0 license.
 另附：禁止在 CSDN，bilibili 等国内平台使用该配置文件进行任何活动。
 你只保有自己修改部分的权利。
 
-## Additional notes
+Additional notes
+================
 
-### About treesitter bumping
+About treesitter bumping
+------------------------
 
 - Run `:Lazy sync`
 - Remove hash in ./nix/nvim-treesitter-lock-file.nix
