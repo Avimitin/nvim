@@ -12,7 +12,7 @@ function export.set_root(opts)
     return
   end
 
-  if vim.tbl_contains(opts.exclude_filetype or {}, vim.bo.filetype) then
+  if vim.tbl_contains(opts.exclude_filetype or { "oil" }, vim.bo.filetype) then
     return
   end
 
