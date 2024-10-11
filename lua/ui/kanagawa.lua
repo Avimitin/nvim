@@ -46,9 +46,6 @@ local function override(colors)
     WinSeparator = { fg = default.sumiInk4 },
 
     CodeBlock = { bg = default.sumiInk1 },
-    Headline1 = { fg = default.peachRed, bg = "#1c0519" },
-    Headline2 = { fg = default.surimiOrange, bg = "#151F2D" },
-    Headline3 = { fg = default.carpYellow, bg = default.sumiInk3 },
     ["@markup.heading.1"] = {
       fg = default.peachRed,
       bold = true,

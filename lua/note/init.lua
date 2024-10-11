@@ -4,21 +4,6 @@ pack("dhruvasagar/vim-table-mode", {
   cmd = "TableModeToggle",
 })
 
-pack("lukas-reineke/headlines.nvim", {
-  ft = { "org", "markdown" },
-  config = function()
-    require("headlines").setup({
-      markdown = {
-        bullets = { "", "◉", "◎", "○" },
-        headline_highlights = { "Headline1", "Headline2", "Headline3" },
-      },
-      org = {
-        headline_highlights = { "Headline1", "Headline2", "Headline3" },
-      },
-    })
-  end,
-})
-
 pack("epwalsh/obsidian.nvim", {
   version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
