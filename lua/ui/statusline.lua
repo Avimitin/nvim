@@ -150,45 +150,6 @@ vim.api.nvim_create_autocmd("User", {
 
 insert_space_on_left()
 
-insert_left({
-  RecordingMsg = {
-    provider = require("noice").api.statusline.mode.get,
-    cond = require("noice").api.statusline.mode.has,
-    highlight = { colors.lightgrey, colors.bg },
-  },
-})
-
-insert_space_on_left()
-
-local msg_context = {
-  content = "",
-  last_t = os.time(),
-}
-insert_left({
-  Message = {
-    provider = function()
-      local msg = require("noice").api.statusline.message.get()
-      if msg and #msg > 30 then
-        msg = msg:sub(0, 27) .. "..."
-      end
-      if msg == msg_context.content then
-        if os.time() - msg_context.last_t >= 10 then
-          return " "
-        end
-        return msg
-      end
-
-      msg_context.content = msg
-      msg_context.last_t = os.time()
-      return msg
-    end,
-    cond = require("noice").api.statusline.mode.has() and checkwidth(),
-    highlight = { colors.lightgrey, colors.bg },
-  },
-})
-
-insert_space_on_left()
-
 insert_right({
   DiagnosticError = {
     provider = "DiagnosticError",
@@ -219,41 +180,8 @@ insert_right({
 })
 
 insert_right({
-  GetLspClient = {
-    provider = function()
-      if vim.o.columns < 120 then
-        return ""
-      end
-
-      local msg = ""
-
-      local buf_ft = vim.o.filetype
-      local clients = vim.lsp.get_active_clients({ bufnr = 0 })
-      if next(clients) == nil then
-        return msg
-      end
-
-      msg = require("galaxyline.provider_fileinfo").get_file_icon()
-      local progress = vim.lsp.status()
-      for _, client in ipairs(clients) do
-        local filetypes = client.config.filetypes
-        -- NOTE: for fuck sake, when can I have continue keyword instead of nesting for loop in Lua
-        if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-          msg = msg .. client.name
-
-          if progress and #progress ~= 0 and progress ~= "" then
-            -- This one doesn't look great in IBMPlex Mono font
-            --local spinners = { "◜ ", "◠ ", "◝ ", "◞ ", "◡ ", "◟ " }
-            local spinners = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
-            local ms = vim.loop.hrtime() / 1000000
-            local frame = math.floor(ms / 120) % #spinners
-            msg = msg .. " " .. string.format("%s", spinners[frame + 1])
-          end
-        end
-      end
-
-      return msg
-    end,
+  FileIcon = {
+    provider = "FileIcon",
     highlight = {
       require("galaxyline.provider_fileinfo").get_file_icon_color,
       colors.bg,
@@ -261,12 +189,14 @@ insert_right({
   },
 })
 
--- galaxyline have rough handle of component specific events, and it is not active now, so I have to add this workaround to fix it myself
-vim.api.nvim_create_autocmd("LspProgress", {
-  desc = "Reload galaxyline on LspProgress event",
-  callback = function()
-    require("galaxyline").load_galaxyline()
-  end,
+insert_right({
+  GetLspClient = {
+    provider = "GetLspClient",
+    highlight = {
+      require("galaxyline.provider_fileinfo").get_file_icon_color,
+      colors.bg,
+    },
+  },
 })
 
 insert_space_on_right()

@@ -84,9 +84,6 @@ local options = {
   foldenable = true,
   formatoptions = "qj",
   hidden = true,
-  -- command line line-height property, set it to 0 to gain
-  -- more compat UI
-  ch = 0,
   -- options to truncate hit-enter prompts causesd by file message
   -- 1. "a": Use all abbreviations, such as truncate "Modified" to "[+]"
   -- 2. "T": Truncate file message in the middle if it is too long

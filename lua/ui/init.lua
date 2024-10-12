@@ -55,14 +55,10 @@ register("lukas-reineke/indent-blankline.nvim", {
 })
 
 -- Notification UI
-register("rcarriga/nvim-notify", {
-  event = "UIEnter",
+register("j-hui/fidget.nvim", {
   config = function()
-    require("notify").setup({
-      timeout = 2000,
-      top_down = false,
-    })
-    vim.notify = require("notify")
+    require("fidget").setup({})
+    vim.notify = require("fidget").notify
   end,
 })
 
@@ -117,76 +113,6 @@ register("stevearc/dressing.nvim", {
       })
       return vim.ui.input(...)
     end
-  end,
-})
-
-register("folke/noice.nvim", {
-  event = "VeryLazy",
-  keys = {
-    { "<leader>no", vim.cmd.Noice, desc = "Open Noice notification panel" },
-  },
-  config = function()
-    require("noice").setup({
-      lsp = {
-        progress = {
-          -- Use my custom statusline display
-          enabled = false,
-        },
-        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,
-        },
-      },
-      -- you can enable a preset for easier configuration
-      presets = {
-        bottom_search = false, -- use a classic bottom cmdline for search
-        command_palette = true, -- position the cmdline and popupmenu together
-        long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = false, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = false, -- add a border to hover docs and signature help
-      },
-      views = {
-        hover = {
-          position = {
-            row = 2,
-            col = 2,
-          },
-          border = {
-            style = "none",
-            padding = { 1, 2 },
-          },
-          filter_options = {},
-          win_options = {
-            winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
-          },
-        },
-        cmdline_popup = {
-          position = {
-            row = "50%",
-            col = "50%",
-          },
-          border = {
-            style = "none",
-            padding = { 1, 2 },
-          },
-          filter_options = {},
-          win_options = {
-            winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
-          },
-        },
-      },
-      routes = {
-        {
-          filter = {
-            event = "msg_show",
-            kind = "",
-          },
-          opts = { skip = true },
-        },
-      },
-    })
   end,
 })
 
