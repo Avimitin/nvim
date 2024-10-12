@@ -9,7 +9,6 @@ local function collect_plugins()
     "completion",
     "git",
     "lang",
-    "note",
     "tools",
     "treesitter",
     "ui",

@@ -366,3 +366,7 @@ register("ghillb/cybu.nvim", {
     })
   end,
 })
+
+register("dhruvasagar/vim-table-mode", {
+  cmd = "TableModeToggle",
+})

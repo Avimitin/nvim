@@ -88,7 +88,6 @@ Project Structure
     * `git/`: plugin and configuration for using git in Neovim
     * `lang/`: plugins and configuration for using LSP server and get diagnostic in Neovim
     * `libs/`: functions that I don't want to write twice
-    * `note/`: markdown and neorg support for neovim
     * `tools/`: miscellaneous plugins that can enhance editing experience
     * `treesitter/`: plugins for text object highlight and editing
     * `ui/`: plugins for decorating the neovim
