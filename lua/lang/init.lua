@@ -63,10 +63,9 @@ register("stevearc/conform.nvim", {
     require("conform").setup({
       formatters_by_ft = {
         lua = { "stylua" },
-        -- Use a sub-list to run only the first available formatter
-        javascript = { { "prettierd", "prettier" } },
-        json = { { "prettierd", "prettier" } },
-        typescript = { { "prettierd", "prettier" } },
+        javascript = { "prettierd", "prettier", stop_after_first = true },
+        json = { "prettierd", "prettier", stop_after_first = true },
+        typescript = { "prettierd", "prettier", stop_after_first = true },
         nix = { "nixpkgs_fmt" },
         haskell = { "fourmolu" },
         python = { "black" },
