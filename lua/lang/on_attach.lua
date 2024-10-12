@@ -20,12 +20,10 @@ utils.setup_keymaps = function(_, bufnr)
     { "gI", telescope("lsp_implementations"), desc = "[LSP] Search and goto `implementations`" },
     { "gT", telescope("lsp_type_definitions"), desc = "[LSP] Search and goto `type definition`" },
 
-    { "<leader>c", group = "Code Action" },
     -- <leader>cf: code format, define in conform.nvim module at lang/init.lua
     { "<leader>ca", vim.lsp.buf.code_action, desc = "[LSP] Open code actions" },
     { "<leader>cr", vim.lsp.codelens.run, desc = "[LSP] Run codelens at current line" },
 
-    { "<leader>d", group = "Code Diagnostic" },
     { "<leader>do", vim.diagnostic.open_float, desc = "[LSP] Open floating list" },
     { "<leader>dq", vim.diagnostic.setqflist, desc = "[LSP] Open quickfix list" },
 

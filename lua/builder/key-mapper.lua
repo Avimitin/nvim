@@ -3,11 +3,6 @@
 -- is no more under maintain, we can still keep compatibiltity and replace implementation here.
 
 local export = {}
-local ok, wk = pcall(require, "which-key")
-local use_which_key = true
-if not ok then
-  use_which_key = false
-end
 
 local function unwrap_options(original)
   local default = {
@@ -20,12 +15,11 @@ local function unwrap_options(original)
 end
 
 local function unwrap_keymaps(mappings)
-  local lhs = mappings[1]
-  local rhs = mappings[2]
-  mappings[1] = nil
-  mappings[2] = nil
+  local copy = vim.tbl_deep_extend("force", {}, mappings)
+  copy[1] = nil
+  copy[2] = nil
 
-  return lhs, rhs, unwrap_options(mappings)
+  return mappings[1], mappings[2], unwrap_options(copy)
 end
 
 local function check(mappings)
@@ -33,11 +27,12 @@ local function check(mappings)
     vim.notify(msg, vim.log.levels.WARN)
   end
   if not mappings or #mappings == 0 then
-    warn("Null mappings given, please check config")
+    local is_buffer_map = mappings.buffer ~= nil and "true" or "false"
+    warn("Null mappings given, please check config: is_buffer_map=" .. is_buffer_map)
     return false
   end
   if #mappings < 2 then
-    warn("Only one key mapping is given")
+    warn("Only one key mapping is given: " .. mappings[1])
     return false
   end
   if #mappings > 2 then
@@ -78,19 +73,8 @@ function export.map(modes, mappings)
   end
 
   for _, mode in ipairs(modes) do
-    if use_which_key then
-      mappings.mode = mode
-
-      wk.add(mappings)
-      goto continue
-    end
-
-    if not use_which_key and mappings.group then
-      goto continue
-    end
-
     if type(mappings[1]) == "string" then
-      if not check(mappings[1]) then
+      if not check(mappings) then
         return false
       end
 

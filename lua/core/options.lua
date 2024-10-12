@@ -63,7 +63,7 @@ local options = {
   -- don't show the "--VISUAL--" "--INSERT--" text
   showmode = false,
   -- show chars, selected block in visual mode
-  showcmd = true,
+  showcmd = false,
   -- auto completion on command
   wildmenu = true,
   -- ignore case when searching and only on searching

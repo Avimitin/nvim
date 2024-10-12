@@ -23,7 +23,6 @@ require("gitsigns").setup({
     local gs = package.loaded.gitsigns
 
     require("builder.key-mapper").bufmap(bufnr, "n", {
-      { "<leader>g", group = "Git" },
       { "<leader>gS", gs.stage_buffer, desc = "Stage buffer" },
       { "<leader>gu", gs.undo_stage_hunk, desc = "Undo stage hunk" },
       { "<leader>gR", gs.reset_buffer, desc = "Reset buffer" },
