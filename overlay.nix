@@ -28,7 +28,7 @@ final: prev:
     { name = "rust"; hash = "sha256-S01KCcPKrrlIuF0qCNZZMeLzbQsvQYo+VgohURpLVBo="; }
     { name = "proto"; hash = "sha256-eDnzT35wGxFzhcvy61d+1VG8ObB999mcakG3NNlrcck="; }
     { name = "scala"; hash = "sha256-nniAxqeolMHpA5GGN8y84QVrB/zls+GSKRVHtUDT22c="; }
-    { name = "nix"; hash = "sha256-QMCCYwX880gAe0A5ts8/Xq6JzegyBvd6r0+FefW6nCY="; }
+    { name = "nix"; hash = "sha256-bPMcTMr4oTolb0FQfRB+i6hnipn9cH2sjl4JD/+0kOs="; }
     { name = "vimdoc"; hash = "sha256-iYGUNG16O/ggEnuc3UGvoVU71pzYd+hMk1gVqSVRZUY="; }
     { name = "query"; hash = "sha256-LS4ZNUqdF8WJej27Udi57vJJgac8eth51mwHNCUKTTs="; }
     {
@@ -43,7 +43,7 @@ final: prev:
     }
     {
       name = "mlir";
-      hash = "sha256-+dtLVFORxFWtrbxopq/O6NxH6RW670/F48Xn26nbJkg=";
+      hash = "sha256-pXkvZAU/2hAjecVNI3wi6GDYFtp/0iAGwQWf+M4KZAk=";
       needs_generate = true;
     }
     { name = "yaml"; hash = "sha256-LcJOuP3ggn2AiosZbkxOFFASXfRrs3ytwrgX3/IdNrM="; }
