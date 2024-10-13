@@ -6,7 +6,6 @@ final: prev:
 
   treesitter-plugin-nightly = final.generate-nvim-treesitter-parsers [
     { name = "bash"; hash = "sha256-rEnP+u55Bi/SdhNbE/42iieC3Z2YxGJk8EvZQtboHr8="; }
-    { name = "beancount"; hash = "sha256-aqz7S2CEWyzuSgqbsD4ZRfkAMzXGX+HbISAQi8hGHAY="; }
     { name = "c"; hash = "sha256-LVHguDVidPIMeYFxJwjm6Awza9K7RNT9NjSIauKeApA="; }
     { name = "cpp"; hash = "sha256-LM7IWki2RYHvU5qoB8NzbJfhnwTfd23RIBWofgOBu/E="; }
     { name = "css"; hash = "sha256-V81a7x+UteR4MpzlSrh9MhDwFLVTTStsGISclwvT1Fg="; }
@@ -21,7 +20,8 @@ final: prev:
     { name = "typst"; hash = "sha256-w9ZOaH3SY151yQs1jDTymqS1jB4RlCxSvUbko3SpHlE="; }
     { name = "llvm"; hash = "sha256-3/WPq64L+L0ewbrbvihkeuLOCoS7XhiKQnFIwS3i4HY="; }
     { name = "lua"; hash = "sha256-angXXSWWgBaOaYC3jnLyhVoWU2RPPAeb/XNsIygcLzg="; }
-    { name = "org"; hash = "sha256-N/zlpv4oXVfjk+a/7vM0nAPsCCBMVvWN3oavPbPmKwk="; }
+    { name = "ocaml"; hash = "sha256-hHke8TgP+ypIbOrHJLDjBGpANYX03PJ4T1o+5K/Th0k="; srcRoot = "grammars/ocaml"; }
+    { name = "ocaml_interface"; hash = "sha256-hHke8TgP+ypIbOrHJLDjBGpANYX03PJ4T1o+5K/Th0k="; srcRoot = "grammars/interface"; }
     { name = "regex"; hash = "sha256-KaXH+rgL0hP4gjCayy7Sw8kSniPOwb6JKRZRXmwbE0I="; }
     { name = "ruby"; hash = "sha256-HPWoQjWKmAxzNO7AVhHrOSaF4p8zsHij7PasFuko86g="; }
     { name = "python"; hash = "sha256-p7/qmxP8jdGPDDYRPmmO0gzzLqYl90GHi7N9oFwS4SM="; }
