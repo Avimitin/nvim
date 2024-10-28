@@ -17,13 +17,17 @@ local colors = {
   lightgrey = "#5a5a72",
 }
 
-local checkwidth = function()
+if vim.g.colors_name == "mellifluous" then
+  colors.bg = "#282724"
+end
+
+--[[ local checkwidth = function()
   local squeeze_width = vim.fn.winwidth(0) / 2
   if squeeze_width > 30 then
     return true
   end
   return false
-end
+end ]]
 
 --[[ local buffer_not_empty = function()
   if vim.fn.empty(vim.fn.expand("%:t")) ~= 1 then
