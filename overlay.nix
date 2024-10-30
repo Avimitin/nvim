@@ -6,7 +6,7 @@ final: prev:
 
   treesitter-plugin-nightly = final.generate-nvim-treesitter-parsers [
     { name = "bash"; hash = "sha256-FEJtt+wHOj10lo17CHKiGqjyuY6qcfmOk5LWccaG8pY="; }
-    { name = "c"; hash = "sha256-TULONMWAvbvz02Ng3EUlbB0QJFfxCFgY5UOxZlaw090="; }
+    { name = "c"; hash = "sha256-Nxs5e61F72OPZOQQdN6lMeECIVFfnR1vMBkaNOWWTY0="; }
     { name = "cpp"; hash = "sha256-/WmK292MwOrBEmuHkqFVwiJCZ/I0ZKlIoN85dNKBgu4="; }
     { name = "css"; hash = "sha256-cNI01V03nmkkhwRAOb1rrWCf6oHnO1jBE0QJUFIfc3c="; }
     { name = "comment"; hash = "sha256-XSkreGkg8yhTDPBPU2yZ8apXcEbNJ0csjv5xnp9vvwQ="; }
