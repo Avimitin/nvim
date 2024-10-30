@@ -8,24 +8,6 @@ register("rebelot/kanagawa.nvim", {
   end,
 })
 
-register("ramojus/mellifluous.nvim", {
-  lazy = true,
-  config = function()
-    require("mellifluous").setup({
-      flat_background = {
-        line_numbers = true,
-        floating_windows = false,
-        file_tree = true,
-        cursor_line_number = true,
-      },
-    })
-  end,
-})
-
-register("projekt0n/github-nvim-theme", {
-  lazy = true,
-})
-
 --- List of nerd-font icons
 register("kyazdani42/nvim-web-devicons", {
   lazy = true,

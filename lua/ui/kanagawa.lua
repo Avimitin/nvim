@@ -1,37 +1,19 @@
-vim.opt.background = "dark"
-
-local enable_transparent = false
-if enable_transparent then
-  vim.g.neovide_transparency = 0.8
-end
-
 local function override(colors)
   local default = colors.palette
   local theme = colors.theme
 
   local overrides = {
-    CursorLine = { bg = "#1b1b26" },
-
-    Normal = { bg = "#101017", fg = default.fujiWhite },
-    NormalFloat = { bg = "#1f1f2c" },
-    BufferManagerBorder = { bg = "#1f1f2c", fg = "#1f1f2c" },
-    FloatTitle = { fg = "#D3C6AA", bg = "#5C3F4F", bold = true },
-    FloatBorder = { link = "NormalFloat" },
+    -- CursorLine = { bg = "#1b1b26" },
+    --
+    -- Normal = { bg = "#101017", fg = default.fujiWhite },
+    -- NormalFloat = { bg = "#1f1f2c" },
+    -- BufferManagerBorder = { bg = "#1f1f2c", fg = "#1f1f2c" },
+    -- FloatTitle = { fg = "#D3C6AA", bg = "#5C3F4F", bold = true },
+    -- FloatBorder = { link = "NormalFloat" },
 
     Pmenu = { bg = default.sumiInk3 },
     CmpDocumentation = { link = "Pmenu" },
     CmpItemKindField = { fg = default.surimiOrange },
-
-    LspReferenceWrite = { link = "LspReferenceText" },
-    LspReferenceRead = { link = "LspReferenceText" },
-    LspReferenceText = { fg = "None", bg = "None", bold = true },
-
-    DiagnosticVirtualTextWarn = { fg = "#b7a37d" },
-    DiagnosticVirtualTextInfo = { fg = "#6085b8" },
-    DiagnosticVirtualTextError = { fg = "#af6b79" },
-    DiagnosticVirtualTextHint = { fg = "#738a6a" },
-
-    HighLightLineMatches = { bg = default.winterYellow },
 
     TelescopePromptNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
     TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
@@ -43,15 +25,14 @@ local function override(colors)
     TelescopeResultsTitle = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
     TelescopeTitle = { fg = theme.ui.special, bold = true },
 
-    WinSeparator = { fg = default.sumiInk4 },
-
-    CodeBlock = { bg = default.sumiInk1 },
     ["@markup.heading.1"] = {
       fg = default.peachRed,
+      bg = default.winterRed,
       bold = true,
     },
     ["@markup.heading.2"] = {
-      fg = default.surimiOrange,
+      fg = default.roninYellow,
+      bg = default.winterYellow,
       bold = true,
     },
     ["@markup.heading.3"] = {
@@ -67,10 +48,6 @@ local function override(colors)
       italic = true,
     },
   }
-
-  if enable_transparent then
-    overrides["Normal"] = nil
-  end
 
   return overrides
 end
@@ -91,5 +68,4 @@ require("kanagawa").setup({
     dark = "wave",
     light = "lotus",
   },
-  transparent = enable_transparent,
 })
