@@ -2,7 +2,7 @@ local gl = require("galaxyline")
 local gls = gl.section
 
 local colors = {
-  bg = "#16161D",
+  bg = "#1a1a23",
   fg = "#b2b2b9",
   black = "#191919",
   yellow = "#E5C07B",
@@ -16,10 +16,6 @@ local colors = {
   red = "#D54E53",
   lightgrey = "#5a5a72",
 }
-
-if vim.g.colors_name == "mellifluous" then
-  colors.bg = "#282724"
-end
 
 --[[ local checkwidth = function()
   local squeeze_width = vim.fn.winwidth(0) / 2
