@@ -58,6 +58,7 @@ register("stevearc/conform.nvim", {
     "python",
     "rust",
     "scala",
+    "ocaml",
   },
   config = function()
     require("conform").setup({
@@ -70,6 +71,7 @@ register("stevearc/conform.nvim", {
         haskell = { "fourmolu" },
         python = { "black" },
         rust = { "rustfmt" },
+        ocaml = { "ocamlformat" },
       },
       format_on_save = function(bufnr)
         -- Avoid text lock for long time
