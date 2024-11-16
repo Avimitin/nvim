@@ -17,12 +17,10 @@ local function override(colors)
 
     ["@markup.heading.1"] = {
       fg = default.peachRed,
-      bg = default.winterRed,
       bold = true,
     },
     ["@markup.heading.2"] = {
       fg = default.roninYellow,
-      bg = default.winterYellow,
       bold = true,
     },
     ["@markup.heading.3"] = {
