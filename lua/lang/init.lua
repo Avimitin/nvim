@@ -7,25 +7,6 @@ register("neovim/nvim-lspconfig", {
   end,
 })
 
--- Cargo.toml manager
-register("saecki/crates.nvim", {
-  event = "BufRead Cargo.toml",
-  config = function()
-    require("crates").setup({
-      popup = {
-        autofocus = true,
-        border = "single",
-      },
-    })
-
-    require("cmp").setup.buffer({
-      sources = {
-        { name = "crates" },
-      },
-    })
-  end,
-})
-
 register("numToStr/Comment.nvim", {
   config = function()
     require("Comment").setup({})

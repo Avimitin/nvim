@@ -25,9 +25,9 @@ final: prev:
     { name = "regex"; hash = "sha256-3XENXjzQjtdzScKZLk3vtnNfOMrqKYfE9ZYgDxye1gk="; }
     { name = "ruby"; hash = "sha256-5SDUzaKAXbgrWkTshLoEjjDZF3CFG0oXNJDg1F5MtVU="; }
     { name = "python"; hash = "sha256-dyPGzj5WnXX0dk8FrooXfq4JAeEfRqVZjFeUxWBpvx0="; }
-    { name = "rust"; hash = "sha256-EJxbc82EzBA7RhDyusebl7sst62UCsSuKbqIplzQhBE="; }
+    { name = "rust"; hash = "sha256-8joGBf/DPZAdj9ClSGD8+oRaEMBJiGaGgUaXq+ukUqM="; }
     { name = "proto"; hash = "sha256-eDnzT35wGxFzhcvy61d+1VG8ObB999mcakG3NNlrcck="; }
-    { name = "scala"; hash = "sha256-ah6Ik7KtMBIEu4/5Jqug8xQLzZ2SOOV5uAZEf1XMgaA="; }
+    { name = "scala"; hash = "sha256-CqFEerDjRwtLNsXgGszb9ziDcU1rrVOm9jmtP1CJoxk="; }
     { name = "nix"; hash = "sha256-7TPGrswXPyGZZjq+nMLmvn+Lffcntvldhj4I9YqN3s8="; }
     { name = "vimdoc"; hash = "sha256-zcUVFK2CCGiHk7jfx2QwXmjOAApBnM0Q9HyMMiDhCHU="; }
     { name = "query"; hash = "sha256-zBhYS12/tLp8lA8UW6kzDnH2nXeCfGrcW2pYynvj+2Y="; }
