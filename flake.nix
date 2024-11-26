@@ -19,5 +19,12 @@
       {
         formatter = pkgs.nixpkgs-fmt;
         legacyPackages = pkgs;
+        devShells.default = pkgs.mkShell {
+          nativeBuildInputs = with pkgs.haskellPackages; [
+            pkgs.ghc-for-ts-plugins
+            fourmolu
+            haskell-language-server
+          ];
+        };
       });
 }

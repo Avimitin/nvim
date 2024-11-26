@@ -38,6 +38,7 @@ setup("ccls", {
 setup("hls", {
   settings = {
     haskell = {
+      formattingProvider = "fourmolu",
       plugin = {
         rename = {
           config = {

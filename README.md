@@ -252,6 +252,6 @@ About treesitter bumping
 - Remove hash in ./nix/nvim-treesitter-lock-file.nix
 - Run `nix build '.#neovim-nightly'`
 - Update hash
-- Run `nix run '.#ruby' ./nix/update_ts_parser.rb`
+- Run `./bump_treesitter.hs`
 - Run `nix build '.#neovim-nightly'`
 

@@ -43,7 +43,7 @@ final: prev:
     }
     {
       name = "mlir";
-      hash = "sha256-G5/ap/W8bSVtYGrnJA7l243Gf3rLdMr64qlZ8eqSjWE=";
+      hash = "sha256-zfG2YBN2Rc9HMjhdeijxQ3jASt67YoypdJj84cTgvRI=";
       needs_generate = true;
     }
     { name = "yaml"; hash = "sha256-LcJOuP3ggn2AiosZbkxOFFASXfRrs3ytwrgX3/IdNrM="; }
@@ -57,4 +57,9 @@ final: prev:
   neovim-nightly = final.wrapNeovim final.neovim-nightly-bin {
     extraMakeWrapperArgs = '' '--add-flags' '--cmd "set rtp^=${final.treesitter-plugin-nightly}"' '';
   };
+
+  ghc-for-ts-plugins = final.haskellPackages.ghcWithPackages (pkgs: with pkgs; [
+    aeson
+    turtle
+  ]);
 }
