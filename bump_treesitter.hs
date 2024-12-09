@@ -5,12 +5,11 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 import qualified Control.Foldl as Fold
-import Data.Aeson
-import Data.ByteString.Builder
-import Data.Maybe (fromJust)
-import Data.Text (splitOn, strip)
-import Data.Text.Encoding
-import GHC.Generics
+import qualified Data.Aeson as Aeson
+import qualified Data.ByteString.Builder as ByteStringBuilder
+import qualified Data.Text as TextLib
+import qualified Data.Text.Encoding as TextEncoding
+import qualified GHC.Generics as GHCG
 import Turtle
 
 data DerivationInfo = DerivationInfo
@@ -18,15 +17,15 @@ data DerivationInfo = DerivationInfo
     , url :: Text
     , hash :: Text
     }
-    deriving (Generic, Show)
+    deriving (GHCG.Generic, Show)
 
-instance FromJSON DerivationInfo
+instance Aeson.FromJSON DerivationInfo
 
 procGetLastLine :: (MonadIO m) => Text -> [Text] -> m Text
 procGetLastLine cmd args = do
     output <- fold (inproc cmd args empty) Fold.last
     case output of
-        Just lastLine -> return $ strip $ lineToText lastLine
+        Just lastLine -> return $ TextLib.strip $ lineToText lastLine
         Nothing -> die ("command " <> cmd <> " doesn't print anything to stdout")
 
 getSrcInfo :: (MonadIO m) => a -> m [DerivationInfo]
@@ -40,7 +39,7 @@ getSrcInfo _ = do
             , "--apply"
             , "pkg: map (p: { name = p.name; url = p.src.url; hash = p.src.outputHash; }) pkg.paths"
             ]
-    case decode $ toLazyByteString $ encodeUtf8Builder rawJson of
+    case Aeson.decode $ ByteStringBuilder.toLazyByteString $ TextEncoding.encodeUtf8Builder rawJson of
         Just a -> return a
         Nothing -> die "fail parsing JSON value, invalid nix output"
 
