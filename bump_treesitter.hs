@@ -22,9 +22,17 @@ data DerivationInfo = DerivationInfo
 
 instance FromJSON DerivationInfo
 
+procGetLastLine :: (MonadIO m) => Text -> [Text] -> m Text
+procGetLastLine cmd args = do
+    output <- fold (inproc cmd args empty) Fold.last
+    case output of
+        Just lastLine -> return $ strip $ lineToText lastLine
+        Nothing -> die ("command " <> cmd <> " doesn't print anything to stdout")
+
+getSrcInfo :: (MonadIO m) => a -> m [DerivationInfo]
 getSrcInfo _ = do
     rawJson <-
-        inproc
+        procGetLastLine
             "nix"
             [ "eval"
             , "--json"
@@ -32,39 +40,36 @@ getSrcInfo _ = do
             , "--apply"
             , "pkg: map (p: { name = p.name; url = p.src.url; hash = p.src.outputHash; }) pkg.paths"
             ]
-            empty
-    let infos = decode $ toLazyByteString $ encodeUtf8Builder $ lineToText rawJson :: Maybe [DerivationInfo]
-     in case infos of
-            Just a -> return a
-            Nothing -> die "fail parsing JSON value, invalid nix output"
+    case decode $ toLazyByteString $ encodeUtf8Builder rawJson of
+        Just a -> return a
+        Nothing -> die "fail parsing JSON value, invalid nix output"
 
-nixPrefetch url = do
-    filepath <-
-        fold (inproc "nix-prefetch-url" [url, "--print-path", "--type", "sha256"] empty) Fold.last
-    case filepath of
-        Just path -> return $ lineToText path
-        Nothing -> die "nix-prefetch-url doesn't return expected path"
+nixPrefetch :: (MonadIO m) => Text -> m Text
+nixPrefetch url = procGetLastLine "nix-prefetch-url" [url, "--print-path", "--type", "sha256"]
 
-nixHash filepath = do
-    hash <-
-        fold
-            (inproc "nix" ["hash", "file", "--base16", "--type", "sha256", "--sri", filepath] empty)
-            Fold.last
-    return $ strip $ lineToText $ fromJust hash
+nixHash :: (MonadIO m) => Text -> m Text
+nixHash filepath = procGetLastLine "nix" ["hash", "file", "--base16", "--type", "sha256", "--sri", filepath]
 
+updateHash :: (MonadIO m) => Text -> Text -> Text -> m ()
 updateHash name old new = do
-    printf (s % " hash changed from " % s % " to " % s) name old new
+    printf (s % " hash changed from " % s % " to " % s % "\n") name old new
     inplace (text old *> return new) "overlay.nix"
 
-bump _ = do
-    echo "Fetching source info"
-    allInfos <- getSrcInfo ()
-    DerivationInfo{name = pname, url = purl, hash = oldHash} <- select allInfos
-    liftIO (print $ format ("Fetching " % s % " from url: " % s) pname purl)
+updateOverlay :: [DerivationInfo] -> Shell ()
+updateOverlay originDrvsInfo = do
+    DerivationInfo{name = pname, url = purl, hash = oldHash} <- select originDrvsInfo
+    printf ("Fetching " % s % " from url: " % s % "\n") pname purl
     filepath <- nixPrefetch purl
     newHash <- nixHash filepath
     if oldHash /= newHash
-        then sh (updateHash pname oldHash newHash)
+        then do updateHash pname oldHash newHash
         else empty
 
-main = sh $ bump ()
+bump :: (MonadIO io) => io ()
+bump = do
+    printf "Start bumping\n"
+    allInfos <- getSrcInfo ()
+    sh $ updateOverlay allInfos
+
+main :: IO ()
+main = bump
