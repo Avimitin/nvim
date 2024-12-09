@@ -24,29 +24,29 @@ final: prev:
     { name = "ocaml_interface"; hash = "sha256-PXEenvdqXgkyXqSKtxXtUEmw02mxyR1pnGkwGXlXC2U="; srcRoot = "grammars/interface"; }
     { name = "regex"; hash = "sha256-3XENXjzQjtdzScKZLk3vtnNfOMrqKYfE9ZYgDxye1gk="; }
     { name = "ruby"; hash = "sha256-5SDUzaKAXbgrWkTshLoEjjDZF3CFG0oXNJDg1F5MtVU="; }
-    { name = "python"; hash = "sha256-dyPGzj5WnXX0dk8FrooXfq4JAeEfRqVZjFeUxWBpvx0="; }
+    { name = "python"; hash = "sha256-mdKCVLxACWi23UTiqklfEdCRzWV9h9Qi/7uXAZtPUHs="; }
     { name = "rust"; hash = "sha256-8joGBf/DPZAdj9ClSGD8+oRaEMBJiGaGgUaXq+ukUqM="; }
     { name = "proto"; hash = "sha256-eDnzT35wGxFzhcvy61d+1VG8ObB999mcakG3NNlrcck="; }
-    { name = "scala"; hash = "sha256-CqFEerDjRwtLNsXgGszb9ziDcU1rrVOm9jmtP1CJoxk="; }
-    { name = "nix"; hash = "sha256-7TPGrswXPyGZZjq+nMLmvn+Lffcntvldhj4I9YqN3s8="; }
+    { name = "scala"; hash = "sha256-GgdsthebdMqYUJrUl3CpYuICmoxCHkC+GISRReQ8+s8="; }
+    { name = "nix"; hash = "sha256-QWo8bVG/0mqRlCmnx1iL3mqpIP8wE6YYd2Yr0IxTgY8="; }
     { name = "vimdoc"; hash = "sha256-zcUVFK2CCGiHk7jfx2QwXmjOAApBnM0Q9HyMMiDhCHU="; }
     { name = "query"; hash = "sha256-zBhYS12/tLp8lA8UW6kzDnH2nXeCfGrcW2pYynvj+2Y="; }
     {
       name = "markdown";
-      hash = "sha256-Nl+4nSkRrGjZKb7TD+J/MfdzhYja5t2pxrEIANWEKTI=";
+      hash = "sha256-sLV5sbCTVr1kaQnHdspqvjqP9uB3EgmFLheW3ZMBhnw=";
       srcRoot = "tree-sitter-markdown";
     }
     {
       name = "markdown_inline";
-      hash = "sha256-Nl+4nSkRrGjZKb7TD+J/MfdzhYja5t2pxrEIANWEKTI=";
+      hash = "sha256-sLV5sbCTVr1kaQnHdspqvjqP9uB3EgmFLheW3ZMBhnw=";
       srcRoot = "tree-sitter-markdown-inline";
     }
     {
       name = "mlir";
-      hash = "sha256-zfG2YBN2Rc9HMjhdeijxQ3jASt67YoypdJj84cTgvRI=";
+      hash = "sha256-hX0p5WUJisdVtM6gRq6B86xYn/klQPnNQp0L3RMtk7E=";
       needs_generate = true;
     }
-    { name = "yaml"; hash = "sha256-LcJOuP3ggn2AiosZbkxOFFASXfRrs3ytwrgX3/IdNrM="; }
+    { name = "yaml"; hash = "sha256-8z/jqz2XZ9dJgZQigki7TS0UYhSQGpcY84IE4B0HStQ="; }
     { name = "zig"; hash = "sha256-y9fmepjJ0tfk0o4uh/SWViXYZHlb9bRiQb+Dn6rpXyw="; }
   ];
 
