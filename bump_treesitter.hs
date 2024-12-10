@@ -34,7 +34,6 @@ instance Aeson.FromJSON DerivationInfo
 procGetStdout :: Text -> [Text] -> IO Text
 procGetStdout cmd args = do
     (exitCode, stdout, stderr) <- procStrictWithErr cmd args empty
-    output <- fold (inproc cmd args empty) Fold.last
     case exitCode of
         ExitSuccess -> return $ Data.Text.strip stdout
         ExitFailure code ->
