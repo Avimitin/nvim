@@ -73,11 +73,12 @@ updateHash chan name old new = do
     liftIO $ writeChan chan $ Just (name, old, new)
 
 updateHashFromChan :: Chan NewHashInfo -> IO ()
-updateHashFromChan chan = forever $ do
+updateHashFromChan chan = do
     msg <- readChan chan
     case msg of
         Just (name, old, new) -> do
             inplace (text old *> return new) "overlay.nix"
+            updateHashFromChan chan
         Nothing -> do
             TIO.putStrLn "Bye!"
             return ()
