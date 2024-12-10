@@ -37,7 +37,7 @@ procGetStdout cmd args = do
     case exitCode of
         ExitSuccess -> return $ Data.Text.strip stdout
         ExitFailure code ->
-            die $ "command " <> cmd <> " fail with exit code " <> repr code <> ", stderr: " <> stderr <> "\n"
+            die $ "command " <> cmd <> " fail with exit code " <> repr code <> ", stderr: " <> stderr
 
 getSrcInfo :: a -> IO [DerivationInfo]
 getSrcInfo _ = do
@@ -54,7 +54,7 @@ getSrcInfo _ = do
         Data.ByteString.Builder.toLazyByteString $
             Data.Text.Encoding.encodeUtf8Builder rawJson of
         Just a -> return a
-        Nothing -> die "fail parsing JSON value, invalid nix output\n"
+        Nothing -> die "fail parsing JSON value, invalid nix output"
 
 nixPrefetch :: Text -> IO Text
 nixPrefetch url = do
