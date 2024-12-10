@@ -4,34 +4,45 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
+import qualified Control.Concurrent.Async
+import Control.Concurrent.Chan (Chan, newChan, readChan, writeChan)
 import qualified Control.Foldl as Fold
+import qualified Control.Monad (when)
 import qualified Data.Aeson as Aeson
-import qualified Data.ByteString.Builder as ByteStringBuilder
-import qualified Data.Text as TextLib
-import qualified Data.Text.Encoding as TextEncoding
-import qualified GHC.Generics as GHCG
+import qualified Data.ByteString.Builder
+import qualified Data.Text
+import qualified Data.Text.Encoding
+import qualified GHC.Generics
+import qualified System.IO
 import Turtle
+
+{- | This wrapped in Maybe because I am using Channel based IO for read and write file.
+     A `Nothing` constructor could help us exit the dangling updater when finish.
+-}
+type NewHashInfo = Maybe (Text, Text, Text)
 
 data DerivationInfo = DerivationInfo
     { name :: Text
     , url :: Text
     , hash :: Text
     }
-    deriving (GHCG.Generic, Show)
+    deriving (GHC.Generics.Generic, Show)
 
 instance Aeson.FromJSON DerivationInfo
 
-procGetLastLine :: (MonadIO m) => Text -> [Text] -> m Text
-procGetLastLine cmd args = do
+procGetStdout :: Text -> [Text] -> IO Text
+procGetStdout cmd args = do
+    (exitCode, stdout, stderr) <- procStrictWithErr cmd args empty
     output <- fold (inproc cmd args empty) Fold.last
-    case output of
-        Just lastLine -> return $ TextLib.strip $ lineToText lastLine
-        Nothing -> die ("command " <> cmd <> " doesn't print anything to stdout")
+    case exitCode of
+        ExitSuccess -> return $ Data.Text.strip stdout
+        ExitFailure code ->
+            die $ "command " <> cmd <> " fail with exit code " <> repr code <> ", stderr: " <> stderr <> "\n"
 
-getSrcInfo :: (MonadIO m) => a -> m [DerivationInfo]
+getSrcInfo :: a -> IO [DerivationInfo]
 getSrcInfo _ = do
     rawJson <-
-        procGetLastLine
+        procGetStdout
             "nix"
             [ "eval"
             , "--json"
@@ -39,36 +50,73 @@ getSrcInfo _ = do
             , "--apply"
             , "pkg: map (p: { name = p.name; url = p.src.url; hash = p.src.outputHash; }) pkg.paths"
             ]
-    case Aeson.decode $ ByteStringBuilder.toLazyByteString $ TextEncoding.encodeUtf8Builder rawJson of
+    case Aeson.decode $
+        Data.ByteString.Builder.toLazyByteString $
+            Data.Text.Encoding.encodeUtf8Builder rawJson of
         Just a -> return a
-        Nothing -> die "fail parsing JSON value, invalid nix output"
+        Nothing -> die "fail parsing JSON value, invalid nix output\n"
 
-nixPrefetch :: (MonadIO m) => Text -> m Text
-nixPrefetch url = procGetLastLine "nix-prefetch-url" [url, "--print-path", "--type", "sha256"]
+nixPrefetch :: Text -> IO Text
+nixPrefetch url = do
+    echo $ "Exec nix-prefetch-url with url: " <> repr url
+    stdout <- procGetStdout "nix-prefetch-url" [url, "--print-path", "--type", "sha256"]
+    return $ last $ Data.Text.lines stdout
 
-nixHash :: (MonadIO m) => Text -> m Text
-nixHash filepath = procGetLastLine "nix" ["hash", "file", "--base16", "--type", "sha256", "--sri", filepath]
+nixHash :: Text -> IO Text
+nixHash filepath = do
+    echo $ "Exec nix hash with file: " <> repr filepath
+    procGetStdout "nix" ["hash", "file", "--base16", "--type", "sha256", "--sri", filepath]
 
-updateHash :: (MonadIO m) => Text -> Text -> Text -> m ()
-updateHash name old new = do
+updateHash :: Chan NewHashInfo -> Text -> Text -> Text -> IO ()
+updateHash chan name old new = do
     printf (s % " hash changed from " % s % " to " % s % "\n") name old new
-    inplace (text old *> return new) "overlay.nix"
+    liftIO $ writeChan chan $ Just (name, old, new)
+
+updateHashFromChan :: Chan NewHashInfo -> IO ()
+updateHashFromChan chan = forever $ do
+    msg <- readChan chan
+    case msg of
+        Just (name, old, new) -> do
+            inplace (text old *> return new) "overlay.nix"
+        Nothing -> do
+            echo "Bye!"
+            return ()
+
+tryUpdateHash :: Chan NewHashInfo -> DerivationInfo -> IO ()
+tryUpdateHash chan DerivationInfo{name = pname, url = purl, hash = oldHash} = do
+    filepath <- nixPrefetch purl
+    newHash <- nixHash filepath
+    echo $ "Examinate hash for " <> repr pname
+    when (oldHash /= newHash) $ do
+        updateHash chan pname oldHash newHash
+
+-- | return a list of async handle for task update
+updateOverlayWithAsync ::
+    Chan NewHashInfo -> [DerivationInfo] -> Shell (Control.Concurrent.Async.Async ())
+updateOverlayWithAsync chan originDrvsInfo = do
+    drv <- select originDrvsInfo
+    liftIO $ Control.Concurrent.Async.async $ tryUpdateHash chan drv
 
 updateOverlay :: [DerivationInfo] -> Shell ()
 updateOverlay originDrvsInfo = do
-    DerivationInfo{name = pname, url = purl, hash = oldHash} <- select originDrvsInfo
-    printf ("Fetching " % s % " from url: " % s % "\n") pname purl
-    filepath <- nixPrefetch purl
-    newHash <- nixHash filepath
-    if oldHash /= newHash
-        then do updateHash pname oldHash newHash
-        else empty
+    chan <-
+        liftIO
+            ( do
+                chan <- newChan :: IO (Chan NewHashInfo)
+                Control.Concurrent.Async.async $ updateHashFromChan chan
+                return chan
+            )
+    asyncHandles <- flip fold Fold.list $ updateOverlayWithAsync chan originDrvsInfo
+    mapM_ wait asyncHandles
+    liftIO $ writeChan chan Nothing
 
-bump :: (MonadIO io) => io ()
+bump :: IO ()
 bump = do
     printf "Start bumping\n"
     allInfos <- getSrcInfo ()
     sh $ updateOverlay allInfos
 
 main :: IO ()
-main = bump
+main = do
+    System.IO.hSetBuffering System.IO.stdout System.IO.LineBuffering
+    bump
