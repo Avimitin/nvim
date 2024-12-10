@@ -12,6 +12,7 @@ import qualified Data.Aeson as Aeson
 import qualified Data.ByteString.Builder
 import qualified Data.Text
 import qualified Data.Text.Encoding
+import qualified Data.Text.IO as TIO
 import qualified GHC.Generics
 import qualified System.IO
 import Turtle
@@ -58,18 +59,18 @@ getSrcInfo _ = do
 
 nixPrefetch :: Text -> IO Text
 nixPrefetch url = do
-    echo $ "Exec nix-prefetch-url with url: " <> repr url
+    TIO.putStrLn $ format ("Exec nix-prefetch-url with url: " % s) url
     stdout <- procGetStdout "nix-prefetch-url" [url, "--print-path", "--type", "sha256"]
     return $ last $ Data.Text.lines stdout
 
 nixHash :: Text -> IO Text
 nixHash filepath = do
-    echo $ "Exec nix hash with file: " <> repr filepath
+    TIO.putStrLn $ format ("Exec nix hash with file: " % s) filepath
     procGetStdout "nix" ["hash", "file", "--base16", "--type", "sha256", "--sri", filepath]
 
 updateHash :: Chan NewHashInfo -> Text -> Text -> Text -> IO ()
 updateHash chan name old new = do
-    printf (s % " hash changed from " % s % " to " % s % "\n") name old new
+    TIO.putStrLn $ format (s % " hash changed from " % s % " to " % s) name old new
     liftIO $ writeChan chan $ Just (name, old, new)
 
 updateHashFromChan :: Chan NewHashInfo -> IO ()
@@ -79,14 +80,14 @@ updateHashFromChan chan = forever $ do
         Just (name, old, new) -> do
             inplace (text old *> return new) "overlay.nix"
         Nothing -> do
-            echo "Bye!"
+            TIO.putStrLn "Bye!"
             return ()
 
 tryUpdateHash :: Chan NewHashInfo -> DerivationInfo -> IO ()
 tryUpdateHash chan DerivationInfo{name = pname, url = purl, hash = oldHash} = do
     filepath <- nixPrefetch purl
     newHash <- nixHash filepath
-    echo $ "Examinate hash for " <> repr pname
+    TIO.putStrLn $ format ("Examinate hash for " % s) pname
     when (oldHash /= newHash) $ do
         updateHash chan pname oldHash newHash
 
