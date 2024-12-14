@@ -3,11 +3,11 @@
 
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# OPTIONS_GHC -Wall #-}
 
 import qualified Control.Concurrent.Async
 import Control.Concurrent.Chan (Chan, newChan, readChan, writeChan)
 import qualified Control.Foldl as Fold
-import qualified Control.Monad (when)
 import qualified Data.Aeson as Aeson
 import qualified Data.ByteString.Builder
 import qualified Data.Text
@@ -33,11 +33,11 @@ instance Aeson.FromJSON DerivationInfo
 
 procGetStdout :: Text -> [Text] -> IO Text
 procGetStdout cmd args = do
-    (exitCode, stdout, stderr) <- procStrictWithErr cmd args empty
+    (exitCode, rawOut, rawErr) <- procStrictWithErr cmd args empty
     case exitCode of
-        ExitSuccess -> return $ Data.Text.strip stdout
+        ExitSuccess -> return $ Data.Text.strip rawOut
         ExitFailure code ->
-            die $ "command " <> cmd <> " fail with exit code " <> repr code <> ", stderr: " <> stderr
+            die $ "command " <> cmd <> " fail with exit code " <> repr code <> ", stderr: " <> rawErr
 
 getSrcInfo :: a -> IO [DerivationInfo]
 getSrcInfo _ = do
@@ -59,8 +59,8 @@ getSrcInfo _ = do
 nixPrefetch :: Text -> IO Text
 nixPrefetch url = do
     TIO.putStrLn $ format ("Exec nix-prefetch-url with url: " % s) url
-    stdout <- procGetStdout "nix-prefetch-url" [url, "--print-path", "--type", "sha256"]
-    return $ last $ Data.Text.lines stdout
+    rawOut <- procGetStdout "nix-prefetch-url" [url, "--print-path", "--type", "sha256"]
+    return $ last $ Data.Text.lines rawOut
 
 nixHash :: Text -> IO Text
 nixHash filepath = do
@@ -77,6 +77,7 @@ updateHashFromChan chan = do
     msg <- readChan chan
     case msg of
         Just (name, old, new) -> do
+            TIO.putStrLn $ format ("Replacing hash for derivation " % s) name
             inplace (text old *> return new) "overlay.nix"
             updateHashFromChan chan
         Nothing -> do
@@ -104,7 +105,7 @@ updateOverlay originDrvsInfo = do
         liftIO
             ( do
                 chan <- newChan :: IO (Chan NewHashInfo)
-                Control.Concurrent.Async.async $ updateHashFromChan chan
+                _ <- Control.Concurrent.Async.async $ updateHashFromChan chan
                 return chan
             )
     asyncHandles <- flip fold Fold.list $ updateOverlayWithAsync chan originDrvsInfo
