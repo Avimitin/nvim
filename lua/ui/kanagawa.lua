@@ -16,15 +16,15 @@ local function override(colors)
     CmpDocumentation = { link = "Pmenu" },
 
     ["@markup.heading.1"] = {
-      fg = default.peachRed,
+      fg = default.springGreen,
       bold = true,
     },
     ["@markup.heading.2"] = {
-      fg = default.roninYellow,
+      fg = default.waveAqua1,
       bold = true,
     },
     ["@markup.heading.3"] = {
-      fg = default.carpYellow,
+      fg = default.peachRed,
       bold = true,
     },
     ["@markup.heading"] = {
