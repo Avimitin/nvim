@@ -8,7 +8,7 @@ final: prev:
     { name = "bash"; hash = "sha256-MwNk0TdqMqcUZFdONZim2yUZNblcaZSF9Rg1+LRCofM="; }
     { name = "c"; hash = "sha256-FBELk9G2j30hds+lUAQyH4g6lA2zY1BhEA7lqbwLO4Q="; }
     { name = "cpp"; hash = "sha256-+YUH//H+skIC2EH8L+OJv5Go6a7l+5/N52oy5o+LWQ8="; }
-    { name = "css"; hash = "sha256-RbVqBuxXb7qPuGpT34Cn6FujpnNnAmeDsG8Y1hFf2Ms="; }
+    { name = "css"; hash = "sha256-8Lb2qDwZUIpXiN7GbiKgcVwgqcKDWSUeUAvPNfqzsdA="; }
     { name = "comment"; hash = "sha256-XSkreGkg8yhTDPBPU2yZ8apXcEbNJ0csjv5xnp9vvwQ="; }
     { name = "diff"; hash = "sha256-Q61DD6CX81M3npBflPE5P3glMdfCNB877juXFgKqu7Q="; }
     { name = "firrtl"; hash = "sha256-xrh8XlgcFz+Z1Rh7z1KZWV26RE65hVtIKjw9XPZaXuA="; }
@@ -20,17 +20,17 @@ final: prev:
     { name = "typst"; hash = "sha256-nUrndgD1wEfC3HNpTaj9xfYZi3fE9VoRf+etJc9oz8k="; }
     { name = "llvm"; hash = "sha256-3/WPq64L+L0ewbrbvihkeuLOCoS7XhiKQnFIwS3i4HY="; }
     { name = "lua"; hash = "sha256-bWW1MZQukBCTRGxBHXZY0vQ8MwFrft8GuNDatfPhYDI="; }
-    { name = "ocaml"; hash = "sha256-OIwLMzR80zy7g/UgfVXh3X/dVtquemHExVfHY7LNKzY="; srcRoot = "grammars/ocaml"; }
-    { name = "ocaml_interface"; hash = "sha256-OIwLMzR80zy7g/UgfVXh3X/dVtquemHExVfHY7LNKzY="; srcRoot = "grammars/interface"; }
+    { name = "ocaml"; hash = "sha256-3Z5qpoMk4sT0dLTQzTqV8QwkA6cs44VOi01RSh7Cx4M="; srcRoot = "grammars/ocaml"; }
+    { name = "ocaml_interface"; hash = "sha256-3Z5qpoMk4sT0dLTQzTqV8QwkA6cs44VOi01RSh7Cx4M="; srcRoot = "grammars/interface"; }
     { name = "regex"; hash = "sha256-HXzc5qQEhLZbnDUUXsq13S0NzopYg/t7le2YKqpSF54="; }
     { name = "ruby"; hash = "sha256-5SDUzaKAXbgrWkTshLoEjjDZF3CFG0oXNJDg1F5MtVU="; }
-    { name = "python"; hash = "sha256-KCRdSrhG3xEBMNIsXJQyePu7TZhQ0i+ru9Fe9gfkFMg="; }
+    { name = "python"; hash = "sha256-nIdYYLiTsmAe3o+A4ZGDfBkqcjyOPvu/Jvt4Q8FJuuQ="; }
     { name = "rust"; hash = "sha256-snBugAU0Cp7SCxEJmJ77MbUvNpztVeOJZUR6fLrV0JU="; }
     { name = "proto"; hash = "sha256-eDnzT35wGxFzhcvy61d+1VG8ObB999mcakG3NNlrcck="; }
     { name = "scala"; hash = "sha256-sfn34imRxJeev+JWP611X+94lF0YPBA042E8BVCy+IM="; }
-    { name = "nix"; hash = "sha256-QWo8bVG/0mqRlCmnx1iL3mqpIP8wE6YYd2Yr0IxTgY8="; }
+    { name = "nix"; hash = "sha256-uqL3VItyTsN0LXwI7DdVeZHlWSpkD+W94ZGVyl5xGlo="; }
     { name = "vimdoc"; hash = "sha256-zcUVFK2CCGiHk7jfx2QwXmjOAApBnM0Q9HyMMiDhCHU="; }
-    { name = "query"; hash = "sha256-zBhYS12/tLp8lA8UW6kzDnH2nXeCfGrcW2pYynvj+2Y="; }
+    { name = "query"; hash = "sha256-ZiOUv4h/pZtJvEmPPVs0X2vscm8oEQJ8aI/5hW6CV8s="; }
     {
       name = "markdown";
       hash = "sha256-A05oSxMZ9oMVGW/ampKMNxltgqG2ffPIWDTLbXeFM/o=";
@@ -43,7 +43,7 @@ final: prev:
     }
     {
       name = "mlir";
-      hash = "sha256-4Bde7dJgDdPkQrYBZ+bMfQKpGoqqB38dUcO9RijkfA4=";
+      hash = "sha256-Vfft3T1Neq4QlXaNI9Leo/j77PcRIKsj8FL03Ot+spM=";
       needs_generate = true;
     }
     { name = "yaml"; hash = "sha256-8z/jqz2XZ9dJgZQigki7TS0UYhSQGpcY84IE4B0HStQ="; }
