@@ -27,6 +27,14 @@ require("gitsigns").setup({
       { "<leader>gu", gs.undo_stage_hunk, desc = "Undo stage hunk" },
       { "<leader>gR", gs.reset_buffer, desc = "Reset buffer" },
       { "<leader>gp", gs.preview_hunk, desc = "Preview hunk" },
+      { "<leader>gq", gs.setqflist, desc = "Set qflist for hunk in current buffer" },
+      {
+        "<leader>gQ",
+        function()
+          gs.setqflist("all")
+        end,
+        desc = "Set qflist for all hunk",
+      },
       {
         "<leader>gB",
         function()
