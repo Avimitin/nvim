@@ -338,3 +338,32 @@ register("MeanderingProgrammer/render-markdown.nvim", {
     require("render-markdown").setup({})
   end,
 })
+
+register("hrsh7th/nvim-swm", {
+  keys = {
+    {
+      "<C-w>h",
+      function()
+        require("swm").h()
+      end,
+    },
+    {
+      "<C-w>j",
+      function()
+        require("swm").j()
+      end,
+    },
+    {
+      "<C-w>k",
+      function()
+        require("swm").k()
+      end,
+    },
+    {
+      "<C-w>l",
+      function()
+        require("swm").l()
+      end,
+    },
+  },
+})
