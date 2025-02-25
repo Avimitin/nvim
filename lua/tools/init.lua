@@ -1,19 +1,5 @@
 local register = require("pack").register
 
--- Auto-pairs key mappings
-register("hrsh7th/nvim-insx", {
-  event = "InsertEnter",
-  branch = "main",
-  config = function()
-    require("insx.preset.standard").setup()
-  end,
-})
-
--- Neovim API completion sources
-register("ii14/emmylua-nvim", {
-  lazy = true,
-})
-
 -- Neovim Library wrapper
 register("nvim-lua/plenary.nvim", {
   lazy = true,
@@ -120,14 +106,6 @@ register("nvim-telescope/telescope.nvim", {
       desc = "Find keyword",
     },
   },
-})
-
--- Quick select for text objects
-register("sustech-data/wildfire.nvim", {
-  keys = "<Enter>",
-  config = function()
-    require("wildfire").setup()
-  end,
 })
 
 -- Surround operation
@@ -255,24 +233,6 @@ register("folke/which-key.nvim", {
         align = "center",
       },
       icons = { mappings = false },
-    })
-  end,
-})
-
--- Split and Join
-register("Wansmer/treesj", {
-  keys = {
-    {
-      "J",
-      function()
-        require("treesj").toggle()
-      end,
-      desc = "Split or Join multiple line",
-    },
-  },
-  config = function()
-    require("treesj").setup({
-      use_default_keymaps = false,
     })
   end,
 })
