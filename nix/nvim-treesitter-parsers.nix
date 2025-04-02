@@ -1,4 +1,8 @@
-{ symlinkJoin, writeText, mkTreesitter }:
+{
+  symlinkJoin,
+  writeText,
+  mkTreesitter,
+}:
 parsersMetadata:
 
 symlinkJoin rec {

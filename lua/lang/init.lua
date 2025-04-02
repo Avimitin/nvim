@@ -48,7 +48,7 @@ register("stevearc/conform.nvim", {
         javascript = { "prettierd", "prettier", stop_after_first = true },
         json = { "prettierd", "prettier", stop_after_first = true },
         typescript = { "prettierd", "prettier", stop_after_first = true },
-        nix = { "nixpkgs_fmt" },
+        nix = { "nixfmt" },
         haskell = { "fourmolu" },
         python = { "black" },
         rust = { "rustfmt" },

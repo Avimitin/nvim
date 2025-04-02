@@ -4,20 +4,40 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+      treefmt-nix,
+    }:
     let
       overlay = import ./overlay.nix;
     in
-    { overlays.default = overlay; }
-    //
-    flake-utils.lib.eachDefaultSystem (system:
+    {
+      overlays.default = overlay;
+    }
+    // flake-utils.lib.eachDefaultSystem (
+      system:
       let
-        pkgs = import nixpkgs { overlays = [ overlay ]; inherit system; };
+        pkgs = import nixpkgs {
+          overlays = [ overlay ];
+          inherit system;
+        };
+        treefmtEval = treefmt-nix.lib.evalModule pkgs {
+          projectRootFile = "flake.nix";
+          settings.verbose = 1;
+          programs.nixfmt.enable = true;
+        };
       in
       {
-        formatter = pkgs.nixpkgs-fmt;
+        formatter = treefmtEval.config.build.wrapper;
         legacyPackages = pkgs;
         devShells.default = pkgs.mkShell {
           nativeBuildInputs = with pkgs.haskellPackages; [
@@ -26,5 +46,6 @@
             haskell-language-server
           ];
         };
-      });
+      }
+    );
 }

@@ -1,11 +1,13 @@
-{ stdenvNoCC, fetchFromGitHub, neovim }:
+{
+  stdenvNoCC,
+  fetchFromGitHub,
+  neovim,
+}:
 
 let
-  rev = with builtins;
-    (fromJSON (readFile ../lazy-lock.json))."nvim-treesitter".commit;
+  rev = with builtins; (fromJSON (readFile ../lazy-lock.json))."nvim-treesitter".commit;
 in
-stdenvNoCC.mkDerivation
-{
+stdenvNoCC.mkDerivation {
   name = "nvim-treesitter-lock-file-${rev}";
 
   src = fetchFromGitHub {

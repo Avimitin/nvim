@@ -1,6 +1,21 @@
-{ lib, stdenv, nodejs, tree-sitter, fetchNvimTsLockFile, fetchFromGitHub, runCommand, fetchurl, neovim }:
+{
+  lib,
+  stdenv,
+  nodejs,
+  tree-sitter,
+  fetchNvimTsLockFile,
+  fetchFromGitHub,
+  runCommand,
+  fetchurl,
+  neovim,
+}:
 
-{ name, hash, needs_generate ? false, srcRoot ? null }:
+{
+  name,
+  hash,
+  needs_generate ? false,
+  srcRoot ? null,
+}:
 let
   # Get parser information from nvim-treesitter's lockfile.json
   parsers-info = lib.importJSON "${fetchNvimTsLockFile}";
@@ -20,18 +35,29 @@ stdenv.mkDerivation {
   pname = "tree-sitter-${name}";
   inherit src version;
 
-  nativeBuildInputs = lib.optionals needs_generate [ nodejs tree-sitter ];
+  nativeBuildInputs = lib.optionals needs_generate [
+    nodejs
+    tree-sitter
+  ];
 
-  CFLAGS = [ "-Isrc" "-O2" ];
-  CXXFLAGS = [ "-Isrc" "-O2" ];
+  CFLAGS = [
+    "-Isrc"
+    "-O2"
+  ];
+  CXXFLAGS = [
+    "-Isrc"
+    "-O2"
+  ];
 
   stripDebugList = [ "parser" ];
 
-  configurePhase = lib.optionalString (srcRoot != null) ''
-    cd ${srcRoot}
-  '' + lib.optionalString needs_generate ''
-    tree-sitter generate
-  '';
+  configurePhase =
+    lib.optionalString (srcRoot != null) ''
+      cd ${srcRoot}
+    ''
+    + lib.optionalString needs_generate ''
+      tree-sitter generate
+    '';
 
   buildPhase = ''
     runHook preBuild
