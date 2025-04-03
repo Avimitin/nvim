@@ -1,0 +1,12 @@
+[nixpkgs]
+src.git = "https://github.com/NixOS/nixpkgs.git"
+src.branch = "nixpkgs-unstable"
+fetch.tarball = "https://github.com/NixOS/nixpkgs/archive/$ver.tar.gz"
+
+[flake-utils]
+src.git = "https://github.com/numtide/flake-utils"
+fetch.tarball = "https://github.com/numtide/flake-utils/archive/$ver.tar.gz"
+
+[treefmt-nix]
+src.git = "https://github.com/numtide/treefmt-nix"
+fetch.tarball = "https://github.com/numtide/treefmt-nix/archive/$ver.tar.gz"

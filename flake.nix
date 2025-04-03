@@ -1,36 +1,53 @@
 {
   description = "Flakes for running this configuration";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
   outputs =
-    {
-      self,
-      nixpkgs,
-      flake-utils,
-      treefmt-nix,
-    }:
+    _:
     let
+      jsonToSrc =
+        file:
+        with builtins;
+        let
+          srcDefines = fromJSON (readFile file);
+        in
+        mapAttrs (
+          name: value:
+          fetchTarball {
+            inherit (value.src) url sha256;
+          }
+        ) srcDefines;
+      inputs = jsonToSrc ./flake-lock/generated.json;
       overlay = import ./overlay.nix;
     in
     {
       overlays.default = overlay;
+      neovimConfig =
+        let
+          lib = import "${inputs.nixpkgs}/lib";
+        in
+        with lib.fileset;
+        toSource {
+          root = ./.;
+          fileset = unions [
+            ./after
+            ./ftdetect
+            ./indent
+            ./lua
+            ./syntax
+            ./vsnip
+            ./init.lua
+            ./lazy-lock.json
+          ];
+        };
     }
-    // flake-utils.lib.eachDefaultSystem (
+    // (import inputs.flake-utils).eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs {
+        pkgs = import inputs.nixpkgs {
           overlays = [ overlay ];
           inherit system;
         };
-        treefmtEval = treefmt-nix.lib.evalModule pkgs {
+        treefmtEval = (import inputs.treefmt-nix).lib.evalModule pkgs {
           projectRootFile = "flake.nix";
           settings.verbose = 1;
           programs.nixfmt.enable = true;

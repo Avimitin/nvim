@@ -116,7 +116,7 @@ set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
   outputs = { self, nixpkgs, flake-utils, home-manager, my-neovim }: {
     homeConfiguration = home-manager.lib.homeManagerConfiguration {
       # import my overlay, it will add a new `neovim-nightly` derivation into your nixpkgs
-      pkgs = import nixpkgs { system = "x86_64-linux" overlays = [ my-neovim.overlays.default ];  };
+      pkgs = import nixpkgs { system = "x86_64-linux"; overlays = [ my-neovim.overlays.default ];  };
       modules = [
         ({ pkgs }: {
           # Then add the pre-bundled neovim into your home configuration
