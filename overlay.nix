@@ -64,7 +64,7 @@ final: prev: {
     }
     {
       name = "lua";
-      hash = "sha256-BZflEEBcfZ6rjpEDKKayOTq9T2wv/C1eopL3GSk6DnE=";
+      hash = "sha256-0gK6jswRs0lMIuGGgRwFnQAjZH3xSmATzC1cERLG000=";
     }
     {
       name = "ocaml";
@@ -98,7 +98,7 @@ final: prev: {
     }
     {
       name = "scala";
-      hash = "sha256-X4oKWnPFB0856NQM7TNoZhoWnDOo28xr5vV8/5nYmoM=";
+      hash = "sha256-iDxcht6pRtJc/MTg1CbF5x36pdZVgtZqWQCDigO4ymk=";
     }
     {
       name = "nix";
@@ -114,17 +114,17 @@ final: prev: {
     }
     {
       name = "markdown";
-      hash = "sha256-A05oSxMZ9oMVGW/ampKMNxltgqG2ffPIWDTLbXeFM/o=";
+      hash = "sha256-T6RAgjmBVn0uSG9KG4XBZ4Gt+YPAZqIhac/NcnPGebM=";
       srcRoot = "tree-sitter-markdown";
     }
     {
       name = "markdown_inline";
-      hash = "sha256-A05oSxMZ9oMVGW/ampKMNxltgqG2ffPIWDTLbXeFM/o=";
+      hash = "sha256-T6RAgjmBVn0uSG9KG4XBZ4Gt+YPAZqIhac/NcnPGebM=";
       srcRoot = "tree-sitter-markdown-inline";
     }
     {
       name = "mlir";
-      hash = "sha256-NQGxovvQ+Jcky8dvIGAZ6j0BtdLNHJmiyDBvYGV9I+w=";
+      hash = "sha256-sXYSc5+yD3odBVJQG0JTK9Nihe13oxSox6kzllq2jss=";
       needs_generate = true;
     }
     {
