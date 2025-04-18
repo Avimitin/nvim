@@ -1,5 +1,9 @@
 local register = require("pack").register
 
+register("projekt0n/github-nvim-theme", {
+  lazy = true,
+})
+
 -- Deep dark purple colorscheme
 register("rebelot/kanagawa.nvim", {
   lazy = true,
