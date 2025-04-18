@@ -48,7 +48,7 @@ getSrcInfo _ = do
             , "--json"
             , ".#treesitter-plugin-nightly"
             , "--apply"
-            , "pkg: map (p: { name = p.name; url = p.src.url; hash = p.src.outputHash; }) pkg.paths"
+            , "pkg: map (p: { name = p.name; url = p.src.url; hash = p.src.outputHash; }) pkg.plugins"
             ]
     case Aeson.decode $
         Data.ByteString.Builder.toLazyByteString $

@@ -5,10 +5,14 @@
 }:
 parsersMetadata:
 
+let
+  plugins = map mkTreesitter parsersMetadata;
+in
 symlinkJoin rec {
   name = "treesitter-parsers";
-  paths = map mkTreesitter parsersMetadata;
+  paths = plugins;
   passthru = {
+    inherit plugins;
     scriptPath = "/treesitter-parsers.lua";
   };
   postBuild = ''
