@@ -5,7 +5,3 @@ pack("lewis6991/gitsigns.nvim", {
     require("git.gitsigns")
   end,
 })
-
-pack("tpope/vim-fugitive", {
-  cmd = "Git",
-})

@@ -12,6 +12,17 @@ register("MunifTanjim/nui.nvim", {
 
 -- Use oil for main file management, use neo-tree for treestyle display only.
 register("stevearc/oil.nvim", {
+  cmd = { "Oil" },
+  keys = {
+    {
+      "_",
+      function()
+        require("oil").open(vim.fn.getcwd())
+      end,
+      desc = "Open cwd",
+    },
+    { "-", "<CMD>Oil<CR>", { desc = "Open parent directory" } },
+  },
   config = function()
     require("oil").setup({
       float = {
@@ -26,7 +37,6 @@ register("stevearc/oil.nvim", {
         show_hidden = true,
       },
     })
-    vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
   end,
 })
 
@@ -237,35 +247,9 @@ register("folke/which-key.nvim", {
   end,
 })
 
-local function gen_spider_keys()
-  local keys = { "w", "e", "b" }
-  local final = {}
-  for _, k in ipairs(keys) do
-    table.insert(final, {
-      k,
-      function()
-        require("spider").motion(k)
-      end,
-      desc = "Spider motion " .. k,
-    })
-  end
-  return final
-end
-register("chrisgrieser/nvim-spider", {
-  keys = gen_spider_keys(),
-  lazy = true,
-})
-
-register("kevinhwang91/nvim-bqf", {
+register("stevearc/quicker.nvim", {
   ft = "qf",
   config = function()
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "qf",
-      callback = function()
-        -- nvim-bqf doesn't have proper way to disable its ugly statusline
-        vim.wo.statusline = ""
-      end,
-    })
     require("galaxyline").load_galaxyline()
   end,
 })
@@ -329,41 +313,4 @@ register("ghillb/cybu.nvim", {
 
 register("dhruvasagar/vim-table-mode", {
   cmd = "TableModeToggle",
-})
-
-register("MeanderingProgrammer/render-markdown.nvim", {
-  dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
-  ft = "markdown",
-  config = function()
-    require("render-markdown").setup({})
-  end,
-})
-
-register("hrsh7th/nvim-swm", {
-  keys = {
-    {
-      "<C-w>h",
-      function()
-        require("swm").h()
-      end,
-    },
-    {
-      "<C-w>j",
-      function()
-        require("swm").j()
-      end,
-    },
-    {
-      "<C-w>k",
-      function()
-        require("swm").k()
-      end,
-    },
-    {
-      "<C-w>l",
-      function()
-        require("swm").l()
-      end,
-    },
-  },
 })
