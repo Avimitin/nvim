@@ -121,7 +121,6 @@ cmp.setup({
     { name = "nvim_lsp_signature_help" },
     { name = "vsnip" },
     { name = "path" },
-    { name = "orgmode" },
   },
   experimental = {
     ghost_text = true,
