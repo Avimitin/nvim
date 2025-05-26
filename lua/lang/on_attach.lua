@@ -69,7 +69,9 @@ utils.setup_all = function(client, bufnr)
   if client.server_capabilities.inlayHintProvider then
     -- Display after attached
     vim.defer_fn(function()
-      vim.lsp.inlay_hint.enable(true, { buffer = bufnr })
+      if vim.lsp.inlay_hint.is_enabled() then
+        vim.lsp.inlay_hint.enable(false)
+      end
     end, 1000)
   end
 
