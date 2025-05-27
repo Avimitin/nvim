@@ -251,6 +251,7 @@ register("folke/which-key.nvim", {
 register("stevearc/quicker.nvim", {
   ft = "qf",
   config = function()
+    require("quicker").setup()
     require("galaxyline").load_galaxyline()
   end,
 })

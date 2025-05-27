@@ -243,6 +243,7 @@ local BufferTypeMap = {
   ["minimap"] = "Minimap",
   ["neoterm"] = " NeoTerm",
   ["qf"] = " Quick Fix",
+  ["quickfix"] = " Quick Fix",
   ["tabman"] = "Tab Manager",
   ["tagbar"] = "Tagbar",
   ["toggleterm"] = " ToggleTerm",
