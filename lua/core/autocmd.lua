@@ -72,3 +72,21 @@ au({ "BufWinEnter" }, {
     vim.cmd('silent! normal! g`"zv')
   end,
 })
+
+-- only highlight when searching
+au("CmdlineEnter", {
+  callback = function()
+    local cmd = vim.v.event.cmdtype
+    if cmd == "/" or cmd == "?" then
+      vim.opt.hlsearch = true
+    end
+  end,
+})
+au("CmdlineLeave", {
+  callback = function()
+    local cmd = vim.v.event.cmdtype
+    if cmd == "/" or cmd == "?" then
+      vim.opt.hlsearch = false
+    end
+  end,
+})
