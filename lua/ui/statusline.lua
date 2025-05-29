@@ -17,6 +17,26 @@ local colors = {
   lightgrey = "#5a5a72",
 }
 
+local light_colors = {
+  bg = "#d6d6d6",
+  fg = "#191919",
+  black = "#191919",
+  yellow = "#191919",
+  cyan = "#191919",
+  dimblue = "#191919",
+  green = "#191919",
+  orange = "#191919",
+  purple = "#191919",
+  magenta = "#191919",
+  blue = "#191919",
+  red = "#191919",
+  lightgrey = "#191919",
+}
+
+if vim.o.background == "light" then
+  colors = vim.tbl_deep_extend("force", colors, light_colors)
+end
+
 --[[ local checkwidth = function()
   local squeeze_width = vim.fn.winwidth(0) / 2
   if squeeze_width > 30 then

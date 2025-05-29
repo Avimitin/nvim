@@ -1,6 +1,6 @@
 local register = require("pack").register
 
-register("projekt0n/github-nvim-theme", {
+register("yorickpeterse/nvim-grey", {
   lazy = true,
 })
 
