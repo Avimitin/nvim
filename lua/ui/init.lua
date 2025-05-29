@@ -1,9 +1,5 @@
 local register = require("pack").register
 
-register("yorickpeterse/nvim-grey", {
-  lazy = true,
-})
-
 -- Deep dark purple colorscheme
 register("rebelot/kanagawa.nvim", {
   lazy = true,
