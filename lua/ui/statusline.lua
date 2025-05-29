@@ -169,7 +169,6 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 insert_space_on_left()
-insert_space_on_left()
 
 insert_left({
   DiagnosticError = {
@@ -201,16 +200,6 @@ insert_left({
 })
 
 insert_space_on_left()
-
-insert_left({
-  FileIcon = {
-    provider = "FileIcon",
-    highlight = {
-      require("galaxyline.provider_fileinfo").get_file_icon_color,
-      colors.bg,
-    },
-  },
-})
 
 insert_left({
   GetLspClient = {
