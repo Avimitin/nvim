@@ -5,4 +5,5 @@ require("core")
 require("pack").setup()
 require("key-mapping")
 
+vim.o.background = "dark"
 vim.cmd.colorscheme("kanagawa")

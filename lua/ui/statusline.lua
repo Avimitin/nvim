@@ -145,8 +145,8 @@ insert_left({
       if vim_mode.is_line_leap then
         mode = "_LineLeap"
       end
-      vim.api.nvim_set_hl(0, "GalaxyViMode", { fg = vim_mode.color[mode], bg = colors.bg })
-      return "▊ " .. vim_mode.alias[mode]
+      vim.api.nvim_set_hl(0, "GalaxyViMode", { bg = vim_mode.color[mode], fg = colors.black })
+      return "   " .. vim_mode.alias[mode] .. "   "
     end,
     highlight = "GalaxyViMode",
   },
@@ -169,29 +169,30 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 insert_space_on_left()
+insert_space_on_left()
 
-insert_right({
+insert_left({
   DiagnosticError = {
     provider = "DiagnosticError",
     icon = "  ",
     highlight = { colors.red, colors.bg },
   },
 })
-insert_right({
+insert_left({
   DiagnosticWarn = {
     provider = "DiagnosticWarn",
     icon = "  ",
     highlight = { colors.yellow, colors.bg },
   },
 })
-insert_right({
+insert_left({
   DiagnosticHint = {
     provider = "DiagnosticHint",
     icon = "  ",
     highlight = { colors.dimblue, colors.bg },
   },
 })
-insert_right({
+insert_left({
   DiagnosticInfo = {
     provider = "DiagnosticInfo",
     icon = "  ",
@@ -199,7 +200,9 @@ insert_right({
   },
 })
 
-insert_right({
+insert_space_on_left()
+
+insert_left({
   FileIcon = {
     provider = "FileIcon",
     highlight = {
@@ -209,26 +212,17 @@ insert_right({
   },
 })
 
-insert_right({
+insert_left({
   GetLspClient = {
     provider = "GetLspClient",
     highlight = {
-      require("galaxyline.provider_fileinfo").get_file_icon_color,
+      colors.lightgrey,
       colors.bg,
     },
   },
 })
 
 insert_space_on_right()
-
-insert_right({
-  TextIcon = {
-    provider = function()
-      return " 󰈚 "
-    end,
-    highlight = { colors.lightgrey, colors.bg },
-  },
-})
 
 insert_right({
   LineColumn = {
