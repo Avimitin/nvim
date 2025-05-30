@@ -204,11 +204,12 @@ insert_space_on_left()
 insert_left({
   GetLspClient = {
     provider = function()
+      local ft = vim.opt_local.filetype:get()
       local client = require("galaxyline.provider_lsp").get_lsp_client()
       if client == "No Active Lsp" then
-        return vim.opt_local.filetype:get()
+        return ft
       end
-      return client
+      return ft .. ":(" .. client .. ")"
     end,
     highlight = {
       colors.lightgrey,
