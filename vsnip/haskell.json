@@ -1,7 +1,0 @@
-{
-  "pragma": {
-    "prefix": "pragma",
-    "body": "{-# $1 #-}$0",
-    "description": "GHC Language pragma"
-  }
-}

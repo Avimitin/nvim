@@ -1,9 +1,0 @@
-{
-  "div class": {
-    "prefix": "divc",
-    "body": [
-      "<div class=\"${1}\">${0}</div>"
-    ],
-    "description": "Create new div block with class fields"
-  }
-}

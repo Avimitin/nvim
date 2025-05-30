@@ -12,15 +12,6 @@ register("hrsh7th/nvim-cmp", {
     "hrsh7th/cmp-path",
     -- for vim command line
     "hrsh7th/cmp-cmdline",
-
-    -- for snippets
-    {
-      "hrsh7th/vim-vsnip",
-      init = function()
-        vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/vsnip"
-      end,
-    },
-    "hrsh7th/cmp-vsnip",
   },
 
   config = function()

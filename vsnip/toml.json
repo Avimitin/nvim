@@ -1,7 +1,0 @@
-{
-  "dependency": {
-    "prefix": "dependency",
-    "description": "Create a new crate",
-    "body": "$1 = { version = \"$2\", features = [ \"$3\" ] }\n$0"
-  }
-}
