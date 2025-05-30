@@ -1,16 +1,23 @@
-<h1 align="center">My Neovim Configuration</h1>
-<img src="./docs/images/screenshot.png" width="45%" align="right"/>
+# Neovim Configuration
 
-![badge](https://img.shields.io/github/license/Avimitin/nvim)
+This Neovim configuration is built with a focus on a simple, elegant, and
+distraction-free user interface. The goal is to enhance coding usability rather
+than overwhelm with fancy, unnecessary UI elements. I will consistently add and
+test plugins with multiple coding scenario, keep only those are suitable for
+daily use.
 
-## Features
-
-* ***Handy*** and ***Smoothy***: There will always be a panel to remind you
-when you forget your key settings. There will always be a short keystroke to help
-you get to the place you want to jump to. There will always…
-* ***Powerful*** coding experience: nvim-lspconfig powered great LSP experient.
-* ***Fancy looking***: Well designed, denoised, uncluttered UI. Talk is cheap, see the [gallery](#Gallery).
-* ***Great Performance***: Lazy loading anywhere, you will never have to worry about accidental opening of a file larger than 10000 loc can freeze your terminal.
+- Clean & Minimalist Aesthetic: Enjoy a calm, focused coding environment that
+prioritizes what matters most: your code.
+- Streamlined Workflow: Optimized for efficiency, allowing you to code faster
+and with less friction.
+- Essential Tooling: Includes carefully selected plugins and settings that
+genuinely improve the coding experience without adding clutter.
+- Performance-Oriented: Lightweight and responsive, ensuring a smooth
+experience even with larger projects.
+- Focus on Readability: UI elements are designed to be clear and unobtrusive,
+making your code the star of the show.
+- Usability First: Every feature and plugin is chosen with practical coding
+benefits in mind, not just for visual appeal.
 
 ## Getting Start
 
@@ -26,9 +33,9 @@ Finally, input `nvim` to open the editor, and all plugins will be downloaded aut
 nvim
 ```
 
----
+### Nix nerds
 
-To use this in your home-manager, you can use the xdg.configFile attribute:
+To use this in your home-manager, you can use the `xdg.configFile` attribute:
 
 ```nix
 { pkgs }:
@@ -47,7 +54,9 @@ To use this in your home-manager, you can use the xdg.configFile attribute:
 }
 ```
 
-Diagnostic error/warning/hint are highlighted with undercurl, please use [kitty](https://sw.kovidgoyal.net/kitty/), [wezterm](https://wezfurlong.org/wezterm/index.html)
+Diagnostic error/warning/hint are highlighted with undercurl, please use
+[kitty](https://sw.kovidgoyal.net/kitty/),
+[wezterm](https://wezfurlong.org/wezterm/index.html)
 or anyother terminal that support undercurl.
 
 If you are using tmux, to have a correct display, you can try my configuration below:
@@ -75,7 +84,6 @@ set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
 ## Project Structure
 
 - `after/ftplugin/<lang>.lua`: missing default configuration for filetypes
-- `vsnip`: Snippets are placed in here.
 - `lua`: the configuration core
 
     * `key-mapping.lua`: my modification to the built-in key mappings
@@ -129,104 +137,6 @@ set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
   };
 }
 ```
-
-
-## Gallery
-
-<details>
-    <summary markdown="span">Utilities</summary>
-
-| Easy in-file jump                             |
-| --------------------------------------------- |
-| ![LightSpeed](./docs/images/lightspeed.png)   |
-
-</details>
-
-
-<details>
-    <summary markdown="span">Markdown Utils</summary>
-
-| Markdown Preview                                   |
-|----------------------------------------------------|
-| ![image](./docs/images/neovim-md.png)              |
-
-| Table                                              |
-|----------------------------------------------------|
-| ![vim-table-mode-gif](./docs/images/tablemode.gif) |
-
-</details>
-
-
-<details>
-    <summary markdown="span">Coding Utils</summary>
-
-| LSP Progress |
-|-----------------|
-| ![image](./docs/images/lsp-progress.png)  |
-
-| Symbol Tree |
-|-----------------|
-| ![image](./docs/images/symboltree.png)  |
-
-| Code Completion                       |
-|---------------------------------------|
-| ![coding](./docs/images/nvim-cmp.png) |
-
-| Command Completion                                 |
-|----------------------------------------------------|
-| ![cmp-cmdline](./docs/images/commandline-completion.png) |
-
-| Errorlens Like diagnostic |
-|-----------------------------|
-| ![lsp-line](./docs/images/errorlens.png) |
-
-| Signature Help                       |
-|--------------------------------------|
-| ![lsp-popup](./docs/images/help.png) |
-
-| Code Actions                                    |
-|-------------------------------------------------|
-| ![lsp-codeaction](./docs/images/codeaction.png) |
-
-| Diagnostic                                      |
-|-------------------------------------------------|
-| ![lsp-diagnostic](./docs/images/diagnostic.png) |
-
-| Code navigate                          |
-|----------------------------------------|
-| ![Navigate](./docs/images/def-ref.png) |
-
-| Project grep                                        |
-|-----------------------------------------------------|
-| ![live-grep](./docs/images/telescope-live-grep.png) |
-
-| Symbol search                                   |
-|-------------------------------------------------|
-| ![symbols](./docs/images/telescope-symbols.png) |
-
-</details>
-
-<details>
-    <summary markdown="span">File Manager</summary>
-
-| neotree                                 |
-|-------------------------------------------|
-| ![nvim-tree](./docs/images/neotree.png) |
-
-| Find file                                           |
-|-----------------------------------------------------|
-| ![find-file](./docs/images/telescope-find-file.png) |
-
-</details>
-
-<details>
-    <summary markdown="span">Themes</summary>
-
-| Kanagawa Theme                          |
-|-----------------------------------------|
-| ![kanagawa](./docs/images/kanagawa.png) |
-
-</details>
 
 ## License
 
