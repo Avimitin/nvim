@@ -8,7 +8,7 @@ au("TextYankPost", {
   group = smart_yank_gid,
   desc = "Copy and highlight yanked text to system clipboard",
   callback = function()
-    vim.highlight.on_yank({ higroup = "HighLightLineMatches", timeout = 200 })
+    vim.hl.on_yank({ higroup = "HighLightLineMatches", timeout = 200 })
 
     if not vim.fn.has("clipboard") == 1 then
       return
