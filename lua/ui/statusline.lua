@@ -203,7 +203,13 @@ insert_space_on_left()
 
 insert_left({
   GetLspClient = {
-    provider = "GetLspClient",
+    provider = function()
+      local client = require("galaxyline.provider_lsp").get_lsp_client()
+      if client == "No Active Lsp" then
+        return vim.opt_local.filetype:get()
+      end
+      return client
+    end,
     highlight = {
       colors.lightgrey,
       colors.bg,
