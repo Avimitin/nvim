@@ -188,28 +188,6 @@ register("sQVe/sort.nvim", {
   cmd = "Sort",
 })
 
--- Highlight search matches
-register("kevinhwang91/nvim-hlslens", {
-  keys = {
-    {
-      "n",
-      [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>zz]],
-    },
-    {
-      "N",
-      [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>zz]],
-    },
-    { "*", [[*<Cmd>lua require('hlslens').start()<CR>]] },
-    { "#", [[#<Cmd>lua require('hlslens').start()<CR>]] },
-    { "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]] },
-    { "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]] },
-    { "<ESC>", [[<cmd>noh<CR><cmd>lua require('hlslens').stop()<CR>]] },
-  },
-  config = function()
-    require("scrollbar.handlers.search").setup()
-  end,
-})
-
 -- Auto matically setting tab width by projects
 register("tpope/vim-sleuth")
 
@@ -228,24 +206,6 @@ register("uga-rosa/ccc.nvim", {
 register("junegunn/vim-easy-align", {
   cmd = "EasyAlign",
   keys = { { "<space>e", ":EasyAlign<CR>", mode = "x" } },
-})
-
--- Show key stroke
-register("folke/which-key.nvim", {
-  event = "VeryLazy",
-  config = function()
-    local whichkey = require("which-key")
-    whichkey.setup({
-      plugins = {
-        mark = false,
-        register = false,
-      },
-      layout = {
-        align = "center",
-      },
-      icons = { mappings = false },
-    })
-  end,
 })
 
 register("stevearc/quicker.nvim", {
