@@ -261,6 +261,7 @@ local BufferTypeMap = {
   ["neo-term"] = " NeoTerm",
   ["noice"] = " noice",
   ["TelescopePrompt"] = " Telescope",
+  ["oil"] = "oil",
 }
 
 gl.short_line_list = vim.tbl_keys(BufferTypeMap)
@@ -270,6 +271,10 @@ require("galaxyline").section.short_line_left = {
     ShortLineLeftBufferType = {
       highlight = { colors.lightgrey, colors.bg },
       provider = function()
+        if vim.bo.filetype == "oil" then
+          return string.format("▊ 󰝰  %s", require("oil").get_current_dir())
+        end
+
         local name = BufferTypeMap[vim.bo.filetype]
         return string.format("▊ %s", name)
       end,
