@@ -221,6 +221,13 @@ insert_left({
 insert_space_on_right()
 
 insert_right({
+  FilePath = {
+    provider = "FilePath",
+    highlight = { colors.lightgrey, colors.bg },
+  },
+})
+
+insert_right({
   LineColumn = {
     provider = "LineColumn",
     highlight = { colors.lightgrey, colors.bg },
