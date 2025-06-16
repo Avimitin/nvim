@@ -20,10 +20,7 @@ register("numToStr/Comment.nvim", {
 })
 
 register("scalameta/nvim-metals", {
-  ft = { "scala" },
-  config = function()
-    require("lang.scala")
-  end,
+  lazy = true,
 })
 
 register("stevearc/conform.nvim", {
