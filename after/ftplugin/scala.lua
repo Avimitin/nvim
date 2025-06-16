@@ -33,7 +33,12 @@ scala_config.root_patterns = {
 scala_config.find_root_dir_max_project_nesting = 0
 scala_config.settings.millScript = mill_exe
 scala_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
-scala_config.on_attach = require("lang.on_attach").setup_all
+scala_config.on_attach = function(client, bufnr)
+  require("lang.on_attach").setup_all(client, bufnr)
+
+  -- Disable metals document hightlight, it is really ugly
+  client.server_capabilities.semanticTokensProvider = nil
+end
 require("metals").initialize_or_attach(scala_config)
 
 -- nvim-metals will send metals/didFocus protocol to all the buffer, which will cause other LSP to exits.
