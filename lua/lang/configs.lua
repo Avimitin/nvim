@@ -123,3 +123,11 @@ setup("rust_analyzer", {
     return true
   end,
 })
+
+setup("tinymist", {
+  settings = {
+    formatterMode = "typstyle",
+    exportPdf = "onType",
+    semanticTokens = "disable",
+  },
+})

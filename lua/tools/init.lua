@@ -276,3 +276,17 @@ register("ghillb/cybu.nvim", {
 register("dhruvasagar/vim-table-mode", {
   cmd = "TableModeToggle",
 })
+
+register("chomosuke/typst-preview.nvim", {
+  ft = "typst",
+  version = "1.*",
+  config = function()
+    require("typst-preview").setup({
+      open_cmd = "/usr/bin/env firefox --new-window %s",
+      dependencies_bin = {
+        ["tinymist"] = "tinymist",
+        ["websocat"] = "websocat",
+      },
+    })
+  end,
+})
