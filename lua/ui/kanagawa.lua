@@ -16,15 +16,15 @@ local function override(colors)
     CmpDocumentation = { link = "Pmenu" },
 
     ["@markup.heading.1"] = {
-      fg = default.springGreen,
+      fg = default.peachRed,
       bold = true,
     },
     ["@markup.heading.2"] = {
-      fg = default.waveAqua1,
+      fg = default.springGreen,
       bold = true,
     },
     ["@markup.heading.3"] = {
-      fg = default.peachRed,
+      fg = default.waveAqua1,
       bold = true,
     },
     ["@markup.heading"] = {
@@ -35,6 +35,8 @@ local function override(colors)
       fg = default.springBlue,
       italic = true,
     },
+
+    WinSeparator = { fg = default.fujiWhite },
   }
 
   return overrides
