@@ -290,3 +290,10 @@ register("chomosuke/typst-preview.nvim", {
     })
   end,
 })
+
+register("windwp/nvim-autopairs", {
+  event = "InsertEnter",
+  config = function()
+    require("nvim-autopairs").setup({})
+  end,
+})
