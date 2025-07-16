@@ -92,6 +92,20 @@ local options = {
   shortmess = "aTWF",
   -- let status bar (at bottom) be global status bar, don't change with winbar
   laststatus = 3,
+  grepprg = function()
+    if vim.fn.executable("rg") == 1 then
+      return "rg --vimgrep --no-heading --smart-case"
+    else
+      return "grep -nIR $* /dev/null"
+    end
+  end,
+  grepformat = function()
+    if vim.fn.executable("rg") then
+      return "%f:%l:%c:%m,%f:%l:%m"
+    else
+      return nil
+    end
+  end,
 }
 
 local function ensure_cache(suffix)
@@ -119,7 +133,14 @@ if has_persist == 1 then
 end
 
 for k, v in pairs(options) do
-  vim.opt[k] = v
+  if type(v) == "function" then
+    local a = v()
+    if a ~= nil then
+      vim.opt[k] = a
+    end
+  else
+    vim.opt[k] = v
+  end
 end
 -- END of vim options configuration
 

@@ -1,22 +1,12 @@
-local config = {
+vim.lsp.config("*", {
   -- Told LSP server about the nvim lsp capabilities
   capabilities = require("cmp_nvim_lsp").default_capabilities(),
   -- Setup keymap on attach
   on_attach = require("lang.on_attach").setup_all,
-  --settings = {},
-}
-
-local lspconfig = require("lspconfig")
-local setup = function(server, settings)
-  if settings then
-    config = vim.tbl_deep_extend("force", config, settings)
-  end
-
-  lspconfig[server].setup(config)
-end
+})
 
 -- C/CPP
-setup("ccls", {
+vim.lsp.config("ccls", {
   root_dir = require("lspconfig").util.root_pattern(
     "build",
     "compile_commands.json",
@@ -35,7 +25,8 @@ setup("ccls", {
 })
 
 -- Haskell
-setup("hls", {
+vim.lsp.enable("hls")
+vim.lsp.config("hls", {
   settings = {
     haskell = {
       formattingProvider = "fourmolu",
@@ -49,11 +40,6 @@ setup("hls", {
     },
   },
 })
-
--- JavaScript/TypeScript
-setup("ts_ls")
--- I don't use deno for now, but keep config here
--- setup("denols", require("lang.deno"))
 
 -- Lua
 local _lua_config = {}
@@ -83,19 +69,10 @@ if _is_nvim_config_dir then
     Lua = neovim_setting,
   }
 end
-setup("lua_ls", _lua_config)
-
--- Nix
-setup("nil_ls")
-
--- OCaml
-setup("ocamllsp")
-
--- Python
-setup("pyright")
+vim.lsp.config("lua_ls", _lua_config)
 
 -- Rust
-setup("rust_analyzer", {
+vim.lsp.config("rust_analyzer", {
   -- Don't know why built-in not working
   root_dir = function()
     return require("libs.find_root").find_root({ patterns = { "Cargo.toml" } })
@@ -124,10 +101,25 @@ setup("rust_analyzer", {
   end,
 })
 
-setup("tinymist", {
+vim.lsp.config("tinymist", {
   settings = {
     formatterMode = "typstyle",
     exportPdf = "onType",
     semanticTokens = "disable",
   },
 })
+
+local enable_servers = {
+  "ccls",
+  "hls",
+  "ts_ls",
+  "lua_ls",
+  "nil_ls",
+  "ocamllsp",
+  "pyright",
+  "rust_analyzer",
+  "tinymist",
+}
+for _, server in ipairs(enable_servers) do
+  vim.lsp.enable(server)
+end
