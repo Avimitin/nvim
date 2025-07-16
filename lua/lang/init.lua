@@ -65,7 +65,7 @@ register("stevearc/conform.nvim", {
       end,
     })
 
-    require("builder.key-mapper").map("n", {
+    require("keys").map("n", {
       "<leader>cf",
       function()
         -- Use LSP client provided formatter when no formatter specify

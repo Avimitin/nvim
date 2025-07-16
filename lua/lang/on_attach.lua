@@ -11,7 +11,7 @@ utils.setup_keymaps = function(_, bufnr)
 
   vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 
-  require("builder.key-mapper").bufmap(bufnr, "n", {
+  require("keys").bufmap(bufnr, "n", {
     { "K", vim.lsp.buf.hover, desc = "[LSP] Open document" },
     { "R", vim.lsp.buf.rename, desc = "[LSP] Rename symbol" },
 

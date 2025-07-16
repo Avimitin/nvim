@@ -22,7 +22,7 @@ require("gitsigns").setup({
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
-    require("builder.key-mapper").bufmap(bufnr, "n", {
+    require("keys").bufmap(bufnr, "n", {
       { "<leader>gS", gs.stage_buffer, desc = "Stage buffer" },
       { "<leader>gu", gs.undo_stage_hunk, desc = "Undo stage hunk" },
       { "<leader>gR", gs.reset_buffer, desc = "Reset buffer" },
@@ -76,13 +76,13 @@ require("gitsigns").setup({
     })
 
     -- Actions
-    require("builder.key-mapper").bufmap(bufnr, { "n", "v" }, {
+    require("keys").bufmap(bufnr, { "n", "v" }, {
       { "<leader>gs", ":Gitsigns stage_hunk<CR>", desc = "Stage hunk" },
       { "<leader>gr", ":Gitsigns reset_hunk<CR>", desc = "Reset hunk" },
     })
 
     -- Text object
-    require("builder.key-mapper").bufmap(
+    require("keys").bufmap(
       bufnr,
       { "o", "x" },
       { "ih", ":<C-U>Gitsigns select_hunk<CR>", desc = "Select hunk" }

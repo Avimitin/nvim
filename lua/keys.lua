@@ -2,7 +2,7 @@
 -- Here we are using which-key.nvim as plugin, but when one day which-key.nvim
 -- is no more under maintain, we can still keep compatibiltity and replace implementation here.
 
-local export = {}
+local keymapper = {}
 
 local function unwrap_options(original)
   local default = {
@@ -62,7 +62,7 @@ end
 -- Allow form:
 --   1. { "lhs", "rhs", option = "foo" }
 --   2. { { "lhs", "rhs", opt = "foo" }, { "lhs", "rhs", opt = "bar" } }
-function export.map(modes, mappings)
+function keymapper.map(modes, mappings)
   if type(modes) == "string" then
     modes = { modes }
   end
@@ -93,27 +93,27 @@ function export.map(modes, mappings)
   end
 end
 
-function export.cmd(cmd)
+function keymapper.cmd(cmd)
   return "<CMD>" .. cmd .. "<CR>"
 end
 
-function export.bufmap(bufid, modes, mappings)
+function keymapper.bufmap(bufid, modes, mappings)
   if type(mappings[1]) == "string" then
     mappings["buffer"] = bufid
-    return export.map(modes, mappings)
+    return keymapper.map(modes, mappings)
   end
 
   for _, kpair in ipairs(mappings) do
     kpair["buffer"] = bufid
   end
-  return export.map(modes, mappings)
+  return keymapper.map(modes, mappings)
 end
 
-function export.mk_keymap(keymap_set)
-  export.map("n", keymap_set.normal)
-  export.map("x", keymap_set.selection)
-  export.map("i", keymap_set.insertion)
-  export.map("t", keymap_set.terminal)
+function keymapper.mk_keymap(keymap_set)
+  keymapper.map("n", keymap_set.normal)
+  keymapper.map("x", keymap_set.selection)
+  keymapper.map("i", keymap_set.insertion)
+  keymapper.map("t", keymap_set.terminal)
 end
 
-return export
+return keymapper
