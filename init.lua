@@ -40,7 +40,6 @@ require("keys").mk_keymap({
   },
   insertion = {
     { "<C-a>", "<ESC>^i", desc = "Jump to beginning of the line" },
-    { "<C-S-v>", [[<ESC>"+pi]], desc = "paste" },
     { "<C-e>", "<End>", desc = "Jump to end of the line" },
     { "<M-;>", "<ESC>", desc = "Exit insert mode" },
     { "<C-p>", "<Up>", desc = "Go up one line" },
@@ -56,3 +55,5 @@ require("keys").mk_keymap({
 
 vim.o.background = "dark"
 vim.cmd.colorscheme("kanagawa")
+
+require("lang").setup_lsp()

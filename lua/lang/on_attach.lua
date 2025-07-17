@@ -61,8 +61,7 @@ utils.setup_icons = function()
   })
 end
 
--- LSP's on_attach interface accept two arguments client and bufnr. But we don't use client for now, so it is okay to pass nil here.
-utils.setup_all = function(client, bufnr)
+utils.run = function(client, bufnr)
   utils.setup_icons()
   utils.setup_keymaps(client, bufnr)
 

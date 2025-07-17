@@ -10,7 +10,7 @@ register("MunifTanjim/nui.nvim", {
   lazy = true,
 })
 
--- Use oil for main file management, use neo-tree for treestyle display only.
+-- Use oil for main file management
 register("stevearc/oil.nvim", {
   cmd = { "Oil" },
   lazy = false,

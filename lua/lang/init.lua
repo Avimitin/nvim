@@ -1,95 +1,26 @@
-local register = require("pack").register
+require("lang.plugins")
 
--- Interact with LSP server
-register("neovim/nvim-lspconfig", {
-  config = function()
-    require("lang.configs")
-  end,
-})
+local M = {}
 
-register("numToStr/Comment.nvim", {
-  config = function()
-    require("Comment").setup({})
-  end,
-  keys = {
-    { "gcc", desc = "Toggle line comment" },
-    { "gbc", desc = "Toggle block comment" },
-    { mode = "x", "gc", desc = "Toggle line comment" },
-    { mode = "x", "gb", desc = "Toggle block comment" },
-  },
-})
+function M.setup_lsp()
+  vim.lsp.enable({
+    "ccls",
+    "hls",
+    "lua_ls",
+    "nil_ls",
+    "pyright",
+    "rust_analyzer",
+    "tinymist",
+  })
 
-register("scalameta/nvim-metals", {
-  lazy = true,
-})
+  vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      require("lang.on_attach").run(client, args.buf)
+    end,
+  })
 
-register("stevearc/conform.nvim", {
-  ft = {
-    "lua",
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact",
-    "json",
-    "nix",
-    "haskell",
-    "python",
-    "rust",
-    "scala",
-    "ocaml",
-  },
-  config = function()
-    require("conform").setup({
-      formatters_by_ft = {
-        lua = { "stylua" },
-        javascript = { "prettierd", "prettier", stop_after_first = true },
-        json = { "prettierd", "prettier", stop_after_first = true },
-        typescript = { "prettierd", "prettier", stop_after_first = true },
-        nix = { "nixfmt" },
-        haskell = { "fourmolu" },
-        python = { "black" },
-        rust = { "rustfmt" },
-        ocaml = { "ocamlformat" },
-      },
-      format_on_save = function(bufnr)
-        -- Avoid text lock for long time
-        if vim.api.nvim_buf_line_count(bufnr) >= 5000 then
-          return
-        end
+  vim.lsp.set_log_level(vim.log.levels.OFF)
+end
 
-        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-          return
-        end
-
-        return { timeout_ms = 500, lsp_fallback = true }
-      end,
-    })
-
-    require("keys").map("n", {
-      "<leader>cf",
-      function()
-        -- Use LSP client provided formatter when no formatter specify
-        require("conform").format({ lsp_format = "fallback" })
-      end,
-      desc = "[LSP] Format code",
-    })
-
-    vim.api.nvim_create_user_command("FormatDisable", function(args)
-      if args.bang then
-        -- FormatDisable! will disable formatting just for this buffer
-        vim.b.disable_autoformat = true
-      else
-        vim.g.disable_autoformat = true
-      end
-    end, {
-      desc = "Disable autoformat-on-save",
-      bang = true,
-    })
-    vim.api.nvim_create_user_command("FormatEnable", function()
-      vim.b.disable_autoformat = false
-      vim.g.disable_autoformat = false
-    end, {
-      desc = "Re-enable autoformat-on-save",
-    })
-  end,
-})
+return M
