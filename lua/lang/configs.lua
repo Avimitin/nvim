@@ -73,12 +73,12 @@ vim.lsp.config("lua_ls", _lua_config)
 
 -- Rust
 vim.lsp.config("rust_analyzer", {
-  -- Don't know why built-in not working
-  root_dir = function()
-    return require("libs.find_root").find_root({ patterns = { "Cargo.toml" } })
-  end,
   on_init = function(client)
     local _, folder = next(client.workspace_folders)
+    if folder == nil then
+      return true
+    end
+
     local current_dir = folder.name
 
     local cfg_file = vim.fs.joinpath(current_dir, ".rust-analyzer.json")
