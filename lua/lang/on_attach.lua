@@ -27,8 +27,20 @@ utils.setup_keymaps = function(_, bufnr)
     { "<leader>do", vim.diagnostic.open_float, desc = "[LSP] Open floating list" },
     { "<leader>dq", vim.diagnostic.setqflist, desc = "[LSP] Open quickfix list" },
 
-    { "[[", vim.diagnostic.goto_prev, desc = "[LSP] Jump to previous error" },
-    { "]]", vim.diagnostic.goto_next, desc = "[LSP] Jump to next error" },
+    {
+      "[[",
+      function()
+        vim.diagnostic.jump({ count = 1, float = true })
+      end,
+      desc = "[LSP] Jump to previous error",
+    },
+    {
+      "]]",
+      function()
+        vim.diagnostic.jump({ count = -1, float = true })
+      end,
+      desc = "[LSP] Jump to next error",
+    },
   })
 end
 
