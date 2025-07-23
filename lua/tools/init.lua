@@ -258,7 +258,11 @@ register("ghillb/cybu.nvim", {
   lazy = true,
   config = function()
     require("cybu").setup({
+      position = {
+        max_win_height = 10,
+      },
       style = {
+        path = "tail_dir",
         border = "none",
         padding = 5,
         hide_buffer_id = true,
