@@ -2,7 +2,7 @@
 -- vim option configuration
 --
 
-vim.g.mapleader = ";"
+vim.g.mapleader = " "
 
 local options = {
   completeopt = { "menuone", "noselect", "menu" },
@@ -42,11 +42,10 @@ local options = {
   },
   -- Minimal number of screen lines to keep above and below the cursor.
   scrolloff = 5,
-  -- 200 is more appropriate for which-keys. You can quickly input keys without prompting up
-  -- the which-keys panel, or wait 200ms if you forget keymappings.
-  timeoutlen = 300,
+  -- Time in milliseconds to wait for a mapped sequence to complete.
+  timeoutlen = 500,
   -- Time in milliseconds to wait for a key code sequence to complete
-  ttimeoutlen = 200,
+  ttimeoutlen = 50,
   -- use timeout for showing which-keys
   timeout = true,
   -- remember where to recover cursor
