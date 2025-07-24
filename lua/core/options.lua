@@ -2,7 +2,7 @@
 -- vim option configuration
 --
 
-vim.g.mapleader = " "
+vim.g.mapleader = ";"
 
 local options = {
   completeopt = { "menuone", "noselect", "menu" },
