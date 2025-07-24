@@ -222,7 +222,7 @@ register("j-morano/buffer_manager.nvim", {
   keys = {
     -- tools
     {
-      "<leader><leader>",
+      "<leader>b",
       function()
         require("buffer_manager.ui").toggle_quick_menu()
       end,
