@@ -1,28 +1,20 @@
 local utils = {}
 
 utils.setup_keymaps = function(_, bufnr)
-  local telescope = function(action, args)
-    return function()
-      local theme = require("telescope.themes").get_dropdown(args or {})
-      local builtins = require("telescope.builtin")
-      builtins[action](theme)
-    end
-  end
-
   vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 
   require("keys").bufmap(bufnr, "n", {
     { "K", vim.lsp.buf.hover, desc = "[LSP] Open document" },
     { "R", vim.lsp.buf.rename, desc = "[LSP] Rename symbol" },
 
-    { "gD", telescope("lsp_definitions"), desc = "[LSP] Search and goto `definitions`" },
-    { "gR", telescope("lsp_references"), desc = "[LSP] Search and goto `references`" },
-    { "gI", telescope("lsp_implementations"), desc = "[LSP] Search and goto `implementations`" },
-    { "gT", telescope("lsp_type_definitions"), desc = "[LSP] Search and goto `type definition`" },
+    { "grd", vim.lsp.buf.definition, desc = "[LSP] Search and goto `definitions`" },
+    { "grr", vim.lsp.buf.references, desc = "[LSP] Search and goto `references`" },
+    { "gri", vim.lsp.buf.implementation, desc = "[LSP] Search and goto `implementations`" },
+    { "grt", vim.lsp.buf.type_definition, desc = "[LSP] Search and goto `type definition`" },
 
     -- <leader>cf: code format, define in conform.nvim module at lang/init.lua
-    { "<leader>ca", vim.lsp.buf.code_action, desc = "[LSP] Open code actions" },
-    { "<leader>cr", vim.lsp.codelens.run, desc = "[LSP] Run codelens at current line" },
+    { "gra", vim.lsp.buf.code_action, desc = "[LSP] Open code actions" },
+    { "grR", vim.lsp.codelens.run, desc = "[LSP] Run codelens at current line" },
 
     { "<leader>do", vim.diagnostic.open_float, desc = "[LSP] Open floating list" },
     { "<leader>dq", vim.diagnostic.setqflist, desc = "[LSP] Open quickfix list" },
@@ -30,14 +22,14 @@ utils.setup_keymaps = function(_, bufnr)
     {
       "[[",
       function()
-        vim.diagnostic.jump({ count = 1, float = true })
+        vim.diagnostic.jump({ count = -1, float = true })
       end,
       desc = "[LSP] Jump to previous error",
     },
     {
       "]]",
       function()
-        vim.diagnostic.jump({ count = -1, float = true })
+        vim.diagnostic.jump({ count = 1, float = true })
       end,
       desc = "[LSP] Jump to next error",
     },
