@@ -23,7 +23,6 @@ local defaults = {
   end,
 }
 
----@private
 function M.setup(user)
   local opts = user or defaults
 

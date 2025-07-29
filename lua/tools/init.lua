@@ -5,11 +5,6 @@ register("nvim-lua/plenary.nvim", {
   lazy = true,
 })
 
--- UI Library
-register("MunifTanjim/nui.nvim", {
-  lazy = true,
-})
-
 -- Use oil for main file management
 register("stevearc/oil.nvim", {
   cmd = { "Oil" },
@@ -39,84 +34,6 @@ register("stevearc/oil.nvim", {
       },
     })
   end,
-})
-
-local function my_ivy(opt)
-  local my_opt = {
-    borderchars = {
-      prompt = { " " },
-      results = { " " },
-      preview = { " " },
-    },
-  }
-  local exted = vim.tbl_deep_extend("force", my_opt, opt or {})
-  return require("telescope.themes").get_ivy(exted)
-end
-
--- Fuzzy Picker
-register("nvim-telescope/telescope.nvim", {
-  lazy = true,
-  config = function()
-    require("telescope").setup({
-      defaults = {
-        prompt_prefix = "  ",
-        entry_prefix = "  ",
-        defaults = {
-          vimgrep_arguments = {
-            "rg",
-            "--color=never",
-            "--no-heading",
-            "--with-filename",
-            "--line-number",
-            "--column",
-            "--smart-case",
-            "--trim", -- add this value
-          },
-        },
-      },
-      pickers = {
-        find_files = {
-          -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-        },
-      },
-    })
-  end,
-  keys = {
-    {
-      "<leader>ff",
-      function()
-        local function my_find_file(opt)
-          if not vim.b._is_inside_git_worktree then
-            vim.fn.system("git rev-parse --is-inside-work-tree")
-            vim.b._is_inside_git_worktree = vim.v.shell_error == 0
-          end
-          if vim.b._is_inside_git_worktree then
-            return require("telescope.builtin").git_files(opt)
-          else
-            return require("telescope.builtin").find_files(opt)
-          end
-        end
-
-        my_find_file(my_ivy({ hidden = true }))
-      end,
-      desc = "Find file",
-    },
-    {
-      "<leader>fs",
-      function()
-        require("telescope.builtin").lsp_dynamic_workspace_symbols(my_ivy())
-      end,
-      desc = "Find symbol",
-    },
-    {
-      "<leader>fg",
-      function()
-        require("telescope.builtin").live_grep(my_ivy())
-      end,
-      desc = "Find keyword",
-    },
-  },
 })
 
 -- Surround operation
@@ -180,14 +97,6 @@ register("ggandor/leap.nvim", {
   },
 })
 
--- sort the number or text
-register("sQVe/sort.nvim", {
-  config = function()
-    require("sort").setup({})
-  end,
-  cmd = "Sort",
-})
-
 -- Auto matically setting tab width by projects
 register("tpope/vim-sleuth")
 
@@ -231,7 +140,6 @@ register("j-morano/buffer_manager.nvim", {
     {
       "<Tab>",
       function()
-        require("cybu").autocmd()
         require("buffer_manager.ui").nav_next()
       end,
       desc = "Next buffer",
@@ -239,7 +147,6 @@ register("j-morano/buffer_manager.nvim", {
     {
       "<S-Tab>",
       function()
-        require("cybu").autocmd()
         require("buffer_manager.ui").nav_prev()
       end,
       desc = "Prev buffer",
@@ -251,34 +158,6 @@ register("j-morano/buffer_manager.nvim", {
       highlight = "Normal:BufferManagerBorder",
     })
   end,
-})
-
--- Cycle through buffers
-register("ghillb/cybu.nvim", {
-  lazy = true,
-  config = function()
-    require("cybu").setup({
-      position = {
-        max_win_height = 10,
-      },
-      style = {
-        path = "tail_dir",
-        border = "none",
-        padding = 5,
-        hide_buffer_id = true,
-      },
-      display_time = 1500,
-      exclude = {
-        "neo-tree",
-        "qf",
-        "neo-term",
-      },
-    })
-  end,
-})
-
-register("dhruvasagar/vim-table-mode", {
-  cmd = "TableModeToggle",
 })
 
 register("chomosuke/typst-preview.nvim", {
@@ -300,4 +179,37 @@ register("windwp/nvim-autopairs", {
   config = function()
     require("nvim-autopairs").setup({})
   end,
+})
+
+register("echasnovski/mini.pick", {
+  version = "*",
+  config = function()
+    require("mini.pick").setup()
+  end,
+  keys = {
+    {
+      "<leader>fr",
+      function()
+        require("mini.pick").builtin.resume()
+      end,
+    },
+    {
+      "<leader>ff",
+      function()
+        require("mini.pick").builtin.files({ tool = "rg" })
+      end,
+    },
+    {
+      "<leader>fg",
+      function()
+        require("mini.pick").builtin.grep_live({ tool = "rg" })
+      end,
+    },
+    {
+      "<leader>fb",
+      function()
+        require("mini.pick").builtin.buffers()
+      end,
+    },
+  },
 })
