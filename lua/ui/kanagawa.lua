@@ -6,9 +6,8 @@ local function override(colors)
     -- CursorLine = { bg = "#1b1b26" },
     --
     Normal = { bg = default.sumiInk0, fg = default.fujiWhite },
-    TelescopeBorder = { fg = default.sumiInk0, bg = default.sumiInk0 },
-    NormalFloat = { bg = default.sumiInk1 },
-    BufferManagerBorder = { bg = default.sumiInk1, fg = default.sumiInk1 },
+    NormalFloat = { bg = default.sumiInk3 },
+    BufferManagerBorder = { bg = default.sumiInk3, fg = default.sumiInk1 },
     -- FloatTitle = { fg = "#D3C6AA", bg = "#5C3F4F", bold = true },
     -- FloatBorder = { link = "NormalFloat" },
 
