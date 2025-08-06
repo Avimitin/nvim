@@ -1,5 +1,7 @@
 # Neovim Configuration
 
+<img src="preview.webp" alt="Preview Image for My Neovim Configuration" width="60%">
+
 This Neovim configuration is built with a focus on a simple, elegant, and
 distraction-free user interface. The goal is to enhance coding usability rather
 than overwhelm with fancy, unnecessary UI elements. I will consistently add and
@@ -83,21 +85,21 @@ set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
 
 ## Project Structure
 
-- `after/ftplugin/<lang>.lua`: missing default configuration for filetypes
+- `lsp/*.lua`: Built-in `vim.lsp` configuration
 - `lua`: the configuration core
 
-    * `key-mapping.lua`: my modification to the built-in key mappings
-    * `pack.lua`: script to download lazy.nvim plugin manager
-    * `core/`: my modification to the built-in options and auto commands
-    * `completion/`: plugins and configuration for LSP and vim command completion
+    * `completion/`: plugins and configuration for LSP completion
+    * `core/`: autocmds and vim options
     * `git/`: plugin and configuration for using git in Neovim
-    * `lang/`: plugins and configuration for using LSP server and get diagnostic in Neovim
+    * `lang/`: UI and key mapping configuration for LSP
     * `libs/`: functions that I don't want to write twice
     * `tools/`: miscellaneous plugins that can enhance editing experience
     * `treesitter/`: plugins for text object highlight and editing
     * `ui/`: plugins for decorating the neovim
+    * `pack.lua`: script to download lazy.nvim plugin manager
 
 - `ftdetect`: List of script to help neovim identify filetype for some file, not important.
+- `after/ftplugin/<lang>.lua`: configuration for non-default filetypes
 - `indent`: List of script to help neovim properly set indentation, not important.
 - `syntax`: Additional syntax detection for some file type, not important.
 
