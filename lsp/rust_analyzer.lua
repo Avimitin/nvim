@@ -122,6 +122,10 @@ return {
       reload_workspace(bufnr)
     end, { desc = "Reload current cargo workspace" })
   end,
+  settings = {
+
+    ["rust-analyzer"] = { check = { command = "clippy" } },
+  },
   on_init = function(client)
     local _, folder = next(client.workspace_folders)
     if folder == nil then
@@ -135,6 +139,10 @@ return {
     -- prompt when try to read the file, to avoid security issue
     local file = vim.secure.read(cfg_file)
     if not file then
+      return true
+    end
+
+    if file == true then
       return true
     end
 
