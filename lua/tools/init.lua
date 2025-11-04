@@ -28,6 +28,8 @@ register("stevearc/oil.nvim", {
       },
       keymaps = {
         ["q"] = "actions.close",
+        ["g!"] = { "actions.open_cmdline" },
+        ["gy"] = "actions.copy_to_system_clipboard",
       },
       view_options = {
         show_hidden = true,
