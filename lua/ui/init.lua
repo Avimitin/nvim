@@ -64,35 +64,6 @@ register("j-hui/fidget.nvim", {
   end,
 })
 
--- Scrollbar UI
-register("petertriho/nvim-scrollbar", {
-  lazy = true,
-  event = "BufReadPost",
-  config = function()
-    require("scrollbar").setup({
-      marks = {
-        Search = { text = { "" } },
-      },
-      excluded_buftypes = {
-        "terminal",
-      },
-      excluded_filetypes = {
-        "prompt",
-        "TelescopePrompt",
-        "noice",
-        "Git",
-        "cmp_menu",
-        "cmp_docs",
-        "markdown",
-      },
-      handlers = {
-        cursor = false,
-        diagnostic = false,
-      },
-    })
-  end,
-})
-
 -- prettify the input and select ui
 register("stevearc/dressing.nvim", {
   lazy = true,
@@ -161,22 +132,5 @@ register("luukvbaal/statuscol.nvim", {
         "toggleterm",
       },
     })
-  end,
-})
-
-register("karb94/neoscroll.nvim", {
-  keys = {
-    "<c-u>",
-    "<c-d>",
-    "<c-b>",
-    "<c-f>",
-    "<c-y>",
-    "<c-e>",
-    "zt",
-    "zz",
-    "zb",
-  },
-  config = function()
-    require("neoscroll").setup({})
   end,
 })
