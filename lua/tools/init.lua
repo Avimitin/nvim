@@ -90,13 +90,27 @@ register("kylechui/nvim-surround", {
 -- Quick moving by two character searching
 register("ggandor/leap.nvim", {
   keys = {
-    { "s", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-    { "S", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-    { "x", "<Plug>(leap-forward-till)", mode = { "x", "o" }, desc = "Leap forward until" },
-    { "X", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "Leap backward until" },
-    { "gw", "<Plug>(leap-from-window)", mode = { "n" }, desc = "Leap from window" },
-    { "gW", "<Plug>(leap-cross-window)", mode = { "n" }, desc = "Leap cross window" },
+    { "s", "<Plug>(leap)", mode = { "n", "x", "o" }, desc = "Leap" },
+    { "S", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
   },
+  config = function()
+    require("leap").opts.preview = function(ch0, ch1, ch2)
+      return not (ch1:match("%s") or (ch0:match("%a") and ch1:match("%a") and ch2:match("%a")))
+    end
+
+    -- Define equivalence classes for brackets and quotes, in addition to
+    -- the default whitespace group:
+    require("leap").opts.equivalence_classes = {
+      " \t\r\n",
+      "([{",
+      ")]}",
+      "'\"`",
+    }
+
+    -- Use the traversal keys to repeat the previous motion without
+    -- explicitly invoking Leap:
+    require("leap.user").set_repeat_keys("<enter>", "<backspace>")
+  end,
 })
 
 -- Auto matically setting tab width by projects
