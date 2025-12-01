@@ -1,23 +1,17 @@
+---@type vim.lsp.Config
 return {
   cmd = { "haskell-language-server-wrapper", "--lsp" },
   filetypes = { "haskell", "lhaskell" },
-  root_dir = function(bufnr, on_dir)
-    local fname = vim.api.nvim_buf_get_name(bufnr)
-    on_dir(
-      util.root_pattern("hie.yaml", "stack.yaml", "cabal.project", "*.cabal", "package.yaml")(fname)
-    )
-  end,
+  root_markers = {
+    "hie.yaml",
+    "stack.yaml",
+    "cabal.project",
+    ".git",
+  },
   settings = {
     haskell = {
-      cabalFormattingProvider = "cabalfmt",
-      formattingProvider = "fourmolu",
-      plugin = {
-        rename = {
-          config = {
-            crossModule = true,
-          },
-        },
-      },
+      formattingProvider = "ormolu",
+      cabalFormattingProvider = "cabal-fmt",
     },
   },
 }
