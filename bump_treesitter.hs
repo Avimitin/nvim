@@ -7,9 +7,13 @@
 
 import qualified Control.Concurrent.Async
 import Control.Concurrent.Chan (Chan, newChan, readChan, writeChan)
+import Control.Concurrent.MVar (MVar, newMVar, withMVar)
 import qualified Control.Foldl as Fold
+import Control.Monad.Trans.Class (lift)
+import Control.Monad.Trans.Reader (ReaderT, ask, asks, runReaderT)
 import qualified Data.Aeson as Aeson
 import qualified Data.ByteString.Builder
+import Data.Functor (($>))
 import qualified Data.Text
 import qualified Data.Text.Encoding
 import qualified Data.Text.IO as TIO
@@ -22,6 +26,13 @@ import Turtle
 -}
 type NewHashInfo = Maybe (Text, Text, Text)
 
+data Env = Env
+    { envChan :: Chan NewHashInfo
+    , envLock :: MVar ()
+    }
+
+type AppM = ReaderT Env IO
+
 data DerivationInfo = DerivationInfo
     { name :: Text
     , url :: Text
@@ -30,6 +41,11 @@ data DerivationInfo = DerivationInfo
     deriving (GHC.Generics.Generic, Show)
 
 instance Aeson.FromJSON DerivationInfo
+
+safePrint :: Text -> AppM ()
+safePrint msg = do
+    lock <- asks envLock
+    liftIO $ withMVar lock $ \_ -> TIO.putStrLn msg
 
 procGetStdout :: Text -> [Text] -> IO Text
 procGetStdout cmd args = do
@@ -56,60 +72,61 @@ getSrcInfo _ = do
         Just a -> return a
         Nothing -> die "fail parsing JSON value, invalid nix output"
 
-nixPrefetch :: Text -> IO Text
+nixPrefetch :: Text -> AppM Text
 nixPrefetch url = do
-    TIO.putStrLn $ format ("Exec nix-prefetch-url with url: " % s) url
-    rawOut <- procGetStdout "nix-prefetch-url" [url, "--print-path", "--type", "sha256"]
-    return $ last $ Data.Text.lines rawOut
+    safePrint $ format ("Exec nix-prefetch-url with url: " % s) url
+    liftIO $ do
+        rawOut <- procGetStdout "nix-prefetch-url" [url, "--print-path", "--type", "sha256"]
+        return $ last $ Data.Text.lines rawOut
 
-nixHash :: Text -> IO Text
+nixHash :: Text -> AppM Text
 nixHash filepath = do
-    TIO.putStrLn $ format ("Exec nix hash with file: " % s) filepath
-    procGetStdout "nix" ["hash", "file", "--base16", "--type", "sha256", "--sri", filepath]
+    safePrint $ format ("Exec nix hash with file: " % s) filepath
+    liftIO $ procGetStdout "nix" ["hash", "file", "--base16", "--type", "sha256", "--sri", filepath]
 
-updateHash :: Chan NewHashInfo -> Text -> Text -> Text -> IO ()
-updateHash chan name old new = do
-    TIO.putStrLn $ format (s % " hash changed from " % s % " to " % s) name old new
+updateHash :: Text -> Text -> Text -> AppM ()
+updateHash name old new = do
+    chan <- asks envChan
+    safePrint $ format (s % " hash changed from " % s % " to " % s) name old new
     liftIO $ writeChan chan $ Just (name, old, new)
 
-updateHashFromChan :: Chan NewHashInfo -> IO ()
-updateHashFromChan chan = do
-    msg <- readChan chan
+updateHashFromChan :: AppM ()
+updateHashFromChan = do
+    chan <- asks envChan
+    msg <- liftIO $ readChan chan
     case msg of
         Just (name, old, new) -> do
-            TIO.putStrLn $ format ("Replacing hash for derivation " % s) name
-            inplace (text old *> return new) "overlay.nix"
-            updateHashFromChan chan
+            safePrint $ format ("Replacing hash for derivation " % s) name
+            liftIO $ inplace (text old $> new) "overlay.nix"
+            updateHashFromChan
         Nothing -> do
-            TIO.putStrLn "Bye!"
+            safePrint "Bye!"
             return ()
 
-tryUpdateHash :: Chan NewHashInfo -> DerivationInfo -> IO ()
-tryUpdateHash chan DerivationInfo{name = pname, url = purl, hash = oldHash} = do
+tryUpdateHash :: DerivationInfo -> AppM ()
+tryUpdateHash DerivationInfo{name = pname, url = purl, hash = oldHash} = do
     filepath <- nixPrefetch purl
     newHash <- nixHash filepath
-    TIO.putStrLn $ format ("Examinate hash for " % s) pname
+    safePrint $ format ("Examinate hash for " % s) pname
     when (oldHash /= newHash) $ do
-        updateHash chan pname oldHash newHash
+        updateHash pname oldHash newHash
 
 -- | return a list of async handle for task update
 updateOverlayWithAsync ::
-    Chan NewHashInfo -> [DerivationInfo] -> Shell (Control.Concurrent.Async.Async ())
-updateOverlayWithAsync chan originDrvsInfo = do
-    drv <- select originDrvsInfo
-    liftIO $ Control.Concurrent.Async.async $ tryUpdateHash chan drv
+    [DerivationInfo] -> ReaderT Env Shell (Control.Concurrent.Async.Async ())
+updateOverlayWithAsync originDrvsInfo = do
+    drv <- lift $ select originDrvsInfo
+    bumpEnv <- ask
+    liftIO $ Control.Concurrent.Async.async $ runReaderT (tryUpdateHash drv) bumpEnv
 
 updateOverlay :: [DerivationInfo] -> Shell ()
 updateOverlay originDrvsInfo = do
-    chan <-
-        liftIO
-            ( do
-                chan <- newChan :: IO (Chan NewHashInfo)
-                _ <- Control.Concurrent.Async.async $ updateHashFromChan chan
-                return chan
-            )
-    asyncHandles <- flip fold Fold.list $ updateOverlayWithAsync chan originDrvsInfo
-    mapM_ wait asyncHandles
+    chan <- liftIO (newChan :: IO (Chan NewHashInfo))
+    lock <- liftIO (newMVar () :: IO (MVar ()))
+    let bumpEnv = Env chan lock
+    _ <- liftIO $ Control.Concurrent.Async.async $ runReaderT updateHashFromChan bumpEnv
+    asyncHandles <- flip fold Fold.list $ runReaderT (updateOverlayWithAsync originDrvsInfo) bumpEnv
+    liftIO $ mapM_ wait asyncHandles
     liftIO $ writeChan chan Nothing
 
 bump :: IO ()
@@ -122,3 +139,4 @@ main :: IO ()
 main = do
     System.IO.hSetBuffering System.IO.stdout System.IO.LineBuffering
     bump
+
