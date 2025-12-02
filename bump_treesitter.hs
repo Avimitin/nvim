@@ -19,12 +19,12 @@ import qualified Data.Text.Encoding
 import qualified Data.Text.IO as TIO
 import qualified GHC.Generics
 import qualified System.IO
-import Turtle
+import qualified Turtle
 
 {- | This wrapped in Maybe because I am using Channel based IO for read and write file.
      A `Nothing` constructor could help us exit the dangling updater when finish.
 -}
-type NewHashInfo = Maybe (Text, Text, Text)
+type NewHashInfo = Maybe (Turtle.Text, Turtle.Text, Turtle.Text)
 
 data Env = Env
     { envChan :: Chan NewHashInfo
@@ -34,29 +34,30 @@ data Env = Env
 type AppM = ReaderT Env IO
 
 data DerivationInfo = DerivationInfo
-    { name :: Text
-    , url :: Text
-    , hash :: Text
+    { name :: Turtle.Text
+    , url :: Turtle.Text
+    , hash :: Turtle.Text
     }
     deriving (GHC.Generics.Generic, Show)
 
 instance Aeson.FromJSON DerivationInfo
 
-safePrint :: Text -> AppM ()
+safePrint :: Turtle.Text -> AppM ()
 safePrint msg = do
     lock <- asks envLock
-    liftIO $ withMVar lock $ \_ -> TIO.putStrLn msg
+    Turtle.liftIO $ withMVar lock $ \_ -> TIO.putStrLn msg
 
-procGetStdout :: Text -> [Text] -> IO Text
+procGetStdout :: Turtle.Text -> [Turtle.Text] -> IO Turtle.Text
 procGetStdout cmd args = do
-    (exitCode, rawOut, rawErr) <- procStrictWithErr cmd args empty
+    (exitCode, rawOut, rawErr) <- Turtle.procStrictWithErr cmd args Turtle.empty
     case exitCode of
-        ExitSuccess -> return $ Data.Text.strip rawOut
-        ExitFailure code ->
-            die $ "command " <> cmd <> " fail with exit code " <> repr code <> ", stderr: " <> rawErr
+        Turtle.ExitSuccess -> return $ Data.Text.strip rawOut
+        Turtle.ExitFailure code ->
+            Turtle.die $
+                "command " <> cmd <> " fail with exit code " <> Turtle.repr code <> ", stderr: " <> rawErr
 
-getSrcInfo :: a -> IO [DerivationInfo]
-getSrcInfo _ = do
+getSrcInfo :: IO [DerivationInfo]
+getSrcInfo = do
     rawJson <-
         procGetStdout
             "nix"
@@ -70,34 +71,40 @@ getSrcInfo _ = do
         Data.ByteString.Builder.toLazyByteString $
             Data.Text.Encoding.encodeUtf8Builder rawJson of
         Just a -> return a
-        Nothing -> die "fail parsing JSON value, invalid nix output"
+        Nothing -> Turtle.die "fail parsing JSON value, invalid nix output"
 
-nixPrefetch :: Text -> AppM Text
+nixPrefetch :: Turtle.Text -> AppM Turtle.Text
 nixPrefetch url = do
-    safePrint $ format ("Exec nix-prefetch-url with url: " % s) url
-    liftIO $ do
+    safePrint $ Turtle.format ("Exec nix-prefetch-url with url: " Turtle.% Turtle.s) url
+    Turtle.liftIO $ do
         rawOut <- procGetStdout "nix-prefetch-url" [url, "--print-path", "--type", "sha256"]
         return $ last $ Data.Text.lines rawOut
 
-nixHash :: Text -> AppM Text
+nixHash :: Turtle.Text -> AppM Turtle.Text
 nixHash filepath = do
-    safePrint $ format ("Exec nix hash with file: " % s) filepath
-    liftIO $ procGetStdout "nix" ["hash", "file", "--base16", "--type", "sha256", "--sri", filepath]
+    safePrint $ Turtle.format ("Exec nix hash with file: " Turtle.% Turtle.s) filepath
+    Turtle.liftIO $
+        procGetStdout "nix" ["hash", "file", "--base16", "--type", "sha256", "--sri", filepath]
 
-updateHash :: Text -> Text -> Text -> AppM ()
+updateHash :: Turtle.Text -> Turtle.Text -> Turtle.Text -> AppM ()
 updateHash name old new = do
     chan <- asks envChan
-    safePrint $ format (s % " hash changed from " % s % " to " % s) name old new
-    liftIO $ writeChan chan $ Just (name, old, new)
+    safePrint $
+        Turtle.format
+            (Turtle.s Turtle.% " hash changed from " Turtle.% Turtle.s Turtle.% " to " Turtle.% Turtle.s)
+            name
+            old
+            new
+    Turtle.liftIO $ writeChan chan $ Just (name, old, new)
 
 updateHashFromChan :: AppM ()
 updateHashFromChan = do
     chan <- asks envChan
-    msg <- liftIO $ readChan chan
+    msg <- Turtle.liftIO $ readChan chan
     case msg of
         Just (name, old, new) -> do
-            safePrint $ format ("Replacing hash for derivation " % s) name
-            liftIO $ inplace (text old $> new) "overlay.nix"
+            safePrint $ Turtle.format ("Replacing hash for derivation " Turtle.% Turtle.s) name
+            Turtle.liftIO $ Turtle.inplace (Turtle.text old $> new) "overlay.nix"
             updateHashFromChan
         Nothing -> do
             safePrint "Bye!"
@@ -107,36 +114,40 @@ tryUpdateHash :: DerivationInfo -> AppM ()
 tryUpdateHash DerivationInfo{name = pname, url = purl, hash = oldHash} = do
     filepath <- nixPrefetch purl
     newHash <- nixHash filepath
-    safePrint $ format ("Examinate hash for " % s) pname
-    when (oldHash /= newHash) $ do
+    safePrint $ Turtle.format ("Examinate hash for " Turtle.% Turtle.s) pname
+    Turtle.when (oldHash /= newHash) $ do
         updateHash pname oldHash newHash
 
 -- | return a list of async handle for task update
 updateOverlayWithAsync ::
-    [DerivationInfo] -> ReaderT Env Shell (Control.Concurrent.Async.Async ())
+    [DerivationInfo] -> ReaderT Env Turtle.Shell (Control.Concurrent.Async.Async ())
 updateOverlayWithAsync originDrvsInfo = do
-    drv <- lift $ select originDrvsInfo
+    drv <- lift $ Turtle.select originDrvsInfo
     bumpEnv <- ask
-    liftIO $ Control.Concurrent.Async.async $ runReaderT (tryUpdateHash drv) bumpEnv
+    Turtle.liftIO $ Control.Concurrent.Async.async $ runReaderT (tryUpdateHash drv) bumpEnv
 
-updateOverlay :: [DerivationInfo] -> Shell ()
+updateOverlay :: [DerivationInfo] -> Turtle.Shell ()
 updateOverlay originDrvsInfo = do
-    chan <- liftIO (newChan :: IO (Chan NewHashInfo))
-    lock <- liftIO (newMVar () :: IO (MVar ()))
+    chan <- Turtle.liftIO (newChan :: IO (Chan NewHashInfo))
+    lock <- Turtle.liftIO (newMVar () :: IO (MVar ()))
     let bumpEnv = Env chan lock
-    _ <- liftIO $ Control.Concurrent.Async.async $ runReaderT updateHashFromChan bumpEnv
-    asyncHandles <- flip fold Fold.list $ runReaderT (updateOverlayWithAsync originDrvsInfo) bumpEnv
-    liftIO $ mapM_ wait asyncHandles
-    liftIO $ writeChan chan Nothing
+    fileUpdaters <-
+        Turtle.liftIO $ Control.Concurrent.Async.async $ runReaderT updateHashFromChan bumpEnv
+    asyncHandles <-
+        flip Turtle.fold Fold.list $ runReaderT (updateOverlayWithAsync originDrvsInfo) bumpEnv
+    Turtle.liftIO $ mapM_ Turtle.wait asyncHandles
+
+    -- Wait for everything to stop
+    Turtle.liftIO $ writeChan chan Nothing
+    Turtle.liftIO $ Turtle.wait fileUpdaters
 
 bump :: IO ()
 bump = do
-    printf "Start bumping\n"
-    allInfos <- getSrcInfo ()
-    sh $ updateOverlay allInfos
+    Turtle.printf "Start bumping\n"
+    allInfos <- getSrcInfo
+    Turtle.sh $ updateOverlay allInfos
 
 main :: IO ()
 main = do
     System.IO.hSetBuffering System.IO.stdout System.IO.LineBuffering
     bump
-
