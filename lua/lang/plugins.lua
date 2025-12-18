@@ -40,7 +40,7 @@ register("stevearc/conform.nvim", {
         typescript = { "prettierd", "prettier", stop_after_first = true },
         nix = { "nixfmt" },
         haskell = { "fourmolu" },
-        python = { "black" },
+        python = { "ruff_format" },
         rust = { "rustfmt" },
         ocaml = { "ocamlformat" },
       },
