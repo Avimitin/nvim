@@ -135,6 +135,10 @@ final: prev: {
       name = "zig";
       hash = "sha256-x69bGpkvyv/fUKEamXT7+PCdIMTZ70IkWskMFS3TqFo=";
     }
+    {
+      name = "meson";
+      hash = "sha256-nAVOjkwoPK7AYSWqqzMynBCfovchM8cbbYv/ArtSj8g=";
+    }
   ];
 
   neovim-nightly-bin = final.neovim-unwrapped.overrideAttrs {
