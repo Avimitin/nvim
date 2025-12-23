@@ -1,68 +1,97 @@
 {
-  description = "Flakes for running this configuration";
+  description = "Nvim Flake";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+  };
 
   outputs =
-    _:
+    inputs@{
+      self,
+      nixpkgs,
+      ...
+    }:
     let
-      jsonToSrc =
-        file:
-        with builtins;
-        let
-          srcDefines = fromJSON (readFile file);
-        in
-        mapAttrs (
-          name: value:
-          fetchTarball {
-            inherit (value.src) url sha256;
-          }
-        ) srcDefines;
-      inputs = jsonToSrc ./flake-lock/generated.json;
       overlay = import ./overlay.nix;
     in
-    {
-      overlays.default = overlay;
-      neovimConfig =
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "aarch64-darwin"
+      ];
+
+      flake = {
+        overlays = {
+          default = overlay;
+        };
+
+        # Clean and neovim only file set for downstream
+        neovimConfig =
+          let
+            lib = import "${nixpkgs.outPath}/lib";
+          in
+          with lib.fileset;
+          toSource {
+            root = ./.;
+            fileset = unions [
+              ./after
+              ./ftdetect
+              ./indent
+              ./lsp
+              ./lua
+              ./syntax
+              ./init.lua
+              ./lazy-lock.json
+            ];
+          };
+      };
+
+      imports = [
+        # Add treefmt flake module to automatically configure and add formatter to this flake
+        inputs.treefmt-nix.flakeModule
+      ];
+
+      perSystem =
+        { system, ... }:
         let
-          lib = import "${inputs.nixpkgs}/lib";
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              overlay
+            ];
+          };
         in
-        with lib.fileset;
-        toSource {
-          root = ./.;
-          fileset = unions [
-            ./after
-            ./ftdetect
-            ./indent
-            ./lua
-            ./syntax
-            ./vsnip
-            ./init.lua
-            ./lazy-lock.json
-          ];
+        {
+          # Override the default "pkgs" attribute in per-system config.
+          _module.args.pkgs = pkgs;
+
+          # Although the pkgs attribute is already override, but I am afraid
+          # that the magical evaluation of "pkgs" is confusing, and will lead
+          # to debug hell. So here we use the "pkgs" in "let-in binding" to
+          # explicitly told every user we are using an overlayed version of
+          # nixpkgs.
+          legacyPackages = pkgs;
+
+          devShells = {
+            default = pkgs.mkShell {
+              buildInputs = [
+                pkgs.ghc-for-ts-plugins
+                pkgs.fourmolu
+                pkgs.haskell-language-server
+              ];
+            };
+          };
+
+          treefmt = {
+            projectRootFile = "flake.nix";
+            settings.on-unmatched = "debug";
+            programs = {
+              nixfmt.enable = true;
+            };
+          };
         };
-    }
-    // (import inputs.flake-utils).eachDefaultSystem (
-      system:
-      let
-        pkgs = import inputs.nixpkgs {
-          overlays = [ overlay ];
-          inherit system;
-        };
-        treefmtEval = (import inputs.treefmt-nix).lib.evalModule pkgs {
-          projectRootFile = "flake.nix";
-          settings.verbose = 1;
-          programs.nixfmt.enable = true;
-        };
-      in
-      {
-        formatter = treefmtEval.config.build.wrapper;
-        legacyPackages = pkgs;
-        devShells.default = pkgs.mkShell {
-          nativeBuildInputs = with pkgs.haskellPackages; [
-            pkgs.ghc-for-ts-plugins
-            fourmolu
-            haskell-language-server
-          ];
-        };
-      }
-    );
+    };
 }
