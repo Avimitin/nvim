@@ -134,3 +134,10 @@ register("luukvbaal/statuscol.nvim", {
     })
   end,
 })
+
+register("sphamba/smear-cursor.nvim", {
+  event = "CursorMoved",
+  config = function()
+    require("smear_cursor").toggle()
+  end,
+})
