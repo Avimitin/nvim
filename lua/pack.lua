@@ -26,7 +26,9 @@ end
 function M.setup()
   collect_plugins()
 
-  if vim.pack then
+  if vim.env.NEOVIM_EXTERNAL_PLUGIN_MANAGEMENT then
+    -- Skip vim.pack.add as plugins are managed externally
+  elseif vim.pack then
     vim.pack.add(M.specs)
   else
     notify.error("vim.pack not available (requires Neovim 0.12+)")

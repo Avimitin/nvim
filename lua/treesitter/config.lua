@@ -2,37 +2,26 @@ local disable = function(_, buf)
   return vim.api.nvim_buf_line_count(buf) >= 5000
 end
 
-require("nvim-treesitter.configs").setup({
-  auto_install = false,
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = false,
-      node_incremental = false,
-      scope_incremental = false,
-      node_decremental = false,
-    },
-  },
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = { "org" },
-    disable = disable,
-  },
-  indent = {
-    enable = true,
-    disable = disable,
-  },
-  autotag = {
-    enable = true,
-  },
-  textobjects = {
-    select = {
-      enable = true,
+-- Enable native highlighting and indentation
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(args)
+    if disable(nil, args.buf) then
+      return
+    end
 
-      -- Automatically jump forward to textobj, similar to targets.vim
-      lookahead = true,
-
-      keymaps = {},
-    },
-  },
+    -- Enable highlighting
+    local ok = pcall(vim.treesitter.start, args.buf)
+    
+    -- Enable indentation if treesitter is active
+    if ok then
+      vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
 })
+
+-- Setup autotag
+require("nvim-ts-autotag").setup()
+
+-- Note: nvim-treesitter-textobjects is loaded and provides queries.
+-- Keymaps were empty in original config, so none are configured here.
+-- Incremental selection module is removed in nvim-treesitter main.
