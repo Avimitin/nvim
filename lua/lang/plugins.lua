@@ -4,33 +4,11 @@ register("numToStr/Comment.nvim", {
   config = function()
     require("Comment").setup({})
   end,
-  keys = {
-    { "gcc", desc = "Toggle line comment" },
-    { "gbc", desc = "Toggle block comment" },
-    { mode = "x", "gc", desc = "Toggle line comment" },
-    { mode = "x", "gb", desc = "Toggle block comment" },
-  },
 })
 
-register("scalameta/nvim-metals", {
-  lazy = true,
-})
+register("scalameta/nvim-metals", {})
 
 register("stevearc/conform.nvim", {
-  ft = {
-    "lua",
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact",
-    "json",
-    "nix",
-    "haskell",
-    "python",
-    "rust",
-    "scala",
-    "ocaml",
-  },
   config = function()
     require("conform").setup({
       formatters_by_ft = {

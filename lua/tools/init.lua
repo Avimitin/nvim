@@ -1,24 +1,10 @@
 local register = require("pack").register
 
 -- Neovim Library wrapper
-register("nvim-lua/plenary.nvim", {
-  lazy = true,
-})
+register("nvim-lua/plenary.nvim", {})
 
 -- Use oil for main file management
 register("stevearc/oil.nvim", {
-  cmd = { "Oil" },
-  lazy = false,
-  keys = {
-    {
-      "_",
-      function()
-        require("oil").open(vim.fn.getcwd())
-      end,
-      desc = "Open cwd",
-    },
-    { "-", "<CMD>Oil<CR>", { desc = "Open parent directory" } },
-  },
   config = function()
     require("oil").setup({
       float = {
@@ -35,22 +21,21 @@ register("stevearc/oil.nvim", {
         show_hidden = true,
       },
     })
+    require("keys").map("n", {
+      {
+        "_",
+        function()
+          require("oil").open(vim.fn.getcwd())
+        end,
+        desc = "Open cwd",
+      },
+      { "-", "<CMD>Oil<CR>", desc = "Open parent directory" },
+    })
   end,
 })
 
 -- Surround operation
 register("kylechui/nvim-surround", {
-  keys = {
-    "ys",
-    "yS",
-    "cs",
-    "cS",
-    "ds",
-    "dS",
-    { "gs", mode = { "x" } },
-    { "gS", mode = { "x" } },
-    { "<C-g>", mode = "i" },
-  },
   config = function()
     require("nvim-surround").setup({
       keymaps = {
@@ -89,10 +74,6 @@ register("kylechui/nvim-surround", {
 
 -- Quick moving by two character searching
 register("ggandor/leap.nvim", {
-  keys = {
-    { "s", "<Plug>(leap)", mode = { "n", "x", "o" }, desc = "Leap" },
-    { "S", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-  },
   config = function()
     require("leap").opts.preview = function(ch0, ch1, ch2)
       return not (ch1:match("%s") or (ch0:match("%a") and ch1:match("%a") and ch2:match("%a")))
@@ -110,6 +91,11 @@ register("ggandor/leap.nvim", {
     -- Use the traversal keys to repeat the previous motion without
     -- explicitly invoking Leap:
     require("leap.user").set_repeat_keys("<enter>", "<backspace>")
+
+    require("keys").map({ "n", "x", "o" }, {
+      { "s", "<Plug>(leap)", desc = "Leap" },
+      { "S", "<Plug>(leap-from-window)", desc = "Leap backward to" },
+    })
   end,
 })
 
@@ -121,20 +107,16 @@ register("uga-rosa/ccc.nvim", {
   config = function()
     require("ccc").setup()
   end,
-  cmd = {
-    "CccPick",
-    "CccHighlighterEnable",
-  },
 })
 
 -- Easy aligning text
 register("junegunn/vim-easy-align", {
-  cmd = "EasyAlign",
-  keys = { { "<space>e", ":EasyAlign<CR>", mode = "x" } },
+  config = function()
+    require("keys").map("x", { "<space>e", ":EasyAlign<CR>" })
+  end,
 })
 
 register("stevearc/quicker.nvim", {
-  ft = "qf",
   config = function()
     require("quicker").setup()
     require("galaxyline").load_galaxyline()
@@ -143,41 +125,39 @@ register("stevearc/quicker.nvim", {
 
 -- Open buffer manager
 register("j-morano/buffer_manager.nvim", {
-  lazy = true,
-  keys = {
-    -- tools
-    {
-      "<leader>b",
-      function()
-        require("buffer_manager.ui").toggle_quick_menu()
-      end,
-      desc = "Toggle buffer manager",
-    },
-    {
-      "<Tab>",
-      function()
-        require("buffer_manager.ui").nav_next()
-      end,
-      desc = "Next buffer",
-    },
-    {
-      "<S-Tab>",
-      function()
-        require("buffer_manager.ui").nav_prev()
-      end,
-      desc = "Prev buffer",
-    },
-  },
   config = function()
     require("buffer_manager").setup({
       -- Defined in kanagawa.nvim
       highlight = "Normal:BufferManagerBorder",
     })
+
+    require("keys").map("n", {
+      {
+        "<leader>b",
+        function()
+          require("buffer_manager.ui").toggle_quick_menu()
+        end,
+        desc = "Toggle buffer manager",
+      },
+      {
+        "<Tab>",
+        function()
+          require("buffer_manager.ui").nav_next()
+        end,
+        desc = "Next buffer",
+      },
+      {
+        "<S-Tab>",
+        function()
+          require("buffer_manager.ui").nav_prev()
+        end,
+        desc = "Prev buffer",
+      },
+    })
   end,
 })
 
 register("chomosuke/typst-preview.nvim", {
-  ft = "typst",
   version = "1.*",
   config = function()
     require("typst-preview").setup({
@@ -191,7 +171,6 @@ register("chomosuke/typst-preview.nvim", {
 })
 
 register("windwp/nvim-autopairs", {
-  event = "InsertEnter",
   config = function()
     require("nvim-autopairs").setup({})
   end,
@@ -201,31 +180,31 @@ register("echasnovski/mini.pick", {
   version = "*",
   config = function()
     require("mini.pick").setup()
+    require("keys").map("n", {
+      {
+        "<leader>fr",
+        function()
+          require("mini.pick").builtin.resume()
+        end,
+      },
+      {
+        "<leader>ff",
+        function()
+          require("mini.pick").builtin.files({ tool = "rg" })
+        end,
+      },
+      {
+        "<leader>fg",
+        function()
+          require("mini.pick").builtin.grep_live({ tool = "rg" })
+        end,
+      },
+      {
+        "<leader>fb",
+        function()
+          require("mini.pick").builtin.buffers()
+        end,
+      },
+    })
   end,
-  keys = {
-    {
-      "<leader>fr",
-      function()
-        require("mini.pick").builtin.resume()
-      end,
-    },
-    {
-      "<leader>ff",
-      function()
-        require("mini.pick").builtin.files({ tool = "rg" })
-      end,
-    },
-    {
-      "<leader>fg",
-      function()
-        require("mini.pick").builtin.grep_live({ tool = "rg" })
-      end,
-    },
-    {
-      "<leader>fb",
-      function()
-        require("mini.pick").builtin.buffers()
-      end,
-    },
-  },
 })

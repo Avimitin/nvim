@@ -2,7 +2,6 @@ local register = require("pack").register
 
 -- Deep dark purple colorscheme
 register("rebelot/kanagawa.nvim", {
-  lazy = true,
   config = function()
     require("ui.kanagawa")
   end,
@@ -10,7 +9,6 @@ register("rebelot/kanagawa.nvim", {
 
 --- List of nerd-font icons
 register("kyazdani42/nvim-web-devicons", {
-  lazy = true,
   config = function()
     require("nvim-web-devicons").setup({
       override = {
@@ -42,7 +40,6 @@ register("kyazdani42/nvim-web-devicons", {
 -- Status line
 register("Avimitin/galaxyline.nvim", {
   branch = "global-status-line",
-  event = { "FileType", "WinEnter", "BufEnter" },
   config = function()
     require("ui.statusline")
   end,
@@ -50,7 +47,6 @@ register("Avimitin/galaxyline.nvim", {
 
 -- Indent guide line
 register("lukas-reineke/indent-blankline.nvim", {
-  event = "BufRead",
   config = function()
     require("ui.indent")
   end,
@@ -66,31 +62,15 @@ register("j-hui/fidget.nvim", {
 
 -- prettify the input and select ui
 register("stevearc/dressing.nvim", {
-  lazy = true,
-  init = function()
-    ---@diagnostic disable-next-line: duplicate-set-field
-    vim.ui.select = function(...)
-      require("lazy").load({ plugins = { "dressing.nvim" } })
-      require("dressing").setup({
-        input = { border = "solid" },
-        select = { nui = { border = "solid" } },
-      })
-      return vim.ui.select(...)
-    end
-    ---@diagnostic disable-next-line: duplicate-set-field
-    vim.ui.input = function(...)
-      require("lazy").load({ plugins = { "dressing.nvim" } })
-      require("dressing").setup({
-        input = { border = "solid", prefer_width = 15, min_width = { 10, 0.1 } },
-        select = { nui = { border = "solid" } },
-      })
-      return vim.ui.input(...)
-    end
+  config = function()
+    require("dressing").setup({
+      input = { border = "solid", prefer_width = 15, min_width = { 10, 0.1 } },
+      select = { nui = { border = "solid" } },
+    })
   end,
 })
 
 register("luukvbaal/statuscol.nvim", {
-  event = "VeryLazy",
   config = function()
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({
@@ -136,7 +116,6 @@ register("luukvbaal/statuscol.nvim", {
 })
 
 register("sphamba/smear-cursor.nvim", {
-  event = "CursorMoved",
   config = function()
     require("smear_cursor").toggle()
   end,

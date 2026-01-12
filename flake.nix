@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     flake-parts.url = "github:hercules-ci/flake-parts";
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
@@ -11,6 +12,7 @@
     inputs@{
       self,
       nixpkgs,
+      neovim-nightly-overlay,
       ...
     }:
     let
@@ -26,6 +28,7 @@
       flake = {
         overlays = {
           default = overlay;
+          nightly = neovim-nightly-overlay.overlays.default;
         };
 
         # Clean and neovim only file set for downstream
@@ -44,7 +47,7 @@
               ./lua
               ./syntax
               ./init.lua
-              ./lazy-lock.json
+              ./plugins.json
             ];
           };
       };
@@ -60,6 +63,7 @@
           pkgs = import nixpkgs {
             inherit system;
             overlays = [
+              neovim-nightly-overlay.overlays.default
               overlay
             ];
           };
@@ -74,6 +78,15 @@
           # explicitly told every user we are using an overlayed version of
           # nixpkgs.
           legacyPackages = pkgs;
+
+          packages = {
+            default = pkgs.callPackage ./nix/mkNeovim.nix {
+              inherit (self) neovimConfig;
+            };
+            neovim = pkgs.callPackage ./nix/mkNeovim.nix {
+              inherit (self) neovimConfig;
+            };
+          };
 
           devShells = {
             default = pkgs.mkShell {

@@ -1,7 +1,8 @@
 local notify = require("libs.notify")
 
 local M = {
-  repositories = {},
+  specs = {},
+  configs = {},
 }
 
 local function collect_plugins()
@@ -23,47 +24,58 @@ local function collect_plugins()
 end
 
 function M.setup()
-  local lazy_nvim_install_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-  if not vim.loop.fs_stat(lazy_nvim_install_path) then
-    notify.info("Package manager not found, installing...")
-    local success, maybe_error = pcall(vim.fn.system, {
-      "git",
-      "clone",
-      "--filter=blob:none",
-      "https://github.com/folke/lazy.nvim.git",
-      "--branch=stable",
-      lazy_nvim_install_path,
-    })
-
-    if not success then
-      notify.error("ERROR: Fail to install plugin manager lazy.nvim", maybe_error)
-      notify.info("You can cleanup the " .. lazy_nvim_install_path .. " and start again")
-      return
-    end
-  end
-
-  vim.opt.rtp:prepend(lazy_nvim_install_path)
-
   collect_plugins()
 
-  require("lazy").setup(M.repositories, {
-    rocks = { enabled = false },
-    performance = {
-      rtp = {
-        reset = false,
-      },
-    },
-  })
+  if vim.pack then
+    vim.pack.add(M.specs)
+  else
+    notify.error("vim.pack not available (requires Neovim 0.12+)")
+  end
+
+  for _, spec in ipairs(M.specs) do
+    local name = spec.name
+    if M.configs[name] then
+      local ok, err = pcall(M.configs[name])
+      if not ok then
+        notify.error("Error running config for " .. name, err)
+      end
+    end
+  end
 end
 
 ---@param repo_path string URL to the plugin repositories
----@param config table? Lazy.nvim plugin spec
+---@param config table? Plugin config
 function M.register(repo_path, config)
   local package = config or {}
+  local name = repo_path:match(".*/(.*)") or repo_path
 
-  package[1] = repo_path
+  local spec = {
+    src = "https://github.com/" .. repo_path,
+    name = name,
+  }
 
-  table.insert(M.repositories, package)
+  if package.branch then
+    spec.version = package.branch
+  elseif package.tag then
+    spec.version = package.tag
+  elseif package.commit then
+    spec.version = package.commit
+  end
+
+  if package.init then
+    package.init()
+  end
+
+  M.configs[name] = package.config
+
+  table.insert(M.specs, spec)
+end
+
+function M.dump()
+  if not vim.pack then
+    return {}
+  end
+  return vim.pack.get(nil, { info = true })
 end
 
 return M
