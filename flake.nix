@@ -15,9 +15,6 @@
       neovim-nightly-overlay,
       ...
     }:
-    let
-      overlay = import ./overlay.nix;
-    in
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
@@ -27,29 +24,8 @@
 
       flake = {
         overlays = {
-          default = overlay;
           nightly = neovim-nightly-overlay.overlays.default;
         };
-
-        # Clean and neovim only file set for downstream
-        neovimConfig =
-          let
-            lib = import "${nixpkgs.outPath}/lib";
-          in
-          with lib.fileset;
-          toSource {
-            root = ./.;
-            fileset = unions [
-              ./after
-              ./ftdetect
-              ./indent
-              ./lsp
-              ./lua
-              ./syntax
-              ./init.lua
-              ./plugins.json
-            ];
-          };
       };
 
       imports = [
@@ -64,7 +40,6 @@
             inherit system;
             overlays = [
               neovim-nightly-overlay.overlays.default
-              overlay
             ];
           };
         in
@@ -79,23 +54,9 @@
           # nixpkgs.
           legacyPackages = pkgs;
 
-          packages = {
-            default = pkgs.callPackage ./nix/mkNeovim.nix {
-              inherit (self) neovimConfig;
-            };
-            neovim = pkgs.callPackage ./nix/mkNeovim.nix {
-              inherit (self) neovimConfig;
-            };
-          };
-
-          devShells = {
-            default = pkgs.mkShell {
-              buildInputs = [
-                pkgs.ghc-for-ts-plugins
-                pkgs.fourmolu
-                pkgs.haskell-language-server
-              ];
-            };
+          packages = rec {
+            neovim = pkgs.callPackage ./nix/mkNeovim.nix { };
+            default = neovim;
           };
 
           treefmt = {

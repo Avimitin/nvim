@@ -1,7 +1,11 @@
 {
-  pkgs,
+  wrapNeovim,
+  neovim-unwrapped,
+  vimPlugins,
+  symlinkJoin,
+  writeText,
+  runCommand,
   lib,
-  neovimConfig,
   extraPlugins ? { },
 }:
 let
@@ -26,12 +30,11 @@ let
     in
     builtins.fetchGit args;
 
-  # Create a derivation for each plugin in the pack/chika/opt directory
   mkPlugin =
     p:
-    pkgs.runCommand "vim-plugin-${p.name}" { } ''
-      mkdir -p $out/pack/chika/opt/${p.name}
-      cp -r ${fetchPluginSrc p}/* $out/pack/chika/opt/${p.name}
+    runCommand "vim-plugin-${p.name}" { } ''
+      mkdir -p $out/pack/core/opt/${p.name}
+      cp -r ${fetchPluginSrc p}/* $out/pack/core/opt/${p.name}
     '';
 
   # Convert the list of plugins from JSON to an attribute set { name = drv; }
@@ -46,8 +49,8 @@ let
   finalPlugins = defaultPlugins // extraPlugins;
 
   # Combine into a single packpath directory
-  packDir = pkgs.symlinkJoin {
-    name = "chika-packpath";
+  packDir = symlinkJoin {
+    name = "core-packpath";
     paths = builtins.attrValues finalPlugins;
   };
 
@@ -58,8 +61,8 @@ let
   # Reuse Nixpkgs treesitter grammars
   # We use the nvim-treesitter wrapper to build a plugin with parsers, then extract just the parsers
   # to allow using the nightly nvim-treesitter Lua code from plugins.json.
-  ts-grammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (p:
-    with p; [
+  ts-grammars = vimPlugins.nvim-treesitter.withPlugins (
+    p: with p; [
       bash
       c
       cpp
@@ -93,15 +96,32 @@ let
     ]
   );
 
-  ts-parsers = pkgs.runCommand "treesitter-parsers" { } ''
+  ts-parsers = runCommand "treesitter-parsers" { } ''
     mkdir -p $out/parser
     if [ -d ${ts-grammars}/parser ]; then
       ln -s ${ts-grammars}/parser/*.so $out/parser/
     fi
   '';
 
-  initLua = pkgs.writeText "init.lua" ''
-    -- Prepend the treesitter parsers (from Nixpkgs)
+  # Clean and neovim only file set for downstream
+  neovimConfig =
+    with lib.fileset;
+    toSource {
+      root = ../.;
+      fileset = unions [
+        ../after
+        ../ftdetect
+        ../indent
+        ../lsp
+        ../lua
+        ../syntax
+        ../init.lua
+        ../nvim-pack-lock.json
+      ];
+    };
+
+  initLua = writeText "init.lua" ''
+    -- Prepend the treesitter parsers
     vim.opt.rtp:prepend("${ts-parsers}")
 
     -- Prepend the generated packpath
@@ -114,11 +134,11 @@ let
     vim.opt.rtp:prepend("${neovimConfig}")
 
     -- Setup the configuration
-    require("chika").setup()
+    require("core").setup()
   '';
 
 in
-pkgs.wrapNeovim pkgs.neovim-nightly-bin {
+wrapNeovim neovim-unwrapped {
   configure = {
     customRC = "luafile ${initLua}";
   };
