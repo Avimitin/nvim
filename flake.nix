@@ -64,6 +64,7 @@
             settings.on-unmatched = "debug";
             programs = {
               nixfmt.enable = true;
+              stylua.enable = true;
             };
           };
         };

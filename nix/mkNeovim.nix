@@ -6,29 +6,20 @@
   writeText,
   runCommand,
   lib,
+  fetchgit,
   extraPlugins ? { },
 }:
 let
   pluginsMeta = builtins.fromJSON (builtins.readFile ../plugins.json);
 
-  # Fetch plugin using builtins.fetchGit (requires impure evaluation or hashed pinning)
+  # Fetch plugin using fetchgit with rev and sha256
   fetchPluginSrc =
     p:
-    let
-      isCommit = (p ? version) && (builtins.match "[0-9a-f]{40}" p.version) != null;
-      args = {
-        url = p.src;
-      }
-      // (
-        if !(p ? version) then
-          { }
-        else if isCommit then
-          { rev = p.version; }
-        else
-          { ref = p.version; }
-      );
-    in
-    builtins.fetchGit args;
+    fetchgit {
+      url = p.src;
+      rev = p.rev;
+      sha256 = p.sha256;
+    };
 
   mkPlugin =
     p:

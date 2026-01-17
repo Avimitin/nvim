@@ -1,6 +1,8 @@
 local register = require("pack").register
 
 register("hrsh7th/nvim-cmp", {
+  rev = "85bbfad83f804f11688d1ab9486b459e699292d6",
+  sha256 = "sha256-gwuiUgz3UEFpaKs79BSWS4qkwOi+XMHIDFdYRatWt0g=",
   event = "InsertEnter",
   keys = { ":", "/" },
   dependencies = {

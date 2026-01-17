@@ -1,10 +1,18 @@
 local register = require("pack").register
 
 -- Neovim Library wrapper
-register("nvim-lua/plenary.nvim", {})
+register(
+  "nvim-lua/plenary.nvim",
+  {
+    rev = "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
+    sha256 = "sha256-9Un7ekhBxcnmFE1xjCCFTZ7eqIbmXvQexpnhduAg4M0=",
+  }
+)
 
 -- Use oil for main file management
 register("stevearc/oil.nvim", {
+  rev = "f55b25e493a7df76371cfadd0ded5004cb9cd48a",
+  sha256 = "sha256-eMruZSMi72A74LqtSsyJSI3WY595aKO9n2XxJ3Du/9Y=",
   config = function()
     require("oil").setup({
       float = {
@@ -36,6 +44,8 @@ register("stevearc/oil.nvim", {
 
 -- Surround operation
 register("kylechui/nvim-surround", {
+  rev = "1098d7b3c34adcfa7feb3289ee434529abd4afd1",
+  sha256 = "sha256-IzJ9PWUeEw52Gs5nCH3zAUBbar3Wq6PCN+Rt6HKC1pc=",
   config = function()
     require("nvim-surround").setup({
       keymaps = {
@@ -74,6 +84,8 @@ register("kylechui/nvim-surround", {
 
 -- Quick moving by two character searching
 register("ggandor/leap.nvim", {
+  rev = "f19d43590c4b6d31188ee1ea2954d2b7558a9e11",
+  sha256 = "sha256-u8G8aGqZ5ovUCV+yaaj+zy6emz9h59lVBhzsxEFcPhg=",
   config = function()
     require("leap").opts.preview = function(ch0, ch1, ch2)
       return not (ch1:match("%s") or (ch0:match("%a") and ch1:match("%a") and ch2:match("%a")))
@@ -100,10 +112,18 @@ register("ggandor/leap.nvim", {
 })
 
 -- Auto matically setting tab width by projects
-register("tpope/vim-sleuth")
+register(
+  "tpope/vim-sleuth",
+  {
+    rev = "be69bff86754b1aa5adcbb527d7fcd1635a84080",
+    sha256 = "sha256-uHVHAp3tJDcpnV8Un75I03lpFS1r1mbwWSkjuhLwhkg=",
+  }
+)
 
 --- Color utils
 register("uga-rosa/ccc.nvim", {
+  rev = "9d1a256e006decc574789dfc7d628ca11644d4c2",
+  sha256 = "sha256-3TZ8VmvdgQ9n63m78C3r4OIUkVQHTHBvC24ixBdhTig=",
   config = function()
     require("ccc").setup()
   end,
@@ -111,12 +131,16 @@ register("uga-rosa/ccc.nvim", {
 
 -- Easy aligning text
 register("junegunn/vim-easy-align", {
+  rev = "9815a55dbcd817784458df7a18acacc6f82b1241",
+  sha256 = "sha256-EARuJTE5VQVF9KbX6TOtxaoHiem49R468h9IfUj32Kg=",
   config = function()
     require("keys").map("x", { "<space>e", ":EasyAlign<CR>" })
   end,
 })
 
 register("stevearc/quicker.nvim", {
+  rev = "fc041830fa7cf093786b0d5990d99cf3c7b0c129",
+  sha256 = "sha256-cL/BxgmqWE28UVRwoGXz0pSlJREjrQw5/st15SITYeA=",
   config = function()
     require("quicker").setup()
     require("galaxyline").load_galaxyline()
@@ -125,6 +149,8 @@ register("stevearc/quicker.nvim", {
 
 -- Open buffer manager
 register("j-morano/buffer_manager.nvim", {
+  rev = "d62dc479603459cf6664abd468761ae78316e803",
+  sha256 = "sha256-eOWgLq1eTHutV3jZzVRPtgwVIm25dcZ31ayXLbfPH4M=",
   config = function()
     require("buffer_manager").setup({
       -- Defined in kanagawa.nvim
@@ -158,7 +184,8 @@ register("j-morano/buffer_manager.nvim", {
 })
 
 register("chomosuke/typst-preview.nvim", {
-  version = "1.*",
+  rev = "bf5d5eaf23bbfcca9f98a24ed29bd084abf89bf2",
+  sha256 = "sha256-2IGGLRLVf1Or6nu3y07HQZ2fvcOzWOUNZ4B6eMUeugc=",
   config = function()
     require("typst-preview").setup({
       open_cmd = "/usr/bin/env firefox --new-window %s",
@@ -171,13 +198,16 @@ register("chomosuke/typst-preview.nvim", {
 })
 
 register("windwp/nvim-autopairs", {
+  rev = "c2a0dd0d931d0fb07665e1fedb1ea688da3b80b4",
+  sha256 = "sha256-8k/vGYktoFBX3kjOyn+VR49xmhFhNZbkaI8UmbPSYF4=",
   config = function()
     require("nvim-autopairs").setup({})
   end,
 })
 
 register("echasnovski/mini.pick", {
-  version = "*",
+  rev = "66148e0e4e2d087c86326c6b58d663da4dde8fc5",
+  sha256 = "sha256-t7+goJcRfwIO+MyZN7TvpzA4V61Fce5pyiMVRmi8Vvg=",
   config = function()
     require("mini.pick").setup()
     require("keys").map("n", {

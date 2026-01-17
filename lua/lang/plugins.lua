@@ -1,14 +1,21 @@
 local register = require("pack").register
 
 register("numToStr/Comment.nvim", {
+  rev = "e30b7f2008e52442154b66f7c519bfd2f1e32acb",
+  sha256 = "sha256-h0kPue5Eqd5aeu4VoLH45pF0DmWWo1d8SnLICSQ63zc=",
   config = function()
     require("Comment").setup({})
   end,
 })
 
-register("scalameta/nvim-metals", {})
+register("scalameta/nvim-metals", {
+  rev = "7ed47cd3095508e80423e30922385d5b9988f9d6",
+  sha256 = "sha256-LhVcJ5KbQeUik1+ZEuY/zoLKXkLAYb+sn6EcJFMfLjw=",
+})
 
 register("stevearc/conform.nvim", {
+  rev = "5ac2bb57a9096f00ca50e1a3c46020d5930319b8",
+  sha256 = "sha256-YQivyPuskDJO4qK55VgOHXRsB4y/shA9T44iyfoNG2k=",
   config = function()
     require("conform").setup({
       formatters_by_ft = {

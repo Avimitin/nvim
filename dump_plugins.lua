@@ -1,15 +1,14 @@
-
 -- Ensure we can load modules from current directory
 vim.opt.rtp:prepend(vim.fn.getcwd())
 
 -- Mock libs.notify to avoid errors if it relies on plugins
 package.loaded["libs.notify"] = {
   error = function(...)
-    local args = {...}
+    local args = { ... }
     print("Error:", table.concat(args, " "))
   end,
   info = function(...)
-    local args = {...}
+    local args = { ... }
     print("Info:", table.concat(args, " "))
   end,
 }

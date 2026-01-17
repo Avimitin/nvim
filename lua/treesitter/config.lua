@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
     -- Enable highlighting
     local ok = pcall(vim.treesitter.start, args.buf)
-    
+
     -- Enable indentation if treesitter is active
     if ok then
       vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
