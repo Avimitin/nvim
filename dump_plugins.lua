@@ -44,6 +44,8 @@ for _, spec in ipairs(specs) do
     name = spec.name,
     src = spec.src,
     version = spec.version, -- Can be nil, string, or table (not handled by json encode usually if it's a function/userdata, but version strings/tables should be ok if simple)
+    rev = spec.rev,
+    sha256 = spec.sha256,
   })
 end
 

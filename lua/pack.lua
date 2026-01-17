@@ -29,7 +29,17 @@ function M.setup()
   if vim.env.NEOVIM_EXTERNAL_PLUGIN_MANAGEMENT then
     -- Skip vim.pack.add as plugins are managed externally
   elseif vim.pack then
-    vim.pack.add(M.specs)
+    local clean_specs = {}
+    for _, spec in ipairs(M.specs) do
+      local clean_spec = {}
+      for k, v in pairs(spec) do
+        if k ~= "rev" and k ~= "revision" and k ~= "sha256" then
+          clean_spec[k] = v
+        end
+      end
+      table.insert(clean_specs, clean_spec)
+    end
+    vim.pack.add(clean_specs)
   else
     notify.error("vim.pack not available (requires Neovim 0.12+)")
   end
@@ -54,6 +64,8 @@ function M.register(repo_path, config)
   local spec = {
     src = "https://github.com/" .. repo_path,
     name = name,
+    rev = package.rev or package.revision,
+    sha256 = package.sha256,
   }
 
   if package.branch then
