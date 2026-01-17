@@ -35,22 +35,34 @@ Finally, input `nvim` to open the editor, and all plugins will be downloaded aut
 nvim
 ```
 
-### Nix nerds
+### Flake
 
-To use this in your home-manager, you can use the `xdg.configFile` attribute:
+This repository is also a flake. You can run it directly:
+
+```bash
+nix run github:Avimitin/nvim
+```
+
+Or add it to your configuration inputs:
 
 ```nix
-{ pkgs }:
 {
-  xdg.configFile = {
-    neovim = {
-      target = "nvim";
-      source = pkgs.fetchFromGitHub {
-        repo = "nvim";
-        owner = "Avimitin";
-        rev = "...";
-        hash = "...";
-      }
+  inputs = {
+    # ...
+    nvim-config.url = "github:Avimitin/nvim";
+  };
+
+  outputs = { self, nixpkgs, nvim-config, ... }: {
+    # ...
+    nixosConfigurations.machine = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ({ pkgs, ... }: {
+          environment.systemPackages = [
+            nvim-config.packages.${pkgs.system}.default
+          ];
+        })
+      ];
     };
   };
 }
@@ -103,43 +115,6 @@ set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
 - `indent`: List of script to help neovim properly set indentation, not important.
 - `syntax`: Additional syntax detection for some file type, not important.
 
-
-## Treesitter parsers in nix
-
-- For normal user: make sure gcc is installed, then run `:TSInstall <language>` to compile and install corresponding treesitter plugin
-- For nix user: you can add this repository as an overlay and use the pre-bundled neovim:
-
-```nix
-# flake.nix
-{
-  description = "Simple home-manager neovim configuration";
-
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    my-neovim.url = "github:Avimitin/nvim";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  outputs = { self, nixpkgs, flake-utils, home-manager, my-neovim }: {
-    homeConfiguration = home-manager.lib.homeManagerConfiguration {
-      # import my overlay, it will add a new `neovim-nightly` derivation into your nixpkgs
-      pkgs = import nixpkgs { system = "x86_64-linux"; overlays = [ my-neovim.overlays.default ];  };
-      modules = [
-        ({ pkgs }: {
-          # Then add the pre-bundled neovim into your home configuration
-          home.packages = [
-            pkgs.neovim-nightly
-          ];
-        })
-      ];
-    };
-  };
-}
-```
-
 ## License
 
 This configuration since commit `912416ae9c4b55501b23a91d774b567ba8697dd1` are
@@ -147,14 +122,3 @@ licenced under the Apache 2.0 license.
 
 另附：禁止在 CSDN，bilibili 等国内平台使用该配置文件进行任何活动。
 你只保有自己修改部分的权利。
-
-# Additional notes
-
-## About treesitter bumping
-
-- Run `:Lazy sync`
-- Remove hash in ./nix/nvim-treesitter-lock-file.nix
-- Run `nix build '.#neovim-nightly'`
-- Update hash
-- Run `./bump_treesitter.hs`
-- Run `nix build '.#neovim-nightly'`
