@@ -125,7 +125,7 @@ let
     vim.opt.rtp:prepend("${neovimConfig}")
 
     -- Setup the configuration
-    require("core").setup()
+    require("core").setup({use_external_plugins = true})
   '';
 
 in
@@ -133,5 +133,4 @@ wrapNeovim neovim-unwrapped {
   configure = {
     customRC = "luafile ${initLua}";
   };
-  extraMakeWrapperArgs = "--set NEOVIM_EXTERNAL_PLUGIN_MANAGEMENT 1";
 }

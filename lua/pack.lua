@@ -23,10 +23,11 @@ local function collect_plugins()
   end
 end
 
-function M.setup()
+---@param config table? Plugin config
+function M.setup(config)
   collect_plugins()
 
-  if vim.env.NEOVIM_EXTERNAL_PLUGIN_MANAGEMENT then
+  if vim.env.NEOVIM_EXTERNAL_PLUGIN_MANAGEMENT or (config and config.use_external_plugins) then
     -- Skip vim.pack.add as plugins are managed externally
   elseif vim.pack then
     local clean_specs = {}

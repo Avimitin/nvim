@@ -1,13 +1,13 @@
 local M = {}
 
-function M.setup()
+function M.setup(config)
   -- Reject loading plugins when bigfile detect. Default on 1.5M size.
   require("libs.bigfile").setup()
 
   require("core.options")
   require("core.autocmd")
 
-  require("pack").setup()
+  require("pack").setup(config or {})
 
   require("keys").mk_keymap({
     normal = {
