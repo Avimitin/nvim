@@ -60,12 +60,18 @@ end
 function M.register(repo_path, config)
   local package = config or {}
   local name = repo_path:match(".*/(.*)") or repo_path
+  local src
+  if repo_path:match("^https://.*$") then
+    src = repo_path
+  else
+    src = "https://github.com/" .. repo_path
+  end
 
   local spec = {
-    src = "https://github.com/" .. repo_path,
+    src = src,
     name = name,
     rev = package.rev or package.revision,
-    sha256 = package.sha256,
+    hash = package.sha256,
   }
 
   if package.branch then

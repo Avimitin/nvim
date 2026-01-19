@@ -18,7 +18,7 @@ let
     fetchgit {
       url = p.src;
       rev = p.rev;
-      sha256 = p.sha256;
+      hash = p.hash;
     };
 
   mkPlugin =

@@ -45,7 +45,6 @@ register("kyazdani42/nvim-web-devicons", {
 register("Avimitin/galaxyline.nvim", {
   rev = "c4801de4bad71e0a38cab8e5e703524c97496812",
   sha256 = "sha256-8K/HlOCcfdqARN+CXfd3nXcsQp8wRtW0v13pLB5SZ4Q=",
-  branch = "global-status-line",
   config = function()
     require("ui.statusline")
   end,
