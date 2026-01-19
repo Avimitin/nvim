@@ -23,7 +23,7 @@ benefits in mind, not just for visual appeal.
 
 ## Getting Start
 
-This configuration is compatible with neovim 0.10+ version.
+This configuration is compatible with neovim **0.12+** version.
 
 ```bash
 git clone --depth=1 https://github.com/Avimitin/nvim.git ~/.config/nvim
@@ -33,6 +33,24 @@ Finally, input `nvim` to open the editor, and all plugins will be downloaded aut
 
 ```bash
 nvim
+```
+
+### Use pre-installed plugins
+
+This configuration facilitate the `vim.pack` module to download plugins. But
+user could also use other package manager to download plugins. To avoid
+`vim.pack` management, set the `NEOVIM_EXTERNAL_PLUGIN_MANAGEMENT` environment,
+  or enable the corresponding config:
+
+- Use env
+```bash
+export NEOVIM_EXTERNAL_PLUGIN_MANAGEMENT=1
+nvim
+```
+
+- Or, change config
+```lua
+require("core").setup({use_external_plugins = true})
 ```
 
 ### Flake
