@@ -1,27 +1,36 @@
-local disable = function(_, buf)
+local disable = function(buf)
+  if not vim.api.nvim_buf_is_valid(buf) then
+    return true
+  end
   return vim.api.nvim_buf_line_count(buf) >= 5000
 end
 
--- Enable native highlighting and indentation
 vim.api.nvim_create_autocmd("FileType", {
   callback = function(args)
-    if disable(nil, args.buf) then
+    if disable(args.buf) then
       return
     end
 
-    -- Enable highlighting
-    local ok = pcall(vim.treesitter.start, args.buf)
+    vim.schedule(function()
+      -- Double-check buffer validity in case it closed quickly
+      if not vim.api.nvim_buf_is_valid(args.buf) then
+        return
+      end
 
-    -- Enable indentation if treesitter is active
-    if ok then
-      vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-    end
+      local status, _ = pcall(vim.treesitter.start, args.buf)
+
+      if status then
+        -- Use 'vim.bo' for buffer-local options
+        vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+        -- Use 'vim.wo' for window-local options.
+        -- vim.wo[0] refers to the current window.
+        vim.wo[0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        vim.wo[0].foldmethod = "expr"
+      end
+    end)
   end,
 })
 
 -- Setup autotag
 require("nvim-ts-autotag").setup()
-
--- Note: nvim-treesitter-textobjects is loaded and provides queries.
--- Keymaps were empty in original config, so none are configured here.
--- Incremental selection module is removed in nvim-treesitter main.

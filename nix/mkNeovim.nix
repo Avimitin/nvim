@@ -21,29 +21,25 @@ let
       hash = p.hash;
     };
 
-  mkPlugin =
-    p:
-    runCommand "vim-plugin-${p.name}" { } ''
-      mkdir -p $out/pack/core/opt/${p.name}
-      cp -r ${fetchPluginSrc p}/* $out/pack/core/opt/${p.name}
+  mkPluginSet =
+    ps:
+    runCommand "my-nvim-plugins-set" { } ''
+      mkdir -p $out/pack/core/opt/
+      ${lib.concatMapStringsSep "\n" (plugin: ''
+        ln -s ${plugin.value} "$out/pack/core/opt/${plugin.name}"
+      '') (lib.attrsToList ps)}
     '';
 
   # Convert the list of plugins from JSON to an attribute set { name = drv; }
   defaultPlugins = builtins.listToAttrs (
     map (p: {
       name = p.name;
-      value = mkPlugin p;
+      value = fetchPluginSrc p;
     }) pluginsMeta
   );
 
   # Merge with extraPlugins. extraPlugins takes precedence.
   finalPlugins = defaultPlugins // extraPlugins;
-
-  # Combine into a single packpath directory
-  packDir = symlinkJoin {
-    name = "core-packpath";
-    paths = builtins.attrValues finalPlugins;
-  };
 
   # Generate the init.lua
   # We iterate over the names of finalPlugins to ensure we packadd everything that ends up in the set
@@ -52,46 +48,53 @@ let
   # Reuse Nixpkgs treesitter grammars
   # We use the nvim-treesitter wrapper to build a plugin with parsers, then extract just the parsers
   # to allow using the nightly nvim-treesitter Lua code from plugins.json.
-  ts-grammars = vimPlugins.nvim-treesitter.withPlugins (
-    p: with p; [
-      bash
-      c
-      cpp
-      css
-      comment
-      diff
-      gitcommit
-      haskell
-      javascript
-      typescript
-      tsx
-      typst
-      llvm
-      lua
-      ocaml
-      ocaml_interface
-      regex
-      ruby
-      python
-      rust
-      proto
-      scala
-      nix
-      vimdoc
-      query
-      markdown
-      markdown_inline
-      yaml
-      zig
-      meson
-    ]
-  );
+  requiredTsName = [
+    # "c"
+    # "markdown"
+    # "markdown_inline"
+    # "lua"
+    # "query"
+    # "vim"
+    # "vimdoc"
+    # --- above are bundled with neovim ---
+    "bash"
+    "cpp"
+    "css"
+    "comment"
+    "diff"
+    "gitcommit"
+    "haskell"
+    "javascript"
+    "typescript"
+    "tsx"
+    "typst"
+    "llvm"
+    "ocaml"
+    "ocaml_interface"
+    "regex"
+    "ruby"
+    "python"
+    "rust"
+    "proto"
+    "scala"
+    "nix"
+    "yaml"
+    "zig"
+    "meson"
+  ];
 
-  ts-parsers = runCommand "treesitter-parsers" { } ''
-    mkdir -p $out/parser
-    if [ -d ${ts-grammars}/parser ]; then
-      ln -s ${ts-grammars}/parser/*.so $out/parser/
-    fi
+  # We only use the prebuilt parser
+  ts-parsers = symlinkJoin {
+    name = "my-treesitter-parsers";
+    paths =
+      (vimPlugins.nvim-treesitter.withPlugins (p: map (name: p.${name}) requiredTsName)).dependencies;
+  };
+
+  ts-queries = runCommand "link-my-treesitter-queries" { } ''
+    mkdir -p "$out/queries"
+    ${lib.concatMapStringsSep "\n" (name: ''
+      ln -s "${finalPlugins.nvim-treesitter}/runtime/queries/${name}" "$out/queries/${name}"
+    '') requiredTsName}
   '';
 
   # Clean and neovim only file set for downstream
@@ -114,9 +117,11 @@ let
   initLua = writeText "init.lua" ''
     -- Prepend the treesitter parsers
     vim.opt.rtp:prepend("${ts-parsers}")
+    -- Prepend the treesitter queries
+    vim.opt.rtp:prepend("${ts-queries}")
 
     -- Prepend the generated packpath
-    vim.opt.packpath:prepend("${packDir}")
+    vim.opt.packpath:prepend("${mkPluginSet finalPlugins}")
 
     -- Packadd all plugins
     ${lib.concatMapStringsSep "\n" (name: "vim.cmd.packadd('${name}')") pluginNames}

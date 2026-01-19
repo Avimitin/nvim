@@ -4,9 +4,7 @@ register("nvim-treesitter/nvim-treesitter", {
   rev = "d19def46c112c26c17adeef88dd1253cc6d623a1",
   sha256 = "sha256-u2f1nhred9AK5s0DoF6x1cg/TxvR5rc5/G00fG1s+b4=",
   config = function()
-    vim.schedule(function()
-      require("treesitter.config")
-    end)
+    require("treesitter.config")
   end,
 })
 
