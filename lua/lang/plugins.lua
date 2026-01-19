@@ -44,7 +44,7 @@ register("stevearc/conform.nvim", {
     })
 
     require("keys").map("n", {
-      "<leader>cf",
+      "gcf",
       function()
         -- Use LSP client provided formatter when no formatter specify
         require("conform").format({ lsp_format = "fallback" })
