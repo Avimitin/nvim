@@ -1,13 +1,10 @@
 local register = require("pack").register
 
 -- Neovim Library wrapper
-register(
-  "nvim-lua/plenary.nvim",
-  {
-    rev = "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
-    sha256 = "sha256-9Un7ekhBxcnmFE1xjCCFTZ7eqIbmXvQexpnhduAg4M0=",
-  }
-)
+register("nvim-lua/plenary.nvim", {
+  rev = "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
+  sha256 = "sha256-9Un7ekhBxcnmFE1xjCCFTZ7eqIbmXvQexpnhduAg4M0=",
+})
 
 -- Use oil for main file management
 register("stevearc/oil.nvim", {
@@ -83,9 +80,9 @@ register("kylechui/nvim-surround", {
 })
 
 -- Quick moving by two character searching
-register("ggandor/leap.nvim", {
-  rev = "f19d43590c4b6d31188ee1ea2954d2b7558a9e11",
-  sha256 = "sha256-u8G8aGqZ5ovUCV+yaaj+zy6emz9h59lVBhzsxEFcPhg=",
+register("https://codeberg.org/andyg/leap.nvim.git", {
+  rev = "819388c5546548016b0dab9a72a42aa5a40bf35d",
+  sha256 = "sha256-XPlcmTzWZA70yzXAPT9wnjpDoHLfYK2u4YXfn3C2tcY=",
   config = function()
     require("leap").opts.preview = function(ch0, ch1, ch2)
       return not (ch1:match("%s") or (ch0:match("%a") and ch1:match("%a") and ch2:match("%a")))
@@ -104,21 +101,52 @@ register("ggandor/leap.nvim", {
     -- explicitly invoking Leap:
     require("leap.user").set_repeat_keys("<enter>", "<backspace>")
 
-    require("keys").map({ "n", "x", "o" }, {
-      { "s", "<Plug>(leap)", desc = "Leap" },
-      { "S", "<Plug>(leap-from-window)", desc = "Leap backward to" },
-    })
+    vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
+    vim.keymap.set("n", "S", "<Plug>(leap-from-window)")
+
+    vim.keymap.set({ "x", "o" }, "R", function()
+      require("leap.treesitter").select({
+        opts = require("leap.user").with_traversal_keys("R", "r"),
+      })
+    end)
+
+    -- Return an argument table for `leap()`, tailored for f/t-motions.
+    local function as_ft(key_specific_args)
+      local common_args = {
+        inputlen = 1,
+        inclusive = true,
+        -- To limit search scope to the current line:
+        -- pattern = function (pat) return '\\%.l'..pat end,
+        opts = {
+          labels = "", -- force autojump
+          safe_labels = vim.fn.mode(1):match("[no]") and "" or nil, -- [1]
+        },
+      }
+      return vim.tbl_deep_extend("keep", common_args, key_specific_args)
+    end
+
+    local clever = require("leap.user").with_traversal_keys -- [2]
+    local clever_f = clever("f", "F")
+    local clever_t = clever("t", "T")
+
+    for key, key_specific_args in pairs({
+      f = { opts = clever_f },
+      F = { backward = true, opts = clever_f },
+      t = { offset = -1, opts = clever_t },
+      T = { backward = true, offset = 1, opts = clever_t },
+    }) do
+      vim.keymap.set({ "n", "x", "o" }, key, function()
+        require("leap").leap(as_ft(key_specific_args))
+      end)
+    end
   end,
 })
 
 -- Auto matically setting tab width by projects
-register(
-  "tpope/vim-sleuth",
-  {
-    rev = "be69bff86754b1aa5adcbb527d7fcd1635a84080",
-    sha256 = "sha256-uHVHAp3tJDcpnV8Un75I03lpFS1r1mbwWSkjuhLwhkg=",
-  }
-)
+register("tpope/vim-sleuth", {
+  rev = "be69bff86754b1aa5adcbb527d7fcd1635a84080",
+  sha256 = "sha256-uHVHAp3tJDcpnV8Un75I03lpFS1r1mbwWSkjuhLwhkg=",
+})
 
 --- Color utils
 register("uga-rosa/ccc.nvim", {
