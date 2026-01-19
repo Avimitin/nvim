@@ -90,3 +90,40 @@ au("CmdlineLeave", {
     end
   end,
 })
+
+au("FileType", {
+  pattern = { "llvm", "mir", "tablegen" },
+  callback = function()
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.expandtab = true
+    if vim.bo.filetype == "tablegen" then
+      vim.opt_local.matchpairs:append("<:>")
+    else
+      vim.opt_local.comments:append(":;")
+    end
+  end,
+})
+
+au("FileType", {
+  pattern = "markdown",
+  callback = function()
+    if require("libs.cache")["markdown"] then
+      return
+    end
+
+    vim.b.table_mode_corner = "|"
+    vim.opt_local.spell = true
+  end,
+})
+
+au("FileType", {
+  pattern = "typst",
+  callback = function()
+    if require("libs.cache")["typst"] then
+      return
+    end
+
+    vim.opt_local.spell = true
+  end,
+})

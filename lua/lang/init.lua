@@ -21,6 +21,13 @@ function M.setup_lsp()
   })
 
   vim.lsp.log.set_level(vim.log.levels.OFF)
+
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "scala",
+    callback = function()
+      require("lang.scala").setup()
+    end,
+  })
 end
 
 return M

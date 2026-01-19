@@ -189,3 +189,27 @@ end
 
 -- If anything went wrong, rm -r ~/.cache/nvim/luac
 vim.loader.enable()
+
+--
+-- Filetype configuration
+--
+vim.filetype.add({
+  extension = {
+    asl = "asl",
+    mill = "scala",
+    mlir = "mlir",
+    sail = "sail",
+    sc = "scala",
+    td = "tablegen",
+    ll = "llvm",
+  },
+  filename = {
+    [".makepkg.conf"] = "bash",
+  },
+  pattern = {
+    [".*%.cpp%.inc"] = "cpp",
+    [".*%.h%.inc"] = "cpp",
+    [".*/lit.*cfg"] = "python",
+    ["lit.*cfg"] = "python",
+  },
+})

@@ -103,8 +103,6 @@ let
     toSource {
       root = ../.;
       fileset = unions [
-        ../after
-        ../ftdetect
         ../indent
         ../lsp
         ../lua
