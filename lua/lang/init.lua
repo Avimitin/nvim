@@ -20,7 +20,7 @@ function M.setup_lsp()
     end,
   })
 
-  vim.lsp.set_log_level(vim.log.levels.OFF)
+  vim.lsp.log.set_level(vim.log.levels.OFF)
 end
 
 return M
