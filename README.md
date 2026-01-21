@@ -8,19 +8,6 @@ than overwhelm with fancy, unnecessary UI elements. I will consistently add and
 test plugins with multiple coding scenario, keep only those are suitable for
 daily use.
 
-- Clean & Minimalist Aesthetic: Enjoy a calm, focused coding environment that
-prioritizes what matters most: your code.
-- Streamlined Workflow: Optimized for efficiency, allowing you to code faster
-and with less friction.
-- Essential Tooling: Includes carefully selected plugins and settings that
-genuinely improve the coding experience without adding clutter.
-- Performance-Oriented: Lightweight and responsive, ensuring a smooth
-experience even with larger projects.
-- Focus on Readability: UI elements are designed to be clear and unobtrusive,
-making your code the star of the show.
-- Usability First: Every feature and plugin is chosen with practical coding
-benefits in mind, not just for visual appeal.
-
 ## Getting Start
 
 This configuration is compatible with neovim **0.12+** version.
