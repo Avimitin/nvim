@@ -119,11 +119,6 @@ utils.run = function(client, bufnr)
       vim.api.nvim_clear_autocmds({ group = gid })
     end,
   })
-
-  vim.api.nvim_create_user_command("LspStop", function(_)
-    vim.lsp.buf_detach_client(bufnr, client.id)
-    vim.lsp.stop_client(client.id)
-  end, {})
 end
 
 return utils
