@@ -1,3 +1,5 @@
+{ neovim-nightly-overlay, ... }:
+
 {
   lib,
   config,
@@ -76,7 +78,7 @@ let
 
   # Clean and neovim only file set for downstream
   neovimConfig =
-    with lib.fileset;
+    with pkgs.lib.fileset;
     toSource {
       root = ../.;
       fileset = unions [
@@ -122,7 +124,7 @@ in
 
     neovim-unwrapped = mkOption {
       type = lib.types.package;
-      default = pkgs.neovim-unwrapped;
+      default = neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
       description = "The clean neovim package";
     };
 
