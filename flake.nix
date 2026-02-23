@@ -26,6 +26,8 @@
         overlays = {
           nightly = neovim-nightly-overlay.overlays.default;
         };
+
+        homeModules.nvim = import ./nix/home.nix;
       };
 
       imports = [
@@ -34,7 +36,7 @@
       ];
 
       perSystem =
-        { system, ... }:
+        { system, inputs', ... }:
         let
           pkgs = import nixpkgs {
             inherit system;
@@ -55,6 +57,7 @@
           legacyPackages = pkgs;
 
           packages = rec {
+            neovim-nightly-unwrapped = inputs'.neovim-nightly-overlay.packages.neovim;
             neovim = pkgs.callPackage ./nix/mkNeovim.nix { };
             default = neovim;
           };
