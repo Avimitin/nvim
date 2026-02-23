@@ -52,15 +52,26 @@ let
   ts-parsers = pkgs.symlinkJoin {
     name = "my-treesitter-parsers";
     paths =
-      (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: map (name: p.${name}) cfg.treesitter-grammars))
-      .dependencies;
+      (pkgs.vimPlugins.nvim-treesitter.withPlugins (
+        p:
+        map (
+          plugin: if builtins.typeOf plugin == "string" then p.${plugin} else plugin
+        ) cfg.treesitter-grammars
+      )).dependencies;
   };
 
   ts-queries = pkgs.runCommand "link-my-treesitter-queries" { } ''
     mkdir -p "$out/queries"
-    ${lib.concatMapStringsSep "\n" (name: ''
-      ln -s "${finalPlugins.nvim-treesitter}/runtime/queries/${name}" "$out/queries/${name}"
-    '') cfg.treesitter-grammars}
+    ${
+      cfg.treesitter-grammars
+      |> map (plugin: if builtins.typeOf plugin == "string" then plugin else plugin.language)
+      |> lib.concatMapStringsSep "\n" (name: ''
+        upstream="${finalPlugins.nvim-treesitter}/runtime/queries/${name}"
+        if [[ -e "$upstream" ]]; then
+          ln -s "$upstream" "$out/queries/${name}"
+        fi
+      '')
+    }
   '';
 
   # Clean and neovim only file set for downstream
@@ -122,7 +133,7 @@ in
     };
 
     treesitter-grammars = mkOption {
-      type = lib.types.listOf lib.types.str;
+      type = with lib.types; listOf (either str package);
       default = [
         # "c"
         # "markdown"
@@ -132,24 +143,11 @@ in
         # "vim"
         # "vimdoc"
         # --- above are bundled with neovim ---
-        "bash"
-        "cpp"
-        "css"
-        "comment"
-        "diff"
-        "gitcommit"
-        "typst"
-        "llvm"
-        "regex"
-        "ruby"
-        "python"
-        "rust"
-        "scala"
-        "nix"
-        "yaml"
-        "meson"
       ];
-      example = [ "haskell" ];
+      example = [
+        "haskell"
+        "pkgs.tree-sitter-grammars.tree-sitter-lean"
+      ];
       description = "Configure the bundle treesitter plugins";
     };
 
