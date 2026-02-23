@@ -10,10 +10,10 @@ local keymap = {
 }
 
 local icons = {
-  Text = "",
-  Method = "󰆧",
+  Text = "󰦨",
+  Method = "",
   Function = "󰊕",
-  Constructor = "",
+  Constructor = "󰊕",
   Field = "",
   Variable = "",
   Class = "",
@@ -35,7 +35,7 @@ local icons = {
   Event = "",
   Operator = "",
   TypeParameter = "",
-  Vim = "",
+  Vim = "",
 }
 
 local has_words_before = function()
