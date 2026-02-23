@@ -76,6 +76,6 @@ register("Julian/lean.nvim", {
   rev = "4f9d48499b002ab361a4351142cae2f6f5403646",
   sha256 = "sha256-e1VZJnu6qsAzj/+ee+pIqPYt0JuNFY9QHcs1Pg60JnQ=",
   config = function()
-    require("lean").setup({ mappings = true })
+    require("lean").setup({ lsp = { on_attach = require("lang.on_attach").run }, mappings = true })
   end,
 })
