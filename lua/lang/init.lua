@@ -11,6 +11,7 @@ function M.setup_lsp()
     "pyright",
     "rust_analyzer",
     "tinymist",
+    "leanls",
   })
 
   vim.api.nvim_create_autocmd("LspAttach", {
