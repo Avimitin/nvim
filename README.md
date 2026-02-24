@@ -73,6 +73,35 @@ Or add it to your configuration inputs:
 }
 ```
 
+#### Home Manager
+
+Import the module into your Home Manager configuration:
+
+```nix
+{
+  inputs = {
+    # ...
+    home-manager.url = "github:nix-community/home-manager";
+    nvim-config.url = "github:Avimitin/nvim";
+  };
+
+  outputs = { self, home-manager, nvim-config, ... }: {
+    # ...
+    homeConfigurations.exampleUser1 = home-manager.lib.homeManagerConfiguration {
+      # ...
+      modules = [
+        nvim-config.homeModules.nvim
+        {
+          programs.avimitin-nvim.enable = true;
+          # Optional: custom treesitter grammars
+          # programs.avimitin-nvim.treesitter-grammars = [ "bash" "nix" "rust" ];
+        }
+      ];
+    };
+  };
+}
+```
+
 Diagnostic error/warning/hint are highlighted with undercurl, please use
 [kitty](https://sw.kovidgoyal.net/kitty/),
 [wezterm](https://wezfurlong.org/wezterm/index.html)
