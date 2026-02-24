@@ -8,6 +8,11 @@
   lib,
   fetchgit,
   extraPlugins ? { },
+  treesitter-grammars ? [
+    "bash"
+    "nix"
+    "javascript"
+  ],
 }:
 let
   pluginsMeta = builtins.fromJSON (builtins.readFile ../plugins.json);
@@ -45,56 +50,30 @@ let
   # We iterate over the names of finalPlugins to ensure we packadd everything that ends up in the set
   pluginNames = builtins.attrNames finalPlugins;
 
-  # Reuse Nixpkgs treesitter grammars
-  # We use the nvim-treesitter wrapper to build a plugin with parsers, then extract just the parsers
-  # to allow using the nightly nvim-treesitter Lua code from plugins.json.
-  requiredTsName = [
-    # "c"
-    # "markdown"
-    # "markdown_inline"
-    # "lua"
-    # "query"
-    # "vim"
-    # "vimdoc"
-    # --- above are bundled with neovim ---
-    "bash"
-    "cpp"
-    "css"
-    "comment"
-    "diff"
-    "gitcommit"
-    "haskell"
-    "javascript"
-    "typescript"
-    "tsx"
-    "typst"
-    "llvm"
-    "ocaml"
-    "ocaml_interface"
-    "regex"
-    "ruby"
-    "python"
-    "rust"
-    "proto"
-    "scala"
-    "nix"
-    "yaml"
-    "zig"
-    "meson"
-  ];
-
   # We only use the prebuilt parser
   ts-parsers = symlinkJoin {
     name = "my-treesitter-parsers";
     paths =
-      (vimPlugins.nvim-treesitter.withPlugins (p: map (name: p.${name}) requiredTsName)).dependencies;
+      (vimPlugins.nvim-treesitter.withPlugins (
+        p:
+        map (
+          plugin: if builtins.typeOf plugin == "string" then p.${plugin} else plugin
+        ) treesitter-grammars
+      )).dependencies;
   };
 
   ts-queries = runCommand "link-my-treesitter-queries" { } ''
     mkdir -p "$out/queries"
-    ${lib.concatMapStringsSep "\n" (name: ''
-      ln -s "${finalPlugins.nvim-treesitter}/runtime/queries/${name}" "$out/queries/${name}"
-    '') requiredTsName}
+    ${
+      treesitter-grammars
+      |> map (plugin: if builtins.typeOf plugin == "string" then plugin else plugin.language)
+      |> lib.concatMapStringsSep "\n" (name: ''
+        upstream="${finalPlugins.nvim-treesitter}/runtime/queries/${name}"
+        if [[ -e "$upstream" ]]; then
+          ln -s "$upstream" "$out/queries/${name}"
+        fi
+      '')
+    }
   '';
 
   # Clean and neovim only file set for downstream
