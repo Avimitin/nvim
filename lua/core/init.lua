@@ -69,16 +69,12 @@ function M.setup(config)
       { "<C-S-v>", [["+p]], desc = "paste" },
       {
         "<leader>y",
-        function()
-          copy_filepath(false)
-        end,
+        copy_filepath(false),
         desc = "Copy relative path and line to clipboard",
       },
       {
         "<leader>Y",
-        function()
-          copy_filepath(false)
-        end,
+        copy_filepath(false),
         desc = "Copy absolute path and line to clipboard",
       },
     },
@@ -92,16 +88,12 @@ function M.setup(config)
       { "<s-tab>", "<gv", desc = "Decrease indent" },
       {
         "<leader>y",
-        function()
-          copy_filepath(false)
-        end,
+        copy_filepath(false),
         desc = "Copy relative path and line to clipboard",
       },
       {
         "<leader>Y",
-        function()
-          copy_filepath(false)
-        end,
+        copy_filepath(false),
         desc = "Copy absolute path and line to clipboard",
       },
     },
