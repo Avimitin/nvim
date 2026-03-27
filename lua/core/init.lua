@@ -33,6 +33,24 @@ function M.setup(config)
       { "<leader>x", vim.cmd.x, desc = "Save and quit" },
       { "<C-p>", [["+p]], desc = "paste" },
       { "<C-S-v>", [["+p]], desc = "paste" },
+      {
+        "<leader>y",
+        function()
+          local path_with_line = vim.fn.expand("%") .. ":" .. vim.fn.line(".")
+          vim.fn.setreg("+", path_with_line)
+          print("Copied: " .. path_with_line)
+        end,
+        desc = "Copy relative path and line to clipboard",
+      },
+      {
+        "<leader>Y",
+        function()
+          local path_with_line = vim.fn.expand("%:p") .. ":" .. vim.fn.line(".")
+          vim.fn.setreg("+", path_with_line)
+          print("Copied: " .. path_with_line)
+        end,
+        desc = "Copy absolute path and line to clipboard",
+      },
     },
     selection = {
       { "J", ":m '>+1<CR>gv=gv" },
