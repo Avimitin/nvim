@@ -90,6 +90,20 @@ function M.setup(config)
       { "<C-z>", "<nop>", desc = "anti-touch" },
       { "<tab>", ">gv", desc = "Increase indent" },
       { "<s-tab>", "<gv", desc = "Decrease indent" },
+      {
+        "<leader>y",
+        function()
+          copy_filepath(false)
+        end,
+        desc = "Copy relative path and line to clipboard",
+      },
+      {
+        "<leader>Y",
+        function()
+          copy_filepath(false)
+        end,
+        desc = "Copy absolute path and line to clipboard",
+      },
     },
     insertion = {
       { "<C-a>", "<ESC>^i", desc = "Jump to beginning of the line" },
