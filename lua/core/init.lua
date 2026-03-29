@@ -74,7 +74,7 @@ function M.setup(config)
       },
       {
         "<leader>Y",
-        copy_filepath(false),
+        copy_filepath(true),
         desc = "Copy absolute path and line to clipboard",
       },
     },
@@ -93,7 +93,7 @@ function M.setup(config)
       },
       {
         "<leader>Y",
-        copy_filepath(false),
+        copy_filepath(true),
         desc = "Copy absolute path and line to clipboard",
       },
     },
