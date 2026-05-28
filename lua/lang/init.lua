@@ -8,7 +8,7 @@ function M.setup_lsp()
     "hls",
     "lua_ls",
     "nil_ls",
-    "pyright",
+    "ty",
     "rust_analyzer",
     "tinymist",
     "leanls",
