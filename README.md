@@ -1,3 +1,7 @@
+# Archive
+
+Switched to the <https://zed.dev>
+
 # Neovim Configuration
 
 <img src="preview.webp" alt="Preview Image for My Neovim Configuration" width="60%">
