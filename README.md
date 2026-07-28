@@ -1,6 +1,6 @@
 # Archive
 
-Switched to the <https://zed.dev>
+Switched to the <https://gram-editor.com>
 
 # Neovim Configuration
 
